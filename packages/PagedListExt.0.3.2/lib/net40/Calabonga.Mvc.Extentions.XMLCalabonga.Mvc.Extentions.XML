@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Calabonga.Mvc.Extentions</name>
+    </assembly>
+    <members>
+        <member name="T:Calabonga.Mvc.Extentions.IPagedList">
+            <summary>
+            Интерфейс списка со страницами
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.IPagedList.TotalPages">
+            <summary>
+            Всего страниц
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.IPagedList.TotalCount">
+            <summary>
+            Всего объектов
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.IPagedList.PageIndex">
+            <summary>
+            Текущий номер страницы
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.IPagedList.PageSize">
+            <summary>
+            Размер страницы
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.IPagedList.IsPreviousPage">
+            <summary>
+            Является ли предыдущей
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.IPagedList.IsNextPage">
+            <summary>
+            Является ли следующей
+            </summary>
+        </member>
+        <member name="T:Calabonga.Mvc.Extentions.PagedListExtentions">
+            <summary>
+            Расширения для PagedList
+            </summary>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.PagedListExtentions.ToPagedList``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            Возращает PagedList с набором данных на странице указанных в параметре
+            </summary>
+            <typeparam name="T">тип генерик</typeparam>
+            <param name="source">коллекция для пейджера</param>
+            <param name="index">новый индекс страницы</param>
+            <param name="pageSize">размер страницы</param>
+            <returns>PagedList</returns>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.PagedListExtentions.ToPagedList``1(System.Linq.IQueryable{``0},System.Int32)">
+            <summary>
+            Возращает PagedList с набором данных на странице указанных в параметре
+            </summary>
+            <typeparam name="T">тип генерик</typeparam>
+            <param name="source">коллекция для пейджера</param>
+            <param name="index">новый индекс страницы</param>
+            <returns>PagedList</returns>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.PagedListExtentions.ToPagedList``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            Возращает PagedList с набором данных на странице указанных в параметре
+            </summary>
+            <typeparam name="T">тип генерик</typeparam>
+            <param name="source">коллекция для пейджера</param>
+            <param name="index">новый индекс страницы</param>
+            <param name="pageSize">размер страницы</param>
+            <returns>PagedList</returns>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.PagedListExtentions.ToPagedList``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Возращает PagedList с набором данных на странице указанных в параметре
+            </summary>
+            <typeparam name="T">тип генерик</typeparam>
+            <param name="source">коллекция для пейджера</param>
+            <param name="index">новый индекс страницы</param>
+            <returns>PagedList</returns>
+        </member>
+        <member name="T:Calabonga.Mvc.Extentions.PagedList`1">
+            <summary>
+            Реализация интерфейса IPagedList. Пейджер для коллекции
+            </summary>
+            <typeparam name="T">тип генерик</typeparam>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.PagedList`1.#ctor(System.Linq.IQueryable{`0},System.Int32,System.Int32)">
+            <summary>
+            Создает экземпляр класса PagedList для управления страницами
+            </summary>
+            <param name="source">коллекция для пейджинга</param>
+            <param name="index">индекс страницы</param>
+            <param name="pageSize">размер страницы</param>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.PagedList`1.#ctor(System.Collections.ObjectModel.Collection{`0},System.Int32,System.Int32)">
+            <summary>
+            Создает экземпляр класса PagedList для управления страницами
+            </summary>
+            <param name="source">коллекция для пейджинга</param>
+            <param name="index">индекс страницы</param>
+            <param name="pageSize">размер страницы</param>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.PagedList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32)">
+            <summary>
+            Создает экземпляр класса PagedList для управления страницами
+            </summary>
+            <param name="source">коллекция для пейджинга</param>
+            <param name="index">индекс страницы</param>
+            <param name="pageSize">размер страницы</param>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.PagedList`1.TotalCount">
+            <summary>
+            Всего объектов
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.PagedList`1.PageIndex">
+            <summary>
+            Текущий индекс страницы
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.PagedList`1.PageSize">
+            <summary>
+            Размер страницы
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.PagedList`1.TotalPages">
+            <summary>
+            Всего страниц в коллекции
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.PagedList`1.IsPreviousPage">
+            <summary>
+            Является предпоследней страница
+            </summary>
+        </member>
+        <member name="P:Calabonga.Mvc.Extentions.PagedList`1.IsNextPage">
+            <summary>
+            Является ли следующей станица
+            </summary>
+        </member>
+        <member name="T:Calabonga.Mvc.Extentions.HtmlHelperExtentions">
+            <summary>
+            Extention для HtmlHelper
+            </summary>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.HtmlHelperExtentions.PagerForPagedList(System.Web.Mvc.HtmlHelper,System.Int32,Calabonga.Mvc.Extentions.IPagedList,System.String,System.String)">
+            <summary>
+            Возращает пейджер для PagedList
+            </summary>
+            <param name="source">source</param>
+            <param name="index">текущий индек старницы</param>
+            <param name="list">экземпляр PagedList</param>
+            <param name="pagerCss">наименование CSS для пейджера</param>
+            <param name="actionName">название ActionResult</param>
+            <returns>строка html</returns>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.HtmlHelperExtentions.PagerForPagedList(System.Web.Mvc.HtmlHelper,System.Int32,Calabonga.Mvc.Extentions.IPagedList,System.String,System.String,System.Object)">
+            <summary>
+            Возращает пейджер для PagedList
+            </summary>
+            <param name="source">source</param>
+            <param name="index">текущий индек старницы</param>
+            <param name="list">экземпляр PagedList</param>
+            <param name="pagerCss">наименование CSS для пейджера</param>
+            <param name="actionName">название ActionResult</param>
+            <param name="routevalues">дополнительные параметры для метода</param>
+            <returns>строка html</returns>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.HtmlHelperExtentions.PagerForPagedList(System.Web.Mvc.AjaxHelper,System.Int32,Calabonga.Mvc.Extentions.IPagedList,System.String,System.String,System.String,System.String)">
+            <summary>
+            Возращает пейджер для PagedList
+            </summary>
+            <param name="source">source</param>
+            <param name="index">текущий индек старницы</param>
+            <param name="list">экземпляр PagedList</param>
+            <param name="pagerCss">наименование CSS для пейджера</param>
+            <param name="loadingElement">наименование элемента отображаемого во время загрузки страницы</param>
+            <param name="targetName">наименование элемента в который поместить загруженный контент</param>
+            <param name="actionName">название ActionResult</param>
+            <returns>строка html</returns>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.HtmlHelperExtentions.PagerForPagedList(System.Web.Mvc.AjaxHelper,System.Int32,Calabonga.Mvc.Extentions.IPagedList,System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            Возращает пейджер для PagedList
+            </summary>
+            <param name="source">source</param>
+            <param name="index">текущий индек старницы</param>
+            <param name="list">экземпляр PagedList</param>
+            <param name="pagerCss">наименование CSS для пейджера</param>
+            <param name="loadingElement">наименование элемента отображаемого во время загрузки страницы</param>
+            <param name="targetName">наименование элемента в который поместить загруженный контент</param>
+            <param name="actionName">название ActionResult</param>
+            <param name="routevales">дополнительные параметры</param>
+            <returns>строка html</returns>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.HtmlHelperExtentions.PagerForPagedList(System.Web.Mvc.AjaxHelper,System.Int32,Calabonga.Mvc.Extentions.IPagedList,System.String,System.String,System.Web.Mvc.Ajax.AjaxOptions)">
+            <summary>
+            Возращает пейджер для PagedList
+            </summary>
+            <param name="source">source</param>
+            <param name="index">текущий индек старницы</param>
+            <param name="list">экземпляр PagedList</param>
+            <param name="pagerCss">наименование CSS для пейджера</param>
+            <param name="ajaxOpitions">опции для Ajax</param>
+            <param name="actionName">название ActionResult</param>
+            <returns>строка html</returns>
+        </member>
+        <member name="M:Calabonga.Mvc.Extentions.HtmlHelperExtentions.PagerForPagedList(System.Web.Mvc.AjaxHelper,System.Int32,Calabonga.Mvc.Extentions.IPagedList,System.String,System.String,System.Object,System.Web.Mvc.Ajax.AjaxOptions)">
+            <summary>
+            Возращает пейджер для PagedList
+            </summary>
+            <param name="source">source</param>
+            <param name="index">текущий индек старницы</param>
+            <param name="list">экземпляр PagedList</param>
+            <param name="pagerCss">наименование CSS для пейджера</param>
+            <param name="ajaxOpitions">опции для Ajax</param>
+            <param name="actionName">название ActionResult</param>
+            <param name="routevalues">дополнительные параметры</param>
+            <returns>строка html</returns>
+        </member>
+    </members>
+</doc>

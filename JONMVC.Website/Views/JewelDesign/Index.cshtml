@@ -1,0 +1,127 @@
+﻿@model JONMVC.Website.ViewModels.Views.EmptyViewModel
+@{
+    ViewBag.Title = "Design Your Own Ring, Diamond Engagement Rings, 18K Gold Engagement Rings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("Design Your Own Ring", "") })
+}
+<div class="pitch pitch-jewel-design">
+    <p class="top5">
+        We offer a large variety of both contemporary and traditional engagement ring designs.
+        Many couples choose to build an engagement ring that specifically matches their
+        tastes and budget. Before building your own engagement ring, you must carefully
+        consider each step of the process to be sure you create a stunning ring that will
+        symbolize your relationship for many years.
+    </p>
+</div>
+<div class="table top20" id="BlockContent">
+    <div class="row">
+        <div class="cell">
+            <div class="displayatom block">
+                <h1 class="title aligncenter">
+                    Design Your Own Ring<br />
+                    Start by choosing your @Html.RouteLink("Diamond", "DiamondSearch")</h1>
+                <div class="give-pedding">
+                    <div class="block aligncenter">
+                        @using (Html.BeginRouteForm("DiamondSearch"))
+                        { 
+                            <div class="block center top20" style="width: 183px">
+                                <div class="left">
+                                    <img src="/Content/images/homepage/atoms/round-diamond.png" width="61" height="61"
+                                        alt="Round diamonds" /><br />
+                                        
+                                    @Html.RadioButton("Shape", "Round", true)
+                                </div>
+                                <div class="left">
+                                    <img src="/Content/images/homepage/atoms/princess-diamond.png" width="61" height="61"
+                                        alt="Princess cut diamonds" /><br />
+                                    @Html.RadioButton("Shape", "Princess")
+                                </div>
+                                <div class="left ">
+                                    <img src="/Content/images/homepage/atoms/radiant-diamond.png" width="61" height="61"
+                                        alt="Emerald cut diamonds" /><br />
+                                    @Html.RadioButton("Shape", "Emerald")
+                                </div>
+                                <input type="image" src="/Content/images/homepage/atoms/search.png" class="top5 right"
+                                    alt="Search diamonds" />
+                                <div class="clear">
+                                </div>
+                            </div>
+								
+								
+                        }
+                    </div>
+                    <div class="cell bottomizer" style="height: 160px">
+                        <span class="block desc justify top10"><strong>JewelryONet</strong> is the largest Online
+                            retailer of the highest quality Certified Diamonds.<br />
+                            <br />
+                            JewelryONet featuring over <span class="redbold">40,000</span> loose diamonds all
+                            Certified at the most respected labs over the world such as GIA, HRD and IGI.
+                        </span>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="displayatom block ">
+                <h1 class="title aligncenter">
+                    Shop With Confedence</h1>
+                <div class="give-pedding aligncenter">
+                    <div class="aligncenter">
+                        <div class="red block center rounded5">
+                            <h2>
+                                Why Our Diamonds?</h2>
+                            <ul>
+                                <li>We Offer high-quality diamonds at outstanding prices.</li>
+                                <li>All Diamonds are Certified.</li>
+                                <li>Over 40,000 diamonds updated on a daily basis.</li>
+                            </ul>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <div class="red block center rounded5 top10">
+                            <h2>
+                                Why Our Settings?</h2>
+                            <ul>
+                                <li>Unique Designer’s styles.</li>
+                                <li>Amazing wholesale prices.</li>
+                                <li>Huge mountings selection like:
+  Solitaires, 3-Stone, Pave and
+  many other new models.</li>
+                            </ul>
+                            <div class="clear">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="displayatom block ">
+                <h1 class="title aligncenter">
+                    Design Your Own Ring<br />
+                    Start by choosing your @Html.RouteLink("Setting", "ChooseSetting")</h1>
+                <div class="give-pedding">
+                    <div class="block aligncenter">
+                        <a href="@Url.RouteUrl("ChooseSetting")">
+                            <img src="/Content/images/homepage/atoms/1-1.png" alt="Design Your Own Ring" /></a>
+                    </div>
+                    <div class="cell ">
+                        <span class="block desc"><strong>Step1:</strong> @Html.RouteLink("Choose your setting", "ChooseSetting")<br />
+                            <strong>Step2:</strong> Select Your Diamond<br />
+                            <strong>Step3:</strong> Enjoy. Let us do the work.<br />
+                            <strong>Step4:</strong> Propose Her.<br />
+                        </span>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

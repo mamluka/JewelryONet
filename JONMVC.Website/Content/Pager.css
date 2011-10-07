@@ -1,0 +1,37 @@
+﻿.pager {
+	width: 100%;
+	margin: 0px;
+	display: inline-block;
+	padding: 0px;
+}
+
+.pager ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.pager ul li {
+	float: left;
+	margin: 0px 1px;
+	padding: 0px;
+	border: 1px solid #ccc;
+}
+
+.pager ul li > span {
+	display: block;
+	margin: 4px;
+	padding: 4px;
+}
+
+.pager ul li > a {
+	display: block;
+	margin: 4px;
+	padding: 4px;
+}
+
+.highlighted {
+	background-color: #ccc;
+	color: #FFFFFF;
+	width: auto;
+}

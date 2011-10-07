@@ -1,0 +1,56 @@
+﻿@using MvcContrib.FluentHtml;
+@inherits ModelWebViewPage<string>
+<div class="block bestoffer aligncenter">
+    <h2 class="center">
+        OR</h2>
+    <img src="/Content/images/item/skeleton/make-offer.png" class="center" />
+    <a class="block" href="#!">What is best offer?</a>
+</div>
+<div id="BestOfferDialog" class="justify">
+    @using (Html.BeginForm("PostBestOffer", "JewelryItem", null, FormMethod.Post, new { id = "BestOfferForm" }))
+    {
+
+        <fieldset class="onecolumbshort-form">
+            <dl>
+                <dt>
+                    <label for="name">
+                        Offer Price:</label></dt>
+                <dd>
+                    <input type="text" name="offerprice" data-val-required="*" data-val="true" class="left" /><span class="field-validation-valid left" data-valmsg-for="price" data-valmsg-replace="false"></span></dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="name">
+                        Your Email:</label></dt>
+                <dd>
+                    <input type="text" name="offeremail" data-val-required="*" data-val="true" data-val-email="*"  class="left" /><span class="field-validation-valid  left" data-valmsg-for="email" data-valmsg-replace="false"></span></dd>
+            </dl>
+            <dl>
+                <dt>
+                </dt>
+                <dd>
+                @this.Hidden("jewelID").Value(Model)
+                    <input type="submit"  class="top10 button" value="Place Offer"  />
+                    <span class="ajaxresult"></span>
+                    
+                    </dd>
+            </dl>
+        </fieldset>
+    }
+</div>
+<div id="BestOfferHelp">
+<h1 class="redbold">What is Best Offer?</h1>
+<p>Like the item but don't like the price? Make your Best Offer  and win a bargain. Find out how to buy with Best Offer.<span dir="rtl"> </span><span dir="rtl"> </span><span dir="rtl"><span dir="rtl"> </span><span dir="rtl"> </span></span>Best Offer is an  exciting feature that gives you a quick, easy, and safe way to negotiate prices  online with us.<span dir="rtl"> </span><span dir="rtl"> </span><span dir="rtl"><span dir="rtl"> </span><span dir="rtl"> </span></span>Why Best Offer? Get what you want  at a price that you want to pay, negotiate with us safely and securely, make an  offer and get a reply quickly and easily.  <br />
+  Best Offer gives you the chance to negotiate the price with  the seller. <br />
+  The advantage of a Best Offer is that you have the  opportunity to buy the item at a lower price than the retail price indicated in  our website.<br />
+  You should only make what you consider to be your  &quot;best&quot; offer for the item because we receive multiple offers for each  item and we will accept the highest Best Offer.  <br />
+  Once your offer is accepted we will inform you immediately  by email. <br />
+  Only submit a Best Offer when you’re serious about  purchasing the item.<br />
+  For any questions please write us to  <a href="mailto:service@jewelryonet.com">service@jewelryonet.com</a> </p>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        Item.RegisterBestOffer();
+    })
+
+</script>

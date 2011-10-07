@@ -1,0 +1,35 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model ITabsViewModel
+
+ @if (Model.IsShowTabs)
+    {
+        <div class="row">
+            <div class="cell">
+                <div id="TabNavigation" class="top10">
+                    @foreach (var tab in Model.Tabs)
+                    {
+                        
+                        
+                            
+                        
+                        <div class="border @(tab.Active ? "active rounded5" : "")">
+                            <div class="@("bg" + tab.TabIndex) @("tabs-sprite-" + Model.Sprite)" >
+                            </div>
+                            <span class="title block aligncenter  @(tab.Active ? "bold" : "")">@Html.RouteLink(tab.Caption, "Tabs", new RouteValueDictionary
+                                                                       {
+                                                                           {"tabkey", Model.TabKey},
+                                                                           {"tabid", tab.Id},
+                                                                           {"page", Model.Page},
+                                                                           {"MetalFilter", Model.MetalFilter},
+                                                                           {"OrderByPrice", Model.OrderByPrice},
+                                                                           {"itemsperpage", Model.ItemsPerPage}
+
+                                                                       })</span>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    }
+

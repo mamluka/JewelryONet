@@ -1,0 +1,29 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model DiamondHelpViewModel
+<div class="diamond-help">
+@{
+    Model.HelpValues.Reverse();
+}
+
+@foreach (var value in Model.HelpValues)
+{
+    if (value == Model.CurrentValueOfHelp)
+    {
+        <span class="left help-values selected">@value</span>
+    }
+    else
+    {
+         <span class="left help-values ">@value</span>
+    }
+    
+}
+<div class="clear"></div>
+<div class="top5 clear">
+<span class="title inline">@Model.Title:&nbsp;</span>
+<span class="inline">@Model.CurrentValueOfHelp</span>
+</div>
+<div class="clear"></div>
+<p>@Model.BodyText</p>
+</div>
+
+<div class="clear"></div>

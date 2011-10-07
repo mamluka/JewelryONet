@@ -1,0 +1,180 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model EmptyViewModel
+@{
+    ViewBag.Title = "Diamond Engagement Rings, Diamond Solitaire Rings, Diamond Pave Rings.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("Diamond Engagement Rings", "") })
+}
+@{ DefineSection("EngagementRings", () => this.Write(Html.Partial("TabsSubMenu", "EngagementRings"))); }
+<div class="pitch pitch-engagement">
+    <h1>
+        Engagement Rings</h1>
+    <p class="top5">
+        So, you're thinking of making it official. Congratulations! There are many ways
+        to symbolize the love you share. We'll help you explore your options and find the
+        rings that suit you best.
+    </p>
+</div>
+<div class="table top20" id="BlockContent">
+    <div class="row">
+        <div class="cell">
+            <div class="displayatom block ">
+                <h1 class="title aligncenter">@Html.RouteLink("Classic Solitaire Rings", "ChooseSetting", null, new { @class = "gray" })
+                </h1>
+                <div class="give-pedding">
+                    <div class="block aligncenter">
+                        <a href="@Url.RouteUrl("ChooseSetting")">
+                            <img src="/Content/images/pages/engagement/1-1.png" alt="Classic Solitaire Rings" />
+                        </a>
+                    </div>
+                    <div class="aligncenter">
+                        <div class="red block center rounded5">
+                            <span>A classic choice is the diamond solitaire. This ring combines the simplicity and
+                                beauty of a single diamond cradled in a Platinum or 18K gold setting. </span>
+                            <div class="clear">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="displayatom block ">
+                <h1 class="title aligncenter">@Html.RouteLink("Diamond Bridal Sets", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","bridal-settings"},
+																										{"page", 1},
+																									}, new Dictionary<string, object> { { "class", "gray" } })</h1>
+                <div class="give-pedding">
+                    <div class="block aligncenter">
+                        <a href="@Url.RouteUrl("ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","bridal-settings"},
+																										{"page", 1},
+																									})">
+                            <img src="/Content/images/pages/engagement/1-2.png" alt="Diamond Bridal Sets" /></a>
+                    </div>
+                    <div class="cell">
+                        <span class="block desc justify">Like the two of you, the rings in Bridal Sets are perfectly
+                            matched. Bridal sets feature a matching engagement ring and her wedding band.
+                        </span>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="displayatom block ">
+                <h1 class="title aligncenter">@Html.RouteLink("Diamond Three Stone Rings", "Tabs", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","threestone-settings"},
+																										{"page", 1},
+																									}, new Dictionary<string, object> { { "class", "gray" } })</h1>
+                <div class="give-pedding">
+                    <div class="block aligncenter">
+                        <a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","threestone-settings"},
+																										{"page", 1},
+																									})">
+                            <img src="/Content/images/pages/engagement/1-3.png" alt="Designer Diamond Studs" /></a>
+                    </div>
+                    <div class="cell">
+                        <span class="block desc justify">A truly romantic choice is the three-stone diamond
+                            ring, with three diamonds that symbolize your past, your present and your future
+                            together. Three-Stone rings mean that the stones are set in a straight line without
+                            additional accent stones. </span>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <h1>
+        Bridal Guide - How to Buy an Engagement ring<br />
+    </h1>
+    <p>
+        Searching for the Perfect Engagement Ring is an intimidating task, that&rsquo;s
+        why it's always best to get input from the bride. This is one of the most important
+        purchases you will make, and you need to keep several issues in mind when making
+        your decision.
+        <br />
+        Knowing the terminology, such as the four Cs of diamond quality, as well as the
+        basic differences between Settings, Shapes, and types of engagement rings will keep
+        your search efficient.
+        <br />
+        Selecting a setting is a most important part when choosing a diamond engagement
+        ring.
+        <br />
+        There are many different Engagement Ring Settings. Common settings include Solitaires
+        and Bridal Sets, while Tension Settings, Three-Stone Rings, and other designs are
+        becoming increasingly popular.</p>
+    <h2>
+        Solitaires:<br />
+    </h2>
+    <p>
+        Diamond solitaires are a classic choice among engagement rings. By far the most
+        popular choice is the round brilliant, but each shape has its own special charm.<br />
+        The round brilliant-cut best features a diamond's fire, sparkle and brilliance.
+        The most common types of settings are channel, bezel, tension, pave, prongs, and
+        tiffany.<br />
+    </p>
+    <h2>
+        Settings with Sidestones:<br />
+    </h2>
+    <p>
+        Side stone settings include both a larger center stone as well as multiple small
+        stones that embellish the engagement ring band. Most accent stones are set in channels
+        to protect them from damage.
+        <br />
+        If you really want your engagement ring to shine, we have styles featuring generous
+        center stones and plenty of supporting diamonds.</p>
+    <h2>
+        Three-Stone Settings:<br />
+    </h2>
+    <p>
+        A truly romantic choice is the three-stone diamond ring, with three diamonds that
+        symbolize your past, your present and your future together. Three-Stone rings mean
+        that the stones are set in a straight line without additional accent stones.</p>
+    <h2>
+        Bridal Sets:<br />
+    </h2>
+    <p>
+        A bridal set features a diamond engagement ring and a matching wedding band, which
+        may include diamonds or may be a simple gold band. The bands can be solid gold with
+        a matching solitaire engagement ring, or they might have side stone settings in
+        both the wedding band and the engagement ring, with the engagement ring also featuring
+        a prominent solitaire.<br />
+        You and your partner complement each other perfectly, so why not choose wedding
+        jewelry that does the same?</p>
+    <h2>
+        Pave Settings:<br />
+    </h2>
+    <p>
+        A setting technique for small diamonds in which the stones are set so closely together
+        that no metal shows.
+        <br />
+        Small stones encrusted along the ring&rsquo;s surface give the illusion of a solid
+        diamond surface rather than a metal band. Unlike channel or bezel settings, a pave
+        setting uses only tiny prongs to hold each stone, minimizing the appearance of the
+        metal while maximizing the illusion of free-standing diamonds.
+        <br />
+        Pave settings hold each stone individually with no rim of metal, therefore allowing
+        more light into each individual stone.</p>
+</div>

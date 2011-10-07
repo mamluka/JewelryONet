@@ -1,0 +1,223 @@
+﻿@using JONMVC.Website.Models.Checkout
+@using JONMVC.Website.ViewModels.Views
+@using MvcContrib.FluentHtml
+@inherits MvcContrib.FluentHtml.ModelWebViewPage<BillingViewModel>
+
+@{
+	ViewBag.Title = "Checkout process: billing";
+	Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
+}
+
+<div class="table width100 top10" >
+	<div class="row" >
+		<div class="cell alignleft" >
+			<ul class="steps">
+			<li class="title">CHECKOUT</li>
+			<li class="first active">BILLING/SHIPPING</li>
+			<li class="second">ORDER REVIEW</li>
+			<li class="third">ORDER CONFIRMATION</li>
+			</ul>
+		</div>
+   </div>
+</div>
+@using (Html.BeginForm("ReviewOrder", "Checkout", FormMethod.Post, new { @class = "cart block" }))
+{
+	<div class="table width100 top10 billing" >
+		<div class="row">
+			<div class="cell billingaddress">
+			
+				<fieldset class="onecolumb-form">
+					<legend>My Billing Address:</legend>
+					<dl>
+						<dt><label for="name">First name:</label></dt>
+						<dd>@Html.TextBoxFor(m=> m.BillingAddress.FirstName) <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.FirstName" class="field-validation-valid"></span> </dd>
+					</dl>
+			
+					<dl>
+						<dt><label for="name">Last name:</label></dt>
+						<dd>@Html.TextBoxFor(m=> m.BillingAddress.LastName) <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.LastName" class="field-validation-valid"></span> </dd>
+					</dl>
+					<dl>
+						<dt><label for="name">Address:</label></dt>
+						<dd>@Html.TextBoxFor(m=> m.BillingAddress.Address1) <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.Address1" class="field-validation-valid"></span> </dd>
+					</dl>
+			
+					
+					<dl>
+						<dt><label for="name">City:</label></dt>
+						<dd>@Html.TextBoxFor(m=> m.BillingAddress.City) <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.City" class="field-validation-valid"></span> </dd>
+					</dl>
+					<dl>
+						<dt><label for="name">Country:</label></dt>
+						<dd>@this.Select(x => x.BillingAddress.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key")) <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.CountryID" class="field-validation-valid"></span></dd>
+					</dl>
+					<dl>
+						<dt><label for="name">State:</label></dt>
+						<dd>@this.Select(x => x.BillingAddress.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key")) <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.StateID" class="field-validation-valid"></span></dd>
+					</dl>
+					<dl>
+						<dt><label for="name">Zip code:</label></dt>
+						<dd>@Html.TextBoxFor(m=> m.BillingAddress.ZipCode) <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.ZipCode" class="field-validation-valid"></span></dd>
+					</dl>
+			
+					<dl>
+						<dt><label for="name">Phone #:</label></dt>
+						<dd>@Html.TextBoxFor(m => m.BillingAddress.Phone) <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.Phone" class="field-validation-valid"></span></dd>
+					</dl>
+			
+				</fieldset>
+		
+	   
+				@this.CheckBox("sameaddress").Id("SameAddress")<label for="Order.SameAddress">Use same address for shipping</label>
+		
+
+	   
+			
+			</div>
+			<div class="cell sep"></div>
+			<div class="cell shippingaddress ">
+			
+				<fieldset class="onecolumb-form">
+					<legend>My Shipping Address:</legend>
+					<dl>
+						<dt><label for="name">First name:</label></dt>
+						<dd>@Html.TextBoxFor(m=> m.ShippingAddress.FirstName) <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.FirstName" class="field-validation-valid"></span> </dd>
+					</dl>
+			
+					<dl>
+						<dt><label for="name">Last name:</label></dt>
+						<dd>@Html.TextBoxFor(m=> m.ShippingAddress.LastName) <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.LastName" class="field-validation-valid"></span> </dd>
+					</dl>
+					<dl>
+						<dt><label for="name">Address:</label></dt>
+						<dd>@Html.TextBoxFor(m=> m.ShippingAddress.Address1) <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.Address1" class="field-validation-valid"></span> </dd>
+					</dl>
+			
+					
+					<dl>
+						<dt><label for="name">City:</label></dt>
+						<dd>@Html.TextBoxFor(m=> m.ShippingAddress.City) <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.City" class="field-validation-valid"></span> </dd>
+					</dl>
+					<dl>
+						<dt><label for="name">Country:</label></dt>
+						<dd>@this.Select(x => x.ShippingAddress.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key")) <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.CountryID" class="field-validation-valid"></span></dd>
+					</dl>
+					<dl>
+						<dt><label for="name">State:</label></dt>
+						<dd>@this.Select(x => x.ShippingAddress.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key")) <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.StateID" class="field-validation-valid"></span></dd>
+					</dl>
+					<dl>
+						<dt><label for="name">Zip code:</label></dt>
+						<dd>@Html.TextBoxFor(m=> m.ShippingAddress.ZipCode) <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.ZipCode" class="field-validation-valid"></span></dd>
+					</dl>
+			
+					<dl>
+						<dt><label for="name">Phone #:</label></dt>
+						<dd>@Html.TextBoxFor(m => m.ShippingAddress.Phone) <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.Phone" class="field-validation-valid"></span></dd>
+					</dl>
+			
+				</fieldset>
+		
+	   
+			</div>
+			<div class="cell sep"></div>
+			<div class="cell">
+
+        
+
+                @if (Model.PaymentMethod == PaymentMethod.CraditCard)
+                {
+                <fieldset class="onecolumbshort-form">
+					<legend>My Credit Card Details:</legend>
+					<dl>
+						<dt><label for="name">Cart Type:</label></dt>
+						<dd>@this.Select(x => x.CreditCardViewModel.CreditCardID).Options(new SelectList(SelectSourceFactory.CraditCards, "Value", "Key")) <span data-valmsg-replace="false" data-valmsg-for="CreditCard.CreditCardID" class="field-validation-valid"></span></dd>
+					</dl>
+			
+					<dl>
+						<dt><label for="name">Cart Number:</label></dt>
+						<dd>@Html.TextBoxFor(m => m.CreditCardViewModel.CreditCardsNumber) <span data-valmsg-replace="false" data-valmsg-for="CreditCard.CreditCardsNumber" class="field-validation-valid"></span></dd>
+					</dl>
+					<dl>
+						<dt><label for="name">Exp date:</label></dt>
+						<dd>@this.Select(x => x.CreditCardViewModel.Month).Options(new SelectList(SelectSourceFactory.CcMonths, "Value", "Key")).Selected("1") <span data-valmsg-replace="false" data-valmsg-for="CreditCard.Month" class="field-validation-valid"></span> /@this.Select(x => x.CreditCardViewModel.Year).Options(new SelectList(SelectSourceFactory.CcYears, "Key", "Value")).Selected("2011") <span data-valmsg-replace="false" data-valmsg-for="CreditCard.Year" class="field-validation-valid"></span></dd>
+					</dl>
+			
+					<dl>
+						<dt><label for="name">CCV:</label></dt>
+						<dd>@Html.TextBoxFor(m => m.CreditCardViewModel.CCV) <span data-valmsg-replace="false" data-valmsg-for="CreditCard.CCV" class="field-validation-valid"></span></dd>
+					</dl>
+		   
+			
+				</fieldset>
+	   
+		
+				<img src="/Content/images/checkout/shoppingcart/cc.png" />
+                }
+				<span class="top10"><strong>Shipping instructions</strong></span>
+		
+				<span>Write here your shipping instructions</span>
+				@Html.TextAreaFor(m=> m.Comment,new {@class="shipping"})
+		
+			</div>
+		</div>
+	</div>
+	
+	@this.Hidden(x => x.FirstName)
+	@this.Hidden(x => x.LastName)
+	@this.Hidden(x => x.Phone)
+	@this.Hidden(x => x.PaymentMethod)
+	@this.Hidden(x => x.Email)
+    @this.Hidden(x => x.BillingAddress.Country).Value(1).Attr("submit-text",true)
+    @this.Hidden(x => x.BillingAddress.State).Value(1).Attr("submit-text", true)
+    @this.Hidden(x => x.ShippingAddress.Country).Value(1).Attr("submit-text", true)
+    @this.Hidden(x => x.ShippingAddress.State).Value(1).Attr("submit-text", true)
+    @this.Hidden(x => x.CreditCardViewModel.CreditCart).Value(1).Attr("submit-text", true)
+
+	
+	<input type="image" src="/Content/images/checkout/shoppingcart/continue.png"   class="right top10"/>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $.each($('input:hidden[submit-text]'),function () {
+            var hiddenName = $(this).attr('name');
+            var id = $(this).attr('name') + 'ID';
+            
+            $('select[name="' + id + '"]').click(function () {
+                $('input[name="' + hiddenName + '"]').val($(this).children('option:selected').text());
+            });
+
+        });
+
+        $('#SameAddress').click(function () {
+
+            if ($('#SameAddress').is(':checked')) {
+
+                $('div.billingaddress :input').each(function (i, s) {
+                    var id = $(s).attr('id').replace('BillingAddress', 'ShippingAddress');
+                    $('#' + id).val($(s).val());
+
+                });
+
+                //  $('div.shippingaddress :input').attr('disabled', true);
+
+
+
+            }
+            else {
+
+                //TODO fix this problem with disabled fields are not submitted
+                //   $('div.shippingaddress :input').attr('disabled', false);
+            }
+
+
+
+        });
+
+
+
+    })
+
+	</script>

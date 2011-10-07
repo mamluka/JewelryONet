@@ -1,0 +1,208 @@
+﻿@inherits MvcContrib.FluentHtml.ModelWebViewPage<JewelryItemViewModel>
+@using JONMVC.Website.Extensions;
+@using JONMVC.Website.ViewModels.Views
+@using MvcContrib.FluentHtml
+@{
+    ViewBag.Title = @Model.PageTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+	
+}
+@section PathBar {
+    @Html.Partial("PathBar", Model.PathBarItems)
+}
+<div class="table" id="ItemBlock">
+    <div class="row">
+        <div class="cell media">
+            @Html.prettyPhotoSingleImage(Model.MainJewelPicture)
+            <div class="relativepositiner">
+                @if (Model.HasMovie)
+                { 
+                    <div class="dview block">
+                        <img src="/Content/images/item/skeleton/3d-view.png" movie="@Model.Movie" alt="3D Movie" />
+                        <span>3D View</span>
+                    </div>
+                }
+            </div>
+            <div class="relativepositiner">
+                <div class="zoom block">
+                    <a href="@Model.HiResJewelPicture.LargePhoto" rel="prettyPhoto" title="@Model.Title">
+                        <img src="/Content/images/item/skeleton/loopa.png"  alt="@Model.Title"/>
+                    </a><span>Zoom</span>
+                </div>
+            </div>
+        </div>
+        <div class="cell info">
+            @using (Html.BeginForm("ShoppingCartAddJewel", "Checkout"))
+            {
+                <div class="table">
+                    <div class="row">
+                        <div class="cell item-description justify">
+                            @Model.Title
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">
+                            <div id="fb-root">
+                            </div>
+                            <div class="fb-like" data-send="false" data-width="350" data-show-faces="false" data-action="recommend"
+                                data-font="tahoma">
+                            </div>
+                            Choose your ring size: @this.Select("size").Options(new SelectList(SelectSourceFactory.RingSizes, "Key", "Value")).Selected("7").Id("RingSize")
+                            <span class="block">@Html.ActionLink("Find Your Ring Size", "FindYourRingSize", "JewelryItem")</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">
+                            <div class="metalpricecombo top10 left" itemid="@Model.ID">
+                                <span class="left metal">@Model.Metal:</span>
+                                <img src="/Content/images/tabs/item/combo-arrow.png" class="right" />
+                                <span class="right price">@Model.Price</span>
+                                <input type="hidden" name="metal" value="wg" />
+                            </div>
+                            @if (Model.isSpecial)
+                            {
+                                <div class="clear">
+                                </div>
+                                <span class="redprice top5">Regular price: <strong class="line-through">@Model.RegularPrice</strong></span>
+                                <span class="you-save top5">You save: <strong>@Model.YouSave</strong></span>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">
+                            <input type="image" src="/Content/images/item/skeleton/addtocart.png" />
+                            <input type="hidden" value="@Model.ID" name="id" />
+                            <input type="hidden" value="" name="MediaType" id="MediaType" />
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.IsBestOffer)
+            {
+                @Html.Partial("BestOffer", Model.ID)
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell">
+            <div class="block thumbs">
+                @foreach (var pic in Model.ExtraImages)
+                {
+                    @Html.prettyPhotoPictureGallery(pic, "gal");
+                }
+            </div>
+        </div>
+        <div class="cell operations">
+            <div class="left">
+                <img src="/Content/images/item/skeleton/email.png" />
+                <a href="#!" command="emailring">E-mail</a>
+            </div>
+            <div class="left">
+                <img src="/Content/images/item/skeleton/print.png" />
+                <a href="#!" command="print">Print</a>
+            </div>
+            <div class="left">
+                <img src="/Content/images/item/skeleton/wishlist.png" />
+                <a href="#!" command="addtowishlist">Add to Wishlist</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block grayblock">
+    <div class="title">
+        Product Details</div>
+    <div class="table width100">
+        <div class="row">
+            <div class="cell leftspecs">
+                @Html.Partial("JewelItemBaseInfoTable", Model)
+                <div class="block price">
+                    <span class="inline">Price: </span><span class="inline">@Model.Price</span>
+                </div>
+            </div>
+            <div class="cell rightspecs">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="infotable">
+                    <tr>
+                        <td colspan="2" class="title">
+                            Center Stone information:
+                        </td>
+                    </tr>
+                    @foreach (var infopart in Model.SpecsPool.Where(f => f.JewelComponentID == 1))
+                    {
+                        @Html.InfoPart(infopart)    
+                    }
+                </table>
+                @if (Model.HasSideStones)
+                {
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="infotable">
+                        <tr>
+                            <td colspan="2" class="title">
+                                Side stone(s) information:
+                            </td>
+                        </tr>
+                        @foreach (var infopart in Model.SpecsPool.Where(f => f.JewelComponentID == 2))
+                        {
+                            @Html.InfoPart(infopart)    
+                        }
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block grayblock">
+    <div class="title">
+        Testimonials</div>
+    <div class="table width100">
+        <div class="row">
+            @Html.Partial("Testamonials", Model.Testimonials)
+            @Html.Partial("OrderWithConfidence")
+        </div>
+    </div>
+</div>
+<div class="block grayblock">
+    <div class="title">
+        Shipping Information</div>
+    <div class="table width100">
+        <div class="row">
+            <div class="cell">
+                @Html.Partial("ShippingInformation")
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("EmailRing",Model.ID)
+
+ 
+
+@section FacebookHeaderTabs {
+    <meta property="og:title" content="@Model.PageTitle"/>
+    <meta property="og:type" content="product"/>
+    <meta property="og:url" content="@Request.Url.AbsoluteUri"/>
+    <meta property="og:image" content="@Request.Url.Scheme@System.Uri.SchemeDelimiter@Request.Url.Host@Model.MainJewelPicture.Thumb"/>
+    <meta property="og:site_name" content="JewelryONet.com"/>
+    <meta property="fb:admins" content="mamluka"/>
+    <meta property="og:description"
+          content="@Model.PageTitle"/>
+}
+<script type="text/javascript">
+		$(document).ready(function () {
+
+		    Item.Locals.id = @Model.ID ;
+		    Item.RegisterPageCommends();
+
+		    Video.RegisterHooks();
+		    MetalPriceSelect.RegisterMetalPriceSelectForJewelryItems();
+
+		    $("a[rel^='prettyPhoto']").prettyPhoto();
+
+		})
+
+</script>
+<script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));</script>
+

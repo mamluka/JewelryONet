@@ -1,0 +1,150 @@
+﻿<div class="table clear top20" id="Footer">
+                                <div class="row">
+                                    <div class="cell aligncenter">
+                                        <div class="block linkbar  center">
+                                            <div class="block sep clear center">
+                                            </div>
+                                            <div class="block center">
+                                                <ul>
+                                                    <li>@Html.ActionLink("Contact Us", "GetInTouch", "Services") </li>
+                                                    <li>@Html.ActionLink("About us", "AboutUs", "Services") </li>
+                                                    <li>@Html.ActionLink("30-Day Return", "Policy", "Services") </li>
+                                                    <li>@Html.ActionLink("Shipping", "Policy", "Services") </li>
+                                                    <li>@Html.ActionLink("Privacy Policy", "Policy", "Services") </li>
+                                                    <li>@Html.ActionLink("Conflict Free Diamonds", "ConflictFreeDiamonds", "Services")</li>
+                                                    <li>@Html.ActionLink("Free Packaging & Engraving", "Engraving", "Services")</li>
+                                                </ul>
+                                                <div class="clear">
+                                                </div>
+                                                <span class="center top10">
+                                                    <div id="fb-root">
+                                                    </div>
+                                                    <script src="http://connect.facebook.net/en_US/all.js#appId=225390917508579&amp;xfbml=1"></script>
+                                                    <fb:like href="http://www.facebook.com/pages/JewelryONet-Fine-Designer-Jewelry/120525637995541"
+                                                        send="true" width="450" show_faces="false" font=""></fb:like>
+                                                </span>
+                                            </div>
+                                            <div class="block sep clear center top5">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="cell ">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="cell aligncenter">
+                                        <div class="block sealbar  center">
+                                            <div class="block sep clear center top20">
+                                            </div>
+                                            <div class="block clear center">
+                                                <ul>
+                                                    <li><a href="http://www.jewelersmutual.com/" target="_blank">
+                                                        <img src="/Content/images/seals/1.png" alt="Jewelery metual" /></a> </li>
+                                                    <li><a href="#!">
+                                                        <img src="/Content/images/seals/2.png" alt="SSL Seal" /></a> </li>
+                                                    <li><a href="https://www.paypal.com" target="_blank">
+                                                        <img src="/Content/images/seals/3.png" alt="PayPal" /></a> </li>
+                                                    <li><a href="http://www.gia.edu/" target="_blank">
+                                                        <img src="/Content/images/seals/4.png" alt="GIA" /></a> </li>
+                                                    <li><a href="http://fedex.com/" target="_blank">
+                                                        <img src="/Content/images/seals/5.png" alt="FedEx" /></a> </li>
+                                                    <li><a href="http://www.igiworldwide.com/" target="_blank">
+                                                        <img src="/Content/images/seals/6.png" alt="IGI" /></a> </li>
+                                                </ul>
+                                            </div>
+                                            <div class="block sep clear center">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="cell aligncenter">
+                                        <div class="block footerlinks  center top20">
+                                            <div class="block sep clear center">
+                                            </div>
+                                            <div class="block clear center">
+                                                <ul>
+                                                    <li>Design Your Own</li>
+                                                    <li>@Html.ActionLink("Design Your Own Diamond Ring", "DiamondSearch", "JewelDesign")</li>
+                                                    @*<li>@Html.ActionLink("Design Your Own Gemstone Ring", "Home")</li>*@
+                                                </ul>
+                                                <ul>
+                                                    <li>Diamonds & Engagement</li>
+                                                    <li>@Html.ActionLink("Engagement Rings", "EngagementRings", "Departments")</li>
+                                                    <li>@Html.ActionLink("Loose Diamonds", "DiamondSearch", "JewelDesign")</li>
+                                                    <li>@Html.ActionLink("Wedding & Anniversary", "WeddingAndAnniversary", "Departments")</li>
+                                                    <li>@Html.RouteLink("Bridal Set’s", "Tabs", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","bridal-settings"},
+																										{"page", 1},
+																									})</li>
+                                                    <li>@Html.RouteLink("Diamond Pave Rings", "Tabs", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","pave-settings"},
+																										{"page", 1},
+																									})</li>
+                                                    <li>@Html.RouteLink("Diamond Men’s Rings", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-mens"},
+																		 {"page", 1},
+																	 })</li>
+                                                    <li>@Html.RouteLink("3D Animation Gallery", "3DGallery", new RouteValueDictionary()
+                                                              {
+                                                                  {"tabkey", "3d-gallery"},
+																		 {"tabid", "gallery"},
+                                                              })</li>
+                                                </ul>
+                                                <ul>
+                                                    <li>Fine Jewelry</li>
+                                                    <li>@Html.RouteLink("Diamond Jewelry", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 })</li>
+                                                    <li>@Html.RouteLink("Gemstone Jewelry", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "gemstone-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 })</li>
+                                                    <li>@Html.ActionLink("Gift Ideas", "GiftIdeas", "Departments")</li>
+                                                    <li>@Html.RouteLink("Diamond Studs", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 })</li>
+                                                    <li>@Html.RouteLink("Diamond Pendants", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-pendants"},
+																		 {"page", 1},
+																	 })</li>
+                                                </ul>
+                                                <ul>
+                                                    <li>Services & Education</li>
+                                                    <li>@Html.ActionLink("Diamond Education", "Diamond", "Education")</li>
+                                                    <li>@Html.ActionLink("Gemstone Education", "Gemstone", "Education")</li>
+                                                    <li>@Html.ActionLink("Lifetime Warranty", "Policy", "Services")</li>
+                                                    <li>@Html.ActionLink("Money Back Guarantee", "Policy", "Services")</li>
+                                                    <li>@Html.ActionLink("Payment Methods", "Policy", "Services")</li>
+                                                    <li>@Html.ActionLink("Risk Free Online Shopping", "Policy", "Services")</li>
+                                                </ul>
+                                            </div>
+                                            <div class="clear">
+                                            </div>
+                                            <div class="block sep clear center top10">
+                                                <strong>2010 JewelryONet - All Right Reserved ©</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>

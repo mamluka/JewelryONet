@@ -1,0 +1,32 @@
+﻿@model JONMVC.Website.ViewModels.Views.OrderConfirmationViewModel
+@{
+    ViewBag.Title = "Checkout process: order confirmation";
+    Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
+}
+<div class="table width100 top10">
+    <div class="row">
+        <div class="cell alignleft">
+            <ul class="steps">
+                <li class="title">ORDER CONFIRMATION</li>
+                <li class="first">BILLING/SHIPPING</li>
+                <li class="second">ORDER REVIEW</li>
+                <li class="third active">ORDER CONFIRMATION</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="table width100 top10">
+    <div class="row confirm">
+        <div class="cell aligncenter">
+            <div class="confirmtext center alignleft">
+                <span><strong>Thank you for placing an order with JewelryONet</strong></span><br />
+                Your order number is @Model.OrderNumber.<br />
+                We have sent a confirmation email to @Model.Email.<br />
+                The confirmation email contains our bank details necessary to complete the wire
+                transfer.<br />
+                Please print that email and take it to your finacial institution at your earliest
+                possible convenience.
+            </div>
+        </div>
+    </div>
+</div>

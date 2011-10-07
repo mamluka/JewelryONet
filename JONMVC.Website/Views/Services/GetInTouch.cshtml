@@ -1,0 +1,173 @@
+﻿
+@using MvcContrib.FluentHtml
+@using JONMVC.Website.Extensions;
+@model JONMVC.Website.ViewModels.Views.EmptyViewModel
+@{
+    ViewBag.Title = "Contact JewelryONet, professional help, 24/7 customer service.";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() {new KeyValuePair<string, string>("Customer service", "")})
+}
+<div class="table customer-service">
+	<div class="row">
+		<div class="cell">
+			<span class="title">Customer Service</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="cell">
+			<div class="block banner">
+				<div class="justify overlay">
+					Need help? Your questions are always welcome at JewelryONet.com
+					<br />
+					<br />
+					At JewelryONet, we are proud of our commitment to service.
+					Our prime concerns are to ensure the satisfaction of our
+		
+					clients worldwide in response to the trust they have
+				
+					placed in us. The services we provide reflect the very
+					
+					high quality standards that distinguish our creations.
+				
+					They contribute to the long-lasting durability of the
+					jewelery you have purchased from us.
+				
+					Need an immediate answer?<br /><br />
+					Please review our @Html.ActionLink("frequently asked questions", "FAQ", "Services")
+					before contacting us.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="table customer-service">
+	<div class="row">
+		<div class="cell  width50">
+			<div class="box top10 small-box-bg">
+				<img src="/Content/images/services/getintouch/icons/phone.png" style="margin-top: 45px" /><span class="right" style="margin-top: 53px;font-size: 1.3em;margin-right: 3px">+972-3-5753457</span>
+				<h1>
+					Call us
+				</h1>
+				<span class="block">Our team of Jewelry Experts is trained to help you.
+Just gives us a call. </span>
+			</div>
+			<div class="box small-box-bg">
+				<img src="/Content/images/services/getintouch/icons/email.png" />
+				<h1>
+					Email us
+				</h1>
+				<span class="block">Our e-mail is <a href="mailto:service@jewelryonet.com">service@jewelryonet.com</a> <br/> <br/>Send us your questions in an e-mail. We will respond to you 
+promptly. </span>
+			</div>
+			<div class="box big-box-bg">
+				<h1>
+					Write us your question
+				</h1>
+				<span class="block">Please fill the form below to send us your question.
+					you.</span>
+					@using (Html.BeginForm("AskQuestion", "Services", null, FormMethod.Post,new { id = "AskQuestionForm"}))
+					{
+
+						<fieldset class="onecolumb-form">
+							<dl>
+								<dt>
+									<label for="name">
+										Name:</label></dt>
+								<dd>
+									<input type="text" name="name" data-val-required="" data-val="true" class="left" /><span
+										class="field-validation-valid left" data-valmsg-for="name" data-valmsg-replace="false"></span></dd>
+							</dl>
+							<dl>
+								<dt>
+									<label for="email">
+									  Email:</label></dt>
+								<dd>
+									<input type="text" name="email" data-val-required="" data-val="true" data-val-email="*"
+										class="left" /><span class="field-validation-valid  left" data-valmsg-for="email"
+											data-valmsg-replace="false"></span></dd>
+							</dl>
+							<dl>
+								<dt>
+									<label for="phone">
+									   Phone:</label></dt>
+								<dd>
+									<input type="text" name="phone" data-val-required="" data-val="true"
+										class="left" /><span class="field-validation-valid  left" data-valmsg-for="phone"
+											data-valmsg-replace="false"></span></dd>
+							</dl>
+
+							<dl>
+								<dt>
+									<label for="question">
+									  Write your question here:</label></dt>
+								<dd>
+									<textarea type="text" name="question" data-val-required="" data-val="true"
+										class="left" style="width: 253px;height: 90px" ></textarea></dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>
+									
+									<input type="image" src="/Content/images/services/getintouch/skeleton/send.png" class="top10" />
+								</dd>
+							</dl>
+						</fieldset>
+					}
+				
+			</div>
+		</div>
+		<div class="cell width50">
+			<div class="box top10  small-box-bg">
+				<img src="/Content/images/services/getintouch/icons/chat.png" />
+				<h1>
+					Chat with us
+				</h1>
+				<span class="block">Take a moment to chat with a live representative. </span>
+			</div>
+			<div class="box small-box-bg">
+				<img src="/Content/images/services/getintouch/icons/phone-blue.png" />
+				<img src="/Content/images/services/getintouch/icons/back.png" class="right" />
+				<h1>
+					Call back 
+				</h1>
+				<span class="block">Fill in your information and one of our representatives 
+will call you </span>
+			</div>
+			<div class="box small-box-bg">
+				<h1>
+					Our address:
+				</h1>
+				<span class="block">JewelryONet (Diamonds and Jewelry View Ltd.)<br/>
+21 Tuval Street<br/>
+Ramat-Gan 52520<br/>
+Israel <br/></span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#AskQuestionForm').ajaxForm(
+            {
+                beforeSubmit: function () {
+                    Utils.DisableSubmitButton();
+                    return $('#AskQuestionForm').validate().showErrors();
+                },
+                dataType: 'json',
+                success: function (data) {
+                    Utils.EnableSubmitButton();
+                    if (data.HasError) {
+                        alert('There was an error, Please try again later');
+                    } else {
+                        
+                        MessageBox.Show('We will contact you shortly',Utils.RedirectToHome);
+                    }
+                }
+            });
+    })
+
+</script>

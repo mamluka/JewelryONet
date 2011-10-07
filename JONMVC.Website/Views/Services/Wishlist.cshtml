@@ -1,0 +1,105 @@
+﻿@model JONMVC.Website.ViewModels.Views.WishListViewModel
+@{
+    ViewBag.Title = "Your Wish List at JewelryONet.com";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() {new KeyValuePair<string, string>("Wishlist", "")})
+}
+<div class="table width100">
+    <div class="row">
+        <div class="cell">
+            <h2 class="left">
+            </h2>
+            <span class="right">@Html.ActionLink("Clear Wishlist", "ClearWishList", "Services")
+                |
+                @Html.ActionLink("Email Wishlist", "EmailWishList", "Services") | <a href="#!" command="printwishlist">
+                    Print Wishlist</a> </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell">
+            <span class="right">@Html.ActionLink("Continue shopping", "Index", "Home")
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell">
+            @if (Model.Items.Count > 0)
+            {
+                foreach (var item in Model.Items)
+                {
+                <div class="table top20 padding10 wishlistitem width100">
+                    <div class="row">
+                        <div class="cell aligncenter padding10" style="width: 300px">
+                            \ <a href="@Url.RouteUrl("JewelryItem", new RouteValueDictionary()
+                                                       {
+                                                           {"id", item.ID}
+                                                       })">
+                                <img src="@item.Icon" /></a>
+                        </div>
+                        <div class="cell padding10">
+                            <div class="table" style="height: 180px">
+                                <div class="row">
+                                    <div class="cell">
+                                        <span class="inline bold">Item Number:</span> <span class="inline sitered">@item.ItemNumber</span>
+                                        <span class="top5">@item.Description</span>
+                                        <div class="clear top20">
+                                        </div>
+                                        <span class="inline bold">Price:</span>
+                                        <h2 class="inline sitered">@item.Price</h2>
+                                        @Html.RouteLink("View this item", "JewelryItem", new RouteValueDictionary()
+                                                                           {
+                                                                               {"id", item.ID}
+                                                                           }, new { @class = "block top10" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="unalignedcell alignbotton ">
+                                        <div class="left">
+                                            <img src="/Content/images/services/wishlist/icons/email.png" class="alignmiddle" />
+                                            <a href="#!" command="emailring">Email ring</a>
+                                        </div>
+                                        <div class="left" style="margin-left: 10px;">
+                                            <img src="/Content/images/services/wishlist/icons/remove.png" class="alignmiddle" />
+                                            @Html.ActionLink("Remove item", "RemoveFromWishList", "JewelryItem", new
+                                                                                               {
+                                                                                                   jewelID = item.ID
+                                                                                               }, null)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                }
+            }
+            else
+            {
+                <div class="table top20 padding10 wishlistitem width100">
+                    <div class="row">
+                        <div class="cell padding10">
+                            <h2 >
+                                You have no items in your wish list</h2>
+
+                               Check out our @Html.RouteLink("Diamond Jewelry", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell">
+            <span class="right top10">@Html.ActionLink("Continue shopping", "Index", "Home")
+            </span>
+        </div>
+    </div>
+</div>

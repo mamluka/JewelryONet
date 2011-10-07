@@ -1,0 +1,232 @@
+﻿@using JONMVC.Website.Extensions
+@model JONMVC.Website.ViewModels.Views.DiamondViewModel
+@{
+    ViewBag.Title = @Model.PageTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", Model.PathBarItems)
+}
+@Html.Partial("Tabs", Model.TabsForJewelDesignNavigation)
+<div class="table" id="ItemBlock">
+    <div class="row">
+        <div class="cell media">
+            @Html.prettyPhotoSingleImage(Model.MainDiamondPicture)
+        </div>
+        <div class="cell info">
+            <div class="table width100">
+                <div class="row">
+                    <div class="cell item-description justify">
+                        @Model.Description
+                    </div>
+                </div>
+                <div class="block price">
+                    <span class="inline">Price: </span><span class="inline">@Model.Price </span>
+                </div>
+                <div class="row">
+                    <div class="cell buy-menu">
+                        <img src="/Content/images/jeweldesign/diamond/select-this-diamond.png" />
+                        <input type="hidden" value="@Model.DiamondID " name="itemid" />
+                        <ul class="actions" style="display: none">
+                            @if (Model.JewelPersistence.SettingID > 0)
+                            {
+                                <li>@Html.RouteLink("and order", "End", new RouteValueDictionary()
+                                                                                               {
+                                                                                                   {"DiamondID", Model.JewelPersistence.DiamondID},
+                                                                                                   {"SettingID", Model.JewelPersistence.SettingID},
+                                                                                                   {"Size", Model.JewelPersistence.Size},
+                                                                                                   {"MediaType", Model.JewelPersistence.MediaType}
+                                                                                               })</li>
+                            }
+                            else
+                            {
+
+
+                                <li>@Html.RouteLink("and Choose a Setting", "ChooseSetting", new RouteValueDictionary()
+                                                                                               {
+                                                                                                   {"DiamondID", Model.JewelPersistence.DiamondID},
+                                                                                                   {"SettingID", Model.JewelPersistence.SettingID},
+                                                                                                   {"Size", Model.JewelPersistence.Size},
+                                                                                                   {"MediaType", Model.JewelPersistence.MediaType},
+                                                                                                   {"controller", "JewelDesign"},
+                                                                                                   {"action", "ChooseSetting"},
+                                                                                                   {"tabid", "solitaire-settings"},
+                                                                                                   {"page", 1},
+                                                                                                   {"MetalFilter", "1"},
+                                                                                                   {"OrderByPrice", "1"},
+                                                                                                   {"itemsperpage", "20"}
+                                                                                               })</li>
+                            }
+                            <li>@Html.ActionLink("Buy this diamond", "ShoppingCartAddDiamond", "Checkout", new { diamondid = Model.DiamondID }, null)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block grayblock">
+    <div class="title">
+        Diamond Details</div>
+    <div class="table width100">
+        <div class="row">
+            <div class="cell leftspecs">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="infotable">
+                    <tr>
+                        <td colspan="2">
+                            @Model.Description
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="title">
+                            Diamond Information:
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            Item Number:
+                        </td>
+                        <td>
+                            @Model.ItemCode
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            Shape:
+                        </td>
+                        <td>
+                            @Model.Shape
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            Carat Weight:
+                        </td>
+                        <td>
+                            @Model.Weight
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            Color:
+                        </td>
+                        <td>
+                            @Model.Color
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            Clarity:
+                        </td>
+                        <td>
+                            @Model.Clarity
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            Fluorescence:
+                        </td>
+                        <td>
+                            @Model.Fluorescence
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            Polish/Symmetry:
+                        </td>
+                        <td>
+                            @Model.Polish/@Model.Symmetry
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            Table:
+                        </td>
+                        <td>
+                            @Model.Table
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            Depth:
+                        </td>
+                        <td>
+                            @Model.Depth
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            Measurements:
+                        </td>
+                        <td>
+                            @Model.Dimensions
+                        </td>
+                    </tr>
+                </table>
+                <div class="block price">
+                    <span class="inline">Price: </span><span class="inline">@Model.Price</span>
+                </div>
+                <div class="block story justify">
+                    This @Model.Color color, @Model.Clarity
+                    clarity diamond has @Model.Cut proportions, a diamond grading report from @Model.Report
+                    and a full 14 Day inspection period.
+                </div>
+            </div>
+            <div class="cell rightspecs">
+                @Html.Partial("OrderWithConfidence")
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block grayblock">
+    <div class="title">
+        Diamond Help</div>
+    <div class="table width100">
+        *
+        <div class="row">
+            <div class="cell lefthelp">
+                @Html.Partial("DiamondHelp", Model.DiamondHelp["cut"])
+                @Html.Partial("DiamondHelp", Model.DiamondHelp["color"])
+            </div>
+            <div class="cell righthelp">
+                @Html.Partial("DiamondHelp", Model.DiamondHelp["clarity"])
+            </div>
+        </div>
+        *
+    </div>
+</div>
+<div class="block grayblock">
+    <div class="title">
+        Shipping Information</div>
+    <div class="table width100">
+        <div class="row">
+            <div class="cell">
+                <p>
+                    This Item will be shipped by Express Registered Mail Delivered within 7 -10 business
+                    days depending on their destination.
+                    <br />
+                    This is traceable, fully insured, door to door shipping.</p>
+                <p>
+                    More Shipping Options available upon order.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(function () {
+
+
+
+
+
+            $("a[rel^='prettyPhoto']").prettyPhoto();
+
+            JewelDesign.RegisterJewelDesignPagesDropDownMenu();
+
+        });
+    });
+
+</script>

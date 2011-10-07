@@ -1,0 +1,89 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@using MvcContrib.FluentHtml
+@inherits MvcContrib.FluentHtml.ModelWebViewPage<RegisterCustomerViewModel>
+@{           
+    ViewBag.Title = "My Account: Register to JewelryONet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="dialog">
+    <h1 class="title">
+        Register with JewelryONet</h1>
+    @if (Model.HasError)
+    {
+        <div class="error">
+            Something went wrong. Please
+            @Html.ActionLink("contact us", "GetInTouch", "Services") for help
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        <fieldset class="onecolumb-form">
+            <dl>
+                <dt>
+                    <label for="Email">
+                        Your Email:</label>
+                </dt>
+                <dd>
+                    @Html.TextBoxFor(x => x.Email)
+                    <span data-valmsg-replace="false" data-valmsg-for="Email" class="field-validation-valid">
+                    </span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="Password">
+                        Password:</label></dt>
+                <dd>
+                    @Html.PasswordFor(x => x.Password)
+                    <span data-valmsg-replace="false" data-valmsg-for="Password" class="field-validation-valid">
+                    </span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="Firstname">
+                        Firstname:</label></dt>
+                <dd>
+                    @Html.TextBoxFor(x => x.Firstname)
+                    <span data-valmsg-replace="false" data-valmsg-for="Firstname" class="field-validation-valid">
+                    </span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="Lastname">
+                       Lastname:</label></dt>
+                <dd>
+                    @Html.TextBoxFor(x => x.Lastname)
+                    <span data-valmsg-replace="false" data-valmsg-for="Lastname" class="field-validation-valid">
+                    </span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="CountryID">
+                        Country:</label></dt>
+                <dd>@this.Select(x => x.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key"))
+                    <span data-valmsg-replace="false" data-valmsg-for="CountryID" class="field-validation-valid">
+                    </span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="StateID">
+                        Country:</label></dt>
+                <dd>@this.Select(x => x.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key"))
+                    <span data-valmsg-replace="false" data-valmsg-for="StateID" class="field-validation-valid">
+                    </span>
+                </dd>
+            </dl>
+            <dl>
+                <dt></dt>
+                <dd>
+                    <input type="submit" value="Register with us" class=" button top10" />
+                </dd>
+            </dl>
+        </fieldset>
+        
+    }
+</div>

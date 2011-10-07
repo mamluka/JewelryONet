@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<diamondhelp>
+	<helppage key="cut" title="Cut">
+		<helppart value="Excellent">
+			<body>
+				<![CDATA[This diamond is cut to the finest proportions to maximize light return over all other factors.
+Round diamonds in this group have the finest proportions, the GIA, IGI and HRD certificates indicate the cut as Excellent.
+
+]]>
+			</body>
+		</helppart>
+		<helppart value="Very Good">
+			<body>
+				<![CDATA[Very Good-cut diamonds have premium overall proportions, but fall just outside the Ideal definitions. These diamonds have been cut to allow them to reflect nearly all light as fire and brilliance. This is an outstanding cut with almost no visible differences from an ideal-cut diamond, but at a lower price.
+]]></body>
+		</helppart>
+		<helppart value="Good To Very Good">
+			<body>
+				<![CDATA[These diamonds reflect most of the light that enters them, creating a good deal of brilliance.
+Diamonds in this range offer an excellent cost-savings to customers who want to stay in a budget without sacrificing quality or beauty.
+Generally, the price of these diamonds is slightly below that of Premium cuts.
+]]></body>
+		</helppart>
+		<helppart value="Good">
+			<body>
+				<![CDATA[Good-cut diamonds are the most commonly sold diamonds in the world.
+As determined by the GIA and HRD, this diamond has been cut to allow it to reflect most light that enters.  A good cut diamond is often significantly less expensive than a very good cut and is an acceptable choice for most jewelry.
+
+]]></body>
+		</helppart>
+		<helppart value="Fair">
+			<body>
+				<![CDATA[A diamond graded as fair reflects only a small proportion of the light that enters it. Typically these diamonds have been cut to maximize the carat weight over most other considerations. A fair cut will produce some brilliance, but will not be as brilliant as a higher grade of cut.
+]]>
+			</body>
+		</helppart>
+	</helppage>
+	<helppage key="color" title="Color">
+		<helppart value="D">
+			<body><![CDATA["D" color diamonds are at the very top of the "Colorless" range, as a diamond with less color has never been found. This grade of diamond is absolutely colorless.]]></body>
+		</helppart>
+		<helppart value="E">
+			<body>
+				<![CDATA[Like "D" color diamonds an E-color diamond is colorless to the naked eye. 
+These diamonds are very rare, “E" color diamonds are also more available and affordable than a "D" color diamonds.
+]]></body>
+		</helppart>
+		<helppart value="F">
+			<body>
+				<![CDATA[As the least expensive diamond color in the colorless range, F-color diamonds display minimal color difference from D- or E-color diamonds and offer the best value.
+This diamond will appear completely clean and white, “F” color diamonds are part of the "Colorless" category together with “E” and “D” color diamonds.
+]]></body>
+		</helppart>
+		<helppart value="G">
+			<body><![CDATA[This diamond is nearly colorless. "G" diamonds are a great choice for anyone seeking a very white diamond at a more affordable price. G-color diamonds make for beautiful jewelry and appear to the eye to be colorless when mounted.]]></body>
+		</helppart>
+		<helppart value="H">
+			<body>
+				<![CDATA[This diamond offers an exceptional balance of color and cost as a “near-colorless" grade diamond. If you think of buying an H-color grade diamond, you can go for a larger diamond for the same price as a higher color grade.
+This diamond looks beautiful mount in 18k gold or platinum, and offers an excellent value.
+]]></body>
+		</helppart>
+		<helppart value="I">
+			<body>
+				<![CDATA[I-color diamonds are less expensive than other diamonds, so you can purchase a larger diamond for the same price as a higher color grade. This diamond falls into the "Near Colorless" category, which includes all diamonds from "G" to "J".
+"I" color diamonds face-up white when viewed from the top, and can be mounted in white or yellow metals without any concerns.
+]]></body>
+		</helppart>
+		<helppart value="J">
+			<body>
+				<![CDATA[This diamond produces a warm brilliancy not found in the higher grade colors.
+"J" is the final color located in the "Near Colorless" range.
+As the least expensive diamonds in the near-colorless range, J-color diamonds present the best value in diamond color, so you can purchase a larger diamond for the price.
+]]></body>
+		</helppart>
+	</helppage>
+	<helppage key="clarity" title="Clarity">
+		<helppart value="IF">
+			<body>
+				<![CDATA[Diamonds of this grade of clarity are extremely rare.  This diamond is internally flawless, even when viewed under a microscope at extreme magnification.
+This is the most rare and most expensive diamond you can purchase.
+]]></body>
+		</helppart>
+		<helppart value="VVS1">
+			<body>
+				<![CDATA[Diamonds of this grade of clarity are extremely rare. 
+VVS diamonds have inclusions that can only be seen using a microscope at 30x power magnification.  VVS stands for "Very Very Slightly Included”.
+]]></body>
+		</helppart>
+		<helppart value="VVS2">
+			<body>
+				<![CDATA[Diamonds of this grade of clarity are extremely rare. 
+VVS diamonds have inclusions that can only be seen using a microscope at 30x power magnification.  VVS stands for "Very Very Slightly Included”.
+]]></body>
+		</helppart>
+		<helppart value="VS1">
+			<body>
+				<![CDATA[VS diamonds have inclusions that are too small to see with a naked eye.
+VS1 grade diamonds present a perfect value in clarity because they are typically free of visible inclusions, and they are less expensive than higher clarity grades.
+]]></body>
+		</helppart>
+		<helppart value="VS2">
+			<body>
+				<![CDATA[Very Slightly Included category (VS) diamonds have minor inclusions that are difficult to somewhat easy for a trained grader to see when viewed under 10x magnification.
+VS diamonds are the best choice for anyone who demands a diamond totally free of visible inclusions.
+]]></body>
+		</helppart>
+		<helppart value="SI1">
+			<body><![CDATA[Slightly Included category (SI) diamonds have noticeable inclusions that are easy for a trained grader to see when viewed under 10x magnification. The SI category is divided into two grades; SI1 denotes a higher clarity grade than SI2.  Most SI diamonds will not contain any inclusions that can be located without using magnification.]]></body>
+		</helppart>
+		<helppart value="Si2">
+			<body><![CDATA[Slightly Included category (SI) diamonds have noticeable inclusions that are easy for a trained grader to see when viewed under 10x magnification. The SI category is divided into two grades; SI1 denotes a higher clarity grade than SI2.  Most SI diamonds will not contain any inclusions that can be located without using magnification.]]></body>
+		</helppart>
+		<helppart value="I1">
+			<body><![CDATA[Included category (I) diamonds have obvious inclusions that are clearly visible to a trained grader under 10x magnifications.  ]]></body>
+		</helppart>
+		
+	</helppage>
+</diamondhelp>

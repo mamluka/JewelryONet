@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<tabs>
+	<tabpage key="diamond-rings">
+		<sprite>diamond-jewelry</sprite>
+		<title>Fine Diamond Jewelry Rings, 18K Gold Stud Earrings, Diamond Tennis Bracelets.</title>
+		<shorttitle>Diamond Jewelry</shorttitle>
+		<extratext><![CDATA[ Diamond jewelry is a significant purchase, but it's not one that needs to be scary. Know which options are most important to you.  The 4 Cs of diamonds are: Cut, Clarity, Color and Carat Weight. Read here to discover diamond buying information that includes descriptions of the various diamond cuts, diamond clarity, and diamond color and carat weight. Here's a quick overview: CUT: Determines the stone's fire and brilliance and is probably your most important C.  Not to be confused with a diamond's shape, cut refers to how a diamond's facets are created to maximize the amount of light that is absorbed, redirected, and released.  Nature controls the other 3 Cs, but a diamond's cut is in the hands of the craftsman who shapes it. Read more about the four Cs at our Diamond Education section. ]]></extratext>
+		<tab id="engagement-rings">
+			<caption>Rings</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1</string>
+				<values>
+					<value type="int">2</value>
+					<value type="int">7</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="diamond-studs">
+			<caption>Studs</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1</string>
+				<values>
+					<value type="int">11</value>
+					<value type="int">7</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="diamond-pendants">
+			<caption>Pendants</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1</string>
+				<values>
+					<value type="int">6</value>
+					<value type="int">7</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="diamond-bracelets">
+			<caption>Bracelets</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1</string>
+				<values>
+					<value type="int">8</value>
+					<value type="int">7</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="diamond-earrings">
+			<caption>Earrings</caption>
+			<where>
+				<string>jeweltype_id = @0  and category_id = @1</string>
+				<values>
+					<value type="int">3</value>
+					<value type="int">7</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="diamond-mens">
+			<caption>Men's</caption>
+			<where>
+				<string>jeweltype_id = @0 and jewelsubtype_id=@1 and category_id = @1</string>
+				<values>
+					<value type="int">14</value>
+					<value type="int">20</value>
+					<value type="int">7</value>
+				</values>
+			</where>
+		</tab>
+	</tabpage>
+	
+	<tabpage key="gemstone-rings">
+		<sprite>gemstone-jewelry</sprite>
+		<title>Gemstone Jewelry Rings, 18K White Gold Sapphire Pendants, 18K Gold Ruby Studs.</title>
+		<shorttitle>Gemstone Jewelry</shorttitle>
+		<extratext>
+		<![CDATA[ <h2>How big to buy?<br />
+</h2>
+<p>
+  For many women, a gemstone&rsquo;s size should be determined by  her hand.<br />
+  Some people believe that the bigger the size, the better  the gemstone. The size you purchase should be a factor not only of your budget,  but also of the preferences of your fiancé.<br />
+  The other Cs - Clarity, Color and Cut - also influence a  gemstone&rsquo;s price. A large stone looks out of place on a petite hand, whereas a  tiny stone may be lost or insignificant on a larger finger. <br />
+The stone&rsquo;s shape should also be proportioned to the  hand, which may allow a smaller carat weight to look lovelier than a large  stone with an improper shape.</p>
+<h2>Which Clarity Should I Purchase?<br />
+</h2>
+<p>
+  Gemstone clarity is critical for engagement rings; most  stones have various types of flaws. <br />
+  Inclusions are additional minerals that may cause a  streak or stripe through the stone, and fractures are miniscule cracks and  splits that look like tiny crystals, clouds or feathers. Clarity is the scale  of perfection established by the Gemological Institute of America (GIA) that  measures the number and magnitude of flaws in a diamond.<br />
+  Gemstones are graded for clarity under 10x loupe  magnification. Grades range from Internally Flawless gems that are completely  free of blemishes to Imperfect 3 gems that possess large, heavy defects visible  to the naked eye; we don&rsquo;t sell or trade with I-3 gemstones.<br />
+The most common clarity grading are VS2, SI1 and SI2.  These stones are in the middle of the scale for flaws - not totally flawless  and yet not having lot of flaws. That makes them affordable for many, and  depending on the cut and setting of the stone, many of the flaws may not be  noticeable. <span dir="rtl"> </span></p>
+<h2>Which Gemstone Should I Purchase?<br /></h2>
+
+  <h3>Buying an Emerald:<br />
+
+  </h3>
+<p>
+  When judging an Emerald&rsquo;s value, its color is of  paramount importance, the more vivid the green, the more valuable the stone.<br />
+  There are also attractive lighter green Emerald that are  lively and vivid when set in Emerald Jewelry and darker green gems that make up  in rich green color what they lose in brightness. Generally speaking, however, very  light or dark Emeralds are less expensive. <br />
+  Unlike a Diamond, a finely colored Emerald is not significantly  devalued by inclusions, the fewer fissures the more expensive the Emerald. Natural  Emeralds of top quality weighing more than two carats are extremely rare and  costly. A large deep green Emerald with minor blue or yellow secondary  coloration that is relatively free of inclusions may cost tens of thousands per  dollars per carat. Perfect natural gems in color and appearance are very rare  and expensive. As part of the normal fashioning process, most Emeralds are  immersed in clear oil or resin to minimize the appearance of small fissures. In  addition to oil and wax fillers, the trade also uses clear resins to penetrate  open fissures surfacing in the gemstone. Hardeners are often added to solidify  these liquids to prevent the resin from evaporating, thus making the  enhancement more permanent than just oiling or waxing the gem. <br />
+Be sure to buy from a reputable dealer who will provide,  in writing, the processes and treatment that your Emerald has received. Because  Emerald are brittle, and can split along their inclusions if exposed to sharp  impact, properly designed Emerald jewelry should minimize the gem's exposure,  especially in rings and bracelets.</p>
+ <h3>Buying a Ruby:<br />
+ </h3>
+ <p>
+  Color is of paramount importance when judging the value  of a Ruby. Prized colors which can command high prices are pure reds with no  overtones of brown or blue. Very light or dark shades are usually less  valuable, but not necessarily less appealing. Beauty is in the eye of the  beholder and color preferences are subjective. <br />
+  Of course, clarity, cut and carat weight factor into the  cost of a gem.<br />
+  Better quality Ruby Rubies are usually eye-clean with  some inclusions under magnification. Ruby is more available under two carats,  gems over five carats have become scarce. In Ruby&rsquo;s finest quality, any size is  rare. <br />
+  Don't let yourself become overly concerned about the  origin of the gem.<br />
+  A gem from Burma may not necessarily be better than a gem  from Vietnam.<br />
+  If the Ruby has a color that appeals to you, and a  clarity that looks good, then that is more important than its nationality.  However, it is important to buy from a reputable dealer who will provide  written documentation about the Ruby&rsquo;s size, and any treatments it has  undergone. <br />
+Recently, Ruby Rubies have been grown in the laboratory.  Although these grown rubies are essentially of identical composition, hardness,  and brilliance to natural Ruby Rubies, they have aroused some controversy.  Their presence of the market is still more limited than lab-grown emeralds.  However, when buying star rubies, look for a star that has straight legs that  are all of equal clarity.</p>
+<h3>Buying a Sapphire:<br />
+</h3>
+<p>
+  Color is of paramount importance when judging the value  of Sapphire. The purer the blue of a natural Sapphire, the greater the price  the gemstone can command. Gems that are too dark or too pale are usually less  valuable, but not necessarily less appealing. Beauty is in the eye of the  beholder and color preferences are subjective. <br />
+In recent years technology has perfected the process of  heat-treating sapphires exposing them to very high temperatures to eliminate  impurities. In fact most Sapphires on the market today have been heat-treated  to improve clarity and color. This process is stable and does not affect the  value of the gem, except at the highest level of the market. Occasionally,  colorless to pale blue sapphire is diffusion treated.</p> ]]>
+		</extratext>
+		<tab id="engagement-rings">
+			<caption>Rings</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1</string>
+				<values>
+					<value type="int">12</value>
+					<value type="int">8</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="gemstone-studs">
+			<caption>Studs</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1</string>
+				<values>
+					<value type="int">11</value>
+					<value type="int">8</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="gemstone-pendants">
+			<caption>Pendants</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1</string>
+				<values>
+					<value type="int">6</value>
+					<value type="int">8</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="gemstone-bracelets">
+			<caption>Bracelets</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1</string>
+				<values>
+					<value type="int">8</value>
+					<value type="int">8</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="gemstone-earrings">
+			<caption>Earrings</caption>
+			<where>
+				<string>jeweltype_id = @0  and category_id = @1</string>
+				<values>
+					<value type="int">3</value>
+					<value type="int">8</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="gemstone-mens">
+			<caption>Men's</caption>
+			<where>
+				<string>jeweltype_id = @0 and jewelsubtype_id=@1 and category_id = @1</string>
+				<values>
+					<value type="int">14</value>
+					<value type="int">20</value>
+					<value type="int">8</value>
+				</values>
+			</where>
+		</tab>
+	</tabpage>
+	
+	<tabpage key="wedding-and-anniversary">
+		<sprite>wedding-jewelry</sprite>
+		<title>Diamond Wedding &amp; Anniversary Rings, Women’s Wedding Bands, Eternity Rings</title>
+		<shorttitle>Wedding and Anniversary</shorttitle>
+		<extratext><![CDATA[ There are many styles of diamond wedding rings. The most popular is the bridal set, which includes both the engagement ring and the wedding band in a form-fitting, both of which usually have several diamonds. Other styles include a simple channel setting of diamonds for the wedding ring that can easily match any number of engagement ring designs. Pave settings are particularly popular for diamond wedding rings, as the entire surface of the ring appears to be encrusted with diamonds. Simpler settings may use only a few stones or could encircle the entire ring with diamonds, similar to eternity rings or diamond infinity rings. ]]></extratext>
+		<tab id="wedding">
+			<caption>Wedding</caption>
+			<where>
+				<string>jeweltype_id = @0 and jewelsubtype_id = @1</string>
+				<values>
+					<value type="int">13</value>
+					<value type="int">8</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="eternity">
+			<caption>Eternity</caption>
+			<where>
+				<string>jeweltype_id = @0 and jewelsubtype_id = @1</string>
+				<values>
+					<value type="int">13</value>
+					<value type="int">10</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="bands">
+			<caption>Bands</caption>
+			<where>
+				<string>jeweltype_id = @0 and jewelsubtype_id = @1</string>
+				<values>
+					<value type="int">13</value>
+					<value type="int">9</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="mens">
+			<caption>Men's</caption>
+			<where>
+				<string>jeweltype_id = @0 and jewelsubtype_id = @1</string>
+				<values>
+					<value type="int">13</value>
+					<value type="int">12</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="wedding-sets">
+			<caption>Wedding Sets</caption>
+			<where>
+				<string>jeweltype_id = @0 and jewelsubtype_id = @1</string>
+				<values>
+					<value type="int">13</value>
+					<value type="int">11</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="gemstone">
+			<caption>Gemstone</caption>
+			<where>
+				<string>category_id = @0 and jeweltype_id = @1</string>
+				<values>
+					<value type="int">8</value>
+					<value type="int">13</value>
+				</values>
+			</where>
+		</tab>
+	</tabpage>
+
+	<tabpage key="engagement-rings">
+		<sprite>diamond-engagement-rings</sprite>
+		<title>Diamond Engagement Rings</title>
+		<tab id="solitaire">
+			<caption>Solitaire</caption>
+			<where>
+				<string>category_id = @0 and  jeweltype_id = @1 and jewelsubtype_id = @2</string>
+				<values>
+					<value type="int">7</value>
+					<value type="int">12</value>
+					<value type="int">1</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="pave-set">
+			<caption>Pave Set</caption>
+			<where>
+				<string>category_id = @0 and  jeweltype_id = @1 and jewelsubtype_id = @2</string>
+				<values>
+					<value type="int">7</value>
+					<value type="int">12</value>
+					<value type="int">2</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="sidestones">
+			<caption>Sidestones</caption>
+			<where>
+				<string>category_id = @0  and  jeweltype_id = @1 and jewelsubtype_id = @2</string>
+				<values>
+					<value type="int">7</value>
+					<value type="int">12</value>
+					<value type="int">4</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="three-stone">
+			<caption>Three Stone</caption>
+			<where>
+				<string>category_id = @0 and  jeweltype_id = @1 and jewelsubtype_id = @2</string>
+				<values>
+					<value type="int">7</value>
+					<value type="int">12</value>
+					<value type="int">3</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="bridal-sets">
+			<caption>Bridal Sets</caption>
+			<where>
+				<string>category_id = @0  and  jeweltype_id = @1 and jewelsubtype_id = @2</string>
+				<values>
+					<value type="int">7</value>
+					<value type="int">12</value>
+					<value type="int">5</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="contemporary">
+			<caption>Contemporary</caption>
+			<where>
+				<string>category_id = @0 and  jeweltype_id = @1 and jewelsubtype_id = @2</string>
+				<values>
+					<value type="int">7</value>
+					<value type="int">12</value>
+					<value type="int">7</value>
+				</values>
+			</where>
+		</tab>
+	</tabpage>
+	
+	<tabpage key="jewel-design-settings">
+		<sprite>jewel-design-settings</sprite>
+		<title>Models to choose from</title>
+		<tab id="solitaire-settings">
+			<caption>Solitaire</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1  and jewelsubtype_id=@2 </string>
+				<values>
+					<value type="int">10</value>
+					<value type="int">7</value>
+					<value type="int">40</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="sidestones-settings">
+			<caption>Sidestones</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1  and jewelsubtype_id=@2 </string>
+				<values>
+					<value type="int">10</value>
+					<value type="int">7</value>
+					<value type="int">43</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="threestone-settings">
+			<caption>Three-stone</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1  and jewelsubtype_id=@2 </string>
+				<values>
+					<value type="int">10</value>
+					<value type="int">7</value>
+					<value type="int">42</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="pave-settings">
+			<caption>Pave</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1  and jewelsubtype_id=@2 </string>
+				<values>
+					<value type="int">10</value>
+					<value type="int">7</value>
+					<value type="int">41</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="bridal-settings">
+			<caption>Bridal Set</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1  and jewelsubtype_id=@2 </string>
+				<values>
+					<value type="int">10</value>
+					<value type="int">7</value>
+					<value type="int">44</value>
+				</values>
+			</where>
+		</tab>
+		<tab id="contemporary-settings">
+			<caption>Contemporary</caption>
+			<where>
+				<string>jeweltype_id = @0 and category_id = @1  and jewelsubtype_id=@2 </string>
+				<values>
+					<value type="int">10</value>
+					<value type="int">7</value>
+					<value type="int">46</value>
+				</values>
+			</where>
+		</tab>
+	</tabpage>
+
+	<tabpage key="best-offer-items" showtabs="false">
+		<title>Best offers</title>
+		<view>BestOfferInTabView</view>
+		<tab id="offers">
+			<caption>Solitaire</caption>
+			<where>
+				<string> ONBARGAIN = @0 </string>
+				<values>
+					<value type="bool">true</value>
+				</values>
+			</where>
+		</tab>
+	</tabpage>
+
+	<tabpage key="special-offers-items" showtabs="false">
+		<title>Special offers</title>
+		<view>SpecialOfferInTabView</view>
+		<tab id="special-offers">
+			<caption>Solitaire</caption>
+			<where>
+				<string> ONSPECIAL = @0 </string>
+				<values>
+					<value type="bool">true</value>
+				</values>
+			</where>
+		</tab>
+	</tabpage>
+
+	<tabpage key="3d-gallery" showtabs="false">
+		<title>Amazing 3D Gallery</title>
+		<tab id="gallery">
+			<caption>Solitaire</caption>
+			<where>
+				<string> HAS_MOVIE = @0 and JEWELTYPE_ID != 10 </string>
+				<values>
+					<value type="bool">true</value>
+				</values>
+			</where>
+		</tab>
+	</tabpage>
+	
+</tabs>

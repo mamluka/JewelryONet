@@ -1,0 +1,13 @@
+﻿@model List<JONMVC.Website.ViewModels.Views.TestimonialViewModel>
+<div class="cell leftpane">
+@foreach (var testimonial in Model)
+{
+    <div class="block testimonial">
+        <h2 class="title">@testimonial.Title</h2>
+        <span class="body">@testimonial.Body</span>
+        <span class="name-and-country">@testimonial.Name - @testimonial.Country</span>
+
+    </div>
+}
+</div>
+

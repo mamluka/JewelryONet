@@ -1,0 +1,22 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model SearchViewModel
+
+@{
+    ViewBag.Title = "Search Results on JewelryONet.com";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() {new KeyValuePair<string, string>("Search results", "")})
+}
+<div id="cse" style="width: 100%;">Loading</div>
+<script src="//www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+    google.load('search', '1', { language: 'en' });
+    google.setOnLoadCallback(function () {
+        var customSearchControl = new google.search.CustomSearchControl('010165303760707739225:g2z9hggtqzw');
+        customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+        customSearchControl.draw('cse');
+        customSearchControl.execute('@Model.Term');
+    }, true);
+</script>
+<link href="/Content/search.css" rel="stylesheet" type="text/css" />

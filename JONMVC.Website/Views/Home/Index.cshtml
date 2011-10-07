@@ -1,0 +1,336 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@using MvcContrib
+@model EmptyViewModel
+@{
+    ViewBag.Title = "JewelryOnet.net: Fine Designer Jewelry";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="table">
+	<div class="row">
+		<div class="cell">
+			<div id="HomepageBanner">
+				<div class="overlay">
+					Welcome to JewelryONet where you can find plenty of stunning Diamond & Gemstone
+					rings to choose from in many collections. A wide variety of jewels and styles are
+					represented, from boldly colored earrings to decorative engagement rings in pastel
+					hues. The ideal place to shop for engagement or fashion rings is here.
+					<ul class="top20">
+						<li>@Html.RouteLink("18K Gold Diamond Earrings", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 }) </li>
+						<li>@Html.RouteLink("18K Gold Diamond Solitaire Rings", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","solitaire-settings"},
+																										{"page", 1},
+																									})</li>
+						<li>@Html.RouteLink("18K Gold Diamond Pave Rings", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","pave-settings"},
+																										{"page", 1},
+																									})</li>
+					</ul>
+				</div>
+			</div>
+			<div class="table top20" id="BlockContent">
+				<div class="row">
+					<div class="cell">
+						<div class="displayatom block ">
+							<h1 class="title aligncenter">
+								Design Your Own Ring<br />
+								Start by choosing your @Html.RouteLink("Setting", "ChooseSetting")</h1>
+							<div class="give-pedding">
+								<div class="block aligncenter">
+                                <a href="@Url.RouteUrl("ChooseSetting")">
+									<img src="/Content/images/homepage/atoms/1-1.png" alt="Design Your Own Ring"/></a>
+								</div>
+								<div class="cell bottomizer">
+									<span class="block desc"><strong>Step1:</strong> @Html.RouteLink("Choose your setting", "ChooseSetting")<br />
+										<strong>Step2:</strong> Select Your Diamond<br />
+										<strong>Step3:</strong> Enjoy. Let us do the work.<br />
+										<strong>Step4:</strong> Propose Her.<br />
+									</span>
+									<ul class="top5">
+										<li>@Html.RouteLink("Design Your Diamond Engagement Ring", "ChooseSetting") </li>
+										<li>@Html.RouteLink("Choose Your Diamond Studs", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 }) </li>
+										
+                                                                     <li>@Html.RouteLink("Pick a Diamond Three Stone Ring", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","threestone-settings"},
+																										{"page", 1},
+																									})</li>
+									</ul>
+								</div>
+							</div>
+							<div class="clear">
+							</div>
+						</div>
+					</div>
+					<div class="cell">
+						<div class="displayatom block">
+							<h1 class="title aligncenter">
+								Design Your Own Ring<br />
+								Start by choosing your @Html.RouteLink("Diamond", "DiamondSearch")</h1>
+							<div class="give-pedding">
+								<div class="block aligncenter">
+									@using (Html.BeginRouteForm("DiamondSearch"))
+									{ 
+										<div class="block center top20" style="width: 183px">
+											<div class="left">
+												<img src="/Content/images/homepage/atoms/round-diamond.png" width="61" height="61"  alt="Round diamonds"/><br />
+												@Html.RadioButton("Shape", "Round", true)
+											</div>
+											<div class="left">
+												<img src="/Content/images/homepage/atoms/princess-diamond.png" width="61" height="61" alt="Princess cut diamonds" /><br />
+												@Html.RadioButton("Shape", "Princess")
+											</div>
+											<div class="left ">
+												<img src="/Content/images/homepage/atoms/radiant-diamond.png" width="61" height="61" alt="Emerald cut diamonds" /><br />
+												@Html.RadioButton("Shape", "Emerald")
+											</div>
+											<input type="image" src="/Content/images/homepage/atoms/search.png" class="top5 right" alt="Search diamonds" />
+											<div class="clear">
+											</div>
+										</div>
+								
+								
+									}
+								</div>
+								<div class="cell bottomizer" style="height: 215px">
+									<span class="block desc justify top10"><strong>JewelryONet</strong> is the largest Online
+										retailer of the highest quality Certified Diamonds.<br />
+										<br />
+										JewelryONet featuring over <span class="redbold inline">40,000</span> loose diamonds all
+										Certified at the most respected labs over the world such as GIA, HRD and IGI.
+									</span>
+									<ul class="top5">
+										<li>@Html.RouteLink("Diamond Search", "DiamondSearch") </li>
+										<li> @Html.RouteLink("GIA Certified Diamonds", "DiamondSearch", new RouteValueDictionary()
+																	 {
+																		 {"Report", "GIA"},
+                                                                         {"Shape", "All"}
+																	 }) </li>
+										<li>@Html.ActionLink("Diamond Education", "Index", "Education") </li>
+									</ul>
+								</div>
+							</div>
+							<div class="clear">
+							</div>
+						</div>
+					</div>
+					<div class="cell">
+						<div class="displayatom block">
+							<h1 class="title aligncenter">
+								Bring the color to your jewelry<br />
+								at our @Html.RouteLink("Gemstone Jewelry", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "gemstone-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 }) section</h1>
+							<div class="give-pedding">
+								<div class="block aligncenter">
+                                <a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "gemstone-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 })">
+									<img src="/Content/images/homepage/atoms/1-3.png" alt="Gemstone jewelry" /></a>
+
+								</div>
+								<div class="cell bottomizer">
+									<span class="block desc">There is something magical about Gemstones because they are
+										rare.
+										<br />
+									
+										At <strong>JewelryONet</strong> you can purchase a Gemstone Engagement Ring in different
+										styles, colors and sizes. Select a gemstone which matches the birth date of your
+										beloved. </span>
+									<ul class="top5">
+										<li>@Html.RouteLink("Gemstone Engagement Rings", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "gemstone-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 })</li>
+										<li>@Html.ActionLink("Find a perfect Birthday Gift", "BirthDayGifts", "Gifts") </li>
+										<li>@Html.RouteLink("View our Gemstone Studs", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "gemstone-rings"},
+																		 {"tabid", "gemstone-studs"},
+																		 {"page", 1},
+																	 }) </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="cell">
+						<div class="displayatom block">
+							<h1 class="title aligncenter">
+								@Html.RouteLink("Diamond Jewelry", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 },new { @class="gray" })
+								</h1>
+							<div class="give-pedding">
+								<div class="block aligncenter">
+                                <a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 })">
+									<img src="/Content/images/homepage/atoms/2-1.png"  alt="Diamond Jewelry"/></a>
+								</div>
+								<div class="cell bottomizer">
+									<span class="block desc"><strong>JewelryONet</strong> offers stunning diamond jewelry
+										collection features diamond wedding rings, diamond studs, diamond hoops, and stunning
+										diamond tennis bracelets.<br />
+										View our high-quality diamond pendantsin a range of designs. </span>
+									<ul class="top5">
+										<li>@Html.RouteLink("Diamond Pendants", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-pendants"},
+																		 {"page", 1},
+																	 }) </li>
+										<li>@Html.RouteLink("Diamond Bracelets", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-bracelets"},
+																		 {"page", 1},
+																	 }) </li>
+										<li>@Html.RouteLink("Diamond Wedding Rings", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "wedding"},
+																		 {"page", 1},
+																	 }) </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cell">
+						<div class="displayatom block">
+							<h1 class="title aligncenter">
+								@Html.RouteLink("Diamonds Studs", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 }, new { @class = "gray" })</h1>
+							<div class="give-pedding">
+								<div class="block aligncenter">
+                                <a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 })">
+									<img src="/Content/images/homepage/atoms/2-2.png" alt="Diamonds Studs"/></a>
+								</div>
+								<div class="cell bottomizer">
+									<span class="block desc">Our gorgeous Diamond Studs are available in a variety of designs
+										and metals. Choose from Round or Princess Cut studs, find the Perfect pair.
+										<br />
+										What could be more elegant and easier to wear than <strong>Diamond Studs</strong>?
+									</span>
+									<ul class="top5">
+										<li>@Html.RouteLink("18K Gold Diamonds Studs", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 }) </li>
+										<li>@Html.RouteLink("Round Diamonds Studs", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 }) </li>
+										<li>@Html.RouteLink("Princess Cut Diamond Studs", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 }) </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cell">
+						<div class="displayatom block">
+							<h1 class="title aligncenter">
+								
+								@Html.RouteLink("Wedding & Anniversary", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "wedding"},
+																		 {"page", 1},
+																	 }, new { @class = "gray" })
+																	 </h1>
+							<div class="give-pedding">
+								<div class="block aligncenter">
+                                <a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "wedding"},
+																		 {"page", 1},
+																	 })">
+									<img src="/Content/images/homepage/atoms/2-3.png" alt="Wedding & Anniversary" /></a>
+								</div>
+								<div class="cell bottomizer">
+									<span class="block desc">Declare your love with our collection of wedding rings and
+										anniversary bands. We offer diamond bands, diamond eternity rings, and 18k gold
+										or platinum wedding bands.<br />
+										<strong>Free Engraving</strong> with every order. </span>
+									<ul class="top5">
+										<li>@Html.RouteLink("Diamond Wedding Bands", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "bands"},
+																		 {"page", 1},
+																	 }) </li>
+										<li>@Html.RouteLink("Diamond Eternity Rings", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "eternity"},
+																		 {"page", 1},
+																	 }) </li>
+										<li>@Html.RouteLink("18K Gold Anniversary Bands", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "wedding"},
+																		 {"page", 1},
+																	 }) </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

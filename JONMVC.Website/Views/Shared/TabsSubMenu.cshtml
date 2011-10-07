@@ -1,0 +1,239 @@
+@model string
+@if (Model == "DiamondJewelryMenu")
+{
+
+	<li class="redarrow">
+		@Html.RouteLink("Diamond Jewelry", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "diamond-rings"},
+																			{"tabid", "engagement-rings"},
+																			{"page", 1},
+																		})
+		<div class="submenu top5">
+			<ul>
+				<li>@Html.RouteLink("Rings", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "diamond-rings"},
+																			{"tabid", "engagement-rings"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Studs", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "diamond-rings"},
+																			{"tabid", "diamond-studs"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Pendants & Necklaces", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "diamond-rings"},
+																			{"tabid", "diamond-pendants"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Bracelets", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "diamond-rings"},
+																			{"tabid", "diamond-bracelets"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Earrings", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "diamond-rings"},
+																			{"tabid", "diamond-earrings"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Men's", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "diamond-rings"},
+																			{"tabid", "diamond-mens"},
+																			{"page", 1},
+																		})</li>
+			</ul>
+		</div>
+	</li>
+
+
+				   
+					   
+			   
+}
+@if (Model == "GemstoneJewelryMenu")
+{
+
+	<li class="redarrow">
+		@Html.RouteLink("Gemstone Jewelry", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "gemstone-rings"},
+																			{"tabid", "engagement-rings"},
+																			{"page", 1},
+																		})
+		<div class="submenu top5">
+			<ul>
+				<li>@Html.RouteLink("Engagement Rings", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "gemstone-rings"},
+																			{"tabid", "engagement-rings"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Studs", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "gemstone-rings"},
+																			{"tabid", "gemstone-studs"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Pendants", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "gemstone-rings"},
+																			{"tabid", "gemstone-pendants"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Bracelets", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "gemstone-rings"},
+																			{"tabid", "gemstone-bracelets"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Earrings", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "gemstone-rings"},
+																			{"tabid", "gemstone-earrings"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Men's", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "gemstone-rings"},
+																			{"tabid", "gemstone-mens"},
+																			{"page", 1},
+																		})</li>
+			</ul>
+		</div>
+	</li>
+
+
+				   
+					   
+			   
+}
+@if (Model == "EngagementRings")
+{
+
+
+	<li class="redarrow">
+		@Html.RouteLink("Engagement Rings", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","solitaire-settings"},
+																										{"page", 1},
+																									})
+		<div class="submenu top5">
+			<ul>
+				<li>@Html.RouteLink("Solitaire", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","solitaire-settings"},
+																										{"page", 1},
+																									})</li>
+				<li>@Html.RouteLink("With Side Stones", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","sidestones-settings"},
+																										{"page", 1},
+																									})</li>
+				<li>@Html.RouteLink("Three Stone", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","threestone-settings"},
+																										{"page", 1},
+																									})</li>
+				<li>@Html.RouteLink("Pave Set", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","pave-settings"},
+																										{"page", 1},
+																									})</li>
+				<li>@Html.RouteLink("Bridal Sets", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","bridal-settings"},
+																										{"page", 1},
+																									})</li>
+				<li>@Html.RouteLink("Contemporary", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","contemporary-settings"},
+																										{"page", 1},
+																									})</li>
+			</ul>
+		</div>
+	</li>
+
+
+
+				   
+					   
+			   
+}
+
+@if (Model == "WeddingAndWnniversaryMenu")
+{
+
+	<li class="redarrow">
+		@Html.RouteLink("Wedding & Anniversary", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "wedding-and-anniversary"},
+																			{"tabid", "wedding"},
+																			{"page", 1},
+																		})
+		<div class="submenu top5">
+			<ul>
+				<li>@Html.RouteLink("Wedding", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "wedding-and-anniversary"},
+																			{"tabid", "wedding"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Eternity", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "wedding-and-anniversary"},
+																			{"tabid", "eternity"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Bands", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "wedding-and-anniversary"},
+																			{"tabid", "bands"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Men's", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "wedding-and-anniversary"},
+																			{"tabid", "mens"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Wedding Sets", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "wedding-and-anniversary"},
+																			{"tabid", "wedding-sets"},
+																			{"page", 1},
+																		})</li>
+				<li>@Html.RouteLink("Gemstone", "Tabs", new RouteValueDictionary()
+																		{
+																			{"tabkey", "wedding-and-anniversary"},
+																			{"tabid", "gemstone"},
+																			{"page", 1},
+																		})</li>
+			</ul>
+		</div>
+	</li>
+
+
+				   
+					   
+			   
+}

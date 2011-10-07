@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8DF0A5EE-55C0-431F-9222-FDE6F5D582B4}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JONMVC.Website</RootNamespace>
+    <AssemblyName>JONMVC.Website</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.0.0.232, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Bootstrapper, Version=2.0.1.27275, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bootstrapper.2.0.1.0\lib\Bootstrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Bootstrapper.AutoMapper, Version=1.0.0.38122, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bootstrapper.AutoMapper.2.0.0.0\lib\Bootstrapper.AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Calabonga.Mvc.Extentions">
+      <HintPath>..\packages\PagedListExt.0.3.2\lib\net40\Calabonga.Mvc.Extentions.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonLibrary">
+      <HintPath>..\packages\CommonLibrary.NET.0.9.6.1\lib\CommonLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\packages\DataAnnotationsExtensions.0.6.0.0\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions.ClientValidation">
+      <HintPath>..\packages\DataAnnotationsExtensions.MVC3.0.6.0.0\lib\NETFramework40\DataAnnotationsExtensions.ClientValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc">
+      <HintPath>..\packages\Mvc3Futures.3.0.20105.0\lib\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MoreLinq">
+      <HintPath>..\packages\morelinq.1.0\lib\net35\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Mvc.Mailer">
+      <HintPath>..\packages\MvcMailer.1.1\lib\40\Mvc.Mailer.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib, Version=3.0.88.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvcContrib.Mvc3-ci.3.0.88.0\lib\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib.FluentHtml, Version=3.0.88.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvcContrib.Mvc3.FluentHtml-ci.3.0.88.0\lib\MvcContrib.FluentHtml.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC3.2.2.2.0\lib\net40-Full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="NMoneys, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NMoneys.2.1.0.0\lib\Net20\NMoneys.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.IO.Abstractions, Version=1.4.0.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.IO.Abstractions.1.4.0.12\lib\net35\System.IO.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivator, Version=1.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebActivator.1.4.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\NinjectMVC3.cs" />
+    <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
+    <Compile Include="Controllers\EducationController.cs" />
+    <Compile Include="Controllers\GiftsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JewelDesignController.cs" />
+    <Compile Include="Controllers\JewelryItemController.cs" />
+    <Compile Include="Controllers\MyAccountController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\TabsController.cs" />
+    <Compile Include="Controllers\VIPController.cs" />
+    <Compile Include="Extensions\DBExtentions.cs" />
+    <Compile Include="Extensions\MVCExtentions.cs" />
+    <Compile Include="Extensions\prettyPhoto.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Mailers\AskQuestionEmailTemplateViewModel.cs" />
+    <Compile Include="Mailers\BestOfferViewModel.cs" />
+    <Compile Include="Mailers\EmailRingEmailTemplateViewModel.cs" />
+    <Compile Include="Mailers\EmailRingEmailTemplateViewModelBuilder.cs" />
+    <Compile Include="Mailers\EmailRingModel.cs" />
+    <Compile Include="Mailers\IUserMailer.cs" />
+    <Compile Include="Mailers\OrderConfirmationEmailTemplateViewModel.cs" />
+    <Compile Include="Mailers\OrderConfirmationEmailTemplateViewModelBuilder.cs" />
+    <Compile Include="Mailers\UserMailer.cs" />
+    <Compile Include="Models\AutoMapperMaps\AddressResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\AddressViewModelResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\AutoMapperMaps.cs" />
+    <Compile Include="Models\AutoMapperMaps\CartItemsResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\CartItemsViewModelResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\CreditCardResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\CustomerBillingAddressDBResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\CustomerShippingAddressDBResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\DecimalFormatter.cs" />
+    <Compile Include="Models\AutoMapperMaps\DescriptionFromEnumUsingAttributesResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\DiamondDesriptionResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\DiamondDimensionsResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\DiamondMediaResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\DiamondMediaType.cs" />
+    <Compile Include="Models\AutoMapperMaps\DiamondPageTitleResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\DiamondPrettyMediaResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\DoubleTypeZeroToNAFormatter.cs" />
+    <Compile Include="Models\AutoMapperMaps\EnumToIntResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\FromJsonToDataBase.cs" />
+    <Compile Include="Models\AutoMapperMaps\MergeOrdersAndCustomer.cs" />
+    <Compile Include="Models\AutoMapperMaps\MergeTwoObjectsForAutoMapper.cs" />
+    <Compile Include="Models\AutoMapperMaps\MyAccountHasAddressInformationResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\OrderBillingAddressDBResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\OrderCraditCartResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\OrderShippingAddressDBResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\OrderStatusResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\OrderSummeryResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\PaymentMethodFromIntResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\PaymentMethodResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\PrecentFormatter.cs" />
+    <Compile Include="Models\AutoMapperMaps\PriceFormatter.cs" />
+    <Compile Include="Models\AutoMapperMaps\ShortDateFormatter.cs" />
+    <Compile Include="Models\AutoMapperMaps\TotalPriceResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\WeightFormatter.cs" />
+    <Compile Include="Models\BestOfferEmailTemplateViewModel.cs" />
+    <Compile Include="Models\Checkout\Address.cs" />
+    <Compile Include="Models\Checkout\CartItemType.cs" />
+    <Compile Include="Models\Checkout\CheckoutDetailsModel.cs" />
+    <Compile Include="Models\Checkout\CookieAuthentication.cs" />
+    <Compile Include="Models\Checkout\CreditCard.cs" />
+    <Compile Include="Models\Checkout\Customer.cs" />
+    <Compile Include="Models\Checkout\CustomJewelCartItem.cs" />
+    <Compile Include="Models\Checkout\DataBaseCustomerAccountService.cs" />
+    <Compile Include="Models\Checkout\DiamondCartItem.cs" />
+    <Compile Include="Models\Checkout\ExtendedCustomer.cs" />
+    <Compile Include="Models\Checkout\IAuthentication.cs" />
+    <Compile Include="Models\Checkout\ICartItem.cs" />
+    <Compile Include="Models\Checkout\ICartItemViewModel.cs" />
+    <Compile Include="Models\Checkout\ICustomerAccountService.cs" />
+    <Compile Include="Models\Checkout\IOrderItem.cs" />
+    <Compile Include="Models\Checkout\IOrderRepository.cs" />
+    <Compile Include="Models\Checkout\IShoppingCart.cs" />
+    <Compile Include="Models\Checkout\IShoppingCartWrapper.cs" />
+    <Compile Include="Models\Checkout\Order.cs" />
+    <Compile Include="Models\Checkout\OrderBuilder.cs" />
+    <Compile Include="Models\Checkout\OrderItem.cs" />
+    <Compile Include="Models\Checkout\OrderRepository.cs" />
+    <Compile Include="Models\Checkout\OrderStatus.cs" />
+    <Compile Include="Models\Checkout\PaymentMethod.cs" />
+    <Compile Include="Models\Checkout\ShoppingCart.cs" />
+    <Compile Include="Models\Checkout\JewelCartItem.cs" />
+    <Compile Include="Models\Checkout\ShoppingCartItemsFactory.cs" />
+    <Compile Include="Models\Checkout\ShoppingCartWrapper.cs" />
+    <Compile Include="Models\DB\Dynamic.cs" />
+    <Compile Include="Models\DB\JONDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JONDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Diamonds\Diamond.cs" />
+    <Compile Include="Models\Diamonds\DiamondRepository.cs" />
+    <Compile Include="Models\Diamonds\DiamondSearchParameters.cs" />
+    <Compile Include="Models\Diamonds\IDiamond.cs" />
+    <Compile Include="Models\Diamonds\IDiamondRepository.cs" />
+    <Compile Include="Models\Helpers\DynamicSQLWhereObject.cs" />
+    <Compile Include="Models\Helpers\IPathBarGenerator.cs" />
+    <Compile Include="Models\Helpers\PathBarGenerator.cs" />
+    <Compile Include="Models\Helpers\PathBarResolver.cs" />
+    <Compile Include="Models\Helpers\TabsPathBarResolver.cs" />
+    <Compile Include="Models\Helpers\UsingDynamicTitlePathBarResolver.cs" />
+    <Compile Include="Models\Helpers\UsingTitlePathBarResolver.cs" />
+    <Compile Include="Models\JewelDesign\CustomJewelPersistenceBase.cs" />
+    <Compile Include="Models\JewelDesign\CustomJewelPersistenceForDiamondSearch.cs" />
+    <Compile Include="Models\JewelDesign\CustomJewelPersistenceForSetting.cs" />
+    <Compile Include="Models\JewelDesign\CustomJewelPersistenceInDiamond.cs" />
+    <Compile Include="Models\JewelDesign\CustomJewelPersistenceInEndPage.cs" />
+    <Compile Include="Models\JewelDesign\DiamondHelpBuilder.cs" />
+    <Compile Include="Models\JewelDesign\NagivationTabType.cs" />
+    <Compile Include="Models\JewelDesign\NavigationTab.cs" />
+    <Compile Include="Models\JewelDesign\RedirectSettingModel.cs" />
+    <Compile Include="Models\JewelDesign\TabsForJewelDesignNavigationBuilder.cs" />
+    <Compile Include="Models\JewelDesign\TabsForJewelDesignNavigation.cs" />
+    <Compile Include="Models\JewelryItem\BestOffer.cs" />
+    <Compile Include="Models\JewelryItem\IBestOffer.cs" />
+    <Compile Include="Models\JewelryItem\IJewelBeseInfo.cs" />
+    <Compile Include="Models\JewelryItem\IMediaSetBuilder.cs" />
+    <Compile Include="Models\JewelryItem\ITestimonialRepository.cs" />
+    <Compile Include="Models\JewelryItem\MediaSetBuilder.cs" />
+    <Compile Include="Models\JewelryItem\Testimonial.cs" />
+    <Compile Include="Models\JewelryItem\TestimonialRepository.cs" />
+    <Compile Include="Models\Jewelry\IJewelRepository.cs" />
+    <Compile Include="Models\Jewelry\IMetal.cs" />
+    <Compile Include="Models\Jewelry\ItemInitializerParameterObject.cs" />
+    <Compile Include="Models\Jewelry\JewelComponentInfoPart.cs" />
+    <Compile Include="Models\Jewelry\JewelryDynamicFilter.cs" />
+    <Compile Include="Models\Jewelry\JewelryDynamicOrderBy.cs" />
+    <Compile Include="Models\Jewelry\JewelryExtra.cs" />
+    <Compile Include="Models\Jewelry\JewelryExtraInitializerParameterObject.cs" />
+    <Compile Include="Models\Jewelry\JewelRepository.cs" />
+    <Compile Include="Models\Jewelry\Jewel.cs" />
+    <Compile Include="Models\Jewelry\Media.cs" />
+    <Compile Include="Models\Jewelry\MediaFactory.cs" />
+    <Compile Include="Models\Jewelry\MediaVerifier.cs" />
+    <Compile Include="Models\Jewelry\Metal.cs" />
+    <Compile Include="Models\Jewelry\JewelMediaType.cs" />
+    <Compile Include="Models\Ninject\StandardModule.cs" />
+    <Compile Include="Models\Services\CookieWishListPersistence.cs" />
+    <Compile Include="Models\Services\IViewModelBuilder.cs" />
+    <Compile Include="Models\Services\IWishListPersistence.cs" />
+    <Compile Include="Models\Services\WishListViewModelBuilder.cs" />
+    <Compile Include="Models\Tabs\InMemoryFilterItem.cs" />
+    <Compile Include="Models\Tabs\InMemoryOrderByItem.cs" />
+    <Compile Include="Models\Tabs\ITabsRepository.cs" />
+    <Compile Include="Models\Tabs\OrderByPrice.cs" />
+    <Compile Include="Models\Tabs\Tab.cs" />
+    <Compile Include="Models\Tabs\TabBase.cs" />
+    <Compile Include="Models\Tabs\JewelInTabContainer.cs" />
+    <Compile Include="Models\Tabs\TabPage.cs" />
+    <Compile Include="Models\Tabs\TabPageHelper.cs" />
+    <Compile Include="Models\Tabs\TabsRepository.cs" />
+    <Compile Include="Models\Utils\CustomAttributes.cs" />
+    <Compile Include="Models\Utils\IJONFormatter.cs" />
+    <Compile Include="Models\Utils\IWebHelpers.cs" />
+    <Compile Include="Models\Utils\IXmlSourceFactory.cs" />
+    <Compile Include="Models\Utils\JONFormatter.cs" />
+    <Compile Include="Models\Utils\ISettingManager.cs" />
+    <Compile Include="Models\Utils\SettingManager.cs" />
+    <Compile Include="Models\Utils\WebHelpers.cs" />
+    <Compile Include="Models\Utils\XmlSourceFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Builders\BillingViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\CartItemViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\ChooseSettingViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\DiamondSearchViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\DiamondViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\EndViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\JewelryItemViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\MyAccountViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\OrderConfirmationViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\OrderStatusViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\ReviewOrderViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\SettingViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\ShoppingCartViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\TabsViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\MergeDiamondAndJewel.cs" />
+    <Compile Include="ViewModels\Json\Builders\DiamondSearchParametersGivenByJson.cs" />
+    <Compile Include="ViewModels\Json\Builders\JsonDiamondsBuilder.cs" />
+    <Compile Include="ViewModels\Json\Builders\JsonMedia.cs" />
+    <Compile Include="ViewModels\Json\Builders\MediaSetsJsonModelBuilder.cs" />
+    <Compile Include="ViewModels\Json\Views\DiamondGridRow.cs" />
+    <Compile Include="ViewModels\Json\Views\DiamondsJsonModel.cs" />
+    <Compile Include="ViewModels\Json\Views\JsonModelBase.cs" />
+    <Compile Include="ViewModels\Json\Views\MediaSetsJsonModel.cs" />
+    <Compile Include="ViewModels\Json\Views\OporationWithoutReturnValueJsonModel.cs" />
+    <Compile Include="ViewModels\Views\AddressViewModel.cs" />
+    <Compile Include="ViewModels\Views\BillingViewModel.cs" />
+    <Compile Include="ViewModels\Views\CheckMyOrderStatusViewModel.cs" />
+    <Compile Include="ViewModels\Views\ChooseSettingViewModel.cs" />
+    <Compile Include="ViewModels\Views\CreditCardViewModel.cs" />
+    <Compile Include="ViewModels\Views\CustomJewelCartItemViewModel.cs" />
+    <Compile Include="ViewModels\Views\DiamondCartItemViewModel.cs" />
+    <Compile Include="ViewModels\Views\DiamondSearchViewModel.cs" />
+    <Compile Include="ViewModels\Views\DiamondViewModel.cs" />
+    <Compile Include="ViewModels\Views\EmptyViewModel.cs" />
+    <Compile Include="ViewModels\Views\EndViewModel.cs" />
+    <Compile Include="ViewModels\Views\FeedBackskViewModel.cs" />
+    <Compile Include="ViewModels\Views\IJewelryItemViewModel.cs" />
+    <Compile Include="ViewModels\Views\IPageViewModelBase.cs" />
+    <Compile Include="ViewModels\Views\ITabsViewModel.cs" />
+    <Compile Include="ViewModels\Views\JewelCartItemViewModel.cs" />
+    <Compile Include="ViewModels\Views\JewelryItemViewModel.cs" />
+    <Compile Include="ViewModels\Views\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Views\MyAccountViewModel.cs" />
+    <Compile Include="ViewModels\Views\OrderConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\Views\OrderStatusViewModel.cs" />
+    <Compile Include="ViewModels\Views\OrderSummeryViewModel.cs" />
+    <Compile Include="ViewModels\Views\PageViewModelBase.cs" />
+    <Compile Include="ViewModels\Views\RecoverPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Views\RegisterCustomerViewModel.cs" />
+    <Compile Include="ViewModels\Views\ReviewOrderViewModel.cs" />
+    <Compile Include="ViewModels\Views\SearchViewModel.cs" />
+    <Compile Include="ViewModels\Views\SelectSourceFactory.cs" />
+    <Compile Include="ViewModels\Views\SettingViewModel.cs" />
+    <Compile Include="ViewModels\Views\ShoppingCartViewModel.cs" />
+    <Compile Include="ViewModels\Views\SigninViewModel.cs" />
+    <Compile Include="ViewModels\Views\TabsViewModel.cs" />
+    <Compile Include="ViewModels\Views\TestimonialViewModel.cs" />
+    <Compile Include="ViewModels\Views\WishListItemViewModel.cs" />
+    <Compile Include="ViewModels\Views\WishListViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\glimpse.readme.txt" />
+    <Content Include="Content\blocks.css" />
+    <Content Include="Content\images\checkout\shoppingcart\cc.png" />
+    <Content Include="Content\images\checkout\shoppingcart\complete.png" />
+    <Content Include="Content\images\checkout\shoppingcart\continue.png" />
+    <Content Include="Content\images\checkout\shoppingcart\paypal.png" />
+    <Content Include="Content\images\checkout\shoppingcart\proceed-to-checkout.png" />
+    <Content Include="Content\images\checkout\shoppingcart\steps-bg.png" />
+    <Content Include="Content\images\checkout\shoppingcart\wf.png" />
+    <Content Include="Content\images\homepage\atoms-top-bg.png" />
+    <Content Include="Content\images\homepage\atoms\1-1.png" />
+    <Content Include="Content\images\homepage\atoms\1-3.png" />
+    <Content Include="Content\images\homepage\atoms\2-1.png" />
+    <Content Include="Content\images\homepage\atoms\2-2.png" />
+    <Content Include="Content\images\homepage\atoms\2-3.png" />
+    <Content Include="Content\images\homepage\atoms\emerald.png" />
+    <Content Include="Content\images\homepage\atoms\princess-diamond.png" />
+    <Content Include="Content\images\homepage\atoms\radiant-diamond.png" />
+    <Content Include="Content\images\homepage\atoms\round-diamond.png" />
+    <Content Include="Content\images\homepage\atoms\ruby.png" />
+    <Content Include="Content\images\homepage\atoms\sapphire.png" />
+    <Content Include="Content\images\homepage\atoms\search.png" />
+    <Content Include="Content\images\homepage\banner.png" />
+    <Content Include="Content\images\item\skeleton\3d-view.png" />
+    <Content Include="Content\images\item\skeleton\addtocart.png" />
+    <Content Include="Content\images\item\skeleton\email.png" />
+    <Content Include="Content\images\item\skeleton\facebook-share.png" />
+    <Content Include="Content\images\item\skeleton\loopa.png" />
+    <Content Include="Content\images\item\skeleton\make-offer.png" />
+    <Content Include="Content\images\item\skeleton\policy-bg.png" />
+    <Content Include="Content\images\item\skeleton\print.png" />
+    <Content Include="Content\images\item\skeleton\send-offer.png" />
+    <Content Include="Content\images\item\skeleton\wishlist.png" />
+    <Content Include="Content\images\jeweldesign\diamond\select-this-diamond.png" />
+    <Content Include="Content\images\jeweldesign\finish\add-to-cart.png" />
+    <Content Include="Content\images\jeweldesign\finish\appraisal.png" />
+    <Content Include="Content\images\jeweldesign\finish\report.png" />
+    <Content Include="Content\images\jeweldesign\finish\setting-appraisel-large.png" />
+    <Content Include="Content\images\jeweldesign\refine\buttons\botton-down-34.png" />
+    <Content Include="Content\images\jeweldesign\refine\buttons\botton-up-34.png" />
+    <Content Include="Content\images\jeweldesign\refine\buttons\button-down.png" />
+    <Content Include="Content\images\jeweldesign\refine\buttons\button-up.png" />
+    <Content Include="Content\images\jeweldesign\refine\gen\buttom-info.png" />
+    <Content Include="Content\images\jeweldesign\refine\gen\filter-bg.jpg" />
+    <Content Include="Content\images\jeweldesign\refine\gen\upper-info.png" />
+    <Content Include="Content\images\jeweldesign\refine\shapes\shape-sprite.png" />
+    <Content Include="Content\images\jeweldesign\refine\sliders\bg-between.png" />
+    <Content Include="Content\images\jeweldesign\refine\sliders\hand-left.png" />
+    <Content Include="Content\images\jeweldesign\refine\sliders\hand-right.png" />
+    <Content Include="Content\images\jeweldesign\refine\sliders\slider-track-bg.png" />
+    <Content Include="Content\images\jeweldesign\setting\select-this-ring.png" />
+    <Content Include="Content\images\jeweldesign\tabs\bg-off.png" />
+    <Content Include="Content\images\jeweldesign\tabs\bg-on.png" />
+    <Content Include="Content\images\jeweldesign\tabs\diamond.png" />
+    <Content Include="Content\images\jeweldesign\tabs\package.jpg" />
+    <Content Include="Content\images\jeweldesign\tabs\package.png" />
+    <Content Include="Content\images\jeweldesign\tabs\ring.png" />
+    <Content Include="Content\images\pages\diamonds\1-1.png" />
+    <Content Include="Content\images\pages\diamonds\1-2.png" />
+    <Content Include="Content\images\pages\diamonds\1-3.png" />
+    <Content Include="Content\images\pages\engagement\1-1.png" />
+    <Content Include="Content\images\pages\engagement\1-2.png" />
+    <Content Include="Content\images\pages\engagement\1-3.png" />
+    <Content Include="Content\images\pages\gift\1-1.png" />
+    <Content Include="Content\images\pages\gift\1-2.png" />
+    <Content Include="Content\images\pages\gift\1-3.png" />
+    <Content Include="Content\images\pages\pitch-diamonds.png" />
+    <Content Include="Content\images\pages\pitch-engagement.png" />
+    <Content Include="Content\images\pages\pitch-gift.png" />
+    <Content Include="Content\images\pages\pitch-jewel-design.png" />
+    <Content Include="Content\images\pages\pitch-studs.png" />
+    <Content Include="Content\images\pages\pitch-vip.png" />
+    <Content Include="Content\images\pages\pitch-wedding.png" />
+    <Content Include="Content\images\pages\studs\1-1.png" />
+    <Content Include="Content\images\pages\studs\1-2.png" />
+    <Content Include="Content\images\pages\studs\1-3.png" />
+    <Content Include="Content\images\pages\wedding\1-1.png" />
+    <Content Include="Content\images\pages\wedding\1-2.png" />
+    <Content Include="Content\images\pages\wedding\1-3.png" />
+    <Content Include="Content\images\pages\wedding\2-1.png" />
+    <Content Include="Content\images\pages\wedding\2-2.png" />
+    <Content Include="Content\images\pages\wedding\2-3.png" />
+    <Content Include="Content\images\seals\1.png" />
+    <Content Include="Content\images\seals\2.png" />
+    <Content Include="Content\images\seals\3.png" />
+    <Content Include="Content\images\seals\4.png" />
+    <Content Include="Content\images\seals\5.png" />
+    <Content Include="Content\images\seals\6.png" />
+    <Content Include="Content\images\services\getintouch\big-picture.png" />
+    <Content Include="Content\images\services\getintouch\icons\back.png" />
+    <Content Include="Content\images\services\getintouch\icons\chat.png" />
+    <Content Include="Content\images\services\getintouch\icons\email.png" />
+    <Content Include="Content\images\services\getintouch\icons\phone-blue.png" />
+    <Content Include="Content\images\services\getintouch\icons\phone.png" />
+    <Content Include="Content\images\services\getintouch\skeleton\big-block-bg.png" />
+    <Content Include="Content\images\services\getintouch\skeleton\send.png" />
+    <Content Include="Content\images\services\getintouch\skeleton\small-block-bg.png" />
+    <Content Include="Content\images\services\wishlist\icons\ask-friend.png" />
+    <Content Include="Content\images\services\wishlist\icons\email.png" />
+    <Content Include="Content\images\services\wishlist\icons\remove.png" />
+    <Content Include="Content\images\skeleton\button-bg.png" />
+    <Content Include="Content\images\skeleton\custom-order-bg.png" />
+    <Content Include="Content\images\skeleton\footer-link-sep-bg.png" />
+    <Content Include="Content\images\skeleton\footer-sep-bg.png" />
+    <Content Include="Content\images\skeleton\menu-sep-bg.png" />
+    <Content Include="Content\images\skeleton\navbar-bg.png" />
+    <Content Include="Content\images\skeleton\navbar-bulletin.png" />
+    <Content Include="Content\images\skeleton\pitch-bg.png" />
+    <Content Include="Content\images\skeleton\red-down-arrow.png" />
+    <Content Include="Content\images\skeleton\search-button.png" />
+    <Content Include="Content\images\skeleton\shop-by-product-title.png" />
+    <Content Include="Content\images\skeleton\special-offers-send.png" />
+    <Content Include="Content\images\skeleton\special-offers-stars-bg.png" />
+    <Content Include="Content\images\skeleton\topmenu-bg.png" />
+    <Content Include="Content\images\skeleton\topmenu-navbar-bg.png" />
+    <Content Include="Content\images\skeleton\topmenu-sprite.png" />
+    <Content Include="Content\images\tabs\item\combo-arrow.png" />
+    <Content Include="Content\images\tabs\item\make-offer.png" />
+    <Content Include="Content\images\tabs\item\movie.png" />
+    <Content Include="Content\images\tabs\sprites\diamond-engagement-rings.png" />
+    <Content Include="Content\images\tabs\sprites\diamond-jewelry.png" />
+    <Content Include="Content\images\tabs\sprites\gemstone-jewelry.png" />
+    <Content Include="Content\images\tabs\sprites\jewel-design-settings.png" />
+    <Content Include="Content\images\tabs\sprites\wedding-jewelry.png" />
+    <Content Include="Content\images\validation\confirm.png" />
+    <Content Include="Content\images\validation\ValidationError.png" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\Pager.css" />
+    <Content Include="Content\plugins\ellipsis-xbl.xml" />
+    <Content Include="Content\plugins\images\backgrounds\bodyBackground.jpg" />
+    <Content Include="Content\plugins\images\backgrounds\checkmark.gif" />
+    <Content Include="Content\plugins\images\blank.gif" />
+    <Content Include="Content\plugins\images\close.gif" />
+    <Content Include="Content\plugins\images\fullscreen\1.jpg" />
+    <Content Include="Content\plugins\images\fullscreen\2.jpg" />
+    <Content Include="Content\plugins\images\fullscreen\3.jpg" />
+    <Content Include="Content\plugins\images\fullscreen\4.jpg" />
+    <Content Include="Content\plugins\images\fullscreen\5.jpg" />
+    <Content Include="Content\plugins\images\fullscreen\6.jpg" />
+    <Content Include="Content\plugins\images\fullscreen\DSC05016.jpg" />
+    <Content Include="Content\plugins\images\fullscreen\DSCF0031.JPG" />
+    <Content Include="Content\plugins\images\fullscreen\high.gif" />
+    <Content Include="Content\plugins\images\fullscreen\huge.gif" />
+    <Content Include="Content\plugins\images\fullscreen\wide.gif" />
+    <Content Include="Content\plugins\images\lightbox-blank.gif" />
+    <Content Include="Content\plugins\images\lightbox-btn-close.gif" />
+    <Content Include="Content\plugins\images\lightbox-btn-next.gif" />
+    <Content Include="Content\plugins\images\lightbox-btn-prev.gif" />
+    <Content Include="Content\plugins\images\lightbox-ico-loading.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\plugins\images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Content\plugins\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\plugins\images\stars.png" />
+    <Content Include="Content\plugins\images\thumbnails\flash-logo.png" />
+    <Content Include="Content\plugins\images\thumbnails\quicktime-logo.gif" />
+    <Content Include="Content\plugins\images\thumbnails\t_1.jpg" />
+    <Content Include="Content\plugins\images\thumbnails\t_2.jpg" />
+    <Content Include="Content\plugins\images\thumbnails\t_3.jpg" />
+    <Content Include="Content\plugins\images\thumbnails\t_4.jpg" />
+    <Content Include="Content\plugins\images\thumbnails\t_5.jpg" />
+    <Content Include="Content\plugins\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\plugins\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\plugins\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\plugins\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\plugins\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\plugins\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\plugins\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\plugins\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\plugins\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\plugins\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\plugins\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\plugins\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\plugins\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\plugins\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\plugins\jquery-ui-1.8.9.custom.css" />
+    <Content Include="Content\plugins\jquery.lightbox-0.5.css" />
+    <Content Include="Content\plugins\jquery.msg.css" />
+    <Content Include="Content\plugins\prettyPhoto.css" />
+    <Content Include="Content\plugins\ui.jqgrid.css" />
+    <Content Include="Content\search.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.all.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.base.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Flash\flowplayer-3.2.7.swf" />
+    <Content Include="Flash\flowplayer.controls-3.2.5.swf" />
+    <Content Include="Global.asax" />
+    <Content Include="InstallationDummyFile.txt" />
+    <Content Include="Models\JewelDesign\diamondhelp.xml" />
+    <Content Include="Models\Tabs\tabs.xml" />
+    <Content Include="Scripts\Classes.js" />
+    <Content Include="Scripts\flowplayer-3.2.4.min.js" />
+    <Content Include="Scripts\grid.locale-en.js" />
+    <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.16.js" />
+    <Content Include="Scripts\jquery-ui-1.8.16.min.js" />
+    <Content Include="Scripts\jquery.center.min.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.hoverIntent.minified.js" />
+    <Content Include="Scripts\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jquery.jqGrid.src.js" />
+    <Content Include="Scripts\jquery.msg.min.js" />
+    <Content Include="Scripts\jquery.prettyPhoto.js" />
+    <Content Include="Scripts\jquery.qtip-1.0.0-rc3.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jQueryExtentions.js" />
+    <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\images\checkout\validation\" />
+    <Folder Include="Content\images\services\getintouch\wishlist\icons\" />
+    <Folder Include="Content\images\skeleton\New folder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutNoMenu.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <EntityDeploy Include="Models\DB\JONDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JONDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Views\Tabs\PresentTabs.cshtml" />
+    <Content Include="Views\Departments\Diamonds.cshtml" />
+    <Content Include="Views\Departments\DiamondStuds.cshtml" />
+    <Content Include="Views\Departments\EngagementRings.cshtml" />
+    <Content Include="Views\Departments\WeddingAndAnniversary.cshtml" />
+    <Content Include="Views\Departments\DesignerJewelry.cshtml" />
+    <Content Include="Views\JewelryItem\Index.cshtml" />
+    <Content Include="Views\JewelDesign\DiamondSearch.cshtml" />
+    <Content Include="Views\JewelDesign\Tabs.cshtml" />
+    <Content Include="Views\JewelDesign\Diamond.cshtml" />
+    <Content Include="Views\JewelDesign\ChooseSetting.cshtml" />
+    <Content Include="Views\JewelDesign\End.cshtml" />
+    <Content Include="Views\JewelDesign\Setting.cshtml" />
+    <Content Include="Views\Checkout\ShoppingCart.cshtml" />
+    <Content Include="Views\Checkout\JewelCartItem.cshtml" />
+    <Content Include="Views\Checkout\Billing.cshtml" />
+    <Content Include="Views\Checkout\ReviewOrder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Checkout\DiamondCartItem.cshtml" />
+    <Content Include="Views\Checkout\CustomJewelCartItem.cshtml" />
+    <Content Include="Views\Checkout\OrderConfirmation.cshtml" />
+    <Content Include="Views\JewelryItem\BestOffer.cshtml" />
+    <Content Include="Views\UserMailer\_Layout.cshtml" />
+    <Content Include="Views\UserMailer\BestOfferAdmin.cshtml" />
+    <Content Include="Views\UserMailer\BestOfferCustomer.cshtml" />
+    <Content Include="Views\Services\Wishlist.cshtml" />
+    <Content Include="Views\Services\GetInTouch.cshtml" />
+    <Content Include="Views\Shared\PathBar.cshtml" />
+    <Content Include="Views\UserMailer\AskQuestion.cshtml" />
+    <Content Include="Views\Services\FAQ.cshtml" />
+    <Content Include="Views\Services\Policy.cshtml" />
+    <Content Include="Views\Services\Feedbacks.cshtml" />
+    <Content Include="Views\Checkout\OrdersStatus.cshtml" />
+    <Content Include="Views\Checkout\CartItemCount.cshtml" />
+    <Content Include="Views\Education\Index.cshtml" />
+    <Content Include="Views\Departments\GiftIdeas.cshtml" />
+    <Content Include="Views\VIP\Club.cshtml" />
+    <Content Include="Views\Services\Affiliate.cshtml" />
+    <Content Include="Views\Services\AboutUs.cshtml" />
+    <Content Include="Views\Services\CustomOrders.cshtml" />
+    <Content Include="Views\Services\ConflictFreeDiamonds.cshtml" />
+    <Content Include="Views\Services\Engraving.cshtml" />
+    <Content Include="Views\Education\Diamond.cshtml" />
+    <Content Include="Views\Education\Gemstone.cshtml" />
+    <Content Include="Views\Shared\TabsSubMenu.cshtml" />
+    <Content Include="Views\JewelDesign\DiamondHelp.cshtml" />
+    <Content Include="Views\JewelryItem\FindYourRingSize.cshtml" />
+    <Content Include="Views\Gifts\BirthDayGifts.cshtml" />
+    <Content Include="Views\MyAccount\CheckMyOrderStatus.cshtml" />
+    <Content Include="Views\MyAccount\Register.cshtml" />
+    <Content Include="Views\MyAccount\ThankYouForJoining.cshtml" />
+    <Content Include="Views\MyAccount\Signin.cshtml" />
+    <Content Include="Views\JewelDesign\Index.cshtml" />
+    <Content Include="Views\Shared\OrderWithConfidence.cshtml" />
+    <Content Include="Views\Shared\ShippingInformation.cshtml" />
+    <Content Include="Views\Shared\JewelItemBaseInfoTable.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserMailer\OrderConfirmation.cshtml" />
+    <Content Include="Views\UserMailer\JewelCartItem.cshtml" />
+    <Content Include="Views\UserMailer\DiamondCartItem.cshtml" />
+    <Content Include="Views\UserMailer\CustomJewelCartItem.cshtml" />
+    <Content Include="Views\MyAccount\RecoverPassword.cshtml" />
+    <Content Include="Views\UserMailer\RecoverPassword.cshtml" />
+    <Content Include="Views\Shared\Testamonials.cshtml" />
+    <Content Include="Views\Tabs\RegularInTabView.cshtml" />
+    <Content Include="Views\Tabs\BestOfferInTabView.cshtml" />
+    <Content Include="Views\Tabs\SpecialOfferInTabView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\images\homepage\atoms\block icons.psd" />
+    <None Include="Content\images\homepage\atoms\tabs.psd" />
+    <Content Include="Views\UserMailer\EmailRing.cshtml" />
+    <Content Include="Views\Services\Search.cshtml" />
+    <Content Include="Views\MyAccount\Index.cshtml" />
+    <Content Include="Views\Tabs\NavigationTabStrip.cshtml" />
+    <Content Include="Views\Shared\HeadersForLayout.cshtml" />
+    <Content Include="Views\Shared\TopManuAndNavBar.cshtml" />
+    <Content Include="Views\Shared\EmailRing.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50972</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,151 @@
+﻿@using JONMVC.Website.Models.Checkout
+@using JONMVC.Website.ViewModels.Views
+@model JONMVC.Website.ViewModels.Views.ShoppingCartViewModel
+@{
+    ViewBag.Title = "Checkout process: shopping cart";
+    Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
+}
+<div class="table width100 top10">
+    <div class="row">
+        <div class="cell alignleft">
+            <ul class="steps">
+                <li class="title">Shopping Cart</li>
+                <li class="first active">BILLING/SHIPPING</li>
+                <li class="second">ORDER REVIEW</li>
+                <li class="third">ORDER CONFIRMATION</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="table width100 top10">
+    <div class="row cartbody">
+        <div class="cell">
+            @foreach (var item in Model.CartItems)
+            {
+                @Html.Partial(item.PartialName, item)
+
+            }
+            <span>FREE Inscription with every ring - Click Here </span>
+            <div class="totaldiv width100 clear">
+                <span class="right price">@Model.TotalPrice</span> <span class="right">Total :</span>
+                <div class="clear">
+                </div>
+            </div>
+            <span><strong>Our Guarantee</strong></span> <span class="top10">All of Our Items Are
+                Brand New 100% Natural Diamonds & Gemstones No-risk 14 Day Money Back Guarantee
+                Certificate of Authenticity is Included Free Worldwide Insured Shipping Free Exclusive
+                Gift Box with Every Item Free Ring Sizing</span>
+        </div>
+        <div class="cell sep">
+        </div>
+        <div class="cell">
+            @using (Html.BeginForm("Billing", "Checkout", FormMethod.Post, new { @class = "cart block" }))
+            {
+                <span>Choose your preferred payment method:</span>
+       
+                <div class="block left aligncenter payment top10">
+                    <img src="/Content/images/checkout/shoppingcart/paypal.png" />
+                    @Html.RadioButtonFor(x => x.PaymentMethod, PaymentMethod.PayPal, new { @class = "block center", @checked = true })
+                    <span class="top5">PayPal</span>
+                </div>
+
+                <div class="block left aligncenter payment top10">
+                    <img src="/Content/images/checkout/shoppingcart/cc.png" />
+                    @Html.RadioButtonFor(x => x.PaymentMethod, PaymentMethod.CraditCard, new { @class = "block center" })
+                    <span class="top5">Credit Card</span>
+                </div>
+
+                <div class="block left aligncenter payment top10">
+                    <img src="/Content/images/checkout/shoppingcart/wf.png" />
+                    @Html.RadioButtonFor(x => x.PaymentMethod, PaymentMethod.WireTransfer, new { @class = "block center" })
+                    <span class="top5">Wire Transfer<br />
+                        <strong>2.00% Off</strong></span>
+                </div>
+                <div class="clear">
+                </div>
+
+
+
+                if (Model.IsSignedIn)
+                {
+                    <div class="top10">
+                        You are logged in as <strong class="sitered inline">@Model.Email</strong>  <br />
+                    Not you? @Html.ActionLink("Logout","Signout","MyAccount") 
+                    </div>
+                }
+                else
+                {
+                <fieldset class="shoppingcart-form">
+                    <legend>Contact Information:</legend>
+                    <dl>
+                        <dt>
+                            <label for="firstname">
+                                First name:</label>
+                        </dt>
+                        <dd>
+                            @Html.TextBoxFor(m => m.FirstName)
+                            <span data-valmsg-replace="false" data-valmsg-for="FirstName" class="field-validation-valid">
+                            </span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label for="lastname">
+                                Last name:</label></dt>
+                        <dd>
+                            @Html.TextBoxFor(m => m.LastName)
+                            <span data-valmsg-replace="false" data-valmsg-for="LastName" class="field-validation-valid">
+                            </span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label for="email">
+                                E-mail:</label></dt>
+                        <dd>@Html.TextBoxFor(m => m.Email)
+                            <span data-valmsg-replace="false" data-valmsg-for="Email" class="field-validation-valid">
+                            </span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label for="confirmemail">
+                                Confirm E-mail:</label></dt>
+                        <dd>@Html.TextBoxFor(m => m.ConfirmEmail) <span data-valmsg-replace="false" data-valmsg-for="ConfirmEmail"
+                            class="field-validation-valid"></span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label for="phone">
+                                Phone:</label></dt>
+                        <dd>@Html.TextBoxFor(m => m.Phone) <span data-valmsg-replace="false" data-valmsg-for="Phone"
+                            class="field-validation-valid"></span>
+                        </dd>
+                    </dl>
+                </fieldset>
+                }
+				
+
+			 
+
+                <div class="block aligncenter top10 clear">
+                    <input type="image" src="/Content/images/checkout/shoppingcart/proceed-to-checkout.png"
+                        class="right top10 block" />
+                    <div class="clear">
+                    </div>
+                </div>
+
+                <span class="top10"><strong>Shipping Information</strong></span>
+                @Html.Partial("ShippingInformation")
+
+            }
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        Checkout.RegisterJewelSizeCombo();
+    })
+
+</script>

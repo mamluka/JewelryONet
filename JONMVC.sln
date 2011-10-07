@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JONMVC.Website", "JONMVC.Website\JONMVC.Website.csproj", "{8DF0A5EE-55C0-431F-9222-FDE6F5D582B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JONMVC.Website.Tests.Unit", "JONMVC.Website.Tests.Unit\JONMVC.Website.Tests.Unit.csproj", "{C0BEB89D-4F8F-404D-89E8-8A65C2953B29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JONMVC.Website.Tests.Integration", "JONMVC.Website.Tests.Integration\JONMVC.Website.Tests.Integration.csproj", "{87C8B069-5168-4176-8C62-5F8985EF576A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DF0A5EE-55C0-431F-9222-FDE6F5D582B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF0A5EE-55C0-431F-9222-FDE6F5D582B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF0A5EE-55C0-431F-9222-FDE6F5D582B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF0A5EE-55C0-431F-9222-FDE6F5D582B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0BEB89D-4F8F-404D-89E8-8A65C2953B29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BEB89D-4F8F-404D-89E8-8A65C2953B29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BEB89D-4F8F-404D-89E8-8A65C2953B29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BEB89D-4F8F-404D-89E8-8A65C2953B29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87C8B069-5168-4176-8C62-5F8985EF576A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C8B069-5168-4176-8C62-5F8985EF576A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C8B069-5168-4176-8C62-5F8985EF576A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C8B069-5168-4176-8C62-5F8985EF576A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

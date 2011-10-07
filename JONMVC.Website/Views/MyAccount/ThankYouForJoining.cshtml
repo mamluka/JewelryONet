@@ -1,0 +1,10 @@
+﻿@model JONMVC.Website.ViewModels.Views.EmptyViewModel
+
+@{
+    ViewBag.Title = "My Account:Thank you for joining";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() {new KeyValuePair<string, string>("Joining", "")})
+}
+<h2>ThankYouForJoining</h2>

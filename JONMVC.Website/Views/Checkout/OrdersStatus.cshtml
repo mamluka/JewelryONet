@@ -1,0 +1,174 @@
+﻿@model JONMVC.Website.ViewModels.Views.OrderStatusViewModel
+@{
+    ViewBag.Title = "Check your status of your order at JewelryONet.com";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string,string>>() { new KeyValuePair<string, string>("Order Status","")} )
+}
+<div class="ordersummery rounded-white-container">
+    <div class="table">
+        <div class="row">
+            <div class="cell">
+                My Order Summary - Order <span class="redbold inline">#@Model.OrderNumber</span></div>
+            <div class="cell">
+                Order Status: <span class="redbold inline">@Model.Status</span> </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <h4>
+                    Shipping Method:</h4>
+                FedEx International Priority<br />
+                Tracking Number: @Model.TrackingNumber
+            </div>
+            <div class="cell">
+                <h4>
+                    Payment Method:</h4>
+                Payed through @Model.PaymentMethod on @Model.PaymentDate
+            </div>
+        </div>
+    </div>
+    <div class="cartbody">
+        @foreach (var item in Model.Items)
+        {
+            item.NoActionLinkDispalyOnly = true;
+            @Html.Partial(item.PartialName, item)
+
+        }
+        <div class="totaldiv width100 clear">
+            <span class="right price">@Model.TotalPrice</span> <span class="right">Total :</span>
+            <div class="clear">
+            </div>
+        </div>
+       
+    </div>
+</div>
+<div class="ordersummery rounded-white-container top10">
+<h3 class="smalltitle">My presonal details</h3>
+    <div class="table width100 full-address-details top10">
+            <div class="row">
+                <div class="cell">
+                    <span class="redbold bold">Billing Information:</span>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                First name:
+                            </td>
+                            <td>@Model.BillingAddress.FirstName
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                First name:
+                            </td>
+                            <td>@Model.BillingAddress.LastName
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Address:
+                            </td>
+                            <td>@Model.BillingAddress.Address1
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                City:
+                            </td>
+                            <td>@Model.BillingAddress.City
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Country:
+                            </td>
+                            <td>@Model.BillingAddress.Country
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                State:
+                            </td>
+                            <td>@Model.BillingAddress.State
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zip code:
+                            </td>
+                            <td>@Model.BillingAddress.ZipCode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Phone #:
+                            </td>
+                            <td>@Model.BillingAddress.Phone
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="cell">
+                    <span class="redbold bold">Shipping Information:</span>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                First name:
+                            </td>
+                            <td>@Model.ShippingAddress.FirstName
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                First name:
+                            </td>
+                            <td>@Model.ShippingAddress.LastName
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Address:
+                            </td>
+                            <td>@Model.ShippingAddress.Address1
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                City:
+                            </td>
+                            <td>@Model.ShippingAddress.City
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Country:
+                            </td>
+                            <td>@Model.ShippingAddress.Country
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                State:
+                            </td>
+                            <td>@Model.ShippingAddress.State
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zip code:
+                            </td>
+                            <td>@Model.ShippingAddress.ZipCode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Phone #:
+                            </td>
+                            <td>@Model.ShippingAddress.Phone
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>

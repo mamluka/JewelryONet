@@ -1,0 +1,13 @@
+﻿@model JONMVC.Website.Models.Tabs.JewelInTabContainer
+
+<div class="item left">
+							<a href="@Url.RouteUrl("JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet })">
+								<img src="@Model.PictureURL"  alt="@Model.Description" />
+							</a>
+							@Html.RouteLink(Model.Description, "JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet }, new { @class = "block top5" })
+							<div class="top5">
+								<a href="@Url.RouteUrl("JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet })">
+									<img src="/Content/images/tabs/item/make-offer.png" class="left" alt="3D Movie" />
+								</a><span class="price right">@Model.Price</span>
+							</div>
+						</div>

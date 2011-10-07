@@ -1,0 +1,133 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@using MvcContrib.FluentHtml
+@inherits ModelWebViewPage<EndViewModel>
+
+@{
+    ViewBag.Title = "Design Your Own Ring: Your Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() {new KeyValuePair<string, string>("Your Order", "")})
+}
+@Html.Partial("Tabs", Model.TabsForJewelDesignNavigation)
+
+@using (Html.BeginForm("ShoppingCartAddCustomJewel", "Checkout"))
+ {
+
+     <div class="table" >
+         <div class="row">
+             <div class="cell">
+                 <div class="table finishatom top10" >
+                     <div class="row">
+                         <div class="cell pic aligncenter">
+                             <img src="@Model.SettingIcon" class="center" />
+                    
+                         </div>
+                         <div class="cell report">
+                         <a href="/Content/images/jeweldesign/finish/setting-appraisel-large.png" rel="prettyPhoto">
+                             <img src="/Content/images/jeweldesign/finish/appraisal.png"  /></a>
+                             <a href="#"  class="block">Your Appraisal</a>
+                         </div>
+                         <div class="cell details">
+                             <span class="bold">Your Ring:</span>
+                             @Html.Partial("JewelItemBaseInfoTable",Model)
+                    
+                             <div class="table belowdetails width100">
+                                 <div class="row">
+                                     <div class="cell sizelabel">Size:</div>
+                                     <div class="cell size">
+                                         @this.Select("size").Options(new SelectList(SelectSourceFactory.RingSizes,"Key","Value")).Class("jewelsize")
+                                         <span class="block">@Html.ActionLink("Find Your Ring Size","FindYourRingSize","JewelryItem")</span>
+                                     </div>
+                                     <div class="cell price alignright">
+                                         <div class="block price right" >
+                                             <span class="inline">Price: </span><span class="inline" >@Model.SettingPrice</span>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+          
+                 <div class="table finishatom top10" >
+                     <div class="row">
+                         <div class="cell pic aligncenter">
+                             <img src="@Model.DiamondIcon" class="center"  />
+                    
+                         </div>
+                         <div class="cell report">
+                             <a href="/Content/images/jeweldesign/finish/report.png" rel="prettyPhoto">
+                             <img src="/Content/images/jeweldesign/finish/report.png"  /></a>
+                            <a href="#"  class="block">Diamond Report</a>
+                         </div>
+                            
+                      
+                         <div class="cell details">
+                             <span class="bold">Your Diamond:</span>
+                             <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="infotable top10">
+                      
+                                 <tr class="info">
+                                     <td>Item number:</td>
+                                     <td>@Model.DiamondID</td>
+                                 </tr>
+                                 <tr class="info">
+                                     <td>Shape:</td>
+                                     <td>@Model.Shape</td>
+                                 </tr>
+                                 <tr class="info">
+                                     <td>Carat Weight:</td>
+                                     <td>@Model.DiamondWeight</td>
+                                 </tr>
+                                 <tr class="info">
+                                     <td>Color:</td>
+                                     <td>@Model.Color</td>
+                                 </tr>
+                                 <tr class="info">
+                                     <td>Clarity:</td>
+                                     <td>@Model.Clarity</td>
+                                 </tr>
+                             </table>
+                    
+                             <div class="table belowdetails width100">
+                                 <div class="row">
+                        	
+                                     <div class="cell price alignright">
+                                         <div class="block price right" >
+                                             <span class="inline">Price: </span><span class="inline" >@Model.DiamondPrice</span>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+          
+          
+                 <div class="block price alignright" >
+                 @this.Hidden("diamondid").Value(Model.JewelPersistence.DiamondID)
+                 @this.Hidden("settingid").Value(Model.JewelPersistence.SettingID)
+                 @this.Hidden("size").Value(Model.JewelPersistence.Size)
+                 @this.Hidden("mediatype").Value(Model.JewelPersistence.MediaType)
+                     <span class="inline">Price: </span><span class="inline" >@Model.TotalPrice</span>
+                 </div>
+                                
+                 <div class="block alignright top10  " >
+                     <input type="image" src="/Content/images/jeweldesign/finish/add-to-cart.png" />
+                 </div>
+          
+             </div>
+        
+        
+        
+        
+       
+         </div>
+     </div>
+ }
+<script type="text/javascript">
+		$(document).ready(function() {
+		    $("a[rel^='prettyPhoto']").prettyPhoto();
+		})
+
+</script>

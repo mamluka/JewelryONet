@@ -1,0 +1,62 @@
+﻿@model JONMVC.Website.ViewModels.Views.SigninViewModel
+@{
+    ViewBag.Title = "MyAccount: Sign in to your account on JewelryONet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="dialog">
+    <h1 class="title">
+        Sign In To Your JewelryONet Account</h1>
+    @if (Model.HasError)
+    {
+        <div class="error">
+            You have entered a wrong email or password. @Html.ActionLink("Recover password", "ForgotPassword", "MyAccount")
+            or @Html.ActionLink("contact us", "GetInTouch", "Services") for help
+        </div>
+    }
+    <div class="table">
+        <div class="row">
+            <div class="cell width50">
+                @using (Html.BeginForm())
+                {
+
+                    <fieldset class="onecolumb-form">
+                        <dl>
+                            <dt>
+                                <label for="Email">
+                                    Your Email:</label>
+                            </dt>
+                            <dd>
+                                @Html.TextBoxFor(x => x.Email)
+                                <span data-valmsg-replace="false" data-valmsg-for="Email" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="Password">
+                                    Password:</label></dt>
+                            <dd>
+                                @Html.PasswordFor(x => x.Password)
+                                <span data-valmsg-replace="false" data-valmsg-for="Password" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt></dt>
+                            <dd>
+                                <input type="submit" value="Signin" class="button top10" />
+                                <div class="clear">
+                                </div>
+                                <span class="top10 block clear">New user? @Html.ActionLink("Register Now", "Register", "MyAccount")</span>
+                            </dd>
+                        </dl>
+                    </fieldset>
+
+        
+                }
+            </div>
+            <div class="cell width50">
+            </div>
+        </div>
+    </div>
+</div>

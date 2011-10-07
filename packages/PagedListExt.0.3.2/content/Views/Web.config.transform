@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+
+<configuration>
+  <system.web.webPages.razor>
+    <pages>
+      <namespaces>
+        <add namespace="Calabonga.Mvc.Extentions" />
+      </namespaces>
+    </pages>
+  </system.web.webPages.razor>
+</configuration>

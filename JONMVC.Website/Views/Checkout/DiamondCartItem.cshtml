@@ -1,0 +1,27 @@
+﻿@using JONMVC.Website.Models.Checkout
+@using JONMVC.Website.ViewModels.Views
+@using MvcContrib.FluentHtml
+@inherits MvcContrib.FluentHtml.ModelWebViewPage<DiamondCartItemViewModel>
+<div class="table item width100">
+    <div class="row">
+        <div class="cell">
+            <img src="@Model.Icon" />
+        </div>
+        <div class="cell">
+            @if (!Model.NoActionLinkDispalyOnly)
+            { 
+                <div class="actions">
+                    @Html.ActionLink("Add to wishlist", "AddToWishListRedirect", "JewelryItem", new { itemid = ViewModel.ID }, null)
+                    @Html.RouteLink("Remove item", "ShoppingcartRemoveitem", new { cartid = ViewModel.CartID })
+                </div>
+            }
+            <div class="width100 clear top5">
+                <span class="left block clear">Item number: @Model.ID</span> <span class="right price">@Model.Price</span>
+                <span class="right">Price:</span>
+                <div class="clear">
+                </div>
+            </div>
+            <span class="top10">@Model.Desciption</span>
+        </div>
+    </div>
+</div>

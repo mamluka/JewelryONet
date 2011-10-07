@@ -1,0 +1,297 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model EmptyViewModel
+
+@{
+    ViewBag.Title = "Wedding Rings, Women’s Wedding Bands, Anniversary Rings";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("Wedding & Anniversary Rings", "") })
+}
+@{ DefineSection("WeddingAndWnniversaryMenu", () => this.Write(Html.Partial("TabsSubMenu", "WeddingAndWnniversaryMenu"))); }
+
+   
+<div class="pitch pitch-gift">
+		<h1>Wedding & Anniversary</h1>
+		
+		<p class="top5">
+	   While the engagement ring may symbolize the first step 
+of a couple's commitment, it is the Wedding Rings that 
+truly seal the relationship. Whether you choose a gold 
+band or one of platinum, or Ring Sets with diamonds, 
+your wedding band should reflect your style, your 
+personality and your taste.
+<br /><br />
+
+ At JewelryONet you will find the perfect gift that
+fits within your budget. 	
+	</p>
+	  
+  </div>
+	
+	<div class="table top20" id="BlockContent" >
+					<div class="row" >
+						<div class="cell" >
+						<div class="displayatom block " >
+						
+						  <h1 class="title aligncenter">@Html.RouteLink("Diamond Wedding Rings", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "wedding"},
+																		 {"page", 1},
+																	 },  new { @class = "gray" })</h1>
+							<div class="give-pedding">
+									<div class="block aligncenter" >
+									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "wedding"},
+																		 {"page", 1},
+																	 })">
+									  <img src="/Content/images/pages/wedding/1-1.png" alt="Diamond Wedding Rings" /></a>
+									</div>
+									
+						  <div class="cell"  >
+									
+									<span class="block desc" >
+										For a stuning wedding ring or 
+anniversary band, we offer you to 
+look for the perfect symbol of your 
+true love. We are sure you will find 
+your ideal wedding ring among our 
+exquisite array of designs. 
+
+
+						  </span>
+						 
+							  
+							  </div>
+						  </div>   
+						  <div class="clear" ></div>
+						</div>
+
+						</div>
+						
+						<div class="cell" >
+						<div class="displayatom block " >
+						
+						  <h1 class="title aligncenter">@Html.RouteLink("Diamond Eternity Bands", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "eternity"},
+																		 {"page", 1},
+																	 }, new { @class = "gray" })</h1>
+							<div class="give-pedding">
+									<div class="block aligncenter" >
+									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "eternity"},
+																		 {"page", 1},
+																	 })">
+									  <img src="/Content/images/pages/wedding/1-2.png" alt="Diamond Eternity Bands" /></a>
+									</div>
+									
+									<div class="cell "  >
+									
+									<span class="block desc" >
+										Let her know that you remember not 
+only your anniversary but also 
+everyday you've been together, 
+with one of our gorgeous Diamond 
+Eternity Rings. 
+
+									</span>
+						 
+							  
+							  </div>
+						  </div>   
+						  <div class="clear" ></div>
+						</div>
+
+						</div>
+						
+						<div class="cell" >
+						<div class="displayatom block " >
+						
+						  <h1 class="title aligncenter">@Html.RouteLink("Gemstone Wedding Rings", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "gemstone"},
+																		 {"page", 1},
+																	 }, new { @class = "gray" })</h1>
+							<div class="give-pedding">
+									<div class="block aligncenter" >
+									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "gemstone"},
+																		 {"page", 1},
+																	 })">
+									  <img src="/Content/images/pages/wedding/1-3.png" alt="Gemstone Wedding Rings"  /></a>
+									</div>
+									
+									<div class="cell "  >
+									
+									<span class="block desc" >
+									Choosing gemstones that represent 
+the month of your wedding, marriage 
+proposal, first date, or other special
+event is another way to imbue the 
+wedding rings with significance and 
+individuality.  
+
+
+									</span>
+						 
+							  
+							  </div>
+						  </div>   
+						  <div class="clear" ></div>
+						</div>
+
+						</div>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+					<div class="row" >
+						<div class="cell" >
+						<div class="displayatom block " >
+						
+						  <h1 class="title aligncenter">@Html.RouteLink("Wedding Bands", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "bands"},
+																		 {"page", 1},
+																	 }, new { @class = "gray" })</h1>
+							<div class="give-pedding">
+									<div class="block aligncenter" >
+									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "bands"},
+																		 {"page", 1},
+																	 })">
+									  <img src="/Content/images/pages/wedding/2-1.png" alt="Wedding Bands" /></a>
+									</div>
+									
+						  <div class="cell"  >
+									
+									<span class="block desc" >
+										Our Wedding Bands are crafted with 
+classic overtones and precise 
+refinement. Each design is artfully 
+crafted to finest quality with precious 
+metal or combination of metals of 
+your liking.
+
+						  </span>
+						 
+							  
+							  </div>
+						  </div>   
+						  <div class="clear" ></div>
+						</div>
+
+						</div>
+						
+						<div class="cell" >
+						<div class="displayatom block " >
+						
+						  <h1 class="title aligncenter">@Html.RouteLink("Wedding Ring Sets", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "wedding-sets"},
+																		 {"page", 1},
+																	 }, new { @class = "gray" })</h1>
+							<div class="give-pedding">
+									<div class="block aligncenter" >
+									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "wedding-sets"},
+																		 {"page", 1},
+																	 })">
+									  <img src="/Content/images/pages/wedding/2-2.png" alt="Wedding Ring Sets"/></a>
+									</div>
+									
+									<div class="cell "  >
+									
+									<span class="block desc" >
+										Choose sets that  symbolize the 
+closeness of your relationship with 
+matching designs and similar 
+settings. With many ring sets to 
+choose from, it is easy for you to 
+find beautiful rings that fit your taste 
+and budget. 
+
+									</span>
+						 
+							  
+							  </div>
+						  </div>   
+						  <div class="clear" ></div>
+						</div>
+
+						</div>
+						
+						<div class="cell" >
+						<div class="displayatom block " >
+						
+						  <h1 class="title aligncenter">@Html.RouteLink("Men's Wedding Rings", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "mens"},
+																		 {"page", 1},
+																	 }, new { @class = "gray" })</h1>
+							<div class="give-pedding">
+									<div class="block aligncenter" >
+									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "wedding-and-anniversary"},
+																		 {"tabid", "mens"},
+																		 {"page", 1},
+																	 })">
+									  <img src="/Content/images/pages/wedding/2-3.png" alt="Men's Wedding Rings"  /></a>
+									</div>
+									
+									<div class="cell "  >
+									
+									<span class="block desc" >
+									Our wide variety of styles is available to match different individual preferences. 
+Rings may be personalized for 
+additional symbolism with engravings. 
+Men's wedding bands also vary by 
+width, metal, and type of setting.
+
+									</span>
+						 
+							  
+							  </div>
+						  </div>   
+						  <div class="clear" ></div>
+						</div>
+
+						</div>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+					
+  </div>
+
+
+<div>
+
+</div>

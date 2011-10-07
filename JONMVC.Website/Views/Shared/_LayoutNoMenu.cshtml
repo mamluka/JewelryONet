@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    @Html.Partial("HeadersForLayout")
+</head>
+<body>
+    <div>
+        <div class="aligncenter">
+            <div class="table  center pageSize">
+                @Html.Partial("TopManuAndNavBar")
+				<div id="MainTable" class="table alignleft pageSize">
+					<div class="row">
+						<div class="cell">
+							<div class="block aligncenter">
+								<ul class="abovebar center">
+									<li class="search"><a href="#!">Free Worldwide Shipping</a></li>
+									<li class="search"><a href="#!">30-DAY Return Policy</a></li>
+									<li class="search"><a href="#!">International Representative</a></li>
+								</ul>
+							</div>
+							@RenderBody()
+							@Html.Partial("Footer")
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="MoviePlayerDiv">
+		<div id="MoviePlayer">
+		</div>
+	</div>
+</body>
+</html>
+

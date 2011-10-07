@@ -1,0 +1,59 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model CheckMyOrderStatusViewModel 
+@{
+    ViewBag.Title = "My Account: Check my order status";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() {new KeyValuePair<string, string>("Check my order status", "")})
+}
+    
+    <div class="dialog">
+    <h1 class="title">Order Status</h1>
+    @if (Model.HasError)
+    {
+        <div class="error">
+        You have entered a wrong email or order number. Please @Html.ActionLink("contact us","GetInTouch","Services") for help
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+
+        <fieldset class="onecolumb-form">
+        
+            <dl>
+                <dt>
+                    <label for="Email">
+                        Your Email:</label>
+                </dt>
+                <dd>
+                    @Html.TextBoxFor(x => x.Email)
+                    <span data-valmsg-replace="false" data-valmsg-for="Email" class="field-validation-valid">
+                    </span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="OrderNumber">
+                        Order Number:</label></dt>
+                <dd>
+                    @Html.TextBoxFor(x => x.OrderNumber)
+                    <span data-valmsg-replace="false" data-valmsg-for="OrderNumber" class="field-validation-valid">
+                    </span>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>
+                    </dt>
+                <dd>
+                    <input type="submit" value="submit" class="right button top10" />
+                </dd>
+            </dl>
+        </fieldset>
+
+        
+    }
+    </div>
+
+    

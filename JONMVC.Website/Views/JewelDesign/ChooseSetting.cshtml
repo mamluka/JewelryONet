@@ -1,0 +1,303 @@
+﻿@model JONMVC.Website.ViewModels.Views.ChooseSettingViewModel
+@{
+    ViewBag.Title = "Design Your Own Ring Start By Choosing Your Setting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", Model.PathBarItems)
+}
+@Html.Partial("Tabs", Model.TabsForJewelDesignNavigation)
+@using (Html.BeginForm("ChooseSettingPost", "JewelDesign", FormMethod.Post))
+{
+    <div class="table">
+        <div class="row">
+            <div class="cell">
+                <div id="TabNavigation" class="top10">
+                    @foreach (var tab in Model.Tabs)
+                    {
+
+                        <div class="border @(tab.Active ? "active rounded5" : "")">
+                            <div class="@("bg" + tab.TabIndex) @("tabs-sprite-" + Model.Sprite)" >
+                            </div>
+                            <span class="title block aligncenter @(tab.Active ? "bold" : "") ">@Html.RouteLink(tab.Caption, "ChooseSetting", new RouteValueDictionary()
+																   {
+																	   {"DiamondID",Model.DiamondID},
+																	   {"SettingID",Model.SettingID},
+																	   {"controller" , "JewelDesign"},
+																	   {"action" , "ChooseSetting"},
+																	   {"tabid" , tab.Id},
+																	   {"page" , 1},
+																	   {"MetalFilter" , Model.MetalFilter},
+																	   {"OrderByPrice" , Model.OrderByPrice},
+																	   {"itemsperpage" , Model.ItemsPerPage}
+																   })</span>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <div id="ItemContainer">
+                    <div class="block sortbar">
+                    @Html.LabelFor(x=>x.OrderByPrice)
+                        @Html.DropDownListFor(m => m.OrderByPrice, new SelectList(Model.OrderByPriceItems,"Value","Key",Model.OrderByPrice.ToString()))
+                        @Html.LabelFor(x=>x.MetalFilter)
+                        @Html.DropDownListFor(m => m.MetalFilter, new SelectList(Model.MetalFilterItems, "Value", "Key",Model.MetalFilterItems.ToString()))
+                        @Html.HiddenFor(m => m.Page)
+                        @Html.HiddenFor(m => m.ItemsPerPage)
+                        @Html.HiddenFor(m => m.TabId)
+                        @Html.HiddenFor(m => m.TabKey)
+                        @Html.HiddenFor(m => m.DiamondID)
+                        @Html.HiddenFor(m => m.SettingID)
+                        <div class="pages right">
+                            <ul>
+                                @for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+
+                                    if (i == Model.Page)
+                                    {
+
+
+                                    <li class="active">@Html.RouteLink(i.ToString(), "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"DiamondID", Model.DiamondID},
+																										{"SettingID", Model.SettingID},
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid", Model.TabId},
+																										{"page", 1},
+																										{"MetalFilter", Model.MetalFilter},
+																										{"OrderByPrice", Model.OrderByPrice},
+																										{"itemsperpage", Model.ItemsPerPage}
+																									})</li>
+
+
+                                    }
+                                    else
+                                    {
+
+
+                                    <li>@Html.RouteLink(i.ToString(), "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"DiamondID", Model.DiamondID},
+																										{"SettingID", Model.SettingID},
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid", Model.TabId},
+																										{"page", i},
+																										{"MetalFilter", Model.MetalFilter},
+																										{"OrderByPrice", Model.OrderByPrice},
+																										{"itemsperpage", Model.ItemsPerPage}
+																									})< </li>
+
+
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <div id="ItemDisplay">
+                    @foreach (var jewelInTabContainer in Model.JewelryInTabContainersCollection)
+                    {
+
+                        <div class="item left">
+                            <a href="@Url.RouteUrl("Setting", new RouteValueDictionary()
+																							   {
+																								   {"SettingID",jewelInTabContainer.ID},
+																								   {"DiamondID",Model.DiamondID}
+																							   })">
+                                <img src="@jewelInTabContainer.PictureURL" class="right" alt="@jewelInTabContainer.Description" />
+                            </a>
+                            @Html.RouteLink(jewelInTabContainer.Description != String.Empty ? jewelInTabContainer.Description : "Empty Title", "Setting", new RouteValueDictionary()
+																							   {
+																								   {"SettingID",jewelInTabContainer.ID},
+																								   {"DiamondID",Model.DiamondID}
+																							   })
+                            <div class="metalpricecombo top10 left"  itemid="@jewelInTabContainer.ID" >
+                                <span class="left metal">@jewelInTabContainer.Metal</span>
+                                <img src="@Url.Content("~/Content/images/tabs/item/combo-arrow.png")" class="right" />
+                                <span class="right price">@jewelInTabContainer.Price</span>
+                            </div>
+                            @if (jewelInTabContainer.HasMovie)
+                            {
+                                <img src="@Url.Content("~/Content/images/tabs/item/movie.png")" width="27" height="25"  class="left top5" alt="3D Movie" movie="@jewelInTabContainer.Movie"/>
+                            }
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <div id="ItemContainer">
+                    <div class="block sortbar">
+                        @* @Html.DropDownListFor(m => m.OrderByPrice, Model.OrderByPriceItems)
+				
+						   @Html.DropDownListFor(m => m.MetalFilter, Model.MetalFilterItems) *@
+                        <div class="pages right">
+                            <ul>
+                                @for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+
+                                    if (i == Model.Page)
+                                    {
+
+
+                                    <li class="active">@Html.RouteLink(i.ToString(), "ChooseSetting", new RouteValueDictionary()
+																   {
+																	   {"DiamondID",Model.DiamondID},
+																	   {"SettingID",Model.SettingID},
+																	   {"controller" , "JewelDesign"},
+																	   {"action" , "ChooseSetting"},
+																	   {"tabid" , Model.TabId},
+																	   {"page" , 1},
+																	   {"MetalFilter" , "1"},
+																	   {"OrderByPrice" , "1"},
+																	   {"itemsperpage" , "20"}
+																   })</li>
+
+
+                                    }
+                                    else
+                                    {
+
+
+                                    <li>@Html.RouteLink(i.ToString(), "ChooseSetting", new RouteValueDictionary()
+																   {
+																	   {"DiamondID",Model.DiamondID},
+																	   {"SettingID",Model.SettingID},
+																	   {"controller" , "JewelDesign"},
+																	   {"action" , "ChooseSetting"},
+																	   {"tabid" , Model.TabId},
+																	   {"page" , i},
+																	   {"MetalFilter" , "1"},
+																	   {"OrderByPrice" , "1"},
+																	   {"itemsperpage" , "20"}
+																   })< </li>
+
+
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <p class="text-below-page">
+                    
+                    Diamond solitaires are a classic choice among engagement rings. By far the most popular choice is the round brilliant, but each shape has its own special charm. The round brilliant-cut best features a diamond's fire, sparkle and brilliance. The most common types of settings are channel, bezel, tension, pave, prongs, and tiffany.
+</p>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    Tabs.RegisterFilters();
+    Tabs.RegisterTabLinks();
+    MetalPriceSelect.RegisterMetalPriceSelectForTabs();
+    Video.RegisterHooks();
+    
+</script>
+@section EngagementRings {
+    <li class="redarrow">
+        @Html.RouteLink("Engagement Rings", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"DiamondID", Model.DiamondID},
+																										{"SettingID", Model.SettingID},
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","solitaire-settings"},
+																										{"page", 1},
+																										{"MetalFilter", Model.MetalFilter},
+																										{"OrderByPrice", Model.OrderByPrice},
+																										{"itemsperpage", Model.ItemsPerPage}
+																									})
+        <div class="submenu top5">
+            <ul>
+                <li>@Html.RouteLink("Solitaire", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"DiamondID", Model.DiamondID},
+																										{"SettingID", Model.SettingID},
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","solitaire-settings"},
+																										{"page", 1},
+																										{"MetalFilter", Model.MetalFilter},
+																										{"OrderByPrice", Model.OrderByPrice},
+																										{"itemsperpage", Model.ItemsPerPage}
+																									})</li>
+                <li>@Html.RouteLink("With Side Stones", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"DiamondID", Model.DiamondID},
+																										{"SettingID", Model.SettingID},
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","sidestones-settings"},
+																										{"page", 1},
+																										{"MetalFilter", Model.MetalFilter},
+																										{"OrderByPrice", Model.OrderByPrice},
+																										{"itemsperpage", Model.ItemsPerPage}
+																									})</li>
+                <li>@Html.RouteLink("Three Stone", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"DiamondID", Model.DiamondID},
+																										{"SettingID", Model.SettingID},
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","threestone-settings"},
+																										{"page", 1},
+																										{"MetalFilter", Model.MetalFilter},
+																										{"OrderByPrice", Model.OrderByPrice},
+																										{"itemsperpage", Model.ItemsPerPage}
+																									})</li>
+                <li>@Html.RouteLink("Pave Set", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"DiamondID", Model.DiamondID},
+																										{"SettingID", Model.SettingID},
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","pave-settings"},
+																										{"page", 1},
+																										{"MetalFilter", Model.MetalFilter},
+																										{"OrderByPrice", Model.OrderByPrice},
+																										{"itemsperpage", Model.ItemsPerPage}
+																									})</li>
+                <li>@Html.RouteLink("Bridal Sets", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"DiamondID", Model.DiamondID},
+																										{"SettingID", Model.SettingID},
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","bridal-settings"},
+																										{"page", 1},
+																										{"MetalFilter", Model.MetalFilter},
+																										{"OrderByPrice", Model.OrderByPrice},
+																										{"itemsperpage", Model.ItemsPerPage}
+																									})</li>
+                <li>@Html.RouteLink("Contemporary", "ChooseSetting", new RouteValueDictionary()
+																									{
+																										{"DiamondID", Model.DiamondID},
+																										{"SettingID", Model.SettingID},
+																										{"controller", "JewelDesign"},
+																										{"action", "ChooseSetting"},
+																										{"tabid","contemporary-settings"},
+																										{"page", 1},
+																										{"MetalFilter", Model.MetalFilter},
+																										{"OrderByPrice", Model.OrderByPrice},
+																										{"itemsperpage", Model.ItemsPerPage}
+																									})</li>
+            </ul>
+        </div>
+    </li>
+}

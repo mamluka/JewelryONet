@@ -1,0 +1,3372 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NMoneys</name>
+    </assembly>
+    <members>
+        <member name="T:NMoneys.Currency">
+            <summary>
+             Represents a currency unit such as Euro or American Dollar.
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.DefaultSymbol">
+            <summary>
+            Gets the default currency symbol.
+            </summary>
+        </member>
+        <member name="M:NMoneys.Currency.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instace of <see cref="T:NMoneys.Currency"/> with serialized data
+            </summary>
+            <remarks>Only the iso code is serialized, the rest of the state is retrieved from <see cref="T:NMoneys.Currency"/> obtained by the 
+            <see cref="M:NMoneys.Currency.Get(NMoneys.CurrencyIsoCode)"/> creation method.</remarks>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the <see cref="T:NMoneys.Currency"/>.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:NMoneys.Currency.setAllFields(NMoneys.CurrencyIsoCode,System.String,System.String,System.String,System.Int32,System.String,System.String,System.Int32[],System.Int32,System.Int32,System.Boolean,NMoneys.CharacterReference)">
+            <summary>
+            Allows setting all field both for constructors and serialization methods.
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Aud">
+            <summary>
+            Australia Dollars
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Cad">
+            <summary>
+            Candada Dollars
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Chf">
+            <summary>
+            Switzerland Francs
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Cny">
+            <summary>
+            China Yuan Renminbi
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Dkk">
+            <summary>
+            Denmark Kroner
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Eur">
+            <summary>
+            Euro
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Gbp">
+            <summary>
+            United Kingdom Pounds
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Hkd">
+            <summary>
+            Hong Kong Dollars
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Huf">
+            <summary>
+            Hungary Forint
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Inr">
+            <summary>
+            India Rupees
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Jpy">
+            <summary>
+            Japan Yen
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Mxn">
+            <summary>
+            Mexico Pesos
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Myr">
+            <summary>
+            Malaysia Ringgits
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Nok">
+            <summary>
+            Norway Kroner
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Nzd">
+            <summary>
+            New Zealand Dollars
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Rub">
+            <summary>
+            Russia Rubles
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Sek">
+            <summary>
+            Sweden Kronor
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Sgd">
+            <summary>
+            Singapore Dollars
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Thb">
+            <summary>
+            Thailand Baht
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Usd">
+            <summary>
+            United States Dollars
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Zar">
+            <summary>
+            South Africa Rand
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Euro">
+            <summary>
+            Euro
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Dollar">
+            <summary>
+            United States Dollars
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Pound">
+            <summary>
+            United Kingdom Pounds
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Xxx">
+            <summary>
+            Non-Existing currency
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Xts">
+            <summary>
+            Testing currency
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.None">
+            <summary>
+            Non-Existing currency
+            </summary>
+        </member>
+        <member name="F:NMoneys.Currency.Test">
+            <summary>
+            Testing currency
+            </summary>
+        </member>
+        <member name="M:NMoneys.Currency.#cctor">
+            <summary>
+            Initialized static shortcuts and caches
+            </summary>
+        </member>
+        <member name="M:NMoneys.Currency.fillCaches(NMoneys.Currency)">
+            <summary>
+            Stores the currency in both symbol and code caches
+            </summary>
+        </member>
+        <member name="M:NMoneys.Currency.InitializeAllCurrencies">
+            <summary>
+            Actively initializes the information for all currencies.
+            </summary>
+            <remarks>Use this method if you plan to use a lot of currencies in your program.
+            <para>When most of currencies are expected to be used, it is recommeneded to initialize the information for all of them,
+            saving time each time the first instance is accessed.</para></remarks>
+        </member>
+        <member name="M:NMoneys.Currency.Equals(NMoneys.Currency)">
+            <summary>
+            Indicates whether the current <see cref="T:NMoneys.Currency"/> instance is equal to another instance.
+            </summary>
+            <remarks>Only <see cref="P:NMoneys.Currency.IsoCode"/> is checked as the object cannot be mutated. For more thorough comparison use <see cref="T:NMoneys.CurrencyEqualityComparer"/></remarks>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">A <see cref="T:NMoneys.Currency"/> to compare with this object.</param>
+        </member>
+        <member name="M:NMoneys.Currency.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:NMoneys.Currency"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:NMoneys.Currency"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:NMoneys.Currency"/>.</param> 
+        </member>
+        <member name="M:NMoneys.Currency.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:NMoneys.Currency"/>.
+            </returns>
+        </member>
+        <member name="M:NMoneys.Currency.op_Equality(NMoneys.Currency,NMoneys.Currency)">
+            <summary>
+             Determines whether two specified currencies are equal.
+            </summary>
+            <param name="left">The first <see cref="T:NMoneys.Currency"/> to compare, or null.</param>
+            <param name="right">The second <see cref="T:NMoneys.Currency"/> to compare, or null.</param>
+            <returns>true if <paramref name="left"/> is equal to <paramref name="right"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Currency.op_Inequality(NMoneys.Currency,NMoneys.Currency)">
+            <summary>
+             Determines whether two specified currencies are not equal.
+            </summary>
+            <param name="left">The first <see cref="T:NMoneys.Currency"/> to compare, or null.</param>
+            <param name="right">The second <see cref="T:NMoneys.Currency"/> to compare, or null.</param>
+            <returns>true if <paramref name="left"/> is not equal to <paramref name="right"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Currency.CompareTo(System.Object)">
+            <summary>
+            Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes,
+            follows, or occurs in the same position in the sort order as the other object.
+            </summary>
+            <param name="obj">An object to compare with this instance. </param>
+            <returns>
+            A 32-bit signed integer that indicates the relative order of the objects being compared. The return value has these meanings:
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <description>Meaning</description>
+            </listheader>
+            <item>
+            <term>Less than zero</term>
+            <description>This instance is less than <paramref name="obj"/>.</description>
+            </item>
+            <item>
+            <term>Zero</term>
+            <description>This instance is equal to <paramref name="obj"/>.</description>
+            </item>
+            <item>
+            <term>Greater than zero</term>
+            <description>This instance is greater than <paramref name="obj"/>.</description>
+            </item>
+            </list>
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="obj"/> is not a <see cref="T:NMoneys.Currency"/>.</exception>
+        </member>
+        <member name="M:NMoneys.Currency.CompareTo(NMoneys.Currency)">
+            <summary>
+            Performs a textual comparison of the Iso symbol
+            </summary>
+            <param name="other">An object to compare with this instance.</param>
+            <returns>
+            A 32-bit signed integer that indicates the relative order of the objects being compared. The return value has these meanings:
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <description>Meaning</description>
+            </listheader>
+            <item>
+            <term>Less than zero</term>
+            <description>This instance is less than <paramref name="other"/>.</description>
+            </item>
+            <item>
+            <term>Zero</term>
+            <description>This instance is equal to <paramref name="other"/>.</description>
+            </item>
+            <item>
+            <term>Greater than zero</term>
+            <description>This instance is greater than <paramref name="other"/>.</description>
+            </item>
+            </list>
+            </returns>
+        </member>
+        <member name="M:NMoneys.Currency.op_LessThan(NMoneys.Currency,NMoneys.Currency)">
+            <summary>
+            Returns a value indicating whether a specified <see cref="T:NMoneys.Currency"/> is less than another specified <see cref="T:NMoneys.Currency"/>.
+            </summary>
+            <param name="left">The first value to compare.</param>
+            <param name="right">The second value to compare.</param>
+            <returns>true if <paramref name="left"/> is less than <paramref name="right"/>; otherwise, false.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="left"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Currency.op_GreaterThan(NMoneys.Currency,NMoneys.Currency)">
+            <summary>
+            Returns a value indicating whether a specified <see cref="T:NMoneys.Currency"/> is greater than or equal to another specified <see cref="T:NMoneys.Currency"/>.
+            </summary>
+            <param name="left">The first value to compare.</param>
+            <param name="right">The second value to compare.</param>
+            <returns>true if <paramref name="left"/> is greater than or equal to <paramref name="right"/>; otherwise, false.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="left"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Currency.GetFormat(System.Type)">
+            <summary>
+            Returns an object that provides formatting services for the specified type.
+            </summary>
+            <returns>
+            An instance of the object specified by <paramref name="formatType"/>,
+            if the <see cref="T:System.IFormatProvider"/> implementation is <see cref="T:System.Globalization.NumberFormatInfo"/>; otherwise, null.
+            </returns>
+            <param name="formatType">An object that specifies the type of format object to return.</param>
+        </member>
+        <member name="M:NMoneys.Currency.Get(NMoneys.CurrencyIsoCode)">
+            <summary>
+            Obtains the instance of <see cref="T:NMoneys.Currency"/> associated to the <see cref="T:NMoneys.CurrencyIsoCode"/> specified.
+            </summary>
+            <remarks><see cref="T:NMoneys.Currency"/> behaves as a singleton, therefore successive calls to <see cref="M:NMoneys.Currency.Get(NMoneys.CurrencyIsoCode)"/>
+            will return the same instance of <see cref="T:NMoneys.Currency"/>.
+            <para>An internal cache with the information of the currency is maintained.
+            If it is the first time such currency is obtained within the context of the running application, the information
+            will be loaded individually.</para>
+            <para>If many different instances of <see cref="T:NMoneys.Currency"/> are to be used, it is recommended the use of <see cref="M:NMoneys.Currency.InitializeAllCurrencies"/>
+            in order to save some initialization time.</para></remarks>
+            <param name="isoCode">ISO 4217 code.</param>
+            <returns>The instance of <see cref="T:NMoneys.Currency"/> represented by the <paramref name="isoCode"/>.</returns>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The <paramref name="isoCode"/> does not exist in the <see cref="T:NMoneys.CurrencyIsoCode"/> enumeration.</exception>
+            <exception cref="T:NMoneys.MisconfiguredCurrencyException">The currency represented by <paramref name="isoCode"/> has not been properly configured by the library implementor. Please, log a issue.</exception>
+        </member>
+        <member name="M:NMoneys.Currency.Get(System.String)">
+            <summary>
+            Obtains the instance of <see cref="T:NMoneys.Currency"/> associated to the <paramref name="threeLetterIsoCode"/> specified.
+            </summary>
+            <remarks><see cref="T:NMoneys.Currency"/> behaves as a singleton, therefore successive calls to <see cref="M:NMoneys.Currency.Get(System.String)"/>
+            will return the same instance of <see cref="T:NMoneys.Currency"/>.
+            <para>An internal cache with the information of the currency is maintained.
+            If it is the first time such currency is obtained within the context of the running application, the information
+            will be loaded individually.</para>
+            <para>If many different instances of <see cref="T:NMoneys.Currency"/> are to be used, it is recommended the use of <see cref="M:NMoneys.Currency.InitializeAllCurrencies"/>
+            in order to save some initialization time.</para></remarks>
+            <param name="threeLetterIsoCode">A string representing a three-letter ISO 4217 code.</param>
+            <returns>The instance of <see cref="T:NMoneys.Currency"/> represented by the <paramref name="threeLetterIsoCode"/>.</returns>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The <paramref name="threeLetterIsoCode"/> does not exist in the <see cref="T:NMoneys.CurrencyIsoCode"/> enumeration.</exception>
+            <exception cref="T:NMoneys.MisconfiguredCurrencyException">The currency represented by <paramref name="threeLetterIsoCode"/> has not been properly configured by the library implementor. Please, log a issue.</exception>
+        </member>
+        <member name="M:NMoneys.Currency.Get(System.Globalization.CultureInfo)">
+            <summary>
+            Obtains the instance of <see cref="T:NMoneys.Currency"/> associated to the <see cref="T:System.Globalization.CultureInfo"/> specified.
+            </summary>
+            <remarks><see cref="T:NMoneys.Currency"/> behaves as a singleton, therefore successive calls to <see cref="M:NMoneys.Currency.Get(System.Globalization.CultureInfo)"/>
+            will return the same instance of <see cref="T:NMoneys.Currency"/>.
+            <para>An internal cache with the information of the currency is maintained.
+            If it is the first time such currency is obtained within the context of the running application, the information
+            will be loaded individually.</para>
+            <para>If many different instances of <see cref="T:NMoneys.Currency"/> are to be used, it is recommended the use of <see cref="M:NMoneys.Currency.InitializeAllCurrencies"/>
+            in order to save some initialization time.</para>
+            <para>There might be cases that the framework will provide non-standard or out-dated information for
+            the given <paramref name="culture"/>. In this case it might be possible that an exception is thrown even if the region
+            corresponding to the <paramref name="culture"/> can be created.</para>
+            </remarks>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo"/> from which retrieve the associated currency.</param>
+            <returns>The instance of <see cref="T:NMoneys.Currency"/> from to the region associated to the <paramref name="culture"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="culture"/> is null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="culture"/> is either an invariant, custom or neutral culture, or a <see cref="T:System.Globalization.RegionInfo"/> cannot be instantiated from it.</exception>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The ISO symbol associated to the <paramref name="culture"/> does not exist in the <see cref="T:NMoneys.CurrencyIsoCode"/> enumeration.</exception>
+            <exception cref="T:NMoneys.MisconfiguredCurrencyException">The currency associated to the <paramref name="culture"/> has not been properly configured by the library implementor. Please, log a issue.</exception>
+        </member>
+        <member name="M:NMoneys.Currency.Get(System.Globalization.RegionInfo)">
+            <summary>
+            Obtains the instance of <see cref="T:NMoneys.Currency"/> associated to the <see cref="T:System.Globalization.RegionInfo"/> specified.
+            </summary>
+            <remarks><see cref="T:NMoneys.Currency"/> behaves as a singleton, therefore successive calls to <see cref="M:NMoneys.Currency.Get(System.Globalization.CultureInfo)"/>
+            will return the same instance of <see cref="T:NMoneys.Currency"/>.
+            <para>An internal cache with the information of the currency is maintained.
+            If it is the first time such currency is obtained within the context of the running application, the information
+            will be loaded individually.</para>
+            <para>If many different instances of <see cref="T:NMoneys.Currency"/> are to be used, it is recommended the use of <see cref="M:NMoneys.Currency.InitializeAllCurrencies"/>
+            in order to save some initialization time.</para>
+            <para>There might be cases that the framework will provide non-standard or out-dated information for
+            the given <paramref name="region"/>. In this case it might be possible that an exception is thrown.</para>
+            </remarks>
+            <param name="region">A <see cref="T:System.Globalization.RegionInfo"/> from which retrieve the associated currency.</param>
+            <returns>The instance of <see cref="T:NMoneys.Currency"/> corresponding to the region.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="region"/> is null.</exception>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The ISO symbol associated to the <paramref name="region"/> does not exist in the <see cref="T:NMoneys.CurrencyIsoCode"/> enumeration.</exception>
+            <exception cref="T:NMoneys.MisconfiguredCurrencyException">The currency associated to the <paramref name="region"/> has not been properly configured by the library implementor. Please, log a issue.</exception>
+        </member>
+        <member name="M:NMoneys.Currency.TryGet(NMoneys.CurrencyIsoCode,NMoneys.Currency@)">
+            <summary>
+            Obtains the instance of <see cref="T:NMoneys.Currency"/> associated to the <see cref="T:NMoneys.CurrencyIsoCode"/> specified.
+            A return value indicates wheter the lookup succeeded.
+            </summary>
+            <remarks><see cref="T:NMoneys.Currency"/> behaves as a singleton, therefore successive calls to <see cref="M:NMoneys.Currency.TryGet(NMoneys.CurrencyIsoCode,NMoneys.Currency@)"/>
+            will obtain the same instance of <see cref="T:NMoneys.Currency"/>.
+            <para>An internal cache with the information of the currency is maintained.
+            If it is the first time such currency is obtained within the context of the running application, the information
+            will be loaded individually.</para>
+            <para>If many different instances of <see cref="T:NMoneys.Currency"/> are to be used, it is recommended the use of <see cref="M:NMoneys.Currency.InitializeAllCurrencies"/>
+            in order to save some initialization time.</para></remarks>
+            <param name="isoCode">ISO 4217 code.</param>
+            <param name="currency">When this method returns, contains the <see cref="T:NMoneys.Currency"/> instance represented by the <paramref name="isoCode"/> if the
+            lookup suceeds, or null if the lookup fails.</param>
+            <returns>true if <paramref name="isoCode"/> was looked up successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Currency.TryGet(System.String,NMoneys.Currency@)">
+            <summary>
+            Obtains the instance of <see cref="T:NMoneys.Currency"/> associated to the ISO symbol specified.
+            A return value indicates wheter the lookup succeeded.
+            </summary>
+            <remarks><see cref="T:NMoneys.Currency"/> behaves as a singleton, therefore successive calls to <see cref="M:NMoneys.Currency.TryGet(System.String,NMoneys.Currency@)"/>
+            will obtain the same instance of <see cref="T:NMoneys.Currency"/>.
+            <para>An internal cache with the information of the currency is maintained.
+            If it is the first time such currency is obtained within the context of the running application, the information
+            will be loaded individually.</para>
+            <para>If many different instances of <see cref="T:NMoneys.Currency"/> are to be used, it is recommended the use of <see cref="M:NMoneys.Currency.InitializeAllCurrencies"/>
+            in order to save some initialization time.</para></remarks>
+            <param name="threeLetterIsoSymbol">A string representing a three-letter ISO 4217 code.</param>
+            <param name="currency">When this method returns, contains the <see cref="T:NMoneys.Currency"/> instance represented by the <paramref name="threeLetterIsoSymbol"/> if the
+            lookup suceeds, or null if the lookup fails.</param>
+            <returns>true if <paramref name="threeLetterIsoSymbol"/> was looked up successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Currency.TryGet(System.Globalization.CultureInfo,NMoneys.Currency@)">
+            <summary>
+            Obtains the instance of <see cref="T:NMoneys.Currency"/> associated to the <see cref="T:System.Globalization.CultureInfo"/> specified.
+            A return value indicates wheter the lookup succeeded.
+            </summary>
+            <remarks><see cref="T:NMoneys.Currency"/> behaves as a singleton, therefore successive calls to <see cref="M:NMoneys.Currency.TryGet(System.Globalization.CultureInfo,NMoneys.Currency@)"/>
+            will obtain the same instance of <see cref="T:NMoneys.Currency"/>.
+            <para>An internal cache with the information of the currency is maintained.
+            If it is the first time such currency is obtained within the context of the running application, the information
+            will be loaded individually.</para>
+            <para>If many different instances of <see cref="T:NMoneys.Currency"/> are to be used, it is recommended the use of <see cref="M:NMoneys.Currency.InitializeAllCurrencies"/>
+            in order to save some initialization time.</para>
+            <para>There might be cases that the framework will provide non-standard or out-dated information for
+            the given <paramref name="culture"/>. In this case it might be possible that the lookup is not successful even if the region
+            corresponding to the <paramref name="culture"/> can be created.</para>
+            </remarks>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo"/> from which retrieve the associated currency.</param>
+            <param name="currency">When this method returns, contains the <see cref="T:NMoneys.Currency"/> instance from the region associated to 
+            the <paramref name="culture"/> if the lookup suceeds, or null if the lookup fails.</param>
+            <returns>true if <paramref name="currency"/> was looked up successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Currency.TryGet(System.Globalization.RegionInfo,NMoneys.Currency@)">
+            <summary>
+            Obtains the instance of <see cref="T:NMoneys.Currency"/> associated to the <see cref="T:System.Globalization.RegionInfo"/> specified.
+            A return value indicates wheter the lookup succeeded.
+            </summary>
+            <remarks><see cref="T:NMoneys.Currency"/> behaves as a singleton, therefore successive calls to <see cref="M:NMoneys.Currency.TryGet(System.Globalization.RegionInfo,NMoneys.Currency@)"/>
+            will obtain the same instance of <see cref="T:NMoneys.Currency"/>.
+            <para>An internal cache with the information of the currency is maintained.
+            If it is the first time such currency is obtained within the context of the running application, the information
+            will be loaded individually.</para>
+            <para>If many different instances of <see cref="T:NMoneys.Currency"/> are to be used, it is recommended the use of <see cref="M:NMoneys.Currency.InitializeAllCurrencies"/>
+            in order to save some initialization time.</para>
+            <para>There might be cases that the framework will provide non-standard or out-dated information for
+            the given <paramref name="region"/>. In this case it might be possible that the lookup is not successful.</para>
+            </remarks>
+            <param name="region">A <see cref="T:System.Globalization.RegionInfo"/> from which retrieve the associated currency.</param>
+            <param name="currency">When this method returns, contains the <see cref="T:NMoneys.Currency"/> instance from the region associated to 
+            the <paramref name="region"/> if the lookup suceeds, or null if the lookup fails.</param>
+            <returns>true if <paramref name="currency"/> was looked up successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Currency.FindAll">
+            <summary>
+            Retrieves all currencies.
+            </summary>
+            <remarks>Since all currencies are visited, caches are initialized with all values.</remarks>
+            <returns>List of all currencies defined.</returns>
+        </member>
+        <member name="M:NMoneys.Currency.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:NMoneys.Currency"/>.
+            </summary>
+            <remarks>It actually is a representation of the <see cref="P:NMoneys.Currency.IsoCode"/>.</remarks>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:NMoneys.Currency"/>.
+            </returns>
+        </member>
+        <member name="M:NMoneys.Currency.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Sets the <see cref="T:System.Runtime.Serialization.SerializationInfo"/> with information about the currency. 
+            </summary>
+            <remarks>It will only persist information regarding the <see cref="P:NMoneys.Currency.IsoCode"/>.
+            <para>The rest of the information will be populated from the instance obtained from creation methods.</para>
+            </remarks>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the <see cref="T:NMoneys.Currency"/>.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:NMoneys.Currency.System#Xml#Serialization#IXmlSerializable#GetSchema">
+            <summary>
+            This method is reserved and should not be used.
+            When implementing the <see cref="T:System.Xml.Serialization.IXmlSerializable"/> interface, you should return null from this method, and instead,
+            if specifying a custom schema is required, apply the <see cref="T:System.Xml.Serialization.XmlSchemaProviderAttribute"/> to the class.
+            </summary>
+            <returns>null</returns>
+        </member>
+        <member name="M:NMoneys.Currency.GetSchema(System.Xml.Schema.XmlSchemaSet)">
+            <summary>
+            Returns the XML schema applied for serialization.
+            </summary>
+            <param name="xs">A cache of XML Schema definition language (XSD) schemas.</param>
+            <returns>Represents the complexType element from XML Schema as specified by the <paramref name="xs"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="xs"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Currency.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Generates an object from its XML representation.
+            </summary>
+            <param name="reader">The <see cref="T:System.Xml.XmlReader"/> stream from which the object is deserialized.</param>
+        </member>
+        <member name="M:NMoneys.Currency.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Converts an object into its XML representation.
+            </summary>
+            <param name="writer">The <see cref="T:System.Xml.XmlWriter"/> stream to which the object is serialized.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="writer"/> is null.</exception>
+        </member>
+        <member name="P:NMoneys.Currency.IsoCode">
+            <summary>
+            The ISO 4217 code of the <see cref="T:NMoneys.Currency"/>
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.NumericCode">
+            <summary>
+            The numeric ISO 4217 code of the <see cref="T:NMoneys.Currency"/>
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.PaddedNumericCode">
+            <summary>
+            Returns a padded three digit string representation of the <see cref="P:NMoneys.Currency.NumericCode"/>.
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.EnglishName">
+            <summary>
+            Gets the name, in English, of the <see cref="T:NMoneys.Currency"/>.
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.Symbol">
+            <summary>
+            Gets the currency symbol associated with the <see cref="T:NMoneys.Currency"/>.
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.AlphabeticCode">
+            <summary>
+            Textual representation of the ISO 4217 code
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.IsoSymbol">
+            <summary>
+            Textual representation of the ISO 4217 code
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.SignificantDecimalDigits">
+            <summary>
+            Indicates the number of decimal places to use in currency values.
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.NativeName">
+            <summary>
+            Gets the name of the currency formatted in the native language of the country/region where the currency is used. 
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.DecimalSeparator">
+            <summary>
+            Gets the string to use as the decimal separator in currency values. 
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.GroupSeparator">
+            <summary>
+            Gets the string that separates groups of digits to the left of the decimal in currency values. 
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.GroupSizes">
+            <summary>
+            Gets the number of digits in each group to the left of the decimal in currency values. 
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.NegativePattern">
+            <summary>
+            Gets format pattern for negative currency values. 
+            </summary>
+            <remarks>For more information about this pattern see <see cref="P:System.Globalization.NumberFormatInfo.CurrencyNegativePattern"/>.</remarks>
+        </member>
+        <member name="P:NMoneys.Currency.PositivePattern">
+            <summary>
+            Gets the format pattern for positive currency values. 
+            </summary>
+            <remarks>For more information about this pattern see <see cref="P:System.Globalization.NumberFormatInfo.CurrencyPositivePattern"/>.</remarks>
+        </member>
+        <member name="P:NMoneys.Currency.FormatInfo">
+            <summary>
+            Defines how numeric values are formatted and displayed, depending on the culture related to the <see cref="T:NMoneys.Currency"/>.
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.IsObsolete">
+            <summary>
+            Indicates whether the currency is legal tender or it has been obsoleted
+            </summary>
+        </member>
+        <member name="P:NMoneys.Currency.Entity">
+            <summary>
+            Represents the textual html entity
+            </summary>
+            <remarks>Not all currencies have an character reference.
+            For those who does not have one, a <see cref="F:NMoneys.CharacterReference.Empty"/> instance is returned.</remarks>
+        </member>
+        <member name="E:NMoneys.Currency.ObsoleteCurrency">
+            <summary>
+             Occurs when an obsolete currency is created.
+            </summary>
+             <remarks>
+             Do remember to unsubscribe from this event when you are no longer insterested it its ocurrence.
+             Failing to do so can prevent your objects from being garbage collected and result in a memory leak.
+             <para>By its static nature, the notification is available even when no instance of the class is existing yet.
+             This very same nature will cause that subscribers are notified for ocurrences that are "far" from the code that is likely to raise an event in concurrent systems.
+             For example, another thread could make the event to raise and a totally unrelated code will get the notification. This may well be the desired effect,
+             but awareness need to be raised for when it is not the desired effect.</para>
+             <para>Currencies are transient entities in the real world, getting deprecated and/or substituted.
+             When a currency that is no longer current is created this event will be raised. This can happen in a number of cases:
+             <list type="bullet">
+             <item><description>A <see cref="T:NMoneys.Currency"/> factory method is used.</description></item>
+             <item><description>A <see cref="T:NMoneys.Currency"/> instance gets deserialized.</description></item>
+             <item><description>A <see cref="T:NMoneys.Money"/> instance gets created.</description></item>
+             <item><description>A <see cref="T:NMoneys.Money"/> instance gets deserialized.</description></item>
+             </list>
+             </para>
+             </remarks>
+             <seealso cref="M:NMoneys.Currency.Get(NMoneys.CurrencyIsoCode)"/>
+             <seealso cref="M:NMoneys.Currency.Get(System.String)"/>
+             <seealso cref="M:NMoneys.Currency.Get(System.Globalization.CultureInfo)"/>
+             <seealso cref="M:NMoneys.Currency.Get(System.Globalization.RegionInfo)"/>
+             <seealso cref="M:NMoneys.Currency.TryGet(NMoneys.CurrencyIsoCode,NMoneys.Currency@)"/>
+             <seealso cref="M:NMoneys.Currency.TryGet(System.String,NMoneys.Currency@)"/>
+             <seealso cref="M:NMoneys.Currency.TryGet(System.Globalization.CultureInfo,NMoneys.Currency@)"/>
+             <seealso cref="M:NMoneys.Currency.TryGet(System.Globalization.RegionInfo,NMoneys.Currency@)"/>
+        </member>
+        <member name="T:NMoneys.Currency.Code">
+            <summary>
+            Contains factory methods that create a <see cref="T:NMoneys.CurrencyIsoCode"/>
+            </summary>
+        </member>
+        <member name="M:NMoneys.Currency.Code.Parse(System.String)">
+            <summary>
+            Converts the string representation of the name or numeric value of one or more enumerated constants to an equivalent <see cref="T:NMoneys.CurrencyIsoCode"/>.
+            </summary>
+            <remarks>The <paramref name="isoCode"/> can represent an alphabetic or a numeric currency code.
+            <para>In the case of alphabetic codes, parsing is case-insensitive.</para>
+            <para>Only defined numeric codes can be parsed.</para></remarks>
+            <param name="isoCode">A string containing the name or value to convert.</param>
+            <returns>An object of type <see cref="T:NMoneys.CurrencyIsoCode"/> whose value is represented by value.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="isoCode"/> is null.</exception>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException"><paramref name="isoCode"/> does not represent a defined alphabetic or numeric code.</exception>
+            <seealso cref="M:NMoneys.IsoCodeExtensions.AlphabeticCode(NMoneys.CurrencyIsoCode)"/>
+            <seealso cref="M:NMoneys.IsoCodeExtensions.NumericCode(NMoneys.CurrencyIsoCode)"/>
+        </member>
+        <member name="M:NMoneys.Currency.Code.TryParse(System.String,System.Nullable{NMoneys.CurrencyIsoCode}@)">
+            <summary>
+            Converts the string representation of the name or numeric value of one or more enumerated constants to an equivalent <see cref="T:NMoneys.CurrencyIsoCode"/>.
+            The return value indicates whether the conversion succeeded.
+            </summary>
+            <remarks>The <paramref name="isoCode"/> can represent an alphabetic or a numeric currency code.
+            <para>In the case of alphabetic codes, parsing is case-insensitive.</para>
+            <para>Only defined numeric codes can be parsed.</para></remarks>
+            <param name="isoCode">A string containing the name or value to convert.</param>
+            <param name="parsed">When this method returns, contains the parsed <see cref="T:NMoneys.CurrencyIsoCode"/> if the parsing succeeded, or is null if the parsing failed.</param>
+            <returns>true if the value <paramref name="isoCode"/> was parsed successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Currency.Code.ParseArgument(System.String,System.String)">
+            <summary>
+            Used to parse the ISO codes arguments.
+            </summary>
+            <remarks>Is case-insensitive.</remarks>
+        </member>
+        <member name="M:NMoneys.Currency.Code.Cast(System.Int16)">
+            <summary>
+            Converts the specified 16-bit signed integer to a <see cref="T:NMoneys.CurrencyIsoCode"/>.
+            </summary>
+            <para>The conversion is safe, in the sense that the value has to be defined within the values of the enumeration to be converted, but throws an exception when it cannot.</para>
+            <param name="numericCode">The value to be converted.</param>
+            <returns>An instance of the enumeration set to <paramref name="numericCode"/>.</returns>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException"><paramref name="numericCode"/> is not defined within the values of <see cref="T:NMoneys.CurrencyIsoCode"/>.</exception>
+        </member>
+        <member name="M:NMoneys.Currency.Code.TryCast(System.Int16,System.Nullable{NMoneys.CurrencyIsoCode}@)">
+            <summary>
+            Converts the the specified 16-bit signed integer to an equivalent <see cref="T:NMoneys.CurrencyIsoCode"/>. The return value indicates whether the conversion succeeded.
+            </summary>
+            <remarks>When the conversion is successful, the returned value is guaranteed to contain a value.</remarks>
+            <param name="numericCode">The value to be converted.</param>
+            <param name="converted">When this method returns, contains an object of type <see cref="T:System.Nullable`1"/> whose value is represented by <paramref name="numericCode"/>; otherwise, false.
+            This parameter is passed uninitialized.</param>
+            <returns>true if the <paramref name="numericCode"/> parameter was converted successfully; otherwise, false.</returns>
+        </member>
+        <member name="T:NMoneys.CurrencyCharacterReferences">
+            <summary>
+             Represents all reserved currency characters in an HTML/XML document.
+            </summary>
+        </member>
+        <member name="M:NMoneys.CurrencyCharacterReferences.Get(System.String)">
+            <summary>
+            Gets a <see cref="T:NMoneys.CharacterReference"/> instance from its simple name.
+            </summary>
+            <example>CharacterReference cent = CurrencyCharacterReferences.Get("cent");</example>
+            <param name="entityName">Simple name of the entity to retrieve. Is case-insensitive.</param>
+            <returns>The instance of the <see cref="T:NMoneys.CharacterReference"/> corresponding to the <paramref name="entityName"/>.</returns>
+            <seealso cref="P:NMoneys.CharacterReference.SimpleName"/>
+            <exception cref="T:System.ArgumentNullException"><paramref name="entityName"/> is null.</exception>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException"><paramref name="entityName"/> is not a currency character reference.</exception>
+            <seealso cref="F:NMoneys.CurrencyCharacterReferences.Cent"/>
+            <seealso cref="F:NMoneys.CurrencyCharacterReferences.Pound"/>
+            <seealso cref="F:NMoneys.CurrencyCharacterReferences.Curren"/>
+            <seealso cref="F:NMoneys.CurrencyCharacterReferences.Yen"/>
+            <seealso cref="F:NMoneys.CurrencyCharacterReferences.Fnof"/>
+        </member>
+        <member name="F:NMoneys.CurrencyCharacterReferences.Cent">
+            <summary>
+            Cent character reference: &#162;
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyCharacterReferences.Pound">
+            <summary>
+            Pound character reference: &#163;
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyCharacterReferences.Curren">
+            <summary>
+            Generic currency character reference: &#164;
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyCharacterReferences.Yen">
+            <summary>
+            Yen character reference: &#165;
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyCharacterReferences.Fnof">
+            <summary>
+            Florin character reference: &#402;
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyCharacterReferences.Euro">
+            <summary>
+            Florin character reference: &#8364;
+            </summary>
+        </member>
+        <member name="T:NMoneys.CurrencyEqualityComparer">
+            <summary>
+            Exposes a method that compares two currencies in a "complete" manner.
+            </summary>
+            <remarks><see cref="T:NMoneys.Currency"/> already implements <see cref="T:System.IEquatable`1"/>, but only certain members are compared.
+            In this class all members are compared.</remarks>
+        </member>
+        <member name="M:NMoneys.CurrencyEqualityComparer.#ctor(System.Collections.Generic.IEqualityComparer{System.String})">
+            <summary>
+            Creates an instance with the provided comparer.
+            </summary>
+            <remarks>This is a the preferred constructors as culture-specific comparisons should be favoured for culture sensitive strings.</remarks>
+            <param name="nativeNameComparer">Comparer for the <see cref="P:NMoneys.Currency.NativeName"/> property.</param>
+        </member>
+        <member name="M:NMoneys.CurrencyEqualityComparer.#ctor(System.Collections.Generic.IEqualityComparer{System.String},System.Collections.Generic.IEqualityComparer{System.String})">
+            <summary>
+            Creates an instance with the provided comparers.
+            </summary>
+            <remarks>This is a preferred constructors as culture-specific comparisons should be favoured for culture sensitive strings.</remarks>
+            <param name="nativeNameComparer">Comparer for the <see cref="P:NMoneys.Currency.NativeName"/> property.</param>
+            <param name="symbolComparer">Comparer for the <see cref="P:NMoneys.Currency.Symbol"/> property.</param>
+        </member>
+        <member name="M:NMoneys.CurrencyEqualityComparer.#ctor(System.Collections.Generic.IEqualityComparer{System.String},System.Collections.Generic.IEqualityComparer{System.String},System.Collections.Generic.IEqualityComparer{System.String})">
+            <summary>
+            Creates an instance with the provided comparers.
+            </summary>
+            <param name="nativeNameComparer">Comparer for the <see cref="P:NMoneys.Currency.NativeName"/> property.</param>
+            <param name="symbolComparer">Comparer for the <see cref="P:NMoneys.Currency.Symbol"/> property.</param>
+            <param name="separatorComparer">Comparer for the <see cref="P:NMoneys.Currency.DecimalSeparator"/> and <see cref="P:NMoneys.Currency.GroupSeparator"/> properties.</param>
+        </member>
+        <member name="M:NMoneys.CurrencyEqualityComparer.#ctor(System.Collections.Generic.IEqualityComparer{System.String},System.Collections.Generic.IEqualityComparer{System.String},System.Collections.Generic.IEqualityComparer{System.String},System.Collections.Generic.IEqualityComparer{System.String})">
+            <summary>
+            Creates an instance with the provided comparers.
+            </summary>
+            <remarks>Provides the maximum control over how string comparisons will be performed.</remarks>
+            <param name="nativeNameComparer">Comparer for the <see cref="P:NMoneys.Currency.NativeName"/> property.</param>
+            <param name="symbolComparer">Comparer for the <see cref="P:NMoneys.Currency.Symbol"/> property.</param>
+            <param name="separatorComparer">Comparer for the <see cref="P:NMoneys.Currency.DecimalSeparator"/> and <see cref="P:NMoneys.Currency.GroupSeparator"/> properties.</param>
+            <param name="englishNameComparer">Comparer for the <see cref="P:NMoneys.Currency.EnglishName"/> property.</param>
+        </member>
+        <member name="F:NMoneys.CurrencyEqualityComparer.Default">
+            <summary>
+            Gets a default implementation of the <see cref="T:NMoneys.CurrencyEqualityComparer"/> with default comparers.
+            </summary>
+            <seealso cref="P:NMoneys.CurrencyEqualityComparer.DefaultNativeComparer"/>
+            <seealso cref="P:NMoneys.CurrencyEqualityComparer.DefaultSymbolComparer"/>
+            <seealso cref="P:NMoneys.CurrencyEqualityComparer.DefaultSeparatorComparer"/>
+            <seealso cref="P:NMoneys.CurrencyEqualityComparer.DefaultEnglishComparer"/>
+        </member>
+        <member name="M:NMoneys.CurrencyEqualityComparer.Equals(NMoneys.Currency,NMoneys.Currency)">
+            <summary>
+            Determines whether the specified currencies are equal.
+            </summary>
+            <returns>true if the specified currencies are equal; otherwise, false.</returns>
+            <param name="x">The first <see cref="T:NMoneys.Currency"/> to compare.</param>
+            <param name="y">The second <see cref="T:NMoneys.Currency"/> to compare.</param>
+        </member>
+        <member name="M:NMoneys.CurrencyEqualityComparer.GetHashCode(NMoneys.Currency)">
+            <summary>
+            Returns a hash code for the specified currency.
+            </summary>
+            <returns>
+            A hash code for the specified currency.
+            </returns>
+            <param name="obj">The <see cref="T:NMoneys.Currency"/> for which a hash code is to be returned.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="obj"/> is null.</exception>
+        </member>
+        <member name="P:NMoneys.CurrencyEqualityComparer.DefaultEnglishComparer">
+            <summary>Default string comparison for the <see cref="P:NMoneys.Currency.EnglishName"/> member.</summary>
+            <remarks>A case-sensitive string comparison using the word comparison rules of a neutral-english culture (LCID 0009, <c>en</c>) is used.</remarks>
+        </member>
+        <member name="P:NMoneys.CurrencyEqualityComparer.DefaultNativeComparer">
+            <summary>Default string comparison for the <see cref="P:NMoneys.Currency.NativeName"/> member.</summary>
+            <remarks>A case-sensitive string comparison using the word comparison rules of the invariant culture is used.</remarks>
+        </member>
+        <member name="P:NMoneys.CurrencyEqualityComparer.DefaultSymbolComparer">
+            <summary>Default string comparison for the <see cref="P:NMoneys.Currency.Symbol"/> member.</summary>
+            <remarks>A case-sensitive string comparison using the word comparison rules of the invariant culture is used.</remarks>
+        </member>
+        <member name="P:NMoneys.CurrencyEqualityComparer.DefaultSeparatorComparer">
+            <summary>Default string comparison for the <see cref="P:NMoneys.Currency.DecimalSeparator"/> and <see cref="P:NMoneys.Currency.GroupSeparator"/> members.</summary>
+            <remarks>An case-sensitive ordinal string comparison is used.</remarks>
+        </member>
+        <member name="T:NMoneys.CurrencyIsoCode">
+            <summary>
+            Currency codes as stated by the ISO 4217 standard 
+            </summary>
+            <seealso href="http://www.iso.org/iso/support/currency_codes_list-1.htm" />
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.AED">
+            <summary>
+             UAE Dirham
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.AFN">
+            <summary>
+            Afghani
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.ALL">
+            <summary>
+            Albanian Lek
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.AMD">
+            <summary>
+            Armenian Dram
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.ANG">
+            <summary>
+            Netherlands Antillian Guilder
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.AOA">
+            <summary>
+            Kwanza
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.ARS">
+            <summary>
+            Argentine Peso
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.AUD">
+            <summary>
+            Australian Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.AWG">
+            <summary>
+            Aruban Florin
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.AZN">
+            <summary>
+            Azerbaijanian Manat
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BAM">
+            <summary>
+            Convertible Marks
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BBD">
+            <summary>
+            Barbados Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BDT">
+            <summary>
+            Bangladeshi Taka
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BGN">
+            <summary>
+            Bulgarian Lev
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BHD">
+            <summary>
+            Bahraini Dinar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BIF">
+            <summary>
+            Burundi Franc
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BMD">
+            <summary>
+            Bermudian Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BND">
+            <summary>
+            Brunei Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BOB">
+            <summary>
+            Boliviano
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BOV">
+            <summary>
+            Boliviano
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BRL">
+            <summary>
+            Real
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BSD">
+            <summary>
+            Bahamian Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BTN">
+            <summary>
+            Ngultrum
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BWP">
+            <summary>
+            Pula
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BYR">
+            <summary>
+            Belarusian Ruble
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.BZD">
+            <summary>
+            Belize Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CAD">
+            <summary>
+            Canadian Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CDF">
+            <summary>
+            Congolese Franc
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CHE">
+            <summary>
+            WIR Euro
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CHF">
+            <summary>
+            Swiss Franc
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CHW">
+            <summary>
+            WIR Franc
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CLF">
+            <summary>
+            Chilean Peso
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CLP">
+            <summary>
+            Chilean Peso
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CNY">
+            <summary>
+            Yuan Renminbi
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.COP">
+            <summary>
+            Colombian Peso
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.COU">
+            <summary>
+            Colombian Peso
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CRC">
+            <summary>
+            Costa Rican Colon
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CUC">
+            <summary>
+            Peso Convertible
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CUP">
+            <summary>
+            Cuban Peso
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CVE">
+            <summary>
+            Cape Verde Escudo
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.CZK">
+            <summary>
+            Czech Koruna
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.DJF">
+            <summary>
+            Djibouti Franc
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.DKK">
+            <summary>
+            Danish Krone
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.DOP">
+            <summary>
+            Dominican Peso
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.DZD">
+            <summary>
+            Algerian Dinar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.EEK">
+            <summary>
+            Estonian Kroon
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.EGP">
+            <summary>
+            Egyptian Pound
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.ERN">
+            <summary>
+            Nakfa
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.ETB">
+            <summary>
+            Ethiopian Birr
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.EUR">
+            <summary>
+            Euro
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.FJD">
+            <summary>
+            Fiji Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.FKP">
+            <summary>
+            Falkland Islands Pound
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.GBP">
+            <summary>
+            UK Pound Sterling
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.GEL">
+            <summary>
+            Lari
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.GHS">
+            <summary>
+            Cedi
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.GIP">
+            <summary>
+            Gibraltar Pound
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.GMD">
+            <summary>
+            Dalasi
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.GNF">
+            <summary>
+            Guinea Franc
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.GTQ">
+            <summary>
+            Guatemalan Quetzal
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.GYD">
+            <summary>
+            Guyana Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.HKD">
+            <summary>
+            Hong Kong Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.HNL">
+            <summary>
+            Honduran Lempira
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.HRK">
+            <summary>
+            Croatian Kuna
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.HTG">
+            <summary>
+            Gourde
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.HUF">
+            <summary>
+            Hungarian Forint
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.IDR">
+            <summary>
+            Indonesian Rupiah
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.ILS">
+            <summary>
+            Israeli New Shekel
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.INR">
+            <summary>
+            Indian Rupee
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.IQD">
+            <summary>
+            Iraqi Dinar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.IRR">
+            <summary>
+            Iranian Rial
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.ISK">
+            <summary>
+            Icelandic Krona
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.JMD">
+            <summary>
+            Jamaican Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.JOD">
+            <summary>
+            Jordanian Dinar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.JPY">
+            <summary>
+            Japanese Yen
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.KES">
+            <summary>
+            Kenyan Shilling
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.KGS">
+            <summary>
+            som
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.KMF">
+            <summary>
+            Comoro Franc
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.KHR">
+            <summary>
+            Riel
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.KPW">
+            <summary>
+            North Korean Won
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.KRW">
+            <summary>
+            Korean Won
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.KWD">
+            <summary>
+            Kuwaiti Dinar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.KYD">
+            <summary>
+            Cayman Islands Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.KZT">
+            <summary>
+            Tenge
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.LAK">
+            <summary>
+            Kip
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.LBP">
+            <summary>
+            Lebanese Pound
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.LKR">
+            <summary>
+            Sri Lanka Rupee
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.LRD">
+            <summary>
+            Liberian Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.LSL">
+            <summary>
+            Loti
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.LTL">
+            <summary>
+            Lithuanian Litas
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.LVL">
+            <summary>
+            Latvian Lats
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.LYD">
+            <summary>
+            Libyan Dinar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MAD">
+            <summary>
+            Moroccan Dirham
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MDL">
+            <summary>
+            Moldovan Leu
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MGA">
+            <summary>
+            Malagasy Ariary
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MKD">
+            <summary>
+            Macedonian Denar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MMK">
+            <summary>
+            Kyat
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MNT">
+            <summary>
+            Tugrik
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MOP">
+            <summary>
+            Macao Pataca
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MRO">
+            <summary>
+            Ouguiya
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MUR">
+            <summary>
+            Mauritius Rupee
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MVR">
+            <summary>
+            Rufiyaa
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MWK">
+            <summary>
+            Kwacha
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MXN">
+            <summary>
+            Mexican Peso
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MXV">
+            <summary>
+            Mexican Peso
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MYR">
+            <summary>
+            Malaysian Ringgit
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.MZN">
+            <summary>
+            Metical
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.NAD">
+            <summary>
+            Namibian Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.NGN">
+            <summary>
+            Nigerian Naira
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.NIO">
+            <summary>
+            Nicaraguan Cordoba Oro
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.NOK">
+            <summary>
+            Norwegian Krone
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.NPR">
+            <summary>
+            Nepalese Rupees
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.NZD">
+            <summary>
+            New Zealand Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.OMR">
+            <summary>
+            Omani Rial
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.PAB">
+            <summary>
+            Panamanian Balboa
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.PEN">
+            <summary>
+            Peruvian Nuevo Sol
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.PGK">
+            <summary>
+            Kina
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.PHP">
+            <summary>
+            Philippine Peso
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.PKR">
+            <summary>
+            Pakistan Rupee
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.PLN">
+            <summary>
+            Polish Zloty
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.PYG">
+            <summary>
+            Paraguay Guarani
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.QAR">
+            <summary>
+            Qatari Rial
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.RON">
+            <summary>
+            Romanian Leu
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.RSD">
+            <summary>
+            Serbian Dinar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.RUB">
+            <summary>
+            Russian Ruble
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.RWF">
+            <summary>
+            Rwandan Franc
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SAR">
+            <summary>
+            Saudi Riyal
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SBD">
+            <summary>
+            Solomon Islands Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SCR">
+            <summary>
+            Seychelles Rupee
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SDG">
+            <summary>
+            Sudanese Pound
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SEK">
+            <summary>
+            Swedish Krona
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SGD">
+            <summary>
+            Singapore Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SHP">
+            <summary>
+            Saint Helena Pound
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SLL">
+            <summary>
+            Leone
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SOS">
+            <summary>
+            Somali Shilling
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SRD">
+            <summary>
+            Surinam Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SSP">
+            <summary>
+            South Sudanese Pound
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.STD">
+            <summary>
+            Dobra
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SVC">
+            <summary>
+            US Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SYP">
+            <summary>
+            Syrian Pound
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.SZL">
+            <summary>
+            Lilangeni
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.THB">
+            <summary>
+            Thai Baht
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.TJS">
+            <summary>
+            Ruble
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.TMT">
+            <summary>
+            Turkmen manat
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.TND">
+            <summary>
+            Tunisian Dinar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.TOP">
+            <summary>
+            Pa'anga
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.TRY">
+            <summary>
+            Turkish Lira
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.TTD">
+            <summary>
+            Trinidad Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.TWD">
+            <summary>
+            New Taiwan Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.TZS">
+            <summary>
+            Tanzanian Shilling
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.UAH">
+            <summary>
+            Ukrainian Grivna
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.UGX">
+            <summary>
+            Uganda Shilling
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.USD">
+            <summary>
+            US Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.USN">
+            <summary>
+            US Dollar (Next day)
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.USS">
+            <summary>
+            US Dollar (Same day)
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.UYI">
+            <summary>
+            Peso Uruguayo
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.UYU">
+            <summary>
+            Peso Uruguayo
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.UZS">
+            <summary>
+            Uzbekistan Som
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.VEF">
+            <summary>
+            Venezuelan Bolivar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.VND">
+            <summary>
+            Vietnamese Dong
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.VUV">
+            <summary>
+            Vatu
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.WST">
+            <summary>
+            Tala
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XAF">
+            <summary>
+            CFA Franc BEAC
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XAG">
+            <summary>
+            Silver
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XAU">
+            <summary>
+            Gold
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XBA">
+            <summary>
+            Bond Markets Units European Composite Unit (EURCO)
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XBB">
+            <summary>
+            European Monetary Unit (E.M.U.-6)
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XBC">
+            <summary>
+            European Unit of Account 9(E.U.A.-9)
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XBD">
+            <summary>
+            European Unit of Account 17(E.U.A.-17)
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XCD">
+            <summary>
+            East Caribbean Dollar
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XDR">
+            <summary>
+            SDR
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XOF">
+            <summary>
+            CFA Franc BCEAO
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XPD">
+            <summary>
+            Palladium
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XPF">
+            <summary>
+            CFP Franc
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XPT">
+            <summary>
+            Platinum
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XSU">
+            <summary>
+            Sucre
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XTS">
+            <summary>
+            Test currency
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XUA">
+            <summary>
+            ADB Unit of Account
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.XXX">
+            <summary>
+            No currency
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.YER">
+            <summary>
+            Yemeni Rial
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.ZAR">
+            <summary>
+            South African Rand
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.ZMK">
+            <summary>
+            Zambian Kwacha
+            </summary>
+        </member>
+        <member name="F:NMoneys.CurrencyIsoCode.ZWL">
+            <summary>
+            Zimbabwe Dollar
+            </summary>
+        </member>
+        <member name="T:NMoneys.CanonicalCultureAttribute">
+            <summary>
+            Represents that a .NET Framework culture is suitable for representing an ISO currency
+            </summary>
+            <remarks>For internal verification purposes, it does not have any effect on currency runtime.</remarks>
+        </member>
+        <member name="P:NMoneys.CanonicalCultureAttribute.Name">
+            <summary>
+            Name of the <see cref="T:System.Globalization.CultureInfo"/> that is source of the information
+            </summary>
+        </member>
+        <member name="P:NMoneys.CanonicalCultureAttribute.Overwritten">
+            <summary>
+            Indicates whether one or more values of the currency are different from ones specified by the <see cref="T:System.Globalization.CultureInfo"/>.
+            </summary>
+        </member>
+        <member name="P:NMoneys.CanonicalCultureAttribute.Culture">
+            <summary>
+            Source of the information
+            </summary>
+            <remarks>It is a delegate as we do not want to use their value within the progrma but just as a support
+            to the tools that compare the information in the .NET Framework with the information in the Xml.</remarks>
+        </member>
+        <member name="T:NMoneys.IsoCodeExtensions">
+            <summary>
+            Contains extension to the type <see cref="T:NMoneys.CurrencyIsoCode"/>
+            </summary>
+        </member>
+        <member name="M:NMoneys.IsoCodeExtensions.AsValuePair(NMoneys.CurrencyIsoCode)">
+            <summary>
+            Returns a combination of the ISO 4217 code and its numeric value, separated by the equals sign '<code>=</code>'.
+            </summary>
+        </member>
+        <member name="M:NMoneys.IsoCodeExtensions.NumericCode(NMoneys.CurrencyIsoCode)">
+            <summary>
+            The numeric ISO 4217 code of the <see cref="T:NMoneys.CurrencyIsoCode"/>
+            </summary>
+        </member>
+        <member name="M:NMoneys.IsoCodeExtensions.PaddedNumericCode(NMoneys.CurrencyIsoCode)">
+            <summary>
+            Returns a padded three digit string representation of the <see cref="M:NMoneys.IsoCodeExtensions.NumericCode(NMoneys.CurrencyIsoCode)"/>.
+            </summary>
+        </member>
+        <member name="M:NMoneys.IsoCodeExtensions.AlphabeticCode(NMoneys.CurrencyIsoCode)">
+            <summary>
+            The alphabetic ISO 4217 code of the <see cref="T:NMoneys.CurrencyIsoCode"/>
+            </summary>
+        </member>
+        <member name="T:NMoneys.MisconfiguredCurrencyException">
+            <summary>
+            The exception that is thrown when a currency has not been properly configured.
+            </summary>
+        </member>
+        <member name="M:NMoneys.MisconfiguredCurrencyException.#ctor(NMoneys.CurrencyIsoCode)">
+            <summary>
+            Initializes a new instance of <see cref="T:NMoneys.MisconfiguredCurrencyException"/>.
+            </summary>
+            <param name="isoCode">The currency which is missconfigured.</param>
+        </member>
+        <member name="M:NMoneys.MisconfiguredCurrencyException.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:NMoneys.MisconfiguredCurrencyException"/>.
+            </summary>
+        </member>
+        <member name="M:NMoneys.MisconfiguredCurrencyException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:NMoneys.MisconfiguredCurrencyException"/>.
+            </summary>
+            <param name="message">A message that describes why this exception was thrown.</param>
+        </member>
+        <member name="M:NMoneys.MisconfiguredCurrencyException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:NMoneys.MisconfiguredCurrencyException"/>.
+            </summary>
+            <param name="message">A message that describes why this exception was thrown.</param>
+            <param name="inner">The exception that caused this exception to be thrown.</param>
+        </member>
+        <member name="M:NMoneys.MisconfiguredCurrencyException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instace of <see cref="T:NMoneys.MisconfiguredCurrencyException"/> with serialized data
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the <see cref="T:NMoneys.MisconfiguredCurrencyException"/>.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:NMoneys.DifferentCurrencyException">
+            <summary>
+            Currency that is thrown when two instances of <see cref="T:NMoneys.Money"/> are passed onto an opeation that can only be performed when they have the same currency.
+            </summary>
+        </member>
+        <member name="M:NMoneys.DifferentCurrencyException.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:NMoneys.DifferentCurrencyException"/>.
+            </summary>
+        </member>
+        <member name="M:NMoneys.DifferentCurrencyException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:NMoneys.DifferentCurrencyException"/>.
+            </summary>
+            <param name="expectedIsoSymbol">Textual representation of a ISO 4217 coden that was expected for the operation to be successful.</param>
+            <param name="actualIsoSymbol">Textual representation of a ISO 4217 coden that provoked the exception.</param>
+        </member>
+        <member name="M:NMoneys.DifferentCurrencyException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:NMoneys.DifferentCurrencyException"/>.
+            </summary>
+            <param name="message">A message that describes why this exception was thrown.</param>
+        </member>
+        <member name="M:NMoneys.DifferentCurrencyException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:NMoneys.DifferentCurrencyException"/>.
+            </summary>
+            <param name="message">A message that describes why this exception was thrown.</param>
+            <param name="inner">The exception that caused this exception to be thrown.</param>
+        </member>
+        <member name="M:NMoneys.DifferentCurrencyException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instace of <see cref="T:NMoneys.DifferentCurrencyException"/> with serialized data
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the <see cref="T:NMoneys.DifferentCurrencyException"/>.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:NMoneys.DifferentCurrencyException.DefaultMessage(System.String,System.String)">
+            <summary>
+            Textual template to create the default <see cref="P:System.Exception.Message"/> of an instance of <see cref="T:NMoneys.DifferentCurrencyException"/>
+            </summary>
+            <param name="expectedIsoSymbol">Textual representation of a ISO 4217 coden that was expected for the operation to be successful.</param>
+            <param name="actualIsoSymbol">Textual representation of a ISO 4217 coden that provoked the exception.</param>
+            <returns>A string that contains the default message for a <see cref="T:NMoneys.DifferentCurrencyException"/> to be thrown.</returns>
+        </member>
+        <member name="T:NMoneys.Extensions.MoneyExtensions">
+            <summary>
+            Extensions methods related to monetary quantities.
+            </summary>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Aud(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Aud"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Cad(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Cad"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Chf(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Chf"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Cny(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Cny"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Dkk(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Dkk"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Eur(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Eur"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Gbp(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Gbp"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Hkd(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Hkd"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Huf(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Huf"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Inr(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Inr"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Jpy(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Jpy"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Mxn(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Mxn"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Myr(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Myr"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Nok(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Nok"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Nzd(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Nzd"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Rub(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Rub"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Sek(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Sek"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Sgd(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Sgd"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Thb(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Thb"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Usd(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Usd"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Zar(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Zar"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Xxx(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Xxx"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Xts(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Xts"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Euros(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Euro"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Dollars(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Dollar"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Pounds(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Pound"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Lerus(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Eur"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Bucks(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Usd"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.Quid(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <see cref="F:NMoneys.Currency.Gbp"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.ToMoney(NMoneys.CurrencyIsoCode,System.Decimal)">
+            <summary>Creates a <see cref="T:NMoneys.Money"/> instance with the specified amount and currency.</summary>
+             <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+             <param name="currency">The <see cref="P:NMoneys.Money.CurrencyCode"/> of the monetary quantity.</param>
+             <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <paramref name="currency"/>.</returns>
+             <seealso cref="M:NMoneys.Money.#ctor(System.Decimal,NMoneys.CurrencyIsoCode)"/>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.ToMoney(System.Decimal)">
+            <summary>Creates a <see cref="T:NMoneys.Money"/> instance with the specified amount and unspecified currency.</summary>
+             <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+             <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and unspecified currency (<see cref="F:NMoneys.CurrencyIsoCode.XXX"/>).</returns>
+             <seealso cref="M:NMoneys.Money.#ctor(System.Decimal)"/>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.ToMoney(System.Decimal,NMoneys.CurrencyIsoCode)">
+            <summary>Creates a <see cref="T:NMoneys.Money"/> instance with the specified amount and currency.</summary>
+             <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+             <param name="currency">The <see cref="P:NMoneys.Money.CurrencyCode"/> of the monetary quantity.</param>
+             <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <paramref name="currency"/>.</returns>
+             <seealso cref="M:NMoneys.Money.#ctor(System.Decimal,NMoneys.CurrencyIsoCode)"/>
+        </member>
+        <member name="M:NMoneys.Extensions.MoneyExtensions.ToMoney(System.Decimal,NMoneys.Currency)">
+            <summary>Creates a <see cref="T:NMoneys.Money"/> instance with the specified amount and currency.</summary>
+             <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+             <param name="currency">The incarnation of the <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+             <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amount"/> and <paramref name="currency"/>.</returns>
+             <seealso cref="M:NMoneys.Money.#ctor(System.Decimal,NMoneys.Currency)"/>
+        </member>
+        <member name="T:NMoneys.CharacterReference">
+            <summary>
+            Represents a reserved character in an HTML/XML document.
+            </summary>
+        </member>
+        <member name="M:NMoneys.CharacterReference.#ctor">
+            <summary>
+            Creates an empty instance. <see cref="P:NMoneys.CharacterReference.IsEmpty"/> will be true.
+            </summary>
+            <remarks>To discourage the use of null, a "null object" pattern is used. "Null objects" are empty.</remarks>
+        </member>
+        <member name="F:NMoneys.CharacterReference.Empty">
+            <summary>Empty character reference. <see cref="P:NMoneys.CharacterReference.IsEmpty"/> will be true.</summary>
+            <remarks>To discourage the use of null, a "null object" pattern is used. "Null objects" are empty.</remarks>
+        </member>
+        <member name="M:NMoneys.CharacterReference.#ctor(System.String)">
+            <summary>
+            Creates a character reference.
+            </summary>
+            <remarks>The <paramref name="entityName"/> can be passed either in its "entity name" form (e.g. <code>&amp;name;</code>)
+            or in its "simple name" form (e.g. <code>name</code>).
+            <para>Names (<see cref="P:NMoneys.CharacterReference.EntityName"/> and <see cref="P:NMoneys.CharacterReference.SimpleName"/>) are stored as lower-case, independently of the casing they were provided.</para></remarks>
+            <param name="entityName">The name of the reference.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="entityName"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.CharacterReference.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:NMoneys.CharacterReference"/>.
+            </summary>
+            <returns>
+            The <see cref="P:NMoneys.CharacterReference.SimpleName"/> of the current instance.
+            </returns>
+        </member>
+        <member name="M:NMoneys.CharacterReference.IsEntityName(System.String)">
+            <summary>
+            Returns a value indicating whether <paramref name="entityName"/> starts with the character
+            <code>'&amp;'</code> and ends with the character <code>';'</code>.
+            </summary>
+            <param name="entityName">Name of the entity.</param>
+            <returns>true if <paramref name="entityName"/> does starts with <code>'&amp;'</code> and ends with <code>';'</code>;
+            otherwise, false</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="entityName"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.CharacterReference.Equals(NMoneys.CharacterReference)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">A character reference to compare with this character reference.</param>
+        </member>
+        <member name="M:NMoneys.CharacterReference.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+            <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+        </member>
+        <member name="M:NMoneys.CharacterReference.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:NMoneys.CharacterReference"/>.
+            </returns>
+        </member>
+        <member name="M:NMoneys.CharacterReference.op_Equality(NMoneys.CharacterReference,NMoneys.CharacterReference)">
+            <summary>Determines whether two specified character references have the same value.</summary>
+            <param name="left">The first character reference to compare, or null</param>
+            <param name="right">The second character reference to compare, or null</param>
+            <returns>true if the value of <paramref name="left"/> is the same as the value of <paramref name="right"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.CharacterReference.op_Inequality(NMoneys.CharacterReference,NMoneys.CharacterReference)">
+            <summary>Determines whether two specified character references have different values.</summary>
+            <param name="left">The first character reference to compare, or null</param>
+            <param name="right">The second character reference to compare, or null</param>
+            <returns>true if the value of <paramref name="left"/> is is different from the value of <paramref name="right"/>; otherwise, false.</returns>
+        </member>
+        <member name="P:NMoneys.CharacterReference.SimpleName">
+            <summary>
+            The "simple name" form of a character reference.
+            </summary>
+            <example>new CharacterReference("&amp;pound;").SimpleName --> "pound"</example>
+        </member>
+        <member name="P:NMoneys.CharacterReference.EntityName">
+            <summary>
+            The "entity name" form of a character reference.
+            </summary>
+            <example>new CharacterReference("&amp;pound;").EntityName --> "&amp;pound;"</example>
+        </member>
+        <member name="P:NMoneys.CharacterReference.EntityNumber">
+            <summary>
+            The "entity number" form of a character reference.
+            </summary>
+            <example>new CharacterReference("&amp;pound;").EntityNumber --> "&amp;163;"</example>
+        </member>
+        <member name="P:NMoneys.CharacterReference.CodePoint">
+            <summary>
+            The unicode code point of a character reference.
+            </summary>
+            <example>new CharacterReference("&amp;pound;").CodePoint --> 163</example>
+        </member>
+        <member name="P:NMoneys.CharacterReference.Character">
+            <summary>
+            The character of a character reference.
+            </summary>
+            <example>new CharacterReference("&amp;pound;").Character --> "£"</example>
+        </member>
+        <member name="P:NMoneys.CharacterReference.IsEmpty">
+            <summary>
+            Returns wheter the instance is empty or not.
+            </summary>
+            <remarks>To discourage the use of null, a "null object" pattern is used. "Null objects" are empty.</remarks>
+        </member>
+        <member name="T:NMoneys.ObsoleteCurrencies">
+            <summary>
+            Maintains a list of obsolete currencies
+            </summary>
+        </member>
+        <member name="T:NMoneys.ObsoleteCurrencyEventArgs">
+            <summary>
+            Provides data for the <see cref="E:NMoneys.Currency.ObsoleteCurrency"/> event.
+            </summary>
+        </member>
+        <member name="M:NMoneys.ObsoleteCurrencyEventArgs.#ctor(NMoneys.CurrencyIsoCode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NMoneys.ObsoleteCurrencyEventArgs"/> class.
+            </summary>
+            <param name="code"></param>
+        </member>
+        <member name="P:NMoneys.ObsoleteCurrencyEventArgs.Code">
+            <summary>
+            ISO code of the obsolete currency.
+            </summary>
+        </member>
+        <member name="T:NMoneys.ObsoleteCurrencyEventBehavior">
+            <summary>
+            Allows ignore raising multiple events for single obsolete currency.
+            </summary>
+        </member>
+        <member name="T:NMoneys.Serialization.CurrencyCodeConverter">
+            <summary>
+            Provides JavaScript Object Notation (JSON) format conversions for <see cref="T:NMoneys.CurrencyIsoCode"/>.
+            </summary>
+        </member>
+        <member name="M:NMoneys.Serialization.CurrencyCodeConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Converts the provided dictionary into an object of the specified type.
+            </summary>
+            <remarks>Only <see cref="T:NMoneys.CurrencyIsoCode"/> instances can be handled.</remarks>
+            <returns>
+            The deserialized object.
+            </returns>
+            <param name="dictionary">An <see cref="T:System.Collections.Generic.IDictionary`2"/> instance of property data stored as name/value pairs.</param>
+            <param name="type">The type of the resulting object.</param>
+            <param name="serializer">The <see cref="T:System.Web.Script.Serialization.JavaScriptSerializer"/> instance.</param>
+        </member>
+        <member name="M:NMoneys.Serialization.CurrencyCodeConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Builds a dictionary of name/value pairs.
+            </summary>
+            <remaks>Only instances of <see cref="T:NMoneys.CurrencyIsoCode"/> are supported.</remaks>
+            <returns>
+            An object that contains key/value pairs that represent the object’s data.
+            </returns>
+            <param name="obj">The object to serialize.</param>
+            <param name="serializer">The object that is responsible for the serialization.</param>
+            <exception cref="T:System.InvalidCastException">When the <paramref name="obj"/> cannot be casted to <see cref="T:NMoneys.CurrencyIsoCode"/>.</exception>
+        </member>
+        <member name="P:NMoneys.Serialization.CurrencyCodeConverter.SupportedTypes">
+            <summary>
+            Gets a collection of the supported types.
+            </summary>
+            <remarks>Only <see cref="T:NMoneys.CurrencyIsoCode"/> is supported.</remarks>
+            <returns>
+            An object that implements <see cref="T:System.Collections.Generic.IEnumerable`1"/> that represents the types supported by the converter.
+            </returns>
+        </member>
+        <member name="T:NMoneys.Serialization.CurrencyConverter">
+            <summary>
+            Provides JavaScript Object Notation (JSON) format conversions for <see cref="T:NMoneys.Currency"/>.
+            </summary>
+        </member>
+        <member name="M:NMoneys.Serialization.CurrencyConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Converts the provided dictionary into an object of the specified type.
+            </summary>
+            <remarks>Only <see cref="T:NMoneys.Currency"/> instances can be handled.</remarks>
+            <returns>
+            The deserialized object.
+            </returns>
+            <param name="dictionary">An <see cref="T:System.Collections.Generic.IDictionary`2"/> instance of property data stored as name/value pairs.</param>
+            <param name="type">The type of the resulting object.</param>
+            <param name="serializer">The <see cref="T:System.Web.Script.Serialization.JavaScriptSerializer"/> instance.</param>
+        </member>
+        <member name="M:NMoneys.Serialization.CurrencyConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Builds a dictionary of name/value pairs.
+            </summary>
+            <remaks>Only instances of <see cref="T:NMoneys.Currency"/> are supported.</remaks>
+            <returns>
+            An object that contains key/value pairs that represent the object’s data.
+            </returns>
+            <param name="obj">The object to serialize.</param>
+            <param name="serializer">The object that is responsible for the serialization.</param>
+            <exception cref="T:System.InvalidCastException">When the <paramref name="obj"/> cannot be casted to <see cref="T:NMoneys.CurrencyIsoCode"/>.</exception>
+        </member>
+        <member name="P:NMoneys.Serialization.CurrencyConverter.SupportedTypes">
+            <summary>
+            Gets a collection of the supported types.
+            </summary>
+            <remarks>Only <see cref="T:NMoneys.CurrencyIsoCode"/> is supported.</remarks>
+            <returns>
+            An object that implements <see cref="T:System.Collections.Generic.IEnumerable`1"/> that represents the types supported by the converter.
+            </returns>
+        </member>
+        <member name="T:NMoneys.Serialization.MoneyConverter">
+            <summary>
+            Provides JavaScript Object Notation (JSON) format conversions for <see cref="T:NMoneys.Money"/>.
+            </summary>
+        </member>
+        <member name="M:NMoneys.Serialization.MoneyConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Converts the provided dictionary into an object of the specified type.
+            </summary>
+            <remarks>Only <see cref="T:NMoneys.Money"/> instances can be handled.</remarks>
+            <returns>
+            The deserialized object.
+            </returns>
+            <param name="dictionary">An <see cref="T:System.Collections.Generic.IDictionary`2"/> instance of property data stored as name/value pairs.</param>
+            <param name="type">The type of the resulting object.</param>
+            <param name="serializer">The <see cref="T:System.Web.Script.Serialization.JavaScriptSerializer"/> instance.</param>
+        </member>
+        <member name="M:NMoneys.Serialization.MoneyConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Builds a dictionary of name/value pairs.
+            </summary>
+            <remaks>Only instances of <see cref="T:NMoneys.Money"/> are supported.</remaks>
+            <returns>
+            An object that contains key/value pairs that represent the object’s data.
+            </returns>
+            <param name="obj">The object to serialize.</param>
+            <param name="serializer">The object that is responsible for the serialization.</param>
+            <exception cref="T:System.InvalidCastException">When the <paramref name="obj"/> cannot be casted to <see cref="T:NMoneys.Money"/>.</exception>
+        </member>
+        <member name="P:NMoneys.Serialization.MoneyConverter.SupportedTypes">
+            <summary>
+            Gets a collection of the supported types.
+            </summary>
+            <remarks>Only <see cref="T:NMoneys.Money"/> is supported.</remarks>
+            <returns>
+            An object that implements <see cref="T:System.Collections.Generic.IEnumerable`1"/> that represents the types supported by the converter.
+            </returns>
+        </member>
+        <member name="T:NMoneys.Support.GroupSizes">
+            <summary>
+            Holds the different ways of representing the number of digits in each group to the left of the decimal in a number. 
+            </summary>
+        </member>
+        <member name="M:NMoneys.Support.GroupSizes.FromTokenizedSizes(System.String)">
+            <summary>
+            Creates a instance of <see cref="T:NMoneys.Support.GroupSizes"/> from its the space-tokenized representation.
+            </summary>
+            <param name="tokenizedSizes">Space-tokenized representation of the number of digits in each group to the left of the decimal in a number.</param>
+            <returns>Instance with all representations of the number of digits in each group.</returns>
+            /// <exception cref="T:System.ArgumentNullException"><paramref name="tokenizedSizes"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Support.GroupSizes.FromSizes(System.Int32[])">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Support.GroupSizes"/> from the number of digits in each group to the left of the decimal in a number.
+            </summary>
+            <param name="sizes">The number of digits in each group to the left of the decimal in a number.</param>
+            <returns>Instance with all representations of the number of digits in each group.</returns>
+        </member>
+        <member name="P:NMoneys.Support.GroupSizes.Sizes">
+            <summary>
+            The number of digits in each group to the left of the decimal in a number.
+            </summary>
+        </member>
+        <member name="P:NMoneys.Support.GroupSizes.TokenizedSizes">
+            <summary>
+            Space-tokenized representation of the number of digits in each group to the left of the decimal in a number.
+            </summary>
+        </member>
+        <member name="T:NMoneys.Money">
+            <summary>
+            A monetary quantity in a given currency
+            </summary>
+        </member>
+        <member name="M:NMoneys.Money.#ctor(System.Decimal)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> with the <paramref name="amount"/> provided
+            and the unspecified (<see cref="F:NMoneys.CurrencyIsoCode.XXX"/>) currency.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+        </member>
+        <member name="M:NMoneys.Money.#ctor(System.Decimal,NMoneys.CurrencyIsoCode)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> with the <paramref name="amount"/> provided
+            and the specified <paramref name="currency"/>.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <param name="currency">The <see cref="P:NMoneys.Money.CurrencyCode"/> of the monetary quantity.</param>
+        </member>
+        <member name="M:NMoneys.Money.#ctor(System.Decimal,NMoneys.Currency)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> with the <paramref name="amount"/> provided
+            and the specified <paramref name="currency"/>.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <param name="currency">The incarnation of the <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="currency"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Money.#ctor(System.Decimal,System.String)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> with the <paramref name="amount"/> provided
+            and <see cref="T:NMoneys.Currency"/> the specified <paramref name="threeLetterIsoCode"/>.
+            </summary>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <param name="threeLetterIsoCode">Textual representation of the ISO 4217 <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+        </member>
+        <member name="M:NMoneys.Money.#ctor(NMoneys.Money)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> based on the information provided by <paramref name="money"/>.
+            </summary>
+            <param name="money">A <see cref="T:NMoneys.Money"/> instance from which capture the values from.</param>
+        </member>
+        <member name="M:NMoneys.Money.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instace of <see cref="T:NMoneys.Money"/> with serialized data
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the <see cref="T:NMoneys.Money"/>.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:NMoneys.Money.ForCurrentCulture(System.Decimal)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified <see cref="P:NMoneys.Money.Amount"/> and the <see cref="P:NMoneys.Money.CurrencyCode"/> from the region
+            associated with the current culture.
+            </summary>
+            <remarks>The current culture is calculated as the value of <see cref="P:System.Globalization.CultureInfo.CurrentCulture"/>.
+            <para>There might be cases that the framework will provide non-standard or out-dated information for
+            the current culture. In this case it might be possible that an exception is thrown even if the region
+            corresponding to the current culture can be created.</para>
+            </remarks>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <returns>An instance of <see cref="T:NMoneys.Money"/> with the <paramref name="amount"/> specified and the currency associated to the current culture.</returns>
+            /// <exception cref="T:System.ArgumentException">The current is either an invariant or custom, or a <see cref="T:System.Globalization.RegionInfo"/> cannot be instantiated from it.</exception>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The ISO symbol associated to the current culture does not exist in the <see cref="T:NMoneys.CurrencyIsoCode"/> enumeration.</exception>
+            <exception cref="T:NMoneys.MisconfiguredCurrencyException">The currency associated to the current culture has not been properly configured by the library implementor. Please, log a issue.</exception>
+        </member>
+        <member name="M:NMoneys.Money.ForCulture(System.Decimal,System.Globalization.CultureInfo)">
+            <summary>
+            Creates an <see cref="T:NMoneys.Money"/> instance with the specified <see cref="P:NMoneys.Money.Amount"/> and the <see cref="P:NMoneys.Money.CurrencyCode"/> from the region
+            associated with the provided <paramref name="culture"/>.
+            </summary>
+            <remarks>There might be cases that the framework will provided non-standard or out-dated information for
+            the given <paramref name="culture"/>. In this case it might be possible that an exception is thrown even if the region
+            corresponding to the <paramref name="culture"/> can be created.</remarks>
+            <param name="amount">The <see cref="P:NMoneys.Money.Amount"/> of the monetary quantity.</param>
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo"/> from which retrieve the associated currency.</param>
+            <returns>An instance of <see cref="T:NMoneys.Money"/> with the <paramref name="amount"/> specified and the currency associated to the specified <paramref name="culture"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="culture"/> is null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="culture"/> is either an invariant, custom or neutral culture, or a <see cref="T:System.Globalization.RegionInfo"/> cannot be instantiated from it.</exception>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The ISO symbol associated to the <paramref name="culture"/> does not exist in the <see cref="T:NMoneys.CurrencyIsoCode"/> enumeration.</exception>
+            <exception cref="T:NMoneys.MisconfiguredCurrencyException">The currency associated to the <paramref name="culture"/> has not been properly configured by the library implementor. Please, log a issue.</exception>
+        </member>
+        <member name="M:NMoneys.Money.Zero">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> with <see cref="F:System.Decimal.Zero"/> quantity and the unspecified currency.
+            </summary>
+            <returns>An <see cref="T:NMoneys.Money"/> instance with zero <see cref="P:NMoneys.Money.Amount"/> and unspecified currency (<see cref="F:NMoneys.CurrencyIsoCode.XXX"/>).</returns>
+            <seealso cref="M:NMoneys.Money.#ctor(System.Decimal)"/>
+        </member>
+        <member name="M:NMoneys.Money.Zero(NMoneys.CurrencyIsoCode)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> with <see cref="F:System.Decimal.Zero"/> quantity and the specified currency.
+            </summary>
+            <param name="currency">The <see cref="P:NMoneys.Money.CurrencyCode"/> of the monetary quantity.</param>
+            <returns>An <see cref="T:NMoneys.Money"/> instance with zero <see cref="P:NMoneys.Money.Amount"/> and the specified <paramref name="currency"/>.</returns>
+            <seealso cref="M:NMoneys.Money.#ctor(System.Decimal,NMoneys.CurrencyIsoCode)"/>
+        </member>
+        <member name="M:NMoneys.Money.Zero(NMoneys.Currency)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> with <see cref="F:System.Decimal.Zero"/> quantity and the specified currency.
+            </summary>
+            <param name="currency">The incarnation of the <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+            <returns>An <see cref="T:NMoneys.Money"/> instance with zero <see cref="P:NMoneys.Money.Amount"/> and the specified <paramref name="currency"/>.</returns>
+            <seealso cref="M:NMoneys.Money.#ctor(System.Decimal,NMoneys.Currency)"/>
+        </member>
+        <member name="M:NMoneys.Money.Zero(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> with <see cref="F:System.Decimal.Zero"/> quantity and the specified currency.
+            </summary>
+            <param name="threeLetterIsoCode">Textual representation of the ISO 4217 <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+            <returns>An <see cref="T:NMoneys.Money"/> instance with zero <see cref="P:NMoneys.Money.Amount"/> and the specified <paramref name="threeLetterIsoCode"/>.</returns>
+            <seealso cref="M:NMoneys.Money.#ctor(System.Decimal,System.String)"/>
+        </member>
+        <member name="M:NMoneys.Money.ForMajor(System.Int64)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> with the specified amount and the unspecified currency.
+            </summary>
+            <remarks>The <see cref="P:NMoneys.Money.Amount"/> is a whole number only.
+            Thus 'XXX 20' can be intialised, but not the value 'XXX 20.32'.</remarks>
+            <param name="amountMajor">The <see cref="P:NMoneys.Money.Amount"/> in the major division of the currency.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amountMajor"/> and unspecified currency (<see cref="F:NMoneys.CurrencyIsoCode.XXX"/>).</returns>
+            <seealso cref="M:NMoneys.Money.#ctor(System.Decimal)"/>
+        </member>
+        <member name="M:NMoneys.Money.ForMajor(System.Int64,NMoneys.CurrencyIsoCode)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> with the specified amount and the specified currency.
+            </summary>
+            <remarks>The <see cref="P:NMoneys.Money.Amount"/> is a whole number only.
+            Thus 'USD 20' can be intialised, but not the value 'USD 20.32'.</remarks>
+            <param name="amountMajor">The <see cref="P:NMoneys.Money.Amount"/> in the major division of the currency.</param>
+            <param name="currency">The <see cref="P:NMoneys.Money.CurrencyCode"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amountMajor"/> and <paramref name="currency"/>.</returns>
+            <seealso cref="M:NMoneys.Money.#ctor(System.Decimal)"/>
+        </member>
+        <member name="M:NMoneys.Money.ForMajor(System.Int64,NMoneys.Currency)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> from an amount in major units of the specified <paramref name="currency"/>.
+            </summary>
+            <remarks>The <see cref="P:NMoneys.Money.Amount"/> is a whole number. Thus 'USD 20' can be initialized, but not 'USD 20.32'.</remarks>
+            <param name="amountMajor">The <see cref="P:NMoneys.Money.Amount"/> in the major division of the currency.</param>
+            <param name="currency">The incarnation of the <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amountMajor"/> and <paramref name="currency"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="currency"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Money.ForMajor(System.Int64,System.String)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> from an amount in major units of the specified <paramref name="threeLetterIsoCode"/>.
+            </summary>
+            <remarks>The <see cref="P:NMoneys.Money.Amount"/> is a whole number. Thus 'USD 20' can be initialized, but not 'USD 20.32'.</remarks>
+            <param name="amountMajor">The <see cref="P:NMoneys.Money.Amount"/> in the major division of the currency.</param>
+            <param name="threeLetterIsoCode">Textual representation of the ISO 4217 <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amountMajor"/> and <paramref name="threeLetterIsoCode"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Money.ForMinor(System.Int64)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> from an amount in major units of the unspecified currency.
+            </summary>
+            <remarks>Allows the creation of an instance with an amount expressed in terms of the minor unit of the unspecified currency.
+            For the unspecified currency the input to this method represents cents.</remarks>
+            <param name="amountMinor">The <see cref="P:NMoneys.Money.Amount"/> in the minor division of the currency.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amountMinor"/> and unspecified currency (<see cref="F:NMoneys.CurrencyIsoCode.XXX"/>).</returns>
+        </member>
+        <member name="M:NMoneys.Money.ForMinor(System.Int64,NMoneys.CurrencyIsoCode)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> from an amount in major units of the specified currency.
+            </summary>
+            <remarks>Allows creating an instance with an amount expressed in terms of the minor unit of the currency.
+            <para>For example, when constructing 'US Dollars', the <paramref name="amountMinor"/> represents 'cents'.</para>
+            <para>When the currency has zero decimal places, <see cref="P:NMoneys.Money.MajorAmount"/> and <see cref="P:NMoneys.Money.MinorAmount"/> are the same.</para>
+            </remarks>
+            /// <example>Money.ForMinor(CurrencyIsoCode.USD, 2595) creates an instance of 'USD 29.95'</example>
+            <param name="amountMinor">The <see cref="P:NMoneys.Money.Amount"/> in the minor division of the currency.</param>
+            <param name="currency">The <see cref="P:NMoneys.Money.CurrencyCode"/> of the monetary quantity.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amountMinor"/> and <paramref name="currency"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Money.ForMinor(System.Int64,NMoneys.Currency)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> from an amount in major units of the specified currency.
+            </summary>
+            <remarks>Allows creating an instance with an amount expressed in terms of the minor unit of the currency.
+            <para>For example, when constructing 'US Dollars', the <paramref name="amountMinor"/> represents 'cents'.</para>
+            <para>When the currency has zero decimal places, <see cref="P:NMoneys.Money.MajorAmount"/> and <see cref="P:NMoneys.Money.MinorAmount"/> are the same.</para>
+            </remarks>
+            <example>Money.ForMinor(Currency.Usd, 2595) creates an instance of 'USD 29.95'</example>
+            <param name="amountMinor">The <see cref="P:NMoneys.Money.Amount"/> in the minor division of the currency.</param>
+            <param name="currency">The incarnation of the <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amountMinor"/> and <paramref name="currency"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="currency"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Money.ForMinor(System.Int64,System.String)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> from an amount in major units of the specified currency.
+            </summary>
+            <remarks>Allows creating an instance with an amount expressed in terms of the minor unit of the currency.
+            <para>For example, when constructing 'US Dollars', the <paramref name="amountMinor"/> represents 'cents'.</para>
+            <para>When the currency has zero decimal places, <see cref="P:NMoneys.Money.MajorAmount"/> and <see cref="P:NMoneys.Money.MinorAmount"/> are the same.</para>
+            </remarks>
+            <example>Money.ForMinor(Currency.Usd, 2595) creates an instance of 'USD 29.95'</example>
+            <param name="amountMinor">The <see cref="P:NMoneys.Money.Amount"/> in the minor division of the currency.</param>
+            <param name="threeLetterIsoCode">Textual representation of the ISO 4217 <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the specified <paramref name="amountMinor"/> and <paramref name="threeLetterIsoCode"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Money.Total(NMoneys.Money[])">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> witht the total value of an array.
+            </summary>
+            <remarks>All moneys have to have the same currency, otherwise and exception will be thrown.</remarks>
+            <param name="moneys">A not null and not empty array of moneys.</param>
+            <returns>An <see cref="T:NMoneys.Money"/> instance which <see cref="P:NMoneys.Money.Amount"/> is the sum of all amounts of the moneys in the array,
+            and <see cref="T:NMoneys.Currency"/> the same as all the moneys in the array.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="moneys"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="moneys"/> is empty.</exception>
+            <exception cref="T:NMoneys.DifferentCurrencyException">If any of the currencies of <paramref name="moneys"/> differ.</exception>
+        </member>
+        <member name="M:NMoneys.Money.Total(System.Collections.Generic.IEnumerable{NMoneys.Money})">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Money"/> witht the total value of an collection of moneys.
+            </summary>
+            <remarks></remarks>
+            <param name="moneys">A not null and not empty collection of moneys.</param>
+            <returns>An <see cref="T:NMoneys.Money"/> instance which <see cref="P:NMoneys.Money.Amount"/> is the sum of all amounts of the moneys in the collection,
+            and <see cref="T:NMoneys.Currency"/> the same as all the moneys in the collection.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="moneys"/> is null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="moneys"/> is empty.</exception>
+            <exception cref="T:NMoneys.DifferentCurrencyException">If any of the currencies of <paramref name="moneys"/> differ.</exception>
+        </member>
+        <member name="F:NMoneys.Money._currencyCode">
+            <summary>
+            DO NOT USE the field directly. Use <see cref="P:NMoneys.Money.CurrencyCode"/>.
+            </summary>
+        </member>
+        <member name="M:NMoneys.Money.ToString">
+            <summary>
+            Converts the numeric value of the <see cref="P:NMoneys.Money.Amount"/> to its equivalent string representation using an instance of the <see cref="T:NMoneys.Currency"/>
+            identified by <see cref="P:NMoneys.Money.CurrencyCode"/> for culture-specific format information.
+            </summary>
+            <remarks>The return value is formatted with the currency numeric format specifier ("C").</remarks>
+            <returns>The string representation of the value of this instance as specified by the <c>"Currency"</c> format specifier.</returns>
+        </member>
+        <member name="M:NMoneys.Money.ToString(System.String)">
+            <summary>
+            Converts the numeric value of the <see cref="P:NMoneys.Money.Amount"/> to its equivalent string representation using an instance of the <see cref="T:NMoneys.Currency"/>
+            identified by <see cref="P:NMoneys.Money.CurrencyCode"/> for culture-specific format information.
+            </summary>
+            <param name="format">A numeric format string</param>
+            <returns>The string representation of the value of this instance as specified by the format specifier and an instance of the <see cref="T:NMoneys.Currency"/>
+            identified by <see cref="P:NMoneys.Money.CurrencyCode"/> as the provider.</returns>
+        </member>
+        <member name="M:NMoneys.Money.ToString(System.IFormatProvider)">
+            <summary>
+            Converts the numeric value of the <see cref="P:NMoneys.Money.Amount"/> to its equivalent string representation using <paramref name="provider"/>
+            for culture-specific format information.
+            </summary>
+            <param name="provider">An object that supplies culture-specific formatting information.</param>
+            <returns>The string representation of the value of this instance as specified by the<c>"Currency"</c> format specifier and 
+            <paramref name="provider"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Money.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            Converts the numeric value of the <see cref="P:NMoneys.Money.Amount"/> to its equivalent string representation using the specified <paramref name="format"/>
+            and culture-specific format information.
+            </summary>
+            <param name="format">A numeric format string</param>
+            <param name="provider">An object that supplies culture-specific formatting information.</param>
+            <returns>The string representation of the value of this instance as specified by <paramref name="format"/>the<c>"Currency"</c> format specifier and 
+            and <paramref name="provider"/>.</returns>
+        </member>
+        <member name="M:NMoneys.Money.Format(System.String)">
+            <summary>
+            Replaces the format item in a specified <code>string</code> with information from the <see cref="T:NMoneys.Currency"/>
+            identified by the instance's <see cref="P:NMoneys.Money.CurrencyCode"/>.
+            An instance of the <see cref="T:NMoneys.Currency"/> identified by <see cref="P:NMoneys.Money.CurrencyCode"/> will be supplying culture-specific formatting information.
+            </summary>
+            <remarks>
+            The following table describes the tokens that will be replaced in the <paramref name="format"/>:
+            <list type="table">
+            <listheader>
+            <term>Token</term>
+            <description>Description</description>
+            </listheader>
+            <item>
+            <term>{0}</term>
+            <description>This token represents the <see cref="P:NMoneys.Money.Amount"/> of the current instance.</description>
+            </item>
+            <item>
+            <term>{1}</term>
+            <description>This token represents the <see cref="P:NMoneys.Currency.Symbol"/> for the currency of the current instance</description>
+            </item>
+            <item>
+            <term>{2}</term>
+            <description>This token represents the <see cref="P:NMoneys.Currency.IsoCode"/> for the currency of the current instance</description>
+            </item>
+            <item>
+            <term>{3}</term>
+            <description>This token represents the <see cref="P:NMoneys.Currency.EnglishName"/> for the currency of the current instance</description>
+            </item>
+            <item>
+            <term>{4}</term>
+            <description>This token represents the <see cref="P:NMoneys.Currency.NativeName"/> for the currency of the current instance</description>
+            </item>
+            </list>
+            </remarks>
+            <param name="format">A composite format string that can contain tokens to be replaced by properties of the <see cref="T:NMoneys.Currency"/>
+            identified by the instance's <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+            <returns>A copy of <paramref name="format"/> in which the format items have been replaced by the string representation of the corresponding tokens.</returns>
+        </member>
+        <member name="M:NMoneys.Money.Format(System.String,System.IFormatProvider)">
+            <summary>
+            Replaces the format item in a specified <code>string</code> with information from the <see cref="T:NMoneys.Currency"/>
+            identified by the instance's <see cref="P:NMoneys.Money.CurrencyCode"/>.
+            The <paramref name="provider"/> will be supplying culture-specific formatting information.
+            </summary>
+            <remarks>
+            The following table describes the tokens that will be replaced in the <paramref name="format"/>:
+            <list type="table">
+            <listheader>
+            <term>Token</term>
+            <description>Description</description>
+            </listheader>
+            <item>
+            <term>{0}</term>
+            <description>This token represents the <see cref="P:NMoneys.Money.Amount"/> of the current instance.</description>
+            </item>
+            <item>
+            <term>{1}</term>
+            <description>This token represents the <see cref="P:NMoneys.Currency.Symbol"/> for the currency of the current instance</description>
+            </item>
+            <item>
+            <term>{2}</term>
+            <description>This token represents the <see cref="P:NMoneys.Currency.IsoCode"/> for the currency of the current instance</description>
+            </item>
+            <item>
+            <term>{3}</term>
+            <description>This token represents the <see cref="P:NMoneys.Currency.EnglishName"/> for the currency of the current instance</description>
+            </item>
+            <item>
+            <term>{4}</term>
+            <description>This token represents the <see cref="P:NMoneys.Currency.NativeName"/> for the currency of the current instance</description>
+            </item>
+            </list>
+            </remarks>
+            <param name="format">A composite format string that can contain tokens to be replaced by properties of the <see cref="T:NMoneys.Currency"/>
+            identified by the instance's <see cref="P:NMoneys.Money.CurrencyCode"/>.</param>
+            <param name="provider">An object that supplies culture-specific formatting information.</param>
+            <returns>A copy of <paramref name="format"/> in which the format items have been replaced by the string representation of the corresponding tokens.</returns>
+        </member>
+        <member name="M:NMoneys.Money.Equals(NMoneys.Money)">
+            <summary>
+            Indicates whether the current <see cref="T:NMoneys.Money"/> is equal to another <see cref="T:NMoneys.Money"/>.
+            </summary>
+            <returns>
+            true if the current instance has equal <see cref="P:NMoneys.Money.Amount"/> and <see cref="T:NMoneys.Currency"/>as the <paramref name="other"/> parameter;
+            otherwise, false.
+            </returns>
+            <param name="other">An money to compare with this instance.</param>
+        </member>
+        <member name="M:NMoneys.Money.Equals(System.Object)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+            <returns>
+            true if <paramref name="obj"/> and this instance are the same type and represent the same value; otherwise, false.
+            </returns>
+            <param name="obj">Another object to compare to.</param>
+        </member>
+        <member name="M:NMoneys.Money.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>
+            A 32-bit signed integer that is the hash code for this instance.
+            </returns>
+        </member>
+        <member name="M:NMoneys.Money.op_Equality(NMoneys.Money,NMoneys.Money)">
+            <summary>
+            Returns a value indicating whether two instances of <see cref="T:NMoneys.Money"/> are equal.
+            </summary>
+            <param name="left">The first value to compare.</param>
+            <param name="right">The second value to compare.</param>
+            <returns>true if <paramref name="left"/> and <paramref name="right"/> are equal; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Money.op_Inequality(NMoneys.Money,NMoneys.Money)">
+            <summary>
+            Returns a value indicating whether two instances of <see cref="T:NMoneys.Money"/> are not equal.
+            </summary>
+            <param name="left">The first value to compare.</param>
+            <param name="right">The second value to compare.</param>
+            <returns>true if <paramref name="left"/> and <paramref name="right"/> are not equal; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Money.CompareTo(System.Object)">
+            <summary>
+            Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes,
+            follows, or occurs in the same position in the sort order as the other object.
+            </summary>
+            <param name="obj">An object to compare with this instance. </param>
+            <returns>
+            A 32-bit signed integer that indicates the relative order of the objects being compared. The return value has these meanings:
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <description>Meaning</description>
+            </listheader>
+            <item>
+            <term>Less than zero</term>
+            <description>This instance is less than <paramref name="obj"/>.</description>
+            </item>
+            <item>
+            <term>Zero</term>
+            <description>This instance is equal to <paramref name="obj"/>.</description>
+            </item>
+            <item>
+            <term>Greater than zero</term>
+            <description>This instance is greater than <paramref name="obj"/>.</description>
+            </item>
+            </list>
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="obj"/> is not a <see cref="T:NMoneys.Money"/>.</exception>
+        </member>
+        <member name="M:NMoneys.Money.CompareTo(NMoneys.Money)">
+            <summary>
+            Compares the current <see cref="P:NMoneys.Money.Amount"/> with the one for another <see cref="T:NMoneys.Money"/>.
+            </summary>
+            <remarks>Both instances must have the same <see cref="P:NMoneys.Money.CurrencyCode"/> in order to be compared, otherwise an exception will be thrown.</remarks>
+            <param name="other">An <see cref="T:NMoneys.Money"/> to compare with this object.</param>
+            <returns>
+            A 32-bit signed integer that indicates the relative order of the <c>amounts</c> being compared. The return value has the following meanings: 
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <description>Meaning</description>
+            </listheader>
+            <item>
+            <term>Less than zero</term>
+            <description>This <see cref="P:NMoneys.Money.Amount"/> is less than <paramref name="other"/>'s.</description>
+            </item>
+            <item>
+            <term>Zero</term>
+            <description>This <see cref="P:NMoneys.Money.Amount"/> is equal to <paramref name="other"/>'s.</description>
+            </item>
+            <item>
+            <term>Greater than zero</term>
+            <description>This <see cref="P:NMoneys.Money.Amount"/> is greater than <paramref name="other"/>'s.</description>
+            </item>
+            </list>
+            </returns>
+            <exception cref="T:NMoneys.DifferentCurrencyException">If <paramref name="other"/> does not have the same <see cref="P:NMoneys.Money.CurrencyCode"/>.</exception>
+        </member>
+        <member name="M:NMoneys.Money.op_GreaterThan(NMoneys.Money,NMoneys.Money)">
+            <summary>
+            Returns a value indicating whether a specified <see cref="T:NMoneys.Money"/> is greater than another specified <see cref="T:NMoneys.Money"/>.
+            </summary>
+            <param name="left">The first value to compare.</param>
+            <param name="right">The second value to compare.</param>
+            <returns>true if <paramref name="left"/> is greater than <paramref name="right"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Money.op_LessThan(NMoneys.Money,NMoneys.Money)">
+            <summary>
+            Returns a value indicating whether a specified <see cref="T:NMoneys.Money"/> is less than another specified <see cref="T:NMoneys.Money"/>.
+            </summary>
+            <param name="left">The first value to compare.</param>
+            <param name="right">The second value to compare.</param>
+            <returns>true if <paramref name="left"/> is less than <paramref name="right"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Money.op_GreaterThanOrEqual(NMoneys.Money,NMoneys.Money)">
+            <summary>
+            Returns a value indicating whether a specified <see cref="T:NMoneys.Money"/> is greater than or equal to another specified <see cref="T:NMoneys.Money"/>.
+            </summary>
+            <param name="left">The first value to compare.</param>
+            <param name="right">The second value to compare.</param>
+            <returns>true if <paramref name="left"/> is greater than or equal to <paramref name="right"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Money.op_LessThanOrEqual(NMoneys.Money,NMoneys.Money)">
+            <summary>
+            Returns a value indicating whether a specified <see cref="T:NMoneys.Money"/> is less than or equal to another specified <see cref="T:NMoneys.Money"/>.
+            </summary>
+            <param name="left">The first value to compare.</param>
+            <param name="right">The second value to compare.</param>
+            <returns>true if <paramref name="left"/> is less than or equal to <paramref name="right"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Money.IsNegative">
+            <summary>
+            Returns a value indicating whether the <see cref="P:NMoneys.Money.Amount"/> is strictly less than <see cref="F:System.Decimal.Zero"/>.
+            </summary>
+            <returns>true if <see cref="P:NMoneys.Money.Amount"/> is less than <see cref="F:System.Decimal.Zero"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Money.IsPositive">
+            <summary>
+            Returns a value indicating whether the <see cref="P:NMoneys.Money.Amount"/> is stricly greater than <see cref="F:System.Decimal.Zero"/>.
+            </summary>
+            <returns>true if <see cref="P:NMoneys.Money.Amount"/> is greater than <see cref="F:System.Decimal.Zero"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Money.IsZero">
+            <summary>
+            Returns a value indicating whether the <see cref="P:NMoneys.Money.Amount"/> is stricly equal to <see cref="F:System.Decimal.Zero"/>.
+            </summary>
+            <returns>true if <see cref="P:NMoneys.Money.Amount"/> is equal to <see cref="F:System.Decimal.Zero"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Money.IsNegativeOrZero">
+            <summary>
+            Returns a value indicating whether the <see cref="P:NMoneys.Money.Amount"/> is less than or equal to <see cref="F:System.Decimal.Zero"/>.
+            </summary>
+            <returns>true if <see cref="P:NMoneys.Money.Amount"/> is less or equal than <see cref="F:System.Decimal.Zero"/>; otherwise, false.</returns>
+            <seealso cref="M:NMoneys.Money.IsNegative"/>
+            <seealso cref="M:NMoneys.Money.IsZero"/>
+        </member>
+        <member name="M:NMoneys.Money.IsPositiveOrZero">
+            <summary>
+            Returns a value indicating whether the <see cref="P:NMoneys.Money.Amount"/> is greater than or equal to <see cref="F:System.Decimal.Zero"/>.
+            </summary>
+            <returns>true if <see cref="P:NMoneys.Money.Amount"/> is greater or equal than <see cref="F:System.Decimal.Zero"/>; otherwise, false.</returns>
+            <seealso cref="M:NMoneys.Money.IsPositive"/>
+            <seealso cref="M:NMoneys.Money.IsZero"/>
+        </member>
+        <member name="M:NMoneys.Money.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="M:NMoneys.Money.HasSameCurrencyAs(NMoneys.Money)">
+            <summary>
+            Returns a value indicating whether the <paramref name="money"/> has the same currency as the instance.
+            </summary>
+            <param name="money"><see cref="T:NMoneys.Money"/> instance to check against.</param>
+            <returns>true if <see cref="P:NMoneys.Money.CurrencyCode"/> is equal to <paramref name="money"/>'s; otherwise, false.</returns>
+        </member>
+        <member name="M:NMoneys.Money.AssertSameCurrency(NMoneys.Money)">
+            <summary>
+            Checks whether the <paramref name="money"/> has the same currency as the instance, throwing an exception if that is not the case.
+            </summary>
+            <param name="money"><see cref="T:NMoneys.Money"/> instance to check against.</param>
+            <exception cref="T:NMoneys.DifferentCurrencyException"></exception>
+        </member>
+        <member name="M:NMoneys.Money.op_UnaryNegation(NMoneys.Money)">
+            <summary>
+            Negates the value of the specified <see cref="T:NMoneys.Money"/> operand.
+            </summary>
+            <param name="money">The value to negate.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the <see cref="P:NMoneys.Money.Amount"/> of <paramref name="money"/>, but multiplied by negative one (-1).</returns>
+        </member>
+        <member name="M:NMoneys.Money.op_Addition(NMoneys.Money,NMoneys.Money)">
+            <summary>
+            Adds two specified <see cref="T:NMoneys.Money"/> values.
+            </summary>
+            <remarks>Both instances must have the same <see cref="P:NMoneys.Money.CurrencyCode"/> in order to be added, otherwise an exception will be thrown.</remarks>
+            <param name="first">The first value to add.</param>
+            <param name="second">The second value to add.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> as the sum of <paramref name="first"/> and <paramref name="second"/> amounts
+            and the same <see cref="P:NMoneys.Money.CurrencyCode"/> as any of the arguments.</returns>
+            <exception cref="T:NMoneys.DifferentCurrencyException">If <paramref name="first"/> does not have the same <see cref="P:NMoneys.Money.CurrencyCode"/>
+            as <paramref name="second"/>.</exception>
+            <exception cref="T:System.OverflowException">The <see cref="P:NMoneys.Money.Amount"/> of the result is less than
+            <see cref="F:System.Decimal.MinValue"/> or greater than <see cref="F:System.Decimal.MaxValue"/>.</exception>
+        </member>
+        <member name="M:NMoneys.Money.Add(NMoneys.Money,NMoneys.Money)">
+            <summary>
+            Adds two specified <see cref="T:NMoneys.Money"/> values.
+            </summary>
+            <remarks>Both instances must have the same <see cref="P:NMoneys.Money.CurrencyCode"/> in order to be added, otherwise an exception will be thrown.</remarks>
+            <param name="first">The first value to add.</param>
+            <param name="second">The second value to add.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> as the sum of <paramref name="first"/> and <paramref name="second"/> amounts
+            and the same <see cref="P:NMoneys.Money.CurrencyCode"/> as any of the arguments.</returns>
+            <exception cref="T:NMoneys.DifferentCurrencyException">If <paramref name="first"/> does not have the same <see cref="P:NMoneys.Money.CurrencyCode"/>
+            as <paramref name="second"/>.</exception>
+            <exception cref="T:System.OverflowException">The <see cref="P:NMoneys.Money.Amount"/> of the result is less than
+            <see cref="F:System.Decimal.MinValue"/> or greater than <see cref="F:System.Decimal.MaxValue"/>.</exception>
+        </member>
+        <member name="M:NMoneys.Money.op_Subtraction(NMoneys.Money,NMoneys.Money)">
+            <summary>
+            Substracts one specified <see cref="T:NMoneys.Money"/> from another.
+            </summary>
+            <remarks>Both instances must have the same <see cref="P:NMoneys.Money.CurrencyCode"/> in order to be substracted, otherwise an exception will be thrown.</remarks>
+            <param name="first">The minuend.</param>
+            <param name="second">The subtrahend.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> as the result of substracting <paramref name="second"/> from <paramref name="first"/> amounts
+            and the same <see cref="P:NMoneys.Money.CurrencyCode"/> as any of the arguments.</returns>
+            <exception cref="T:NMoneys.DifferentCurrencyException">If <paramref name="first"/> does not have the same <see cref="P:NMoneys.Money.CurrencyCode"/>
+            as <paramref name="second"/>.</exception>
+            <exception cref="T:System.OverflowException">The <see cref="P:NMoneys.Money.Amount"/> of the result is less than
+            <see cref="F:System.Decimal.MinValue"/> or greater than <see cref="F:System.Decimal.MaxValue"/>.</exception>
+        </member>
+        <member name="M:NMoneys.Money.Subtract(NMoneys.Money,NMoneys.Money)">
+            <summary>
+            Substracts one specified <see cref="T:NMoneys.Money"/> from another.
+            </summary>
+            <remarks>Both instances must have the same <see cref="P:NMoneys.Money.CurrencyCode"/> in order to be substracted, otherwise an exception will be thrown.</remarks>
+            <param name="first">The minuend.</param>
+            <param name="second">The subtrahend.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> as the result of substracting <paramref name="second"/> from <paramref name="first"/> amounts
+            and the same <see cref="P:NMoneys.Money.CurrencyCode"/> as any of the arguments.</returns>
+            <exception cref="T:NMoneys.DifferentCurrencyException">If <paramref name="first"/> does not have the same <see cref="P:NMoneys.Money.CurrencyCode"/>
+            as <paramref name="second"/>.</exception>
+            <exception cref="T:System.OverflowException">The <see cref="P:NMoneys.Money.Amount"/> of the result is less than
+            <see cref="F:System.Decimal.MinValue"/> or greater than <see cref="F:System.Decimal.MaxValue"/>.</exception>
+        </member>
+        <member name="M:NMoneys.Money.Plus(NMoneys.Money)">
+            <summary>
+            Adds two specified <see cref="T:NMoneys.Money"/> values.
+            </summary>
+            <remarks><paramref name="money"/> must have the same <see cref="P:NMoneys.Money.CurrencyCode"/> as this instance, otherwise an exception will be thrown.</remarks>
+            <param name="money">The value to add.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> as the sum of <paramref name="money"/> amount and this <see cref="P:NMoneys.Money.Amount"/>
+            and the same <see cref="P:NMoneys.Money.CurrencyCode"/> this instance.</returns>
+            <exception cref="T:NMoneys.DifferentCurrencyException">If <paramref name="money"/> does not have the same <see cref="P:NMoneys.Money.CurrencyCode"/> as this instance.</exception>
+            <exception cref="T:System.OverflowException">The <see cref="P:NMoneys.Money.Amount"/> of the result is less than  <see cref="F:System.Decimal.MinValue"/> or greater than <see cref="F:System.Decimal.MaxValue"/>.</exception>
+        </member>
+        <member name="M:NMoneys.Money.Minus(NMoneys.Money)">
+            <summary>
+            Substracts one specified <see cref="T:NMoneys.Money"/> from another.
+            </summary>
+            <remarks><paramref name="money"/> must have the same <see cref="P:NMoneys.Money.CurrencyCode"/> as this instance, otherwise an exception will be thrown.</remarks>
+            <param name="money">The subtrahend.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> as the result of substracting <paramref name="money"/>'s <see cref="P:NMoneys.Money.Amount"/> from this instance's
+            and the same <see cref="P:NMoneys.Money.CurrencyCode"/> as this instance.</returns>
+            <exception cref="T:NMoneys.DifferentCurrencyException">If <paramref name="money"/> does not have the same <see cref="P:NMoneys.Money.CurrencyCode"/> as this instance.</exception>
+            <exception cref="T:System.OverflowException">The <see cref="P:NMoneys.Money.Amount"/> of the result is less than <see cref="F:System.Decimal.MinValue"/> or greater than <see cref="F:System.Decimal.MaxValue"/>.</exception>
+        </member>
+        <member name="M:NMoneys.Money.Abs">
+            <summary>
+            Returns the absolute value of a <see cref="T:NMoneys.Money"/>.
+            </summary>
+            <remarks>The absolute value of a <see cref="T:NMoneys.Money"/> is another <see cref="T:NMoneys.Money"/> which <see cref="P:NMoneys.Money.Amount"/> is the numeric value without its sign.
+            For example, the absolute value of both $1.2 and ($1.2) is $1.2.</remarks>
+            <returns>A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> as the absolute value of this instance's.</returns>
+        </member>
+        <member name="M:NMoneys.Money.Negate">
+            <summary>
+            Returns the result of multiplying this instance of <see cref="T:NMoneys.Money"/> by negative one.
+            </summary>
+            <returns>A <see cref="T:NMoneys.Money"/> with the <see cref="P:NMoneys.Money.Amount"/> of this instance's, but the opposite sign.</returns>
+        </member>
+        <member name="M:NMoneys.Money.TruncateToSignificantDecimalDigits">
+            <summary>
+            Truncates the <see cref="P:NMoneys.Money.Amount"/> to the number of significant decimal digits specified by the <see cref="T:NMoneys.Currency"/>
+            identified this <see cref="P:NMoneys.Money.CurrencyCode"/>.
+            </summary>
+            <returns>A <see cref="T:NMoneys.Money"/> with the <see cref="P:NMoneys.Money.Amount"/> truncated to the significant number of decimal digits of its currency.</returns>
+        </member>
+        <member name="M:NMoneys.Money.TruncateToSignificantDecimalDigits(System.Globalization.NumberFormatInfo)">
+            <summary>
+            Truncates the <see cref="P:NMoneys.Money.Amount"/> to the number of significant decimal digits specified by <paramref name="numberFormat"/>.
+            </summary>
+            <param name="numberFormat">Specifies the number of significant decimal digits.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with the <see cref="P:NMoneys.Money.Amount"/> truncated to the significant number of decimal digits of <paramref name="numberFormat"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="numberFormat"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Money.Truncate">
+            <summary>
+            Returns the integral digits of this instance of <see cref="T:NMoneys.Money"/>; any fractional digits are discarded.
+            </summary>
+            <remarks>This method rounds <see cref="P:NMoneys.Money.Amount"/> toward zero, to the nearest whole number, which corresponds to discarding any digits after the decimal point.</remarks>
+            <returns>A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> the result of <see cref="P:NMoneys.Money.Amount"/> rounded toward zero, to the nearest whole number.</returns>
+        </member>
+        <member name="M:NMoneys.Money.RoundToNearestInt">
+            <summary>
+            Rounds <see cref="P:NMoneys.Money.Amount"/> to the nearest integer.
+            </summary>
+            <returns>
+            A <see cref="T:NMoneys.Money"/> with an integer <see cref="P:NMoneys.Money.Amount"/> that is nearest to the old value.
+            <para>If <see cref="P:NMoneys.Money.Amount"/> is halfway between two integers, one of which is even and the other odd, the even number is chosen.</para>
+            </returns>
+        </member>
+        <member name="M:NMoneys.Money.RoundToNearestInt(System.MidpointRounding)">
+            <summary>
+            Rounds <see cref="P:NMoneys.Money.Amount"/> to the nearest integer. A parameter specifies how to round the value if it is midway between two other numbers.
+            </summary>
+            <param name="mode">A value that specifies how to round <see cref="P:NMoneys.Money.Amount"/> if it is midway between two other numbers.</param>
+            <returns>
+            A <see cref="T:NMoneys.Money"/> with an integer <see cref="P:NMoneys.Money.Amount"/> that is nearest to the previous <see cref="P:NMoneys.Money.Amount"/> value.
+            <para>If <see cref="P:NMoneys.Money.Amount"/> is halfway between two numbers, one of which is even and the other odd, the mode parameter determines which of the two numbers is chosen.</para>
+            </returns>
+        </member>
+        <member name="M:NMoneys.Money.Round">
+            <summary>
+            Rounds <see cref="P:NMoneys.Money.Amount"/> to a the number of decimal places specified by the <see cref="T:NMoneys.Currency"/> identified by <see cref="P:NMoneys.Money.CurrencyCode"/>.
+            </summary>
+            <returns>
+            A <see cref="T:NMoneys.Money"/> with the <see cref="P:NMoneys.Money.Amount"/> equivalent to previous <see cref="P:NMoneys.Money.Amount"/> rounded to the number of decimal places specified by its <see cref="P:NMoneys.Money.CurrencyCode"/>.
+            </returns>
+            <remarks>
+            When <see cref="P:NMoneys.Money.Amount"/> is exactly halfway between two rounded values, the resultant <see cref="P:NMoneys.Money.Amount"/> is the rounded value that has an even digit in the far right decimal position. For example, when rounded to two <see cref="P:NMoneys.Money.Amount"/>s, the value <c>2.345</c> becomes <c>2.34</c> and the value <c>2.355</c> becomes 2.36. This process is known as rounding toward even, or rounding to nearest.
+            <para>The behavior of this method follows IEEE Standard 754, section 4. This kind of rounding is sometimes called rounding to nearest or banker's rounding.</para>
+            </remarks>
+        </member>
+        <member name="M:NMoneys.Money.Round(System.MidpointRounding)">
+            <summary>
+            Rounds <see cref="P:NMoneys.Money.Amount"/> to a precision specified by the <see cref="T:NMoneys.Currency"/> identified by <see cref="P:NMoneys.Money.CurrencyCode"/>.
+            <paramref name="mode"/> specifies how to round the value if it is midway between two other numbers.
+            </summary>
+            <param name="mode">A value that specifies how to round <see cref="P:NMoneys.Money.Amount"/> if it is midway between two other numbers.</param>
+            <returns>
+            A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> that is nearest to the previous <see cref="P:NMoneys.Money.Amount"/> with a precision equal to <see cref="P:NMoneys.Currency.SignificantDecimalDigits"/>.
+            If <see cref="P:NMoneys.Money.Amount"/> is halfway between two numbers, one of which is even and the other odd, the mode parameter determines which of the two numbers is chosen.
+            If the precision of <see cref="P:NMoneys.Money.Amount"/> is less than <see cref="P:NMoneys.Currency.SignificantDecimalDigits"/>, <see cref="P:NMoneys.Money.Amount"/> remains unchanged.
+            </returns>
+            <remarks>
+            The <see cref="P:NMoneys.Currency.SignificantDecimalDigits"/> specifies the number of significant decimal places in the return value and ranges from 0 to 28.
+            <para>If <see cref="P:NMoneys.Currency.SignificantDecimalDigits"/> is zero, an integer is returned.</para>
+            <para>The behavior of this method follows IEEE Standard 754, section 4. This kind of rounding is sometimes called rounding to nearest or banker's rounding.</para>
+            <para>If <see cref="P:NMoneys.Currency.SignificantDecimalDigits"/> is zero, this kind of rounding is sometimes called rounding toward zero.</para>
+            </remarks>
+        </member>
+        <member name="M:NMoneys.Money.Round(System.Int32)">
+            <summary>
+            Rounds <see cref="P:NMoneys.Money.Amount"/> to a specified number of decimal places.
+            </summary>
+            <param name="decimals">A value from 0 to 28 that specifies the number of decimal places to round to.</param>
+            <returns>
+            A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> rounded to decimals number of decimal places.
+            </returns>
+            <remarks>
+            The behavior of this method follows IEEE Standard 754, section 4. This kind of rounding is sometimes called rounding to nearest or banker's rounding.
+            </remarks>
+        </member>
+        <member name="M:NMoneys.Money.Round(System.Int32,System.MidpointRounding)">
+            <summary>
+            Rounds <see cref="P:NMoneys.Money.Amount"/> to a specified precision. A parameter specifies how to round the value if it is midway between two other numbers.
+            </summary>
+            <param name="decimals">A value from 0 to 28 that specifies the number of decimal places to round to.</param>
+            <param name="mode">A value that specifies how to round <see cref="P:NMoneys.Money.Amount"/> if it is midway between two other numbers.</param>
+            <returns>
+            A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> that is nearest to the previous <see cref="P:NMoneys.Money.Amount"/> with a precision equal to the <paramref name="decimals"/> parameter.
+            <para>If previous <see cref="P:NMoneys.Money.Amount"/> is halfway between two numbers, one of which is even and the other odd, the mode parameter determines which of the two numbers is returned.</para>
+            <para>If the precision of d  is less than decimals, d is returned unchanged.</para>
+            </returns>
+            <remarks>
+            The <paramref name="decimals"/> specifies the number of significant decimal places in the return value and ranges from 0 to 28.
+            <para>If <paramref name="decimals"/> is zero, an integer is returned.</para>
+            <para>The behavior of this method follows IEEE Standard 754, section 4. This kind of rounding is sometimes called rounding to nearest or banker's rounding.</para>
+            <para>If <paramref name="decimals"/> is zero, this kind of rounding is sometimes called rounding toward zero.</para>
+            </remarks>
+        </member>
+        <member name="M:NMoneys.Money.Floor">
+             <summary>
+             Rounds <see cref="P:NMoneys.Money.Amount"/> to the closest integer toward negative infinity.
+             </summary>
+             <returns>A <see cref="T:NMoneys.Money"/> which <see cref="P:NMoneys.Money.Amount"/> is:
+             <para>if <see cref="P:NMoneys.Money.Amount"/> has a fractional part, the next whole decimal number toward negative infinity that is less than <see cref="P:NMoneys.Money.Amount"/>.</para>
+            <para>-or-</para>
+            <para>If <see cref="P:NMoneys.Money.Amount"/> doesn't have a fractional part, is remains unchanged.</para></returns>
+        </member>
+        <member name="M:NMoneys.Money.Perform(NMoneys.Money,System.Func{System.Decimal,System.Decimal,System.Decimal})">
+            <summary>
+            Performs the arithmetial operation <paramref name="binaryOperation"/> on <see cref="P:NMoneys.Money.Amount"/>.
+            </summary>
+            <param name="operand">Value which <see cref="P:NMoneys.Money.Amount"/> serves as the second argument to <paramref name="binaryOperation"/>.</param>
+            <param name="binaryOperation">Arithmetical operation to perform.</param>
+            <returns>A <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> as the result of applying <paramref name="binaryOperation"/> to he old amount and
+            <paramref name="operand"/>'s amount.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="binaryOperation"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Money.Perform(System.Func{System.Decimal,System.Decimal})">
+            <summary>
+            Performs the arithmetial operation <paramref name="unaryOperation"/> on <see cref="P:NMoneys.Money.Amount"/>.
+            </summary>
+            <param name="unaryOperation">Arithmetical operation to perform.</param>
+            <returns>a <see cref="T:NMoneys.Money"/> with <see cref="P:NMoneys.Money.Amount"/> as the result of applying <paramref name="unaryOperation"/> to the previous <see cref="P:NMoneys.Money.Amount"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="unaryOperation"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Money.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a <see cref="T:System.Runtime.Serialization.SerializationInfo"/> with the data needed to serialize the target object.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> to populate with data.</param>
+            <param name="context">The destination (see <see cref="T:System.Runtime.Serialization.StreamingContext"/>) for this serialization.</param>
+            <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
+        </member>
+        <member name="M:NMoneys.Money.System#Xml#Serialization#IXmlSerializable#GetSchema">
+            <summary>
+            This method is reserved and should not be used.
+            When implementing the <see cref="T:System.Xml.Serialization.IXmlSerializable"/> interface, you should return null from this method, and instead, if specifying a custom schema is required, apply the <see cref="T:System.Xml.Serialization.XmlSchemaProviderAttribute"/> to the class.
+            </summary>
+            <returns>null</returns>
+        </member>
+        <member name="M:NMoneys.Money.GetSchema(System.Xml.Schema.XmlSchemaSet)">
+            <summary>
+            Returns the XML schema applied for serialization.
+            </summary>
+            <param name="xs">A cache of XML Schema definition language (XSD) schemas.</param>
+            <returns>Represents the complexType element from XML Schema as specified by the <paramref name="xs"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="xs"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Money.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Generates an object from its XML representation.
+            </summary>
+            <param name="reader">The <see cref="T:System.Xml.XmlReader"/> stream from which the object is deserialized.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="reader"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Money.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Converts an object into its XML representation.
+            </summary>
+            <param name="writer">The <see cref="T:System.Xml.XmlWriter"/> stream to which the object is serialized.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="writer"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Money.Parse(System.String,NMoneys.Currency)">
+            <summary>
+            Converts the string representation of a monetary quantity to its <see cref="T:NMoneys.Money"/> equivalent
+            using the <see cref="F:System.Globalization.NumberStyles.Currency"/> style and the specified currency as format information.
+            </summary>
+            <remaks>This method assumes <paramref name="s"/> to have a <see cref="F:System.Globalization.NumberStyles.Currency"/> style.</remaks>
+            <param name="s">The string representation of the monetary quantity to convert.</param>
+            <param name="currency">Expected currency of <paramref name="s"/> that provides format information.</param>
+            <returns>The <see cref="T:NMoneys.Money"/> equivalent to the monetary quantity contained in <paramref name="s"/> as specified by the <paramref name="currency"/>.</returns>
+            <exception cref="T:System.FormatException"><paramref name="s"/> is not in the correct format.</exception>
+            <exception cref="T:System.OverflowException"><paramref name="s"/> representes a montary quantity less than <see cref="F:System.Decimal.MinValue"/> or greater than <see cref="F:System.Decimal.MaxValue"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="s"/> is null.</exception>
+            <seealso cref="M:System.Decimal.Parse(System.String,System.Globalization.NumberStyles,System.IFormatProvider)"/>
+        </member>
+        <member name="M:NMoneys.Money.Parse(System.String,System.Globalization.NumberStyles,NMoneys.Currency)">
+            <summary>
+            Converts the string representation of a monetary quantity to its <see cref="T:NMoneys.Money"/> equivalent
+            using the specified style and the specified currency as format information.
+            </summary>
+            <remarks>Use this method when <paramref name="s"/> is supected not to have a <see cref="F:System.Globalization.NumberStyles.Currency"/> style or more control over the operation is needed.</remarks>
+            <param name="s">The string representation of the monetary quantity to convert.</param>
+            <param name="style">A bitwise combination of <see cref="T:System.Globalization.NumberStyles"/> values that indicates the style elements that can be present in <paramref name="s"/>.
+            A typical value to specify is <see cref="T:System.Number"/>.</param>
+            <param name="currency">Expected currency of <paramref name="s"/> that provides format information.</param>
+            <returns>The <see cref="T:NMoneys.Money"/> equivalent to the monetary quantity contained in <paramref name="s"/> as specified by <paramref name="style"/> and <paramref name="currency"/>.</returns>
+            <exception cref="T:System.FormatException"><paramref name="s"/> is not in the correct format.</exception>
+            <exception cref="T:System.OverflowException"><paramref name="s"/> representes a montary quantity less than <see cref="F:System.Decimal.MinValue"/> or greater than <see cref="F:System.Decimal.MaxValue"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="s"/> is null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="style"/> is not a <see cref="T:System.Globalization.NumberStyles"/> value
+            <para>-or-</para>
+            <paramref name="style"/> is the <see cref="F:System.Globalization.NumberStyles.AllowHexSpecifier"/> value.
+            </exception>
+            <seealso cref="M:System.Decimal.Parse(System.String,System.Globalization.NumberStyles,System.IFormatProvider)"/>
+        </member>
+        <member name="M:NMoneys.Money.TryParse(System.String,NMoneys.Currency,System.Nullable{NMoneys.Money}@)">
+            <summary>
+            Converts the string representation of a monetary quantity to its <see cref="T:NMoneys.Money"/> equivalent
+            using <see cref="F:System.Globalization.NumberStyles.Currency"/> and the provided currency as format infomation.
+            A return value indicates whether the conversion succeeded or failed.
+            </summary>
+            <param name="s">The string representation of the monetary quantity to convert.</param>
+            <param name="currency">Expected currency of <paramref name="s"/> that provides format information.</param>
+            <param name="money">When this method returns, contains the <see cref="T:NMoneys.Money"/> that is equivalent to the monetary quantity contained in <paramref name="s"/>,
+            if the conversion succeeded, or is null if the conversion failed.
+            The conversion fails if the <paramref name="s"/> parameter is null, is not in a format compliant with currency style,
+            or represents a number less than <see cref="F:System.Decimal.MinValue"/> or greater than <see cref="F:System.Decimal.MaxValue"/>.
+            This parameter is passed uninitialized. </param>
+            <returns>true if s was converted successfully; otherwise, false.</returns>
+            <seealso cref="M:System.Decimal.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Decimal@)"/>
+        </member>
+        <member name="M:NMoneys.Money.TryParse(System.String,System.Globalization.NumberStyles,NMoneys.Currency,System.Nullable{NMoneys.Money}@)">
+            <summary>
+            Converts the string representation of a monetary quantity to its <see cref="T:NMoneys.Money"/> equivalent
+            using the specified style and the provided currency as format infomation.
+            A return value indicates whether the conversion succeeded or failed.
+            </summary>
+            <param name="s">The string representation of the monetary quantity to convert.</param>
+            <param name="style">A bitwise combination of enumeration values that indicates the permitted format of <paramref name="s"/>.
+            A typical value to specify is <see cref="T:System.Number"/>.</param>
+            <param name="currency">Expected currency of <paramref name="s"/> that provides format information.</param>
+            <param name="money">When this method returns, contains the <see cref="T:NMoneys.Money"/> that is equivalent to the monetary quantity contained in <paramref name="s"/>,
+            if the conversion succeeded, or is null if the conversion failed.
+            The conversion fails if the <paramref name="s"/> parameter is null, is not in a format compliant with currency style,
+            or represents a number less than <see cref="F:System.Decimal.MinValue"/> or greater than <see cref="F:System.Decimal.MaxValue"/>.
+            This parameter is passed uninitialized. </param>
+            <returns>true if s was converted successfully; otherwise, false.</returns>
+            <exception cref="T:System.ArgumentException"><paramref name="style"/> is not a <see cref="T:System.Globalization.NumberStyles"/> value
+            <para>-or-</para>
+            <paramref name="style"/> is the <see cref="F:System.Globalization.NumberStyles.AllowHexSpecifier"/> value.
+            </exception>
+            <seealso cref="M:System.Decimal.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Decimal@)"/>
+        </member>
+        <member name="P:NMoneys.Money.CurrencyCode">
+            <summary>
+            The ISO 4217 code of the currency of a monetary quantity.
+            </summary>
+        </member>
+        <member name="P:NMoneys.Money.Amount">
+            <summary>
+            The amount of a monetary quantity
+            </summary>
+        </member>
+        <member name="P:NMoneys.Money.MajorAmount">
+            <summary>
+            Gets the amount in major units
+            </summary>
+            <remarks>This method returns the monetary amount in terms of the major units of the currency, truncating the <see cref="P:NMoneys.Money.Amount"/> if necessary.
+            <para>For example, 'EUR 2.35' will return a major amount of 2, since EUR has 2 significant decimal values. 
+            'BHD -1.345' will return -1.</para></remarks>
+        </member>
+        <member name="P:NMoneys.Money.MajorIntegralAmount">
+            <summary>
+            Gets the amount in major units as a <see cref="T:System.Int64"/>.
+            </summary>
+            <remarks>This property returns the monetary amount in terms of the major units of the currency, truncating the amount if necessary.
+            <para>For example, 'EUR 2.35' will return a major amount of 2, since EUR has 2 significant decimal values. 
+            'BHD -1.345' will return -1.</para></remarks>
+        </member>
+        <member name="P:NMoneys.Money.MinorAmount">
+            <summary>
+            Gets the amount in minor units.
+            </summary>
+            <remarks>This property return the monetary amount in terms of the minor units of the currency, truncating the amount if necessary.
+            <para>For example, 'EUR 2.35' will return a minor amount of 235, since EUR has 2 significant decimal values. 
+            'BHD -1.345' will return -1345.</para></remarks>
+        </member>
+        <member name="P:NMoneys.Money.MinorIntegralAmount">
+            <summary>
+            Gets the amount in minor units as a <see cref="T:System.Int64"/>.
+            </summary>
+            <remarks>This property return the monetary amount in terms of the minor units of the currency, truncating the amount if necessary.
+            <para>For example, 'EUR 2.35' will return a minor amount of 235, since EUR has 2 significant decimal values. 
+            'BHD -1.345' will return -1345.</para></remarks>
+        </member>
+        <member name="P:NMoneys.Money.HasDecimals">
+            <summary>
+            Specifies whether the <see cref="P:NMoneys.Money.Amount"/> is not a whole number.
+            </summary>
+        </member>
+        <member name="M:NMoneys.Support.Ext.Extensions.FromUnicodes(System.String[])">
+            <summary>
+            Converts and array of unicode representations into its string
+            </summary>
+            <remarks>Optimized for a low number of unicodes (&lt;10)</remarks>
+        </member>
+        <member name="M:NMoneys.Support.Ext.Extensions.TranslateNegativePattern(System.Int32)">
+            <summary>
+            Allows translating a currency negative pattern <c>[0..15]</c> to a number negative pattern <c>[0..4]</c>
+            maintaining overall layout
+            </summary>
+        </member>
+        <member name="M:NMoneys.Support.FastEnumComparer`1.#ctor">
+            <summary>
+            A private constructor to prevent user instantiation.
+            </summary>
+        </member>
+        <member name="T:NMoneys.Support.UnicodeSymbol">
+            <summary>
+            Holds the different way a unicode encoded curency symbol can be represented.
+            </summary>
+        </member>
+        <member name="M:NMoneys.Support.UnicodeSymbol.FromTokenizedCodePoints(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Support.UnicodeSymbol"/> from the space-tokenized collection of
+            integers that represent each character in the symbol.
+            </summary>
+            <param name="tokenizedCodePoints">Space-tokenized collection of code points (as strings) for each character of the symbol.</param>
+            <returns>Instace with the different representations of a complex Unicode symbol.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="tokenizedCodePoints"/> is null.</exception>
+        </member>
+        <member name="M:NMoneys.Support.UnicodeSymbol.FromSymbol(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:NMoneys.Support.UnicodeSymbol"/> from a complex Unicode symbol.
+            </summary>
+            <param name="symbol">Complex unicode symbol.</param>
+            <returns>Instace with the different representations of a complex Unicode symbol.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="symbol"/> is null.</exception>
+        </member>
+        <member name="P:NMoneys.Support.UnicodeSymbol.CodePoints">
+            <summary>
+            Collection of Unicode code points for each character of the symbol
+            </summary>
+            <remarks>Used to construct the unicode <see cref="P:NMoneys.Support.UnicodeSymbol.Symbol"/>.</remarks>
+        </member>
+        <member name="P:NMoneys.Support.UnicodeSymbol.TokenizedCodePoints">
+            <summary>
+            Space-tokenized collection of code points (as strings) for each character of the symbol.
+            </summary>
+            <remarks>Used to represent a complex symbol in the <see cref="T:NMoneys.CurrencyInfo"/> storage.</remarks>
+        </member>
+        <member name="P:NMoneys.Support.UnicodeSymbol.Symbol">
+            <summary>
+            Complex Unicode symbol.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,148 @@
+/* CSS Document */
+.table {
+	display:table;
+	border-collapse:collapse;
+}
+.center {
+	margin:auto;
+}
+.aligncenter {
+	text-align:center;
+}
+.aligntop {
+	vertical-align:top;
+}
+.alignright {
+	text-align:right;
+}
+.alignleft {
+	text-align:left;
+}
+.alignmiddle {
+	vertical-align:middle;
+	
+}
+.alignbotton {
+	vertical-align:bottom;
+}
+.row {
+	display:table-row;
+}
+.cell {
+	display:table-cell;
+	vertical-align:top;
+}
+.unalignedcell {
+	display:table-cell;
+}
+.rowgroup {
+	display:table-row-group;
+}
+.hidden {
+	display:none;
+}
+.block {
+	display:block;
+}
+.clear {
+	clear:both;
+}
+.aligntop {
+	vertical-align:top
+}
+.zerodiv {
+	height:0px;
+	overflow:visible;
+}
+.hand {
+	cursor:pointer;
+}
+.move {
+	cursor:move;
+}
+.width100 {
+	width:100%;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+.absolute {
+	position:absolute
+}
+.zindex {
+	z-index:100
+}
+.top5 {
+	margin-top:5px;
+}
+.top10 {
+	margin-top:10px;
+}
+.top20 {
+	margin-top:20px;
+}
+.bold {
+	font-weight:bold;
+}
+.justify {
+	text-align:justify;
+}
+.redbold {
+	color:#962e21;
+}
+.line-through {
+	text-decoration:line-through;
+}
+.relativepositiner {
+	width:100%;
+	display:block;
+	overflow:visible;
+	height:0px;
+	
+}
+.width100 {
+	width:100%;
+}
+.width50 {
+	width:50%;
+}
+.padding5 {
+	padding:5px;
+}
+.padding10 {
+	padding:10px;
+}
+.rounded3 {
+	-webkit-border-radius: 3px;	
+	-moz-border-radius: 3px;
+     border-radius: 3px;
+
+}
+.rounded5 {
+	-webkit-border-radius: 5px;	
+	-moz-border-radius: 5px;
+     border-radius: 5px;
+
+}
+.hide  {
+	display:none;
+}
+.inline {
+	display:inline;
+}
+
+ul.circles {
+	list-style:disc;
+	list-style-position:outside;
+	font-size:1.2em;
+padding-left:15px;
+}
+
+ul.circles li {
+	line-height:17px;
+	height:auto;
+	
+}

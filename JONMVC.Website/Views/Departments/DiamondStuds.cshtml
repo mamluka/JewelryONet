@@ -1,0 +1,172 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model EmptyViewModel
+
+@{
+    ViewBag.Title = "Diamond Stud Earrings, 18K Gold Studs, Round cut Diamond Stud Earrings.";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("Diamond Stud Earrings", "") })
+}
+   
+   <div class="pitch pitch-studs">
+		<h1>Diamond Studs</h1>
+		
+		<p class="top5">
+		These classic earrings are simple yet elegant, 
+and are a must for every woman's jewelry collection.<br />
+Easy to match to other jewelry pieces yet beautiful 
+enough to make a stunning statement on their own, 
+studs are a must-have for any jewelry box.
+		</p>
+			
+	</div>
+	
+	<div class="table top20" id="BlockContent" >
+					<div class="row" >
+						<div class="cell" >
+						<div class="displayatom block " >
+						
+						  <h1 class="title aligncenter">@Html.RouteLink("Round Cut Diamond Studs", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 }, new { @class = "gray" }) </h1>
+							<div class="give-pedding">
+									<div class="block aligncenter" >
+									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 })">
+									  <img src="/Content/images/pages/studs/1-1.png" alt="Round Cut Diamond Studs" /></a>
+									</div>
+									
+									<div class="cell bottomizer"  >
+									
+									<span class="block desc" >
+										At JewelryONet you will find prices range 
+from less than $150 to several thousand 
+dollars depending on the stones' size and 
+quality, each two separate earrings are 
+precisely match in color, clarity, size and
+weight. 
+
+									</span>
+						 
+							  
+							  </div>
+						  </div>   
+						  <div class="clear" ></div>
+						</div>
+
+						</div>
+						
+						<div class="cell" >
+						<div class="displayatom block " >
+						
+						  <h1 class="title aligncenter">@Html.RouteLink("Princess Cut Diamond Studs", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 },new { @class = "gray" }) </h1>
+							<div class="give-pedding">
+									<div class="block aligncenter" >
+									 <a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 })">
+									  <img src="/Content/images/pages/studs/1-2.png" alt="Princess Cut Diamond Studs" /></a>
+									</div>
+									
+									<div class="cell bottomizer"  >
+									
+									<span class="block desc" >
+										Cut, color, and clarity are all important 
+factors when buying your diamond. 
+Princess cut diamnods are wonderful for a 
+lady with a broad face while round 
+diamonds go well with narrower features.
+The most popular arrangement for diamond 
+studs is a 4 or 6-prong setting, though 
+bezel settings are also used occasionally.   
+
+									</span>
+						 
+							  
+							  </div>
+						  </div>   
+						  <div class="clear" ></div>
+						</div>
+
+						</div>
+						
+						<div class="cell" >
+						<div class="displayatom block " >
+						
+						  <h1 class="title aligncenter">@Html.RouteLink("Designer Diamond Studs", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 },new {@class="gray"}) </h1>
+							<div class="give-pedding">
+									<div class="block aligncenter" >
+									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "diamond-studs"},
+																		 {"page", 1},
+																	 })">
+									  <img src="/Content/images/pages/studs/1-3.png" alt="Designer Diamond Studs"  /></a>
+									</div>
+									
+									<div class="cell bottomizer"  >
+									
+									<span class="block desc" >
+										Earrings make the perfect gift because 
+they are always the right fit for any 
+occasion. Surprise her with a gift of 
+beautiful diamond stud earrings.
+See the newest designs in our collection 
+of elegant diamond earrings. 
+
+
+									</span>
+						 
+							  
+							  </div>
+						  </div>   
+						  <div class="clear" ></div>
+						</div>
+
+						</div>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+					
+				</div>
+
+				<h2 class="top10">
+					Diamond Stud Earrings
+				</h2>
+				<p>Studs are just one type of  diamond earrings, but they are the most popular choice because of their elegant 
+simplicity and because they are always the right fit.  
+Because diamond stud earrings are so simple & elegant, it is easy to match them to an engagement ring as an  
+anniversary or engagement gift. The easiest pick is to choose the identical shape to what is used in the ring, 
+or to choose the closest approximation, for example princess cut earrings can complement emerald and radiandt 
+cut engagement rings. To create a jewelry set, consider choosing a diamond size that is proportional to the 
+engagement ring. Our earrings feature screw-on backs for added security, each pair of studs is offered with
+the appropriate certificates and appraisals to verify their authenticity.
+				
+				</p>

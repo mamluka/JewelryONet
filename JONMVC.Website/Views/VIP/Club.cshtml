@@ -1,0 +1,105 @@
+﻿@using MvcContrib.FluentHtml
+@inherits MvcContrib.FluentHtml.ModelWebViewPage<JONMVC.Website.ViewModels.Views.EmptyViewModel>
+@{
+    ViewBag.Title = "Club";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="pitch pitch-vip">
+    <p class="top5">
+        The VIP Lounge As a VIP member, you'll be the first to know about great events,
+        and you'll receive exclusive offers all year long! We'll even send you $50.00 off
+        your next purchase just for signing up.<br /><br/>
+        Register Now for a free membership in the JewelryONet VIP Club.
+    </p>
+</div>
+<div class="table top20" id="BlockContent">
+    <div class="row">
+        <div class="cell">
+            <div class="displayatom block ">
+                <h1 class="title aligncenter">
+                    Why Become A Member?</h1>
+                <div class="give-pedding">
+                <div style="height: 130px;">
+                    <ul class="circles">
+                        <li>Special discounts for VIP members only </li>
+                        <li>Information on new jewelry trends </li>
+                        <li>Special promotions </li>
+                        <li>Free gifts and much more! </li>
+                        <li>A $50.00 coupon for signing up today! </li>
+                    </ul>
+</div>
+<div class="aligncenter"><input type="submit" value="Join Now" class="button top10 center" command="redirect" url="@Url.Action("Register","MyAccount")"/></div>
+                        
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="cell" style="width: 150px;">
+        </div>
+        <div class="cell">
+            <div class="displayatom block ">
+                <h1 class="title aligncenter">
+                    Already A Member?</h1>
+                <div class="give-pedding">
+                 @using (Html.BeginForm("Signin", "MyAccount"))
+                 {
+                     <div style="height: 130px;">
+                         Welcome back to our VIP Lounge.
+                         <br />
+                         Please enter your email address and password here.
+                   
+
+                         <fieldset class="onecolumb-form">
+                             <dl>
+                                 <dt>
+                                     <label for="Email">
+                                         Your Email:</label>
+                                 </dt>
+                                 <dd>
+                                     @this.TextBox("Email").Attr("data-val-email", "*").Attr("data-val-required", "*").Attr("data-val", "true").Placeholder("Email")
+                                     <span data-valmsg-replace="false" data-valmsg-for="Email"
+                                           class="field-validation-valid"></span>
+                                 </dd>
+                             </dl>
+                             <dl>
+                                 <dt>
+                                     <label for="Password">
+                                         Password:</label></dt>
+                                 <dd>
+                                     @this.Password("Password").Attr("data-val-required", "*").Attr("data-val", "true").Placeholder("Password")
+                                     <span data-valmsg-replace="false" data-valmsg-for="Password" class="field-validation-valid">
+                                     </span>
+                                 </dd>
+                             </dl>
+                             <dl>
+                                 <dt></dt>
+                                 <dd>
+                                    
+                                 </dd>
+                             </dl>
+                         </fieldset>
+                         
+        
+                    
+                     </div>
+                     <div class="aligncenter">
+                     <input type="submit" value="Enter" class="button top10 center" /></div>
+                 }
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[command=redirect]').click(function() {
+            var url = $(this).attr('url');
+            window.location.href = url;
+        });
+    })
+
+</script>

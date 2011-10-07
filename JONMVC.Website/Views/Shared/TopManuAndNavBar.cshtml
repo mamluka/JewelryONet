@@ -1,0 +1,51 @@
+﻿<div id="TopManu" class="alignright">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="/Content/images/skeleton/topmenu-bg.png" alt="JewelryONet – Designer of Fine Jewelry" /></a>
+                    <div class="table right">
+                        <div class="row">
+                            @*                            <div class="cell">*@ @*                                בס"ד*@
+                            @*                            </div>*@
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <ul>
+                                    <li>@Html.ActionLink("Wish List", "Wishlist", "Services") </li>
+                                    <li>@Html.ActionLink("Shopping Cart", "Shoppingcart", "Checkout")&#160;@{ Html.RenderAction("CartItemCount", "Checkout"); }
+                                    </li>
+                                    <li>@Html.ActionLink("Order Status", "CheckMyOrderStatus", "MyAccount")</li>
+                                    <li>@Html.ActionLink("My Account", "Index", "MyAccount")</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell right">
+                                <ul>
+                                    <li style="padding-top: 3px">@Html.ActionLink("Live Help", "LiveHelp", "Services", null, new { @title = "Live help" })
+                                    </li>
+                                    <li style="padding-top: 3px">@Html.ActionLink("Contact Us", "GetInTouch", "Services", null, new { @title = "Contact us" })</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Navbar">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Diamonds", "Diamonds", "Departments")</li>
+                        <li>@Html.ActionLink("Engagement Rings", "EngagementRings", "Departments")</li>
+                        <li>@Html.ActionLink("Wedding & Anniversary", "WeddingAndAnniversary", "Departments")</li>
+                        <li>@Html.RouteLink("Special Offers", "SpecialOffers", new RouteValueDictionary()
+                                                             {
+                                                                 {"tabkey", "special-offers-items"},
+																		 {"tabid", "special-offers"},
+                                                             })</li>
+                        <li>@Html.ActionLink("Diamond Studs", "DiamondStuds", "Departments")</li>
+                        <li>@Html.RouteLink("Gemstone Jewelry", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "gemstone-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 })</li>
+                        <li>@Html.ActionLink("Gift Ideas", "GiftIdeas", "Departments")</li>
+                    </ul>
+                </div>

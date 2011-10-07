@@ -1,0 +1,17 @@
+@using System.Dynamic
+@model List<KeyValuePair<string,string>>
+           
+@Html.ActionLink("Home","Index","Home") > 
+           
+@for (int index = 0; index < Model.Count; index++)
+{
+    var pair = Model[index];
+    if (index < Model.Count - 1)
+    {
+        <a href="@pair.Value">@pair.Key</a> @:>
+    } else
+    {
+        @pair.Key
+    }
+    
+}

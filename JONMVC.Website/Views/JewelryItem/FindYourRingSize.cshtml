@@ -1,0 +1,130 @@
+﻿@model JONMVC.Website.ViewModels.Views.EmptyViewModel
+@{
+    ViewBag.Title = "Find Your Ring Size";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PathBar {
+    @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() {new KeyValuePair<string, string>("Ring Size Finder", "")})
+}
+<h1>
+    Find Your Ring Size</h1>
+<p class="justify">
+    To find your ring size, please use a string circumference measurement and compare
+    to the Ring Size Guide below, or you can measure the inside diameter the Ring and
+    compare to Chart below. To ensure the most accurate measurement of your ring size,
+    we would recommend using the inside diameter measurement. Please take physical measurement
+    of the inside diameter of a ring that you have. Do not hesitate to call us or email
+    us for any assistance you may require in determining your ring size. It is important
+    that you know your finger size so your ring fits you comfortably.
+</p>
+<p>
+    <div class="table converter">
+        <div class="row">
+            <div class="cell bold">
+                <span>Ring Size Converter:</span></div>
+            <div class="cell">
+                <select>
+                </select>
+            </div>
+            <div class="cell">
+                <select>
+                </select>
+            </div>
+            <div class="cell">
+                <select>
+                </select>
+            </div>
+            <div class="cell">
+                <select>
+                </select>
+            </div>
+            <div class="cell">
+                <select>
+                </select>
+            </div>
+            <div class="cell">
+                <select>
+                </select>
+            </div>
+            <div class="cell">
+                <select>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+            </div>
+            <div class="cell">
+                U.S<br />
+                Canada
+            </div>
+            <div class="cell">
+                Circum<br />
+                (mm)
+            </div>
+            <div class="cell">
+                Circum<br />
+                (inches)
+            </div>
+            <div class="cell">
+                UK<br />
+                Australia
+            </div>
+            <div class="cell">
+                Japan
+            </div>
+            <div class="cell">
+                Germany
+            </div>
+            <div class="cell">
+                France
+            </div>
+        </div>
+    </div>
+</p>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var Sizes = [
+            ['4', '1.84', '46.5', 'H ½', '15', '46 ½', '7'],
+            ['4.5', '1.89', '47.8', 'I ½', '15 ¼', '47 ¾', '8'],
+            ['5', '1.94', '49', 'J ½', '15 ¾', '49', '9'],
+            ['5.5', '1.99', '50.2', 'L', '16', '50 ¼', '11'],
+            ['6', '2.04', '51.5', 'M', '16 ½', '51 ½', '12'],
+            ['6.5', '2.09', '52.8', 'N', '17', '52 ¾', '13'],
+            ['7', '2.15', '54', 'N ½', '17 ¼', '54', '14'],
+            ['7.5', '2.2', '55.3', 'O ½', '17 ½', '55 ½', '15'],
+            ['8', '2.25', '56.6', 'P ½', '18', '56 ¾', '16'],
+            ['8.5', '2.3', '57.8', 'Q ½', '18 ½', '58', '17'],
+            ['9', '2.35', '59.1', 'R ½', '19', '59 ¼', '18'],
+            ['9.5', '2.4', '60.3', 'S ½', '19 ½', '60 ½', '19'],
+            ['10', '2.46', '61.6', 'T ½', '20', '61 ¾', '20'],
+            ['10.5', '2.5', '62.8', 'U ½', '20 ¼', '62 ¾', '22'],
+            ['11', '2.57', '64.1', 'V ½', '20 ¾', '64 ¼', '23'],
+            ['11.5', '2.61', '66', 'W ½', '21', '66', '24'],
+            ['12', '2.66', '67.2', 'Y', '21 ¾', '67 ¼', '25'],
+            ['12.5', '2.69', '68.4', 'Z', '', '', '26'],
+            ['13', '2.74', '69.7', 'Z ½', '22', '', '27'],
+            ['13.5', '2.8', '71', 'Z +2', '', '', ''],
+            ['14', '2.85', '72.5', 'Z +3', '', '', ''],
+            ['14.5', '2.91', '74', 'Z +4', '', '', ''],
+            ['15', '2.95', '75', 'Z +5', '', '', ''],
+        ];
+
+        $.each($('select'), function (index, select) {
+            $.each(Sizes, function (i, size) {
+                $(select).append(new Option(size[index], i, false, false));
+            });
+
+            $(select).change(function () {
+                var value = $(this).val();
+                $('select option').removeAttr('selected');
+
+                $('select option[value=' + value + ']').attr('selected', 'selected');
+
+            });
+        });
+
+    })
+
+</script>

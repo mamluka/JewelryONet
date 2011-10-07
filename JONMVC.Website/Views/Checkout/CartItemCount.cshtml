@@ -1,0 +1,9 @@
+﻿@model int
+@{
+
+Layout = null;
+}
+@if (Model > 0)
+{
+    @Html.ActionLink("(" + Model.ToString() + ")", "Shoppingcart", "Checkout")
+}

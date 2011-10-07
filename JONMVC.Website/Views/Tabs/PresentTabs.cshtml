@@ -1,0 +1,165 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model TabsViewModel
+@{
+    ViewBag.Title = @Model.Title;
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var sectionDic = new Dictionary<string, string>
+                         {
+                             {"diamond-rings", "DiamondJewelryMenu"},
+                             {"gemstone-rings", "GemstoneJewelryMenu"},
+                             {"wedding-and-anniversary", "WeddingAndWnniversaryMenu"},
+                             {"engagement-rings", "EngagementRings"}
+                         };
+}
+@section PathBar {
+    @Html.Partial("PathBar", Model.PathBarItems)
+}
+@{
+    if (sectionDic.ContainsKey(Model.TabKey))
+    {
+        DefineSection(sectionDic[Model.TabKey], () => Write(Html.Partial("TabsSubMenu", sectionDic[Model.TabKey])));
+    }
+}
+@using (Html.BeginForm("SearchTabsPost", "Tabs"))
+{
+    <div class="table">
+     @Html.Partial("NavigationTabStrip",Model)
+        <div class="row">
+            <div class="cell">
+                <div id="ItemContainer">
+                    <div class="block sortbar">
+                        @Html.LabelFor(x=>x.OrderByPrice)
+                        @Html.DropDownListFor(m => m.OrderByPrice, new SelectList(Model.OrderByPriceItems,"Value","Key",Model.OrderByPrice.ToString()))
+                        @Html.LabelFor(x=>x.MetalFilter)
+                        @Html.DropDownListFor(m => m.MetalFilter, new SelectList(Model.MetalFilterItems, "Value", "Key",Model.MetalFilterItems.ToString()))
+                        @Html.HiddenFor(m => m.Page)
+                        @Html.HiddenFor(m => m.ItemsPerPage)
+                        @Html.HiddenFor(m => m.TabId)
+                        @Html.HiddenFor(m => m.TabKey)
+                        <div class="pages right">
+                            <ul>
+                                @for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+
+                                    if (i == Model.Page)
+                                    {
+
+
+                                    <li class="active">@Html.RouteLink(i.ToString(), "Tabs", new RouteValueDictionary
+                                                {
+																							  {"tabkey", Model.TabKey},
+																							  {"tabid", Model.TabId},
+																							  {"page", Model.Page},
+																							  {"MetalFilter", Model.MetalFilter},
+																							  {"OrderByPrice", Model.OrderByPrice},
+																							  {"itemsperpage", Model.ItemsPerPage}
+
+																						  })</li>
+
+
+                                    }
+                                    else
+                                    {
+
+
+                                    <li>@Html.RouteLink(i.ToString(), "Tabs", new RouteValueDictionary
+                                                {
+																							  {"tabkey", Model.TabKey},
+																							  {"tabid", Model.TabId},
+																							  {"page", i},
+																							  {"MetalFilter", Model.MetalFilter},
+																							  {"OrderByPrice", Model.OrderByPrice},
+																							  {"itemsperpage", Model.ItemsPerPage}
+
+																						  }) </li>
+
+
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <div id="ItemDisplay">
+                    @foreach (var jewelInTabContainer in Model.JewelryInTabContainersCollection)
+                    {
+                    @Html.Partial(Model.InTabPartialView,jewelInTabContainer)
+                        
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <div id="ItemContainer">
+                    <div class="block sortbar">
+                        @* @Html.DropDownListFor(m => m.OrderByPrice, Model.OrderByPriceItems)
+				
+						   @Html.DropDownListFor(m => m.MetalFilter, Model.MetalFilterItems) *@
+                        <div class="pages right">
+                            <ul>
+                                @for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+
+                                    if (i == Model.Page)
+                                    {
+
+
+                                    <li class="active">@Html.RouteLink(i.ToString(), "Tabs", new RouteValueDictionary
+                                                {
+																						 {"tabkey", Model.TabKey},
+																						 {"tabid", Model.TabId},
+																						 {"page", Model.Page},
+																						 {"MetalFilter", Model.MetalFilter},
+																						 {"OrderByPrice", Model.OrderByPrice},
+																						 {"itemsperpage", Model.ItemsPerPage}
+
+																					 })</li>
+
+
+                                    }
+                                    else
+                                    {
+
+
+                                    <li>@Html.RouteLink(i.ToString(), "Tabs", new RouteValueDictionary
+                                                {
+																						 {"tabkey", Model.TabKey},
+																						 {"tabid", Model.TabId},
+																						 {"page", i},
+																						 {"MetalFilter", Model.MetalFilter},
+																						 {"OrderByPrice", Model.OrderByPrice},
+																						 {"itemsperpage", Model.ItemsPerPage}
+
+																					 }) </li>
+
+
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+            <h1>@Model.ShortTitle</h1>
+            <p class="text-below-page">@Html.Raw(Model.ExtraText)</p>
+               
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    Tabs.RegisterFilters();
+    Tabs.RegisterTabLinks();
+    MetalPriceSelect.RegisterMetalPriceSelectForTabs();
+    Video.RegisterHooks();
+</script>

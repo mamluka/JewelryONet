@@ -1,0 +1,63 @@
+﻿@using MvcContrib.FluentHtml
+@model string
+<div class="emailring">
+    <h2>
+        Email this ring to a friend
+    </h2>
+    @using (Html.BeginForm("EmailRing", "JewelryItem"))
+    {
+
+        <fieldset class="onecolumb-form">
+            <dl>
+                <dt>
+                    <label for="name">
+                        Friends Email:</label></dt>
+                <dd>
+                    <input type="text" name="FriendName" data-val-required="" data-val="true" class="left" /><span
+                        class="field-validation-valid left" data-valmsg-for="FriendName" data-valmsg-replace="false"></span></dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="email">
+                        Friends name:</label></dt>
+                <dd>
+                    <input type="text" name="FriendEmail" data-val-required="" data-val="true" data-val-email="*"
+                        class="left" /><span class="field-validation-valid  left" data-valmsg-for="FriendEmail"
+                            data-valmsg-replace="false"></span></dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="phone">
+                        Your message:</label></dt>
+                <dd>
+                    <textarea type="text" name="Message" data-val-required=""  class="left" style="width: 240px;height: 95px" ></textarea></dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="question">
+                        Your name</label></dt>
+                <dd>
+                    <input type="text" name="YourName" data-val-required="" data-val="true" class="left"
+                       ></input><span
+                        class="field-validation-valid left" data-valmsg-for="YourName" data-valmsg-replace="false"></span></dd>
+            </dl>
+
+             <dl>
+                <dt>
+                    <label for="question">
+                        Your Email</label></dt>
+                <dd>
+                    <input type="text" name="YourEmail" data-val-required="" data-val="true" class="left"
+                       ></input><span
+                        class="field-validation-valid left" data-valmsg-for="YourEmail" data-valmsg-replace="false"></span></dd>
+            </dl>
+            <dl>
+                <dt></dt>
+                <dd>
+                    <input type="submit"  class="top10 button"  value="Send ring"/>
+                </dd>
+            </dl>
+        </fieldset>
+        @this.Hidden("ID").Value(Model)
+    }
+</div>

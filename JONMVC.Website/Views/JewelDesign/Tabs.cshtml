@@ -1,0 +1,14 @@
+﻿@using JONMVC.Website.Extensions
+@using JONMVC.Website.Models.JewelDesign
+@model List<NavigationTab>
+<div class="table jewel-tabs top20">
+    <div class="row">
+        <div class="cell sep">
+        </div>
+        @Html.CreateNavigationTab(Model.Where(x => x.Type == NagivationTabType.ChooseSetting).SingleOrDefault())
+        @Html.CreateNavigationTab(Model.Where(x => x.Type == NagivationTabType.YourDiamond).SingleOrDefault())
+        @Html.CreateNavigationTab(Model.Where(x => x.Type == NagivationTabType.YourOrder).SingleOrDefault())
+        <div class="cell sepend">
+        </div>
+    </div>
+</div>

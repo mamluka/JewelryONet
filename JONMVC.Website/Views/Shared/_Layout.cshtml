@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    @Html.Partial("HeadersForLayout")
+
+    @if (IsSectionDefined("FacebookHeaderTabs"))
+    {
+        @RenderSection("FacebookHeaderTabs")
+							
+    }
+</head>
+<body>
+    <div>
+        <div class="aligncenter">
+            <div class="table  center pageSize">
+                @Html.Partial("TopManuAndNavBar")
+                <div id="MainTable" class="table alignleft">
+                    <div class="row">
+                        <div class="cell aligntop">
+                            <div id="Search" class="table">
+                                <div class="row">
+                                    <div class="cell">
+                                        @using (Html.BeginForm("Search", "Services"))
+                                        { 
+                                            @Html.TextBox("SearchTerm", null, new { placeholder = "Search here" }) 
+
+                                            <input type="image" src="/Content/images/skeleton/search-button.png" />
+								
+							
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table menucontainer alignleft">
+                                <div class="row">
+                                    <div class="cell">
+                                        <ul>
+                                            <li>Diamonds & Engagement </li>
+                                            @if (IsSectionDefined("DiamondsMenu"))
+                                            {
+                                                @RenderSection("DiamondsMenu")
+							
+                                            }
+                                            else
+                                            {
+                                                <li>@Html.ActionLink("Diamonds", "Diamonds", "Departments")</li>
+                                            }
+                                            @if (IsSectionDefined("EngagementRings"))
+                                            {
+                                                @RenderSection("EngagementRings")
+							
+                                            }
+                                            else
+                                            {
+                                                <li>@Html.RouteLink("Engagement Rings", "ChooseSetting", new RouteValueDictionary()
+                                                               {
+                                                                   {"tabid","solitaire-settings"}
+                                                               })</li>
+                                            }
+                                            @if (IsSectionDefined("WeddingAndWnniversaryMenu"))
+                                            {
+                                                @RenderSection("WeddingAndWnniversaryMenu")
+							
+                                            }
+                                            else
+                                            {
+                                                <li>@Html.ActionLink("Wedding & Anniversary", "WeddingAndAnniversary", "Departments")</li>
+                                            }
+                                            <li>@Html.ActionLink("Design Your Own Ring", "Index", "JewelDesign")</li>
+                                            <li>@Html.RouteLink("3D Animation Gallery", "3DGallery", new RouteValueDictionary()
+                                                              {
+                                                                  {"tabkey", "3d-gallery"},
+																		 {"tabid", "gallery"},
+                                                              })</li>
+                                            <li>@Html.ActionLink("Learn About Diamonds", "Index", "Education")</li>
+                                            <li class="last">@Html.ActionLink("FAQ", "FAQ", "Services")</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="CustomOrders" class="top5">
+                                <h1 class="title">
+                                    @Html.RouteLink("Special Offers & Deals", "SpecialOffers", new RouteValueDictionary()
+                                                             {
+                                                                 {"tabkey", "special-offers-items"},
+																		 {"tabid", "special-offers"},
+                                                             })</h1>
+                                <span class="aligncenter" style="margin-top: 170px;">Huge Savings!</span>
+                            </div>
+                            <div class="table menucontainer top5">
+                                <div class="row">
+                                    <div class="cell">
+                                        <ul>
+                                            <li>Fine Jewelry</li>
+                                            @if (IsSectionDefined("DiamondJewelryMenu"))
+                                            {
+                                                @RenderSection("DiamondJewelryMenu")
+							
+                                            }
+                                            else
+                                            {
+                                                <li>@Html.RouteLink("Diamond Jewelry", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "diamond-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 })</li>
+                                            }
+                                            @if (IsSectionDefined("GemstoneJewelryMenu"))
+                                            {
+                                                @RenderSection("GemstoneJewelryMenu")
+							
+                                            }
+                                            else
+                                            {
+                                                <li>@Html.RouteLink("Gemstone Jewelry", "Tabs", new RouteValueDictionary()
+																	 {
+																		 {"tabkey", "gemstone-rings"},
+																		 {"tabid", "engagement-rings"},
+																		 {"page", 1},
+																	 })</li>
+                                            }
+                                            <li>@Html.RouteLink("Special Offers", "SpecialOffers", new RouteValueDictionary()
+                                                             {
+                                                                 {"tabkey", "special-offers-items"},
+																		 {"tabid", "special-offers"},
+                                                             })</li>
+                                            <li>@Html.ActionLink("Gift Ideas", "GiftIdeas", "Departments")</li>
+                                            <li style="margin-top: 50px;"></li>
+                                            <li class="bold">@Html.ActionLink("VIP Club", "Club", "VIP")</li>
+                                            @*                                            <li class="bold">@Html.ActionLink("New Items", "NewItems", "Tabs")</li>*@
+                                            <li class="bold">@Html.RouteLink("Best Offer Deals", "BestOffer", new RouteValueDictionary()
+                                                            {
+                                                                {"tabkey" , "best-offer-items"},
+                                                                 {"tabid" , "offers"}
+                                                                
+                                                            })</li>
+                                            <li class="bold">@Html.ActionLink("Affiliate Program", "Affiliate", "Services")</li>
+                                            @*                                            <li class="bold hide">@Html.ActionLink("Site Map", "S")</li>*@
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="SpecialOffers" class="top20">
+                                <h1 class="block title">
+                                    Special Offers</h1>
+                                <h2 class="block explanation bold ">
+                                    Sign up today and receive special offers and gift ideas</h2>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.TextBox("email", "Enter your email")
+                                    <input type="submit" class="smallbutton top5" value="Sign up" alt="Sign up today" />
+                                }
+                            </div>
+                            <div id="Hours" class="top20">
+                                <h2 class="block bold">
+                                    Business Hours
+                                </h2>
+                                <span class="block">Sunday - Thursday
+                                    <br />
+                                    11:00am - 8:00pm </span>
+                            </div>
+                        </div>
+                        <div class="cell width10">
+                        </div>
+                        <div class="cell">
+                            <div class="block">
+                                <ul class="abovebar">
+                                    <li>@Html.ActionLink("Free Worldwide Shipping", "Policy", "Services")</li>
+                                    <li>@Html.ActionLink("30-DAY Return Policy", "Policy", "Services")</li>
+                                    <li>@Html.ActionLink("Risk Free Online Shopping", "Policy", "Services")</li>
+                                </ul>
+                            </div>
+                            <div class="clear">
+                            </div>
+                            <div class="table">
+                                <div class="row">
+                                    <div class="cell pathbar">
+                                        @if (IsSectionDefined("PathBar"))
+                                        {
+                                            @RenderSection("PathBar")
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            @RenderBody()
+                            @Html.Partial("Footer")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="MoviePlayerDiv">
+        <div id="MoviePlayer">
+        </div>
+    </div>
+</body>
+</html>

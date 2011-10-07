@@ -1,0 +1,71 @@
+﻿@using JONMVC.Website.Models.Checkout
+@model JONMVC.Website.Mailers.OrderConfirmationEmailTemplateViewModel
+@{
+    Layout = null;
+}
+<p>@Model.Name,<br />
+    <br />
+    Thank you for your recent purchase with jewelryonet.com</p>
+<p>
+    Your order details are below. It is recommended that you print this email for future
+    reference.
+    <br />
+    <br />
+    Your order is available for tracking online by visiting <a href="http://www.jewelryonet.com/Order_Status.asp">
+        http://www.jewelryonet.com/Order_Status.asp</a><br />
+    Your Order Number is: @Model.OrderNumber<br />
+    Your Email Address: <a href="mailto:@Model.Email" target="_blank">@Model.Email</a><br />
+    <br />
+    @switch (Model.PaymentMethod)
+    {
+        case PaymentMethod.CraditCard:
+        @:"You have selected to pay by Credit Card @Model.CCType which ends with @Model.CCLast4Digits . We are  processing your order and we are waiting for the authorization from the credit  card company, we will notify you by email once we get the approval.<br />
+      break;
+
+        case PaymentMethod.WireTransfer:
+        @:You have selected to pay by bank wire, please print this email and take it withyoutoyourpersonalbankassoonaspossibleinordertocompletethepayment.
+
+      break;
+        case PaymentMethod.PayPal:
+        @:You have selected to pay by PayPal. We are processing your order and we will notifyyoubyemailoncetheprocessisdone.
+          break;
+
+        default:
+          throw new ArgumentOutOfRangeException();
+    }
+    <br />
+    If you have any questions please feel free to contact our Customer Service department
+    at
+</p>
+972-3-5753457 or email us to <a href="mailto:service@jewelryonet.com">service@jewelryonet.com</a>
+<br />
+<p>ORDER SUMMARY<br />
+</p>
+<hr />
+<p><br />
+  @foreach (var cartItem in Model.Items)
+  {
+      @Html.Partial(cartItem.PartialName, cartItem)
+  }
+<hr />
+
+</p>
+
+@if (Model.PaymentMethod == PaymentMethod.WireTransfer)
+{
+    <p>
+        BANK WIRE INFORMATION<br />
+        Receiving Bank: The First International Bank of Israel LTD.<br />
+        Swift Code: FIRBILITDEX<br />
+        Receiving Bank Street: Diamond Exchange Branch 026, Noam Building, 23 Tuval Street<br />
+        Receiving Bank City/Zip/Country: Ramat-Gan, 52130, Israel<br />
+        Beneficiary/Acct Name: Diamonds &amp; Jewelry View<br />
+        Beneficiary/Acct Number: 137529<br />
+        Beneficiary/Acct Address: 21 Tuval Street, Ramat-Gan, 52520, Israel<br />
+        USD. Correspondents: HSBC USA NEW YORK / CITIBANK NEW YORK<br />
+        Note: Please ask your bank to place the order number 35904 in the reference/comments
+        field of the wire form</p>
+    <p>
+        <br />
+    </p>
+}

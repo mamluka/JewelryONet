@@ -1,0 +1,239 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@using MvcContrib.FluentHtml
+@inherits MvcContrib.FluentHtml.ModelWebViewPage<ReviewOrderViewModel>
+@{
+    ViewBag.Title = "Checkout process: review order";
+    Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
+}
+<div class="table width100 top10">
+    <div class="row">
+        <div class="cell alignleft">
+            <ul class="steps">
+                <li class="title">ORDER REVIEW</li>
+                <li class="first">BILLING/SHIPPING</li>
+                <li class="second active">ORDER REVIEW</li>
+                <li class="third">ORDER CONFIRMATION</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="table width100 top10">
+    <div class="row cartbody">
+        <div class="cell">
+            <span class="block"><strong>Order Summary</strong> Please review your details for accuracy,
+                then choose "Complete My Order"</span>
+            @foreach (var item in Model.CartItems)
+            {
+                @Html.Partial(item.PartialName, item)
+
+            }
+            <span>FREE Inscription with every ring - Click Here </span>
+            <div class="totaldiv width100 clear">
+                <span class="right price">@Model.TotalPrice</span> <span class="right">Total :</span>
+                <div class="clear">
+                </div>
+            </div>
+            <span><strong>Our Guarantee</strong></span> <span class="top10">All of Our Items Are
+                Brand New 100% Natural Diamonds & Gemstones No-risk 14 Day Money Back Guarantee
+                Certificate of Authenticity is Included Free Worldwide Insured Shipping Free Exclusive
+                Gift Box with Every Item Free Ring Sizing</span>
+        </div>
+        <div class="cell sep">
+        </div>
+        <div class="cell">
+            <div class="table width100 full-address-details">
+                <div class="row">
+                    <div class="cell">
+                        <span>Billing Information</span>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    First name:
+                                </td>
+                                <td>@Model.BillingAddress.FirstName
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    First name:
+                                </td>
+                                <td>@Model.BillingAddress.LastName
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Address:
+                                </td>
+                                <td>@Model.BillingAddress.Address1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    City:
+                                </td>
+                                <td>@Model.BillingAddress.City
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Country:
+                                </td>
+                                <td>@Model.BillingAddress.Country
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    State:
+                                </td>
+                                <td>@Model.BillingAddress.State
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Zip code:
+                                </td>
+                                <td>@Model.BillingAddress.ZipCode
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Phone #:
+                                </td>
+                                <td>@Model.BillingAddress.Phone
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                    <div class="cell">
+                        <span>Shipping Information</span>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    First name:
+                                </td>
+                                <td>@Model.ShippingAddress.FirstName
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    First name:
+                                </td>
+                                <td>@Model.ShippingAddress.LastName
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Address:
+                                </td>
+                                <td>@Model.ShippingAddress.Address1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    City:
+                                </td>
+                                <td>@Model.ShippingAddress.City
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Country:
+                                </td>
+                                <td>@Model.ShippingAddress.Country
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    State:
+                                </td>
+                                <td>@Model.ShippingAddress.State
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Zip code:
+                                </td>
+                                <td>@Model.ShippingAddress.ZipCode
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Phone #:
+                                </td>
+                                <td>@Model.ShippingAddress.Phone
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <h3>
+                Instructions</h3>
+            <span>@Model.Comment</span>
+            @if (Model.PaymentMethod < 3)
+            {
+
+                using (Html.BeginForm("OrderConfirmation", "Checkout"))
+                {
+                @this.Hidden(x => x.FirstName)
+                @this.Hidden(x => x.LastName)
+                @this.Hidden(x => x.Phone)
+                @this.Hidden(x => x.PaymentMethod)
+                @this.Hidden(x => x.Email)
+
+                @this.Hidden(x => x.BillingAddress.Address1)
+
+                @this.Hidden(x => x.BillingAddress.City)
+                @this.Hidden(x => x.BillingAddress.CountryID)
+                @this.Hidden(x => x.BillingAddress.FirstName)
+                @this.Hidden(x => x.BillingAddress.LastName)
+                @this.Hidden(x => x.BillingAddress.Phone)
+                @this.Hidden(x => x.BillingAddress.StateID)
+                @this.Hidden(x => x.BillingAddress.ZipCode)
+
+
+                @this.Hidden(x => x.ShippingAddress.Address1)
+
+                @this.Hidden(x => x.ShippingAddress.City)
+                @this.Hidden(x => x.ShippingAddress.CountryID)
+                @this.Hidden(x => x.ShippingAddress.FirstName)
+                @this.Hidden(x => x.ShippingAddress.LastName)
+                @this.Hidden(x => x.ShippingAddress.Phone)
+                @this.Hidden(x => x.ShippingAddress.StateID)
+                @this.Hidden(x => x.ShippingAddress.ZipCode)
+
+                @this.Hidden(x => x.CreditCardViewModel.CreditCardID)
+                @this.Hidden(x => x.CreditCardViewModel.CreditCardsNumber)
+                @this.Hidden(x => x.CreditCardViewModel.CCV)
+                @this.Hidden(x => x.CreditCardViewModel.Month)
+                @this.Hidden(x => x.CreditCardViewModel.Year)
+
+
+
+                @this.Hidden(x => x.Comment)
+
+                <input type="image" src="/Content/images/checkout/shoppingcart/continue.png" class="right top10" />
+                }
+            }
+            else
+            {
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="mrdiamond77@gmail.com">
+                <input type="hidden" name="amount" value="@Model.TotalPrice">
+                <input type="hidden" name="first_name" value="@Model.BillingAddress.FirstName">
+                <input type="hidden" name="last_name" value="@Model.BillingAddress.LastName">
+                <input type="hidden" name="address1" value="@Model.BillingAddress.Address1">
+                <input type="hidden" name="city" value="@Model.BillingAddress.City">
+                <input type="hidden" name="state" value="@Model.BillingAddress.State">
+                <input type="hidden" name="zip" value="@Model.BillingAddress.ZipCode">
+                <input type="hidden" name="email" value="@Model.Email">
+                <input type="hidden" name="item_name" value="Your JewelryONet.com invoice">
+                <input type="submit" name="submit" border="0" value="Pay with PayPal" class="button">
+                </form> 
+            }
+        </div>
+    </div>
+</div>

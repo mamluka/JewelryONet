@@ -1,0 +1,24 @@
+@using JONMVC.Website.Models
+@model BestOfferEmailTemplateViewModel
+Hello,<br/><br/>
+
+Thank you for using the ‘Best Offer’ tool at jewelryonet.com<br/><br/>
+
+We've just received your offer for @Model.OfferPrice on @Model.OfferDate.<br/>
+We usually answer all offers within 2 business days.<br/><br/>
+
+In the meanwhile you are most welcome to sign up in our website and receive special offers and gift ideas starting today: http://www.jewelryonet.com/register.asp<br/><br/>
+
+Your offer Number is: @Model.OfferNumber<br/>
+Your Email Address: @Model.Email<br/>
+
+If you have any questions please feel free to contact our Customer Service department at <br/>
+972-3-5753457 or email us to service@jewelryonet.com <br/><br/><br/>
+
+OFFER SUMMARY<br/>
+-------------------------------------------------------------------------------------------------<br/>
+Item # @Model.ItemNumber<br/>
+@Model.Description<br/>
+Price: @Model.TruePrice<br/>
+Your Offer: @Model.OfferPrice<br/>
+-------------------------------------------------------------------------------------------------<br/>

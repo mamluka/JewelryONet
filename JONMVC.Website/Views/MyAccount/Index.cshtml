@@ -1,0 +1,206 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model MyAccountViewModel
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="rounded-white-container padding10">
+    <h3>
+        My Orders</h3>
+    <div class="table">
+        <div class="row" style="height: 20px">
+            <div class="cell" style="width: 100px">
+               <span class="redbold bold">Order number</span> 
+            </div>
+            <div class="cell" style="width: 100px">
+                <span class="redbold bold">Purchase date</span> 
+            </div>
+            <div class="cell" style="width: 150px">
+                <span class="redbold bold">Order status</span> 
+            </div>
+            <div class="cell" style="width: 120px">
+                <span class="redbold bold">Total amount</span> 
+            </div>
+            <div class="cell" style="width: 100px">
+                <span class="redbold bold">Details...</span> 
+            </div>
+        </div>
+        @foreach (var orderSummery in Model.Orders)
+        {
+            <div class="row" style="height: 18px">
+                <div class="cell">
+                    @orderSummery.OrderNumber
+                </div>
+                <div class="cell">
+                    @orderSummery.PurchaseDate
+                </div>
+                <div class="cell">
+                    @orderSummery.Status
+                </div>
+                <div class="cell">
+                    @orderSummery.TotalPrice
+                </div>
+                <div class="cell">
+                    @Html.ActionLink("Details...", "OrdersStatus", "Checkout",new {orderNumber=orderSummery.OrderNumber},null)
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="rounded-white-container top20 padding10">
+    <h3>
+        My Personal Details</h3>
+    <div class="details-listing">
+        <span class="title">Your Email: </span><span class="redbold inline bold">@Model.Email</span>
+        <div class="clear">
+        </div>
+        <span class="title">Your Name: </span><span class="redbold inline bold">@Model.FirstName
+            @Model.LastName</span>
+        @if (!Model.HasAddressInformation)
+        {
+            <span>Country: <span class="redbold inline bold">@Model.Country</span></span>
+            <span>State: <span class="redbold inline bold">@Model.FirstName @Model.State</span></span>
+        }
+    </div>
+    @if (Model.HasAddressInformation)
+    {
+        <div class="table width100 full-address-details top10">
+            <div class="row">
+                <div class="cell">
+                    <span class="redbold bold">Billing Information:</span>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                First name:
+                            </td>
+                            <td>@Model.BillingAddress.FirstName
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                First name:
+                            </td>
+                            <td>@Model.BillingAddress.LastName
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Address:
+                            </td>
+                            <td>@Model.BillingAddress.Address1
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                City:
+                            </td>
+                            <td>@Model.BillingAddress.City
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Country:
+                            </td>
+                            <td>@Model.BillingAddress.Country
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                State:
+                            </td>
+                            <td>@Model.BillingAddress.State
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zip code:
+                            </td>
+                            <td>@Model.BillingAddress.ZipCode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Phone #:
+                            </td>
+                            <td>@Model.BillingAddress.Phone
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="cell">
+                    <span class="redbold bold">Shipping Information:</span>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                First name:
+                            </td>
+                            <td>@Model.ShippingAddress.FirstName
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                First name:
+                            </td>
+                            <td>@Model.ShippingAddress.LastName
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Address:
+                            </td>
+                            <td>@Model.ShippingAddress.Address1
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                City:
+                            </td>
+                            <td>@Model.ShippingAddress.City
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Country:
+                            </td>
+                            <td>@Model.ShippingAddress.Country
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                State:
+                            </td>
+                            <td>@Model.ShippingAddress.State
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zip code:
+                            </td>
+                            <td>@Model.ShippingAddress.ZipCode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Phone #:
+                            </td>
+                            <td>@Model.ShippingAddress.Phone
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="rounded-white-container padding10 top20">
+    <h3>
+        My Account</h3>
+
+        <div class="details-listing">
+        <span class="title">Memeber sice: </span><span class="redbold inline bold">@Model.MemeberSince</span>
+        <div class="clear">
+        </div>
+        <span class="title">Newsletter </span><span class="redbold inline bold">@Html.ActionLink("Sign me up","Aweber","Services")</span>
+        
+    </div>
+</div>
