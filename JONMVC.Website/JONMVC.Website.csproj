@@ -316,6 +316,7 @@
     <Compile Include="ViewModels\Json\Builders\JsonMedia.cs" />
     <Compile Include="ViewModels\Json\Builders\MediaSetsJsonModelBuilder.cs" />
     <Compile Include="ViewModels\Json\Views\DiamondGridRow.cs" />
+    <Compile Include="ViewModels\Json\Views\DiamondJsonUserData.cs" />
     <Compile Include="ViewModels\Json\Views\DiamondsJsonModel.cs" />
     <Compile Include="ViewModels\Json\Views\JsonModelBase.cs" />
     <Compile Include="ViewModels\Json\Views\MediaSetsJsonModel.cs" />
@@ -396,16 +397,22 @@
     <Content Include="Content\images\jeweldesign\finish\report.png" />
     <Content Include="Content\images\jeweldesign\finish\setting-appraisel-large.png" />
     <Content Include="Content\images\jeweldesign\refine\buttons\botton-down-34.png" />
+    <Content Include="Content\images\jeweldesign\refine\buttons\botton-down.png" />
     <Content Include="Content\images\jeweldesign\refine\buttons\botton-up-34.png" />
+    <Content Include="Content\images\jeweldesign\refine\buttons\button-down-25.png" />
+    <Content Include="Content\images\jeweldesign\refine\buttons\button-down-27.png" />
     <Content Include="Content\images\jeweldesign\refine\buttons\button-down.png" />
     <Content Include="Content\images\jeweldesign\refine\buttons\button-up.png" />
     <Content Include="Content\images\jeweldesign\refine\gen\buttom-info.png" />
     <Content Include="Content\images\jeweldesign\refine\gen\filter-bg.jpg" />
+    <Content Include="Content\images\jeweldesign\refine\gen\info-mark.png" />
+    <Content Include="Content\images\jeweldesign\refine\gen\tip.png" />
     <Content Include="Content\images\jeweldesign\refine\gen\upper-info.png" />
     <Content Include="Content\images\jeweldesign\refine\shapes\shape-sprite.png" />
     <Content Include="Content\images\jeweldesign\refine\sliders\bg-between.png" />
     <Content Include="Content\images\jeweldesign\refine\sliders\hand-left.png" />
     <Content Include="Content\images\jeweldesign\refine\sliders\hand-right.png" />
+    <Content Include="Content\images\jeweldesign\refine\sliders\hand.png" />
     <Content Include="Content\images\jeweldesign\refine\sliders\slider-track-bg.png" />
     <Content Include="Content\images\jeweldesign\setting\select-this-ring.png" />
     <Content Include="Content\images\jeweldesign\tabs\bg-off.png" />
@@ -457,6 +464,7 @@
     <Content Include="Content\images\services\wishlist\icons\ask-friend.png" />
     <Content Include="Content\images\services\wishlist\icons\email.png" />
     <Content Include="Content\images\services\wishlist\icons\remove.png" />
+    <Content Include="Content\images\skeleton\blue-button-bg.png" />
     <Content Include="Content\images\skeleton\button-bg.png" />
     <Content Include="Content\images\skeleton\custom-order-bg.png" />
     <Content Include="Content\images\skeleton\footer-link-sep-bg.png" />
@@ -770,6 +778,7 @@
     <Content Include="Views\Shared\TopManuAndNavBar.cshtml" />
     <Content Include="Views\Shared\EmailRing.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\FacebookHeaders.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -1,0 +1,11 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model IJewelryItemViewModel
+
+<meta property="og:title" content="@Model.Title"/>
+    <meta property="og:type" content="product"/>
+    <meta property="og:url" content="@Request.Url.AbsoluteUri"/>
+    <meta property="og:image" content="@Request.Url.Scheme@System.Uri.SchemeDelimiter@Request.Url.Host@Model.MainJewelPicture.Thumb"/>
+    <meta property="og:site_name" content="JewelryONet.com"/>
+    <meta property="fb:admins" content="mamluka"/>
+    <meta property="og:description"
+          content="@Model.Title"/>

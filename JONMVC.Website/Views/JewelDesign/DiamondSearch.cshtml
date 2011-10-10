@@ -6,17 +6,32 @@
 @section PathBar {
     @Html.Partial("PathBar", new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("Diamond Search", "") })
 }
+@section DiamondsMenu {
+    <li class="redarrow">
+        @Html.ActionLink("Diamonds", "Diamonds", "Departments")
+        <div class="submenu top5">
+            <ul>
+                <li>@Html.ActionLink("Diamond Search", "DiamondSearch", "JewelDesign")</li>
+                <li>@Html.ActionLink("GIA Certified Diamonds", "DiamondSearch", "JewelDesign", new RouteValueDictionary() { { "Report", "GIA" } }, null)</li>
+            </ul>
+        </div>
+    </li>
+}
 @Html.Partial("Tabs", Model.TabsForJewelDesignNavigation)
 <div class="jewel-main">
     <div class="table width100">
         <div class="row">
             <div class="cell">
+            <span>Use the buttons below to select your desired diamond shape, color, clarity and cut.<br />To find diamonds in your price range and carat weight, drag the sliders or enter a range manually in the input boxes.</span>
                 <div class="diamond-search-container padding5 rounded5">
-                <h2 class="redbold">Diamond search</h2>
+                    <h2 class="redbold">
+                        Diamond search</h2>
                     <div class="table refine">
                         <div class="row" style="height: 35px">
                             <div class="cell label">
                                 Shape:
+                                <img src="/Content/images/jeweldesign/refine/gen/info-mark.png" tooltip="Diamonds come in many different shapes. Choose one of the following shapes:
+Round, Princess, Emerald, Asscher, Marquise, Radiant, Oval, Heart, Cushion, Pear." tooltip-title="Shape"/>
                             </div>
                             <div class="cell shape-buttons">
                                 <table width="100%" border="0" cellspacing="1" cellpadding="0" class="sprite-shape">
@@ -58,6 +73,7 @@
                             </div>
                             <div class="cell label">
                                 Cut:
+                                <img src="/Content/images/jeweldesign/refine/gen/info-mark.png" tooltip="A good cut is essential to a diamond's beauty, because even a diamond with outstanding color and clarity will not display the sparkle that diamonds are famous for if its components don't interact with light as they should. We recommend selecting the highest cut grade within your budget. The reason is simple: of the Four Cs, no other characteristic has a greater influence on a diamond's appearance."/>
                             </div>
                             <div class="cell cut-buttons">
                                 <table width="100%" border="0" cellspacing="1" cellpadding="0" class="bg">
@@ -81,6 +97,7 @@
                         <div class="row">
                             <div class="cell label">
                                 Color:
+                                <img src="/Content/images/jeweldesign/refine/gen/info-mark.png" tooltip="The average color for engagement diamonds is G to H. The next popular group is I-J because they are more affordable. Some people even prefer heavily colored stones because they are more unique in engagement settings. A diamond's color grade affects its price, but it isn't the most important diamond characteristic to consider before purchasing a diamond. If your budget prevents you from buying a D through F graded diamond it does not mean you can't own a beautiful gemstone. Diamond grades G through J can be fine gems and other grades may be perfectly suitable." />
                             </div>
                             <div class="cell color-clarity">
                                 <table width="100%" border="0" cellspacing="1" cellpadding="0" class="bg">
@@ -109,14 +126,14 @@
                                         <td class="off" filter="color" key="K">
                                             K
                                         </td>
-                                        
                                     </tr>
                                 </table>
                             </div>
                             <div class="cell sep">
                             </div>
                             <div class="cell label">
-                                Carat
+                                Carat:
+                                <img src="/Content/images/jeweldesign/refine/gen/info-mark.png" tooltip="Carat is the term used to express the weight of a diamond, with one carat equaling 200 milligrams of actual weight. The weight of smaller diamonds is often expressed as points, not carats. There are 100 points in a carat. Another way to look at it is to say that each point equals 0.01, or one-hundredth, of a carat. Larger diamonds are rarer and in more demand than smaller diamonds of the same quality, so they can be sold for a higher price. A one carat diamond solitaire ring is nearly always more expensive than a diamond ring made up of multiple diamonds that are similar, but smaller, even though they total one carat or more." />
                             </div>
                             <div class="cell slider-row">
                                 <div id="SliderCarat">
@@ -128,6 +145,7 @@
                         <div class="row">
                             <div class="cell label">
                                 Clarity:
+                                <img src="/Content/images/jeweldesign/refine/gen/info-mark.png" tooltip="Diamond clarity is critical for engagement rings; most stones have various types of flaws.  Diamonds are graded for clarity under 10x loupe magnification. Grades range from Internally Flawless diamonds that are completely free of blemishes to Imperfect 3 diamonds that possess large, heavy defects visible to the naked eye; we don’t sell or trade with I-3 diamonds. The most common clarity grading are VS2, SI1 and SI2. These stones are in the middle of the scale for flaws - not totally flawless and yet not having lot of flaws. That makes them affordable for many, and depending on the cut and setting of the stone, many of the flaws may not be noticeable." />
                             </div>
                             <div class="cell color-clarity">
                                 <table width="100%" border="0" cellspacing="1" cellpadding="0" class="bg">
@@ -163,6 +181,7 @@
                             </div>
                             <div class="cell label">
                                 Price:
+                                <img src="/Content/images/jeweldesign/refine/gen/info-mark.png" tooltip="Use the slider to narrow the price range that fits your budget." />
                             </div>
                             <div class="cell slider-row">
                                 <div id="SliderPrice">
@@ -171,13 +190,12 @@
                                 <input type="hidden" class="on" id="price2" value="5000" />
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="cell" style="padding-top: 20px;">
+            <div class="cell diamond-list-container" style="padding-top: 20px;">
                 <table id="DiamondList">
                 </table>
                 <div id="DiamondPager">
@@ -235,11 +253,104 @@
         suitable. We will be glad to help you evaluate and select the best diamond for your
         needs.</p>
 </div>
+<div class="diamond-info-hover rounded5">
+    <img class="tip" src="/Content/images/jeweldesign/refine/gen/tip.png" />
+    <h2 class="redbold">
+        Diamond Details</h2>
+    <table>
+        <tr key="diamondid">
+            <td>
+                Item number:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="depth">
+            <td>
+                Depth:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="table">
+            <td>
+                Table:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="girdle">
+            <td>
+                Girdle:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="symmetry">
+            <td>
+                Symmetry:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="polish">
+            <td>
+                Polish:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="culet">
+            <td>
+                Culet:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="fluorescence">
+            <td>
+                Fluorescence:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="dimensions">
+            <td>
+                Dimensions:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="report">
+            <td>
+                Certificate:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="reportnumber">
+            <td>
+                Certificate #:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr key="price">
+            <td>
+                Price:
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <input type="button" class="blue-button top20" value="View Details" />
+    <input type="button" class="button top10" value="Add To Ring" />
+</div>
 <script type="text/javascript">
 
-	   $(document).ready(function () {
-		   JewelDesign.Locals.DataFromController = @Html.Raw(Json.Encode(Model.JSONClientScriptInitializer)) ;
-		   JewelDesign.InitDiamondSearch();
+	   $(document).ready(function() {
+	       JewelDesign.Locals.DataFromController = @Html.Raw(Json.Encode(Model.JSONClientScriptInitializer)) ;
+	       JewelDesign.InitDiamondSearch();
 
 	       $('td[title]').qtip({
 	               position: { adjust: { x: -20, y: -60 } },
@@ -247,7 +358,7 @@
 	                   name: 'light',
 
 	                   border: {
-	                        radius: 3,
+	                       radius: 3,
 	                       color: '#87281d'
 	                   },
 	                   width: 100,
@@ -268,7 +379,52 @@
 	               }
 
 	           });
-		   
+
+	       $('.jewel-main img[tooltip]').each(function()
+	           {
+	           $(this).qtip({
+	                   content: {
+	                       title: {
+	                           text: false,
+	                           button: false
+	                       },
+	                       text: $(this).attr('tooltip')
+	                   },
+
+	                   show: {
+	                       when: 'click', // Show it on click
+	                       solo: true // And hide all other tooltips
+	                   },
+	                   hide: { when: { event: 'unfocus' }, delay: 500 },
+
+	                   style: {
+
+	                       name: 'light',
+
+	                       border: {
+	                           radius: 8,
+	                           color: '#87281d'
+	                       },
+	                       width: 300,
+	                       padding: 12,
+	                       background: '#87281d',
+	                       color: 'white',
+	                       textAlign: 'justify',
+
+	                       tip: {
+	                           corner: 'topLeft',
+	                           color: '#87281d',
+	                           size: {
+	                               x: 4,
+	                               y: 4
+	                           }
+
+	                       }
+	                   }
+
+	               });
+	       });
+
 	   });
 
 

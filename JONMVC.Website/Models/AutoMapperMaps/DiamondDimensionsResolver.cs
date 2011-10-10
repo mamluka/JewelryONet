@@ -16,9 +16,9 @@ namespace JONMVC.Website.Models.AutoMapperMaps
             {
                 list.Add(String.Format("{0:0.00}", source.Length));
             }
-            if (source.Weight> 0)
+            if (source.Width> 0)
             {
-                list.Add(String.Format("{0:0.00}", source.Weight));
+                list.Add(String.Format("{0:0.00}", source.Width));
             }
             if (source.Height > 0)
             {

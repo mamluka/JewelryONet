@@ -11,6 +11,7 @@ using JONMVC.Website.Models.JewelryItem;
 using JONMVC.Website.Models.Utils;
 using JONMVC.Website.ViewModels.Builders;
 using JONMVC.Website.ViewModels.Json.Builders;
+using JONMVC.Website.ViewModels.Json.Views;
 using JONMVC.Website.ViewModels.Views;
 
 namespace JONMVC.Website.Models.AutoMapperMaps
@@ -20,24 +21,24 @@ namespace JONMVC.Website.Models.AutoMapperMaps
         public void CreateMap(IProfileExpression mapper)
         {
             Mapper.CreateMap<DiamondSearchParametersGivenByJson, DiamondSearchParameters>()
-            .ForMember(s => s.Shape,
-                       opt =>
-                       opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("shape")).FromMember(s => s.Shape))
-            .ForMember(s => s.Color,
-                       opt =>
-                       opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("color")).FromMember(s => s.Color))
-            .ForMember(s => s.Clarity,
-                       opt =>
-                       opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("clarity")).FromMember(s => s.Clarity))
-            .ForMember(s => s.Cut,
-                       opt =>
-                       opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("cut")).FromMember(s => s.Cut))
-            .ForMember(s => s.Report,
-                       opt =>
-                       opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("report")).FromMember(s => s.Report))
-            .ForMember(s => s.ItemsPerPage, opt => opt.MapFrom(x => x.rows))
-            .ForMember(s => s.SortDirection, opt => opt.MapFrom(x => x.sort))
-            ;
+              .ForMember(s => s.Shape,
+                         opt =>
+                         opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("shape")).FromMember(s => s.Shape))
+              .ForMember(s => s.Color,
+                         opt =>
+                         opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("color")).FromMember(s => s.Color))
+              .ForMember(s => s.Clarity,
+                         opt =>
+                         opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("clarity")).FromMember(s => s.Clarity))
+              .ForMember(s => s.Cut,
+                         opt =>
+                         opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("cut")).FromMember(s => s.Cut))
+              .ForMember(s => s.Report,
+                         opt =>
+                         opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("report")).FromMember(s => s.Report))
+              .ForMember(s => s.ItemsPerPage, opt => opt.MapFrom(x => x.rows))
+              .ForMember(s => s.SortDirection, opt => opt.MapFrom(x => x.sort))
+              ;
 
             Mapper.CreateMap<v_jd_diamonds, Diamond>()
                 .ForMember(dto => dto.DiamondID, opt => opt.MapFrom(s => s.diamondid))
@@ -60,7 +61,7 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                 .ForMember(dto => dto.ItemCode, opt => opt.MapFrom(x => x.DiamondID))
                 .ForMember(dto => dto.MainDiamondPicture, opt => opt.ResolveUsing(new DiamondPrettyMediaResolver(DiamondMediaType.Picture, new SettingManager())))
                 .ForMember(dto => dto.Price, opt => opt.AddFormatter<PriceFormatter>())
-                .ForMember(dto => dto.Table, opt => opt.AddFormatter<DecimalFormatter>())
+                .ForMember(dto => dto.Table, opt => opt.AddFormatter<PrecentFormatter>())
                 .ForMember(dto => dto.Weight, opt => opt.AddFormatter<WeightFormatter>())
                 .ForMember(dto => dto.Fluorescence, opt => opt.MapFrom(x => x.Fluorescence))
                 .ForMember(dto => dto.TabsForJewelDesignNavigation, opt => opt.Ignore())
@@ -366,6 +367,14 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                 .ForMember(dto => dto.HasAddressInformation, opt => opt.ResolveUsing<MyAccountHasAddressInformationResolver>().FromMember(x => x.Second))
                 .ForMember(dto => dto.PageTitle, opt => opt.Ignore())
                 .ForMember(dto => dto.PathBarItems, opt => opt.Ignore())
+                ;
+
+            Mapper.CreateMap<Diamond, DiamondJsonUserData>()
+                .ForMember(dto => dto.Depth, opt => opt.AddFormatter<PrecentFormatter>())
+                .ForMember(dto => dto.Price, opt => opt.AddFormatter<PriceFormatter>())
+                .ForMember(dto => dto.Table, opt => opt.AddFormatter<PrecentFormatter>())
+                .ForMember(dto => dto.Fluorescence, opt => opt.MapFrom(x => x.Fluorescence))
+                .ForMember(dto => dto.Dimensions, opt => opt.ResolveUsing(new DiamondDimensionsResolver()))
                 ;
 
         }

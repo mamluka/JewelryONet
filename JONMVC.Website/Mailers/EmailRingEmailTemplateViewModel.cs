@@ -1,3 +1,5 @@
+using JONMVC.Website.Models.Jewelry;
+
 namespace JONMVC.Website.Mailers
 {
     public class EmailRingEmailTemplateViewModel
@@ -16,5 +18,9 @@ namespace JONMVC.Website.Mailers
         public string FriendEmail { get; set; }
 
         public string FriendName { get; set; }
+
+        public string Icon { get; set; }
+
+        public JewelMediaType MediaSet { get; set; }
     }
 }

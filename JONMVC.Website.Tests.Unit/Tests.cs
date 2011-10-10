@@ -39,6 +39,16 @@ namespace JONMVC.Website.Tests.Unit
             return new Money(totalPrice, Currency.Usd).Format("{1}{0:#,0}");
         }
 
+        public static string AsDecimalPrecent(decimal value)
+        {
+            return String.Format("{0:0.00}%",value);
+        }
+
+        public static string AsDecimal(decimal value)
+        {
+            return String.Format("{0:0.00}", value);
+        }
+
        
     }
     

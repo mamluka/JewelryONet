@@ -78,7 +78,7 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
             //Act
             var viewModel = builder.Build();
             //Assert
-            viewModel.Depth.Should().Be("58.2%");
+            viewModel.Depth.Should().Be("58.20%");
 
         }
 
@@ -115,7 +115,7 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
             //Act
             var viewModel = builder.Build();
             //Assert
-            viewModel.Dimensions.Should().Be("4.25x1.25x5.36");
+            viewModel.Dimensions.Should().Be("4.25x4.87x5.36");
 
         }
 
@@ -226,7 +226,7 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
             //Act
             var viewModel = builder.Build();
             //Assert
-            viewModel.Table.Should().Be("25.80");
+            viewModel.Table.Should().Be("25.80%");
 
         }
 

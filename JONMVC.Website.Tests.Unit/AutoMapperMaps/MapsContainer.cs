@@ -15,6 +15,7 @@ using JONMVC.Website.Tests.Unit.Jewelry;
 using JONMVC.Website.Tests.Unit.Utils;
 using JONMVC.Website.ViewModels.Builders;
 using JONMVC.Website.ViewModels.Json.Builders;
+using JONMVC.Website.ViewModels.Json.Views;
 using JONMVC.Website.ViewModels.Views;
 
 namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
@@ -64,7 +65,7 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto => dto.ItemCode, opt => opt.MapFrom(x => x.DiamondID))
                 .ForMember(dto => dto.MainDiamondPicture, opt => opt.ResolveUsing(new DiamondPrettyMediaResolver(DiamondMediaType.Picture, new FakeSettingManager())))
                 .ForMember(dto => dto.Price, opt => opt.AddFormatter<PriceFormatter>())
-                .ForMember(dto => dto.Table, opt => opt.AddFormatter<DecimalFormatter>())
+                .ForMember(dto => dto.Table, opt => opt.AddFormatter<PrecentFormatter>())
                 .ForMember(dto => dto.Weight, opt => opt.AddFormatter<WeightFormatter>())
                 .ForMember(dto => dto.Fluorescence, opt => opt.MapFrom(x => x.Fluorescence))
                 .ForMember(dto => dto.TabsForJewelDesignNavigation, opt => opt.Ignore())
@@ -354,6 +355,8 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto=> dto.Description,opt=>opt.Ignore())
                 .ForMember(dto => dto.ItemNumber, opt => opt.Ignore())
                 .ForMember(dto => dto.Price, opt => opt.Ignore())
+                .ForMember(dto => dto.MediaSet, opt => opt.Ignore())
+                .ForMember(dto => dto.Icon, opt => opt.Ignore())
                 ;
 
             Mapper.CreateMap<MergeOrdersAndCustomer, MyAccountViewModel>()
@@ -370,6 +373,16 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto => dto.HasAddressInformation, opt => opt.ResolveUsing<MyAccountHasAddressInformationResolver>().FromMember(x=> x.Second))
                 .ForMember(dto => dto.PageTitle, opt => opt.Ignore())
                 .ForMember(dto => dto.PathBarItems, opt => opt.Ignore())
+                ;
+
+            Mapper.CreateMap<Diamond, DiamondJsonUserData>()
+                .ForMember(dto => dto.Depth, opt => opt.AddFormatter<PrecentFormatter>())
+                .ForMember(dto => dto.Price, opt => opt.AddFormatter<PriceFormatter>())
+                .ForMember(dto => dto.Table, opt => opt.AddFormatter<PrecentFormatter>())
+                .ForMember(dto => dto.Fluorescence, opt => opt.MapFrom(x => x.Fluorescence))
+                .ForMember(dto => dto.Dimensions, opt => opt.ResolveUsing(new DiamondDimensionsResolver()))
+                .ForMember(dto=> dto.ViewURL,opt=> opt.Ignore())
+                .ForMember(dto => dto.AddURL, opt => opt.Ignore())
                 ;
         }
     }

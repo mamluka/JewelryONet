@@ -166,7 +166,7 @@ var JewelDesign = {
         DataFromController: null
 
     },
-    FormatSliderPriceRangeInfo: function (id, handleType, value, prefix) {
+    FormatSliderRangeInfo: function (id, handleType, value, prefix) {
 
         var fromSpan = null;
         var toSpan = null;
@@ -204,7 +204,7 @@ var JewelDesign = {
         // console.log(posTo.left);
 
         var fromWidth = fromSpan.width() + 6;
-        var toWidth = fromSpan.width() + 6;
+        var toWidth = toSpan.width() + 6;
 
         var totalWidth = $(id).width();
 
@@ -253,36 +253,32 @@ var JewelDesign = {
 
 
     },
-    FormatSliderCaratRangeInfo: function (from, to) {
-        return from + ' Ct. - ' + to + ' Ct.';
-    },
     InitDiamondSearch: function () {
-
-
 
         $("#SliderCarat").RmzSlider(
                 {
-                    minValue: 0.5,
-                    maxValue: 3,
+                    minValue: 0.25,
+                    maxValue: 10,
                     numHandles: 2,
                     hitMargin: 13,
                     handleWidth: 13,
-                    leftOffset: 1
+                    leftOffset: 1,
+                    step: 0.01
                 }
             );
 
         $("#SliderCarat .handle_num_0").trigger("setvalue", { value: 1 });
         $("#SliderCarat .handle_num_1").trigger("setvalue", { value: 2 });
 
-        JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'to', (2).toFixed(2), '');
-        JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'from', (1).toFixed(2), '');
+        JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', (2).toFixed(2), '');
+        JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', (1).toFixed(2), '');
 
         $("#SliderCarat .handle_num_0").bind("dragging", function (event, data) {
 
             var from = (data.value).toFixed(2);
             $('#carat1').val(from);
 
-            JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'from', from, '');
+            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', from, '');
 
         });
 
@@ -291,7 +287,7 @@ var JewelDesign = {
             var to = (data.value).toFixed(2);
             $('#carat2').val(to);
 
-            JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'to', to, '');
+            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', to, '');
 
         });
 
@@ -302,16 +298,16 @@ var JewelDesign = {
             $('#carat2').val(to);
             $('#carat1').val(from);
 
-            JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'to', to, '');
-            JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'from', from, '');
+            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', to, '');
+            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', from, '');
 
             JewelDesign.Search();
         });
 
         $("#SliderPrice").RmzSlider(
                 {
-                    minValue: 500,
-                    maxValue: 10000,
+                    minValue: 400,
+                    maxValue: 1000000,
                     numHandles: 2,
                     hitMargin: 13,
                     handleWidth: 13,
@@ -324,15 +320,15 @@ var JewelDesign = {
 
         //   $("#SliderPrice").trigger("firechange"); 
 
-        JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'to', (1000).toFixed(0), '$');
-        JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'from', (5000).toFixed(0), '$');
+        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', (1000).toFixed(0), '$');
+        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', (5000).toFixed(0), '$');
 
         $("#SliderPrice .handle_num_0").bind("dragging", function (event, data) {
 
             var from = (data.value).toFixed(0);
             $('#Price1').val(from);
 
-            JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'from', from, '$');
+            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', from, '$');
 
 
         });
@@ -342,7 +338,7 @@ var JewelDesign = {
             var to = (data.value).toFixed(0);
             $('#Price2').val(to);
 
-            JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'to', to, '$');
+            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', to, '$');
 
         });
 
@@ -353,8 +349,8 @@ var JewelDesign = {
             $('#price2').val(to);
             $('#price1').val(from);
 
-            JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'to', to, '$');
-            JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'from', from, '$');
+            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', to, '$');
+            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', from, '$');
 
             JewelDesign.Search();
         });
@@ -417,6 +413,35 @@ var JewelDesign = {
         });
 
 
+        $('table tr td').hover(
+                        function () {
+                            $(this).addClass('selected');
+                        },
+                        function () {
+                            $(this).removeClass('selected');
+                        }
+                     );
+
+
+        var div = $('.diamond-info-hover');
+
+
+        div.hover(
+                        function () {
+                            $(this).attr('hover', true);
+                        },
+                        function () {
+                            $(this).attr('hover', false);
+                            $(this).hide();
+                        }
+                    );
+
+
+
+        div.children('input').click(function () {
+            window.location.href = $(this).attr('buttonurl');
+        });
+
 
 
         var filters = JewelDesign.ReadSearchFilters();
@@ -430,27 +455,19 @@ var JewelDesign = {
             postData: filters,
             cache: false,
             loadonce: false,
-            //colNames: ['Stone Id', 'Shape', 'Carat', 'Color', 'Clarity', 'Cut', 'Depth', 'Table', 'Pol/Sym', 'Flour', 'Certificate', 'Photo', 'Price', 'Action'],
             colNames: ['Shape', 'Carat', 'Color', 'Clarity', 'Cut', 'Certificate', 'Price', 'Details...'],
             colModel: [
-            //{ name: 'stoneid', index: 'id', width: 50 ,resizable:false,sortable:false},
-				{name: 'shape', index: 'shape', width: 54, align: 'center', resizable: false, sortable: false },
-				{ name: 'weight', index: 'weight', width: 40, align: 'center', resizable: false, sortable: false },
-				{ name: 'color', index: 'color', width: 40, align: 'center', resizable: false, sortable: false },
-				{ name: 'clarity', index: 'clarity', width: 40, align: 'center', resizable: false, sortable: false },
-				{ name: 'cut', index: 'cut', width: 60, align: 'center', resizable: false, sortable: false },
-            //{ name: 'depth', index: 'depth', width: 48, align: 'center', resizable: false, sortable: false },
-            //{ name: 'table', index: 'table', width: 48, align: 'center', resizable: false, sortable: false },
-            //{ name: 'polsym', index: 'polsym', width: 48, resizable: false, sortable: false },
-            //{ name: 'flour', index: 'flour', width: 48, resizable: false, sortable: false },
-				{name: 'cert', index: 'cert', width: 48, align: 'center', align: 'center', resizable: false, sortable: false },
-            //{ name: 'photo', index: 'photo', width: 45, resizable: false, sortable: false },
-				{name: 'price', index: 'price', width: 55, align: 'center', resizable: false, sortable: false },
-				{ name: 'action', index: 'action', width: 55, align: 'center', resizable: false, sortable: false }
-			],
+                    { name: 'shape', index: 'shape', width: 54, align: 'center', resizable: false, sortable: false },
+                    { name: 'weight', index: 'weight', width: 40, align: 'center', resizable: false, sortable: false },
+                    { name: 'color', index: 'color', width: 40, align: 'center', resizable: false, sortable: false },
+                    { name: 'clarity', index: 'clarity', width: 40, align: 'center', resizable: false, sortable: false },
+                    { name: 'cut', index: 'cut', width: 60, align: 'center', resizable: false, sortable: false },
+                    { name: 'cert', index: 'cert', width: 48, align: 'center', align: 'center', resizable: false, sortable: false },
+                    { name: 'price', index: 'price', width: 55, align: 'center', resizable: false, sortable: false },
+                    { name: 'action', index: 'action', width: 55, align: 'center', resizable: false, sortable: false }
+                ],
             rowNum: 10,
             rowList: [10, 20, 30],
-            //pager: '#pager2',
             sortname: 'id',
             mtype: 'POST',
             viewrecords: true,
@@ -460,63 +477,14 @@ var JewelDesign = {
             pager: '#DiamondPager',
             height: 220,
             width: 790,
-            loadComplete: function (data) {
+            loadComplete: function () {
 
-                $(".jqgrow-notyet").hover(
-                    function () {
-                        var div = null;
-                        if ($('.diamond-info-hover').length > 0) {
-                            div = $('.diamond-info-hover');
-                        }
-                        else {
-                            div = $('<div></div>');
-                            div.addClass('diamond-info-hover');
-                            $('body').append(div);
-
-                            div.hover(
-                                function () {
-                                    $(this).attr('hover', true);
-                                },
-                                function () {
-                                    $(this).attr('hover', false);
-                                    $(this).hide();
-                                }
-
-                            );
-
-                            var pos = $('.ui-jqgrid').offset();
-
-                            div.css({
-                                left: pos.left - 170 + 'px',
-                                top: pos.top + 'px'
-                            });
-                        }
-
-                        div.show();
-
-
-
-
-
-                    },
-                    function () {
-                        
-                        var div = null;
-                        if ($('.diamond-info-hover').length > 0) {
-                            div = $('.diamond-info-hover');
-                        }
-                        if (div.attr('hover') == 'false') {
-                            div.hide();
-                        }
-
-                    }
-                );
-
+                JewelDesign.RegisterDiamondInfo();
             }
-
-
         });
         JewelDesign.ReadSearchFilters();
+
+
     },
     ReadSearchFilters: function () {
 
@@ -613,6 +581,80 @@ var JewelDesign = {
         $('#RedirectSettingForm').submit();
 
 
+    },
+    RegisterDiamondInfo: function () {
+
+        $(".jqgrow").hover(
+                        function () {
+                            var div = null;
+                            if ($('.diamond-info-hover').length > 0) {
+                                div = $('.diamond-info-hover');
+                            }
+
+                            var timerCode = div.attr('timercode');
+                            clearTimeout(timerCode);
+
+                            div.show();
+
+                            div.position(
+                                {
+                                    my: 'right top',
+                                    at: 'left top',
+                                    of: $('.diamond-list-container'),
+                                    offset: '-11 0'
+                                }
+                            );
+
+                            div.attr('hover', 'false');
+
+                            var tip = div.children('.tip');
+
+                            tip.position({
+                                my: 'right top',
+                                at: 'left top',
+                                of: $(this),
+                                offset: '-3 3'
+                            });
+
+                            var id = $(this).attr('id');
+                            var userData = $("#DiamondList").getGridParam('userData');
+
+                            var diamondData = userData[id];
+
+                            $.each(diamondData, function (index, dataItem) {
+
+                                if (dataItem == '') {
+                                    $('.diamond-info-hover tr[key=' + index.toString().toLowerCase() + ']').hide();
+                                } else {
+                                    $('.diamond-info-hover tr[key=' + index.toString().toLowerCase() + '] td:eq(1)').html(dataItem);
+                                }
+                            });
+
+                            div.children('input:eq(0)').attr('buttonurl', diamondData['ViewURL']);
+                            div.children('input:eq(1)').attr('buttonurl', diamondData['AddURL']);
+
+
+
+                        },
+                        function () {
+
+                            var div = null;
+                            if ($('.diamond-info-hover').length > 0) {
+                                div = $('.diamond-info-hover');
+                            }
+
+                            var timerCode = setTimeout(function () {
+                                if (div.attr('hover') == 'false') {
+                                    div.hide();
+                                }
+                            }, 500);
+
+                            div.attr('timercode', timerCode);
+
+
+                        }
+                );
+
     }
 
 };
@@ -671,6 +713,7 @@ var MetalPriceSelect = {
 			});
 		});
 	},
+    
 	RegisterMetalPriceSelectForJewelryItems: function () {
 		$('div.metalpricecombo').click(function () {
 			//work the ajax magic
@@ -786,15 +829,18 @@ var Checkout = {
 	}
 };
 Utils = {
-	EnableSubmitButton: function () {
-		$(":submit").removeAttr("disabled");
-		$("input[type=image]").removeAttr("disabled");
-	},
-	DisableSubmitButton: function () {
-		$("input[type=image]").attr("disabled", true);
-		$(":submit").attr("disabled", true);
-	},
-	RedirectToHome: function () {
-		window.location.href = '/';
-	}
+    EnableSubmitButton: function () {
+        $(":submit").removeAttr("disabled");
+        $("input[type=image]").removeAttr("disabled");
+    },
+    DisableSubmitButton: function () {
+        $("input[type=image]").attr("disabled", true);
+        $(":submit").attr("disabled", true);
+    },
+    RedirectToHome: function () {
+        window.location.href = '/';
+    }
+    
+
+
 };

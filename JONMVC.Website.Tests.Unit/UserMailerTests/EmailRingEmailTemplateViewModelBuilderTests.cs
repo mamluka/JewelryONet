@@ -52,6 +52,9 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
             template.Description.Should().Be(jewel.Title);
             template.ItemNumber.Should().Be(jewel.ItemNumber);
             template.Price.Should().Be(Tests.AsMoney(jewel.Price));
+            template.Icon.Should().Be(jewel.Media.IconURLForWebDisplay);
+            template.MediaSet.Should().Be(jewel.Media.MediaSet);
+            
 
 
         }

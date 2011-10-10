@@ -34,11 +34,14 @@ namespace JONMVC.Website.ViewModels.Json.Builders
         {
             var jsonModel = new DiamondsJsonModel();
 
-            var dbsearchParameters = mapper.Map<DiamondSearchParametersGivenByJson, DiamondSearchParameters>(searchParameters);
+            var dbsearchParameters =
+                mapper.Map<DiamondSearchParametersGivenByJson, DiamondSearchParameters>(searchParameters);
 
             var diamonds = diamondRepository.DiamondsBySearchParameters(dbsearchParameters);
 
             var gridrows = new List<DiamondGridRow>();
+
+            var userData = new Dictionary<string, DiamondJsonUserData>();
 
             foreach (var diamond in diamonds)
             {
@@ -47,58 +50,83 @@ namespace JONMVC.Website.ViewModels.Json.Builders
 
                 var cells = new string[14];
                 row.cell = cells;
+                //TODO Images in diamond search
 
-//                row.cell[0] = diamond.DiamondID.ToString();
-//                row.cell[1] = diamond.Shape;
-//                row.cell[2] = formatter.ToCaratWeight(diamond.Weight) ;
-//                row.cell[3] = diamond.Color;
-//                row.cell[4] = diamond.Clarity;
-//                row.cell[5] = diamond.Cut;
-//                row.cell[6] = formatter.FormatTwoDecimalPoints(diamond.Depth);
-//                row.cell[7] = formatter.FormatTwoDecimalPoints(diamond.Table);
-//                row.cell[8] = diamond.Polish + "/" + diamond.Symmetry;
-//                row.cell[9] = diamond.Fluorescence;
-//                row.cell[10] = diamond.Report;
-//                //TODO Images in diamond search
-//                row.cell[11] = "Image";
-//
-//                row.cell[12] = new Money(diamond.Price, Currency.Usd).Format("{1}{0:#,0}");
-//
-//                //TODO to this route depended and not hardcoded
-//
-//                row.cell[13] = "<a href=\"" + webbHelpers.RouteUrl("Diamond", new RouteValueDictionary()
-//                                                                                 {
-//                                                                                     {"DiamondID",diamond.DiamondID},
-//                                                                                     {"SettingID",searchParameters.SettingID},
-//                                                                                     {"MediaType",searchParameters.MediaType},
-//                                                                                     {"Size",searchParameters.Size}
-//                                                                                 }) + "\" >View</a>";
 
-                                
-                                row.cell[0] = diamond.Shape;
-                                row.cell[1] = formatter.ToCaratWeight(diamond.Weight) ;
-                                row.cell[2] = diamond.Color;
-                                row.cell[3] = diamond.Clarity;
-                                row.cell[4] = diamond.Cut;
-                                row.cell[5] = diamond.Report;
-                                row.cell[6] = new Money(diamond.Price, Currency.Usd).Format("{1}{0:#,0}");
+                //TODO to this route depended and not hardcoded
 
-                                 row.cell[7] = "<a href=\"" + webbHelpers.RouteUrl("Diamond", new RouteValueDictionary()
-                                                                                                                 {
-                                                                                                                     {"DiamondID",diamond.DiamondID},
-                                                                                                                     {"SettingID",searchParameters.SettingID},
-                                                                                                                     {"MediaType",searchParameters.MediaType},
-                                                                                                                     {"Size",searchParameters.Size}
-                                                                                                                 }) + "\" >View</a>";
+                row.cell[0] = diamond.Shape;
+                row.cell[1] = formatter.ToCaratWeight(diamond.Weight);
+                row.cell[2] = diamond.Color;
+                row.cell[3] = diamond.Clarity;
+                row.cell[4] = diamond.Cut;
+                row.cell[5] = diamond.Report;
+                row.cell[6] = new Money(diamond.Price, Currency.Usd).Format("{1}{0:#,0}");
+
+                var viewUrl = webbHelpers.RouteUrl("Diamond", new RouteValueDictionary()
+                                                                  {
+                                                                      {"DiamondID", diamond.DiamondID},
+                                                                      {
+                                                                          "SettingID",
+                                                                          searchParameters.SettingID
+                                                                          },
+                                                                      {
+                                                                          "MediaType",
+                                                                          searchParameters.MediaType
+                                                                          },
+                                                                      {"Size", searchParameters.Size}
+                                                                  });
+
+                var addUrl = webbHelpers.RouteUrl("ChooseSetting", new RouteValueDictionary()
+                                                                  {
+                                                                      {"DiamondID", diamond.DiamondID},
+                                                                      {
+                                                                          "SettingID",
+                                                                          searchParameters.SettingID
+                                                                          },
+                                                                      {
+                                                                          "MediaType",
+                                                                          searchParameters.MediaType
+                                                                          },
+                                                                      {"Size", searchParameters.Size}
+                                                                  });
+
+                var viewLink = "<a href=\"" + viewUrl  + "\" >View</a>";
+
+                row.cell[7] = viewLink;
+
+                var addToRingLink = "<a href=\"" + webbHelpers.RouteUrl("Diamond", new RouteValueDictionary()
+                                                                                 {
+                                                                                     {"DiamondID", diamond.DiamondID},
+                                                                                     {
+                                                                                         "SettingID",
+                                                                                         searchParameters.SettingID
+                                                                                         },
+                                                                                     {
+                                                                                         "MediaType",
+                                                                                         searchParameters.MediaType
+                                                                                         },
+                                                                                     {"Size", searchParameters.Size}
+                                                                                 }) + "\" >View</a>";
 
 
                 gridrows.Add(row);
+
+                var currentUserData = mapper.Map<Diamond, DiamondJsonUserData>(diamond);
+                currentUserData.ViewURL = viewUrl;
+                currentUserData.AddURL = addUrl;
+
+                userData[diamond.DiamondID.ToString()] = currentUserData;
             }
 
             jsonModel.rows = gridrows;
             jsonModel.page = searchParameters.page;
             jsonModel.records = diamondRepository.TotalRecords;
             jsonModel.total = diamondRepository.LastOporationTotalPages;
+            jsonModel.userdata = userData;
+            
+            
+
             return jsonModel;
         }
     }

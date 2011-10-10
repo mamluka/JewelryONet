@@ -45,6 +45,10 @@ namespace JONMVC.Website.Controllers
 
         public ActionResult CheckMyOrderStatus()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index");
+            }
             var viewModel = new CheckMyOrderStatusViewModel();
             return View(viewModel);
         }

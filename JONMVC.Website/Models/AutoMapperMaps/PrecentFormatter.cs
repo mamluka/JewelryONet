@@ -7,7 +7,7 @@ namespace JONMVC.Website.Models.AutoMapperMaps
     {
         protected override string FormatValueCore(decimal value)
         {
-            return String.Format("{0}%",value);
+            return String.Format("{0:0.00}%",value);
         }
     }
 }

@@ -9,5 +9,6 @@ namespace JONMVC.Website.ViewModels.Json.Views
         public int page { get; set; }
         public int records { get; set; }
         public List<DiamondGridRow> rows { get; set; }
+        public Dictionary<string, DiamondJsonUserData> userdata { get; set; }
     }
 }

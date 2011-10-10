@@ -56,6 +56,19 @@ input.button {
 	font-weight:bold;
 	padding:3px 10px 3px 10px;
 	border-radius:5px;
+    cursor: pointer;
+}
+input.blue-button {
+	height:25px;
+	background:url(/Content/images/skeleton/blue-button-bg.png) repeat-x;
+	text-align:center;
+	color:white;
+	font-size:1.2em;
+	border:none;
+	font-weight:bold;
+	padding:3px 10px 3px 10px;
+	border-radius:5px;
+    cursor: pointer;
 }
 input.smallbutton {
 	height:17px;
@@ -84,6 +97,9 @@ input.smallbutton {
 }
 .text-below-page {
 	width:80%;
+}
+.qtip-title {
+    background: none;
 }
 #TopManu {
 	background-color:black;
@@ -1240,9 +1256,13 @@ span.stars span {
 .jewel-main .refine tr td {
 	cursor:pointer;
     color: white;
+    border: 1px solid transparent;
+}
+.jewel-main .refine tr td.selected {
+    border: 1px solid #d5746b;
 }
 .jewel-main .refine .label {
-	width:60px;
+	width:70px;
 	font-family:Verdana, Geneva, sans-serif;
     padding-bottom: 3px;
 	font-weight:bold;
@@ -1250,26 +1270,14 @@ span.stars span {
 	vertical-align:middle;
 	color:#962e21;
 }
+.jewel-main .refine .label img
+{
+    float: right;
+    margin-right: 3px;
+    cursor: pointer;
+}
 .jewel-main .refine .sep   {
 	width:7px;
-}
-.jewel-main .refine .selection-1   {
-	width:290px;
-	color:#892c22;
-}
-.jewel-main .refine .selection-2   {
-	width:300px;
-
-}
-
-
-.jewel-main .refine .selection-1 tr td {
-	height:22px;
-	border-left:1px solid #abb8c3;
-}
-.jewel-main .refine .selection-2 tr td {
-	height:22px;
-	border-left:1px solid #abb8c3;
 }
 .jewel-main .refine .shape-buttons table.sprite-shape {
        
@@ -1333,12 +1341,27 @@ span.stars span {
 	background-position:-261px 0px;
 }
 .diamond-info-hover {
-    width: 170px;
+    width: 200px;
     position: absolute;
-    height: 360px;
+    height: 420px;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid #ef562d;
+    padding: 5px;
+    display: none;
     
+}
+.diamond-info-hover .tip
+{
+    position: absolute;
+    left: 200px;
+    
+}
+.diamond-info-hover tr td:first-child {
+    color: #962e21;
+    font-weight: bold;  
+}
+.diamond-info-hover tr td {
+    padding: 3px;
 }
 
 #DiamondPager span {
@@ -1388,17 +1411,6 @@ span.stars span {
 	cursor:pointer;
 	background:url(/Content/images/jeweldesign/refine/sliders/hand.png) repeat-x 0px 10px;
 }
-.jewel-main .ui-slider-horizontal .ui-slider-handle-right {
-	background:url(/Content/images/jeweldesign/refine/sliders/hand.png) repeat-x 0px 13px;
-}
-.jewel-main .ui-slider-horizontal .ui-state-hover,
-.jewel-main .ui-slider-horizontal .ui-state-focus
-  {
-	border:none;
-
-}
-
-
 .ui-slider-range-info {
 	color:black;
 	margin:auto;
@@ -1417,6 +1429,7 @@ span.stars span {
     color: white;
     padding: 1px 3px 1px 3px;
 }
+
 /*DIAMOND ITEM*/
 .buy-menu {
 	width:145px;
@@ -1429,8 +1442,7 @@ span.stars span {
 	 border-radius: 5px;
 	 padding:3px;
 	 width:250px;
-	 
-	
+		
 }
 .buy-menu .actions li {
 	background-color:#dd7356;

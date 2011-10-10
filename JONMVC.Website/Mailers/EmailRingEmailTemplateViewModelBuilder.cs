@@ -33,6 +33,8 @@ namespace JONMVC.Website.Mailers
                 viewModel.Description = jewel.Title;
                 viewModel.Price = new Money(jewel.Price, Currency.Usd).Format("{1}{0:#,0}");
                 viewModel.ItemNumber = jewel.ItemNumber;
+                viewModel.MediaSet = jewel.Media.MediaSet;
+                viewModel.Icon = jewel.Media.IconURLForWebDisplay;
                 return viewModel;
             }
             catch (Exception ex)

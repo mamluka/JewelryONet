@@ -3,10 +3,11 @@
   <publishProfile publishUrl="C:\Users\maMLUka\Documents\jewelryonnet\WebsiteForUpload" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="WebsiteFolderJON" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
     <file relUrl="Content/plugins/images/lightbox-btn-close.gif" publishTime="10/03/2007 23:12:22" />
     <file relUrl="Content/images/pages/pitch-vip.png" publishTime="09/26/2011 13:03:02" />
+    <file relUrl="Views/JewelDesign/Diamond.cshtml" publishTime="10/04/2011 15:47:26" />
     <file relUrl="Content/plugins/images/prettyPhoto/facebook/contentPatternBottom.png" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Content/images/jeweldesign/refine/buttons/button-down-25.png" publishTime="10/09/2011 17:47:05" />
     <file relUrl="Content/images/item/skeleton/addtocart.png" publishTime="02/05/2011 20:26:28" />
     <file relUrl="Content/images/checkout/shoppingcart/steps-bg.png" publishTime="02/23/2011 15:11:09" />
-    <file relUrl="Views/JewelDesign/Index.cshtml" publishTime="10/05/2011 18:19:44" />
     <file relUrl="Views/Services/Feedbacks.cshtml" publishTime="09/03/2011 16:54:34" />
     <file relUrl="Views/Education/Gemstone.cshtml" publishTime="09/03/2011 19:11:35" />
     <file relUrl="Content/images/pages/pitch-studs.png" publishTime="02/24/2011 18:55:55" />
@@ -16,20 +17,21 @@
     <file relUrl="Content/plugins/jquery-ui-1.8.9.custom.css" publishTime="03/18/2011 21:08:19" />
     <file relUrl="Content/images/skeleton/button-bg.png" publishTime="09/18/2011 18:32:59" />
     <file relUrl="Content/images/seals/3.png" publishTime="12/18/2010 21:54:34" />
+    <file relUrl="Views/Services/Policy.cshtml" publishTime="10/04/2011 16:50:24" />
     <file relUrl="Content/images/jeweldesign/finish/appraisal.png" publishTime="03/25/2011 18:13:52" />
     <file relUrl="bin/Newtonsoft.Json.xml" publishTime="07/14/2011 01:31:50" />
     <file relUrl="Content/themes/base/jquery.ui.tabs.css" publishTime="09/25/2011 13:35:00" />
-    <file relUrl="bin/Microsoft.Web.Mvc.dll" publishTime="08/05/2011 18:37:42" />
     <file relUrl="Scripts/MicrosoftMvcAjax.js" publishTime="07/14/2011 01:27:31" />
     <file relUrl="Scripts/jquery.center.min.js" publishTime="09/26/2011 15:55:47" />
     <file relUrl="Content/images/item/skeleton/loopa.png" publishTime="02/05/2011 21:39:43" />
-    <file relUrl="Content/plugins/images/prettyPhoto/light_square/btnPrevious.png" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Content/images/pages/pitch-engagement.png" publishTime="02/24/2011 19:33:55" />
     <file relUrl="Scripts/jquery-ui-1.8.16.min.js" publishTime="09/25/2011 13:34:57" />
     <file relUrl="Views/MyAccount/Signin.cshtml" publishTime="10/04/2011 16:47:15" />
     <file relUrl="Flash/flowplayer.controls-3.2.5.swf" publishTime="03/04/2011 00:03:20" />
     <file relUrl="Content/plugins/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Content/images/pages/gift/1-2.png" publishTime="02/24/2011 19:29:25" />
     <file relUrl="Views/Shared/ShippingInformation.cshtml" publishTime="09/19/2011 17:36:59" />
+    <file relUrl="Content/plugins/images/prettyPhoto/dark_square/btnPrevious.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Scripts/jquery.form.js" publishTime="08/31/2011 23:54:43" />
     <file relUrl="Content/images/skeleton/custom-order-bg.png" publishTime="12/18/2010 02:23:06" />
     <file relUrl="Content/images/services/getintouch/icons/back.png" publishTime="09/01/2011 18:30:38" />
@@ -37,20 +39,22 @@
     <file relUrl="Scripts/jquery.jqGrid.min.js" publishTime="08/21/2011 15:19:04" />
     <file relUrl="Views/Shared/Testamonials.cshtml" publishTime="09/24/2011 20:04:14" />
     <file relUrl="Content/plugins/images/prettyPhoto/facebook/contentPatternLeft.png" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Content/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="09/25/2011 13:35:00" />
+    <file relUrl="Content/plugins/images/backgrounds/bodyBackground.jpg" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/images/tabs/item/movie.png" publishTime="01/13/2011 23:46:34" />
     <file relUrl="Scripts/MicrosoftAjax.debug.js" publishTime="07/14/2011 01:27:31" />
-    <file relUrl="Content/plugins/images/prettyPhoto/light_rounded/sprite.png" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Views/UserMailer/RecoverPassword.cshtml" publishTime="09/24/2011 16:11:13" />
     <file relUrl="Content/images/pages/diamonds/1-1.png" publishTime="02/24/2011 19:24:43" />
     <file relUrl="Content/images/validation/confirm.png" publishTime="03/05/2011 12:32:47" />
     <file relUrl="Content/themes/base/minified/jquery.ui.progressbar.min.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="bin/Ninject.xml" publishTime="07/14/2011 02:21:56" />
+    <file relUrl="Content/themes/base/minified/jquery.ui.accordion.min.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Scripts/jquery.msg.min.js" publishTime="09/26/2011 15:55:47" />
-    <file relUrl="Views/Services/Policy.cshtml" publishTime="10/04/2011 16:50:24" />
-    <file relUrl="Views/Gifts/BirthDayGifts.cshtml" publishTime="09/05/2011 22:16:52" />
+    <file relUrl="Content/images/seals/6.png" publishTime="12/18/2010 21:56:24" />
+    <file relUrl="Scripts/Classes.js" publishTime="10/10/2011 03:15:01" />
     <file relUrl="bin/Newtonsoft.Json.pdb" publishTime="07/14/2011 01:31:50" />
     <file relUrl="Content/themes/base/minified/images/ui-bg_glass_95_fef1ec_1x400.png" publishTime="09/25/2011 13:35:00" />
-    <file relUrl="bin/Ninject.Web.Mvc.dll" publishTime="07/14/2011 02:21:57" />
     <file relUrl="Content/images/homepage/atoms/sapphire.png" publishTime="12/18/2010 16:29:41" />
     <file relUrl="Content/images/pages/wedding/1-1.png" publishTime="02/24/2011 19:44:00" />
     <file relUrl="Views/UserMailer/CustomJewelCartItem.cshtml" publishTime="09/22/2011 18:44:26" />
@@ -60,7 +64,6 @@
     <file relUrl="Content/themes/base/minified/jquery.ui.core.min.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/images/services/wishlist/icons/remove.png" publishTime="09/26/2011 15:37:28" />
     <file relUrl="Views/Services/AboutUs.cshtml" publishTime="10/04/2011 16:48:33" />
-    <file relUrl="Content/images/item/skeleton/facebook-share.png" publishTime="08/30/2011 12:15:24" />
     <file relUrl="Content/themes/base/minified/images/ui-icons_888888_256x240.png" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/images/jeweldesign/finish/setting-appraisel-large.png" publishTime="09/04/2011 16:27:51" />
     <file relUrl="Content/images/pages/wedding/1-3.png" publishTime="02/24/2011 19:44:25" />
@@ -70,14 +73,12 @@
     <file relUrl="Content/images/homepage/atoms/round-diamond.png" publishTime="12/18/2010 16:24:11" />
     <file relUrl="Content/images/seals/1.png" publishTime="12/18/2010 21:54:04" />
     <file relUrl="Views/Shared/Footer.cshtml" publishTime="10/05/2011 18:59:26" />
-    <file relUrl="Content/themes/base/minified/images/ui-icons_222222_256x240.png" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/plugins/images/ui-bg_glass_100_fdf5ce_1x400.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="bin/CommonLibrary.dll" publishTime="07/23/2011 14:13:19" />
     <file relUrl="Content/images/services/wishlist/icons/ask-friend.png" publishTime="09/03/2011 15:11:35" />
     <file relUrl="Views/Services/CustomOrders.cshtml" publishTime="09/03/2011 19:03:27" />
     <file relUrl="Content/themes/base/jquery.ui.dialog.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/images/homepage/atoms/ruby.png" publishTime="12/18/2010 16:26:04" />
-    <file relUrl="Content/plugins/images/prettyPhoto/facebook/btnNext.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/images/jeweldesign/refine/gen/buttom-info.png" publishTime="08/29/2011 12:13:49" />
     <file relUrl="Views/Education/Diamond.cshtml" publishTime="09/03/2011 19:11:26" />
     <file relUrl="Content/images/skeleton/special-offers-stars-bg.png" publishTime="12/18/2010 01:49:51" />
@@ -88,11 +89,11 @@
     <file relUrl="Content/plugins/images/lightbox-ico-loading.gif" publishTime="10/03/2007 23:12:22" />
     <file relUrl="Content/plugins/images/prettyPhoto/facebook/default_thumbnail.gif" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Views/Checkout/ReviewOrder.cshtml" publishTime="10/05/2011 14:53:32" />
+    <file relUrl="bin/WebActivator.dll" publishTime="09/25/2011 13:34:01" />
     <file relUrl="Content/images/jeweldesign/refine/sliders/hand-left.png" publishTime="03/18/2011 20:47:22" />
     <file relUrl="Content/plugins/images/prettyPhoto/facebook/contentPatternTop.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="bin/MvcContrib.dll" publishTime="09/25/2011 13:36:05" />
     <file relUrl="Content/themes/base/minified/images/ui-bg_glass_75_dadada_1x400.png" publishTime="09/25/2011 13:35:00" />
-    <file relUrl="Scripts/MicrosoftMvcValidation.debug.js" publishTime="07/14/2011 01:27:31" />
     <file relUrl="Views/Shared/JewelItemBaseInfoTable.cshtml" publishTime="09/19/2011 21:54:36" />
     <file relUrl="Views/Checkout/ShoppingCart.cshtml" publishTime="10/04/2011 15:15:12" />
     <file relUrl="Views/Departments/EngagementRings.cshtml" publishTime="10/05/2011 18:28:59" />
@@ -103,18 +104,17 @@
     <file relUrl="Content/themes/base/minified/jquery.ui.slider.min.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/plugins/images/prettyPhoto/dark_rounded/loader.gif" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Views/Departments/DesignerJewelry.cshtml" publishTime="09/04/2011 13:09:47" />
-    <file relUrl="Views/Shared/HeadersForLayout.cshtml" publishTime="10/05/2011 16:33:31" />
+    <file relUrl="Views/Shared/HeadersForLayout.cshtml" publishTime="10/09/2011 21:29:19" />
     <file relUrl="Content/images/checkout/shoppingcart/proceed-to-checkout.png" publishTime="02/23/2011 18:17:11" />
     <file relUrl="Content/plugins/images/ui-icons_ffd27a_256x240.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Content/images/tabs/item/make-offer.png" publishTime="08/31/2011 15:46:11" />
     <file relUrl="Content/plugins/images/thumbnails/quicktime-logo.gif" publishTime="11/25/2010 02:17:04" />
-    <file relUrl="Views/VIP/Club.cshtml" publishTime="09/26/2011 13:03:35" />
+    <file relUrl="Views/VIP/Club.cshtml" publishTime="10/07/2011 03:44:59" />
     <file relUrl="Views/UserMailer/BestOfferAdmin.cshtml" publishTime="08/31/2011 19:49:04" />
-    <file relUrl="Content/images/pages/pitch-diamonds.png" publishTime="02/24/2011 19:32:36" />
     <file relUrl="Views/Services/Engraving.cshtml" publishTime="09/03/2011 19:07:57" />
     <file relUrl="Content/images/checkout/shoppingcart/continue.png" publishTime="02/23/2011 19:33:09" />
     <file relUrl="Content/plugins/images/prettyPhoto/dark_square/sprite.png" publishTime="11/25/2010 02:17:04" />
-    <file relUrl="Content/plugins/images/ui-icons_ef8c08_256x240.png" publishTime="01/21/2011 09:01:56" />
+    <file relUrl="Content/plugins/images/fullscreen/1.jpg" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/themes/base/minified/jquery.ui.tabs.min.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/themes/base/images/ui-icons_cd0a0a_256x240.png" publishTime="09/25/2011 13:35:01" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png" publishTime="09/25/2011 13:35:01" />
@@ -122,7 +122,6 @@
     <file relUrl="Content/themes/base/minified/images/ui-bg_highlight-soft_75_cccccc_1x100.png" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/plugins/images/prettyPhoto/dark_square/loader.gif" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Views/MyAccount/Index.cshtml" publishTime="10/05/2011 15:25:36" />
-    <file relUrl="Scripts/flowplayer-3.2.4.min.js" publishTime="10/04/2010 13:58:52" />
     <file relUrl="Content/images/homepage/atoms/1-3.png" publishTime="08/30/2011 01:50:35" />
     <file relUrl="Content/images/pages/studs/1-1.png" publishTime="02/24/2011 19:21:15" />
     <file relUrl="Content/plugins/ellipsis-xbl.xml" publishTime="12/10/2009 18:14:48" />
@@ -142,19 +141,24 @@
     <file relUrl="Views/Services/FAQ.cshtml" publishTime="10/04/2011 16:49:20" />
     <file relUrl="Content/plugins/images/prettyPhoto/light_square/sprite.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/images/pages/diamonds/1-3.png" publishTime="02/24/2011 19:25:59" />
+    <file relUrl="Content/plugins/images/thumbnails/t_5.jpg" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Views/Checkout/JewelCartItem.cshtml" publishTime="10/05/2011 19:35:44" />
     <file relUrl="Content/images/item/skeleton/policy-bg.png" publishTime="02/21/2011 21:52:05" />
     <file relUrl="Content/themes/base/minified/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="09/25/2011 13:35:00" />
     <file relUrl="bin/DataAnnotationsExtensions.ClientValidation.dll" publishTime="08/11/2011 01:12:12" />
     <file relUrl="Views/JewelDesign/Tabs.cshtml" publishTime="09/19/2011 15:22:47" />
     <file relUrl="Views/Shared/TabsSubMenu.cshtml" publishTime="09/26/2011 23:15:58" />
+    <file relUrl="Content/themes/base/jquery.ui.slider.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="bin/Bootstrapper.dll" publishTime="09/25/2011 14:55:25" />
     <file relUrl="Global.asax" publishTime="07/14/2011 01:27:31" />
     <file relUrl="Views/Services/GetInTouch.cshtml" publishTime="10/05/2011 19:06:46" />
     <file relUrl="Content/themes/base/jquery.ui.all.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Views/Shared/EmailRing.cshtml" publishTime="10/05/2011 18:53:13" />
     <file relUrl="Views/Tabs/NavigationTabStrip.cshtml" publishTime="10/05/2011 16:17:49" />
+    <file relUrl="Content/plugins/images/thumbnails/t_1.jpg" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Content/images/services/getintouch/icons/email.png" publishTime="09/01/2011 18:17:18" />
     <file relUrl="Content/images/tabs/sprites/gemstone-jewelry.png" publishTime="02/25/2011 18:09:22" />
+    <file relUrl="Content/plugins/images/prettyPhoto/dark_square/btnNext.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="bin/Microsoft.Web.Infrastructure.dll" publishTime="09/25/2011 13:34:01" />
     <file relUrl="Views/Web.config" publishTime="08/31/2011 19:26:01" />
     <file relUrl="Views/Shared/_LayoutNoMenu.cshtml" publishTime="10/05/2011 19:00:07" />
@@ -164,37 +168,40 @@
     <file relUrl="bin/NMoneys.dll" publishTime="09/25/2011 13:36:26" />
     <file relUrl="Content/plugins/images/fullscreen/huge.gif" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/images/jeweldesign/tabs/diamond.png" publishTime="03/18/2011 16:02:26" />
-    <file relUrl="Content/plugins/images/prettyPhoto/light_rounded/loader.gif" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Scripts/jquery.validate.unobtrusive.js" publishTime="07/14/2011 01:27:31" />
     <file relUrl="Content/images/checkout/shoppingcart/cc.png" publishTime="02/23/2011 17:07:52" />
     <file relUrl="Content/images/pages/studs/1-3.png" publishTime="02/24/2011 19:23:01" />
+    <file relUrl="Scripts/jquery.hoverIntent.minified.js" publishTime="03/25/2011 13:58:17" />
     <file relUrl="Content/plugins/images/fullscreen/6.jpg" publishTime="11/25/2010 02:17:04" />
-    <file relUrl="Content/images/tabs/sprites/wedding-jewelry.png" publishTime="02/25/2011 18:16:19" />
+    <file relUrl="Content/images/homepage/atoms-top-bg.png" publishTime="12/18/2010 14:29:04" />
     <file relUrl="Content/images/skeleton/pitch-bg.png" publishTime="02/24/2011 02:22:07" />
     <file relUrl="Content/images/seals/5.png" publishTime="12/18/2010 21:56:08" />
+    <file relUrl="Content/images/jeweldesign/refine/sliders/hand.png" publishTime="10/09/2011 18:23:43" />
     <file relUrl="Views/UserMailer/DiamondCartItem.cshtml" publishTime="09/22/2011 18:44:46" />
     <file relUrl="Views/Tabs/PresentTabs.cshtml" publishTime="10/05/2011 18:14:24" />
     <file relUrl="Content/images/pages/wedding/1-2.png" publishTime="02/24/2011 19:44:12" />
-    <file relUrl="Content/themes/base/jquery.ui.core.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Scripts/jquery.prettyPhoto.js" publishTime="11/25/2010 02:19:24" />
     <file relUrl="Views/UserMailer/AskQuestion.cshtml" publishTime="09/02/2011 15:54:18" />
     <file relUrl="Content/themes/base/minified/images/ui-icons_2e83ff_256x240.png" publishTime="09/25/2011 13:35:00" />
+    <file relUrl="Content/themes/base/jquery.ui.datepicker.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Views/Services/Wishlist.cshtml" publishTime="10/04/2011 16:51:56" />
     <file relUrl="Content/plugins/images/fullscreen/2.jpg" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/images/jeweldesign/refine/gen/upper-info.png" publishTime="08/29/2011 12:08:57" />
-    <file relUrl="bin/JONMVC.Website.pdb" publishTime="10/05/2011 19:48:56" />
+    <file relUrl="bin/JONMVC.Website.pdb" publishTime="10/10/2011 03:20:00" />
     <file relUrl="bin/Newtonsoft.Json.dll" publishTime="07/14/2011 01:31:50" />
+    <file relUrl="Content/plugins/images/lightbox-btn-prev.gif" publishTime="10/03/2007 23:12:22" />
     <file relUrl="Content/images/validation/ValidationError.png" publishTime="09/18/2011 18:08:11" />
     <file relUrl="Views/UserMailer/EmailRing.cshtml" publishTime="09/26/2011 23:01:02" />
+    <file relUrl="Content/themes/base/jquery.ui.base.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/plugins/images/ui-icons_228ef1_256x240.png" publishTime="01/21/2011 09:01:56" />
-    <file relUrl="bin/DataAnnotationsExtensions.dll" publishTime="08/11/2011 01:12:12" />
-    <file relUrl="Scripts/jquery.hoverIntent.minified.js" publishTime="03/25/2011 13:58:17" />
+    <file relUrl="Content/themes/base/minified/images/ui-icons_222222_256x240.png" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/images/jeweldesign/finish/add-to-cart.png" publishTime="04/15/2011 15:25:37" />
     <file relUrl="Content/plugins/images/prettyPhoto/light_rounded/btnNext.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/plugins/images/fullscreen/3.jpg" publishTime="11/25/2010 02:17:04" />
     <file relUrl="App_Readme/glimpse.readme.txt" publishTime="08/08/2011 15:45:42" />
     <file relUrl="Content/images/skeleton/footer-sep-bg.png" publishTime="12/18/2010 21:52:32" />
     <file relUrl="Content/images/item/skeleton/print.png" publishTime="08/30/2011 12:13:09" />
-    <file relUrl="Scripts/Classes.js" publishTime="10/05/2011 17:33:48" />
+    <file relUrl="Content/images/tabs/sprites/wedding-jewelry.png" publishTime="02/25/2011 18:16:19" />
     <file relUrl="Content/plugins/jquery.lightbox-0.5.css" publishTime="07/27/2010 22:53:28" />
     <file relUrl="Content/plugins/images/backgrounds/checkmark.gif" publishTime="11/25/2010 02:17:04" />
     <file relUrl="bin/Ninject.Web.Mvc.xml" publishTime="07/14/2011 02:21:57" />
@@ -205,31 +212,29 @@
     <file relUrl="Views/JewelDesign/ChooseSetting.cshtml" publishTime="10/05/2011 18:41:33" />
     <file relUrl="Content/plugins/images/prettyPhoto/facebook/contentPatternRight.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Scripts/jquery.unobtrusive-ajax.min.js" publishTime="07/14/2011 01:27:30" />
-    <file relUrl="Content/plugins/images/fullscreen/1.jpg" publishTime="11/25/2010 02:17:04" />
     <file relUrl="bin/EntityFramework.dll" publishTime="08/11/2011 00:55:20" />
     <file relUrl="Content/images/item/skeleton/wishlist.png" publishTime="08/30/2011 12:13:27" />
     <file relUrl="bin/Bootstrapper.AutoMapper.dll" publishTime="09/25/2011 14:55:25" />
     <file relUrl="Content/Pager.css" publishTime="08/08/2011 13:02:21" />
     <file relUrl="Views/Checkout/OrderConfirmation.cshtml" publishTime="10/04/2011 15:15:12" />
-    <file relUrl="Content/plugins/images/ui-bg_glass_100_f6f6f6_1x400.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Content/images/homepage/atoms/1-1.png" publishTime="12/18/2010 15:57:44" />
     <file relUrl="Content/plugins/images/blank.gif" publishTime="09/26/2011 16:15:53" />
     <file relUrl="Content/images/skeleton/topmenu-navbar-bg.png" publishTime="01/01/2011 20:46:14" />
-    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="07/14/2011 01:27:31" />
     <file relUrl="Content/plugins/images/prettyPhoto/light_square/btnNext.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Views/Shared/_Layout.cshtml" publishTime="10/05/2011 19:00:07" />
     <file relUrl="Content/images/services/getintouch/skeleton/big-block-bg.png" publishTime="09/01/2011 18:36:51" />
     <file relUrl="Content/blocks.css" publishTime="09/26/2011 00:47:05" />
     <file relUrl="Content/themes/base/minified/jquery.ui.resizable.min.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Views/Checkout/CustomJewelCartItem.cshtml" publishTime="10/05/2011 15:50:19" />
-    <file relUrl="Content/images/services/getintouch/icons/phone-blue.png" publishTime="09/01/2011 18:31:54" />
     <file relUrl="Content/themes/base/minified/jquery.ui.dialog.min.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/images/homepage/atoms/radiant-diamond.png" publishTime="12/18/2010 16:24:49" />
     <file relUrl="Scripts/jquery-1.6.4.js" publishTime="09/25/2011 13:33:55" />
-    <file relUrl="Content/images/jeweldesign/refine/sliders/bg-between.png" publishTime="03/18/2011 20:48:29" />
+    <file relUrl="Content/images/jeweldesign/refine/sliders/bg-between.png" publishTime="10/09/2011 18:22:57" />
     <file relUrl="Content/images/pages/engagement/1-2.png" publishTime="02/24/2011 19:27:11" />
+    <file relUrl="Content/images/jeweldesign/refine/buttons/botton-down.png" publishTime="10/09/2011 17:39:58" />
     <file relUrl="Content/images/jeweldesign/refine/sliders/hand-right.png" publishTime="03/18/2011 20:47:34" />
-    <file relUrl="Web.config" publishTime="10/05/2011 19:49:59" />
+    <file relUrl="Views/UserMailer/OrderConfirmation.cshtml" publishTime="09/22/2011 18:39:11" />
+    <file relUrl="Content/plugins/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Views/JewelryItem/BestOffer.cshtml" publishTime="10/05/2011 16:52:54" />
     <file relUrl="Content/themes/base/minified/images/ui-icons_454545_256x240.png" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Views/JewelryItem/FindYourRingSize.cshtml" publishTime="10/05/2011 16:54:47" />
@@ -238,17 +243,18 @@
     <file relUrl="Views/Shared/Error.cshtml" publishTime="07/14/2011 01:44:13" />
     <file relUrl="Content/images/skeleton/special-offers-send.png" publishTime="12/18/2010 02:08:45" />
     <file relUrl="Content/images/services/getintouch/icons/phone.png" publishTime="09/01/2011 18:18:36" />
-    <file relUrl="bin/JONMVC.Website.dll" publishTime="10/05/2011 19:48:56" />
+    <file relUrl="bin/JONMVC.Website.dll" publishTime="10/10/2011 03:20:00" />
     <file relUrl="Content/images/homepage/banner.png" publishTime="12/18/2010 03:22:19" />
     <file relUrl="Content/plugins/images/ui-bg_gloss-wave_35_f6a828_500x100.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Scripts/jquery.validate.js" publishTime="07/14/2011 01:28:49" />
-    <file relUrl="bin/WebActivator.dll" publishTime="09/25/2011 13:34:01" />
+    <file relUrl="bin/Microsoft.Web.Mvc.dll" publishTime="08/05/2011 18:37:42" />
     <file relUrl="Content/themes/base/minified/images/ui-icons_cd0a0a_256x240.png" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/images/skeleton/navbar-bg.png" publishTime="12/11/2010 03:31:15" />
     <file relUrl="bin/Calabonga.Mvc.Extentions.dll" publishTime="08/08/2011 13:02:21" />
-    <file relUrl="Content/images/jeweldesign/refine/sliders/slider-track-bg.png" publishTime="03/18/2011 20:36:52" />
+    <file relUrl="Content/images/jeweldesign/refine/sliders/slider-track-bg.png" publishTime="10/09/2011 18:42:21" />
     <file relUrl="Content/images/checkout/shoppingcart/complete.png" publishTime="02/23/2011 19:34:15" />
     <file relUrl="Content/plugins/images/stars.png" publishTime="02/05/2011 23:30:06" />
+    <file relUrl="Models/JewelDesign/diamondhelp.xml" publishTime="10/05/2011 19:27:16" />
     <file relUrl="Content/themes/base/jquery.ui.autocomplete.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="bin/Ninject.pdb" publishTime="07/14/2011 02:21:56" />
     <file relUrl="Content/themes/base/jquery-ui.css" publishTime="09/25/2011 13:35:00" />
@@ -258,7 +264,7 @@
     <file relUrl="Content/images/homepage/atoms/search.png" publishTime="08/30/2011 01:15:09" />
     <file relUrl="Views/Services/ConflictFreeDiamonds.cshtml" publishTime="09/03/2011 19:07:45" />
     <file relUrl="Content/images/skeleton/footer-link-sep-bg.png" publishTime="12/18/2010 22:39:12" />
-    <file relUrl="Views/JewelDesign/DiamondSearch.cshtml" publishTime="10/05/2011 17:38:40" />
+    <file relUrl="Views/JewelDesign/DiamondSearch.cshtml" publishTime="10/10/2011 01:12:45" />
     <file relUrl="Content/images/pages/wedding/2-2.png" publishTime="02/24/2011 19:44:50" />
     <file relUrl="Content/images/pages/gift/1-3.png" publishTime="02/24/2011 19:29:58" />
     <file relUrl="Views/MyAccount/RecoverPassword.cshtml" publishTime="10/04/2011 16:46:38" />
@@ -275,12 +281,11 @@
     <file relUrl="Scripts/jquery-1.6.4.min.js" publishTime="09/25/2011 13:33:55" />
     <file relUrl="Content/themes/base/minified/jquery.ui.base.min.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Views/UserMailer/JewelCartItem.cshtml" publishTime="09/22/2011 18:44:27" />
-    <file relUrl="Content/plugins/images/thumbnails/t_4.jpg" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Content/plugins/images/ui-icons_ef8c08_256x240.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Content/Site.css" publishTime="07/14/2011 01:27:30" />
     <file relUrl="Flash/flowplayer-3.2.7.swf" publishTime="03/04/2011 00:01:08" />
     <file relUrl="Content/plugins/images/prettyPhoto/dark_rounded/btnNext.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Views/Tabs/BestOfferInTabView.cshtml" publishTime="10/05/2011 18:40:50" />
-    <file relUrl="Content/plugins/images/ui-icons_222222_256x240.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Content/themes/base/jquery.ui.selectable.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/plugins/images/ui-bg_diagonals-thick_20_666666_40x40.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Content/images/skeleton/red-down-arrow.png" publishTime="09/03/2011 19:34:37" />
@@ -289,17 +294,15 @@
     <file relUrl="Content/images/skeleton/search-button.png" publishTime="12/16/2010 04:21:36" />
     <file relUrl="Content/search.css" publishTime="10/03/2011 19:19:28" />
     <file relUrl="Views/UserMailer/_Layout.cshtml" publishTime="08/31/2011 19:48:54" />
-    <file relUrl="Content/images/jeweldesign/refine/shapes/shape-sprite.png" publishTime="03/18/2011 18:08:49" />
+    <file relUrl="Content/images/jeweldesign/refine/shapes/shape-sprite.png" publishTime="10/10/2011 00:49:33" />
     <file relUrl="bin/NMoneys.xml" publishTime="09/25/2011 13:36:26" />
     <file relUrl="Content/plugins/images/prettyPhoto/light_rounded/default_thumbnail.gif" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/plugins/images/thumbnails/t_3.jpg" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/images/checkout/shoppingcart/paypal.png" publishTime="09/19/2011 22:47:51" />
     <file relUrl="Content/images/homepage/atoms/emerald.png" publishTime="12/18/2010 16:30:04" />
     <file relUrl="Content/images/pages/wedding/2-3.png" publishTime="02/24/2011 19:45:00" />
-    <file relUrl="Content/images/seals/6.png" publishTime="12/18/2010 21:56:24" />
-    <file relUrl="Content/images/pages/studs/1-2.png" publishTime="02/24/2011 19:22:32" />
     <file relUrl="Content/images/jeweldesign/refine/gen/filter-bg.jpg" publishTime="02/02/2010 13:10:03" />
-    <file relUrl="Scripts/jquery.validate.unobtrusive.js" publishTime="07/14/2011 01:27:31" />
+    <file relUrl="Content/images/services/getintouch/icons/phone-blue.png" publishTime="09/01/2011 18:31:54" />
     <file relUrl="Content/images/jeweldesign/tabs/bg-on.png" publishTime="03/18/2011 15:28:51" />
     <file relUrl="Content/themes/base/images/ui-icons_888888_256x240.png" publishTime="09/25/2011 13:35:01" />
     <file relUrl="bin/System.IO.Abstractions.dll" publishTime="09/25/2011 13:36:52" />
@@ -309,25 +312,25 @@
     <file relUrl="Content/plugins/images/prettyPhoto/light_rounded/btnPrevious.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Views/Checkout/DiamondCartItem.cshtml" publishTime="10/05/2011 15:50:18" />
     <file relUrl="Content/themes/base/jquery.ui.accordion.css" publishTime="09/25/2011 13:35:01" />
-    <file relUrl="Content/images/homepage/atoms/princess-diamond.png" publishTime="12/18/2010 16:24:28" />
-    <file relUrl="Content/images/services/getintouch/skeleton/small-block-bg.png" publishTime="09/01/2011 18:14:32" />
     <file relUrl="Content/images/jeweldesign/tabs/ring.png" publishTime="02/07/2010 10:10:33" />
+    <file relUrl="Content/images/tabs/sprites/diamond-engagement-rings.png" publishTime="08/29/2011 01:38:16" />
     <file relUrl="Content/images/skeleton/topmenu-sprite.png" publishTime="12/11/2010 00:41:47" />
     <file relUrl="Content/plugins/ui.jqgrid.css" publishTime="12/14/2010 14:24:42" />
     <file relUrl="bin/Mvc.Mailer.dll" publishTime="08/31/2011 19:25:36" />
-    <file relUrl="Content/plugins/images/prettyPhoto/dark_square/btnPrevious.png" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Views/Gifts/BirthDayGifts.cshtml" publishTime="09/05/2011 22:16:52" />
     <file relUrl="Content/images/jeweldesign/refine/buttons/botton-down-34.png" publishTime="03/18/2011 18:48:06" />
     <file relUrl="Content/images/item/skeleton/send-offer.png" publishTime="08/31/2011 17:48:44" />
     <file relUrl="Content/plugins/images/prettyPhoto/facebook/sprite.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/themes/base/minified/jquery.ui.all.min.css" publishTime="09/25/2011 13:35:00" />
-    <file relUrl="Content/images/pages/pitch-engagement.png" publishTime="02/24/2011 19:33:55" />
+    <file relUrl="Content/plugins/images/ui-bg_glass_100_f6f6f6_1x400.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Scripts/grid.locale-en.js" publishTime="12/14/2010 14:25:12" />
+    <file relUrl="Content/images/jeweldesign/refine/buttons/button-down-27.png" publishTime="10/09/2011 17:57:04" />
     <file relUrl="Content/themes/base/jquery.ui.button.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/plugins/images/fullscreen/DSC05016.jpg" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" publishTime="09/25/2011 13:35:01" />
-    <file relUrl="Content/themes/base/jquery.ui.slider.css" publishTime="09/25/2011 13:35:00" />
-    <file relUrl="Views/JewelryItem/Index.cshtml" publishTime="10/05/2011 19:33:12" />
-    <file relUrl="Content/plugins/images/lightbox-btn-prev.gif" publishTime="10/03/2007 23:12:22" />
+    <file relUrl="Content/plugins/images/prettyPhoto/light_rounded/sprite.png" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Views/JewelryItem/Index.cshtml" publishTime="10/05/2011 20:24:10" />
+    <file relUrl="Content/images/services/getintouch/skeleton/small-block-bg.png" publishTime="09/01/2011 18:14:32" />
     <file relUrl="Views/Shared/TopManuAndNavBar.cshtml" publishTime="10/05/2011 19:43:57" />
     <file relUrl="Content/images/tabs/item/combo-arrow.png" publishTime="01/13/2011 23:43:51" />
     <file relUrl="Scripts/modernizr-2.0.6-development-only.js" publishTime="08/11/2011 00:55:32" />
@@ -335,14 +338,14 @@
     <file relUrl="Content/themes/base/jquery.ui.theme.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/plugins/images/ui-icons_ffffff_256x240.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Content/images/pages/engagement/1-3.png" publishTime="10/05/2011 18:26:35" />
-    <file relUrl="Content/themes/base/minified/jquery.ui.accordion.min.css" publishTime="09/25/2011 13:35:00" />
-    <file relUrl="Content/images/services/getintouch/icons/email.png" publishTime="09/01/2011 18:17:18" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="07/14/2011 01:27:31" />
+    <file relUrl="Content/plugins/images/prettyPhoto/light_rounded/loader.gif" publishTime="11/25/2010 02:17:04" />
     <file relUrl="bin/MvcContrib.FluentHtml.dll" publishTime="09/25/2011 13:36:17" />
-    <file relUrl="Views/JewelDesign/Setting.cshtml" publishTime="10/05/2011 19:38:50" />
+    <file relUrl="Views/JewelDesign/Setting.cshtml" publishTime="10/05/2011 20:51:50" />
     <file relUrl="Scripts/jquery.unobtrusive-ajax.js" publishTime="07/14/2011 01:27:30" />
-    <file relUrl="Content/themes/base/jquery.ui.base.css" publishTime="09/25/2011 13:35:00" />
+    <file relUrl="bin/Ninject.Web.Mvc.dll" publishTime="07/14/2011 02:21:57" />
+    <file relUrl="Content/images/skeleton/shop-by-product-title.png" publishTime="12/18/2010 01:06:10" />
     <file relUrl="Views/UserMailer/BestOfferCustomer.cshtml" publishTime="09/01/2011 01:15:04" />
-    <file relUrl="Content/images/checkout/shoppingcart/wf.png" publishTime="02/23/2011 17:08:07" />
     <file relUrl="Content/images/pages/engagement/1-1.png" publishTime="02/24/2011 19:26:50" />
     <file relUrl="Views/Tabs/RegularInTabView.cshtml" publishTime="10/05/2011 18:40:53" />
     <file relUrl="Content/images/pages/wedding/2-1.png" publishTime="02/24/2011 19:44:40" />
@@ -352,17 +355,18 @@
     <file relUrl="Content/plugins/images/prettyPhoto/facebook/btnPrevious.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Scripts/jQueryExtentions.js" publishTime="02/05/2011 23:32:53" />
     <file relUrl="Content/images/pages/diamonds/1-2.png" publishTime="02/24/2011 19:25:34" />
-    <file relUrl="Content/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="09/25/2011 13:35:00" />
+    <file relUrl="Content/plugins/images/thumbnails/t_4.jpg" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/plugins/images/prettyPhoto/facebook/loader.gif" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/plugins/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" publishTime="01/21/2011 09:01:56" />
-    <file relUrl="Content/plugins/images/thumbnails/t_5.jpg" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Views/JewelDesign/Index.cshtml" publishTime="10/05/2011 18:19:44" />
+    <file relUrl="Content/images/homepage/atoms/2-2.png" publishTime="12/18/2010 17:00:56" />
     <file relUrl="Views/Services/Search.cshtml" publishTime="10/05/2011 17:46:37" />
     <file relUrl="Content/images/skeleton/navbar-bulletin.png" publishTime="12/11/2010 03:45:12" />
     <file relUrl="Views/JewelDesign/End.cshtml" publishTime="10/04/2011 16:15:18" />
     <file relUrl="Scripts/jquery.validate.min.js" publishTime="07/14/2011 01:28:49" />
     <file relUrl="Scripts/MicrosoftAjax.js" publishTime="07/14/2011 01:27:31" />
     <file relUrl="Content/themes/base/minified/jquery.ui.theme.min.css" publishTime="09/25/2011 13:34:59" />
-    <file relUrl="Content/main.css" publishTime="10/05/2011 19:27:45" />
+    <file relUrl="Content/main.css" publishTime="10/10/2011 02:12:57" />
     <file relUrl="Content/images/homepage/atoms/2-3.png" publishTime="12/18/2010 17:01:14" />
     <file relUrl="Content/themes/base/jquery.ui.resizable.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/images/pages/pitch-wedding.png" publishTime="02/24/2011 19:36:35" />
@@ -372,36 +376,37 @@
     <file relUrl="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" publishTime="09/25/2011 13:35:01" />
     <file relUrl="Content/plugins/images/ui-bg_flat_10_000000_40x100.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Views/Departments/DiamondStuds.cshtml" publishTime="10/04/2011 15:20:40" />
-    <file relUrl="Content/plugins/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="01/21/2011 09:01:56" />
-    <file relUrl="Content/plugins/images/prettyPhoto/dark_square/btnNext.png" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="bin/DataAnnotationsExtensions.dll" publishTime="08/11/2011 01:12:12" />
+    <file relUrl="Content/images/pages/studs/1-2.png" publishTime="02/24/2011 19:22:32" />
     <file relUrl="Content/images/tabs/sprites/diamond-jewelry.png" publishTime="02/25/2011 17:57:52" />
-    <file relUrl="Content/plugins/images/thumbnails/t_1.jpg" publishTime="11/25/2010 02:17:04" />
-    <file relUrl="Views/JewelDesign/Diamond.cshtml" publishTime="10/04/2011 15:47:26" />
+    <file relUrl="Web.config" publishTime="10/05/2011 19:49:59" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.debug.js" publishTime="07/14/2011 01:27:31" />
     <file relUrl="Content/images/seals/4.png" publishTime="12/18/2010 21:54:52" />
     <file relUrl="Content/plugins/images/prettyPhoto/dark_rounded/contentPattern.png" publishTime="11/25/2010 02:17:04" />
-    <file relUrl="Views/UserMailer/RecoverPassword.cshtml" publishTime="09/24/2011 16:11:13" />
+    <file relUrl="Scripts/flowplayer-3.2.4.min.js" publishTime="10/04/2010 13:58:52" />
     <file relUrl="bin/Ninject.dll" publishTime="07/14/2011 02:21:56" />
     <file relUrl="Content/themes/base/images/ui-icons_2e83ff_256x240.png" publishTime="09/25/2011 13:35:01" />
-    <file relUrl="Views/_ViewStart.cshtml" publishTime="07/14/2011 01:27:31" />
+    <file relUrl="Content/plugins/images/ui-icons_222222_256x240.png" publishTime="01/21/2011 09:01:56" />
     <file relUrl="Content/themes/base/minified/images/ui-bg_glass_55_fbf9ee_1x400.png" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/images/skeleton/topmenu-bg.png" publishTime="09/05/2011 22:02:12" />
-    <file relUrl="Content/images/tabs/sprites/diamond-engagement-rings.png" publishTime="08/29/2011 01:38:16" />
+    <file relUrl="Content/images/pages/pitch-diamonds.png" publishTime="02/24/2011 19:32:36" />
+    <file relUrl="Scripts/jquery.rmzslider.js" publishTime="05/10/2009 11:41:20" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="09/25/2011 13:35:01" />
     <file relUrl="Content/plugins/images/lightbox-blank.gif" publishTime="03/30/2006 18:20:38" />
     <file relUrl="Content/images/skeleton/menu-sep-bg.png" publishTime="12/18/2010 00:31:19" />
     <file relUrl="Content/plugins/images/prettyPhoto/dark_rounded/btnPrevious.png" publishTime="11/25/2010 02:17:04" />
-    <file relUrl="Content/images/skeleton/shop-by-product-title.png" publishTime="12/18/2010 01:06:10" />
+    <file relUrl="Content/images/item/skeleton/facebook-share.png" publishTime="08/30/2011 12:15:24" />
     <file relUrl="Content/images/jeweldesign/diamond/select-this-diamond.png" publishTime="03/25/2011 13:49:12" />
     <file relUrl="bin/AutoMapper.xml" publishTime="09/25/2011 14:54:27" />
     <file relUrl="Content/themes/base/minified/jquery.ui.autocomplete.min.css" publishTime="09/25/2011 13:35:00" />
-    <file relUrl="Content/images/homepage/atoms/2-2.png" publishTime="12/18/2010 17:00:56" />
+    <file relUrl="Content/plugins/images/prettyPhoto/facebook/btnNext.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Views/Checkout/OrdersStatus.cshtml" publishTime="10/05/2011 15:48:15" />
-    <file relUrl="Views/UserMailer/OrderConfirmation.cshtml" publishTime="09/22/2011 18:39:11" />
+    <file relUrl="Content/plugins/images/prettyPhoto/light_square/btnPrevious.png" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/plugins/images/fullscreen/DSCF0031.JPG" publishTime="11/25/2010 02:17:04" />
     <file relUrl="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="09/25/2011 13:35:01" />
     <file relUrl="bin/AutoMapper.dll" publishTime="09/25/2011 14:54:27" />
     <file relUrl="Content/plugins/images/prettyPhoto/dark_square/default_thumbnail.gif" publishTime="11/25/2010 02:17:04" />
-    <file relUrl="Content/images/services/getintouch/big-picture.png" publishTime="09/01/2011 17:43:14" />
+    <file relUrl="Content/images/homepage/atoms/princess-diamond.png" publishTime="12/18/2010 16:24:28" />
     <file relUrl="Content/images/pages/pitch-jewel-design.png" publishTime="09/19/2011 13:10:42" />
     <file relUrl="Views/Tabs/SpecialOfferInTabView.cshtml" publishTime="10/05/2011 19:16:18" />
     <file relUrl="Content/images/tabs/sprites/jewel-design-settings.png" publishTime="03/25/2011 16:17:14" />
@@ -409,11 +414,11 @@
     <file relUrl="Views/Shared/PathBar.cshtml" publishTime="09/02/2011 18:15:55" />
     <file relUrl="Views/MyAccount/CheckMyOrderStatus.cshtml" publishTime="10/04/2011 16:45:59" />
     <file relUrl="Content/images/pages/pitch-gift.png" publishTime="02/24/2011 19:31:12" />
-    <file relUrl="Content/plugins/images/backgrounds/bodyBackground.jpg" publishTime="11/25/2010 02:17:04" />
+    <file relUrl="Content/images/checkout/shoppingcart/wf.png" publishTime="02/23/2011 17:08:07" />
     <file relUrl="bin/EntityFramework.xml" publishTime="08/11/2011 00:55:20" />
-    <file relUrl="Models/JewelDesign/diamondhelp.xml" publishTime="10/05/2011 19:27:16" />
+    <file relUrl="Content/themes/base/jquery.ui.core.css" publishTime="09/25/2011 13:35:00" />
     <file relUrl="Content/images/jeweldesign/setting/select-this-ring.png" publishTime="03/25/2011 17:38:31" />
-    <file relUrl="Content/images/homepage/atoms-top-bg.png" publishTime="12/18/2010 14:29:04" />
-    <file relUrl="Content/themes/base/jquery.ui.datepicker.css" publishTime="09/25/2011 13:35:00" />
+    <file relUrl="Content/images/services/getintouch/big-picture.png" publishTime="09/01/2011 17:43:14" />
+    <file relUrl="Views/_ViewStart.cshtml" publishTime="07/14/2011 01:27:31" />
   </publishProfile>
 </publishData>
