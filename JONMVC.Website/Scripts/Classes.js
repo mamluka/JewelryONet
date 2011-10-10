@@ -161,298 +161,459 @@ MessageBox = {
 	}
 }
 var JewelDesign = {
-	Locals: {
+    Locals: {
 
-		DataFromController: null
+        DataFromController: null
 
-	},
-	FormatSliderPriceRangeInfo: function (from, to) {
-		return '$' + from + ' - ' + '$' + to;
-	},
-	FormatSliderCaratRangeInfo: function (from, to) {
-		return from + ' Ct. - ' + to + ' Ct.';
-	},
-	InitDiamondSearch: function () {
-		$("#SliderCarat").slider({
-			range: true,
-			min: 10,
-			max: 350,
-			values: [50, 150],
-			change: function (event, ui) {
+    },
+    FormatSliderPriceRangeInfo: function (id, handleType, value, prefix) {
 
-				var from = $(this).slider('values', 0);
-				var to = $(this).slider('values', 1);
-				$('#carat1').val(from / 100);
-				$('#carat2').val(to / 100);
-
-				//   $('#SliderCarat .ui-slider-range-info').html(JewelDesign.FormatSliderPriceRangeInfo(from,to))
-
-				JewelDesign.Search();
-			},
-			create: function (event, ui) {
-				var from = $(this).slider('values', 0) / 100;
-				var to = $(this).slider('values', 1) / 100;
-				var div = $('<div></div>').addClass('ui-slider-range-info').html(JewelDesign.FormatSliderCaratRangeInfo(from, to));
-				$('#SliderCarat .ui-slider-range').append(div);
-			},
-			slide: function (event, ui) {
-				var from = $(this).slider('values', 0) / 100;
-				var to = $(this).slider('values', 1) / 100;
-				$('#SliderCarat .ui-slider-range-info').html(JewelDesign.FormatSliderCaratRangeInfo(from, to));
-			}
-		});
-
-		$("#SliderPrice").slider({
-			range: true,
-			min: 300,
-			max: 10000,
-			values: [2000, 5000],
-			change: function (event, ui) {
-
-				var from = $(this).slider('values', 0);
-				var to = $(this).slider('values', 1);
-
-				$('#price1').val(from);
-				$('#price2').val(to);
-
-				//  $('#SliderPrice .ui-slider-range-info').html(JewelDesign.FormatSliderPriceRangeInfo(from,to))
-
-				JewelDesign.Search();
-			},
-			create: function (event, ui) {
-				var from = $(this).slider('values', 0);
-				var to = $(this).slider('values', 1);
-
-				var div = $('<div></div>').addClass('ui-slider-range-info').html(JewelDesign.FormatSliderPriceRangeInfo(from, to));
+        var fromSpan = null;
+        var toSpan = null;
+        var range = null;
 
 
-				$('#SliderPrice .ui-slider-range').append(div);
-			},
-			slide: function (event, ui) {
-				var from = $(this).slider('values', 0);
-				var to = $(this).slider('values', 1);
+        if ($(id + ' span.info').length > 0) {
+            fromSpan = $(id + ' span.info:eq(0)');
+            toSpan = $(id + ' span.info:eq(1)');
+            range = $(id + ' div.range');
 
-				$('#SliderPrice .ui-slider-range-info').html(JewelDesign.FormatSliderPriceRangeInfo(from, to));
-			}
-		});
+        }
+        else {
+            fromSpan = $('<span></span>').addClass('info');
+            toSpan = $('<span></span>').addClass('info');
+            range = $('<div></div>').addClass('range');
+
+            $(id).append(fromSpan);
+            $(id).append(range);
+            $(id).append(toSpan);
+        }
+
+        if (handleType == 'from') {
+            fromSpan.html(prefix + value);
+        }
+        else if (handleType == 'to') {
+            toSpan.html(prefix + value);
+        }
 
 
+        var posFrom = $(id + ' .handle:eq(0)').position();
+        var posTo = $(id + ' .handle:eq(1)').position();
 
-		$('#SliderPrice a:nth-child(3)').addClass('ui-slider-handle-right');
-		$('#SliderCarat a:nth-child(3)').addClass('ui-slider-handle-right');
+        //console.log(posFrom.left);
+        // console.log(posTo.left);
 
-		$('table.bg tr td').click(function () {
-			if ($(this).hasClass('on')) {
-				$(this).removeClass('on').addClass('off');
-			}
-			else {
-				$(this).removeClass('off').addClass('on');
-			}
+        var fromWidth = fromSpan.width() + 6;
+        var toWidth = fromSpan.width() + 6;
 
-			JewelDesign.Search();
-		});
-		$('table.bg-34 tr td').click(function () {
-			if ($(this).hasClass('on')) {
-				$(this).removeClass('on').addClass('off');
-			}
-			else {
-				$(this).removeClass('off').addClass('on');
-			}
-
-			JewelDesign.Search();
-		});
-
-		$('table.sprite-shape tr td').click(function () {
-			if ($(this).hasClass('on')) {
-				$(this).removeClass('on').addClass('off');
-				
-				var x = 0;
-				if ($.browser.msie) {
-					x = parseInt($(this).css('backgroundPositionX').split(" ")[0]);
-				} else {
-					x= parseInt($(this).css('backgroundPosition').split(" ")[0]);
-				}
-
-				
-				$(this).css('backgroundPosition', x + 'px' + ' 0px');
+        var totalWidth = $(id).width();
 
 
 
 
-			}
-			else {
-				$(this).removeClass('off').addClass('on');
-				var x = 0;
-				if ($.browser.msie) {
-					x = parseInt($(this).css('backgroundPositionX').split(" ")[0]);
-				} else {
-					x = parseInt($(this).css('backgroundPosition').split(" ")[0]);
-				}
-				$(this).css('backgroundPosition', x + 'px' + ' -34px');
-			}
+        //TODO make the if's clear coded with functions
 
-			JewelDesign.Search();
-		});
+        range.css({
+            left: posFrom.left + 7 + 'px',
+            width: posTo.left - posFrom.left + 'px'
 
-		$.each($('.refine tr td'), function (index, tdelement) {
-
-			if ($(tdelement).attr('key') == JewelDesign.Locals.DataFromController["Shape"]) {
-				$(tdelement).trigger('click');
-			}
-
-			if ($(tdelement).attr('key') == JewelDesign.Locals.DataFromController["Report"]) {
-				$(tdelement).trigger('click');
-			}
-
-		});
-
-
-		var filters = JewelDesign.ReadSearchFilters();
-		jQuery("#DiamondList").jqGrid({
+        });
 
 
 
+        if (posTo.left - toWidth < posFrom.left + fromWidth && posFrom.left - toWidth > 0 && posTo.left + toWidth < totalWidth) {
+            fromSpan.css('left', posFrom.left - fromWidth + 'px');
+            toSpan.css('left', posTo.left + 'px');
+        }
+        else if (posTo.left + toWidth > totalWidth && posTo.left - toWidth < posFrom.left + fromWidth && posTo.left - toWidth + 13 > posFrom.left) {
+            fromSpan.css('left', posFrom.left - fromWidth + 'px');
+            toSpan.css('left', posTo.left - toWidth + 13 + 'px');
+        }
+        else if (posTo.left + toWidth > totalWidth && posTo.left - toWidth + 13 <= posFrom.left) {
+            fromSpan.css('left', posTo.left - toWidth + 13 - 2 - fromWidth + 'px');
+            toSpan.css('left', posTo.left - toWidth + 13 + 'px');
+        }
+        else if (posFrom.left - fromWidth < 0 && posTo.left - toWidth < posFrom.left + fromWidth && posFrom.left + fromWidth < posTo.left) {
+            fromSpan.css('left', posFrom.left + 'px');
+            toSpan.css('left', posTo.left + 'px');
+        }
 
-			url: '/JewelDesign/Diamonds',
-			datatype: "json",
-			postData: filters,
-			cache: false,
-			loadonce: false,
-			//colNames: ['Stone Id', 'Shape', 'Carat', 'Color', 'Clarity', 'Cut', 'Depth', 'Table', 'Pol/Sym', 'Flour', 'Certificate', 'Photo', 'Price', 'Action'],
-			colNames: [ 'Shape', 'Carat', 'Color', 'Clarity', 'Cut',  'Certificate', 'Price', 'Details...'],
-			colModel: [
-				//{ name: 'stoneid', index: 'id', width: 50 ,resizable:false,sortable:false},
+        else if (posFrom.left - fromWidth < 0 && posTo.left - toWidth < posFrom.left + fromWidth && posFrom.left + fromWidth >= posTo.left) {
+            fromSpan.css('left', posFrom.left + 'px');
+            toSpan.css('left', posFrom.left + fromWidth + 2 + 'px');
+        }
+
+        else {
+            fromSpan.css('left', posFrom.left + 'px');
+            toSpan.css('left', posTo.left - toWidth + 13 + 'px');
+        }
+
+
+
+
+
+    },
+    FormatSliderCaratRangeInfo: function (from, to) {
+        return from + ' Ct. - ' + to + ' Ct.';
+    },
+    InitDiamondSearch: function () {
+
+
+
+        $("#SliderCarat").RmzSlider(
+                {
+                    minValue: 0.5,
+                    maxValue: 3,
+                    numHandles: 2,
+                    hitMargin: 13,
+                    handleWidth: 13,
+                    leftOffset: 1
+                }
+            );
+
+        $("#SliderCarat .handle_num_0").trigger("setvalue", { value: 1 });
+        $("#SliderCarat .handle_num_1").trigger("setvalue", { value: 2 });
+
+        JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'to', (2).toFixed(2), '');
+        JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'from', (1).toFixed(2), '');
+
+        $("#SliderCarat .handle_num_0").bind("dragging", function (event, data) {
+
+            var from = (data.value).toFixed(2);
+            $('#carat1').val(from);
+
+            JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'from', from, '');
+
+        });
+
+        $("#SliderCarat .handle_num_1").bind("dragging", function (event, data) {
+
+            var to = (data.value).toFixed(2);
+            $('#carat2').val(to);
+
+            JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'to', to, '');
+
+        });
+
+        $("#SliderCarat").bind("sliderchanged", function (event, data) {
+
+            var from = (data.handles[0].value).toFixed(2);
+            var to = (data.handles[1].value).toFixed(2);
+            $('#carat2').val(to);
+            $('#carat1').val(from);
+
+            JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'to', to, '');
+            JewelDesign.FormatSliderPriceRangeInfo('#SliderCarat', 'from', from, '');
+
+            JewelDesign.Search();
+        });
+
+        $("#SliderPrice").RmzSlider(
+                {
+                    minValue: 500,
+                    maxValue: 10000,
+                    numHandles: 2,
+                    hitMargin: 13,
+                    handleWidth: 13,
+                    leftOffset: 1
+                }
+            );
+
+        $("#SliderPrice .handle_num_0").trigger("setvalue", { value: 1000 });
+        $("#SliderPrice .handle_num_1").trigger("setvalue", { value: 5000 });
+
+        //   $("#SliderPrice").trigger("firechange"); 
+
+        JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'to', (1000).toFixed(0), '$');
+        JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'from', (5000).toFixed(0), '$');
+
+        $("#SliderPrice .handle_num_0").bind("dragging", function (event, data) {
+
+            var from = (data.value).toFixed(0);
+            $('#Price1').val(from);
+
+            JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'from', from, '$');
+
+
+        });
+
+        $("#SliderPrice .handle_num_1").bind("dragging", function (event, data) {
+
+            var to = (data.value).toFixed(0);
+            $('#Price2').val(to);
+
+            JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'to', to, '$');
+
+        });
+
+        $("#SliderPrice").bind("sliderchanged", function (event, data) {
+
+            var from = (data.handles[0].value).toFixed(0);
+            var to = (data.handles[1].value).toFixed(0);
+            $('#price2').val(to);
+            $('#price1').val(from);
+
+            JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'to', to, '$');
+            JewelDesign.FormatSliderPriceRangeInfo('#SliderPrice', 'from', from, '$');
+
+            JewelDesign.Search();
+        });
+
+
+        $('table.bg tr td').click(function () {
+            if ($(this).hasClass('on')) {
+                $(this).removeClass('on').addClass('off');
+            }
+            else {
+                $(this).removeClass('off').addClass('on');
+            }
+
+            JewelDesign.Search();
+        });
+
+
+        $('table.sprite-shape tr td').click(function () {
+            if ($(this).hasClass('on')) {
+                $(this).removeClass('on').addClass('off');
+
+                var x = 0;
+                if ($.browser.msie) {
+                    x = parseInt($(this).css('backgroundPositionX').split(" ")[0]);
+                } else {
+                    x = parseInt($(this).css('backgroundPosition').split(" ")[0]);
+                }
+
+
+                $(this).css('backgroundPosition', x + 'px' + ' 0px');
+
+
+
+
+            }
+            else {
+                $(this).removeClass('off').addClass('on');
+                var x = 0;
+                if ($.browser.msie) {
+                    x = parseInt($(this).css('backgroundPositionX').split(" ")[0]);
+                } else {
+                    x = parseInt($(this).css('backgroundPosition').split(" ")[0]);
+                }
+                $(this).css('backgroundPosition', x + 'px' + ' -25px');
+            }
+
+            JewelDesign.Search();
+        });
+
+        $.each($('.refine tr td'), function (index, tdelement) {
+
+            if ($(tdelement).attr('key') == JewelDesign.Locals.DataFromController["Shape"]) {
+                $(tdelement).trigger('click');
+            }
+
+            if ($(tdelement).attr('key') == JewelDesign.Locals.DataFromController["Report"]) {
+                $(tdelement).trigger('click');
+            }
+
+        });
+
+
+
+
+        var filters = JewelDesign.ReadSearchFilters();
+        jQuery("#DiamondList").jqGrid({
+
+
+
+
+            url: '/JewelDesign/Diamonds',
+            datatype: "json",
+            postData: filters,
+            cache: false,
+            loadonce: false,
+            //colNames: ['Stone Id', 'Shape', 'Carat', 'Color', 'Clarity', 'Cut', 'Depth', 'Table', 'Pol/Sym', 'Flour', 'Certificate', 'Photo', 'Price', 'Action'],
+            colNames: ['Shape', 'Carat', 'Color', 'Clarity', 'Cut', 'Certificate', 'Price', 'Details...'],
+            colModel: [
+            //{ name: 'stoneid', index: 'id', width: 50 ,resizable:false,sortable:false},
 				{name: 'shape', index: 'shape', width: 54, align: 'center', resizable: false, sortable: false },
 				{ name: 'weight', index: 'weight', width: 40, align: 'center', resizable: false, sortable: false },
 				{ name: 'color', index: 'color', width: 40, align: 'center', resizable: false, sortable: false },
 				{ name: 'clarity', index: 'clarity', width: 40, align: 'center', resizable: false, sortable: false },
 				{ name: 'cut', index: 'cut', width: 60, align: 'center', resizable: false, sortable: false },
-				//{ name: 'depth', index: 'depth', width: 48, align: 'center', resizable: false, sortable: false },
-				//{ name: 'table', index: 'table', width: 48, align: 'center', resizable: false, sortable: false },
-				//{ name: 'polsym', index: 'polsym', width: 48, resizable: false, sortable: false },
-				//{ name: 'flour', index: 'flour', width: 48, resizable: false, sortable: false },
+            //{ name: 'depth', index: 'depth', width: 48, align: 'center', resizable: false, sortable: false },
+            //{ name: 'table', index: 'table', width: 48, align: 'center', resizable: false, sortable: false },
+            //{ name: 'polsym', index: 'polsym', width: 48, resizable: false, sortable: false },
+            //{ name: 'flour', index: 'flour', width: 48, resizable: false, sortable: false },
 				{name: 'cert', index: 'cert', width: 48, align: 'center', align: 'center', resizable: false, sortable: false },
-				//{ name: 'photo', index: 'photo', width: 45, resizable: false, sortable: false },
+            //{ name: 'photo', index: 'photo', width: 45, resizable: false, sortable: false },
 				{name: 'price', index: 'price', width: 55, align: 'center', resizable: false, sortable: false },
 				{ name: 'action', index: 'action', width: 55, align: 'center', resizable: false, sortable: false }
 			],
-			rowNum: 10,
-			rowList: [10, 20, 30],
-			//pager: '#pager2',
-			sortname: 'id',
-			mtype: 'POST',
-			viewrecords: true,
-			sortorder: "desc",
-			loadtext: "Loading diamonds, please wait...",
-			caption: "",
-			pager: '#DiamondPager',
-			height: 220,
-			width: 710
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            //pager: '#pager2',
+            sortname: 'id',
+            mtype: 'POST',
+            viewrecords: true,
+            sortorder: "desc",
+            loadtext: "Loading diamonds, please wait...",
+            caption: "",
+            pager: '#DiamondPager',
+            height: 220,
+            width: 790,
+            loadComplete: function (data) {
 
+                $(".jqgrow-notyet").hover(
+                    function () {
+                        var div = null;
+                        if ($('.diamond-info-hover').length > 0) {
+                            div = $('.diamond-info-hover');
+                        }
+                        else {
+                            div = $('<div></div>');
+                            div.addClass('diamond-info-hover');
+                            $('body').append(div);
 
-		});
-		JewelDesign.ReadSearchFilters();
-	},
-	ReadSearchFilters: function () {
+                            div.hover(
+                                function () {
+                                    $(this).attr('hover', true);
+                                },
+                                function () {
+                                    $(this).attr('hover', false);
+                                    $(this).hide();
+                                }
 
-		var obj = {};
+                            );
 
-		var shapes = $.map($('.refine .on[filter=shape]'), function (n, i) {
-			var value = $(n).attr('key');
-			obj['Shape[' + i + ']'] = value;
-			return value;
-		});
-		var color = $.map($('.refine .on[filter=color]'), function (n, i) {
-			var value = $(n).attr('key');
-			obj['Color[' + i + ']'] = value;
-			return value;
-		});
-		var clarity = $.map($('.refine .on[filter=clarity]'), function (n, i) {
-			var value = $(n).attr('key');
-			obj['Clarity[' + i + ']'] = value;
-			return value;
-		});
-		var cut = $.map($('.refine .on[filter=cut]'), function (n, i) {
-			var value = $(n).attr('key');
-			obj['Cut[' + i + ']'] = value;
-			return value;
-		});
-		var report = $.map($('.refine .on[filter=report]'), function (n, i) {
-			var value = $(n).attr('key');
-			obj['Report[' + i + ']'] = value;
-			return value;
-		});
-		var weightfrom = $('#carat1').val();
-		var weightto = $('#carat2').val();
-		var pricefrom = $('#price1').val();
-		var priceto = $('#price2').val();
+                            var pos = $('.ui-jqgrid').offset();
 
+                            div.css({
+                                left: pos.left - 170 + 'px',
+                                top: pos.top + 'px'
+                            });
+                        }
 
-
-
-		obj['PriceFrom'] = pricefrom;
-		obj['PriceTo'] = priceto;
-		obj['WeightFrom'] = weightfrom;
-		obj['WeightTo'] = weightto;
-		obj['page'] = 1;
-		obj['settingid'] = JewelDesign.Locals.DataFromController['SettingID'];
-		obj['size'] = JewelDesign.Locals.DataFromController['Size'];
-		obj['mediatype'] = JewelDesign.Locals.DataFromController['MediaType'];
+                        div.show();
 
 
 
 
 
+                    },
+                    function () {
+                        
+                        var div = null;
+                        if ($('.diamond-info-hover').length > 0) {
+                            div = $('.diamond-info-hover');
+                        }
+                        if (div.attr('hover') == 'false') {
+                            div.hide();
+                        }
+
+                    }
+                );
+
+            }
 
 
-		return obj;
-	},
-	Search: function () {
-		var filters = JewelDesign.ReadSearchFilters();
-		jQuery("#DiamondList").setGridParam({ postData: null }).setGridParam({ postData: filters, 'page': 1 }).trigger("reloadGrid");
-	},
-	RegisterJewelDesignPagesDropDownMenu: function () {
-		$(".buy-menu").hoverIntent({
-			sensitivity: 1, // number = sensitivity threshold (must be 1 or higher)
-			interval: 50,   // number = milliseconds for onMouseOver polling interval
-			timeout: 100,
-			over: function show() {
-				var menu = $(this);
-				menu.children(".actions").fadeIn();
-			},
+        });
+        JewelDesign.ReadSearchFilters();
+    },
+    ReadSearchFilters: function () {
 
-			out: function hide() {
-				var menu = $(this);
-				menu.children(".actions").fadeOut();
-			}
-		});
+        var obj = {};
 
-	},
-	RegisterSettingCommandLinks: function () {
+        var shapes = $.map($('.refine .on[filter=shape]'), function (n, i) {
+            var value = $(n).attr('key');
+            obj['Shape[' + i + ']'] = value;
+            return value;
+        });
+        var color = $.map($('.refine .on[filter=color]'), function (n, i) {
+            var value = $(n).attr('key');
+            obj['Color[' + i + ']'] = value;
+            return value;
+        });
+        var clarity = $.map($('.refine .on[filter=clarity]'), function (n, i) {
+            var value = $(n).attr('key');
+            obj['Clarity[' + i + ']'] = value;
+            return value;
+        });
+        var cut = $.map($('.refine .on[filter=cut]'), function (n, i) {
+            var value = $(n).attr('key');
+            obj['Cut[' + i + ']'] = value;
+            return value;
+        });
 
-		$('a[command=end]').click(function() {
-			JewelDesign.SubmitSettingCommand(1);
-		});
-
-		$('a[command=choose-diamond]').click(function () {
-			JewelDesign.SubmitSettingCommand(2);
-		});
-
-		$('a[command=buy-setting]').click(function () {
-			JewelDesign.SubmitSettingCommand(3);
-		});
-
-	},
-
-	SubmitSettingCommand: function (commandid) {
-
-		$('input[name=Size]').val($('.jewelsize').val());
-		$('input[name=CommandID]').val(commandid);
-
-		$('#RedirectSettingForm').submit();
+        var weightfrom = $('#carat1').val();
+        var weightto = $('#carat2').val();
+        var pricefrom = $('#price1').val();
+        var priceto = $('#price2').val();
 
 
-	}
+
+
+        obj['PriceFrom'] = pricefrom;
+        obj['PriceTo'] = priceto;
+        obj['WeightFrom'] = weightfrom;
+        obj['WeightTo'] = weightto;
+        obj['page'] = 1;
+        obj['settingid'] = JewelDesign.Locals.DataFromController['SettingID'];
+        obj['size'] = JewelDesign.Locals.DataFromController['Size'];
+        obj['mediatype'] = JewelDesign.Locals.DataFromController['MediaType'];
+
+
+
+
+
+
+
+        return obj;
+    },
+    Search: function () {
+        var filters = JewelDesign.ReadSearchFilters();
+        jQuery("#DiamondList").setGridParam({ postData: null }).setGridParam({ postData: filters, 'page': 1 }).trigger("reloadGrid");
+    },
+    RegisterJewelDesignPagesDropDownMenu: function () {
+        $(".buy-menu").hoverIntent({
+            sensitivity: 1, // number = sensitivity threshold (must be 1 or higher)
+            interval: 50,   // number = milliseconds for onMouseOver polling interval
+            timeout: 100,
+            over: function show() {
+                var menu = $(this);
+                menu.children(".actions").fadeIn();
+            },
+
+            out: function hide() {
+                var menu = $(this);
+                menu.children(".actions").fadeOut();
+            }
+        });
+
+    },
+    RegisterSettingCommandLinks: function () {
+
+        $('a[command=end]').click(function () {
+            JewelDesign.SubmitSettingCommand(1);
+        });
+
+        $('a[command=choose-diamond]').click(function () {
+            JewelDesign.SubmitSettingCommand(2);
+        });
+
+        $('a[command=buy-setting]').click(function () {
+            JewelDesign.SubmitSettingCommand(3);
+        });
+
+    },
+
+    SubmitSettingCommand: function (commandid) {
+
+        $('input[name=Size]').val($('.jewelsize').val());
+        $('input[name=CommandID]').val(commandid);
+
+        $('#RedirectSettingForm').submit();
+
+
+    }
 
 };
 var MetalPriceSelect = {

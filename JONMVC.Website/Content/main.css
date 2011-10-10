@@ -1151,7 +1151,7 @@ span.stars span {
 /*JEWELDESIGN*/
 .jewel-tabs {
 	height:45px;
-	width:750px;
+    width: 100%;
 	
 }
 
@@ -1225,41 +1225,41 @@ span.stars span {
 	 border-bottom:1px solid #c7c7c7;
 }
 .jewel-main {
-	width:736px;
+
 	border:1px solid #c7c7c7;
 	border-top:none;
 	padding:7px;
 }
+.diamond-search-container {
+    background-color: #efeeef;
+     
+}
 .jewel-main .refine {
-	border-top:2px solid #87281d;
 	text-align:center;
 }
 .jewel-main .refine tr td {
 	cursor:pointer;
+    color: white;
 }
 .jewel-main .refine .label {
-	width:45px;
+	width:60px;
 	font-family:Verdana, Geneva, sans-serif;
-	text-align:center;
+    padding-bottom: 3px;
 	font-weight:bold;
 	font-size:1.1em;
-	background:url(/Content/images/jeweldesign/refine/gen/filter-bg.jpg) repeat-x;
 	vertical-align:middle;
-	border-bottom:1px solid #97a6b3;
+	color:#962e21;
 }
 .jewel-main .refine .sep   {
 	width:7px;
 }
 .jewel-main .refine .selection-1   {
 	width:290px;
-	border-bottom:1px solid #97a6b3;
 	color:#892c22;
-	border-right:2px solid #87281d;
 }
 .jewel-main .refine .selection-2   {
 	width:300px;
-	border-bottom:1px solid #97a6b3;
-	border-right:2px solid #87281d;
+
 }
 
 
@@ -1271,61 +1271,74 @@ span.stars span {
 	height:22px;
 	border-left:1px solid #abb8c3;
 }
-.jewel-main .refine .selection-1 table.sprite-shape tr td {
+.jewel-main .refine .shape-buttons table.sprite-shape {
+       
+}
+.jewel-main .refine .shape-buttons table.sprite-shape tr td {
 	background-image:url(/Content/images/jeweldesign/refine/shapes/shape-sprite.png);
 	background-repeat:no-repeat;
-	height:34px;
+	height:25px;
 }
-.jewel-main .refine .selection-2 table.bg-34 tr td.off {
-	background-image:url(/Content/images/jeweldesign/refine/buttons/botton-up-34.png);
+.jewel-main .refine .cut-buttons table.bg tr td.off {
+    background-color: #6b6b6b;
+	height:25px;
+}
+.jewel-main .refine .cut-buttons table.bg tr td.on {
+	background-image:url(/Content/images/jeweldesign/refine/buttons/button-down-25.png);
 	background-repeat:repeat-x;
-
-	height:34px;
+	height:25px;
 }
-.jewel-main .refine .selection-2 table.bg-34 tr td.on {
-	background-image:url(/Content/images/jeweldesign/refine/buttons/botton-down-34.png);
+.jewel-main .refine .color-clarity {
+    padding: 3px 0px 3px 0px;
+}
+.jewel-main .refine .color-clarity table.bg tr td.off {
+    background-color: #6b6b6b;
+	height:27px;
+	width: 37px
+}
+.jewel-main .refine .color-clarity table.bg tr td.on {
+	background-image:url(/Content/images/jeweldesign/refine/buttons/button-down-27.png);
 	background-repeat:repeat-x;
-	height:34px;
+	height:27px;
+    width: 37px;
 }
-.jewel-main .refine .selection-1 table.bg tr td.on {
-	background-image:url(/Content/images/jeweldesign/refine/buttons/button-down.png);
-	background-repeat:repeat-x;
-	height:22px;
-}
-.jewel-main .refine .selection-1 table.bg tr td.off {
-	background-image:url(/Content/images/jeweldesign/refine/buttons/button-up.png);
-	background-repeat:repeat-x;
-	height:22px;
-}
-.jewel-main .refine .selection-1 table tr td.shape1 {
+.jewel-main .refine .shape-buttons table tr td.shape1 {
 	background-position:0 0;
 }
-.jewel-main .refine .selection-1 table tr td.shape2 {
+.jewel-main .refine .shape-buttons table tr td.shape2 {
 	background-position:-29px 0px;
 }
-.jewel-main .refine .selection-1 table tr td.shape3 {
+.jewel-main .refine .shape-buttons table tr td.shape3 {
 	background-position:-58px 0px;
 }
-.jewel-main .refine .selection-1 table tr td.shape4 {
+.jewel-main .refine .shape-buttons table tr td.shape4 {
 	background-position:-87px 0px;
 }
-.jewel-main .refine .selection-1 table tr td.shape5 {
+.jewel-main .refine .shape-buttons table tr td.shape5 {
 	background-position:-116px 0px;
 }
-.jewel-main .refine .selection-1 table tr td.shape6 {
+.jewel-main .refine .shape-buttons table tr td.shape6 {
 	background-position:-145px 0px;
 }
-.jewel-main .refine .selection-1 table tr td.shape7 {
+.jewel-main .refine .shape-buttons table tr td.shape7 {
 	background-position:-174px 0px;
 }
-.jewel-main .refine .selection-1 table tr td.shape8 {
+.jewel-main .refine .shape-buttons table tr td.shape8 {
 	background-position:-203px 0px;
 }
-.jewel-main .refine .selection-1 table tr td.shape9 {
+.jewel-main .refine .shape-buttons table tr td.shape9 {
 	background-position:-232px 0px;
 }
-.jewel-main .refine .selection-1 table tr td.shape10 {
+.jewel-main .refine .shape-buttons table tr td.shape10 {
 	background-position:-261px 0px;
+}
+.diamond-info-hover {
+    width: 170px;
+    position: absolute;
+    height: 360px;
+    background-color: white;
+    border: 1px solid black;
+    
 }
 
 #DiamondPager span {
@@ -1354,34 +1367,56 @@ span.stars span {
 
 /*SLIDER*/
 
-.jewel-main .ui-slider-horizontal {
-	background:url(/Content/images/jeweldesign/refine/sliders/slider-track-bg.png) repeat-x 0px 1px;
-	height:20px	
+.jewel-main #SliderCarat,
+.jewel-main #SliderPrice
+ {
+	background:url(/Content/images/jeweldesign/refine/sliders/slider-track-bg.png) no-repeat 0px 10px;
+	height:27px	
 }
-.jewel-main .ui-slider-horizontal .ui-slider-range {
-	background:url(/Content/images/jeweldesign/refine/sliders/bg-between.png) repeat-x 0px 0px;
-	text-align:center;
+.jewel-main .slider-row .range {
+	background:url(/Content/images/jeweldesign/refine/sliders/bg-between.png) repeat-x 0px 10px;
+    position: absolute;
+    z-index: 1;
+    height: 27px;
+   
 }
-.jewel-main .ui-slider-horizontal .ui-slider-handle {
-	width:10px;
+.jewel-main .slider-row .handle {
+	width:13px;
 	border:none;
-	height:21px;
+	height:27px;
+    z-index: 2;
 	cursor:pointer;
-	background:url(/Content/images/jeweldesign/refine/sliders/hand-left.png) repeat-x 0px 1px;
+	background:url(/Content/images/jeweldesign/refine/sliders/hand.png) repeat-x 0px 10px;
 }
 .jewel-main .ui-slider-horizontal .ui-slider-handle-right {
-	background:url(/Content/images/jeweldesign/refine/sliders/hand-right.png) repeat-x 0px 1px;
+	background:url(/Content/images/jeweldesign/refine/sliders/hand.png) repeat-x 0px 13px;
 }
-.jewel-main .ui-slider-horizontal .ui-state-hover,.jewel-main .ui-slider-horizontal .ui-state-focus {
+.jewel-main .ui-slider-horizontal .ui-state-hover,
+.jewel-main .ui-slider-horizontal .ui-state-focus
+  {
 	border:none;
 
 }
+
+
 .ui-slider-range-info {
 	color:black;
 	margin:auto;
 	margin-top:5px;
 }
-
+.slider-row {
+    width: 310px;   
+}
+.jewel-main .slider-row span.info
+{
+    position: absolute;
+    height: 13px;
+    top: -6px;
+    display: inline;
+    background-color: #4679a6;
+    color: white;
+    padding: 1px 3px 1px 3px;
+}
 /*DIAMOND ITEM*/
 .buy-menu {
 	width:145px;
