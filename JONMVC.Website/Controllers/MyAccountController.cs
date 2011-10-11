@@ -8,6 +8,7 @@ using System.Web.Security;
 using AutoMapper;
 using JONMVC.Website.Mailers;
 using JONMVC.Website.Models.Checkout;
+using JONMVC.Website.Models.Utils;
 using JONMVC.Website.ViewModels.Builders;
 using JONMVC.Website.ViewModels.Views;
 using Mvc.Mailer;
@@ -34,6 +35,7 @@ namespace JONMVC.Website.Controllers
         }
 
         [Authorize]
+        [RequireHttps]
         public ActionResult Index()
         {
             var email = authentication.CustomerData.Email;
@@ -42,7 +44,7 @@ namespace JONMVC.Website.Controllers
 
             return View(viewModel);
         }
-
+        [RequireHttps]
         public ActionResult CheckMyOrderStatus()
         {
             if (User.Identity.IsAuthenticated)
@@ -54,6 +56,7 @@ namespace JONMVC.Website.Controllers
         }
 
         [HttpPost]
+        [RequireHttps]
         public ActionResult CheckMyOrderStatus(string email, string ordernumber)
         {
             try
@@ -79,7 +82,7 @@ namespace JONMVC.Website.Controllers
             
             
         }
-
+        [RequireHttps]
         public ActionResult Register()
         {
             var viewModel = new RegisterCustomerViewModel();
@@ -87,6 +90,7 @@ namespace JONMVC.Website.Controllers
         }
 
         [HttpPost]
+        [RequireHttps]
         public ActionResult Register(RegisterCustomerViewModel model)
         {
             var viewModel = new RegisterCustomerViewModel();
@@ -104,7 +108,7 @@ namespace JONMVC.Website.Controllers
             viewModel.CreateStatus = new CustomerCreationError(returnStatus);
             return View(viewModel);
         }
-
+        [RequireHttps]
         public ActionResult Signin()
         {
             var viewModel = new SigninViewModel();
@@ -112,6 +116,7 @@ namespace JONMVC.Website.Controllers
         }
         //TODO add remember me to the login control
         [HttpPost]
+        [RequireHttps]
         public ActionResult Signin(SigninViewModel model)
         {
 
@@ -128,7 +133,7 @@ namespace JONMVC.Website.Controllers
 
             return View(viewModel);
         }
-
+        [RequireHttps]
         public ActionResult RecoverPassword()
         {
             var viewModel = new RecoverPasswordViewModel();
@@ -136,6 +141,7 @@ namespace JONMVC.Website.Controllers
         }
 
         [HttpPost]
+        [RequireHttps]
         public ActionResult RecoverPassword(RecoverPasswordViewModel model)
         {
             try
@@ -156,7 +162,7 @@ namespace JONMVC.Website.Controllers
 
 
 
-
+        [ExitHttpsIfNotRequired]
         public ActionResult ThankYouForJoining()
         {
             return View(new EmptyViewModel());

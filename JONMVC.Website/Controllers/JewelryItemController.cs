@@ -22,6 +22,7 @@ using Mvc.Mailer;
 namespace JONMVC.Website.Controllers
 {
     [HandleError]
+    [ExitHttpsIfNotRequired]
     public class JewelryItemController : Controller
     {
         private readonly IJewelRepository jewelRepository;

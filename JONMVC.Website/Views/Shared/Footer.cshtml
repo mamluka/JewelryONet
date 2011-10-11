@@ -16,13 +16,20 @@
                                                 </ul>
                                                 <div class="clear">
                                                 </div>
-                                                <span class="center top10">
+                                                @if (!this.Request.IsSecureConnection)
+                                                {
+                                                    <span class="center top10">
+
                                                     <div id="fb-root">
                                                     </div>
                                                     <script src="http://connect.facebook.net/en_US/all.js#appId=225390917508579&amp;xfbml=1"></script>
                                                     <fb:like href="http://www.facebook.com/pages/JewelryONet-Fine-Designer-Jewelry/120525637995541"
                                                         send="true" width="450" show_faces="false" font=""></fb:like>
-                                                </span>
+
+                                                     </span>
+                                                }
+                                                
+
                                             </div>
                                             <div class="block sep clear center top5">
                                             </div>
@@ -40,18 +47,15 @@
                                             </div>
                                             <div class="block clear center">
                                                 <ul>
-                                                    <li><a href="http://www.jewelersmutual.com/" target="_blank">
-                                                        <img src="/Content/images/seals/1.png" alt="Jewelery metual" /></a> </li>
+                                                    <li><a href="#!">
+                                                        <img src="/Content/images/seals/ssl.gif" alt="SSL Seal" /></a> </li>
                                                     <li><a href="#!">
                                                         <img src="/Content/images/seals/2.png" alt="SSL Seal" /></a> </li>
                                                     <li><a href="https://www.paypal.com" target="_blank">
                                                         <img src="/Content/images/seals/3.png" alt="PayPal" /></a> </li>
-                                                    <li><a href="http://www.gia.edu/" target="_blank">
-                                                        <img src="/Content/images/seals/4.png" alt="GIA" /></a> </li>
                                                     <li><a href="http://fedex.com/" target="_blank">
                                                         <img src="/Content/images/seals/5.png" alt="FedEx" /></a> </li>
-                                                    <li><a href="http://www.igiworldwide.com/" target="_blank">
-                                                        <img src="/Content/images/seals/6.png" alt="IGI" /></a> </li>
+                                                    
                                                 </ul>
                                             </div>
                                             <div class="block sep clear center">

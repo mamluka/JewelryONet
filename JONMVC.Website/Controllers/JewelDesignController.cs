@@ -20,6 +20,7 @@ using JONMVC.Website.ViewModels.Views;
 
 namespace JONMVC.Website.Controllers
 {
+    [ExitHttpsIfNotRequired]
     public class JewelDesignController : Controller
     {
         private readonly IDiamondRepository diamondRepository;

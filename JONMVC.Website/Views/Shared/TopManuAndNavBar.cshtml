@@ -46,6 +46,11 @@
 																		 {"tabid", "engagement-rings"},
 																		 {"page", 1},
 																	 })</li>
-                        <li>@Html.ActionLink("Gift Ideas", "GiftIdeas", "Departments")</li>
+                        <li>@Html.RouteLink("Best Offer Deals", "BestOffer", new RouteValueDictionary()
+                                                            {
+                                                                {"tabkey" , "best-offer-items"},
+                                                                 {"tabid" , "offers"}
+                                                                
+                                                            })</li>
                     </ul>
                 </div>

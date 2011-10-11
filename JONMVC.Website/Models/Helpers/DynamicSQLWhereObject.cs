@@ -16,6 +16,12 @@ namespace JONMVC.Website.Models.Helpers
             Valuelist = valuelist;
         }
 
+        public DynamicSQLWhereObject(string pattern)
+        {
+            Pattern = pattern;
+            Valuelist = new List<object>();
+        }
+
         public override bool Equals(object obj)
         {
             var other = (DynamicSQLWhereObject) obj;

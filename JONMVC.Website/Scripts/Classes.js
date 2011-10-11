@@ -267,11 +267,12 @@ var JewelDesign = {
                 }
             );
 
-        $("#SliderCarat .handle_num_0").trigger("setvalue", { value: 1 });
+        $("#SliderCarat .handle_num_0").trigger("setvalue", { value: 0.5 });
         $("#SliderCarat .handle_num_1").trigger("setvalue", { value: 2 });
 
-        JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', (2).toFixed(2), '');
-        JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', (1).toFixed(2), '');
+
+        JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', (0.5).toFixed(2), '');
+        JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', (3).toFixed(2), '');
 
         $("#SliderCarat .handle_num_0").bind("dragging", function (event, data) {
 
@@ -298,8 +299,9 @@ var JewelDesign = {
             $('#carat2').val(to);
             $('#carat1').val(from);
 
-            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', to, '');
+
             JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', from, '');
+            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', to, '');
 
             JewelDesign.Search();
         });
@@ -307,7 +309,7 @@ var JewelDesign = {
         $("#SliderPrice").RmzSlider(
                 {
                     minValue: 400,
-                    maxValue: 1000000,
+                    maxValue: 20000,
                     numHandles: 2,
                     hitMargin: 13,
                     handleWidth: 13,
@@ -315,13 +317,14 @@ var JewelDesign = {
                 }
             );
 
-        $("#SliderPrice .handle_num_0").trigger("setvalue", { value: 1000 });
-        $("#SliderPrice .handle_num_1").trigger("setvalue", { value: 5000 });
+        $("#SliderPrice .handle_num_0").trigger("setvalue", { value: 500 });
+        $("#SliderPrice .handle_num_1").trigger("setvalue", { value: 10000 });
 
         //   $("#SliderPrice").trigger("firechange"); 
 
-        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', (1000).toFixed(0), '$');
-        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', (5000).toFixed(0), '$');
+
+        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', (500).toFixed(0), '$');
+        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', (10000).toFixed(0), '$');
 
         $("#SliderPrice .handle_num_0").bind("dragging", function (event, data) {
 

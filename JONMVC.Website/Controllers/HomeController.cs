@@ -7,6 +7,7 @@ using JONMVC.Website.Mailers;
 using JONMVC.Website.Models.Checkout;
 using JONMVC.Website.Models.Diamonds;
 using JONMVC.Website.Models.Helpers;
+using JONMVC.Website.Models.Utils;
 using JONMVC.Website.ViewModels.Views;
 using Ninject;
 using Ninject.Modules;
@@ -14,6 +15,7 @@ using Mvc.Mailer;
 
 namespace JONMVC.Website.Controllers
 {
+    [ExitHttpsIfNotRequired]
     public class HomeController : Controller
     {
         private readonly IPathBarGenerator pathBarGenerator;
@@ -21,6 +23,7 @@ namespace JONMVC.Website.Controllers
 
         //
         // GET: /Home/
+        
         public HomeController(IPathBarGenerator pathBarGenerator)
         {
             this.pathBarGenerator = pathBarGenerator;

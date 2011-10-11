@@ -4,10 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using JONMVC.Website.Models.Helpers;
+using JONMVC.Website.Models.Utils;
 using JONMVC.Website.ViewModels.Views;
 
 namespace JONMVC.Website.Controllers
 {
+    [ExitHttpsIfNotRequired]
     public class DepartmentsController : Controller
     {
         private readonly IPathBarGenerator pathBarGenerator;

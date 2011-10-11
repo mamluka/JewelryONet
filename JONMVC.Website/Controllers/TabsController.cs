@@ -15,6 +15,7 @@ using JONMVC.Website.ViewModels.Views;
 
 namespace JONMVC.Website.Controllers
 {
+    [ExitHttpsIfNotRequiredAttribute]
 	public class TabsController : Controller
 	{
 		private readonly ITabsRepository tabsRepository;
@@ -63,6 +64,15 @@ namespace JONMVC.Website.Controllers
 						
 																	 });
 		}
+
+        public ActionResult SpecialOffersBanner()
+        {
+            var jewels = jewelRepository.GetJewelsByDynamicSQL(new DynamicSQLWhereObject("onbargain = 1"));
+
+
+
+            return View();
+        }
 	    
 	}
 }

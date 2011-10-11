@@ -38,16 +38,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             result.AssertViewRendered().WithViewData<CheckMyOrderStatusViewModel>();
         }
 
-        [Test]
-        public void CheckMyOrderStatus_ShouldRedirectToMyAccountIfTheUserIsLoggedIn()
-        {
-            //Arrange
-            var controller = CreateDefaultMyAccountController();
-            //Act
-            var result = controller.CheckMyOrderStatus();
-            //Assert
-            result.AssertViewRendered().WithViewData<CheckMyOrderStatusViewModel>();
-        }
+       
 
 
 

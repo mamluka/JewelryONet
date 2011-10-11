@@ -45,6 +45,7 @@ namespace JONMVC.Website.Controllers
             this.accountService = accountService;
         }
 
+        [RequireHttps]
         public ActionResult ShoppingCart()
         {
             var shoppingCart = shoppingCartWrapper.Get();
@@ -110,7 +111,7 @@ namespace JONMVC.Website.Controllers
             shoppingCartWrapper.Presist(shoppingCart, HttpContext);
             return RedirectToAction("ShoppingCart");
         }
-
+        [RequireHttps]
         public ActionResult Billing(CheckoutDetailsModel checkoutDetailsModel)
         {
             var builder = new BillingViewModelBuilder(checkoutDetailsModel, authentication,accountService,mapper);
@@ -118,7 +119,7 @@ namespace JONMVC.Website.Controllers
 
             return View(viewModel);
         }
-
+        [RequireHttps]
         public ActionResult ReviewOrder(CheckoutDetailsModel checkoutDetailsModel)
         {
             var shoppingCart = shoppingCartWrapper.Get();
@@ -129,7 +130,7 @@ namespace JONMVC.Website.Controllers
 
             return View(viewModel);
         }
-
+        [RequireHttps]
         public ActionResult OrderConfirmation(CheckoutDetailsModel checkoutDetailsModel)
         {
             var shoppingCart = shoppingCartWrapper.Get();
@@ -187,6 +188,7 @@ namespace JONMVC.Website.Controllers
         }
 
         [Authorize]
+        [RequireHttps]
         public ActionResult OrdersStatus(int orderNumber)
         {
             var builder = new OrderStatusViewModelBuilder(mapper, orderRepository);
