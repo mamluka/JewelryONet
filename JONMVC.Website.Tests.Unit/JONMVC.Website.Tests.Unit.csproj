@@ -152,6 +152,7 @@
     <Compile Include="JewelryItem\FakeTestimonialRepository.cs" />
     <Compile Include="JewelryItem\JewelryItemTestsBase.cs" />
     <Compile Include="JewelryItem\TestimonialRepositoryTests.cs" />
+    <Compile Include="MapperAndFixtureBase.cs" />
     <Compile Include="MyAccount\CookieAuthenticationTests.cs" />
     <Compile Include="MyAccount\DataBaseCustomerAccountServiceTests.cs" />
     <Compile Include="MyAccount\FakeDataBaseCustomerAccountService.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Services\CookieWishListPersistenceTests.cs" />
     <Compile Include="Services\ServicesControllerTests.cs" />
     <Compile Include="Services\WishListViewModelBuilderTests.cs" />
+    <Compile Include="Tabs\SpecialOffersBannervViewModelBuilderTests.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="Helpers\MvcMockHelpers.cs" />
     <Compile Include="JewelDesign\ChooseSettingViewModelBuilderTests.cs" />

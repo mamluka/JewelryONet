@@ -309,6 +309,7 @@
     <Compile Include="ViewModels\Builders\ReviewOrderViewModelBuilder.cs" />
     <Compile Include="ViewModels\Builders\SettingViewModelBuilder.cs" />
     <Compile Include="ViewModels\Builders\ShoppingCartViewModelBuilder.cs" />
+    <Compile Include="ViewModels\Builders\SpecialOffersBannervViewModelBuilder.cs" />
     <Compile Include="ViewModels\Builders\TabsViewModelBuilder.cs" />
     <Compile Include="ViewModels\Builders\MergeDiamondAndJewel.cs" />
     <Compile Include="ViewModels\Json\Builders\DiamondSearchParametersGivenByJson.cs" />
@@ -352,6 +353,7 @@
     <Compile Include="ViewModels\Views\SettingViewModel.cs" />
     <Compile Include="ViewModels\Views\ShoppingCartViewModel.cs" />
     <Compile Include="ViewModels\Views\SigninViewModel.cs" />
+    <Compile Include="ViewModels\Views\SpecialOffersBannervViewModel.cs" />
     <Compile Include="ViewModels\Views\TabsViewModel.cs" />
     <Compile Include="ViewModels\Views\TestimonialViewModel.cs" />
     <Compile Include="ViewModels\Views\WishListItemViewModel.cs" />
@@ -381,6 +383,7 @@
     <Content Include="Content\images\homepage\atoms\sapphire.png" />
     <Content Include="Content\images\homepage\atoms\search.png" />
     <Content Include="Content\images\homepage\banner.png" />
+    <Content Include="Content\images\homepage\banner\title.png" />
     <Content Include="Content\images\item\skeleton\3d-view.png" />
     <Content Include="Content\images\item\skeleton\addtocart.png" />
     <Content Include="Content\images\item\skeleton\email.png" />
@@ -782,6 +785,7 @@
   <ItemGroup>
     <None Include="Content\images\homepage\atoms\block icons.psd" />
     <None Include="Content\images\homepage\atoms\tabs.psd" />
+    <Content Include="Views\Shared\SpecialOffersBanner.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

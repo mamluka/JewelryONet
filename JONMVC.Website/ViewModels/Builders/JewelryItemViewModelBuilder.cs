@@ -96,7 +96,7 @@ namespace JONMVC.Website.ViewModels.Builders
 
             viewModel.RegularPrice = new Money(jewel.RegularPrice, Currency.Usd).Format("{1}{0:#,0}");
 
-            viewModel.YouSave = String.Format("{0:0.00}%", 100 - (jewel.Price / jewel.RegularPrice) * 100);
+            viewModel.YouSave = String.Format("{0:0.##}%", Math.Round(100 - (jewel.Price / jewel.RegularPrice) * 100));
 
             viewModel.isSpecial = jewel.IsSpecial;
 

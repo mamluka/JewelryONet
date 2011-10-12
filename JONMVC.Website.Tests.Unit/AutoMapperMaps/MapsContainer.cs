@@ -384,6 +384,10 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto=> dto.ViewURL,opt=> opt.Ignore())
                 .ForMember(dto => dto.AddURL, opt => opt.Ignore())
                 ;
+
+            Mapper.CreateMap<Jewel, SpecialOffersBannervViewModel>()
+                .ForMember(dto=> dto.Icon,opt=>opt.MapFrom(x=> x.Media.IconURLForWebDisplay))
+                ;
         }
     }
 }

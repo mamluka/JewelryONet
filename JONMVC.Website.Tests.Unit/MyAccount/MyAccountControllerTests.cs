@@ -28,14 +28,31 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         }
 
         [Test]
-        public void CheckMyOrderStatus_ShouldReturnTheRightViewModel()
+        public void CheckMyOrderStatus_ShouldReturnTheRightViewModelIfTheUserIsNotSignedIn()
         {
             //Arrange
-            var controller = CreateDefaultMyAccountController();
+            var authentication = MockRepository.GenerateStub<IAuthentication>();
+            authentication.Stub(x => x.IsSignedIn()).Return(false);
+
+            var controller = CreateDefaultMyAccountControllerWithCustomAuthentication(authentication);
             //Act
             var result = controller.CheckMyOrderStatus();
             //Assert
             result.AssertViewRendered().WithViewData<CheckMyOrderStatusViewModel>();
+        }
+
+        [Test]
+        public void CheckMyOrderStatus_ShouldRedirectToTheMyAccountPageIfTheUserIsSignedIn()
+        {
+            //Arrange
+            var authentication = MockRepository.GenerateStub<IAuthentication>();
+            authentication.Stub(x => x.IsSignedIn()).Return(true);
+
+            var controller = CreateDefaultMyAccountControllerWithCustomAuthentication(authentication);
+            //Act
+            var result = controller.CheckMyOrderStatus();
+            //Assert
+            result.AssertActionRedirect().ToAction("Index");
         }
 
        
@@ -670,6 +687,22 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             var viewModel = controller.Index();
             //Assert
             viewModel.AssertViewRendered().WithViewData<MyAccountViewModel>();
+        }
+
+        [Test]
+        public void Signout_ShouldCallTheAuthenticationSignoutMethod()
+        {
+            //Arrange
+            var authentication = MockRepository.GenerateMock<IAuthentication>();
+            authentication.Expect(x => x.Signout());
+
+            var controller = CreateDefaultMyAccountControllerWithCustomAuthentication(authentication);
+            //Act
+            controller.Signout();
+            //Assert
+
+            authentication.VerifyAllExpectations();
+
         }
 
         private ICustomerAccountService CustomerAccountServiceThatWhenAskedForRegularPasswordBasedValidationReturns(bool returns)

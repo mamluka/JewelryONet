@@ -166,6 +166,19 @@ var JewelDesign = {
         DataFromController: null
 
     },
+    TranslatePriceSliderValuesToRealPrice: function (val) {
+
+        if (val <= 680) {
+            return val * 9.7059 + 400;
+        }
+        else if (val > 680 && val <= 711) {
+            return (val-680) * 3000 + 7000;
+        }
+        else if (val > 711) {
+            return (val-711) * 10000 + 100000;
+        }
+
+    },
     FormatSliderRangeInfo: function (id, handleType, value, prefix) {
 
         var fromSpan = null;
@@ -308,27 +321,27 @@ var JewelDesign = {
 
         $("#SliderPrice").RmzSlider(
                 {
-                    minValue: 400,
-                    maxValue: 20000,
+                    minValue: 0,
+                    maxValue: 801,
                     numHandles: 2,
                     hitMargin: 13,
                     handleWidth: 13,
-                    leftOffset: 1
+                    leftOffset: 1,
+                    step: 1
                 }
             );
 
-        $("#SliderPrice .handle_num_0").trigger("setvalue", { value: 500 });
-        $("#SliderPrice .handle_num_1").trigger("setvalue", { value: 10000 });
-
-        //   $("#SliderPrice").trigger("firechange"); 
+        $("#SliderPrice .handle_num_0").trigger("setvalue", { value: 0 });
+        $("#SliderPrice .handle_num_1").trigger("setvalue", { value: 500 });
 
 
-        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', (500).toFixed(0), '$');
-        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', (10000).toFixed(0), '$');
+        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', (JewelDesign.TranslatePriceSliderValuesToRealPrice(0)).toFixed(0), '$');
+        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', (JewelDesign.TranslatePriceSliderValuesToRealPrice(500)).toFixed(0), '$');
 
         $("#SliderPrice .handle_num_0").bind("dragging", function (event, data) {
 
-            var from = (data.value).toFixed(0);
+
+            var from = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.value).toFixed(0); //(data.value).toFixed(0);
             $('#Price1').val(from);
 
             JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', from, '$');
@@ -338,7 +351,7 @@ var JewelDesign = {
 
         $("#SliderPrice .handle_num_1").bind("dragging", function (event, data) {
 
-            var to = (data.value).toFixed(0);
+            var to = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.value).toFixed(0);
             $('#Price2').val(to);
 
             JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', to, '$');
@@ -347,8 +360,8 @@ var JewelDesign = {
 
         $("#SliderPrice").bind("sliderchanged", function (event, data) {
 
-            var from = (data.handles[0].value).toFixed(0);
-            var to = (data.handles[1].value).toFixed(0);
+            var from = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.handles[0].value).toFixed(0);
+            var to = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.handles[1].value).toFixed(0);
             $('#price2').val(to);
             $('#price1').val(from);
 

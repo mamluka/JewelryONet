@@ -377,6 +377,10 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                 .ForMember(dto => dto.Dimensions, opt => opt.ResolveUsing(new DiamondDimensionsResolver()))
                 ;
 
+            Mapper.CreateMap<Jewel, SpecialOffersBannervViewModel>()
+                .ForMember(dto => dto.Icon, opt => opt.MapFrom(x => x.Media.IconURLForWebDisplay))
+                ;
+
         }
     }
 }

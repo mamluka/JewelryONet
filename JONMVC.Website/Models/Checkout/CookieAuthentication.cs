@@ -79,7 +79,13 @@ namespace JONMVC.Website.Models.Checkout
 
         public void Signout()
         {
-            httpContext.Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
+            var cookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+            if (cookie != null)
+            {
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                httpContext.Response.Cookies.Add(cookie);
+            }
+
         }
     }
 }

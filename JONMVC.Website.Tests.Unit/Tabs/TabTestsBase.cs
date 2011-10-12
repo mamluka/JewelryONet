@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace JONMVC.Website.Tests.Unit.Tabs
 {
-    public class TabTestsBase
+    public class TabTestsBase:MapperAndFixtureBase
     {
         protected const ITabsRepository NOTUSED_TABSREPOSITORY = null;
         protected const IJewelRepository NOTUSED_JEWELRYREPOSITORY = null;

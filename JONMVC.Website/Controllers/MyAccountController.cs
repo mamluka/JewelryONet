@@ -47,7 +47,7 @@ namespace JONMVC.Website.Controllers
         [RequireHttps]
         public ActionResult CheckMyOrderStatus()
         {
-            if (User.Identity.IsAuthenticated)
+            if (authentication.IsSignedIn())
             {
                 return RedirectToAction("Index");
             }
@@ -160,7 +160,12 @@ namespace JONMVC.Website.Controllers
 
         }
 
+        public ActionResult Signout()
+        {
+            authentication.Signout();
 
+            return RedirectToAction("Index", "Home");
+        }
 
         [ExitHttpsIfNotRequired]
         public ActionResult ThankYouForJoining()

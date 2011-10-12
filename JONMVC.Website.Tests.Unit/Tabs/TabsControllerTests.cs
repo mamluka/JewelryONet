@@ -70,20 +70,7 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             resultview.AssertActionRedirect().RouteName.Should().Be("Tabs");
         }
 
-        [Test]
-        public void BestOfferBanner_ShouldCallTheRepositoryWithSearchParamsForBestOfferDeals()
-        {
-            //Arrange
-            var jewelRepostory = MockRepository.GenerateMock<IJewelRepository>();
-            jewelRepostory.Expect(
-                x => x.GetJewelsByDynamicSQL(Arg<DynamicSQLWhereObject>.Matches(a => a.Pattern == "onbargain = 1"))).
-                Repeat.Once();
-            //Act
-            var controller = CreateDefaultTabsControllerWithCustomeJewelRepository(jewelRepostory);
-            //Assert
-            controller.SpecialOffersBanner();
-            jewelRepostory.VerifyAllExpectations();
-        }
+      
 
 
 
@@ -95,21 +82,11 @@ namespace JONMVC.Website.Tests.Unit.Tabs
 
             var fileSystem = FakeFileSystem.MediaFileSystemForItemNumber();
             var pathBarGenerator = MockRepository.GenerateStub<IPathBarGenerator>();
-            var tabsController = new TabsController(tabsRepository, jewelryRepository, fileSystem, fakeXmlSourceFactory,pathBarGenerator);
+            var tabsController = new TabsController(tabsRepository, jewelryRepository, fileSystem, fakeXmlSourceFactory,pathBarGenerator, mapper);
             return tabsController;
         }
 
-        private TabsController CreateDefaultTabsControllerWithCustomeJewelRepository(IJewelRepository jewelRepository)
-        {
-            var tabsRepository = new TabsRepository(fakeXmlSourceFactory);
-           
-
-            var fileSystem = FakeFileSystem.MediaFileSystemForItemNumber();
-            var pathBarGenerator = MockRepository.GenerateStub<IPathBarGenerator>();
-            var tabsController = new TabsController(tabsRepository, jewelRepository, fileSystem, fakeXmlSourceFactory, pathBarGenerator);
-            return tabsController;
-        }
-        
+       
 
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO.Abstractions;
 using System.Text;
 using System.Web.Mvc;
+using AutoMapper;
 using JONMVC.Website.Models.Helpers;
 using JONMVC.Website.Models.Jewelry;
 using JONMVC.Website.Models.Utils;
@@ -52,7 +53,9 @@ namespace JONMVC.Website.Tests.Integration.Tabs
             var jewelryRepository = new JewelRepository(new SettingManager());
             var fileSystem = new FileSystem();
             var pathBarGenerator = MockRepository.GenerateStub<IPathBarGenerator>();
-            TabsController controller = new TabsController(tabsRepository,jewelryRepository,fileSystem,xmlSource,pathBarGenerator);
+            var mapper = MockRepository.GenerateStub<IMappingEngine>();
+
+            TabsController controller = new TabsController(tabsRepository,jewelryRepository,fileSystem,xmlSource,pathBarGenerator, mapper);
 
             var viewModel = MockRepository.GenerateStub<TabsViewModel>();
             viewModel.TabKey = tabKey;
@@ -90,7 +93,9 @@ namespace JONMVC.Website.Tests.Integration.Tabs
             var fileSystem = new FileSystem();
             var pathBarGenerator = MockRepository.GenerateStub<IPathBarGenerator>();
 
-            TabsController controller = new TabsController(tabsRepository, jewelryRepository, fileSystem, xmlSource,pathBarGenerator);
+            var mapper = MockRepository.GenerateStub<IMappingEngine>();
+
+            TabsController controller = new TabsController(tabsRepository, jewelryRepository, fileSystem, xmlSource,pathBarGenerator, mapper);
 
             var viewModel = new TabsViewModel();
             viewModel.TabKey = tabKey;

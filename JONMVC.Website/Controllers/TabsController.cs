@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Xml.Linq;
+using AutoMapper;
 using JONMVC.Website.Models.Helpers;
 using JONMVC.Website.Models.Jewelry;
 using JONMVC.Website.Models.Tabs;
@@ -15,7 +16,7 @@ using JONMVC.Website.ViewModels.Views;
 
 namespace JONMVC.Website.Controllers
 {
-    [ExitHttpsIfNotRequiredAttribute]
+    
 	public class TabsController : Controller
 	{
 		private readonly ITabsRepository tabsRepository;
@@ -23,18 +24,20 @@ namespace JONMVC.Website.Controllers
 		private readonly IFileSystem fileSystem;
 		private readonly IXmlSourceFactory xmlSourceFactory;
 		private readonly IPathBarGenerator pathBarGenerator;
-		//
+        private readonly IMappingEngine mapper;
+        //
 		// GET: /Tabs/
 
-		public TabsController(ITabsRepository tabsRepository,IJewelRepository jewelRepository,IFileSystem fileSystem,IXmlSourceFactory xmlSourceFactory,IPathBarGenerator pathBarGenerator)
+		public TabsController(ITabsRepository tabsRepository, IJewelRepository jewelRepository, IFileSystem fileSystem, IXmlSourceFactory xmlSourceFactory, IPathBarGenerator pathBarGenerator, IMappingEngine mapper)
 		{
 			this.tabsRepository = tabsRepository;
 			this.jewelRepository = jewelRepository;
 			this.fileSystem = fileSystem;
 			this.xmlSourceFactory = xmlSourceFactory;
 			this.pathBarGenerator = pathBarGenerator;
+		    this.mapper = mapper;
 		}
-
+        [ExitHttpsIfNotRequiredAttribute]
 		public ViewResult SearchTabs(TabsViewModel viewModel)
 		{
 			XDocument tabsource = xmlSourceFactory.TabSource();
@@ -47,6 +50,7 @@ namespace JONMVC.Website.Controllers
 			return View("PresentTabs",viewModel);
 		}
 
+        [ExitHttpsIfNotRequiredAttribute]
 		[HttpPost]
 		public ActionResult SearchTabsPost(TabsViewModel viewModel)
 		{
@@ -67,11 +71,10 @@ namespace JONMVC.Website.Controllers
 
         public ActionResult SpecialOffersBanner()
         {
-            var jewels = jewelRepository.GetJewelsByDynamicSQL(new DynamicSQLWhereObject("onbargain = 1"));
+            var builder = new SpecialOffersBannervViewModelBuilder(jewelRepository, mapper);
+            var viewModel = builder.Build();
 
-
-
-            return View();
+            return View(viewModel);
         }
 	    
 	}

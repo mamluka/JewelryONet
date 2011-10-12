@@ -902,6 +902,8 @@ ul.steps li.title {
 }
 ul.steps li {
 	opacity:0.4;
+    font-size: 1em;
+    width: 140px;
 }
 ul.steps li.active {
 	opacity:1;
@@ -913,11 +915,12 @@ ul.steps li.first {
 }
 ul.steps li.second {
 	background-position:0px -20px;
+    width: 105px;
 	
 }
 ul.steps li.third {
 	background-position:0px -40px;
-	width:170px;
+
 	
 }
 

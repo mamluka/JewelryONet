@@ -157,7 +157,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             cookieAuth.Signout();
             //Assert
             fakeHttpContext.Response.Cookies[FormsAuthentication.FormsCookieName].Should().BeNull();
-
+            fakeHttpContext.Request.Cookies[FormsAuthentication.FormsCookieName].Should().BeNull();
             
 
         }
