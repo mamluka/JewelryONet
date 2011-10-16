@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿@using MvcContrib.FluentHtml;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     @Html.Partial("HeadersForLayout")
-
     @if (IsSectionDefined("FacebookHeaderTabs"))
     {
         @RenderSection("FacebookHeaderTabs")
@@ -72,13 +72,12 @@
                                                                   {"tabkey", "3d-gallery"},
 																		 {"tabid", "gallery"},
                                                               })</li>
-                                            <li>@Html.ActionLink("Learn About Diamonds", "Index", "Education")</li>
                                             <li class="last">@Html.ActionLink("FAQ", "FAQ", "Services")</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                          @{ Html.RenderAction("SpecialOffersBanner", "Tabs"); }
+                            @{ Html.RenderAction("SpecialOffersBanner", "Tabs"); }
                             <div class="table menucontainer top5">
                                 <div class="row">
                                     <div class="cell">
@@ -117,18 +116,14 @@
                                                                  {"tabkey", "special-offers-items"},
 																		 {"tabid", "special-offers"},
                                                              })</li>
-                                            <li>@Html.ActionLink("Gift Ideas", "GiftIdeas", "Departments")</li>
                                             <li style="margin-top: 50px;"></li>
                                             <li class="bold">@Html.ActionLink("VIP Club", "Club", "VIP")</li>
-                                            @*                                            <li class="bold">@Html.ActionLink("New Items", "NewItems", "Tabs")</li>*@
                                             <li class="bold">@Html.RouteLink("Best Offer Deals", "BestOffer", new RouteValueDictionary()
                                                             {
                                                                 {"tabkey" , "best-offer-items"},
                                                                  {"tabid" , "offers"}
                                                                 
                                                             })</li>
-                                            <li class="bold">@Html.ActionLink("Affiliate Program", "Affiliate", "Services")</li>
-                                            @*                                            <li class="bold hide">@Html.ActionLink("Site Map", "S")</li>*@
                                         </ul>
                                     </div>
                                 </div>
@@ -138,11 +133,20 @@
                                     Special Offers</h1>
                                 <h2 class="block explanation bold ">
                                     Sign up today and receive special offers and gift ideas</h2>
-                                @using (Html.BeginForm())
-                                {
-                                    @Html.TextBox("email", "Enter your email")
-                                    <input type="submit" class="smallbutton top5" value="Sign up" alt="Sign up today" />
-                                }
+                                <form method="post" class="af-form-wrapper" action="http://www.aweber.com/scripts/addlead.pl" target="_blank">
+                                <input type="hidden" name="meta_web_form_id" value="835977868" />
+                                <input type="hidden" name="meta_split_id" value="" />
+                                <input type="hidden" name="listname" value="jewelryonet" />
+                                <input type="hidden" name="redirect" value="http://www.aweber.com/thankyou-coi.htm?m=video"
+                                    id="redirect_1a50109bb3751b899fd5e7d6982c1eda" />
+                                <input type="hidden" name="meta_adtracking" value="JewelryONet" />
+                                <input type="hidden" name="meta_message" value="1" />
+                                <input type="hidden" name="meta_required" value="name,email" />
+                                <input type="hidden" name="meta_tooltip" value="" />
+                                @this.TextBox("name").Label("Name:").Placeholder("Enter your name")
+                                @this.TextBox("email").Label("Email:").Placeholder("Enter your Email");
+                                <input type="submit" class="smallbutton top5" value="Sign up" alt="Sign up today" />
+                                </form>
                             </div>
                             <div id="Hours" class="top20">
                                 <h2 class="block bold">
@@ -199,6 +203,6 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
-</script>
+    </script>
 </body>
 </html>
