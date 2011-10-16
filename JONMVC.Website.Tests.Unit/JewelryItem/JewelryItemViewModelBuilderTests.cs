@@ -226,7 +226,7 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
         {
             //Arrange
             var builder = JewelryItemViewModelBuilderFactoryMethodWithJewelID(Tests.FAKE_JEWELRY_WITH_ALL_NON_DEFAULT_BEHAVIER);
-            var precent = String.Format("{0:0.00}%", 100 - (8000 / 9999.99) * 100);
+            var precent = Tests.AsDecimalPrecentRounded((decimal) Math.Round(100 - (8000 / 9999.99) * 100));
             //Act
             var viewModel = builder.Build();
             //Assert

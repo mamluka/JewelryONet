@@ -68,7 +68,7 @@ namespace JONMVC.Website.Tests.Unit.Checkout
             var items = builder.Build(shoppingCart.Items);
             //Assert
             var item = items[0] as DiamondCartItemViewModel;
-            item.Desciption.Should().Be("A 1.25 Ct. Round H/VS1 Diamond");
+            item.Desciption.Should().Be("A GIA Certified 1.25 Ct. Round H/VS1 Diamond");
 
         }
 

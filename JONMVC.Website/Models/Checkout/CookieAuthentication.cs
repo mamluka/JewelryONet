@@ -29,8 +29,10 @@ namespace JONMVC.Website.Models.Checkout
                 ); //since Classic logins don't have a "Friendly Name".  OpenID logins are handled in the AuthController.
 
             string encTicket = FormsAuthentication.Encrypt(authTicket);
-            httpContext.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
-            httpContext.Request.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+
+            httpContext.Response.Cookies.Add(cookie);
+            httpContext.Request.Cookies.Add(cookie);
         }
 
         public bool IsSignedIn()
@@ -79,7 +81,7 @@ namespace JONMVC.Website.Models.Checkout
 
         public void Signout()
         {
-            var cookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+            var cookie = httpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
             if (cookie != null)
             {
                 cookie.Expires = DateTime.Now.AddDays(-1);

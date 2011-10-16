@@ -41,7 +41,7 @@ namespace JONMVC.Website
                         page = 1,
                         MetalFilter = JewelMediaType.WhiteGold,
                         OrderByPrice = OrderByPrice.LowToHigh,
-                        itemsperpage = "20"
+                        itemsperpage = "21"
                     } // Parameter defaults
                 ,
                 new
@@ -89,7 +89,7 @@ namespace JONMVC.Website
                         page = 1,
                         MetalFilter = JewelMediaType.WhiteGold,
                         OrderByPrice = OrderByPrice.LowToHigh,
-                        itemsperpage = 20
+                        itemsperpage = 21
                     } // Parameter defaults
                     ,
                 new
@@ -111,7 +111,7 @@ namespace JONMVC.Website
                         page = 1,
                         MetalFilter = JewelMediaType.WhiteGold,
                         OrderByPrice = OrderByPrice.LowToHigh,
-                        itemsperpage = 20
+                        itemsperpage = 21
                     } // Parameter defaults
                 ,
                 new
@@ -171,7 +171,7 @@ namespace JONMVC.Website
                         page = 1,
                         MetalFilter = "1",
                         OrderByPrice = "1",
-                        itemsperpage = "20",
+                        itemsperpage = "21",
                         DiamondID=0,
                         SettingID = 0,
                         Size = "7",

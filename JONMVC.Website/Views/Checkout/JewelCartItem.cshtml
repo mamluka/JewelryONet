@@ -23,7 +23,7 @@
             </div>
             <span class="top10">@ViewModel.Desciption</span>
             @this.Select(x => x.JewelSize).Options(new SelectList(SelectSourceFactory.RingSizes, "Key", "Value")).Class("jewelsize").Attr("cartid", Model.CartID)
-            <span class="block">@Html.ActionLink("Find Your Ring Size", "FindYourRingSize", "JewelryItem")</span>
+            <span class="block"><a href="@Url.Action("FindYourRingSize", "JewelryItem")" title="Find my ring size" class="find-ring-size">Find my ring size</a></span>
         </div>
     </div>
 </div>

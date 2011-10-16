@@ -37,7 +37,7 @@
                                      <div class="cell sizelabel">Size:</div>
                                      <div class="cell size">
                                          @this.Select("size").Options(new SelectList(SelectSourceFactory.RingSizes,"Key","Value")).Class("jewelsize")
-                                         <span class="block">@Html.ActionLink("Find Your Ring Size","FindYourRingSize","JewelryItem")</span>
+                                         <span class="block"><a href="@Url.Action("FindYourRingSize", "JewelryItem")" title="Find my ring size" class="find-ring-size">Find my ring size</a></span>
                                      </div>
                                      <div class="cell price alignright">
                                          <div class="block price right" >

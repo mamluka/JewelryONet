@@ -9,7 +9,7 @@ namespace JONMVC.Website.Models.AutoMapperMaps
 
         protected override string ResolveCore(v_jd_diamonds source)
         {
-            return "A " + source.weight.ToString() + " Ct. " + source.shape + " " + source.color + "/" + source.clarity + " Diamond";
+            return "A " + source.report + " Certified " + source.weight.ToString() + " Ct. " + source.shape + " " + source.color + "/" + source.clarity + " Diamond";
         }
     }
 }

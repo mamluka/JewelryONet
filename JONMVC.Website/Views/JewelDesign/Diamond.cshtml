@@ -11,7 +11,9 @@
 <div class="table" id="ItemBlock">
     <div class="row">
         <div class="cell media">
-            @Html.prettyPhotoSingleImage(Model.MainDiamondPicture)
+        <img src="@Model.MainDiamondPicture.Thumb"></img>
+           
+
         </div>
         <div class="cell info">
             <div class="table width100">
@@ -25,24 +27,7 @@
                 </div>
                 <div class="row">
                     <div class="cell buy-menu">
-                        <img src="/Content/images/jeweldesign/diamond/select-this-diamond.png" />
-                        <input type="hidden" value="@Model.DiamondID " name="itemid" />
-                        <ul class="actions" style="display: none">
-                            @if (Model.JewelPersistence.SettingID > 0)
-                            {
-                                <li>@Html.RouteLink("and order", "End", new RouteValueDictionary()
-                                                                                               {
-                                                                                                   {"DiamondID", Model.JewelPersistence.DiamondID},
-                                                                                                   {"SettingID", Model.JewelPersistence.SettingID},
-                                                                                                   {"Size", Model.JewelPersistence.Size},
-                                                                                                   {"MediaType", Model.JewelPersistence.MediaType}
-                                                                                               })</li>
-                            }
-                            else
-                            {
-
-
-                                <li>@Html.RouteLink("and Choose a Setting", "ChooseSetting", new RouteValueDictionary()
+                    <a href="@Url.RouteUrl("ChooseSetting", new RouteValueDictionary()
                                                                                                {
                                                                                                    {"DiamondID", Model.JewelPersistence.DiamondID},
                                                                                                    {"SettingID", Model.JewelPersistence.SettingID},
@@ -55,11 +40,9 @@
                                                                                                    {"MetalFilter", "1"},
                                                                                                    {"OrderByPrice", "1"},
                                                                                                    {"itemsperpage", "20"}
-                                                                                               })</li>
-                            }
-                            <li>@Html.ActionLink("Buy this diamond", "ShoppingCartAddDiamond", "Checkout", new { diamondid = Model.DiamondID }, null)
-                            </li>
-                        </ul>
+                                                                                               })">
+                        <img src="/Content/images/jeweldesign/diamond/select-this-diamond.png" /></a>
+                        <input type="hidden" value="@Model.DiamondID " name="itemid" />
                     </div>
                 </div>
             </div>
@@ -167,10 +150,10 @@
                 <div class="block price">
                     <span class="inline">Price: </span><span class="inline">@Model.Price</span>
                 </div>
-                <div class="block story justify">
+                <div class="block top5 justify">
                     This @Model.Color color, @Model.Clarity
                     clarity diamond has @Model.Cut proportions, a diamond grading report from @Model.Report
-                    and a full 14 Day inspection period.
+                    and a full 30 Day inspection period.
                 </div>
             </div>
             <div class="cell rightspecs">
@@ -217,15 +200,7 @@
     $(document).ready(function () {
 
         $(function () {
-
-
-
-
-
             $("a[rel^='prettyPhoto']").prettyPhoto();
-
-            JewelDesign.RegisterJewelDesignPagesDropDownMenu();
-
         });
     });
 

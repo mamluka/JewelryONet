@@ -378,8 +378,8 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                 ;
 
             Mapper.CreateMap<Jewel, SpecialOffersBannervViewModel>()
-                .ForMember(dto => dto.Icon, opt => opt.MapFrom(x => x.Media.IconURLForWebDisplay))
-                ;
+                 .ForMember(dto => dto.Icon, opt => opt.MapFrom(x => x.Media.HiResURLForWebDisplay))
+                 ;
 
         }
     }

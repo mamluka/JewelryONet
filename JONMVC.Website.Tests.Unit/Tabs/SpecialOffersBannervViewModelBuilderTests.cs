@@ -42,7 +42,7 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             //Act
             var viewModel = builder.Build();
             //Assert
-            viewModel.Icon.Should().Be(jewel.Media.IconURLForWebDisplay);
+            viewModel.Icon.Should().Be(jewel.Media.HiResURLForWebDisplay);
             viewModel.ID.Should().Be(jewel.ID.ToString());
 
         }

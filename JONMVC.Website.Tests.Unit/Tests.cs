@@ -44,6 +44,11 @@ namespace JONMVC.Website.Tests.Unit
             return String.Format("{0:0.00}%",value);
         }
 
+        public static string AsDecimalPrecentRounded(decimal value)
+        {
+            return String.Format("{0:0.##}%", value);
+        }
+
         public static string AsDecimal(decimal value)
         {
             return String.Format("{0:0.00}", value);

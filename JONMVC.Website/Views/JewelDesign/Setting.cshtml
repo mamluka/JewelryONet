@@ -47,7 +47,7 @@
                                 data-font="tahoma">
                             </div>
                         Choose your ring size: @this.Select("size").Options(new SelectList(SelectSourceFactory.RingSizes, "Key", "Value")).Selected(String.IsNullOrWhiteSpace(Model.JewelPersistence.Size) ? "7" : Model.JewelPersistence.Size).Class("jewelsize")
-                        <span class="block">@Html.ActionLink("Find Your Ring Size", "FindYourRingSize", "JewelryItem", null, new { target = "_blank" })
+                        <span class="block"><a href="@Url.Action("FindYourRingSize", "JewelryItem")" title="Find my ring size" class="find-ring-size">Find my ring size</a>
                         </span>
                     </div>
                 </div>
@@ -80,15 +80,15 @@
                                 <li>
                                     @if (Model.JewelPersistence.DiamondID > 0)
                                     {
-                                        <a href="#!" command="end" >Choose this setting and order</a> 
+                                        <a href="#!" command="end" >Choose this Setting and Order</a> 
                                         
                                     }
                                     else
                                     {
-                                       <a href="#!" command="choose-diamond" >and Choose a Diamond</a>
+                                       <a href="#!" command="choose-diamond" >And Choose a Diamond</a>
                                     }
                                 </li>
-                                <li><a href="#!" command="buy-setting" >Buy this Setting</a>
+                                <li><a href="#!" command="buy-setting" >Buy this Setting without a Center Diamond</a>
                                 </li>
                             </ul>
                         </div>
@@ -156,7 +156,7 @@
                             Round:
                         </td>
                         <td align="center">
-                            0.30 - 4.00
+                            0.25 - 4.00
                         </td>
                     </tr>
                     <tr class="info">
@@ -164,7 +164,7 @@
                             Pricess:
                         </td>
                         <td align="center">
-                            0.30 - 4.00
+                            0.25 - 4.00
                         </td>
                     </tr>
                     <tr class="info">
@@ -172,7 +172,7 @@
                             Asscher:
                         </td>
                         <td align="center">
-                            0.30 - 4.00
+                            0.25 - 4.00
                         </td>
                     </tr>
                     <tr class="info">
@@ -180,7 +180,7 @@
                             Emerald:
                         </td>
                         <td align="center">
-                            0.30 - 4.00
+                            0.25 - 4.00
                         </td>
                     </tr>
                     <tr class="info">
@@ -188,7 +188,7 @@
                             Oval:
                         </td>
                         <td align="center">
-                            0.30 - 4.00
+                            0.25 - 4.00
                         </td>
                     </tr>
                     <tr class="info">
@@ -196,7 +196,7 @@
                             Heart:
                         </td>
                         <td align="center">
-                            0.30 - 4.00
+                            0.25 - 4.00
                         </td>
                     </tr>
                     <tr class="info">
@@ -204,7 +204,7 @@
                             Marquise:
                         </td>
                         <td align="center">
-                            0.30 - 4.00
+                            0.25 - 4.00
                         </td>
                     </tr>
                     <tr class="info">
@@ -212,7 +212,7 @@
                             Radiant:
                         </td>
                         <td align="center">
-                            0.30 - 4.00
+                            0.25 - 4.00
                         </td>
                     </tr>
                     <tr class="info">
@@ -220,7 +220,7 @@
                             Pear:
                         </td>
                         <td align="center">
-                            0.30 - 4.00
+                            0.25 - 4.00
                         </td>
                     </tr>
                 </table>

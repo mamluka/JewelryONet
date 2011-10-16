@@ -129,7 +129,7 @@ namespace JONMVC.Website.Controllers
             return RedirectToAction("Wishlist", "Services");
         }
 
-
+        [RetainHttps]
         public ActionResult FindYourRingSize()
         {
             return View(new EmptyViewModel());

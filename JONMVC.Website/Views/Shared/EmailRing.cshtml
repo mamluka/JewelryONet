@@ -1,6 +1,6 @@
 ﻿@using MvcContrib.FluentHtml
 @model string
-<div class="emailring">
+<div class="emailring" id="EmailRing" style="width: 380px">
     <h2>
         Email this ring to a friend
     </h2>
@@ -13,7 +13,7 @@
                     <label for="FriendName">
                         Friends Name:</label></dt>
                 <dd>
-                    <input type="text" name="FriendName" data-val-required="" data-val="true" class="left" /><span
+                    <input type="text" name="FriendName" data-val-required="*" data-val="true" class="left" /><span
                         class="field-validation-valid left" data-valmsg-for="FriendName" data-valmsg-replace="false"></span></dd>
             </dl>
             <dl>
@@ -59,5 +59,8 @@
             </dl>
         </fieldset>
         @this.Hidden("ID").Value(Model)
+
     }
+
+
 </div>

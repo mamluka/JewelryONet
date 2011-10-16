@@ -48,7 +48,7 @@
                                 data-font="tahoma">
                             </div>
                             Choose your ring size: @this.Select("size").Options(new SelectList(SelectSourceFactory.RingSizes, "Key", "Value")).Selected("7").Id("RingSize")
-                            <span class="block">@Html.ActionLink("Find Your Ring Size", "FindYourRingSize", "JewelryItem")</span>
+                            <span class="block"><a href="@Url.Action("FindYourRingSize", "JewelryItem")" title="Find my ring size" class="find-ring-size" >Find my ring size</a>  </span>
                         </div>
                     </div>
                     <div class="row">
@@ -95,7 +95,8 @@
         <div class="cell operations">
             <div class="left">
                 <img src="/Content/images/item/skeleton/email.png" />
-                <a href="#!" command="emailring">E-mail</a>
+@*                <a href="#!" command="emailring">E-mail</a>*@
+                <a href="#EmailRing" command="emailring" class="boxy" title="Email this ring">E-mail</a>
             </div>
             <div class="left">
                 <img src="/Content/images/item/skeleton/print.png" />
@@ -177,6 +178,7 @@
 @section FacebookHeaderTabs {
     @Html.Partial("FacebookHeaders",Model)
 }
+
 <script type="text/javascript">
 		$(document).ready(function () {
 

@@ -497,10 +497,15 @@
     <Content Include="Content\images\validation\ValidationError.png" />
     <Content Include="Content\main.css" />
     <Content Include="Content\Pager.css" />
+    <Content Include="Content\plugins\boxy.css" />
     <Content Include="Content\plugins\ellipsis-xbl.xml" />
     <Content Include="Content\plugins\images\backgrounds\bodyBackground.jpg" />
     <Content Include="Content\plugins\images\backgrounds\checkmark.gif" />
     <Content Include="Content\plugins\images\blank.gif" />
+    <Content Include="Content\plugins\images\boxy\boxy-ne.png" />
+    <Content Include="Content\plugins\images\boxy\boxy-nw.png" />
+    <Content Include="Content\plugins\images\boxy\boxy-se.png" />
+    <Content Include="Content\plugins\images\boxy\boxy-sw.png" />
     <Content Include="Content\plugins\images\close.gif" />
     <Content Include="Content\plugins\images\fullscreen\1.jpg" />
     <Content Include="Content\plugins\images\fullscreen\2.jpg" />
@@ -648,6 +653,7 @@
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.16.js" />
     <Content Include="Scripts\jquery-ui-1.8.16.min.js" />
+    <Content Include="Scripts\jquery.boxy.js" />
     <Content Include="Scripts\jquery.center.min.js" />
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.hoverIntent.minified.js" />

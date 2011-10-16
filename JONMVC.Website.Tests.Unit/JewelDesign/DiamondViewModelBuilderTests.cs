@@ -40,7 +40,7 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
             //Act
             var viewModel = builder.Build();
             //Assert
-            viewModel.Description.Should().Be("A 1.25 Ct. Round H/VS1 Diamond");
+            viewModel.Description.Should().Be("A GIA Certified 1.25 Ct. Round H/VS1 Diamond");
 
         }
 
