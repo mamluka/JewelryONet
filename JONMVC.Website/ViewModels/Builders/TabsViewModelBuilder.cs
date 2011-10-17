@@ -440,11 +440,11 @@ namespace JONMVC.Website.ViewModels.Builders
             }
         }
 
-        public JewelryDynamicOrderBy DynamicOrderBy()
+        public DynamicOrderBy DynamicOrderBy()
         {
             var field = CustomAttributes.Get<OrderByField>(orderByPrice);
             var direction = CustomAttributes.Get<OrderByDirection>(orderByPrice);
-            return new JewelryDynamicOrderBy(field,direction);
+            return new DynamicOrderBy(field,direction);
         }
 
         public static List<KeyValuePair<string, string>> GetKeyValue()

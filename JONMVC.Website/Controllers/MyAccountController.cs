@@ -100,7 +100,7 @@ namespace JONMVC.Website.Controllers
             if (returnStatus == MembershipCreateStatus.Success)
             {
                 var customerData = mapper.Map<RegisterCustomerViewModel, Customer>(model);
-
+                mailer.NewCustomer(customer).Send();
                 authentication.Signin(customer.Email, customerData);
                 return RedirectToAction("ThankYouForJoining");
             }

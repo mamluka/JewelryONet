@@ -8,7 +8,7 @@ namespace JONMVC.Website.Models.Jewelry
         int CurrentPage { get; }
         int TotalItems { get; }
         List<Jewel> GetJewelsByDynamicSQL(DynamicSQLWhereObject dynamicSQL);
-        void OrderJewelryItemsBy(JewelryDynamicOrderBy orderBy);
+        void OrderJewelryItemsBy(DynamicOrderBy orderBy);
         void FilterJewelryBy(DynamicSQLWhereObject dynamicFilter);
         void ItemsPerPage(int itemsperpage);
         void Page(int currentpage);

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Web.Mvc;
 using JONMVC.Website.Models.JewelDesign;
 using JONMVC.Website.Models.Jewelry;
@@ -14,7 +15,9 @@ namespace JONMVC.Website.ViewModels.Views
         
         public string TabKey { get; set; }
         public string TabId { get; set; }
+        [DisplayName("Metal Type:")]
         public JewelMediaType MetalFilter { get; set; }
+        [DisplayName("Sort by Price:")]
         public OrderByPrice OrderByPrice { get; set; }
         public string Title { get; set; }
         public string ShortTitle { get; set; }

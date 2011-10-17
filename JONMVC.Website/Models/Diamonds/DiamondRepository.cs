@@ -78,8 +78,13 @@ namespace JONMVC.Website.Models.Diamonds
                     lastOporationTotalPages = TotalRecords / mappedSearchParameters.ItemsPerPage + 1;
                 }
 
+                if (mappedSearchParameters.OrderBy != null)
+                {
+                    dbdiamonds = dbdiamonds.OrderBy(mappedSearchParameters.OrderBy.SQLString);
+                }
+
             
-            var dbdiamondslist = dbdiamonds.OrderBy(s=> s.inventory_code).Skip((mappedSearchParameters.Page - 1) * mappedSearchParameters.ItemsPerPage).Take(mappedSearchParameters.ItemsPerPage).ToList();
+            var dbdiamondslist = dbdiamonds.Skip((mappedSearchParameters.Page - 1) * mappedSearchParameters.ItemsPerPage).Take(mappedSearchParameters.ItemsPerPage).ToList();
 
             var diamonds = mapper.Map<IList<v_jd_diamonds>, List<Diamond>>(dbdiamondslist);
 

@@ -4,5 +4,7 @@ namespace JONMVC.Website.ViewModels.Views
     {
         public string Icon { get; set; }
         public string ID { get; set; }
+
+        public string Title { get; set; }
     }
 }

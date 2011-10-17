@@ -306,6 +306,29 @@ namespace JONMVC.Website.Tests.Unit.Checkout
         }
 
         [Test]
+        public void Build_ShouldReturnTheRightJewelType()
+        {
+            //Arrange
+            var shoppingCart = MockRepository.GenerateStub<IShoppingCart>();
+            shoppingCart.Stub(x => x.Items).Return(new List<ICartItem>()
+                                                       {
+                                                           FakeJewelCartItem(
+                                                               Tests.FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID, Tests.SAMPLE_JEWEL_SIZE_725,
+                                                               JewelMediaType.YellowGold,
+                                                               Tests.NUMBER_HAS_NO_MEANING_IN_THIS_CONTEXT)
+                                                       });
+
+
+            var builder = CartItemViewModelBuilderWithJewelCartItem();
+            //Act
+            var items = builder.Build(shoppingCart.Items);
+            //Assert
+            var item = items[0] as JewelCartItemViewModel;
+            item.Type.Should().Be(JewelType.Ring);
+
+        }
+
+        [Test]
         public void Build_ShouldReturnTheRightDiamondIDForTheCustomJewelItem()
         {
             //Arrange

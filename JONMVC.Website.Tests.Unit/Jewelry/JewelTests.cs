@@ -3,11 +3,12 @@ using JONMVC.Website.Models.Utils;
 using JONMVC.Website.Tests.Unit.Items;
 using NUnit.Framework;
 using FluentAssertions;
+using Ploeh.AutoFixture;
 
 namespace JONMVC.Website.Tests.Unit.Jewelry
 {
     [TestFixture]
-    public class JewelTests
+    public class JewelTests:MapperAndFixtureBase
     {
         private ItemInitializerParameterObject itemInitializerParameterObject;
 
@@ -62,11 +63,11 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
             var jewel = new Jewel(itemInitializerParameterObject, null, null, null, JewelMediaType.WhiteGold);
 
             //Assert
-            jewel.Category.Should().Be("category");
-            jewel.CategoryID.Should().Be(2);
+            jewel.JewelCategory.Should().Be("category");
+            jewel.JewelCategoryID.Should().Be(2);
 
-            jewel.SubCategory.Should().Be("subcategory");
-            jewel.SubCategoryID.Should().Be(7);
+            jewel.JewelSubCategory.Should().Be("subcategory");
+            jewel.JewelSubCategoryID.Should().Be(7);
 
 
 
@@ -131,6 +132,98 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
 
 
         }
+
+        [Test]
+        public void Constructor_ShouldRenderJewelTypeAsRingForCategory2()
+        {
+            //Arrange
+            var initObj = fixture.Build<ItemInitializerParameterObject>().With(x => x.JewelryCategoryID, 2).CreateAnonymous();
+            //Act
+            var jewel = new Jewel(initObj, null, null, null, JewelMediaType.WhiteGold);
+
+            //Assert
+            jewel.Type.Should().Be(JewelType.Ring);
+
+        }
+
+        [Test]
+        public void Constructor_ShouldRenderJewelTypeAsRingForCategory3()
+        {
+            //Arrange
+            var initObj = fixture.Build<ItemInitializerParameterObject>().With(x => x.JewelryCategoryID, 3).CreateAnonymous();
+            //Act
+            var jewel = new Jewel(initObj, null, null, null, JewelMediaType.WhiteGold);
+
+            //Assert
+            jewel.Type.Should().Be(JewelType.Earring);
+
+        }
+
+        [Test]
+        public void Constructor_ShouldRenderJewelTypeAsRingForCategory4()
+        {
+            //Arrange
+            var initObj = fixture.Build<ItemInitializerParameterObject>().With(x => x.JewelryCategoryID, 4).CreateAnonymous();
+            //Act
+            var jewel = new Jewel(initObj, null, null, null, JewelMediaType.WhiteGold);
+
+            //Assert
+            jewel.Type.Should().Be(JewelType.Necklace);
+
+        }
+
+        [Test]
+        public void Constructor_ShouldRenderJewelTypeAsRingForCategory6()
+        {
+            //Arrange
+            var initObj = fixture.Build<ItemInitializerParameterObject>().With(x => x.JewelryCategoryID, 6).CreateAnonymous();
+            //Act
+            var jewel = new Jewel(initObj, null, null, null, JewelMediaType.WhiteGold);
+
+            //Assert
+            jewel.Type.Should().Be(JewelType.Pendant);
+
+        }
+
+        [Test]
+        public void Constructor_ShouldRenderJewelTypeAsRingForCategory8()
+        {
+            //Arrange
+            var initObj = fixture.Build<ItemInitializerParameterObject>().With(x => x.JewelryCategoryID, 8).CreateAnonymous();
+            //Act
+            var jewel = new Jewel(initObj, null, null, null, JewelMediaType.WhiteGold);
+
+            //Assert
+            jewel.Type.Should().Be(JewelType.Bracelet);
+
+        }
+
+        [Test]
+        public void Constructor_ShouldRenderJewelTypeAsRingForCategory10()
+        {
+            //Arrange
+            var initObj = fixture.Build<ItemInitializerParameterObject>().With(x => x.JewelryCategoryID, 10).CreateAnonymous();
+            //Act
+            var jewel = new Jewel(initObj, null, null, null, JewelMediaType.WhiteGold);
+
+            //Assert
+            jewel.Type.Should().Be(JewelType.SemiMounting);
+
+        }
+
+        [Test]
+        public void Constructor_ShouldRenderJewelTypeAsRingForCategory11()
+        {
+            //Arrange
+            var initObj = fixture.Build<ItemInitializerParameterObject>().With(x => x.JewelryCategoryID, 11).CreateAnonymous();
+            //Act
+            var jewel = new Jewel(initObj, null, null, null, JewelMediaType.WhiteGold);
+
+            //Assert
+            jewel.Type.Should().Be(JewelType.Stud);
+
+        }
+
 
 
 

@@ -112,6 +112,20 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
 
         }
 
+        [Test]
+        public void GetItemByID_ShouldReturnTheFreeColorAndClarityWhenJewelIsGemstone()
+        {
+            //Arrange
+            var jewelRepository = new FakeJewelRepository(new FakeSettingManager());
+
+            //Act
+            var jewel = jewelRepository.GetJewelByID(Tests.FAKE_GEMSTONE_JEWELRY);
+
+            //Assert
+            jewel.JewelryExtra.CS.Color.Should().Be("CSFreeColor");
+            jewel.JewelryExtra.CS.Clarity.Should().Be("CSFreeClarity");
+
+        }
 
 
     }

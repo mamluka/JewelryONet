@@ -23,5 +23,22 @@ namespace JONMVC.Website.Models.Diamonds
         public string Cut { get; set; }
         public string ReportNumber { get; set; }
         public string Description { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (DiamondID == ((Diamond)obj).DiamondID)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        public override int GetHashCode()
+        {
+            return DiamondID.GetHashCode();
+        }
     }
+
+   
 }

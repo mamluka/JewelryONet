@@ -6,10 +6,11 @@ namespace JONMVC.Website.Models.Jewelry
     {
        
         public int ID { get; set; }
-        public string Category { get; set; }
-        public string SubCategory { get; set; }
-        public int CategoryID { get; set; }
-        public int SubCategoryID { get; set; }
+        public string JewelCategory { get; set; }
+        public string JewelSubCategory { get; set; }
+        public int JewelCategoryID { get; set; }
+        public int JewelSubCategoryID { get; set; }
+
         public Media Media { get; private set; }
         public JewelMediaType MediaSetsOwnedByJewel { get; private set; }
         public JewelryExtra JewelryExtra { get; private set; }
@@ -34,6 +35,11 @@ namespace JONMVC.Website.Models.Jewelry
 
         public decimal RegularPrice { get; internal set; }
 
+        public JewelType Type
+        {
+            get { return GetJewelType(); }
+        }
+
         #region Public
 
 
@@ -42,10 +48,11 @@ namespace JONMVC.Website.Models.Jewelry
             Media = media;
             ID = itemInitializerParameterObject.ID;
 
-            Category = itemInitializerParameterObject.JewelryCategory;
-            SubCategory = itemInitializerParameterObject.JewelrySubCategory;
-            CategoryID = itemInitializerParameterObject.JewelryCategoryID;
-            SubCategoryID = itemInitializerParameterObject.JewelrySubCategoryID;
+            JewelCategory = itemInitializerParameterObject.JewelryCategory;
+            JewelSubCategory = itemInitializerParameterObject.JewelrySubCategory;
+            JewelCategoryID = itemInitializerParameterObject.JewelryCategoryID;
+            JewelSubCategoryID = itemInitializerParameterObject.JewelrySubCategoryID;
+            
 
             ItemNumber = itemInitializerParameterObject.ItemNumber;
 
@@ -77,6 +84,30 @@ namespace JONMVC.Website.Models.Jewelry
             return Metal.GetFullName();
         }
 
+       private JewelType GetJewelType()
+       {
+           switch (JewelCategoryID)
+           {
+               case 2:
+                   return JewelType.Ring;
+               case 3:
+                   return JewelType.Earring;
+               case 4:
+                   return JewelType.Necklace;
+               case 6:
+                   return JewelType.Pendant;
+               case 8:
+                   return JewelType.Bracelet;
+               case 10:
+                   return JewelType.SemiMounting;
+               case 11:
+                   return JewelType.Stud;
+               default :
+                   return JewelType.Other;
+           }
+
+       }
+
 
         public override bool Equals(object obj)
         {
@@ -87,7 +118,7 @@ namespace JONMVC.Website.Models.Jewelry
                 return false;
             }
 
-            if (!(Category == jewel2.Category && SubCategory == jewel2.SubCategory && CategoryID == jewel2.CategoryID && SubCategoryID == jewel2.SubCategoryID))
+            if (!(JewelCategory == jewel2.JewelCategory && JewelSubCategory == jewel2.JewelSubCategory && JewelCategoryID == jewel2.JewelCategoryID && JewelSubCategoryID == jewel2.JewelSubCategoryID))
             {
                 return false;
             }

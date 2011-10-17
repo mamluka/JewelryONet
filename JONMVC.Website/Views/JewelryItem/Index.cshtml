@@ -36,7 +36,7 @@
             {
                 <div class="table">
                     <div class="row">
-                        <div class="cell item-description justify">
+                        <div class="cell item-description">
                             @Model.Title
                         </div>
                     </div>
@@ -45,10 +45,10 @@
                             <div id="fb-root">
                             </div>
                             <div class="fb-like" data-send="false" data-width="350" data-show-faces="false" data-action="recommend"
-                                data-font="tahoma">
+                                data-font="tahoma" style="min-height: 35px">
                             </div>
-                            Choose your ring size: @this.Select("size").Options(new SelectList(SelectSourceFactory.RingSizes, "Key", "Value")).Selected("7").Id("RingSize")
-                            <span class="block"><a href="@Url.Action("FindYourRingSize", "JewelryItem")" title="Find my ring size" class="find-ring-size" >Find my ring size</a>  </span>
+                            @Html.Partial("RingSize",new RingSizePartialViewModel { JewelType = Model.JewelType,Selected = "7",ID = "RingSize"})
+                            
                         </div>
                     </div>
                     <div class="row">

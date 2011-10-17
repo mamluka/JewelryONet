@@ -10,5 +10,6 @@ namespace JONMVC.Website.Models.Checkout
         public int CountryID { get; set; }
         public int StateID { get; set; }
         public string Password { get; set; }
+        public string Phone { get; set; }
     }
 }

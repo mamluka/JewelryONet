@@ -33,7 +33,7 @@ namespace JONMVC.Website.ViewModels.Views
 
         public string TotalPrice { get; set; }
 
-        public object Size { get; set; }
+        public string Size { get; set; }
 
         public string DiamondIcon { get; set; }
 

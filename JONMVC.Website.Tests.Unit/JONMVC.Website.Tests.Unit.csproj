@@ -140,7 +140,6 @@
     <Compile Include="Departments\DepartmentsControllerTests.cs" />
     <Compile Include="Diamonds\DiamondRepositoryTests.cs" />
     <Compile Include="Diamonds\FakeDiamondRepository.cs" />
-    <Compile Include="Diamonds\SearchParametersAutoMapperTests.cs" />
     <Compile Include="Education\EducationControllerTests.cs" />
     <Compile Include="Extentions\MVCExtentionsTests.cs" />
     <Compile Include="Extentions\prettyPhotoMediaFactoryTests.cs" />
@@ -151,6 +150,7 @@
     <Compile Include="JewelryItem\BestOfferTests.cs" />
     <Compile Include="JewelryItem\FakeTestimonialRepository.cs" />
     <Compile Include="JewelryItem\JewelryItemTestsBase.cs" />
+    <Compile Include="JewelryItem\RingSizePartialViewModelTests.cs" />
     <Compile Include="JewelryItem\TestimonialRepositoryTests.cs" />
     <Compile Include="MapperAndFixtureBase.cs" />
     <Compile Include="MyAccount\CookieAuthenticationTests.cs" />

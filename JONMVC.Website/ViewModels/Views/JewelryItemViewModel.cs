@@ -46,5 +46,7 @@ namespace JONMVC.Website.ViewModels.Views
         public string YouSave { get; set; }
 
         public List<TestimonialViewModel> Testimonials { get; set; }
+
+        public JewelType JewelType { get; set; }
     }
 }

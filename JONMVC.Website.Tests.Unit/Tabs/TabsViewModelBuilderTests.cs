@@ -257,9 +257,9 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             var fileSystem = FakeFileSystem.MediaFileSystemForItemNumber("0101-15001");
            
 
-            var orderBy = new JewelryDynamicOrderBy("price","asc");
+            var orderBy = new DynamicOrderBy("price","asc");
 
-            jewelryRepository.Expect(x => x.OrderJewelryItemsBy(Arg<JewelryDynamicOrderBy>.Is.Equal(orderBy))).Repeat.Once();
+            jewelryRepository.Expect(x => x.OrderJewelryItemsBy(Arg<DynamicOrderBy>.Is.Equal(orderBy))).Repeat.Once();
 
             var viewModel = new TabsViewModel();
             viewModel.TabKey = TAB_KEY;

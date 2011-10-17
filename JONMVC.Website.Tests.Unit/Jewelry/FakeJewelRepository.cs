@@ -20,7 +20,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
 
         private DynamicSQLWhereObject filter;
 
-        private JewelryDynamicOrderBy orderBy;
+        private DynamicOrderBy orderBy;
         private  int itemsPerPage;
         private  int page;
 
@@ -36,7 +36,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
            //defaults
            itemsPerPage = 21;
            page = 1;
-           orderBy = new JewelryDynamicOrderBy("price", "desc");
+           orderBy = new DynamicOrderBy("price", "desc");
            currentPage = 1;
            requestedJewelMediaTypeByUser = JewelMediaType.All;
 
@@ -123,6 +123,8 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
            {
                ID = item.id,
                ItemNumber = item.ITEMNUMBER,
+               CategoryID = item.CATEGORY_ID,
+               SubCategoryID = item.SUBCATEGORY_ID,
                JewelryCategory = item.jeweltype,
                JewelryCategoryID = item.JEWELTYPE_ID,
                JewelrySubCategory = item.jewelsubtype,
@@ -135,6 +137,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
                Title = item.jeweltitle,
                OnBargain = item.ONBARGAIN ?? false
            };
+
 
            var initJewelExtra = new JewelryExtraInitializerParameterObject()
            {
@@ -161,7 +164,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
            initJewelExtra.CS_Weight = Convert.ToDouble(item.cs_weight ?? 0);
            initJewelExtra.SS_Weight = Convert.ToDouble(item.ss_weight ?? 0);
 
-           var jewelryExtra = new JewelryExtra(initJewelExtra);
+           var jewelryExtra = new JewelryExtra(initJewelExtra,initObj);
 
           
            initObj.Weight = Convert.ToDouble(item.WEIGHT);
@@ -211,7 +214,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
            return string.Format("{0} {1}", orderBy.Field, orderBy.Direction);
        }
 
-       public void OrderJewelryItemsBy(JewelryDynamicOrderBy orderBy)
+       public void OrderJewelryItemsBy(DynamicOrderBy orderBy)
        {
            if (orderBy != null)
            {
@@ -366,7 +369,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
                                                                 JEWELTYPE_ID = 2,
                                                                 jewelsubtype = "subcategory",
                                                                 JEWELSUBTYPE_ID = 7,
-                                                                CATEGORY_ID = 7,
+                                                                CATEGORY_ID = 8,
                                                                 metal = "White Gold 18 Karat",
                                                                 jeweltitle = "title",
                                                                 price = (decimal?) 9999.99,

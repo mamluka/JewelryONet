@@ -61,6 +61,16 @@
             </dl>
             <dl>
                 <dt>
+                    <label for="Phone">
+                       Lastname:</label></dt>
+                <dd>
+                    @Html.TextBoxFor(x => x.Phone)
+                    <span data-valmsg-replace="false" data-valmsg-for="Phone" class="field-validation-valid">
+                    </span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
                     <label for="CountryID">
                         Country:</label></dt>
                 <dd>@this.Select(x => x.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key"))

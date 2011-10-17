@@ -37,7 +37,7 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                          opt =>
                          opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("report")).FromMember(s => s.Report))
               .ForMember(s => s.ItemsPerPage, opt => opt.MapFrom(x => x.rows))
-              .ForMember(s => s.SortDirection, opt => opt.MapFrom(x => x.sort))
+              .ForMember(s => s.OrderBy, opt => opt.ResolveUsing<DynamicSortFromStringResolver>())
               ;
 
             Mapper.CreateMap<v_jd_diamonds, Diamond>()

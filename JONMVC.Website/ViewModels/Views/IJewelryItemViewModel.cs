@@ -27,5 +27,6 @@ namespace JONMVC.Website.ViewModels.Views
         bool isSpecial { get; set; }
         string YouSave { get; set; }
         List<TestimonialViewModel> Testimonials { get; set; }
+        JewelType JewelType { get; set; }
     }
 }

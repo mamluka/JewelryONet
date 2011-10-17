@@ -38,6 +38,7 @@ namespace JONMVC.Website.Tests.Integration.Checkout
                                    Firstname = "Firstname",
                                    Password = "123",
                                    Lastname = "LastName",
+                                   Phone = "12345"
                                      
                                };
 
@@ -54,6 +55,7 @@ namespace JONMVC.Website.Tests.Integration.Checkout
             customerRoundTrip.Firstname.Should().Be(customer.Firstname);
             customerRoundTrip.Lastname.Should().Be(customer.Lastname);
             customerRoundTrip.StateID.Should().Be(customer.StateID);
+            customerRoundTrip.Phone.Should().Be(customer.Phone);
 
         }
 

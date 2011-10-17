@@ -22,8 +22,16 @@
                 </div>
             </div>
             <span class="top10">@ViewModel.Desciption</span>
-            @this.Select(x => x.JewelSize).Options(new SelectList(SelectSourceFactory.RingSizes, "Key", "Value")).Class("jewelsize").Attr("cartid", Model.CartID)
-            <span class="block"><a href="@Url.Action("FindYourRingSize", "JewelryItem")" title="Find my ring size" class="find-ring-size">Find my ring size</a></span>
+            @Html.Partial("RingSize", new RingSizePartialViewModel
+                   {
+                       JewelType = Model.Type,
+                       Selected = Model.JewelSize,
+                       Attributes = new Dictionary<string, object>() {
+                            {"cartid",Model.CartID}
+                       },
+                       Class = "jewelsize"
+                   }.For<JewelCartItemViewModel>(x => x.JewelSize)
+       )
         </div>
     </div>
 </div>

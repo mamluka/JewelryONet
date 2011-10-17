@@ -1,4 +1,5 @@
 using JONMVC.Website.Models.Checkout;
+using JONMVC.Website.Models.Jewelry;
 
 namespace JONMVC.Website.ViewModels.Views
 {
@@ -27,7 +28,9 @@ namespace JONMVC.Website.ViewModels.Views
 
         public bool NoActionLinkDispalyOnly { get; set; }
 
-        
+        public JewelType Type { get; set; }
+
+
         public JewelCartItemViewModel()
         {
             partialName = "JewelCartItem";

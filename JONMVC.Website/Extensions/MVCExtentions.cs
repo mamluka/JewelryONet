@@ -29,6 +29,11 @@ namespace JONMVC.Website.Extensions
             container.AddCssClass("tab");
             container.AddCssClass(navigationTab.HighlightState);
 
+            if (navigationTab.Type == NagivationTabType.YourOrder)
+            {
+                //container.AddCssClass("right");
+            }
+
             var tabdiv = new TagBuilder("div");
             tabdiv.AddCssClass("frame");
             tabdiv.AddCssClass(navigationTab.CssClass);

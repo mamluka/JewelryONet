@@ -7,8 +7,9 @@
         </div>
         @Html.CreateNavigationTab(Model.Where(x => x.Type == NagivationTabType.ChooseSetting).SingleOrDefault())
         @Html.CreateNavigationTab(Model.Where(x => x.Type == NagivationTabType.YourDiamond).SingleOrDefault())
+        <div class="cell sepend"></div>
         @Html.CreateNavigationTab(Model.Where(x => x.Type == NagivationTabType.YourOrder).SingleOrDefault())
-        <div class="cell sepend">
-        </div>
+        
+        
     </div>
 </div>

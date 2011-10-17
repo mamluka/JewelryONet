@@ -296,7 +296,8 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
                          m.CountryID == customerViewModel.CountryID &&
                          m.Firstname == customerViewModel.Firstname &&
                          m.Lastname == customerViewModel.Lastname &&
-                         m.StateID == customerViewModel.StateID
+                         m.StateID == customerViewModel.StateID &&
+                         m.Phone == customerViewModel.Phone
                                       ))).Return(status);
 
             var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
@@ -408,6 +409,37 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             //Assert
             result.AssertActionRedirect().ToAction("ThankYouForJoining");
          
+
+
+        }
+
+
+        [Test]
+        public void RegisterPost_ShouldSendTheCustomerAnEmailIfSuccessful()
+        {
+            //Arrange
+
+            var customerViewModel = fixture.CreateAnonymous<RegisterCustomerViewModel>();
+            
+            var authentication = MockRepository.GenerateStub<IAuthentication>();
+            var orderRepository = MockRepository.GenerateStub<IOrderRepository>();
+
+            var customerAccountService = MockRepository.GenerateStub<ICustomerAccountService>();
+
+            customerAccountService.Stub(
+                x => x.CreateCustomer(Arg<Customer>.Is.Anything)).Return(MembershipCreateStatus.Success);
+
+            var userMailer = MockRepository.GenerateStrictMock<IUserMailer>();
+
+            userMailer.Expect(x => x.NewCustomer(Arg<Customer>.Is.Anything)).Repeat.Once();
+
+            var controller = new MyAccountController(authentication, customerAccountService, userMailer, mapper, orderRepository);
+            
+            //Act
+            controller.Register(customerViewModel);
+            //Assert
+            userMailer.VerifyAllExpectations();
+
 
 
         }

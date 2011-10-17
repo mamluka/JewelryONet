@@ -172,16 +172,23 @@ namespace JONMVC.Website.ViewModels.Builders
 
             viewModel.PageTitle = viewModel.Title + " - " + viewModel.Price;
 
+            viewModel.JewelType = jewel.Type;
+
             return viewModel;
         }
 
         private string CreateRangeStringFrom(List<string> list,string current,int skip)
         {
             
-            if (list.First() == current)
+            if (list.Last() == current)
             {
                 return current;
             }
+            if (!list.Contains(current))
+            {
+                return current;
+            }
+
             return list.SkipWhile(x => x != current).Skip(skip).FirstOrDefault() + "-" + current;
         }
 

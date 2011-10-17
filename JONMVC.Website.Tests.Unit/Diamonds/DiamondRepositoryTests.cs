@@ -1,18 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Web.UI.WebControls;
 using AutoMapper;
 using AutoMapper.Mappers;
-
+using System.Linq;
 using JONMVC.Website.Models.AutoMapperMaps;
 using JONMVC.Website.Models.DB;
 using JONMVC.Website.Models.Diamonds;
+using JONMVC.Website.Models.Jewelry;
 using JONMVC.Website.Tests.Unit.AutoMapperMaps;
 using JONMVC.Website.ViewModels.Json.Builders;
 using JONMVC.Website.ViewModels.Views;
 using NUnit.Framework;
 using Rhino.Mocks;
 using FluentAssertions;
+using SortDirection = JONMVC.Website.Models.Utils.SortDirection;
 
 
 namespace JONMVC.Website.Tests.Unit.Diamonds
@@ -442,25 +445,57 @@ namespace JONMVC.Website.Tests.Unit.Diamonds
 
             var diamondRepository = new FakeDiamondRepository(mapper);
             //Act
-            var diamonds = diamondRepository.DiamondsBySearchParameters(searchParameters);
+            diamondRepository.DiamondsBySearchParameters(searchParameters);
             var totalPages = diamondRepository.LastOporationTotalPages;
             //Assert
             totalPages.Should().Be(3);
 
         }
 
-
         [Test]
-        public void Mapping_ShouldMapTheRelationBetweenDBLayerAndDomainLayerForDiamond()
+        public void TotalPagesNumber_ShouldSortByWeightInAscOrderWhenCalledAsPartOFTheSearchParams()
         {
             //Arrange
+            var searchParameters = new DiamondSearchParameters();
+            searchParameters.OrderBy = new DynamicOrderBy("totalprice","asc");
+
+            var diamondRepository = new FakeDiamondRepository(mapper);
             //Act
-
+            var diamonds = diamondRepository.DiamondsBySearchParameters(searchParameters);
+            
             //Assert
-
-            Mapper.AssertConfigurationIsValid();
+            var unsortedCollectio = GetDiamondCollectionUnSorted();
+            diamonds.Should().ContainInOrder(unsortedCollectio.OrderBy(x => x.Price).ToList());
 
         }
 
+        [Test]
+        public void TotalPagesNumber_ShouldSortByWeightInDescOrderWhenCalledAsPartOFTheSearchParams()
+        {
+            //Arrange
+            var searchParameters = new DiamondSearchParameters();
+            searchParameters.OrderBy = new DynamicOrderBy("totalprice", "desc");
+
+            var diamondRepository = new FakeDiamondRepository(mapper);
+            //Act
+            var diamonds = diamondRepository.DiamondsBySearchParameters(searchParameters);
+
+            //Assert
+            var unsortedCollectio = GetDiamondCollectionUnSorted();
+            diamonds.Should().ContainInOrder(unsortedCollectio.OrderByDescending(x => x.Price).ToList());
+
+        }
+
+
+
+        private List<Diamond> GetDiamondCollectionUnSorted()
+        {
+            var searchParameters = new DiamondSearchParameters();
+            searchParameters.Page = 1;
+
+            var diamondRepository = new FakeDiamondRepository(mapper);
+            //Act
+            return diamondRepository.DiamondsBySearchParameters(searchParameters);
+        }
     }
 }

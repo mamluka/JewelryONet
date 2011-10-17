@@ -7,12 +7,8 @@ Layout = null;
 }           
            
 <div class="top5 aligncenter top10">
-    <a  class="center" href="@Url.RouteUrl("SpecialOffers", new RouteValueDictionary()
-                                                             {
-                                                                 {"tabkey", "special-offers-items"},
-																		 {"tabid", "special-offers"},
-                                                             })" >
-        <img src="/Content/images/homepage/banner/title.png" /></a> <a href="@Url.RouteUrl("JewelryItem", new { id = Model.ID })">
-            <img src="@Model.Icon" width="160" class="center"/>
+    <a  class="center" href="@Url.RouteUrl("JewelryItem", new { id = Model.ID })" >
+        <img src="/Content/images/homepage/banner/title.png"    /></a> <a href="@Url.RouteUrl("JewelryItem", new { id = Model.ID })">
+            <img src="@Model.Icon" width="160" class="center" alt="@Model.Title" />
         </a>
 </div>

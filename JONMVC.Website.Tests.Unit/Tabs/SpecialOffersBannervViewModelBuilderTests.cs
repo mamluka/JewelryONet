@@ -44,6 +44,7 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             //Assert
             viewModel.Icon.Should().Be(jewel.Media.HiResURLForWebDisplay);
             viewModel.ID.Should().Be(jewel.ID.ToString());
+            viewModel.Title.Should().Be(jewel.Title);
 
         }
 

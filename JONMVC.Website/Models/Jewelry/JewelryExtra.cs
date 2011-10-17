@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using JONMVC.Website.Models.DB;
 
 namespace JONMVC.Website.Models.Jewelry
 {
@@ -13,7 +14,7 @@ namespace JONMVC.Website.Models.Jewelry
         public bool HasSideStones { get; set; }
         public double TotalWeight { get; set; }
 
-        public JewelryExtra(JewelryExtraInitializerParameterObject initJewelExtra)
+        public JewelryExtra(JewelryExtraInitializerParameterObject initJewelExtra, ItemInitializerParameterObject item)
         {
             CS = new JewelComponentProperty()
                      {
@@ -41,6 +42,12 @@ namespace JONMVC.Website.Models.Jewelry
                          Type = initJewelExtra.SS_Type,
                          Weight = initJewelExtra.SS_Weight
                      };
+
+            if (item.CategoryID == 8)
+            {
+                CS.Clarity = CS.ClarityFreeText;
+                CS.Color = CS.ColorFreeText;
+            }
 
             HasSideStones = initJewelExtra.HasSideStones;
             TotalWeight = initJewelExtra.TotalWeight;

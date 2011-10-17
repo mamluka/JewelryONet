@@ -286,14 +286,14 @@ font-weight:bold;
 }
 #SpecialOffers {
 	background-color:#ececec;
-	
 	padding:15px 5px 5px 5px;
-	height:130px;
+	height:140px;
 	width:160px;
 	background:#ececec url(/Content/images/skeleton/special-offers-stars-bg.png) no-repeat 70px 0px;
 }
-#SpecialOffers input[type=text] {
-	height:17px;
+#SpecialOffers input[type=text]
+{
+    width: 136px;
 }
 #SpecialOffers h1.title {
 	font-size:1.7em;
@@ -405,12 +405,12 @@ font-weight:bold;
 }
 #BlockContent  div.displayatom h1.title a.gray {	
 	text-decoration:none;
-	font-size:0.9em;
+	font-size:1.05em;
 	color:#717171
 }
 #BlockContent  div.displayatom h1.title a.gray:hover {	
 	text-decoration:underline;
-	font-size:0.9em;
+	font-size:1.05em;
 	color:#962e21;
 }
 
@@ -502,6 +502,13 @@ margin-left:7px;
   padding:5px;	
   cursor:pointer;
   float:left;
+  border: 1px solid transparent;
+    margin: 0px 2px 0px 2px;
+}
+#TabNavigation .mouseover
+{
+    border:1px solid #ffaf8c;
+	background-color:#F4F4F4
 }
 #TabNavigation .active {
 	border:1px solid #ffaf8c;
@@ -710,10 +717,10 @@ span.redprice {
 	border:1px solid #9a3334;
 }
 #ItemBlock .row .media .dview {
-	width:40px;
+	width:60px;
 	position:relative;
 	top:0px;
-	left:335px;
+	left:327px;
 	cursor:pointer;
 }
 #ItemBlock .row .media .zoom {
@@ -1183,7 +1190,9 @@ span.stars span {
 .jewel-tabs div.tab {
 	height:45px;
 	width:176px;
+    
 }
+
 .jewel-tabs div.on {
 	background:url(/Content/images/jeweldesign/tabs/bg-on.png) no-repeat;
 	
@@ -1242,7 +1251,7 @@ span.stars span {
 .jewel-tabs .sepend {
 	width:auto;
 	height:45px;
-	 border-bottom:1px solid #c7c7c7;
+	border-bottom:1px solid #c7c7c7;
 }
 .jewel-main {
 
@@ -1446,6 +1455,7 @@ span.stars span {
 	 border-radius: 5px;
 	 padding:3px;
 	 width:250px;
+    background: white;
 		
 }
 .buy-menu .actions li {

@@ -188,6 +188,7 @@
     <Compile Include="Models\AutoMapperMaps\PrecentFormatter.cs" />
     <Compile Include="Models\AutoMapperMaps\PriceFormatter.cs" />
     <Compile Include="Models\AutoMapperMaps\ShortDateFormatter.cs" />
+    <Compile Include="Models\AutoMapperMaps\DynamicSortFromStringResolver.cs" />
     <Compile Include="Models\AutoMapperMaps\TotalPriceResolver.cs" />
     <Compile Include="Models\AutoMapperMaps\WeightFormatter.cs" />
     <Compile Include="Models\BestOfferEmailTemplateViewModel.cs" />
@@ -261,11 +262,12 @@
     <Compile Include="Models\Jewelry\ItemInitializerParameterObject.cs" />
     <Compile Include="Models\Jewelry\JewelComponentInfoPart.cs" />
     <Compile Include="Models\Jewelry\JewelryDynamicFilter.cs" />
-    <Compile Include="Models\Jewelry\JewelryDynamicOrderBy.cs" />
+    <Compile Include="Models\Jewelry\DynamicOrderBy.cs" />
     <Compile Include="Models\Jewelry\JewelryExtra.cs" />
     <Compile Include="Models\Jewelry\JewelryExtraInitializerParameterObject.cs" />
     <Compile Include="Models\Jewelry\JewelRepository.cs" />
     <Compile Include="Models\Jewelry\Jewel.cs" />
+    <Compile Include="Models\Jewelry\JewelType.cs" />
     <Compile Include="Models\Jewelry\Media.cs" />
     <Compile Include="Models\Jewelry\MediaFactory.cs" />
     <Compile Include="Models\Jewelry\MediaVerifier.cs" />
@@ -292,7 +294,9 @@
     <Compile Include="Models\Utils\IXmlSourceFactory.cs" />
     <Compile Include="Models\Utils\JONFormatter.cs" />
     <Compile Include="Models\Utils\ISettingManager.cs" />
+    <Compile Include="Models\Utils\MemberNameForInputElementsResolver.cs" />
     <Compile Include="Models\Utils\SettingManager.cs" />
+    <Compile Include="Models\Utils\SortDirection.cs" />
     <Compile Include="Models\Utils\WebHelpers.cs" />
     <Compile Include="Models\Utils\XmlSourceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -348,6 +352,7 @@
     <Compile Include="ViewModels\Views\RecoverPasswordViewModel.cs" />
     <Compile Include="ViewModels\Views\RegisterCustomerViewModel.cs" />
     <Compile Include="ViewModels\Views\ReviewOrderViewModel.cs" />
+    <Compile Include="ViewModels\Views\RingSizePartialViewModel.cs" />
     <Compile Include="ViewModels\Views\SearchViewModel.cs" />
     <Compile Include="ViewModels\Views\SelectSourceFactory.cs" />
     <Compile Include="ViewModels\Views\SettingViewModel.cs" />
@@ -792,6 +797,8 @@
     <None Include="Content\images\homepage\atoms\block icons.psd" />
     <None Include="Content\images\homepage\atoms\tabs.psd" />
     <Content Include="Views\Shared\SpecialOffersBanner.cshtml" />
+    <Content Include="Views\Shared\RingSize.cshtml" />
+    <Content Include="Views\UserMailer\NewCustomer.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

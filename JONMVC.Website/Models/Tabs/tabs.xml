@@ -118,7 +118,7 @@ In recent years technology has perfected the process of  heat-treating sapphires
 			<where>
 				<string>jeweltype_id = @0 and category_id = @1</string>
 				<values>
-					<value type="int">12</value>
+					<value type="int">2</value>
 					<value type="int">8</value>
 				</values>
 			</where>

@@ -22,19 +22,13 @@ jQuery.fn.boxy = function (options) {
             jQuery(this).click(function () {
                 var active = Boxy.linkedTo(this),
                     href = this.getAttribute('href');
-
-                var afterShowFunc = Boxy.EF;
-                if (this.getAttribute('afterShow')) {
-                    afterShowFunc = eval(this.getAttribute('afterShow') + "()");
-                }
-                
-                var localOptions = jQuery.extend({ actuator: this, title: this.title, afterShow: afterShowFunc }, options);
+                var localOptions = jQuery.extend({ actuator: this, title: this.title }, options);
                 if (active) {
                     active.show();
                 } else if (href.indexOf('#') >= 0) {
                     var content = jQuery(href.substr(href.indexOf('#'))),
-                        newContent = content.clone(true);
-                    content.remove();
+                        newContent = content;
+                    // content.remove();
                     localOptions.unloadOnHide = false;
                     new Boxy(newContent, localOptions);
                 } else { // fall back to AJAX; could do with a same-origin check
@@ -106,112 +100,118 @@ function Boxy(element, options) {
 Boxy.EF = function() {};
 
 jQuery.extend(Boxy, {
-    
-    WRAPPER:    "<table cellspacing='0' cellpadding='0' border='0' class='boxy-wrapper'>" +
+
+    WRAPPER: "<table cellspacing='0' cellpadding='0' border='0' class='boxy-wrapper'>" +
                 "<tr><td class='top-left'></td><td class='boxytop'></td><td class='top-right'></td></tr>" +
                 "<tr><td class='boxyleft'></td><td class='boxy-inner'></td><td class='boxyright'></td></tr>" +
                 "<tr><td class='bottom-left'></td><td class='boxybottom'></td><td class='bottom-right'></td></tr>" +
                 "</table>",
-    
+
     DEFAULTS: {
-        title:                  null,           // titlebar text. titlebar will not be visible if not set.
-        closeable:              true,           // display close link in titlebar?
-        draggable:              true,           // can this dialog be dragged?
-        clone:                  false,          // clone content prior to insertion into dialog?
-        actuator:               null,           // element which opened this dialog
-        center:                 true,           // center dialog in viewport?
-        show:                   true,           // show dialog immediately?
-        modal:                  false,          // make dialog modal?
-        fixed:                  true,           // use fixed positioning, if supported? absolute positioning used otherwise
-        closeText:              '[close]',      // text to use for default close link
-        unloadOnHide:           false,          // should this dialog be removed from the DOM after being hidden?
-        clickToFront:           false,          // bring dialog to foreground on any click (not just titlebar)?
-        behaviours:             Boxy.EF,        // function used to apply behaviours to all content embedded in dialog.
-        afterDrop:              Boxy.EF,        // callback fired after dialog is dropped. executes in context of Boxy instance.
-        afterShow:              Boxy.EF,        // callback fired after dialog becomes visible. executes in context of Boxy instance.
-        afterHide:              Boxy.EF,        // callback fired after dialog is hidden. executed in context of Boxy instance.
-        beforeUnload:           Boxy.EF         // callback fired after dialog is unloaded. executed in context of Boxy instance.
+        title: null,           // titlebar text. titlebar will not be visible if not set.
+        closeable: true,           // display close link in titlebar?
+        draggable: true,           // can this dialog be dragged?
+        clone: false,          // clone content prior to insertion into dialog?
+        actuator: null,           // element which opened this dialog
+        center: true,           // center dialog in viewport?
+        show: true,           // show dialog immediately?
+        modal: false,          // make dialog modal?
+        fixed: true,           // use fixed positioning, if supported? absolute positioning used otherwise
+        closeText: '[close]',      // text to use for default close link
+        unloadOnHide: false,          // should this dialog be removed from the DOM after being hidden?
+        clickToFront: false,          // bring dialog to foreground on any click (not just titlebar)?
+        behaviours: Boxy.EF,        // function used to apply behaviours to all content embedded in dialog.
+        afterDrop: Boxy.EF,        // callback fired after dialog is dropped. executes in context of Boxy instance.
+        afterShow: Boxy.EF,        // callback fired after dialog becomes visible. executes in context of Boxy instance.
+        afterHide: Boxy.EF,        // callback fired after dialog is hidden. executed in context of Boxy instance.
+        beforeUnload: Boxy.EF         // callback fired after dialog is unloaded. executed in context of Boxy instance.
     },
-    
-    DEFAULT_X:          50,
-    DEFAULT_Y:          50,
-    zIndex:             1337,
-    dragConfigured:     false, // only set up one drag handler for all boxys
-    resizeConfigured:   false,
-    dragging:           null,
-    
+
+    DEFAULT_X: 50,
+    DEFAULT_Y: 50,
+    zIndex: 1337,
+    dragConfigured: false, // only set up one drag handler for all boxys
+    resizeConfigured: false,
+    dragging: null,
+
     // load a URL and display in boxy
     // url - url to load
     // options keys (any not listed below are passed to boxy constructor)
     //   type: HTTP method, default: GET
     //   cache: cache retrieved content? default: false
     //   filter: jQuery selector used to filter remote content
-    load: function(url, options) {
-        
+    load: function (url, options) {
+
         options = options || {};
-        
+
         var ajax = {
-            url: url, type: 'GET', dataType: 'html', cache: false, success: function(html) {
-               // html = html// jQuery(html);
-              //  alert(html)
+            url: url, type: 'GET', dataType: 'html', cache: false, success: function (html) {
+                html = jQuery(html);
+
+//                if (url.indexOf('#') >= -1) {
+//                    alert(url.toString().substring(url.indexOf('#')));
+//                    html = jQuery.find(url.toString().substring(url.indexOf('#')));
+//                }
+
+
                 if (options.filter) html = jQuery(options.filter, html);
                 new Boxy(html, options);
             }
         };
-        
-        jQuery.each(['type', 'cache'], function() {
+
+        jQuery.each(['type', 'cache'], function () {
             if (this in options) {
                 ajax[this] = options[this];
                 delete options[this];
             }
         });
-        
+
         jQuery.ajax(ajax);
-        
+
     },
-    
+
     // allows you to get a handle to the containing boxy instance of any element
     // e.g. <a href='#' onclick='alert(Boxy.get(this));'>inspect!</a>.
     // this returns the actual instance of the boxy 'class', not just a DOM element.
     // Boxy.get(this).hide() would be valid, for instance.
-    get: function(ele) {
+    get: function (ele) {
         var p = jQuery(ele).parents('.boxy-wrapper');
         return p.length ? jQuery.data(p[0], 'boxy') : null;
     },
-    
+
     // returns the boxy instance which has been linked to a given element via the
     // 'actuator' constructor option.
-    linkedTo: function(ele) {
+    linkedTo: function (ele) {
         return jQuery.data(ele, 'active.boxy');
     },
-    
+
     // displays an alert box with a given message, calling optional callback
     // after dismissal.
-    alert: function(message, callback, options) {
+    alert: function (message, callback, options) {
         return Boxy.ask(message, ['OK'], callback, options);
     },
-    
+
     // displays an alert box with a given message, calling after callback iff
     // user selects OK.
-    confirm: function(message, after, options) {
-        return Boxy.ask(message, ['OK', 'Cancel'], function(response) {
+    confirm: function (message, after, options) {
+        return Boxy.ask(message, ['OK', 'Cancel'], function (response) {
             if (response == 'OK') after();
         }, options);
     },
-    
+
     // asks a question with multiple responses presented as buttons
     // selected item is returned to a callback method.
     // answers may be either an array or a hash. if it's an array, the
     // the callback will received the selected value. if it's a hash,
     // you'll get the corresponding key.
-    ask: function(question, answers, callback, options) {
-        
-        options = jQuery.extend({modal: true, closeable: false},
+    ask: function (question, answers, callback, options) {
+
+        options = jQuery.extend({ modal: true, closeable: false },
                                 options || {},
-                                {show: true, unloadOnHide: true});
-        
+                                { show: true, unloadOnHide: true });
+
         var body = jQuery('<div></div>').append(jQuery('<div class="question"></div>').html(question));
-        
+
         // ick
         var map = {}, answerStrings = [];
         if (answers instanceof Array) {
@@ -225,65 +225,65 @@ jQuery.extend(Boxy, {
                 answerStrings.push(answers[k]);
             }
         }
-        
+
         var buttons = jQuery('<form class="answers"></form>');
-        buttons.html(jQuery.map(answerStrings, function(v) {
+        buttons.html(jQuery.map(answerStrings, function (v) {
             return "<input type='button' value='" + v + "' />";
         }).join(' '));
-        
-        jQuery('input[type=button]', buttons).click(function() {
+
+        jQuery('input[type=button]', buttons).click(function () {
             var clicked = this;
-            Boxy.get(this).hide(function() {
+            Boxy.get(this).hide(function () {
                 if (callback) callback(map[clicked.value]);
             });
         });
-        
+
         body.append(buttons);
-        
+
         new Boxy(body, options);
-        
+
     },
-    
+
     // returns true if a modal boxy is visible, false otherwise
-    isModalVisible: function() {
+    isModalVisible: function () {
         return jQuery('.boxy-modal-blackout').length > 0;
     },
-    
-    _u: function() {
+
+    _u: function () {
         for (var i = 0; i < arguments.length; i++)
             if (typeof arguments[i] != 'undefined') return false;
         return true;
     },
-    
-    _handleResize: function(evt) {
+
+    _handleResize: function (evt) {
         var d = jQuery(document);
         jQuery('.boxy-modal-blackout').css('display', 'none').css({
             width: d.width(), height: d.height()
         }).css('display', 'block');
     },
-    
-    _handleDrag: function(evt) {
+
+    _handleDrag: function (evt) {
         var d;
         if (d = Boxy.dragging) {
-            d[0].boxy.css({left: evt.pageX - d[1], top: evt.pageY - d[2]});
+            d[0].boxy.css({ left: evt.pageX - d[1], top: evt.pageY - d[2] });
         }
     },
-    
-    _nextZ: function() {
+
+    _nextZ: function () {
         return Boxy.zIndex++;
     },
-    
-    _viewport: function() {
+
+    _viewport: function () {
         var d = document.documentElement, b = document.body, w = window;
         return jQuery.extend(
             jQuery.browser.msie ?
-                { left: b.scrollLeft || d.scrollLeft, top: b.scrollTop || d.scrollTop } :
+                { left: b.scrollLeft || d.scrollLeft, top: b.scrollTop || d.scrollTop} :
                 { left: w.pageXOffset, top: w.pageYOffset },
             !Boxy._u(w.innerWidth) ?
-                { width: w.innerWidth, height: w.innerHeight } :
+                { width: w.innerWidth, height: w.innerHeight} :
                 (!Boxy._u(d) && !Boxy._u(d.clientWidth) && d.clientWidth != 0 ?
-                    { width: d.clientWidth, height: d.clientHeight } :
-                    { width: b.clientWidth, height: b.clientHeight }) );
+                    { width: d.clientWidth, height: d.clientHeight} :
+                    { width: b.clientWidth, height: b.clientHeight }));
     }
 
 });
@@ -459,7 +459,6 @@ Boxy.prototype = {
         this.visible = true;
         this._fire('afterShow');
 
-        $.validator.unobtrusive.parse();
         return this;
     },
     

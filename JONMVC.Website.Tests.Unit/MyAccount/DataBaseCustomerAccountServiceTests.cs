@@ -175,20 +175,6 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             //Assert
         }
 
-
-        [Test]
-        [Ignore("Ignored because can't mock reference to state/country table in EF")]
-        public void GetExtendedCustomerByEmail_ShouldReturnAnExtendedCustomer()
-        {
-            //Arrange
-            var customerAccountService = CreateDefaultFakeDataBaseCustomerAccountService();
-            //Act
-            var extendedCustomer =  customerAccountService.GetExtendedCustomerByEmail(Tests.SAMPLE_EMAIL_ADDRESS);
-            //Assert
-            extendedCustomer.ShippingAddress.Should().NotBeNull();
-            extendedCustomer.BillingAddress.Should().NotBeNull();
-
-        }
         //TODO find a way to test this
 
 

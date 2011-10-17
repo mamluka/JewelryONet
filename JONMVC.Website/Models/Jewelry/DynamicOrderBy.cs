@@ -1,12 +1,12 @@
 namespace JONMVC.Website.Models.Jewelry
 {
-    public class JewelryDynamicOrderBy
+    public class DynamicOrderBy
     {
         private readonly string field;
         private readonly string direction;
 
 
-        public JewelryDynamicOrderBy(string field, string direction)
+        public DynamicOrderBy(string field, string direction)
         {
             this.field = field;
             this.direction = direction;
@@ -26,9 +26,17 @@ namespace JONMVC.Website.Models.Jewelry
 
         }
 
+        public string SQLString
+        {
+            get
+            {
+                return string.Format("{0} {1}", Field, Direction);
+            }
+        }
+
         public override bool Equals(object obj)
         {
-            var other = (JewelryDynamicOrderBy) obj;
+            var other = (DynamicOrderBy) obj;
             if (other.Field  != this.Field || other.Direction != this.direction)
             {
                 return false;

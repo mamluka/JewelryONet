@@ -1,16 +1,28 @@
 ﻿
 // JavaScript Document
 var Tabs = {
-	RegisterFilters: function () {
-		$('.sortbar select').bind('change', function () {
-			$('form').submit();
-		});
-	},
-	RegisterTabLinks: function () {
-		$('#TabNavigation .border div').click(function () {
-			window.location.href = $(this).parent().find('span a').attr('href');
-		});
-	}
+    RegisterFilters: function () {
+        $('.sortbar select').bind('change', function () {
+            $('form').submit();
+        });
+    },
+    RegisterTabLinks: function () {
+        $('#TabNavigation .border div').click(function () {
+            window.location.href = $(this).parent().find('span a').attr('href');
+        });
+    },
+    RegisterTabsMouseOver: function () {
+        $('#TabNavigation .border').hover(
+            function() {
+                if ($(this).hasClass('active')) return;
+                $(this).addClass('mouseover');
+            },
+            function() {
+                if ($(this).hasClass('active')) return;
+                $(this).removeClass('mouseover');
+            }
+         );
+    }
 };
 var Video = {
 	OpenMovie: function (moviepath) {
@@ -47,108 +59,100 @@ var Video = {
 	}
 };
 var Item = {
-	Locals: { id: 0 },
-	RegisterBestOffer: function () {
-		$('#BestOfferDialog').dialog(
+    Locals: { id: 0 },
+    RegisterBestOffer: function () {
+        $('#BestOfferDialog').dialog(
 			{
-				autoOpen: false,
-				height: 180,
-				width: 330,
-				title: 'Place an Offer',
-				resizable: false
+			    autoOpen: false,
+			    height: 180,
+			    width: 330,
+			    title: 'Place an Offer',
+			    resizable: false
 			}
 			);
 
-		$('#BestOfferHelp').dialog(
+        $('#BestOfferHelp').dialog(
 			{
-				autoOpen: false,
-				height: 550,
-				width: 500,
-				hide: { effect: "fade" },
-				resizable: false
+			    autoOpen: false,
+			    height: 550,
+			    width: 500,
+			    hide: { effect: "fade" },
+			    resizable: false
 			}
 			);
 
-		$('.bestoffer img:first').click(function () {
-			$('#BestOfferDialog').dialog('open');
-		});
+        $('.bestoffer img:first').click(function () {
+            $('#BestOfferDialog').dialog('open');
+        });
 
-		$('.bestoffer a:first').click(function () {
-			$('#BestOfferHelp').dialog('open');
-		});
+        $('.bestoffer a:first').click(function () {
+            $('#BestOfferHelp').dialog('open');
+        });
 
-		$('#BestOfferForm').ajaxForm(
+        $('#BestOfferForm').ajaxForm(
 			{
-				beforeSubmit: function () {
-					return $('#BestOfferForm').validate().showErrors();
-				},
-				dataType: 'json',
-				success: function (data) {
-					if (data.HasError) {
-						alert('There was an error, Please try again later');
-					} else {
-						$('#BestOfferDialog').dialog('close');
-						MessageBox.Show('Offer Recieved');
-					}
-				}
+			    beforeSubmit: function () {
+			        return $('#BestOfferForm').validate().showErrors();
+			    },
+			    dataType: 'json',
+			    success: function (data) {
+			        if (data.HasError) {
+			            alert('There was an error, Please try again later');
+			        } else {
+			            $('#BestOfferDialog').dialog('close');
+			            MessageBox.Show('Offer Recieved');
+			        }
+			    }
 
 
 			});
 
-	},
-	RegisterPageCommends: function () {
-		$('a[command="addtowishlist"]').click(function () {
-			$.post(
+    },
+    RegisterPageCommends: function () {
+        $('a[command="addtowishlist"]').click(function () {
+            $.post(
 				'/JewelryItem/AddToWishList',
 				{ jewelid: Item.Locals.id },
 				function (data) {
-					if (!data.HasError) {
-						MessageBox.Show('Item was added to your wishlist');
-					} else {
-						MessageBox.Show('Error occured, try again later');
-					}
+				    if (!data.HasError) {
+				        MessageBox.Show('Item was added to your wishlist');
+				    } else {
+				        MessageBox.Show('Error occured, try again later');
+				    }
 				});
-		});
+        });
 
-		$('a[command="print"]').click(function () {
-			window.print();
-		});
+        $('a[command="print"]').click(function () {
+            window.print();
+        });
 
-
-
-		$('.emailring').dialog({
-			autoOpen: false,
-			width: 400,
-			height: 410,
-			resizable: false
-		});
-
-		$('.emailring form').ajaxForm(
+        $('.emailring form').ajaxForm(
 			{
-				beforeSubmit: function () {
-					return $('.emailring form').validate().showErrors();
-				},
-				dataType: 'json',
-				success: function (data) {
-					if (data.HasError) {
-						alert('There was an error, Please try again later');
-					} else {
-						$('.emailring').dialog('close');
-						MessageBox.Show('Email sent to friend');
-					}
-				}
+			    beforeSubmit: function () {
+			        return $('.emailring form').validate().showErrors();
+			    },
+			    dataType: 'json',
+			    success: function (data) {
+			        if (data.HasError) {
+			            alert('There was an error, Please try again later');
+			        } else {
+
+			            Boxy.get($('.emailring')).hide();
+			            MessageBox.Show('Email sent to friend');
+			        }
+			    }
 
 
 			});
 
-		$('a[command="emailring"]').click(function () {
-			$('.emailring').dialog('open');
-		});
+        $('a[command="emailring"]').click(function () {
+            $('.emailring').dialog('open');
+        });
 
 
-	},
-	LoadRingSizeDropBoxs: function () {
-		var Sizes = [
+    },
+    LoadRingSizeDropBoxs: function () {
+        var Sizes = [
 			['4', '1.84', '46.5', 'H ½', '15', '46 ½', '7'],
             ['4.5', '1.89', '47.8', 'I ½', '15 ¼', '47 ¾', '8'],
             ['5', '1.94', '49', 'J ½', '15 ¾', '49', '9'],
@@ -174,20 +178,20 @@ var Item = {
             ['15', '2.95', '75', 'Z +5', '', '', ''],
 		];
 
-		$.each($('.converter select'), function (index, select) {
-			$.each(Sizes, function (i, size) {
-				$(select).append(new Option(size[index], i, false, false));
-			});
+        $.each($('.converter select'), function (index, select) {
+            $.each(Sizes, function (i, size) {
+                $(select).append(new Option(size[index], i, false, false));
+            });
 
-			$(select).change(function () {
-				var value = $(this).val();
-				$('.converter select option').removeAttr('selected');
+            $(select).change(function () {
+                var value = $(this).val();
+                $('.converter select option').removeAttr('selected');
 
-				$('.converter select option[value=' + value + ']').attr('selected', 'selected');
+                $('.converter select option[value=' + value + ']').attr('selected', 'selected');
 
-			});
-		});
-	}
+            });
+        });
+    }
 
 };
 MessageBox = {
@@ -426,7 +430,6 @@ var JewelDesign = {
 			JewelDesign.Search();
 		});
 
-
 		$('table.sprite-shape tr td').click(function () {
 			if ($(this).hasClass('on')) {
 				$(this).removeClass('on').addClass('off');
@@ -505,10 +508,6 @@ var JewelDesign = {
 
 		var filters = JewelDesign.ReadSearchFilters();
 		jQuery("#DiamondList").jqGrid({
-
-
-
-
 			url: '/JewelDesign/Diamonds',
 			datatype: "json",
 			postData: filters,
@@ -517,12 +516,12 @@ var JewelDesign = {
 			colNames: ['Shape', 'Carat', 'Color', 'Clarity', 'Cut', 'Certificate', 'Price', 'Details...'],
 			colModel: [
 					{ name: 'shape', index: 'shape', width: 54, align: 'center', resizable: false, sortable: false },
-					{ name: 'weight', index: 'weight', width: 40, align: 'center', resizable: false, sortable: false },
+					{ name: 'weight', index: 'weight', width: 40, align: 'center', resizable: false, sortable: true },
 					{ name: 'color', index: 'color', width: 40, align: 'center', resizable: false, sortable: false },
 					{ name: 'clarity', index: 'clarity', width: 40, align: 'center', resizable: false, sortable: false },
 					{ name: 'cut', index: 'cut', width: 60, align: 'center', resizable: false, sortable: false },
 					{ name: 'cert', index: 'cert', width: 48, align: 'center', align: 'center', resizable: false, sortable: false },
-					{ name: 'price', index: 'price', width: 55, align: 'center', resizable: false, sortable: false },
+					{ name: 'price', index: 'price', width: 55, align: 'center', resizable: false, sortable: true },
 					{ name: 'action', index: 'action', width: 55, align: 'center', resizable: false, sortable: false }
 				],
 			rowNum: 10,
@@ -537,7 +536,6 @@ var JewelDesign = {
 			height: 220,
 			width: 790,
 			loadComplete: function () {
-
 				JewelDesign.RegisterDiamondInfo();
 			}
 		});
@@ -606,12 +604,12 @@ var JewelDesign = {
 			timeout: 100,
 			over: function show() {
 				var menu = $(this);
-				menu.children(".actions").fadeIn();
+				menu.find(".actions").fadeIn();
 			},
 
 			out: function hide() {
 				var menu = $(this);
-				menu.children(".actions").fadeOut();
+				menu.find(".actions").fadeOut();
 			}
 		});
 
@@ -905,10 +903,14 @@ Utils = {
 };
 
 $(document).ready(function() {
-    		$('.find-ring-size').boxy({
-    			afterShow: function () {
-    				Item.LoadRingSizeDropBoxs();
-    			}
-    		});
+    $('.find-ring-size').boxy({
+            afterShow: function() {
+                Item.LoadRingSizeDropBoxs();
+            }
+        });
+
+    $('.boxy').boxy({
+            filter:'#MainMessage'
+        });
 });
 

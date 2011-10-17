@@ -6,6 +6,8 @@
         public decimal Price { get; set; }
         public int ID { get; set; }
         public string ItemNumber { get; set; }
+        public int CategoryID { get; set; }
+        public int SubCategoryID { get; set; }
         public int JewelryCategoryID { get; set; }
         public int JewelrySubCategoryID { get; set; }
         public string JewelryCategory { get; set; }

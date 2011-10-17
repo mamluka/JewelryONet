@@ -415,6 +415,19 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
             viewModel.PageTitle.Should().Be(pageTitle);
         }
 
+        [Test]
+        public void Build_ShouldReturnTheJewelType()
+        {
+            //Arrange
+            var builder = JewelryItemViewModelBuilderFactoryMethodWithJewelID(Tests.FAKE_JEWELRY_WITH_ALL_NON_DEFAULT_BEHAVIER);
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+
+            viewModel.JewelType.Should().Be(JewelType.Ring);
+        }
+
+
 
         //TODO add two tests for width and weight NA testing
 

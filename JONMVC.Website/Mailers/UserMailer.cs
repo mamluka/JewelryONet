@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using JONMVC.Website.Models;
+using JONMVC.Website.Models.Checkout;
 using Mvc.Mailer;
 using System.Net.Mail;
 
@@ -85,6 +86,22 @@ namespace JONMVC.Website.Mailers
             ViewBag.Email = mailTo;
 
             PopulateBody(mailMessage, "RecoverPassword");
+
+            return mailMessage;
+        }
+
+        public MailMessage NewCustomer(Customer customer)
+        {
+            var mailMessage = new MailMessage { Subject = "Thank you for registering to JewelryONet" };
+
+            mailMessage.To.Add(customer.Email);
+
+            ViewBag.Password = customer.Password;
+            ViewBag.Name = customer.Firstname + " " + customer.Lastname;
+            ViewBag.Email = customer.Email;
+           
+
+            PopulateBody(mailMessage, "NewCustomer");
 
             return mailMessage;
         }

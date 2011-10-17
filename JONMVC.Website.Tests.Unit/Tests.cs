@@ -18,6 +18,7 @@ namespace JONMVC.Website.Tests.Unit
 
         public static int FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID = 1111;
         public static int FAKE_JEWELRY_WITH_ALL_NON_DEFAULT_BEHAVIER = 1112;
+        public static int FAKE_GEMSTONE_JEWELRY = 1113;
 
         public static int FAKE_DIAMOND_REPOSITORY_FIRST_ITEM_ID = 1;
 
@@ -32,6 +33,7 @@ namespace JONMVC.Website.Tests.Unit
         public static string SAMPLE_COUNTRY="Israel";
         public static string SAMPLE_STATE="New York";
         public static string SAMPLE_JEWEL_SIZE_725="7.25";
+        
 
 
         public static string AsMoney(decimal totalPrice)

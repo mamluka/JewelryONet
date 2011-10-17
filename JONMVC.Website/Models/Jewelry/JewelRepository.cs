@@ -18,7 +18,7 @@ namespace JONMVC.Website.Models.Jewelry
 
         protected DynamicSQLWhereObject filter;
 
-        protected JewelryDynamicOrderBy orderBy;
+        protected DynamicOrderBy orderBy;
         protected int itemsPerPage;
         protected int page;
 
@@ -34,7 +34,7 @@ namespace JONMVC.Website.Models.Jewelry
             //defaults
             itemsPerPage = 21;
             page = 1;
-            orderBy = new JewelryDynamicOrderBy("price","desc");
+            orderBy = new DynamicOrderBy("price","desc");
             currentPage = 1;
             requestedJewelMediaTypeByUser = JewelMediaType.All;
         }
@@ -73,7 +73,7 @@ namespace JONMVC.Website.Models.Jewelry
                 items = items.Where(ParseMetalFilter(requestedJewelMediaTypeByUser));
 
                 //must call orderby before skip
-                items = items.OrderBy(ParseOrderBy());
+                items = items.OrderBy(orderBy.SQLString);
 
 
                 totalItems = items.ToList().Count;
@@ -131,6 +131,8 @@ namespace JONMVC.Website.Models.Jewelry
             {
                 ID = item.id,
                 ItemNumber = item.ITEMNUMBER,
+                CategoryID = item.CATEGORY_ID,
+                SubCategoryID = item.SUBCATEGORY_ID,
                 JewelryCategory = item.jeweltype,
                 JewelryCategoryID = item.JEWELTYPE_ID,
                 JewelrySubCategory = item.jewelsubtype,
@@ -140,9 +142,10 @@ namespace JONMVC.Website.Models.Jewelry
                 OnSpecial = item.ONSPECIAL ?? false,
                 RegularPrice = item.price ?? 0,
                 Metal = item.metal,
-                Title = !String.IsNullOrWhiteSpace(item.jeweltitle) ? item.jeweltitle : "Temp Title",
+                Title = item.jeweltitle,
                 OnBargain = item.ONBARGAIN ?? false
             };
+
 
             var initJewelExtra = new JewelryExtraInitializerParameterObject()
             {
@@ -169,7 +172,7 @@ namespace JONMVC.Website.Models.Jewelry
             initJewelExtra.CS_Weight = Convert.ToDouble(item.cs_weight ?? 0);
             initJewelExtra.SS_Weight = Convert.ToDouble(item.ss_weight ?? 0);
 
-            var jewelryExtra = new JewelryExtra(initJewelExtra);
+            var jewelryExtra = new JewelryExtra(initJewelExtra, initObj);
 
 
             initObj.Weight = Convert.ToDouble(item.WEIGHT);
@@ -215,12 +218,9 @@ namespace JONMVC.Website.Models.Jewelry
         }
 
 
-        protected string ParseOrderBy()
-        {
-            return string.Format("{0} {1}", orderBy.Field, orderBy.Direction);
-        }
+        
 
-        public void OrderJewelryItemsBy(JewelryDynamicOrderBy orderBy)
+        public void OrderJewelryItemsBy(DynamicOrderBy orderBy)
         {
             if (orderBy != null)
             {

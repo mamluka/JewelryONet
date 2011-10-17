@@ -1,7 +1,7 @@
 ﻿@using JONMVC.Website.Extensions
 @using JONMVC.Website.ViewModels.Views
 @using MvcContrib.FluentHtml
-@inherits MvcContrib.FluentHtml.ModelWebViewPage<SettingViewModel>
+@inherits ModelWebViewPage<SettingViewModel>
 @{
     ViewBag.Title = @Model.PageTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -34,7 +34,7 @@
         <div class="cell info">
             <div class="table">
                 <div class="row">
-                    <div class="cell item-description justify">
+                    <div class="cell item-description">
                         @Model.Title
                     </div>
                 </div>
@@ -44,11 +44,10 @@
                     <div id="fb-root">
                             </div>
                             <div class="fb-like" data-send="false" data-width="350" data-show-faces="false" data-action="recommend"
-                                data-font="tahoma">
+                                data-font="tahoma" style="min-height: 35px;">
                             </div>
-                        Choose your ring size: @this.Select("size").Options(new SelectList(SelectSourceFactory.RingSizes, "Key", "Value")).Selected(String.IsNullOrWhiteSpace(Model.JewelPersistence.Size) ? "7" : Model.JewelPersistence.Size).Class("jewelsize")
-                        <span class="block"><a href="@Url.Action("FindYourRingSize", "JewelryItem")" title="Find my ring size" class="find-ring-size">Find my ring size</a>
-                        </span>
+                        @Html.Partial("RingSize",new RingSizePartialViewModel { JewelType = @Model.JewelType,Selected = Model.JewelPersistence.Size,Class = "jewelsize",SelectName = "size"})
+                   
                     </div>
                 </div>
                 <div class="row">
@@ -76,7 +75,8 @@
                         }
                             <img src="/Content/images/jeweldesign/setting/select-this-ring.png" />
                             <input type="hidden" value="@Model.ID " name="itemid" />
-                            <ul class="actions" style="display: none">
+                            <div class="relativepositiner">
+                            <ul class="actions" style="position: relative; display:none" >
                                 <li>
                                     @if (Model.JewelPersistence.DiamondID > 0)
                                     {
@@ -91,6 +91,7 @@
                                 <li><a href="#!" command="buy-setting" >Buy this Setting without a Center Diamond</a>
                                 </li>
                             </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

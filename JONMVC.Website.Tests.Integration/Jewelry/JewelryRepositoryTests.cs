@@ -65,7 +65,7 @@ namespace JONMVC.Website.Tests.Integration.Jewelry
 
             JewelRepository jewelRepository = new JewelRepository(settingManager);
 
-            JewelryDynamicOrderBy orderBy = new JewelryDynamicOrderBy("price","desc");
+            DynamicOrderBy orderBy = new DynamicOrderBy("price","desc");
 
             //Act
             jewelRepository.OrderJewelryItemsBy(orderBy);

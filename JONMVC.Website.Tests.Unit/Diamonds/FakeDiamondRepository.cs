@@ -59,7 +59,11 @@ namespace JONMVC.Website.Tests.Unit.Diamonds
                 lastOporationTotalPages = TotalRecords/mappedSearchParameters.ItemsPerPage + 1;
             }
 
-             
+            if (mappedSearchParameters.OrderBy != null)
+            {
+                dbdiamonds = dbdiamonds.OrderBy(mappedSearchParameters.OrderBy.SQLString);    
+            }
+            
            
             var dbdiamondslist  = dbdiamonds.Skip((mappedSearchParameters.Page-1)*mappedSearchParameters.ItemsPerPage).Take(mappedSearchParameters.ItemsPerPage).ToList();
 

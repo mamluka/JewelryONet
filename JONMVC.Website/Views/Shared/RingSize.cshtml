@@ -1,0 +1,31 @@
+﻿@using JONMVC.Website.Models.Jewelry
+@using JONMVC.Website.ViewModels.Views
+@using MvcContrib.FluentHtml
+@model RingSizePartialViewModel
+@{
+    if (String.IsNullOrWhiteSpace(Model.Selected))
+    {
+        Model.Selected = "7";
+    }
+}
+@{
+
+    var select = this.Select(Model.SelectName)
+        .Options(new SelectList(SelectSourceFactory.RingSizes, "Key", "Value"))
+        .Selected(Model.Selected)
+        .Class(Model.Class)
+        .Id(Model.ID);
+
+    if (Model.Attributes != null)
+    {
+        select = Model.Attributes.Aggregate(select, (current, attr) => current.Attr(attr.Key, attr.Value));
+    }
+
+}
+@if (Model.JewelType == JewelType.Ring || Model.JewelType == JewelType.SemiMounting)
+{
+    <span class="inline">Choose your ring size:</span>
+    @select
+    <span class="block"><a href="@Url.Action("FindYourRingSize", "JewelryItem")" title="Find my ring size" class="find-ring-size" >
+        Find my ring size</a> </span>
+}

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using System.Web.Routing;
 using AutoMapper;
@@ -14,7 +15,7 @@ using NMoneys;
 using NUnit.Framework;
 using Rhino.Mocks;
 using FluentAssertions;
-
+using System.Linq;
 
 namespace JONMVC.Website.Tests.Unit.JewelDesign
 {
@@ -390,6 +391,31 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
             jsonResult.rows[0].cell[7].Should().Be(aTag);
             jsonResult.userdata["1"].ViewURL.Should().Be(url);
 
+        }
+
+        private List<DiamondGridRow> GetUnorderdRows()
+        {
+            //Arrange
+            var diamondRepository = MockRepository.GenerateStub<IDiamondRepository>();
+            diamondRepository.Stub(
+                x => x.DiamondsBySearchParameters(Arg<DiamondSearchParameters>.Is.Anything)).Return(new List<Diamond>()
+                                                                                                        {
+                                                                                                            {CreateStubDiamondDiversity("H","VVS1",(decimal) 2.25,2586,1)},
+                                                                                                            {CreateStubDiamondDiversity("D","SI1",(decimal) 3.4,2086,2)},
+                                                                                                            {CreateStubDiamondDiversity("E","VS1",(decimal) 1.25,12586,3)},
+                                                                                                            {CreateStubDiamondDiversity("H","VS2",(decimal) 2.45,21586,4)},
+                                                                                                     });
+
+            var searchParameters = new DiamondSearchParametersGivenByJson();
+
+            var formatter = CreateDefaultJONFormatter;
+            var webbHelpers = MockRepository.GenerateStub<IWebHelpers>();
+
+            var builder = new JsonDiamondsBuilder(searchParameters, diamondRepository, formatter, mapper, webbHelpers);
+            //Act
+            var jsonResult = builder.Build();
+            //Assert
+            return jsonResult.rows;
         }
 
         private static IJONFormatter CreateDefaultJONFormatter

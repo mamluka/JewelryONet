@@ -17,6 +17,6 @@ namespace JONMVC.Website.ViewModels.Json.Builders
         public int page { get; set; }
         public int rows { get; set; }
         public string sidx { get; set; }
-        public string sort { get; set; }
+        public string sord { get; set; }
     }
 }

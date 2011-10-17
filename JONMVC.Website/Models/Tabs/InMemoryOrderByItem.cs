@@ -10,13 +10,13 @@ namespace JONMVC.Website.Models.Tabs
 
         public string OrderByDisplayName { get; set; }
 
-        public JewelryDynamicOrderBy OrderBySQL { get; private set; }
+        public DynamicOrderBy OrderBySQL { get; private set; }
 
         public InMemoryOrderByItem(int id,string displayname,string field,string direction )
         {
             OrderByItemID = id;
             OrderByDisplayName = displayname;
-            OrderBySQL = new JewelryDynamicOrderBy(field,direction);
+            OrderBySQL = new DynamicOrderBy(field,direction);
             
 
         }

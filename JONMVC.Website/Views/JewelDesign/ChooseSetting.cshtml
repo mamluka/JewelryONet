@@ -113,13 +113,13 @@
 																								   {"SettingID",jewelInTabContainer.ID},
 																								   {"DiamondID",Model.DiamondID}
 																							   })">
-                                <img src="@jewelInTabContainer.PictureURL" class="right" alt="@jewelInTabContainer.Description" />
+                                <img src="@jewelInTabContainer.PictureURL"  alt="@jewelInTabContainer.Description" />
                             </a>
-                            @Html.RouteLink(jewelInTabContainer.Description != String.Empty ? jewelInTabContainer.Description : "Empty Title", "Setting", new RouteValueDictionary()
+                            @Html.RouteLink(jewelInTabContainer.Description != String.Empty ? jewelInTabContainer.Description : "Empty Title", "Setting", new 
 																							   {
-																								   {"SettingID",jewelInTabContainer.ID},
-																								   {"DiamondID",Model.DiamondID}
-																							   })
+																								   SettingID = jewelInTabContainer.ID,
+																								   DiamondID = Model.DiamondID
+																							   },new {@class="block top5"})
                             <div class="metalpricecombo top10 left"  itemid="@jewelInTabContainer.ID" >
                                 <span class="left metal">@jewelInTabContainer.Metal</span>
                                 <img src="@Url.Content("~/Content/images/tabs/item/combo-arrow.png")" class="right" />
@@ -205,6 +205,7 @@
 <script type="text/javascript">
     Tabs.RegisterFilters();
     Tabs.RegisterTabLinks();
+    Tabs.RegisterTabsMouseOver();
     MetalPriceSelect.RegisterMetalPriceSelectForTabs();
     Video.RegisterHooks();
     

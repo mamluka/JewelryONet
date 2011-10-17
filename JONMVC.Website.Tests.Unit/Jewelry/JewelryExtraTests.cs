@@ -5,12 +5,12 @@ using JONMVC.Website.Models.Jewelry;
 using NUnit.Framework;
 using Rhino.Mocks;
 using FluentAssertions;
-
+using Ploeh.AutoFixture;
 
 namespace JONMVC.Website.Tests.Unit.Jewelry
 {
     [TestFixture]
-    public class JewelryExtraTests
+    public class JewelryExtraTests:MapperAndFixtureBase
     {
 
         /// <summary>
@@ -26,9 +26,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -41,9 +42,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -56,9 +58,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -71,9 +74,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -86,9 +90,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -101,9 +106,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -116,9 +122,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -131,9 +138,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -146,9 +154,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -161,9 +170,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -176,9 +186,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -191,9 +202,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -206,9 +218,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -221,9 +234,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -236,9 +250,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -251,10 +266,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
-
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
             //Assert
 
             jewelExtra.SS.Weight.Should().BeInRange(1.5, 1.6);
@@ -266,9 +281,10 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
@@ -281,13 +297,30 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         {
             //Arrange
             var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.CreateAnonymous<ItemInitializerParameterObject>();
             //Act
 
-            var jewelExtra = new JewelryExtra(initJewelExtra);
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
 
             //Assert
 
             jewelExtra.TotalWeight.Should().BeInRange(3.5, 3.6);
+
+        }
+
+        [Test]
+        public void Constructor_ShouldReturnCSColorAndClarityAsFreeTextWhenTheJewelIsGemstone()
+        {
+            //Arrange
+            var initJewelExtra = JewelryExtraInitializerParameterFactory();
+            var initObj = fixture.Build<ItemInitializerParameterObject>().With(x=> x.CategoryID,8).CreateAnonymous();
+            //Act
+
+            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
+            //Assert
+
+            jewelExtra.CS.Clarity.Should().Be(initJewelExtra.CS_ClarityFreeText);
+            jewelExtra.CS.Color.Should().Be(initJewelExtra.CS_ColorFreeText);
 
         }
 

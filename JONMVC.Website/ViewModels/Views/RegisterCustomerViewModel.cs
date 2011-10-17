@@ -22,6 +22,9 @@ namespace JONMVC.Website.ViewModels.Views
 
         public bool HasError { get; set; }
         public CustomerCreationError CreateStatus { get; set; }
+
+        [Required]
+        public string Phone { get; set; }
     }
 
     public class CustomerCreationError
