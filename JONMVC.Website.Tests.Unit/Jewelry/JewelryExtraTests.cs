@@ -308,22 +308,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
 
         }
 
-        [Test]
-        public void Constructor_ShouldReturnCSColorAndClarityAsFreeTextWhenTheJewelIsGemstone()
-        {
-            //Arrange
-            var initJewelExtra = JewelryExtraInitializerParameterFactory();
-            var initObj = fixture.Build<ItemInitializerParameterObject>().With(x=> x.CategoryID,8).CreateAnonymous();
-            //Act
-
-            var jewelExtra = new JewelryExtra(initJewelExtra, initObj);
-            //Assert
-
-            jewelExtra.CS.Clarity.Should().Be(initJewelExtra.CS_ClarityFreeText);
-            jewelExtra.CS.Color.Should().Be(initJewelExtra.CS_ColorFreeText);
-
-        }
-
+       
 
 
 

@@ -129,6 +129,23 @@ namespace JONMVC.Website.Tests.Unit.Services
             fakeContext.Response.Cookies["JON"].Should().BeNull();
         }
 
+        [Test]
+        public void Clear_ShouldClearAllTheItemsFromTheList()
+        {
+            //Arrange
+            var fakeContext = CreateJONCookieInFakeHttpContextWith10ItemsInside();
+
+            var cookiePersistence = new CookieWishListPersistence(fakeContext);
+
+            //Act
+            cookiePersistence.ClearWishList();
+            //Assert
+
+            fakeContext.Response.Cookies["JON"].Expires.Should().BeBefore(DateTime.Now);
+
+
+        }
+
         private FakeHttpContext CreateFakeHttpContextWithoutTheCookie()
         {
            return  FakeFactory.FakeHttpContext();

@@ -148,9 +148,13 @@ namespace JONMVC.Website.ViewModels.Builders
                                 };
             colors.Reverse();
             clarities.Reverse();
-
-            specs.Add(new JewelComponentInfoPart("Color",jewel.JewelryExtra.CS.Color, 1));
-            specs.Add(new JewelComponentInfoPart("Clarity",jewel.JewelryExtra.CS.Clarity, 1));
+            var WordsToSayHowTheQualityIs = "Minimum";
+            if (jewel.JewelryExtra.CS.Count > 1)
+            {
+                WordsToSayHowTheQualityIs = "Average";
+            }
+            specs.Add(new JewelComponentInfoPart(WordsToSayHowTheQualityIs+ " Color",jewel.JewelryExtra.CS.Color, 1));
+            specs.Add(new JewelComponentInfoPart(WordsToSayHowTheQualityIs + " Clarity",jewel.JewelryExtra.CS.Clarity, 1));
 
             if (jewel.JewelryExtra.HasSideStones)
             {

@@ -79,11 +79,7 @@ namespace JONMVC.Website.Extensions
 
         }
 
-        public static List<KeyValuePair<string,string>> PathBarFromTitle(this HtmlHelper html, string title)
-        {
-            return new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>(title,"")};
-        }
-
+      
      
 
     }

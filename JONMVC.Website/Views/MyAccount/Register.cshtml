@@ -6,8 +6,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="dialog">
-    <h1 class="title">
-        Register with JewelryONet</h1>
+    <h2 class="title">
+        Thank You for choosing to register with JewelryONet</h2>
+    <span>We ask only for details we need in order to make your shopping experience at JewelryONet
+        much more easier<br />
+        and enjoyable. Fields marked with an (*) are required. All other information is
+        optional. </span>
     @if (Model.HasError)
     {
         <div class="error">
@@ -15,85 +19,117 @@
             @Html.ActionLink("contact us", "GetInTouch", "Services") for help
         </div>
     }
-    @using (Html.BeginForm())
-    {
-        <fieldset class="onecolumb-form">
-            <dl>
-                <dt>
-                    <label for="Email">
-                        Your Email:</label>
-                </dt>
-                <dd>
-                    @Html.TextBoxFor(x => x.Email)
-                    <span data-valmsg-replace="false" data-valmsg-for="Email" class="field-validation-valid">
-                    </span>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <label for="Password">
-                        Password:</label></dt>
-                <dd>
-                    @Html.PasswordFor(x => x.Password)
-                    <span data-valmsg-replace="false" data-valmsg-for="Password" class="field-validation-valid">
-                    </span>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <label for="Firstname">
-                        Firstname:</label></dt>
-                <dd>
-                    @Html.TextBoxFor(x => x.Firstname)
-                    <span data-valmsg-replace="false" data-valmsg-for="Firstname" class="field-validation-valid">
-                    </span>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <label for="Lastname">
-                       Lastname:</label></dt>
-                <dd>
-                    @Html.TextBoxFor(x => x.Lastname)
-                    <span data-valmsg-replace="false" data-valmsg-for="Lastname" class="field-validation-valid">
-                    </span>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <label for="Phone">
-                       Lastname:</label></dt>
-                <dd>
-                    @Html.TextBoxFor(x => x.Phone)
-                    <span data-valmsg-replace="false" data-valmsg-for="Phone" class="field-validation-valid">
-                    </span>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <label for="CountryID">
-                        Country:</label></dt>
-                <dd>@this.Select(x => x.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key"))
-                    <span data-valmsg-replace="false" data-valmsg-for="CountryID" class="field-validation-valid">
-                    </span>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <label for="StateID">
-                        State:</label></dt>
-                <dd>@this.Select(x => x.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key"))
-                    <span data-valmsg-replace="false" data-valmsg-for="StateID" class="field-validation-valid">
-                    </span>
-                </dd>
-            </dl>
-            <dl>
-                <dt></dt>
-                <dd>
-                    <input type="submit" value="Register with us" class=" button top10" />
-                </dd>
-            </dl>
-        </fieldset>
+    <div class="table">
+        <div class="row">
+            <div class="cell width50">
+                @using (Html.BeginForm())
+                {
+                    <fieldset class="onecolumb-form">
+                        <dl>
+                            <dt>
+                                <label for="Email">
+                                    Your Email:</label>
+                            </dt>
+                            <dd>
+                                @Html.TextBoxFor(x => x.Email)<span class="astrix">*</span>
+                                <span data-valmsg-replace="false" data-valmsg-for="Email" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="Password">
+                                    Password:</label></dt>
+                            <dd>
+                                @Html.PasswordFor(x => x.Password)<span class="astrix">*</span>
+                                <span data-valmsg-replace="false" data-valmsg-for="Password" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="Password">
+                                    Confirm Password:</label></dt>
+                            <dd>
+                                @Html.Password("ConfirmPassword")<span class="astrix">*</span>
+                                <span data-valmsg-replace="false" data-valmsg-for="ConfirmPassword" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="Firstname">
+                                    First name:</label></dt>
+                            <dd>
+                                @Html.TextBoxFor(x => x.Firstname)
+                                <span data-valmsg-replace="false" data-valmsg-for="Firstname" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="Lastname">
+                                    Last name:</label></dt>
+                            <dd>
+                                @Html.TextBoxFor(x => x.Lastname)
+                                <span data-valmsg-replace="false" data-valmsg-for="Lastname" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="Phone">
+                                    Phone:</label></dt>
+                            <dd>
+                                @Html.TextBoxFor(x => x.Phone)
+                                <span data-valmsg-replace="false" data-valmsg-for="Phone" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="CountryID">
+                                    Country:</label></dt>
+                            <dd>@this.Select(x => x.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key"))
+                                <span data-valmsg-replace="false" data-valmsg-for="CountryID" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="StateID">
+                                    State:</label></dt>
+                            <dd>@this.Select(x => x.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key"))
+                                <span data-valmsg-replace="false" data-valmsg-for="StateID" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            
+                            <dd style="width: 100%">
+                                @this.CheckBox(x=> x.SignupForNewsletter).LabelAfter("Yes. Please send me information about special offers, discounts, updates and new collections.")
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt></dt>
+                            <dd>
+                                <input type="submit" value="Register with us" class=" button top10" />
+                            </dd>
+                        </dl>
+                    </fieldset>
         
-    }
+                }</div>
+            <div class="cell width50">
+            <h2 class="redbold">Account Benefits</h2>
+            <ul class="circles">
+            <li>Easy access to order status, wish list & more.</li>
+            <li>Faster & easier checkout process with stored 
+   shipping & billing personal information.</li>
+   <li>Exclusive deals & Special Offers, updates about 
+   our newest fine jewelry collections via e-mail.</li>
+            </ul>
+
+            </div>
+        </div>
+    </div>
 </div>

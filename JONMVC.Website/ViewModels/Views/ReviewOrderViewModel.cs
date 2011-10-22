@@ -23,5 +23,7 @@ namespace JONMVC.Website.ViewModels.Views
         public int PaymentMethod { get; set; }
 
         public CreditCardViewModel CreditCardViewModel { get; set; }
+
+        public int OrderNumber { get; set; }
     }
 }

@@ -11,9 +11,7 @@
 <div class="table" id="ItemBlock">
     <div class="row">
         <div class="cell media">
-        <img src="@Model.MainDiamondPicture.Thumb"></img>
-           
-
+            <img src="@Model.MainDiamondPicture.Thumb" class="redframe margin5"></img>
         </div>
         <div class="cell info">
             <div class="table width100">
@@ -27,21 +25,40 @@
                 </div>
                 <div class="row">
                     <div class="cell buy-menu">
-                    <a href="@Url.RouteUrl("ChooseSetting", new RouteValueDictionary()
-                                                                                               {
-                                                                                                   {"DiamondID", Model.JewelPersistence.DiamondID},
-                                                                                                   {"SettingID", Model.JewelPersistence.SettingID},
-                                                                                                   {"Size", Model.JewelPersistence.Size},
-                                                                                                   {"MediaType", Model.JewelPersistence.MediaType},
-                                                                                                   {"controller", "JewelDesign"},
-                                                                                                   {"action", "ChooseSetting"},
-                                                                                                   {"tabid", "solitaire-settings"},
-                                                                                                   {"page", 1},
-                                                                                                   {"MetalFilter", "1"},
-                                                                                                   {"OrderByPrice", "1"},
-                                                                                                   {"itemsperpage", "20"}
-                                                                                               })">
-                        <img src="/Content/images/jeweldesign/diamond/select-this-diamond.png" /></a>
+                        @{
+                            var link = "";
+                            
+                            if (Model.JewelPersistence.SettingID > 0)
+                            {
+                                link = Url.RouteUrl("End", new RouteValueDictionary()
+                                       {
+                                           {"DiamondID", Model.JewelPersistence.DiamondID},
+                                           {"SettingID", Model.JewelPersistence.SettingID},
+                                           {"Size", Model.JewelPersistence.Size},
+                                           {"MediaType", Model.JewelPersistence.MediaType}
+                                       });
+                            }
+                            else
+                            {
+                                link = Url.RouteUrl("ChooseSetting", new RouteValueDictionary()
+                                                 {
+                                                     {"DiamondID", Model.JewelPersistence.DiamondID},
+                                                     {"SettingID", Model.JewelPersistence.SettingID},
+                                                     {"Size", Model.JewelPersistence.Size},
+                                                     {"MediaType", Model.JewelPersistence.MediaType},
+                                                     {"controller", "JewelDesign"},
+                                                     {"action", "ChooseSetting"},
+                                                     {"tabid", "solitaire-settings"},
+                                                     {"page", 1},
+                                                     {"MetalFilter", "1"},
+                                                     {"OrderByPrice", "1"},
+                                                     {"itemsperpage", "20"}
+                                                 });
+                            }
+
+                        }
+                        <a href="@link">
+                            <img src="/Content/images/jeweldesign/diamond/select-this-diamond.png" /></a>
                         <input type="hidden" value="@Model.DiamondID " name="itemid" />
                     </div>
                 </div>
@@ -156,9 +173,7 @@
                     and a full 30 Day inspection period.
                 </div>
             </div>
-            <div class="cell rightspecs">
-                @Html.Partial("OrderWithConfidence")
-            </div>
+             @Html.Partial("OrderWithConfidence")
         </div>
     </div>
 </div>

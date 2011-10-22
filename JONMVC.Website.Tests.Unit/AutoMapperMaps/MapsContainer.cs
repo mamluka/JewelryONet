@@ -255,14 +255,19 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto => dto.PathBarItems, opt => opt.Ignore())
                 ;
 
-            Mapper.CreateMap<Customer, usr_CUSTOMERS>()                
-                .ForMember(dto => dto.country1_id, opt => opt.MapFrom(x => x.CountryID))
+            Mapper.CreateMap<Customer, usr_CUSTOMERS>()
+
                 .ForMember(dto => dto.email, opt => opt.MapFrom(x => x.Email))
                 .ForMember(dto => dto.firstname, opt => opt.MapFrom(x => x.Firstname))
                 .ForMember(dto => dto.lastname, opt => opt.MapFrom(x => x.Lastname))
                 .ForMember(dto => dto.state1_id, opt => opt.MapFrom(x => x.StateID))
+                .ForMember(dto => dto.country1_id, opt => opt.MapFrom(x => x.CountryID))
+                .ForMember(dto => dto.state2_id, opt => opt.MapFrom(x => x.StateID))
+                .ForMember(dto => dto.country2_id, opt => opt.MapFrom(x => x.CountryID))
                 .ForMember(dto => dto.password, opt => opt.MapFrom(x => x.Password))
-                .ForMember(dto=>dto.EntityKey,opt=>opt.Ignore())
+                .ForMember(dto => dto.phone1, opt => opt.MapFrom(x => x.Phone))
+                .ForMember(dto => dto.create_date, opt => opt.UseValue(DateTime.Now))
+                .ForMember(dto => dto.EntityKey, opt => opt.Ignore())
                 .ForMember(dto => dto.EntityKey, opt => opt.Ignore())
                 .ForMember(dto => dto.acc_CASHFLOW, opt => opt.Ignore())
                 .ForMember(dto => dto.acc_ORDERS, opt => opt.Ignore())
@@ -283,8 +288,8 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto => dto.b_zip, opt => opt.Ignore())
                 .ForMember(dto => dto.city1, opt => opt.Ignore())
                 .ForMember(dto => dto.city2, opt => opt.Ignore())
-                .ForMember(dto => dto.country2_id, opt => opt.Ignore())
-                .ForMember(dto => dto.create_date, opt => opt.Ignore())
+
+
                 .ForMember(dto => dto.dateofbirth, opt => opt.Ignore())
                 .ForMember(dto => dto.dealer, opt => opt.Ignore())
                 .ForMember(dto => dto.default_currency, opt => opt.Ignore())
@@ -314,8 +319,8 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto => dto.prf_srtkey_search, opt => opt.Ignore())
                 .ForMember(dto => dto.prf_srtkey_specials, opt => opt.Ignore())
                 .ForMember(dto => dto.prf_timesvisited, opt => opt.Ignore())
-                .ForMember(dto => dto.registration_ip, opt => opt.Ignore())                
-                .ForMember(dto => dto.state2_id, opt => opt.Ignore())
+                .ForMember(dto => dto.registration_ip, opt => opt.Ignore())
+
                 .ForMember(dto => dto.street1, opt => opt.Ignore())
                 .ForMember(dto => dto.street2, opt => opt.Ignore())
                 .ForMember(dto => dto.sys_COUNTRY, opt => opt.Ignore())

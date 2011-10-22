@@ -191,12 +191,19 @@ namespace JONMVC.Website
                 new { controller = "JewelDesign", action = "End", DiamondID = "0", SettingID = "0", Size = "7", MediaType = JewelMediaType.WhiteGold } // Parameter defaults
                 );
 
+            routes.MapRoute(
+              "PayPal", // Route name
+              "Checkout/ThankYouForUsingPaypal/{orderNumber}", // URL with parameters
+              new { controller = "Checkout", action = "ThankYouForUsingPaypal" } // Parameter defaults
+              );
 
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new {controller = "Home", action = "Index", id = UrlParameter.Optional} // Parameter defaults
                 );
+
+           
 
         }
 

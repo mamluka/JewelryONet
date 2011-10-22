@@ -43,12 +43,6 @@ namespace JONMVC.Website.Models.Jewelry
                          Weight = initJewelExtra.SS_Weight
                      };
 
-            if (item.CategoryID == 8)
-            {
-                CS.Clarity = CS.ClarityFreeText;
-                CS.Color = CS.ColorFreeText;
-            }
-
             HasSideStones = initJewelExtra.HasSideStones;
             TotalWeight = initJewelExtra.TotalWeight;
         }

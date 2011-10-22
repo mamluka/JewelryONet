@@ -129,6 +129,13 @@ namespace JONMVC.Website.Controllers
             return RedirectToAction("Wishlist", "Services");
         }
 
+        public ActionResult ClearWishList()
+        {
+            wishListPersistence.ClearWishList();
+
+            return RedirectToAction("Index", "Home");
+        }
+
         [RetainHttps]
         public ActionResult FindYourRingSize()
         {

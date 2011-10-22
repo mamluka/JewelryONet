@@ -11,9 +11,8 @@
         <div class="cell">
             <h2 class="left">
             </h2>
-            <span class="right">@Html.ActionLink("Clear Wishlist", "ClearWishList", "Services")
-                |
-                @Html.ActionLink("Email Wishlist", "EmailWishList", "Services") | <a href="#!" command="printwishlist">
+            <span class="right">@Html.ActionLink("Clear Wishlist", "ClearWishList", "JewelryItem")
+                <a href="#!" command="wishlist-print">
                     Print Wishlist</a> </span>
         </div>
     </div>
@@ -58,11 +57,11 @@
                                     <div class="unalignedcell alignbotton ">
                                         <div class="left">
                                             <img src="/Content/images/services/wishlist/icons/email.png" class="alignmiddle" />
-                                            <a href="#!" command="emailring">Email ring</a>
+                                            <a href="#!" command="wishlist-emailring" id="@item.ID" >Email Ring</a>
                                         </div>
                                         <div class="left" style="margin-left: 10px;">
                                             <img src="/Content/images/services/wishlist/icons/remove.png" class="alignmiddle" />
-                                            @Html.ActionLink("Remove item", "RemoveFromWishList", "JewelryItem", new
+                                            @Html.ActionLink("Remove Item", "RemoveFromWishList", "JewelryItem", new
                                                                                                {
                                                                                                    jewelID = item.ID
                                                                                                }, null)
@@ -103,3 +102,10 @@
         </div>
     </div>
 </div>
+@Html.Partial("EmailRing","0")
+<script type="text/javascript">
+    $(document).ready(function() {
+        Item.RegisterWishListEmailRing();
+    });
+
+</script>

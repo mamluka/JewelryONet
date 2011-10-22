@@ -115,6 +115,9 @@
 .padding10 {
 	padding:10px;
 }
+.margin5 {
+    margin: 5px;
+}
 .rounded3 {
 	-webkit-border-radius: 3px;	
 	-moz-border-radius: 3px;
@@ -138,11 +141,10 @@ ul.circles {
 	list-style:disc;
 	list-style-position:outside;
 	font-size:1.2em;
-padding-left:15px;
+    padding-left:15px;
 }
 
 ul.circles li {
-	line-height:17px;
 	height:auto;
 	
 }

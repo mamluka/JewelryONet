@@ -173,6 +173,11 @@ namespace JONMVC.Website.Controllers
             return View(new EmptyViewModel());
         }
 
+        public ActionResult ThankYouForSubscribingEithUs()
+        {
+            return View();
+        }
+
    
     }
 }

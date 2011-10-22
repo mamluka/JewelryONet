@@ -277,6 +277,28 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
 
         }
 
+        [Test]
+        public void ClearWishList_ShouldCallTheWishListPersistenceClearMethod()
+        {
+            //Arrange
+
+
+            var wishListPersistence = MockRepository.GenerateStrictMock<IWishListPersistence>();
+            wishListPersistence.Expect(x => x.ClearWishList()).
+                Repeat.Once();
+
+            var controller = CreateJewelryItemControllerWithCustomWishListPersistence(wishListPersistence);
+
+
+            //Act
+
+            var result = controller.ClearWishList();
+
+            //Assert
+            wishListPersistence.VerifyAllExpectations();
+
+        }
+
        
 
         [Test]

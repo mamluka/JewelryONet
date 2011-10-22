@@ -101,6 +101,9 @@ input.smallbutton {
 .qtip-title {
     background: none;
 }
+.redframe {
+    border: 1px solid #962e21;
+}
 #TopManu {
 	background-color:black;
 	height:165px;
@@ -685,7 +688,8 @@ span.redprice {
 }
 /*item page*/
 #ItemBlock  .media {
-	width:366px
+    width: 366px;
+	
 	
 }
 #ItemBlock  .info {
@@ -1029,6 +1033,11 @@ fieldset input {
 }
 fieldset input:focus {
 	box-shadow:0 0 3px #842b1a; 
+}
+span.astrix {
+    float: left;
+    margin: 0px 0px 0px 3px;
+    color: red;
 }
 .shoppingcart-form {
 	width:300px;

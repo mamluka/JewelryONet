@@ -39,6 +39,8 @@ namespace JONMVC.Website.Tests.Unit.Checkout
             viewModel.OrderNumber.Should().Be(orderNumber.ToString());
         }
 
+
+
         //TODO error handling for nulls and stuff
     }
 }

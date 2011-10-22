@@ -13,7 +13,7 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using FluentAssertions;
 using MvcContrib.TestHelper;
-
+using Ploeh.AutoFixture;
 
 namespace JONMVC.Website.Tests.Unit.JewelryItem
 {
@@ -365,6 +365,39 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
         }
 
         [Test]
+        public void Build_ShouldReturnMinimumWhenCenterStoneCountIsOne()
+        {
+            //Arrange
+            var jewel = fixture.Build<Jewel>().With(x => x.JewelryExtra.CS.Count, 2).CreateAnonymous();
+            var builder = CreateJewelItemViewModelBuilderWithJewel(jewel);
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+            viewModel.SpecsPool.Where(x => x.Title.Contains("Color")).SingleOrDefault().Title.Should().Be(
+                "Minimum Color");
+
+            viewModel.SpecsPool.Where(x => x.Title.Contains("Clarity")).SingleOrDefault().Title.Should().Be(
+                "Minimum Clarity");
+        }
+
+        [Test]
+        public void Build_ShouldReturnAvargeWhenNumberOfCenterStonesIsMoreThenOne()
+        {
+            //Arrange
+            var jewel = fixture.Build<Jewel>().With(x => x.JewelryExtra.CS.Count, 2).CreateAnonymous();
+            var builder = CreateJewelItemViewModelBuilderWithJewel(jewel);
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+            viewModel.SpecsPool.Where(x => x.Title.Contains("Color")).SingleOrDefault().Title.Should().Be(
+                "Average Color");
+
+            viewModel.SpecsPool.Where(x => x.Title.Contains("Clarity")).SingleOrDefault().Title.Should().Be(
+                "Average Clarity");
+        }
+
+
+        [Test]
         public void Build_ShouldReturnTrueIfHasSideStones()
         {
             //Arrange
@@ -445,12 +478,25 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
         {
             var settingManager = new FakeSettingManager();
             var fakeRepository = new FakeJewelRepository(settingManager);
-             var fakeTestimonailRepository = new FakeTestimonialRepository(mapper);
+            var fakeTestimonailRepository = new FakeTestimonialRepository(mapper);
             var fileSystem =  FakeFileSystem.MediaFileSystemForItemNumber("0101-15421");
 
             var builder = new JewelryItemViewModelBuilder(Tests.FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID, fakeRepository,fakeTestimonailRepository,fileSystem,mapper);
             return builder;
         }
+
+        private JewelryItemViewModelBuilder CreateJewelItemViewModelBuilderWithJewel(Jewel jewel)
+         {
+      
+            var fakeRepository = MockRepository.GenerateStub<IJewelRepository>();
+            fakeRepository.Stub(x => x.GetJewelByID(Arg<int>.Is.Anything)).Return(jewel);
+
+             var fakeTestimonailRepository = new FakeTestimonialRepository(mapper);
+             var fileSystem = FakeFileSystem.MediaFileSystemForItemNumber(jewel.ItemNumber);
+
+             var builder = new JewelryItemViewModelBuilder(Tests.FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID, fakeRepository, fakeTestimonailRepository, fileSystem, mapper);
+             return builder;
+         }
 
 
          private JewelryItemViewModelBuilder JewelryItemViewModelBuilderFactoryMethodWithJewelID(int jewelD)

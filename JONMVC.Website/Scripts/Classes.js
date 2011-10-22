@@ -72,14 +72,16 @@ var Item = {
 			);
 
         $('#BestOfferHelp').dialog(
-			{
-			    autoOpen: false,
-			    height: 550,
-			    width: 500,
-			    hide: { effect: "fade" },
-			    resizable: false
-			}
+            {
+                autoOpen: false,
+                height: 550,
+                width: 500,
+                hide: { effect: "fade" },
+                resizable: false
+            }
 			);
+
+        
 
         $('.bestoffer img:first').click(function () {
             $('#BestOfferDialog').dialog('open');
@@ -120,35 +122,13 @@ var Item = {
 				        MessageBox.Show('Error occured, try again later');
 				    }
 				});
-        });
+});
+
+Item.RegisterAjaxForEmailRing();
 
         $('a[command="print"]').click(function () {
             window.print();
         });
-
-        $('.emailring form').ajaxForm(
-			{
-			    beforeSubmit: function () {
-			        return $('.emailring form').validate().showErrors();
-			    },
-			    dataType: 'json',
-			    success: function (data) {
-			        if (data.HasError) {
-			            alert('There was an error, Please try again later');
-			        } else {
-
-			            Boxy.get($('.emailring')).hide();
-			            MessageBox.Show('Email sent to friend');
-			        }
-			    }
-
-
-			});
-
-        $('a[command="emailring"]').click(function () {
-            $('.emailring').dialog('open');
-        });
-
 
     },
     LoadRingSizeDropBoxs: function () {
@@ -191,7 +171,46 @@ var Item = {
 
             });
         });
+    },
+    RegisterWishList: function () {
+
+        Item.RegisterAjaxForEmailRing();
+
+        $('a[command=wishlist-emailring]').click(function () {
+            var id = $(this).attr('id');
+            $('#EmailRing input[name=ID]').val(id);
+            var boxy = new Boxy('#EmailRing', {
+                title: 'Email the ring'
+            });
+            boxy.show();
+        });
+
+        $('a[command=wishlist-print').click(function() {
+            window.print();
+        });
+    },
+    RegisterAjaxForEmailRing: function () {
+
+        $('.emailring form').ajaxForm(
+			{
+			    beforeSubmit: function () {
+			        return $('.emailring form').validate().showErrors();
+			    },
+			    dataType: 'json',
+			    success: function (data) {
+			        if (data.HasError) {
+			            alert('There was an error, Please try again later');
+			        } else {
+
+			            Boxy.get($('.emailring')).hide();
+			            MessageBox.Show('Email sent to friend');
+			        }
+			    }
+
+
+			});
     }
+
 
 };
 MessageBox = {

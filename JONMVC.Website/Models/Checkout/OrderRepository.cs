@@ -47,6 +47,7 @@ namespace JONMVC.Website.Models.Checkout
                                                  phone2 = orderdto.ShippingAddress.Phone,
                                                  zip2 = orderdto.ShippingAddress.ZipCode,
                                                  street2 = orderdto.ShippingAddress.Address1,
+                                                 create_date = DateTime.Now,
                                                  b_type_id = 1,
                                                  lastmodify_user_id = 1,
                                                  dealer = false

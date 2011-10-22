@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using System.Web.Security;
 using DataAnnotationsExtensions;
 
@@ -14,6 +15,7 @@ namespace JONMVC.Website.ViewModels.Views
         [Email]
         public string Email { get; set; }
         [Required]
+        [Compare("ConfirmPassword", ErrorMessage = "*")]
         public string Password { get; set; }
         
         public int CountryID { get; set; }
@@ -25,6 +27,8 @@ namespace JONMVC.Website.ViewModels.Views
 
         [Required]
         public string Phone { get; set; }
+
+        public bool SignupForNewsletter { get; set; }
     }
 
     public class CustomerCreationError

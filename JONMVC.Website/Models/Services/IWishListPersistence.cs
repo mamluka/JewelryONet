@@ -7,5 +7,6 @@ namespace JONMVC.Website.Models.Services
         List<int> GetItemsOnWishList();
         void SaveID(int jewelID);
         void RemoveID(int jewelID);
+        void ClearWishList();
     }
 }

@@ -128,16 +128,48 @@ namespace JONMVC.Website.Controllers
             var builder = new ReviewOrderViewModelBuilder(checkoutDetailsModel,shoppingCart,cartItemViewModelBuilder,mapper);
             var viewModel = builder.Build();
 
+            if (checkoutDetailsModel.PaymentMethod == PaymentMethod.PayPal)
+            {
+                var orderNumber = SaveOrderAndEmail(checkoutDetailsModel, shoppingCart);
+                viewModel.OrderNumber = orderNumber;
+            }
+
             return View(viewModel);
         }
+
         [RequireHttps]
         public ActionResult OrderConfirmation(CheckoutDetailsModel checkoutDetailsModel)
         {
             var shoppingCart = shoppingCartWrapper.Get();
+
+            var orderNumber = SaveOrderAndEmail(checkoutDetailsModel, shoppingCart);
+            
+
+            var builder = new OrderConfirmationViewModelBuilder(orderNumber, checkoutDetailsModel);
+            var viewModel = builder.Build();
+
+            shoppingCartWrapper.Clear();
+
+            return View(viewModel);
+        }
+
+        
+        public ActionResult ThankYouForUsingPaypal(int orderNumber)
+        {
+
+
+            return View();
+        }
+
+
+
+        private int SaveOrderAndEmail(CheckoutDetailsModel checkoutDetailsModel, IShoppingCart shoppingCart)
+        {
             var orderBuilder = new OrderBuilder(shoppingCart, authentication, mapper);
             var orderdto = orderBuilder.Build(checkoutDetailsModel);
 
             var orderNumber = orderRepository.Save(orderdto);
+
             if (orderNumber > 0)
             {
                 var cartItemBuilder = new CartItemViewModelBuilder(jewelRepository, diamondRepository, mapper);
@@ -147,14 +179,10 @@ namespace JONMVC.Website.Controllers
                                                                                               cartItemBuilder);
 
                 var emailTemplateViewModel = emailTemplateBuilder.Build();
-                mailer.OrderConfirmation(checkoutDetailsModel.Email,emailTemplateViewModel).Send();
+                mailer.OrderConfirmation(checkoutDetailsModel.Email, emailTemplateViewModel).Send();
             }
-            var builder = new OrderConfirmationViewModelBuilder(orderNumber, checkoutDetailsModel);
-            var viewModel = builder.Build();
 
-            shoppingCartWrapper.Clear();
-
-            return View(viewModel);
+            return orderNumber;
         }
 
         [HttpPost]

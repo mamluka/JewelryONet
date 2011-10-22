@@ -91,5 +91,11 @@ namespace JONMVC.Website.Models.Services
             return false;
         }
 
+        public void ClearWishList()
+        {
+            var cookie = GetCookie();
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            httpContext.Response.AppendCookie(cookie);
+        }
     }
 }

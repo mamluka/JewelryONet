@@ -6,25 +6,28 @@
     Layout = "~/Views/UserMailer/_Layout.cshtml";
 }
 <p style="font-size: 17px">
-<h2>Dear @Model.FriendName,</h2>
-<strong>@Model.YourName</strong> would like to share this item with you.<br />
-he had included the following message:<br/>
-@Html.Raw(Model.Message)
+    <h2>
+        Dear @Model.FriendName,</h2>
+    <strong>@Model.YourName</strong> would like to share this item with you.<br />
+    he had included the following message:<br />
+    @Html.Raw(Model.Message)
 </p>
-<div style="background-color: #f3f3f3; border-radius: 15px;padding: 5px;">
-    <h3 style="margin: 0px;padding: 10px">
+<div style="background-color: #f3f3f3; border-radius: 15px; padding: 5px;">
+    <h3 style="margin: 0px; padding: 10px">
         My Ring</h3>
     <table>
         <tr>
             <td style="padding: 10px;">
-                <img src="@Url.Abs(Url.Content(Model.Icon))"/>
+                <a  style="display: block;margin-top: 10px" href="@Url.Abs(Url.RouteUrl("JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet }))">
+                    <img src="@Url.Abs(Url.Content(Model.Icon))"/>
+                </a>
             </td>
-            <td style="vertical-align: top; padding:10px;">
+            <td style="vertical-align: top; padding: 10px;">
                 <span>Item number:</span><span>@Model.ItemNumber</span> <span style="display: block;
                     margin-top: 5px;">@Model.Description</span>
                 <br />
-                <span>Price:</span> <span>@Model.Price</span> <a  style="display: block;margin-top: 10px" href="@Url.Abs(Url.RouteUrl("JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet }))">View item details
-                </a>
+                <span>Price:</span> <span>@Model.Price</span> <a  style="display: block;margin-top: 10px" href="@Url.Abs(Url.RouteUrl("JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet }))">
+                    View item details </a>
             </td>
         </tr>
     </table>
