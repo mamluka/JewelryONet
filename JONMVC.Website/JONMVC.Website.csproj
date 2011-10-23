@@ -175,6 +175,8 @@
     <Compile Include="Models\AutoMapperMaps\DoubleTypeZeroToNAFormatter.cs" />
     <Compile Include="Models\AutoMapperMaps\EnumToIntResolver.cs" />
     <Compile Include="Models\AutoMapperMaps\FromJsonToDataBase.cs" />
+    <Compile Include="Models\AutoMapperMaps\MergeDiamondAndJewel.cs" />
+    <Compile Include="Models\AutoMapperMaps\MergeExistingCustomerAndExtendedCustomer.cs" />
     <Compile Include="Models\AutoMapperMaps\MergeOrdersAndCustomer.cs" />
     <Compile Include="Models\AutoMapperMaps\MergeTwoObjectsForAutoMapper.cs" />
     <Compile Include="Models\AutoMapperMaps\MyAccountHasAddressInformationResolver.cs" />
@@ -315,7 +317,6 @@
     <Compile Include="ViewModels\Builders\ShoppingCartViewModelBuilder.cs" />
     <Compile Include="ViewModels\Builders\SpecialOffersBannervViewModelBuilder.cs" />
     <Compile Include="ViewModels\Builders\TabsViewModelBuilder.cs" />
-    <Compile Include="ViewModels\Builders\MergeDiamondAndJewel.cs" />
     <Compile Include="ViewModels\Json\Builders\DiamondSearchParametersGivenByJson.cs" />
     <Compile Include="ViewModels\Json\Builders\JsonDiamondsBuilder.cs" />
     <Compile Include="ViewModels\Json\Builders\JsonMedia.cs" />
@@ -801,6 +802,7 @@
     <Content Include="Views\UserMailer\NewCustomer.cshtml" />
     <Content Include="Views\Checkout\ThankYouForUsingPaypal.cshtml" />
     <Content Include="Views\MyAccount\ThankYouForSubscribingEithUs.cshtml" />
+    <Content Include="Views\MyAccount\SigninTopManuLink.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

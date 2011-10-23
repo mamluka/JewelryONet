@@ -18,5 +18,7 @@ namespace JONMVC.Website.ViewModels.Views
         public string State { get; set; }
 
         public string MemeberSince { get; set; }
+
+        public string Phone { get; set; }
     }
 }

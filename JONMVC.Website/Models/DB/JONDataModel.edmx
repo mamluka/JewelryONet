@@ -488,7 +488,7 @@
           <Property Name="zip1" Type="nchar" MaxLength="30" />
           <Property Name="pobox1" Type="nvarchar" MaxLength="10" />
           <Property Name="country1_id" Type="int" Nullable="false" />
-          <Property Name="phone1" Type="nchar" MaxLength="40" />
+          <Property Name="phone1" Type="nvarchar" MaxLength="50" />
           <Property Name="fax1" Type="nchar" MaxLength="40" />
           <Property Name="street2" Type="nvarchar" MaxLength="100" />
           <Property Name="city2" Type="nvarchar" MaxLength="40" />
@@ -496,14 +496,14 @@
           <Property Name="zip2" Type="nchar" MaxLength="30" />
           <Property Name="pobox2" Type="nvarchar" MaxLength="10" />
           <Property Name="country2_id" Type="int" Nullable="false" />
-          <Property Name="phone2" Type="nchar" MaxLength="40" />
+          <Property Name="phone2" Type="nvarchar" MaxLength="50" />
           <Property Name="fax2" Type="nchar" MaxLength="40" />
           <Property Name="inv_mail" Type="bit" />
           <Property Name="inv_update" Type="bit" />
           <Property Name="lastmodify_date" Type="datetime" />
           <Property Name="lastmodify_user" Type="nvarchar" MaxLength="50" />
           <Property Name="lastmodify_user_id" Type="int" Nullable="false" />
-          <Property Name="create_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
           <Property Name="active" Type="bit" />
           <Property Name="dealer" Type="bit" />
           <Property Name="b_name" Type="nvarchar" MaxLength="80" />
@@ -1536,7 +1536,7 @@
           <Property Type="String" Name="zip1" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="pobox1" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="country1_id" Nullable="false" />
-          <Property Type="String" Name="phone1" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="phone1" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="fax1" MaxLength="40" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="street2" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="city2" MaxLength="40" FixedLength="false" Unicode="true" />
@@ -1544,14 +1544,14 @@
           <Property Type="String" Name="zip2" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="pobox2" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="country2_id" Nullable="false" />
-          <Property Type="String" Name="phone2" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="phone2" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="fax2" MaxLength="40" FixedLength="true" Unicode="true" />
           <Property Type="Boolean" Name="inv_mail" />
           <Property Type="Boolean" Name="inv_update" />
           <Property Type="DateTime" Name="lastmodify_date" />
           <Property Type="String" Name="lastmodify_user" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="lastmodify_user_id" Nullable="false" />
-          <Property Type="DateTime" Name="create_date" />
+          <Property Type="DateTime" Name="create_date" Nullable="false" />
           <Property Type="Boolean" Name="active" />
           <Property Type="Boolean" Name="dealer" />
           <Property Type="String" Name="b_name" MaxLength="80" FixedLength="false" Unicode="true" />

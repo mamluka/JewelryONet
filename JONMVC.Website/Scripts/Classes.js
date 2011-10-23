@@ -227,313 +227,312 @@ MessageBox = {
 	}
 }
 var JewelDesign = {
-	Locals: {
+    Locals: {
 
-		DataFromController: null
+        DataFromController: null
 
-	},
-	TranslatePriceSliderValuesToRealPrice: function (val) {
+    },
+    TranslatePriceSliderValuesToRealPrice: function (val) {
 
-		if (val <= 680) {
-			return val * 9.7059 + 400;
-		}
-		else if (val > 680 && val <= 711) {
-			return (val - 680) * 3000 + 7000;
-		}
-		else if (val > 711) {
-			return (val - 711) * 10000 + 100000;
-		}
+        if (val <= 680) {
+            return val * 9.7059 + 400;
+        }
+        else if (val > 680 && val <= 711) {
+            return (val - 680) * 3000 + 7000;
+        }
+        else if (val > 711) {
+            return (val - 711) * 10000 + 100000;
+        }
 
-	},
-	FormatSliderRangeInfo: function (id, handleType, value, prefix) {
+    },
+    FormatSliderRangeInfo: function (id, handleType, value, prefix) {
 
-		var fromSpan = null;
-		var toSpan = null;
-		var range = null;
-
-
-		if ($(id + ' span.info').length > 0) {
-			fromSpan = $(id + ' span.info:eq(0)');
-			toSpan = $(id + ' span.info:eq(1)');
-			range = $(id + ' div.range');
-
-		}
-		else {
-			fromSpan = $('<span></span>').addClass('info');
-			toSpan = $('<span></span>').addClass('info');
-			range = $('<div></div>').addClass('range');
-
-			$(id).append(fromSpan);
-			$(id).append(range);
-			$(id).append(toSpan);
-		}
-
-		if (handleType == 'from') {
-			fromSpan.html(prefix + value);
-		}
-		else if (handleType == 'to') {
-			toSpan.html(prefix + value);
-		}
+        var fromSpan = null;
+        var toSpan = null;
+        var range = null;
 
 
-		var posFrom = $(id + ' .handle:eq(0)').position();
-		var posTo = $(id + ' .handle:eq(1)').position();
+        if ($(id + ' span.info').length > 0) {
+            fromSpan = $(id + ' span.info:eq(0)');
+            toSpan = $(id + ' span.info:eq(1)');
+            range = $(id + ' div.range');
 
-		//console.log(posFrom.left);
-		// console.log(posTo.left);
+        }
+        else {
+            fromSpan = $('<span></span>').addClass('info');
+            toSpan = $('<span></span>').addClass('info');
+            range = $('<div></div>').addClass('range');
 
-		var fromWidth = fromSpan.width() + 6;
-		var toWidth = toSpan.width() + 6;
+            $(id).append(fromSpan);
+            $(id).append(range);
+            $(id).append(toSpan);
+        }
 
-		var totalWidth = $(id).width();
-
-
-
-
-		//TODO make the if's clear coded with functions
-
-		range.css({
-			left: posFrom.left + 7 + 'px',
-			width: posTo.left - posFrom.left + 'px'
-
-		});
-
+        if (handleType == 'from') {
+            fromSpan.html(prefix + value);
+        }
+        else if (handleType == 'to') {
+            toSpan.html(prefix + value);
+        }
 
 
-		if (posTo.left - toWidth < posFrom.left + fromWidth && posFrom.left - toWidth > 0 && posTo.left + toWidth < totalWidth) {
-			fromSpan.css('left', posFrom.left - fromWidth + 'px');
-			toSpan.css('left', posTo.left + 'px');
-		}
-		else if (posTo.left + toWidth > totalWidth && posTo.left - toWidth < posFrom.left + fromWidth && posTo.left - toWidth + 13 > posFrom.left) {
-			fromSpan.css('left', posFrom.left - fromWidth + 'px');
-			toSpan.css('left', posTo.left - toWidth + 13 + 'px');
-		}
-		else if (posTo.left + toWidth > totalWidth && posTo.left - toWidth + 13 <= posFrom.left) {
-			fromSpan.css('left', posTo.left - toWidth + 13 - 2 - fromWidth + 'px');
-			toSpan.css('left', posTo.left - toWidth + 13 + 'px');
-		}
-		else if (posFrom.left - fromWidth < 0 && posTo.left - toWidth < posFrom.left + fromWidth && posFrom.left + fromWidth < posTo.left) {
-			fromSpan.css('left', posFrom.left + 'px');
-			toSpan.css('left', posTo.left + 'px');
-		}
+        var posFrom = $(id + ' .handle:eq(0)').position();
+        var posTo = $(id + ' .handle:eq(1)').position();
 
-		else if (posFrom.left - fromWidth < 0 && posTo.left - toWidth < posFrom.left + fromWidth && posFrom.left + fromWidth >= posTo.left) {
-			fromSpan.css('left', posFrom.left + 'px');
-			toSpan.css('left', posFrom.left + fromWidth + 2 + 'px');
-		}
+        //console.log(posFrom.left);
+        // console.log(posTo.left);
 
-		else {
-			fromSpan.css('left', posFrom.left + 'px');
-			toSpan.css('left', posTo.left - toWidth + 13 + 'px');
-		}
+        var fromWidth = fromSpan.width() + 6;
+        var toWidth = toSpan.width() + 6;
+
+        var totalWidth = $(id).width();
 
 
 
 
+        //TODO make the if's clear coded with functions
 
-	},
-	InitDiamondSearch: function () {
+        range.css({
+            left: posFrom.left + 7 + 'px',
+            width: posTo.left - posFrom.left + 'px'
 
-		$("#SliderCarat").RmzSlider(
+        });
+
+
+
+        if (posTo.left - toWidth < posFrom.left + fromWidth && posFrom.left - toWidth > 0 && posTo.left + toWidth < totalWidth) {
+            fromSpan.css('left', posFrom.left - fromWidth + 'px');
+            toSpan.css('left', posTo.left + 'px');
+        }
+        else if (posTo.left + toWidth > totalWidth && posTo.left - toWidth < posFrom.left + fromWidth && posTo.left - toWidth + 13 > posFrom.left) {
+            fromSpan.css('left', posFrom.left - fromWidth + 'px');
+            toSpan.css('left', posTo.left - toWidth + 13 + 'px');
+        }
+        else if (posTo.left + toWidth > totalWidth && posTo.left - toWidth + 13 <= posFrom.left) {
+            fromSpan.css('left', posTo.left - toWidth + 13 - 2 - fromWidth + 'px');
+            toSpan.css('left', posTo.left - toWidth + 13 + 'px');
+        }
+        else if (posFrom.left - fromWidth < 0 && posTo.left - toWidth < posFrom.left + fromWidth && posFrom.left + fromWidth < posTo.left) {
+            fromSpan.css('left', posFrom.left + 'px');
+            toSpan.css('left', posTo.left + 'px');
+        }
+
+        else if (posFrom.left - fromWidth < 0 && posTo.left - toWidth < posFrom.left + fromWidth && posFrom.left + fromWidth >= posTo.left) {
+            fromSpan.css('left', posFrom.left + 'px');
+            toSpan.css('left', posFrom.left + fromWidth + 2 + 'px');
+        }
+
+        else {
+            fromSpan.css('left', posFrom.left + 'px');
+            toSpan.css('left', posTo.left - toWidth + 13 + 'px');
+        }
+
+
+
+
+
+    },
+    InitDiamondSearch: function () {
+
+        $("#SliderCarat").RmzSlider(
 				{
-					minValue: 0.25,
-					maxValue: 10,
-					numHandles: 2,
-					hitMargin: 13,
-					handleWidth: 13,
-					leftOffset: 1,
-					step: 0.01
+				    minValue: 0.25,
+				    maxValue: 10,
+				    numHandles: 2,
+				    hitMargin: 13,
+				    handleWidth: 13,
+				    leftOffset: 1,
+				    step: 0.01
 				}
 			);
 
-		$("#SliderCarat .handle_num_0").trigger("setvalue", { value: 0.5 });
-		$("#SliderCarat .handle_num_1").trigger("setvalue", { value: 2 });
+        $("#SliderCarat .handle_num_0").trigger("setvalue", { value: 0.5 });
+        $("#SliderCarat .handle_num_1").trigger("setvalue", { value: 2 });
 
 
-		JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', (0.5).toFixed(2), '');
-		JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', (3).toFixed(2), '');
+        JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', (0.5).toFixed(2), '');
+        JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', (3).toFixed(2), '');
 
-		$("#SliderCarat .handle_num_0").bind("dragging", function (event, data) {
+        $("#SliderCarat .handle_num_0").bind("dragging", function (event, data) {
 
-			var from = (data.value).toFixed(2);
-			$('#carat1').val(from);
+            var from = (data.value).toFixed(2);
+            $('#carat1').val(from);
 
-			JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', from, '');
+            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', from, '');
 
-		});
+        });
 
-		$("#SliderCarat .handle_num_1").bind("dragging", function (event, data) {
+        $("#SliderCarat .handle_num_1").bind("dragging", function (event, data) {
 
-			var to = (data.value).toFixed(2);
-			$('#carat2').val(to);
+            var to = (data.value).toFixed(2);
+            $('#carat2').val(to);
 
-			JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', to, '');
+            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', to, '');
 
-		});
+        });
 
-		$("#SliderCarat").bind("sliderchanged", function (event, data) {
+        $("#SliderCarat").bind("sliderchanged", function (event, data) {
 
-			var from = (data.handles[0].value).toFixed(2);
-			var to = (data.handles[1].value).toFixed(2);
-			$('#carat2').val(to);
-			$('#carat1').val(from);
+            var from = (data.handles[0].value).toFixed(2);
+            var to = (data.handles[1].value).toFixed(2);
+            $('#carat2').val(to);
+            $('#carat1').val(from);
 
 
-			JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', from, '');
-			JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', to, '');
+            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', from, '');
+            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', to, '');
 
-			JewelDesign.Search();
-		});
+            JewelDesign.Search();
+        });
 
-		$("#SliderPrice").RmzSlider(
+        $("#SliderPrice").RmzSlider(
 				{
-					minValue: 0,
-					maxValue: 801,
-					numHandles: 2,
-					hitMargin: 13,
-					handleWidth: 13,
-					leftOffset: 1,
-					step: 1
+				    minValue: 0,
+				    maxValue: 801,
+				    numHandles: 2,
+				    hitMargin: 13,
+				    handleWidth: 13,
+				    leftOffset: 1,
+				    step: 1
 				}
 			);
 
-		$("#SliderPrice .handle_num_0").trigger("setvalue", { value: 0 });
-		$("#SliderPrice .handle_num_1").trigger("setvalue", { value: 500 });
+        $("#SliderPrice .handle_num_0").trigger("setvalue", { value: 0 });
+        $("#SliderPrice .handle_num_1").trigger("setvalue", { value: 500 });
 
 
-		JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', (JewelDesign.TranslatePriceSliderValuesToRealPrice(0)).toFixed(0), '$');
-		JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', (JewelDesign.TranslatePriceSliderValuesToRealPrice(500)).toFixed(0), '$');
+        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', (JewelDesign.TranslatePriceSliderValuesToRealPrice(0)).toFixed(0), '$');
+        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', (JewelDesign.TranslatePriceSliderValuesToRealPrice(500)).toFixed(0), '$');
 
-		$("#SliderPrice .handle_num_0").bind("dragging", function (event, data) {
-
-
-			var from = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.value).toFixed(0); //(data.value).toFixed(0);
-			$('#Price1').val(from);
-
-			JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', from, '$');
+        $("#SliderPrice .handle_num_0").bind("dragging", function (event, data) {
 
 
-		});
+            var from = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.value).toFixed(0); //(data.value).toFixed(0);
+            $('#Price1').val(from);
 
-		$("#SliderPrice .handle_num_1").bind("dragging", function (event, data) {
-
-			var to = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.value).toFixed(0);
-			$('#Price2').val(to);
-
-			JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', to, '$');
-
-		});
-
-		$("#SliderPrice").bind("sliderchanged", function (event, data) {
-
-			var from = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.handles[0].value).toFixed(0);
-			var to = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.handles[1].value).toFixed(0);
-			$('#price2').val(to);
-			$('#price1').val(from);
-
-			JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', to, '$');
-			JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', from, '$');
-
-			JewelDesign.Search();
-		});
+            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', from, '$');
 
 
-		$('table.bg tr td').click(function () {
-			if ($(this).hasClass('on')) {
-				$(this).removeClass('on').addClass('off');
-			}
-			else {
-				$(this).removeClass('off').addClass('on');
-			}
+        });
 
-			JewelDesign.Search();
-		});
+        $("#SliderPrice .handle_num_1").bind("dragging", function (event, data) {
 
-		$('table.sprite-shape tr td').click(function () {
-			if ($(this).hasClass('on')) {
-				$(this).removeClass('on').addClass('off');
+            var to = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.value).toFixed(0);
+            $('#Price2').val(to);
 
-				var x = 0;
-				if ($.browser.msie) {
-					x = parseInt($(this).css('backgroundPositionX').split(" ")[0]);
-				} else {
-					x = parseInt($(this).css('backgroundPosition').split(" ")[0]);
-				}
+            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', to, '$');
 
+        });
 
-				$(this).css('backgroundPosition', x + 'px' + ' 0px');
+        $("#SliderPrice").bind("sliderchanged", function (event, data) {
 
+            var from = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.handles[0].value).toFixed(0);
+            var to = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.handles[1].value).toFixed(0);
+            $('#price2').val(to);
+            $('#price1').val(from);
+
+            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', to, '$');
+            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', from, '$');
+
+            JewelDesign.Search();
+        });
 
 
+        $('table.bg tr td').click(function () {
+            if ($(this).hasClass('on')) {
+                $(this).removeClass('on').addClass('off');
+            }
+            else {
+                $(this).removeClass('off').addClass('on');
+            }
 
-			}
-			else {
-				$(this).removeClass('off').addClass('on');
-				var x = 0;
-				if ($.browser.msie) {
-					x = parseInt($(this).css('backgroundPositionX').split(" ")[0]);
-				} else {
-					x = parseInt($(this).css('backgroundPosition').split(" ")[0]);
-				}
-				$(this).css('backgroundPosition', x + 'px' + ' -25px');
-			}
+            JewelDesign.Search();
+        });
 
-			JewelDesign.Search();
-		});
+        $('table.sprite-shape tr td').click(function () {
+            if ($(this).hasClass('on')) {
+                $(this).removeClass('on').addClass('off');
 
-		$.each($('.refine tr td'), function (index, tdelement) {
-
-			if ($(tdelement).attr('key') == JewelDesign.Locals.DataFromController["Shape"]) {
-				$(tdelement).trigger('click');
-			}
-
-			if ($(tdelement).attr('key') == JewelDesign.Locals.DataFromController["Report"]) {
-				$(tdelement).trigger('click');
-			}
-
-		});
+                var x = 0;
+                if ($.browser.msie) {
+                    x = parseInt($(this).css('backgroundPositionX').split(" ")[0]);
+                } else {
+                    x = parseInt($(this).css('backgroundPosition').split(" ")[0]);
+                }
 
 
-		$('table tr td').hover(
+                $(this).css('backgroundPosition', x + 'px' + ' 0px');
+
+
+
+
+            }
+            else {
+                $(this).removeClass('off').addClass('on');
+                var x = 0;
+                if ($.browser.msie) {
+                    x = parseInt($(this).css('backgroundPositionX').split(" ")[0]);
+                } else {
+                    x = parseInt($(this).css('backgroundPosition').split(" ")[0]);
+                }
+                $(this).css('backgroundPosition', x + 'px' + ' -25px');
+            }
+
+            JewelDesign.Search();
+        });
+
+        $.each($('.refine tr td'), function (index, tdelement) {
+
+            if ($(tdelement).attr('key') == JewelDesign.Locals.DataFromController["Shape"]) {
+                $(tdelement).trigger('click');
+            }
+
+            if ($(tdelement).attr('key') == JewelDesign.Locals.DataFromController["Report"]) {
+                $(tdelement).trigger('click');
+            }
+
+        });
+
+
+        $('table tr td').hover(
 						function () {
-							$(this).addClass('selected');
+						    $(this).addClass('selected');
 						},
 						function () {
-							$(this).removeClass('selected');
+						    $(this).removeClass('selected');
 						}
 					 );
 
 
-		var div = $('.diamond-info-hover');
+        var div = $('.diamond-info-hover');
 
-
-		div.hover(
+        div.hover(
 						function () {
-							$(this).attr('hover', true);
+						    $(this).attr('hover', true);
 						},
 						function () {
-							$(this).attr('hover', false);
-							$(this).hide();
+						    $(this).attr('hover', false);
+						    $(this).hide();
 						}
 					);
 
 
 
-		div.children('input').click(function () {
-			window.location.href = $(this).attr('buttonurl');
-		});
+        div.children('input').click(function () {
+            window.location.href = $(this).attr('buttonurl');
+        });
 
 
 
-		var filters = JewelDesign.ReadSearchFilters();
-		jQuery("#DiamondList").jqGrid({
-			url: '/JewelDesign/Diamonds',
-			datatype: "json",
-			postData: filters,
-			cache: false,
-			loadonce: false,
-			colNames: ['Shape', 'Carat', 'Color', 'Clarity', 'Cut', 'Certificate', 'Price', 'Details...'],
-			colModel: [
+        var filters = JewelDesign.ReadSearchFilters();
+        jQuery("#DiamondList").jqGrid({
+            url: '/JewelDesign/Diamonds',
+            datatype: "json",
+            postData: filters,
+            cache: false,
+            loadonce: false,
+            colNames: ['Shape', 'Carat', 'Color', 'Clarity', 'Cut', 'Certificate', 'Price', 'Details...'],
+            colModel: [
 					{ name: 'shape', index: 'shape', width: 54, align: 'center', resizable: false, sortable: false },
 					{ name: 'weight', index: 'weight', width: 40, align: 'center', resizable: false, sortable: true },
 					{ name: 'color', index: 'color', width: 40, align: 'center', resizable: false, sortable: false },
@@ -543,195 +542,203 @@ var JewelDesign = {
 					{ name: 'price', index: 'price', width: 55, align: 'center', resizable: false, sortable: true },
 					{ name: 'action', index: 'action', width: 55, align: 'center', resizable: false, sortable: false }
 				],
-			rowNum: 10,
-			rowList: [10, 20, 30],
-			sortname: 'id',
-			mtype: 'POST',
-			viewrecords: true,
-			sortorder: "desc",
-			loadtext: "Loading diamonds, please wait...",
-			caption: "",
-			pager: '#DiamondPager',
-			height: 220,
-			width: 790,
-			loadComplete: function () {
-				JewelDesign.RegisterDiamondInfo();
-			}
-		});
-		JewelDesign.ReadSearchFilters();
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            sortname: 'id',
+            mtype: 'POST',
+            viewrecords: true,
+            sortorder: "desc",
+            loadtext: "Loading diamonds, please wait...",
+            caption: "",
+            pager: '#DiamondPager',
+            height: 220,
+            width: 790,
+            loadComplete: function () {
+                JewelDesign.RegisterDiamondInfo();
+            }
+        });
+        JewelDesign.ReadSearchFilters();
 
 
-	},
-	ReadSearchFilters: function () {
+    },
+    ReadSearchFilters: function () {
 
-		var obj = {};
+        var obj = {};
 
-		var shapes = $.map($('.refine .on[filter=shape]'), function (n, i) {
-			var value = $(n).attr('key');
-			obj['Shape[' + i + ']'] = value;
-			return value;
-		});
-		var color = $.map($('.refine .on[filter=color]'), function (n, i) {
-			var value = $(n).attr('key');
-			obj['Color[' + i + ']'] = value;
-			return value;
-		});
-		var clarity = $.map($('.refine .on[filter=clarity]'), function (n, i) {
-			var value = $(n).attr('key');
-			obj['Clarity[' + i + ']'] = value;
-			return value;
-		});
-		var cut = $.map($('.refine .on[filter=cut]'), function (n, i) {
-			var value = $(n).attr('key');
-			obj['Cut[' + i + ']'] = value;
-			return value;
-		});
+        var shapes = $.map($('.refine .on[filter=shape]'), function (n, i) {
+            var value = $(n).attr('key');
+            obj['Shape[' + i + ']'] = value;
+            return value;
+        });
+        var color = $.map($('.refine .on[filter=color]'), function (n, i) {
+            var value = $(n).attr('key');
+            obj['Color[' + i + ']'] = value;
+            return value;
+        });
+        var clarity = $.map($('.refine .on[filter=clarity]'), function (n, i) {
+            var value = $(n).attr('key');
+            obj['Clarity[' + i + ']'] = value;
+            return value;
+        });
+        var cut = $.map($('.refine .on[filter=cut]'), function (n, i) {
+            var value = $(n).attr('key');
+            obj['Cut[' + i + ']'] = value;
+            return value;
+        });
 
-		var weightfrom = $('#carat1').val();
-		var weightto = $('#carat2').val();
-		var pricefrom = $('#price1').val();
-		var priceto = $('#price2').val();
-
-
-
-
-		obj['PriceFrom'] = pricefrom;
-		obj['PriceTo'] = priceto;
-		obj['WeightFrom'] = weightfrom;
-		obj['WeightTo'] = weightto;
-		obj['page'] = 1;
-		obj['settingid'] = JewelDesign.Locals.DataFromController['SettingID'];
-		obj['size'] = JewelDesign.Locals.DataFromController['Size'];
-		obj['mediatype'] = JewelDesign.Locals.DataFromController['MediaType'];
+        var weightfrom = $('#carat1').val();
+        var weightto = $('#carat2').val();
+        var pricefrom = $('#price1').val();
+        var priceto = $('#price2').val();
 
 
 
 
+        obj['PriceFrom'] = pricefrom;
+        obj['PriceTo'] = priceto;
+        obj['WeightFrom'] = weightfrom;
+        obj['WeightTo'] = weightto;
+        obj['page'] = 1;
+        obj['settingid'] = JewelDesign.Locals.DataFromController['SettingID'];
+        obj['size'] = JewelDesign.Locals.DataFromController['Size'];
+        obj['mediatype'] = JewelDesign.Locals.DataFromController['MediaType'];
 
 
 
-		return obj;
-	},
-	Search: function () {
-		var filters = JewelDesign.ReadSearchFilters();
-		jQuery("#DiamondList").setGridParam({ postData: null }).setGridParam({ postData: filters, 'page': 1 }).trigger("reloadGrid");
-	},
-	RegisterJewelDesignPagesDropDownMenu: function () {
-		$(".buy-menu").hoverIntent({
-			sensitivity: 1, // number = sensitivity threshold (must be 1 or higher)
-			interval: 50,   // number = milliseconds for onMouseOver polling interval
-			timeout: 100,
-			over: function show() {
-				var menu = $(this);
-				menu.find(".actions").fadeIn();
-			},
-
-			out: function hide() {
-				var menu = $(this);
-				menu.find(".actions").fadeOut();
-			}
-		});
-
-	},
-	RegisterSettingCommandLinks: function () {
-
-		$('a[command=end]').click(function () {
-			JewelDesign.SubmitSettingCommand(1);
-		});
-
-		$('a[command=choose-diamond]').click(function () {
-			JewelDesign.SubmitSettingCommand(2);
-		});
-
-		$('a[command=buy-setting]').click(function () {
-			JewelDesign.SubmitSettingCommand(3);
-		});
-
-	},
-
-	SubmitSettingCommand: function (commandid) {
-
-		$('input[name=Size]').val($('.jewelsize').val());
-		$('input[name=CommandID]').val(commandid);
-
-		$('#RedirectSettingForm').submit();
 
 
-	},
-	RegisterDiamondInfo: function () {
 
-		$(".jqgrow").hover(
+
+        return obj;
+    },
+    Search: function () {
+        var filters = JewelDesign.ReadSearchFilters();
+        jQuery("#DiamondList").setGridParam({ postData: null }).setGridParam({ postData: filters, 'page': 1 }).trigger("reloadGrid");
+    },
+    RegisterJewelDesignPagesDropDownMenu: function () {
+        $(".buy-menu").hoverIntent({
+            sensitivity: 1, // number = sensitivity threshold (must be 1 or higher)
+            interval: 50,   // number = milliseconds for onMouseOver polling interval
+            timeout: 100,
+            over: function show() {
+                var menu = $(this);
+                menu.find(".actions").fadeIn();
+            },
+
+            out: function hide() {
+                var menu = $(this);
+                menu.find(".actions").fadeOut();
+            }
+        });
+
+    },
+    RegisterSettingCommandLinks: function () {
+
+        $('a[command=end]').click(function () {
+            JewelDesign.SubmitSettingCommand(1);
+        });
+
+        $('a[command=choose-diamond]').click(function () {
+            JewelDesign.SubmitSettingCommand(2);
+        });
+
+        $('a[command=buy-setting]').click(function () {
+            JewelDesign.SubmitSettingCommand(3);
+        });
+
+    },
+
+    SubmitSettingCommand: function (commandid) {
+
+        $('input[name=Size]').val($('.jewelsize').val());
+        $('input[name=CommandID]').val(commandid);
+
+        $('#RedirectSettingForm').submit();
+
+
+    },
+    RegisterDiamondInfo: function () {
+
+        $(".jqgrow").hover(
 						function () {
-							var div = null;
-							if ($('.diamond-info-hover').length > 0) {
-								div = $('.diamond-info-hover');
-							}
+						    var div = null;
+						    if ($('.diamond-info-hover').length > 0) {
+						        div = $('.diamond-info-hover');
+						    }
 
-							var timerCode = div.attr('timercode');
-							clearTimeout(timerCode);
+						    var timerCode = div.attr('timercode');
+						    clearTimeout(timerCode);
 
-							div.show();
+						    div.show();
 
-							div.position(
+						    div.position(
 								{
-									my: 'right top',
-									at: 'left top',
-									of: $('.diamond-list-container'),
-									offset: '-11 0'
+								    my: 'right top',
+								    at: 'left top',
+								    of: $('.diamond-list-container'),
+								    offset: '-11 0'
 								}
 							);
 
-							div.attr('hover', 'false');
+						    div.attr('hover', 'false');
 
-							var tip = div.children('.tip');
+						    var tip = div.children('.tip');
 
-							tip.position({
-								my: 'right top',
-								at: 'left top',
-								of: $(this),
-								offset: '-3 3'
-							});
+						    tip.position({
+						        my: 'right top',
+						        at: 'left top',
+						        of: $(this),
+						        offset: '-3 3'
+						    });
 
-							var id = $(this).attr('id');
-							var userData = $("#DiamondList").getGridParam('userData');
+						    var id = $(this).attr('id');
+						    var userData = $("#DiamondList").getGridParam('userData');
 
-							var diamondData = userData[id];
+						    var diamondData = userData[id];
 
-							$.each(diamondData, function (index, dataItem) {
+						    $.each(diamondData, function (index, dataItem) {
 
-								if (dataItem == '') {
-									$('.diamond-info-hover tr[key=' + index.toString().toLowerCase() + ']').hide();
-								} else {
-									$('.diamond-info-hover tr[key=' + index.toString().toLowerCase() + '] td:eq(1)').html(dataItem);
-								}
-							});
+						        if (dataItem == '') {
+						            $('.diamond-info-hover tr[key=' + index.toString().toLowerCase() + ']').hide();
+						        } else {
+						            $('.diamond-info-hover tr[key=' + index.toString().toLowerCase() + '] td:eq(1)').html(dataItem);
+						        }
+						    });
 
-							div.children('input:eq(0)').attr('buttonurl', diamondData['ViewURL']);
-							div.children('input:eq(1)').attr('buttonurl', diamondData['AddURL']);
+						    div.children('input:eq(0)').attr('buttonurl', diamondData['ViewURL']);
+						    var settingID = parseInt(JewelDesign.Locals.DataFromController.SettingID);
+
+						    if (settingID > 0) {
+						        div.children('input:eq(1)').attr('buttonurl', diamondData['FinishURL']);    
+						    } 
+						    else {
+						        div.children('input:eq(1)').attr('buttonurl', diamondData['AddURL']);    
+						    }
+						    
 
 
 
 						},
 						function () {
 
-							var div = null;
-							if ($('.diamond-info-hover').length > 0) {
-								div = $('.diamond-info-hover');
-							}
+						    var div = null;
+						    if ($('.diamond-info-hover').length > 0) {
+						        div = $('.diamond-info-hover');
+						    }
 
-							var timerCode = setTimeout(function () {
-								if (div.attr('hover') == 'false') {
-									div.hide();
-								}
-							}, 500);
+						    var timerCode = setTimeout(function () {
+						        if (div.attr('hover') == 'false') {
+						            div.hide();
+						        }
+						    }, 500);
 
-							div.attr('timercode', timerCode);
+						    div.attr('timercode', timerCode);
 
 
 						}
 				);
 
-	}
+    }
 
 };
 var MetalPriceSelect = {

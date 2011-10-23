@@ -25,41 +25,45 @@
                 </div>
                 <div class="row">
                     <div class="cell buy-menu">
-                        @{
-                            var link = "";
-                            
-                            if (Model.JewelPersistence.SettingID > 0)
+                        <input type="hidden" value="@Model.DiamondID " name="itemid" />
+                        
+                            @if (Model.JewelPersistence.SettingID > 0)
                             {
-                                link = Url.RouteUrl("End", new RouteValueDictionary()
-                                       {
-                                           {"DiamondID", Model.JewelPersistence.DiamondID},
-                                           {"SettingID", Model.JewelPersistence.SettingID},
-                                           {"Size", Model.JewelPersistence.Size},
-                                           {"MediaType", Model.JewelPersistence.MediaType}
-                                       });
+                                <a href="@Url.RouteUrl("End", new RouteValueDictionary()
+                                                                                               {
+                                                                                                   {"DiamondID", Model.JewelPersistence.DiamondID},
+                                                                                                   {"SettingID", Model.JewelPersistence.SettingID},
+                                                                                                   {"Size", Model.JewelPersistence.Size},
+                                                                                                   {"MediaType", Model.JewelPersistence.MediaType}
+                                                                                               })" >
+                                <img src="/Content/images/jeweldesign/diamond/select-this-diamond.png"  class="hand"/>
+                                </a>
                             }
                             else
                             {
-                                link = Url.RouteUrl("ChooseSetting", new RouteValueDictionary()
-                                                 {
-                                                     {"DiamondID", Model.JewelPersistence.DiamondID},
-                                                     {"SettingID", Model.JewelPersistence.SettingID},
-                                                     {"Size", Model.JewelPersistence.Size},
-                                                     {"MediaType", Model.JewelPersistence.MediaType},
-                                                     {"controller", "JewelDesign"},
-                                                     {"action", "ChooseSetting"},
-                                                     {"tabid", "solitaire-settings"},
-                                                     {"page", 1},
-                                                     {"MetalFilter", "1"},
-                                                     {"OrderByPrice", "1"},
-                                                     {"itemsperpage", "20"}
-                                                 });
-                            }
 
-                        }
-                        <a href="@link">
-                            <img src="/Content/images/jeweldesign/diamond/select-this-diamond.png" /></a>
-                        <input type="hidden" value="@Model.DiamondID " name="itemid" />
+                            <img src="/Content/images/jeweldesign/diamond/select-this-diamond.png"  class="hand"/>
+                        
+                        <ul class="actions" style="display: none">
+                                <li>@Html.RouteLink("And Choose a Setting", "ChooseSetting", new RouteValueDictionary()
+                                                                                               {
+                                                                                                   {"DiamondID", Model.JewelPersistence.DiamondID},
+                                                                                                   {"SettingID", Model.JewelPersistence.SettingID},
+                                                                                                   {"Size", Model.JewelPersistence.Size},
+                                                                                                   {"MediaType", Model.JewelPersistence.MediaType},
+                                                                                                   {"controller", "JewelDesign"},
+                                                                                                   {"action", "ChooseSetting"},
+                                                                                                   {"tabid", "solitaire-settings"},
+                                                                                                   {"page", 1},
+                                                                                                   {"MetalFilter", "1"},
+                                                                                                   {"OrderByPrice", "1"},
+                                                                                                   {"itemsperpage", "20"}
+                                                                                               })</li>
+                           
+                            <li>@Html.ActionLink("Buy This Diamond without a Setting", "ShoppingCartAddDiamond", "Checkout", new { diamondid = Model.DiamondID }, null)
+                            </li>
+                        </ul> 
+                            }
                     </div>
                 </div>
             </div>
@@ -214,9 +218,9 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $(function () {
-            $("a[rel^='prettyPhoto']").prettyPhoto();
-        });
+        $("a[rel^='prettyPhoto']").prettyPhoto();
+        JewelDesign.RegisterJewelDesignPagesDropDownMenu();
+
     });
 
 </script>

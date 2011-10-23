@@ -16,6 +16,7 @@ namespace JONMVC.Website.ViewModels.Json.Views
         public string Price { get; set; }
         public string ViewURL { get; set; }
         public string AddURL { get; set; }
+        public string FinishURL { get; set; }
 
     }
 }

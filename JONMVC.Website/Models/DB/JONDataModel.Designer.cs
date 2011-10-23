@@ -7526,10 +7526,11 @@ namespace JONMVC.Website.Models.DB
         /// <param name="state2_id">Initial value of the state2_id property.</param>
         /// <param name="country2_id">Initial value of the country2_id property.</param>
         /// <param name="lastmodify_user_id">Initial value of the lastmodify_user_id property.</param>
+        /// <param name="create_date">Initial value of the create_date property.</param>
         /// <param name="b_state_id">Initial value of the b_state_id property.</param>
         /// <param name="b_country_id">Initial value of the b_country_id property.</param>
         /// <param name="b_type_id">Initial value of the b_type_id property.</param>
-        public static usr_CUSTOMERS Createusr_CUSTOMERS(global::System.Int32 id, global::System.String email, global::System.Int32 state1_id, global::System.Int32 country1_id, global::System.Int32 state2_id, global::System.Int32 country2_id, global::System.Int32 lastmodify_user_id, global::System.Int32 b_state_id, global::System.Int32 b_country_id, global::System.Int32 b_type_id)
+        public static usr_CUSTOMERS Createusr_CUSTOMERS(global::System.Int32 id, global::System.String email, global::System.Int32 state1_id, global::System.Int32 country1_id, global::System.Int32 state2_id, global::System.Int32 country2_id, global::System.Int32 lastmodify_user_id, global::System.DateTime create_date, global::System.Int32 b_state_id, global::System.Int32 b_country_id, global::System.Int32 b_type_id)
         {
             usr_CUSTOMERS usr_CUSTOMERS = new usr_CUSTOMERS();
             usr_CUSTOMERS.id = id;
@@ -7539,6 +7540,7 @@ namespace JONMVC.Website.Models.DB
             usr_CUSTOMERS.state2_id = state2_id;
             usr_CUSTOMERS.country2_id = country2_id;
             usr_CUSTOMERS.lastmodify_user_id = lastmodify_user_id;
+            usr_CUSTOMERS.create_date = create_date;
             usr_CUSTOMERS.b_state_id = b_state_id;
             usr_CUSTOMERS.b_country_id = b_country_id;
             usr_CUSTOMERS.b_type_id = b_type_id;
@@ -8178,9 +8180,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> create_date
+        public global::System.DateTime create_date
         {
             get
             {
@@ -8195,8 +8197,8 @@ namespace JONMVC.Website.Models.DB
                 Oncreate_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _create_date;
-        partial void Oncreate_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _create_date;
+        partial void Oncreate_dateChanging(global::System.DateTime value);
         partial void Oncreate_dateChanged();
     
         /// <summary>

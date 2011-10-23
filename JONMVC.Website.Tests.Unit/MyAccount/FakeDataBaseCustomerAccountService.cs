@@ -132,6 +132,11 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             throw new NotImplementedException();
         }
 
+        public MembershipCreateStatus UpdateCustomer(ExtendedCustomer customer)
+        {
+            throw new NotImplementedException();
+        }
+
         public Customer GetCustomerByEmail(string email)
         {
             try

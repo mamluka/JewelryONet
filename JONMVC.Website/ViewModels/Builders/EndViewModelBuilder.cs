@@ -1,4 +1,5 @@
 using AutoMapper;
+using JONMVC.Website.Models.AutoMapperMaps;
 using JONMVC.Website.Models.Diamonds;
 using JONMVC.Website.Models.JewelDesign;
 using JONMVC.Website.Models.Jewelry;

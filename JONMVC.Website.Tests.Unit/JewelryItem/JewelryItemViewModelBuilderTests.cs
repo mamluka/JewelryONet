@@ -368,7 +368,10 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
         public void Build_ShouldReturnMinimumWhenCenterStoneCountIsOne()
         {
             //Arrange
-            var jewel = fixture.Build<Jewel>().With(x => x.JewelryExtra.CS.Count, 2).CreateAnonymous();
+            var fakeCS = fixture.Build<JewelryExtra.JewelComponentProperty>().With(x => x.Count, 1).CreateAnonymous();
+            var fakeJewelExtra = fixture.Build<JewelryExtra>().With(x => x.CS, fakeCS).CreateAnonymous();
+            var jewel = fixture.Build<Jewel>().With(x => x.JewelryExtra,fakeJewelExtra).CreateAnonymous();
+
             var builder = CreateJewelItemViewModelBuilderWithJewel(jewel);
             //Act
             var viewModel = builder.Build();
@@ -384,7 +387,10 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
         public void Build_ShouldReturnAvargeWhenNumberOfCenterStonesIsMoreThenOne()
         {
             //Arrange
-            var jewel = fixture.Build<Jewel>().With(x => x.JewelryExtra.CS.Count, 2).CreateAnonymous();
+            var fakeCS = fixture.Build<JewelryExtra.JewelComponentProperty>().With(x => x.Count, 2).CreateAnonymous();
+            var fakeJewelExtra = fixture.Build<JewelryExtra>().With(x => x.CS, fakeCS).CreateAnonymous();
+            var jewel = fixture.Build<Jewel>().With(x => x.JewelryExtra, fakeJewelExtra).CreateAnonymous();
+
             var builder = CreateJewelItemViewModelBuilderWithJewel(jewel);
             //Act
             var viewModel = builder.Build();

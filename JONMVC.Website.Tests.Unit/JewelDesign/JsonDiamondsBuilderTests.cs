@@ -393,6 +393,54 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
 
         }
 
+        [Test]
+        public void Build_ShouldReturnTheRightFinishRingLinkWhenAllInfoIsGiven()
+        {
+            //Arrange
+            var diamondRepository = MockRepository.GenerateStub<IDiamondRepository>();
+            diamondRepository.Stub(
+                x => x.DiamondsBySearchParameters(Arg<DiamondSearchParameters>.Is.Anything)).Return(new List<Diamond>()
+                                                                                                        {
+                                                                                                            {CreateStubDiamondDiversity("H","VVS1",(decimal) 2.25,2586,1)},
+                                                                                                            {CreateStubDiamondDiversity("D","SI1",(decimal) 3.4,2086,2)},
+                                                                                                            {CreateStubDiamondDiversity("E","VS1",(decimal) 1.25,12586,3)},
+                                                                                                            {CreateStubDiamondDiversity("H","VS2",(decimal) 2.45,21586,4)},
+                                                                                                     });
+
+            var searchParameters = new DiamondSearchParametersGivenByJson();
+
+            searchParameters.SettingID = Tests.FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID;
+            searchParameters.MediaType = JewelMediaType.YellowGold;
+            searchParameters.Size = Tests.SAMPLE_JEWEL_SIZE_725;
+
+            var webbHelpers = MockRepository.GenerateMock<IWebHelpers>();
+
+            webbHelpers.Expect(
+                x =>
+                x.RouteUrl(Arg<string>.Is.Equal("End"),
+                           Arg<RouteValueDictionary>.Matches(
+                               d =>
+                               (int)d["DiamondID"] == 1 &&
+                               (int)d["SettingID"] == Tests.FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID &&
+                               (string)d["Size"] == Tests.SAMPLE_JEWEL_SIZE_725 &&
+                               (JewelMediaType)d["MediaType"] == searchParameters.MediaType
+                               ))).Repeat.Once()
+
+                .Return("/JewelDesign/Finish/1/1111/7.25/2");
+
+            var formatter = CreateDefaultJONFormatter;
+
+
+            var builder = new JsonDiamondsBuilder(searchParameters, diamondRepository, formatter, mapper, webbHelpers);
+            //Act
+            var jsonResult = builder.Build();
+            webbHelpers.VerifyAllExpectations();
+            //Assert
+            var url = "/JewelDesign/Finish/1/1111/7.25/2";
+            jsonResult.userdata["1"].FinishURL.Should().Be(url);
+
+        }
+
         private List<DiamondGridRow> GetUnorderdRows()
         {
             //Arrange

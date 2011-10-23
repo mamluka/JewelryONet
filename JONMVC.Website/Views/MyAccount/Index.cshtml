@@ -7,45 +7,52 @@
 <div class="rounded-white-container padding10">
     <h3>
         My Orders</h3>
-    <div class="table">
-        <div class="row" style="height: 20px">
-            <div class="cell" style="width: 100px">
-               <span class="redbold bold">Order number</span> 
+    @if (Model.Orders.Count > 0)
+    { 
+        <div class="table">
+            <div class="row" style="height: 20px">
+                <div class="cell" style="width: 100px">
+                    <span class="redbold bold">Order number</span>
+                </div>
+                <div class="cell" style="width: 100px">
+                    <span class="redbold bold">Purchase date</span>
+                </div>
+                <div class="cell" style="width: 150px">
+                    <span class="redbold bold">Order status</span>
+                </div>
+                <div class="cell" style="width: 120px">
+                    <span class="redbold bold">Total amount</span>
+                </div>
+                <div class="cell" style="width: 100px">
+                    <span class="redbold bold">Details...</span>
+                </div>
             </div>
-            <div class="cell" style="width: 100px">
-                <span class="redbold bold">Purchase date</span> 
-            </div>
-            <div class="cell" style="width: 150px">
-                <span class="redbold bold">Order status</span> 
-            </div>
-            <div class="cell" style="width: 120px">
-                <span class="redbold bold">Total amount</span> 
-            </div>
-            <div class="cell" style="width: 100px">
-                <span class="redbold bold">Details...</span> 
-            </div>
+            @foreach (var orderSummery in Model.Orders)
+            {
+                <div class="row" style="height: 18px">
+                    <div class="cell">
+                        @orderSummery.OrderNumber
+                    </div>
+                    <div class="cell">
+                        @orderSummery.PurchaseDate
+                    </div>
+                    <div class="cell">
+                        @orderSummery.Status
+                    </div>
+                    <div class="cell">
+                        @orderSummery.TotalPrice
+                    </div>
+                    <div class="cell">
+                        @Html.ActionLink("Details...", "OrdersStatus", "Checkout", new { orderNumber = orderSummery.OrderNumber }, null)
+                    </div>
+                </div>
+            }
         </div>
-        @foreach (var orderSummery in Model.Orders)
-        {
-            <div class="row" style="height: 18px">
-                <div class="cell">
-                    @orderSummery.OrderNumber
-                </div>
-                <div class="cell">
-                    @orderSummery.PurchaseDate
-                </div>
-                <div class="cell">
-                    @orderSummery.Status
-                </div>
-                <div class="cell">
-                    @orderSummery.TotalPrice
-                </div>
-                <div class="cell">
-                    @Html.ActionLink("Details...", "OrdersStatus", "Checkout",new {orderNumber=orderSummery.OrderNumber},null)
-                </div>
-            </div>
-        }
-    </div>
+    }
+    else
+    {
+        <span class="redbold">You have no orders with JewelryONet.</span>
+    }
 </div>
 <div class="rounded-white-container top20 padding10">
     <h3>
@@ -56,10 +63,18 @@
         </div>
         <span class="title">Your Name: </span><span class="redbold inline bold">@Model.FirstName
             @Model.LastName</span>
+            <div class="clear">
+        </div>
+             
         @if (!Model.HasAddressInformation)
         {
+            <span>Address:</span>
+            <span>City:</span>
+            
             <span>Country: <span class="redbold inline bold">@Model.Country</span></span>
-            <span>State: <span class="redbold inline bold">@Model.FirstName @Model.State</span></span>
+            <span>State: <span class="redbold inline bold">@Model.State</span></span>
+            <span>Zip code:</span>
+            <span>Phone #: </span><span class="redbold inline bold">@Model.Phone</span>
         }
     </div>
     @if (Model.HasAddressInformation)
@@ -78,7 +93,7 @@
                         </tr>
                         <tr>
                             <td>
-                                First name:
+                                Last name:
                             </td>
                             <td>@Model.BillingAddress.LastName
                             </td>
@@ -139,7 +154,7 @@
                         </tr>
                         <tr>
                             <td>
-                                First name:
+                                Last name:
                             </td>
                             <td>@Model.ShippingAddress.LastName
                             </td>
@@ -195,12 +210,10 @@
 <div class="rounded-white-container padding10 top20">
     <h3>
         My Account</h3>
-
-        <div class="details-listing">
+    <div class="details-listing">
         <span class="title">Memeber sice: </span><span class="redbold inline bold">@Model.MemeberSince</span>
         <div class="clear">
         </div>
-        <span class="title">Newsletter </span><span class="redbold inline bold">@Html.ActionLink("Sign me up","Aweber","Services")</span>
-        
+        <span class="title">Newsletter </span><span class="redbold inline bold">@Html.ActionLink("Sign me up", "Aweber", "Services")</span>
     </div>
 </div>

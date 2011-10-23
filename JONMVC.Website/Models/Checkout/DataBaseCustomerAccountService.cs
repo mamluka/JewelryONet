@@ -1,6 +1,8 @@
 using System;
+using System.Data;
 using System.Web.Security;
 using AutoMapper;
+using JONMVC.Website.Models.AutoMapperMaps;
 using JONMVC.Website.Models.DB;
 using System.Linq;
 namespace JONMVC.Website.Models.Checkout
@@ -88,6 +90,39 @@ namespace JONMVC.Website.Models.Checkout
                 return MembershipCreateStatus.ProviderError;
             }
            
+        }
+
+        public MembershipCreateStatus UpdateCustomer(ExtendedCustomer customer)
+        {
+            //var customerdto = mapper.Map<ExtendedCustomer, usr_CUSTOMERS>(customer);
+            try
+            {
+                using (var db = new JONEntities())
+                {
+                    var existingCustomer = db.usr_CUSTOMERS.Where(x => x.email == customer.Email).SingleOrDefault();
+
+                    var source = new MergeExistingCustomerAndExtendedCustomer();
+                    source.First = existingCustomer;
+                    source.Second = customer;
+
+                    var customerdto = mapper.Map<MergeExistingCustomerAndExtendedCustomer, usr_CUSTOMERS>(source);
+
+                    db.usr_CUSTOMERS.Detach(existingCustomer);
+                    db.usr_CUSTOMERS.Attach(customerdto);
+
+                    db.ObjectStateManager.ChangeObjectState(customerdto, EntityState.Modified);
+
+                 //   db.usr_CUSTOMERS.AddObject(customerdto);
+                    db.SaveChanges();
+
+                    return MembershipCreateStatus.Success;
+                }
+            }
+            catch (Exception ex)
+            {
+                return MembershipCreateStatus.ProviderError;
+            }
+
         }
 
         public Customer GetCustomerByEmail(string email)

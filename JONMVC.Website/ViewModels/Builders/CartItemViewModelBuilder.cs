@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
+using JONMVC.Website.Models.AutoMapperMaps;
 using JONMVC.Website.Models.Checkout;
 using JONMVC.Website.Models.Diamonds;
 using JONMVC.Website.Models.Jewelry;

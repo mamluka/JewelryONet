@@ -1,0 +1,14 @@
+﻿@{
+    Layout = null;
+}
+@if (ViewBag.IsSignedIn)
+{
+    @Html.ActionLink("My Account", "Index", "MyAccount") 
+    @:&#160;
+    @Html.ActionLink("(Signout)", "Signout", "MyAccount")
+    
+}
+else
+{
+    @Html.ActionLink("Signin", "Signin", "MyAccount") 
+}

@@ -126,7 +126,7 @@ namespace JONMVC.Website.Controllers
             {
                 var customer = customerAccountService.GetCustomerByEmail(model.Email);
                 authentication.Signin(model.Email, customer);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "MyAccount");
             }
 
             var viewModel = new SigninViewModel() {HasError = true};
@@ -178,6 +178,12 @@ namespace JONMVC.Website.Controllers
             return View();
         }
 
+        public ActionResult SigninTopManuLink()
+        {
+            ViewBag.IsSignedIn = authentication.IsSignedIn();
+
+            return View();
+        }
    
     }
 }

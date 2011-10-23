@@ -13,7 +13,7 @@
                                     <li>@Html.ActionLink("Shopping Cart", "Shoppingcart", "Checkout")&#160;@{ Html.RenderAction("CartItemCount", "Checkout"); }
                                     </li>
                                     <li>@Html.ActionLink("Order Status", "CheckMyOrderStatus", "MyAccount")</li>
-                                    <li>@Html.ActionLink("My Account", "Index", "MyAccount")</li>
+                                    <li>@{ Html.RenderAction("SigninTopManuLink", "MyAccount"); }</li>
                                 </ul>
                             </div>
                         </div>

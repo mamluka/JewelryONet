@@ -127,6 +127,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             viewModel.LastName.Should().Be(customer.Lastname);
             viewModel.Country.Should().Be(customer.Country);
             viewModel.State.Should().Be(customer.State);
+            viewModel.Phone.Should().Be(customer.Phone);
             viewModel.MemeberSince.Should().Be(customer.MemeberSince.ToShortDateString());
 
         }

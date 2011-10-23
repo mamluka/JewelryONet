@@ -1,8 +1,7 @@
-using JONMVC.Website.Models.AutoMapperMaps;
 using JONMVC.Website.Models.Diamonds;
 using JONMVC.Website.Models.Jewelry;
 
-namespace JONMVC.Website.ViewModels.Builders
+namespace JONMVC.Website.Models.AutoMapperMaps
 {
     public class MergeDiamondAndJewel:MergeTwoObjectsForAutoMapper<Diamond,Jewel>
     {

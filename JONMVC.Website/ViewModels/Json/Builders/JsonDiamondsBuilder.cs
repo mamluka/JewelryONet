@@ -91,6 +91,20 @@ namespace JONMVC.Website.ViewModels.Json.Builders
                                                                       {"Size", searchParameters.Size}
                                                                   });
 
+                var finishUrl = webbHelpers.RouteUrl("End", new RouteValueDictionary()
+                                                                  {
+                                                                      {"DiamondID", diamond.DiamondID},
+                                                                      {
+                                                                          "SettingID",
+                                                                          searchParameters.SettingID
+                                                                          },
+                                                                      {
+                                                                          "MediaType",
+                                                                          searchParameters.MediaType
+                                                                          },
+                                                                      {"Size", searchParameters.Size}
+                                                                  });
+
                 var viewLink = "<a href=\"" + viewUrl  + "\" >View</a>";
 
                 row.cell[7] = viewLink;
@@ -115,6 +129,7 @@ namespace JONMVC.Website.ViewModels.Json.Builders
                 var currentUserData = mapper.Map<Diamond, DiamondJsonUserData>(diamond);
                 currentUserData.ViewURL = viewUrl;
                 currentUserData.AddURL = addUrl;
+                currentUserData.FinishURL = finishUrl;
 
                 userData[diamond.DiamondID.ToString()] = currentUserData;
             }

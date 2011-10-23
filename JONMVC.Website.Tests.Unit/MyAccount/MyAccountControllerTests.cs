@@ -14,7 +14,7 @@ using Ploeh.AutoFixture;
 using Rhino.Mocks;
 using FluentAssertions;
 using MvcContrib.TestHelper;
-
+using Ploeh.AutoFixture;
 
 namespace JONMVC.Website.Tests.Unit.MyAccount
 {
@@ -542,7 +542,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             var model = fixture.CreateAnonymous<SigninViewModel>();
 
             var customerAccountService = CustomerAccountServiceThatWhenAskedForRegularPasswordBasedValidationReturns(true);
-
+            
             var authentication = MockRepository.GenerateStrictMock<IAuthentication>();
             authentication.Expect(x => x.Signin(Arg<string>.Is.Equal(model.Email), Arg<Customer>.Is.Anything));
 
@@ -593,6 +593,21 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
 
             resultmodel.HasError.Should().BeTrue();
 
+        }
+
+        [Test]
+        public void SigninPost_ShouldRedirectToTheHomePageAfterASuccessfulLogin()
+        {
+            //Arrange
+            var model = fixture.CreateAnonymous<SigninViewModel>();
+
+            var customerAccountService = CustomerAccountServiceThatWhenAskedForRegularPasswordBasedValidationReturns(true);
+
+            var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
+            //Act
+            var result = controller.Signin(model);
+            //Assert
+            result.AssertActionRedirect().ToController("MyAccount").ToAction("Index");
         }
 
         [Test]
@@ -647,7 +662,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         public void RecoverPasswordPost_ShouldSetTheHasErrorToFalseIfPasswordIsReturned()
         {
             //Arrange
-            var model = fixture.CreateAnonymous<RecoverPasswordViewModel>();
+            var model = fixture.Build<RecoverPasswordViewModel>().With(x => x.HasError, false).CreateAnonymous();
 
             var mailer = MockRepository.GenerateMock<IUserMailer>();
             mailer.Expect(
@@ -681,20 +696,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             returnmodel.HasError.Should().BeTrue();
         }
 
-        [Test]
-        public void Login_ShouldRedirectToTheHomePageAfterASuccessfulLogin()
-        {
-            //Arrange
-            var model = fixture.CreateAnonymous<SigninViewModel>();
-
-            var customerAccountService = CustomerAccountServiceThatWhenAskedForRegularPasswordBasedValidationReturns(true);
-
-            var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
-            //Act
-            var result = controller.Signin(model);
-            //Assert
-            result.AssertActionRedirect().ToController("Home").ToAction("Index");
-        }
+      
 
         [Test]
         public void Index_ShouldRenderTheRightViewModel()
@@ -734,6 +736,42 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             //Assert
 
             authentication.VerifyAllExpectations();
+
+        }
+
+        [Test]
+        public void SigninTopManuLink_ShouldSetSignedInInViewbagToTrueIfUserIsAuthenticated()
+        {
+            //Arrange
+            var authentication = MockRepository.GenerateStub<IAuthentication>();
+            authentication.Stub(x => x.IsSignedIn()).Return(true);
+
+            var controller = CreateDefaultMyAccountControllerWithCustomAuthentication(authentication);
+            //Act
+            var viewResult = controller.SigninTopManuLink() as ViewResult;
+            //Assert
+
+            bool isSignedIn = viewResult.ViewBag.IsSignedIn;
+
+            isSignedIn.Should().Be(true);
+
+        }
+
+        [Test]
+        public void SigninTopManuLink_ShouldSetSignedInInViewbagToFalseIfUserIsntAuthenticated()
+        {
+            //Arrange
+            var authentication = MockRepository.GenerateStub<IAuthentication>();
+            authentication.Stub(x => x.IsSignedIn()).Return(false);
+
+            var controller = CreateDefaultMyAccountControllerWithCustomAuthentication(authentication);
+            //Act
+            var viewResult = controller.SigninTopManuLink() as ViewResult;
+            //Assert
+
+            bool isSignedIn = viewResult.ViewBag.IsSignedIn;
+
+            isSignedIn.Should().Be(false);
 
         }
 

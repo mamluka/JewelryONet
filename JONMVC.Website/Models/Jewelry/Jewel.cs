@@ -13,7 +13,7 @@ namespace JONMVC.Website.Models.Jewelry
 
         public Media Media { get; private set; }
         public JewelMediaType MediaSetsOwnedByJewel { get; private set; }
-        public JewelryExtra JewelryExtra { get; private set; }
+        public JewelryExtra JewelryExtra { get; set; }
         
 
         public string ItemNumber { get; private set; }
