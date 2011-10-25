@@ -18,7 +18,9 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
+[assembly: EdmRelationshipAttribute("JONDataModel", "FK_usr_TESTIMONIALS_sys_COUNTRY", "sys_COUNTRY", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.sys_COUNTRY), "usr_TESTIMONIALS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.usr_TESTIMONIALS), true)]
 [assembly: EdmRelationshipAttribute("JONDataModel", "FK_acc_CASHFLOW_acc_ORDERS", "acc_ORDERS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.acc_ORDERS), "acc_CASHFLOW", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.acc_CASHFLOW), true)]
+[assembly: EdmRelationshipAttribute("JONDataModel", "FK_acc_CASHFLOW_usr_CUSTOMERS", "usr_CUSTOMERS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.usr_CUSTOMERS), "acc_CASHFLOW", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.acc_CASHFLOW), true)]
 [assembly: EdmRelationshipAttribute("JONDataModel", "FK_acc_CUSTOMJEWEL_ORDER_ITEMS_acc_ORDERS", "acc_ORDERS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.acc_ORDERS), "acc_CUSTOMJEWEL_ORDER_ITEMS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.acc_CUSTOMJEWEL_ORDER_ITEMS), true)]
 [assembly: EdmRelationshipAttribute("JONDataModel", "acc_DIAMOND_ORDER_ITEMS_acc_ORDERS", "acc_ORDERS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.acc_ORDERS), "acc_DIAMOND_ORDER_ITEMS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.acc_DIAMOND_ORDER_ITEMS), true)]
 [assembly: EdmRelationshipAttribute("JONDataModel", "FK_acc_JEWELRY_ORDER_ITEMS_acc_ORDERS", "acc_ORDERS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.acc_ORDERS), "acc_JEWELRY_ORDER_ITEMS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.acc_JEWELRY_ORDER_ITEMS), true)]
@@ -26,8 +28,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("JONDataModel", "FK_acc_ORDERS_sys_COUNTRY1", "sys_COUNTRY", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.sys_COUNTRY), "acc_ORDERS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.acc_ORDERS), true)]
 [assembly: EdmRelationshipAttribute("JONDataModel", "FK_acc_ORDERS_sys_STATE", "sys_STATE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.sys_STATE), "acc_ORDERS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.acc_ORDERS), true)]
 [assembly: EdmRelationshipAttribute("JONDataModel", "FK_acc_ORDERS_sys_STATE1", "sys_STATE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.sys_STATE), "acc_ORDERS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.acc_ORDERS), true)]
-[assembly: EdmRelationshipAttribute("JONDataModel", "FK_usr_TESTIMONIALS_sys_COUNTRY", "sys_COUNTRY", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.sys_COUNTRY), "usr_TESTIMONIALS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.usr_TESTIMONIALS), true)]
-[assembly: EdmRelationshipAttribute("JONDataModel", "FK_acc_CASHFLOW_usr_CUSTOMERS", "usr_CUSTOMERS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.usr_CUSTOMERS), "acc_CASHFLOW", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.acc_CASHFLOW), true)]
 [assembly: EdmRelationshipAttribute("JONDataModel", "FK_acc_ORDERS_usr_CUSTOMERS", "usr_CUSTOMERS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.usr_CUSTOMERS), "acc_ORDERS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.acc_ORDERS), true)]
 [assembly: EdmRelationshipAttribute("JONDataModel", "FK_usr_CUSTOMERS_sys_COUNTRY", "sys_COUNTRY", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.sys_COUNTRY), "usr_CUSTOMERS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.usr_CUSTOMERS), true)]
 [assembly: EdmRelationshipAttribute("JONDataModel", "FK_usr_CUSTOMERS_sys_COUNTRY1", "sys_COUNTRY", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(JONMVC.Website.Models.DB.sys_COUNTRY), "usr_CUSTOMERS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(JONMVC.Website.Models.DB.usr_CUSTOMERS), true)]
@@ -215,22 +215,6 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<acc_ORDERS> acc_ORDERS
-        {
-            get
-            {
-                if ((_acc_ORDERS == null))
-                {
-                    _acc_ORDERS = base.CreateObjectSet<acc_ORDERS>("acc_ORDERS");
-                }
-                return _acc_ORDERS;
-            }
-        }
-        private ObjectSet<acc_ORDERS> _acc_ORDERS;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<usr_TESTIMONIALS> usr_TESTIMONIALS
         {
             get
@@ -275,6 +259,22 @@ namespace JONMVC.Website.Models.DB
             }
         }
         private ObjectSet<v_jd_diamonds> _v_jd_diamonds;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<acc_ORDERS> acc_ORDERS
+        {
+            get
+            {
+                if ((_acc_ORDERS == null))
+                {
+                    _acc_ORDERS = base.CreateObjectSet<acc_ORDERS>("acc_ORDERS");
+                }
+                return _acc_ORDERS;
+            }
+        }
+        private ObjectSet<acc_ORDERS> _acc_ORDERS;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -360,14 +360,6 @@ namespace JONMVC.Website.Models.DB
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the acc_ORDERS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToacc_ORDERS(acc_ORDERS acc_ORDERS)
-        {
-            base.AddObject("acc_ORDERS", acc_ORDERS);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the usr_TESTIMONIALS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTousr_TESTIMONIALS(usr_TESTIMONIALS usr_TESTIMONIALS)
@@ -389,6 +381,14 @@ namespace JONMVC.Website.Models.DB
         public void AddTov_jd_diamonds(v_jd_diamonds v_jd_diamonds)
         {
             base.AddObject("v_jd_diamonds", v_jd_diamonds);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the acc_ORDERS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToacc_ORDERS(acc_ORDERS acc_ORDERS)
+        {
+            base.AddObject("acc_ORDERS", acc_ORDERS);
         }
     
         /// <summary>
@@ -2799,25 +2799,257 @@ namespace JONMVC.Website.Models.DB
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
         /// <param name="orderNumber">Initial value of the OrderNumber property.</param>
+        /// <param name="invoiceNumber">Initial value of the InvoiceNumber property.</param>
+        /// <param name="invoiceDate">Initial value of the InvoiceDate property.</param>
+        /// <param name="invoiceCopy">Initial value of the InvoiceCopy property.</param>
+        /// <param name="jewelrySize">Initial value of the JewelrySize property.</param>
+        /// <param name="clubOrder">Initial value of the ClubOrder property.</param>
+        /// <param name="orderdate">Initial value of the orderdate property.</param>
         /// <param name="user_id">Initial value of the user_id property.</param>
         /// <param name="packaging_id">Initial value of the packaging_id property.</param>
         /// <param name="payment_id">Initial value of the payment_id property.</param>
+        /// <param name="shipping_id">Initial value of the shipping_id property.</param>
+        /// <param name="shipping_tracking_no">Initial value of the shipping_tracking_no property.</param>
+        /// <param name="amnt_items">Initial value of the amnt_items property.</param>
+        /// <param name="amnt_shipping">Initial value of the amnt_shipping property.</param>
+        /// <param name="amnt_wrapping">Initial value of the amnt_wrapping property.</param>
+        /// <param name="amnt_labor">Initial value of the amnt_labor property.</param>
+        /// <param name="amnt_extracharges">Initial value of the amnt_extracharges property.</param>
+        /// <param name="amnt_vat">Initial value of the amnt_vat property.</param>
+        /// <param name="amnt_subtotal">Initial value of the amnt_subtotal property.</param>
+        /// <param name="amnt_discount">Initial value of the amnt_discount property.</param>
+        /// <param name="amnt_grandtotal">Initial value of the amnt_grandtotal property.</param>
+        /// <param name="adrs_billing_firstname">Initial value of the adrs_billing_firstname property.</param>
+        /// <param name="adrs_billing_lastname">Initial value of the adrs_billing_lastname property.</param>
+        /// <param name="adrs_billing_street">Initial value of the adrs_billing_street property.</param>
+        /// <param name="adrs_billing_city">Initial value of the adrs_billing_city property.</param>
+        /// <param name="adrs_billing_zip">Initial value of the adrs_billing_zip property.</param>
         /// <param name="adrs_billing_state_id">Initial value of the adrs_billing_state_id property.</param>
         /// <param name="adrs_billing_country_id">Initial value of the adrs_billing_country_id property.</param>
+        /// <param name="adrs_billing_phone">Initial value of the adrs_billing_phone property.</param>
+        /// <param name="adrs_delivery_firstname">Initial value of the adrs_delivery_firstname property.</param>
+        /// <param name="adrs_delivery_lastname">Initial value of the adrs_delivery_lastname property.</param>
+        /// <param name="adrs_delivery_street">Initial value of the adrs_delivery_street property.</param>
+        /// <param name="adrs_delivery_city">Initial value of the adrs_delivery_city property.</param>
+        /// <param name="adrs_delivery_zip">Initial value of the adrs_delivery_zip property.</param>
         /// <param name="adrs_delivery_state_id">Initial value of the adrs_delivery_state_id property.</param>
         /// <param name="adrs_delivery_country_id">Initial value of the adrs_delivery_country_id property.</param>
-        public static acc_ORDERS Createacc_ORDERS(global::System.Int32 id, global::System.Int32 orderNumber, global::System.Int32 user_id, global::System.Int32 packaging_id, global::System.Int32 payment_id, global::System.Int32 adrs_billing_state_id, global::System.Int32 adrs_billing_country_id, global::System.Int32 adrs_delivery_state_id, global::System.Int32 adrs_delivery_country_id)
+        /// <param name="adrs_delivery_phone">Initial value of the adrs_delivery_phone property.</param>
+        /// <param name="cannot_be_edited">Initial value of the cannot_be_edited property.</param>
+        /// <param name="sts1_new_order_received">Initial value of the sts1_new_order_received property.</param>
+        /// <param name="sts1_new_order_received_viewed">Initial value of the sts1_new_order_received_viewed property.</param>
+        /// <param name="sts1_new_order_received_date">Initial value of the sts1_new_order_received_date property.</param>
+        /// <param name="sts2_waiting_for_authorization">Initial value of the sts2_waiting_for_authorization property.</param>
+        /// <param name="sts2_waiting_for_authorization_viewed">Initial value of the sts2_waiting_for_authorization_viewed property.</param>
+        /// <param name="sts2_waiting_for_authorization_date">Initial value of the sts2_waiting_for_authorization_date property.</param>
+        /// <param name="sts2_waiting_for_authorization_note">Initial value of the sts2_waiting_for_authorization_note property.</param>
+        /// <param name="sts3_waiting_for_payment">Initial value of the sts3_waiting_for_payment property.</param>
+        /// <param name="sts3_waiting_for_payment_viewed">Initial value of the sts3_waiting_for_payment_viewed property.</param>
+        /// <param name="sts3_waiting_for_payment_date">Initial value of the sts3_waiting_for_payment_date property.</param>
+        /// <param name="sts3_waiting_for_payment_note">Initial value of the sts3_waiting_for_payment_note property.</param>
+        /// <param name="sts4_order_confirmed">Initial value of the sts4_order_confirmed property.</param>
+        /// <param name="sts4_order_confirmed_viewed">Initial value of the sts4_order_confirmed_viewed property.</param>
+        /// <param name="sts4_order_confirmed_date">Initial value of the sts4_order_confirmed_date property.</param>
+        /// <param name="sts4_order_confirmed_note">Initial value of the sts4_order_confirmed_note property.</param>
+        /// <param name="sts5_partial_order_confirmed">Initial value of the sts5_partial_order_confirmed property.</param>
+        /// <param name="sts5_partial_order_confirmed_viewed">Initial value of the sts5_partial_order_confirmed_viewed property.</param>
+        /// <param name="sts5_partial_order_confirmed_date">Initial value of the sts5_partial_order_confirmed_date property.</param>
+        /// <param name="sts5_partial_order_confirmed_note">Initial value of the sts5_partial_order_confirmed_note property.</param>
+        /// <param name="sts6_order_failed">Initial value of the sts6_order_failed property.</param>
+        /// <param name="sts6_order_failed_viewed">Initial value of the sts6_order_failed_viewed property.</param>
+        /// <param name="sts6_order_failed_date">Initial value of the sts6_order_failed_date property.</param>
+        /// <param name="sts6_order_failed_note">Initial value of the sts6_order_failed_note property.</param>
+        /// <param name="sts7_order_waiting_to_be_send">Initial value of the sts7_order_waiting_to_be_send property.</param>
+        /// <param name="sts7_order_waiting_to_be_send_viewed">Initial value of the sts7_order_waiting_to_be_send_viewed property.</param>
+        /// <param name="sts7_order_waiting_to_be_send_date">Initial value of the sts7_order_waiting_to_be_send_date property.</param>
+        /// <param name="sts7_order_waiting_to_be_send_note">Initial value of the sts7_order_waiting_to_be_send_note property.</param>
+        /// <param name="sts8_order_send">Initial value of the sts8_order_send property.</param>
+        /// <param name="sts8_order_send_viewed">Initial value of the sts8_order_send_viewed property.</param>
+        /// <param name="sts8_order_send_date">Initial value of the sts8_order_send_date property.</param>
+        /// <param name="sts8_order_send_note">Initial value of the sts8_order_send_note property.</param>
+        /// <param name="sts9_partial_order_send">Initial value of the sts9_partial_order_send property.</param>
+        /// <param name="sts9_partial_order_send_viewed">Initial value of the sts9_partial_order_send_viewed property.</param>
+        /// <param name="sts9_partial_order_send_date">Initial value of the sts9_partial_order_send_date property.</param>
+        /// <param name="sts9_partial_order_send_note">Initial value of the sts9_partial_order_send_note property.</param>
+        /// <param name="sts10_order_received_by_customer">Initial value of the sts10_order_received_by_customer property.</param>
+        /// <param name="sts10_order_received_by_customer_viewed">Initial value of the sts10_order_received_by_customer_viewed property.</param>
+        /// <param name="sts10_order_received_by_customer_date">Initial value of the sts10_order_received_by_customer_date property.</param>
+        /// <param name="sts10_order_received_by_customer_note">Initial value of the sts10_order_received_by_customer_note property.</param>
+        /// <param name="sts11_partial_order_received_by_customer">Initial value of the sts11_partial_order_received_by_customer property.</param>
+        /// <param name="sts11_partial_order_received_by_customer_viewed">Initial value of the sts11_partial_order_received_by_customer_viewed property.</param>
+        /// <param name="sts11_partial_order_received_by_customer_date">Initial value of the sts11_partial_order_received_by_customer_date property.</param>
+        /// <param name="sts11_partial_order_received_by_customer_note">Initial value of the sts11_partial_order_received_by_customer_note property.</param>
+        /// <param name="sts12_customer_returning_order">Initial value of the sts12_customer_returning_order property.</param>
+        /// <param name="sts12_customer_returning_order_viewed">Initial value of the sts12_customer_returning_order_viewed property.</param>
+        /// <param name="sts12_customer_returning_order_date">Initial value of the sts12_customer_returning_order_date property.</param>
+        /// <param name="sts12_customer_returning_order_note">Initial value of the sts12_customer_returning_order_note property.</param>
+        /// <param name="sts13_customer_returning_part_order">Initial value of the sts13_customer_returning_part_order property.</param>
+        /// <param name="sts13_customer_returning_part_order_viewed">Initial value of the sts13_customer_returning_part_order_viewed property.</param>
+        /// <param name="sts13_customer_returning_part_order_date">Initial value of the sts13_customer_returning_part_order_date property.</param>
+        /// <param name="sts13_customer_returning_part_order_note">Initial value of the sts13_customer_returning_part_order_note property.</param>
+        /// <param name="sts14_customer_refunded">Initial value of the sts14_customer_refunded property.</param>
+        /// <param name="sts14_customer_refunded_viewed">Initial value of the sts14_customer_refunded_viewed property.</param>
+        /// <param name="sts14_customer_refunded_date">Initial value of the sts14_customer_refunded_date property.</param>
+        /// <param name="sts14_customer_refunded_note">Initial value of the sts14_customer_refunded_note property.</param>
+        /// <param name="sts15_customer_partly_refunded">Initial value of the sts15_customer_partly_refunded property.</param>
+        /// <param name="sts15_customer_partly_refunded_viewed">Initial value of the sts15_customer_partly_refunded_viewed property.</param>
+        /// <param name="sts15_customer_partly_refunded_date">Initial value of the sts15_customer_partly_refunded_date property.</param>
+        /// <param name="sts15_customer_partly_refunded_note">Initial value of the sts15_customer_partly_refunded_note property.</param>
+        /// <param name="sts16_order_closed">Initial value of the sts16_order_closed property.</param>
+        /// <param name="sts16_order_closed_viewed">Initial value of the sts16_order_closed_viewed property.</param>
+        /// <param name="sts16_order_closed_date">Initial value of the sts16_order_closed_date property.</param>
+        /// <param name="sts16_order_closed_note">Initial value of the sts16_order_closed_note property.</param>
+        /// <param name="sts17_order_cancelled">Initial value of the sts17_order_cancelled property.</param>
+        /// <param name="sts17_order_cancelled_viewed">Initial value of the sts17_order_cancelled_viewed property.</param>
+        /// <param name="sts17_order_cancelled_date">Initial value of the sts17_order_cancelled_date property.</param>
+        /// <param name="sts17_order_cancelled_note">Initial value of the sts17_order_cancelled_note property.</param>
+        /// <param name="sts_curr_stat">Initial value of the sts_curr_stat property.</param>
+        /// <param name="sts_curr_date">Initial value of the sts_curr_date property.</param>
+        /// <param name="orderDeleted">Initial value of the OrderDeleted property.</param>
+        /// <param name="interest_start_date">Initial value of the Interest_start_date property.</param>
+        /// <param name="interest_percent">Initial value of the Interest_percent property.</param>
+        /// <param name="merchant_Notes">Initial value of the Merchant_Notes property.</param>
+        /// <param name="customer_Notes">Initial value of the Customer_Notes property.</param>
+        /// <param name="lastModify_Date">Initial value of the LastModify_Date property.</param>
+        /// <param name="lastModify_User">Initial value of the LastModify_User property.</param>
+        /// <param name="lastModify_User_Id">Initial value of the LastModify_User_Id property.</param>
+        /// <param name="campaign">Initial value of the campaign property.</param>
+        /// <param name="affiliate">Initial value of the affiliate property.</param>
+        /// <param name="referrer">Initial value of the referrer property.</param>
+        /// <param name="remote_ip">Initial value of the remote_ip property.</param>
+        /// <param name="order_transacted">Initial value of the order_transacted property.</param>
+        /// <param name="order_currency">Initial value of the order_currency property.</param>
+        /// <param name="order_currency_rate">Initial value of the order_currency_rate property.</param>
+        /// <param name="hear_fromus">Initial value of the hear_fromus property.</param>
+        /// <param name="include_receipt">Initial value of the include_receipt property.</param>
+        public static acc_ORDERS Createacc_ORDERS(global::System.Int32 id, global::System.Int32 orderNumber, global::System.Int32 invoiceNumber, global::System.DateTime invoiceDate, global::System.Boolean invoiceCopy, global::System.String jewelrySize, global::System.Boolean clubOrder, global::System.DateTime orderdate, global::System.Int32 user_id, global::System.Int32 packaging_id, global::System.Int32 payment_id, global::System.Int32 shipping_id, global::System.String shipping_tracking_no, global::System.Decimal amnt_items, global::System.Decimal amnt_shipping, global::System.Decimal amnt_wrapping, global::System.Decimal amnt_labor, global::System.Decimal amnt_extracharges, global::System.Decimal amnt_vat, global::System.Decimal amnt_subtotal, global::System.Decimal amnt_discount, global::System.Decimal amnt_grandtotal, global::System.String adrs_billing_firstname, global::System.String adrs_billing_lastname, global::System.String adrs_billing_street, global::System.String adrs_billing_city, global::System.String adrs_billing_zip, global::System.Int32 adrs_billing_state_id, global::System.Int32 adrs_billing_country_id, global::System.String adrs_billing_phone, global::System.String adrs_delivery_firstname, global::System.String adrs_delivery_lastname, global::System.String adrs_delivery_street, global::System.String adrs_delivery_city, global::System.String adrs_delivery_zip, global::System.Int32 adrs_delivery_state_id, global::System.Int32 adrs_delivery_country_id, global::System.String adrs_delivery_phone, global::System.Boolean cannot_be_edited, global::System.Boolean sts1_new_order_received, global::System.Boolean sts1_new_order_received_viewed, global::System.DateTime sts1_new_order_received_date, global::System.Boolean sts2_waiting_for_authorization, global::System.Boolean sts2_waiting_for_authorization_viewed, global::System.DateTime sts2_waiting_for_authorization_date, global::System.String sts2_waiting_for_authorization_note, global::System.Boolean sts3_waiting_for_payment, global::System.Boolean sts3_waiting_for_payment_viewed, global::System.DateTime sts3_waiting_for_payment_date, global::System.String sts3_waiting_for_payment_note, global::System.Boolean sts4_order_confirmed, global::System.Boolean sts4_order_confirmed_viewed, global::System.DateTime sts4_order_confirmed_date, global::System.String sts4_order_confirmed_note, global::System.Boolean sts5_partial_order_confirmed, global::System.Boolean sts5_partial_order_confirmed_viewed, global::System.DateTime sts5_partial_order_confirmed_date, global::System.String sts5_partial_order_confirmed_note, global::System.Boolean sts6_order_failed, global::System.Boolean sts6_order_failed_viewed, global::System.DateTime sts6_order_failed_date, global::System.String sts6_order_failed_note, global::System.Boolean sts7_order_waiting_to_be_send, global::System.Boolean sts7_order_waiting_to_be_send_viewed, global::System.DateTime sts7_order_waiting_to_be_send_date, global::System.String sts7_order_waiting_to_be_send_note, global::System.Boolean sts8_order_send, global::System.Boolean sts8_order_send_viewed, global::System.DateTime sts8_order_send_date, global::System.String sts8_order_send_note, global::System.Boolean sts9_partial_order_send, global::System.Boolean sts9_partial_order_send_viewed, global::System.DateTime sts9_partial_order_send_date, global::System.String sts9_partial_order_send_note, global::System.Boolean sts10_order_received_by_customer, global::System.Boolean sts10_order_received_by_customer_viewed, global::System.DateTime sts10_order_received_by_customer_date, global::System.String sts10_order_received_by_customer_note, global::System.Boolean sts11_partial_order_received_by_customer, global::System.Boolean sts11_partial_order_received_by_customer_viewed, global::System.DateTime sts11_partial_order_received_by_customer_date, global::System.String sts11_partial_order_received_by_customer_note, global::System.Boolean sts12_customer_returning_order, global::System.Boolean sts12_customer_returning_order_viewed, global::System.DateTime sts12_customer_returning_order_date, global::System.String sts12_customer_returning_order_note, global::System.Boolean sts13_customer_returning_part_order, global::System.Boolean sts13_customer_returning_part_order_viewed, global::System.DateTime sts13_customer_returning_part_order_date, global::System.String sts13_customer_returning_part_order_note, global::System.Boolean sts14_customer_refunded, global::System.Boolean sts14_customer_refunded_viewed, global::System.DateTime sts14_customer_refunded_date, global::System.String sts14_customer_refunded_note, global::System.Boolean sts15_customer_partly_refunded, global::System.Boolean sts15_customer_partly_refunded_viewed, global::System.DateTime sts15_customer_partly_refunded_date, global::System.String sts15_customer_partly_refunded_note, global::System.Boolean sts16_order_closed, global::System.Boolean sts16_order_closed_viewed, global::System.DateTime sts16_order_closed_date, global::System.String sts16_order_closed_note, global::System.Boolean sts17_order_cancelled, global::System.Boolean sts17_order_cancelled_viewed, global::System.DateTime sts17_order_cancelled_date, global::System.String sts17_order_cancelled_note, global::System.String sts_curr_stat, global::System.DateTime sts_curr_date, global::System.Boolean orderDeleted, global::System.DateTime interest_start_date, global::System.Decimal interest_percent, global::System.String merchant_Notes, global::System.String customer_Notes, global::System.DateTime lastModify_Date, global::System.String lastModify_User, global::System.Int32 lastModify_User_Id, global::System.String campaign, global::System.String affiliate, global::System.String referrer, global::System.String remote_ip, global::System.Boolean order_transacted, global::System.String order_currency, global::System.Decimal order_currency_rate, global::System.String hear_fromus, global::System.Boolean include_receipt)
         {
             acc_ORDERS acc_ORDERS = new acc_ORDERS();
             acc_ORDERS.id = id;
             acc_ORDERS.OrderNumber = orderNumber;
+            acc_ORDERS.InvoiceNumber = invoiceNumber;
+            acc_ORDERS.InvoiceDate = invoiceDate;
+            acc_ORDERS.InvoiceCopy = invoiceCopy;
+            acc_ORDERS.JewelrySize = jewelrySize;
+            acc_ORDERS.ClubOrder = clubOrder;
+            acc_ORDERS.orderdate = orderdate;
             acc_ORDERS.user_id = user_id;
             acc_ORDERS.packaging_id = packaging_id;
             acc_ORDERS.payment_id = payment_id;
+            acc_ORDERS.shipping_id = shipping_id;
+            acc_ORDERS.shipping_tracking_no = shipping_tracking_no;
+            acc_ORDERS.amnt_items = amnt_items;
+            acc_ORDERS.amnt_shipping = amnt_shipping;
+            acc_ORDERS.amnt_wrapping = amnt_wrapping;
+            acc_ORDERS.amnt_labor = amnt_labor;
+            acc_ORDERS.amnt_extracharges = amnt_extracharges;
+            acc_ORDERS.amnt_vat = amnt_vat;
+            acc_ORDERS.amnt_subtotal = amnt_subtotal;
+            acc_ORDERS.amnt_discount = amnt_discount;
+            acc_ORDERS.amnt_grandtotal = amnt_grandtotal;
+            acc_ORDERS.adrs_billing_firstname = adrs_billing_firstname;
+            acc_ORDERS.adrs_billing_lastname = adrs_billing_lastname;
+            acc_ORDERS.adrs_billing_street = adrs_billing_street;
+            acc_ORDERS.adrs_billing_city = adrs_billing_city;
+            acc_ORDERS.adrs_billing_zip = adrs_billing_zip;
             acc_ORDERS.adrs_billing_state_id = adrs_billing_state_id;
             acc_ORDERS.adrs_billing_country_id = adrs_billing_country_id;
+            acc_ORDERS.adrs_billing_phone = adrs_billing_phone;
+            acc_ORDERS.adrs_delivery_firstname = adrs_delivery_firstname;
+            acc_ORDERS.adrs_delivery_lastname = adrs_delivery_lastname;
+            acc_ORDERS.adrs_delivery_street = adrs_delivery_street;
+            acc_ORDERS.adrs_delivery_city = adrs_delivery_city;
+            acc_ORDERS.adrs_delivery_zip = adrs_delivery_zip;
             acc_ORDERS.adrs_delivery_state_id = adrs_delivery_state_id;
             acc_ORDERS.adrs_delivery_country_id = adrs_delivery_country_id;
+            acc_ORDERS.adrs_delivery_phone = adrs_delivery_phone;
+            acc_ORDERS.cannot_be_edited = cannot_be_edited;
+            acc_ORDERS.sts1_new_order_received = sts1_new_order_received;
+            acc_ORDERS.sts1_new_order_received_viewed = sts1_new_order_received_viewed;
+            acc_ORDERS.sts1_new_order_received_date = sts1_new_order_received_date;
+            acc_ORDERS.sts2_waiting_for_authorization = sts2_waiting_for_authorization;
+            acc_ORDERS.sts2_waiting_for_authorization_viewed = sts2_waiting_for_authorization_viewed;
+            acc_ORDERS.sts2_waiting_for_authorization_date = sts2_waiting_for_authorization_date;
+            acc_ORDERS.sts2_waiting_for_authorization_note = sts2_waiting_for_authorization_note;
+            acc_ORDERS.sts3_waiting_for_payment = sts3_waiting_for_payment;
+            acc_ORDERS.sts3_waiting_for_payment_viewed = sts3_waiting_for_payment_viewed;
+            acc_ORDERS.sts3_waiting_for_payment_date = sts3_waiting_for_payment_date;
+            acc_ORDERS.sts3_waiting_for_payment_note = sts3_waiting_for_payment_note;
+            acc_ORDERS.sts4_order_confirmed = sts4_order_confirmed;
+            acc_ORDERS.sts4_order_confirmed_viewed = sts4_order_confirmed_viewed;
+            acc_ORDERS.sts4_order_confirmed_date = sts4_order_confirmed_date;
+            acc_ORDERS.sts4_order_confirmed_note = sts4_order_confirmed_note;
+            acc_ORDERS.sts5_partial_order_confirmed = sts5_partial_order_confirmed;
+            acc_ORDERS.sts5_partial_order_confirmed_viewed = sts5_partial_order_confirmed_viewed;
+            acc_ORDERS.sts5_partial_order_confirmed_date = sts5_partial_order_confirmed_date;
+            acc_ORDERS.sts5_partial_order_confirmed_note = sts5_partial_order_confirmed_note;
+            acc_ORDERS.sts6_order_failed = sts6_order_failed;
+            acc_ORDERS.sts6_order_failed_viewed = sts6_order_failed_viewed;
+            acc_ORDERS.sts6_order_failed_date = sts6_order_failed_date;
+            acc_ORDERS.sts6_order_failed_note = sts6_order_failed_note;
+            acc_ORDERS.sts7_order_waiting_to_be_send = sts7_order_waiting_to_be_send;
+            acc_ORDERS.sts7_order_waiting_to_be_send_viewed = sts7_order_waiting_to_be_send_viewed;
+            acc_ORDERS.sts7_order_waiting_to_be_send_date = sts7_order_waiting_to_be_send_date;
+            acc_ORDERS.sts7_order_waiting_to_be_send_note = sts7_order_waiting_to_be_send_note;
+            acc_ORDERS.sts8_order_send = sts8_order_send;
+            acc_ORDERS.sts8_order_send_viewed = sts8_order_send_viewed;
+            acc_ORDERS.sts8_order_send_date = sts8_order_send_date;
+            acc_ORDERS.sts8_order_send_note = sts8_order_send_note;
+            acc_ORDERS.sts9_partial_order_send = sts9_partial_order_send;
+            acc_ORDERS.sts9_partial_order_send_viewed = sts9_partial_order_send_viewed;
+            acc_ORDERS.sts9_partial_order_send_date = sts9_partial_order_send_date;
+            acc_ORDERS.sts9_partial_order_send_note = sts9_partial_order_send_note;
+            acc_ORDERS.sts10_order_received_by_customer = sts10_order_received_by_customer;
+            acc_ORDERS.sts10_order_received_by_customer_viewed = sts10_order_received_by_customer_viewed;
+            acc_ORDERS.sts10_order_received_by_customer_date = sts10_order_received_by_customer_date;
+            acc_ORDERS.sts10_order_received_by_customer_note = sts10_order_received_by_customer_note;
+            acc_ORDERS.sts11_partial_order_received_by_customer = sts11_partial_order_received_by_customer;
+            acc_ORDERS.sts11_partial_order_received_by_customer_viewed = sts11_partial_order_received_by_customer_viewed;
+            acc_ORDERS.sts11_partial_order_received_by_customer_date = sts11_partial_order_received_by_customer_date;
+            acc_ORDERS.sts11_partial_order_received_by_customer_note = sts11_partial_order_received_by_customer_note;
+            acc_ORDERS.sts12_customer_returning_order = sts12_customer_returning_order;
+            acc_ORDERS.sts12_customer_returning_order_viewed = sts12_customer_returning_order_viewed;
+            acc_ORDERS.sts12_customer_returning_order_date = sts12_customer_returning_order_date;
+            acc_ORDERS.sts12_customer_returning_order_note = sts12_customer_returning_order_note;
+            acc_ORDERS.sts13_customer_returning_part_order = sts13_customer_returning_part_order;
+            acc_ORDERS.sts13_customer_returning_part_order_viewed = sts13_customer_returning_part_order_viewed;
+            acc_ORDERS.sts13_customer_returning_part_order_date = sts13_customer_returning_part_order_date;
+            acc_ORDERS.sts13_customer_returning_part_order_note = sts13_customer_returning_part_order_note;
+            acc_ORDERS.sts14_customer_refunded = sts14_customer_refunded;
+            acc_ORDERS.sts14_customer_refunded_viewed = sts14_customer_refunded_viewed;
+            acc_ORDERS.sts14_customer_refunded_date = sts14_customer_refunded_date;
+            acc_ORDERS.sts14_customer_refunded_note = sts14_customer_refunded_note;
+            acc_ORDERS.sts15_customer_partly_refunded = sts15_customer_partly_refunded;
+            acc_ORDERS.sts15_customer_partly_refunded_viewed = sts15_customer_partly_refunded_viewed;
+            acc_ORDERS.sts15_customer_partly_refunded_date = sts15_customer_partly_refunded_date;
+            acc_ORDERS.sts15_customer_partly_refunded_note = sts15_customer_partly_refunded_note;
+            acc_ORDERS.sts16_order_closed = sts16_order_closed;
+            acc_ORDERS.sts16_order_closed_viewed = sts16_order_closed_viewed;
+            acc_ORDERS.sts16_order_closed_date = sts16_order_closed_date;
+            acc_ORDERS.sts16_order_closed_note = sts16_order_closed_note;
+            acc_ORDERS.sts17_order_cancelled = sts17_order_cancelled;
+            acc_ORDERS.sts17_order_cancelled_viewed = sts17_order_cancelled_viewed;
+            acc_ORDERS.sts17_order_cancelled_date = sts17_order_cancelled_date;
+            acc_ORDERS.sts17_order_cancelled_note = sts17_order_cancelled_note;
+            acc_ORDERS.sts_curr_stat = sts_curr_stat;
+            acc_ORDERS.sts_curr_date = sts_curr_date;
+            acc_ORDERS.OrderDeleted = orderDeleted;
+            acc_ORDERS.Interest_start_date = interest_start_date;
+            acc_ORDERS.Interest_percent = interest_percent;
+            acc_ORDERS.Merchant_Notes = merchant_Notes;
+            acc_ORDERS.Customer_Notes = customer_Notes;
+            acc_ORDERS.LastModify_Date = lastModify_Date;
+            acc_ORDERS.LastModify_User = lastModify_User;
+            acc_ORDERS.LastModify_User_Id = lastModify_User_Id;
+            acc_ORDERS.campaign = campaign;
+            acc_ORDERS.affiliate = affiliate;
+            acc_ORDERS.referrer = referrer;
+            acc_ORDERS.remote_ip = remote_ip;
+            acc_ORDERS.order_transacted = order_transacted;
+            acc_ORDERS.order_currency = order_currency;
+            acc_ORDERS.order_currency_rate = order_currency_rate;
+            acc_ORDERS.hear_fromus = hear_fromus;
+            acc_ORDERS.include_receipt = include_receipt;
             return acc_ORDERS;
         }
 
@@ -2878,9 +3110,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> InvoiceNumber
+        public global::System.Int32 InvoiceNumber
         {
             get
             {
@@ -2895,16 +3127,16 @@ namespace JONMVC.Website.Models.DB
                 OnInvoiceNumberChanged();
             }
         }
-        private Nullable<global::System.Int32> _InvoiceNumber;
-        partial void OnInvoiceNumberChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _InvoiceNumber;
+        partial void OnInvoiceNumberChanging(global::System.Int32 value);
         partial void OnInvoiceNumberChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> InvoiceDate
+        public global::System.DateTime InvoiceDate
         {
             get
             {
@@ -2919,16 +3151,16 @@ namespace JONMVC.Website.Models.DB
                 OnInvoiceDateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _InvoiceDate;
-        partial void OnInvoiceDateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _InvoiceDate;
+        partial void OnInvoiceDateChanging(global::System.DateTime value);
         partial void OnInvoiceDateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> InvoiceCopy
+        public global::System.Boolean InvoiceCopy
         {
             get
             {
@@ -2943,14 +3175,14 @@ namespace JONMVC.Website.Models.DB
                 OnInvoiceCopyChanged();
             }
         }
-        private Nullable<global::System.Boolean> _InvoiceCopy;
-        partial void OnInvoiceCopyChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _InvoiceCopy;
+        partial void OnInvoiceCopyChanging(global::System.Boolean value);
         partial void OnInvoiceCopyChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String JewelrySize
         {
@@ -2962,7 +3194,7 @@ namespace JONMVC.Website.Models.DB
             {
                 OnJewelrySizeChanging(value);
                 ReportPropertyChanging("JewelrySize");
-                _JewelrySize = StructuralObject.SetValidValue(value, true);
+                _JewelrySize = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("JewelrySize");
                 OnJewelrySizeChanged();
             }
@@ -2974,9 +3206,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> ClubOrder
+        public global::System.Boolean ClubOrder
         {
             get
             {
@@ -2991,16 +3223,16 @@ namespace JONMVC.Website.Models.DB
                 OnClubOrderChanged();
             }
         }
-        private Nullable<global::System.Boolean> _ClubOrder;
-        partial void OnClubOrderChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _ClubOrder;
+        partial void OnClubOrderChanging(global::System.Boolean value);
         partial void OnClubOrderChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> orderdate
+        public global::System.DateTime orderdate
         {
             get
             {
@@ -3015,8 +3247,8 @@ namespace JONMVC.Website.Models.DB
                 OnorderdateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _orderdate;
-        partial void OnorderdateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _orderdate;
+        partial void OnorderdateChanging(global::System.DateTime value);
         partial void OnorderdateChanged();
     
         /// <summary>
@@ -3094,9 +3326,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> shipping_id
+        public global::System.Int32 shipping_id
         {
             get
             {
@@ -3111,14 +3343,14 @@ namespace JONMVC.Website.Models.DB
                 Onshipping_idChanged();
             }
         }
-        private Nullable<global::System.Int32> _shipping_id;
-        partial void Onshipping_idChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _shipping_id;
+        partial void Onshipping_idChanging(global::System.Int32 value);
         partial void Onshipping_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String shipping_tracking_no
         {
@@ -3130,7 +3362,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onshipping_tracking_noChanging(value);
                 ReportPropertyChanging("shipping_tracking_no");
-                _shipping_tracking_no = StructuralObject.SetValidValue(value, true);
+                _shipping_tracking_no = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("shipping_tracking_no");
                 Onshipping_tracking_noChanged();
             }
@@ -3142,9 +3374,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> amnt_items
+        public global::System.Decimal amnt_items
         {
             get
             {
@@ -3159,16 +3391,16 @@ namespace JONMVC.Website.Models.DB
                 Onamnt_itemsChanged();
             }
         }
-        private Nullable<global::System.Decimal> _amnt_items;
-        partial void Onamnt_itemsChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _amnt_items;
+        partial void Onamnt_itemsChanging(global::System.Decimal value);
         partial void Onamnt_itemsChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> amnt_shipping
+        public global::System.Decimal amnt_shipping
         {
             get
             {
@@ -3183,16 +3415,16 @@ namespace JONMVC.Website.Models.DB
                 Onamnt_shippingChanged();
             }
         }
-        private Nullable<global::System.Decimal> _amnt_shipping;
-        partial void Onamnt_shippingChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _amnt_shipping;
+        partial void Onamnt_shippingChanging(global::System.Decimal value);
         partial void Onamnt_shippingChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> amnt_wrapping
+        public global::System.Decimal amnt_wrapping
         {
             get
             {
@@ -3207,16 +3439,16 @@ namespace JONMVC.Website.Models.DB
                 Onamnt_wrappingChanged();
             }
         }
-        private Nullable<global::System.Decimal> _amnt_wrapping;
-        partial void Onamnt_wrappingChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _amnt_wrapping;
+        partial void Onamnt_wrappingChanging(global::System.Decimal value);
         partial void Onamnt_wrappingChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> amnt_labor
+        public global::System.Decimal amnt_labor
         {
             get
             {
@@ -3231,16 +3463,16 @@ namespace JONMVC.Website.Models.DB
                 Onamnt_laborChanged();
             }
         }
-        private Nullable<global::System.Decimal> _amnt_labor;
-        partial void Onamnt_laborChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _amnt_labor;
+        partial void Onamnt_laborChanging(global::System.Decimal value);
         partial void Onamnt_laborChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> amnt_extracharges
+        public global::System.Decimal amnt_extracharges
         {
             get
             {
@@ -3255,16 +3487,16 @@ namespace JONMVC.Website.Models.DB
                 Onamnt_extrachargesChanged();
             }
         }
-        private Nullable<global::System.Decimal> _amnt_extracharges;
-        partial void Onamnt_extrachargesChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _amnt_extracharges;
+        partial void Onamnt_extrachargesChanging(global::System.Decimal value);
         partial void Onamnt_extrachargesChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> amnt_vat
+        public global::System.Decimal amnt_vat
         {
             get
             {
@@ -3279,16 +3511,16 @@ namespace JONMVC.Website.Models.DB
                 Onamnt_vatChanged();
             }
         }
-        private Nullable<global::System.Decimal> _amnt_vat;
-        partial void Onamnt_vatChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _amnt_vat;
+        partial void Onamnt_vatChanging(global::System.Decimal value);
         partial void Onamnt_vatChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> amnt_subtotal
+        public global::System.Decimal amnt_subtotal
         {
             get
             {
@@ -3303,16 +3535,16 @@ namespace JONMVC.Website.Models.DB
                 Onamnt_subtotalChanged();
             }
         }
-        private Nullable<global::System.Decimal> _amnt_subtotal;
-        partial void Onamnt_subtotalChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _amnt_subtotal;
+        partial void Onamnt_subtotalChanging(global::System.Decimal value);
         partial void Onamnt_subtotalChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> amnt_discount
+        public global::System.Decimal amnt_discount
         {
             get
             {
@@ -3327,16 +3559,16 @@ namespace JONMVC.Website.Models.DB
                 Onamnt_discountChanged();
             }
         }
-        private Nullable<global::System.Decimal> _amnt_discount;
-        partial void Onamnt_discountChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _amnt_discount;
+        partial void Onamnt_discountChanging(global::System.Decimal value);
         partial void Onamnt_discountChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> amnt_grandtotal
+        public global::System.Decimal amnt_grandtotal
         {
             get
             {
@@ -3351,14 +3583,14 @@ namespace JONMVC.Website.Models.DB
                 Onamnt_grandtotalChanged();
             }
         }
-        private Nullable<global::System.Decimal> _amnt_grandtotal;
-        partial void Onamnt_grandtotalChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _amnt_grandtotal;
+        partial void Onamnt_grandtotalChanging(global::System.Decimal value);
         partial void Onamnt_grandtotalChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_billing_firstname
         {
@@ -3370,7 +3602,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_billing_firstnameChanging(value);
                 ReportPropertyChanging("adrs_billing_firstname");
-                _adrs_billing_firstname = StructuralObject.SetValidValue(value, true);
+                _adrs_billing_firstname = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_billing_firstname");
                 Onadrs_billing_firstnameChanged();
             }
@@ -3382,7 +3614,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_billing_lastname
         {
@@ -3394,7 +3626,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_billing_lastnameChanging(value);
                 ReportPropertyChanging("adrs_billing_lastname");
-                _adrs_billing_lastname = StructuralObject.SetValidValue(value, true);
+                _adrs_billing_lastname = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_billing_lastname");
                 Onadrs_billing_lastnameChanged();
             }
@@ -3406,7 +3638,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_billing_street
         {
@@ -3418,7 +3650,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_billing_streetChanging(value);
                 ReportPropertyChanging("adrs_billing_street");
-                _adrs_billing_street = StructuralObject.SetValidValue(value, true);
+                _adrs_billing_street = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_billing_street");
                 Onadrs_billing_streetChanged();
             }
@@ -3430,7 +3662,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_billing_city
         {
@@ -3442,7 +3674,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_billing_cityChanging(value);
                 ReportPropertyChanging("adrs_billing_city");
-                _adrs_billing_city = StructuralObject.SetValidValue(value, true);
+                _adrs_billing_city = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_billing_city");
                 Onadrs_billing_cityChanged();
             }
@@ -3454,7 +3686,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_billing_zip
         {
@@ -3466,7 +3698,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_billing_zipChanging(value);
                 ReportPropertyChanging("adrs_billing_zip");
-                _adrs_billing_zip = StructuralObject.SetValidValue(value, true);
+                _adrs_billing_zip = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_billing_zip");
                 Onadrs_billing_zipChanged();
             }
@@ -3526,7 +3758,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_billing_phone
         {
@@ -3538,7 +3770,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_billing_phoneChanging(value);
                 ReportPropertyChanging("adrs_billing_phone");
-                _adrs_billing_phone = StructuralObject.SetValidValue(value, true);
+                _adrs_billing_phone = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_billing_phone");
                 Onadrs_billing_phoneChanged();
             }
@@ -3550,7 +3782,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_delivery_firstname
         {
@@ -3562,7 +3794,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_delivery_firstnameChanging(value);
                 ReportPropertyChanging("adrs_delivery_firstname");
-                _adrs_delivery_firstname = StructuralObject.SetValidValue(value, true);
+                _adrs_delivery_firstname = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_delivery_firstname");
                 Onadrs_delivery_firstnameChanged();
             }
@@ -3574,7 +3806,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_delivery_lastname
         {
@@ -3586,7 +3818,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_delivery_lastnameChanging(value);
                 ReportPropertyChanging("adrs_delivery_lastname");
-                _adrs_delivery_lastname = StructuralObject.SetValidValue(value, true);
+                _adrs_delivery_lastname = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_delivery_lastname");
                 Onadrs_delivery_lastnameChanged();
             }
@@ -3598,7 +3830,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_delivery_street
         {
@@ -3610,7 +3842,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_delivery_streetChanging(value);
                 ReportPropertyChanging("adrs_delivery_street");
-                _adrs_delivery_street = StructuralObject.SetValidValue(value, true);
+                _adrs_delivery_street = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_delivery_street");
                 Onadrs_delivery_streetChanged();
             }
@@ -3622,7 +3854,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_delivery_city
         {
@@ -3634,7 +3866,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_delivery_cityChanging(value);
                 ReportPropertyChanging("adrs_delivery_city");
-                _adrs_delivery_city = StructuralObject.SetValidValue(value, true);
+                _adrs_delivery_city = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_delivery_city");
                 Onadrs_delivery_cityChanged();
             }
@@ -3646,7 +3878,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_delivery_zip
         {
@@ -3658,7 +3890,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_delivery_zipChanging(value);
                 ReportPropertyChanging("adrs_delivery_zip");
-                _adrs_delivery_zip = StructuralObject.SetValidValue(value, true);
+                _adrs_delivery_zip = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_delivery_zip");
                 Onadrs_delivery_zipChanged();
             }
@@ -3718,7 +3950,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String adrs_delivery_phone
         {
@@ -3730,7 +3962,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onadrs_delivery_phoneChanging(value);
                 ReportPropertyChanging("adrs_delivery_phone");
-                _adrs_delivery_phone = StructuralObject.SetValidValue(value, true);
+                _adrs_delivery_phone = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("adrs_delivery_phone");
                 Onadrs_delivery_phoneChanged();
             }
@@ -3742,9 +3974,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> cannot_be_edited
+        public global::System.Boolean cannot_be_edited
         {
             get
             {
@@ -3759,16 +3991,16 @@ namespace JONMVC.Website.Models.DB
                 Oncannot_be_editedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _cannot_be_edited;
-        partial void Oncannot_be_editedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _cannot_be_edited;
+        partial void Oncannot_be_editedChanging(global::System.Boolean value);
         partial void Oncannot_be_editedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts1_new_order_received
+        public global::System.Boolean sts1_new_order_received
         {
             get
             {
@@ -3783,16 +4015,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts1_new_order_receivedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts1_new_order_received;
-        partial void Onsts1_new_order_receivedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts1_new_order_received;
+        partial void Onsts1_new_order_receivedChanging(global::System.Boolean value);
         partial void Onsts1_new_order_receivedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts1_new_order_received_viewed
+        public global::System.Boolean sts1_new_order_received_viewed
         {
             get
             {
@@ -3807,16 +4039,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts1_new_order_received_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts1_new_order_received_viewed;
-        partial void Onsts1_new_order_received_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts1_new_order_received_viewed;
+        partial void Onsts1_new_order_received_viewedChanging(global::System.Boolean value);
         partial void Onsts1_new_order_received_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts1_new_order_received_date
+        public global::System.DateTime sts1_new_order_received_date
         {
             get
             {
@@ -3831,16 +4063,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts1_new_order_received_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts1_new_order_received_date;
-        partial void Onsts1_new_order_received_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts1_new_order_received_date;
+        partial void Onsts1_new_order_received_dateChanging(global::System.DateTime value);
         partial void Onsts1_new_order_received_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts2_waiting_for_authorization
+        public global::System.Boolean sts2_waiting_for_authorization
         {
             get
             {
@@ -3855,16 +4087,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts2_waiting_for_authorizationChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts2_waiting_for_authorization;
-        partial void Onsts2_waiting_for_authorizationChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts2_waiting_for_authorization;
+        partial void Onsts2_waiting_for_authorizationChanging(global::System.Boolean value);
         partial void Onsts2_waiting_for_authorizationChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts2_waiting_for_authorization_viewed
+        public global::System.Boolean sts2_waiting_for_authorization_viewed
         {
             get
             {
@@ -3879,16 +4111,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts2_waiting_for_authorization_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts2_waiting_for_authorization_viewed;
-        partial void Onsts2_waiting_for_authorization_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts2_waiting_for_authorization_viewed;
+        partial void Onsts2_waiting_for_authorization_viewedChanging(global::System.Boolean value);
         partial void Onsts2_waiting_for_authorization_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts2_waiting_for_authorization_date
+        public global::System.DateTime sts2_waiting_for_authorization_date
         {
             get
             {
@@ -3903,14 +4135,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts2_waiting_for_authorization_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts2_waiting_for_authorization_date;
-        partial void Onsts2_waiting_for_authorization_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts2_waiting_for_authorization_date;
+        partial void Onsts2_waiting_for_authorization_dateChanging(global::System.DateTime value);
         partial void Onsts2_waiting_for_authorization_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts2_waiting_for_authorization_note
         {
@@ -3922,7 +4154,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts2_waiting_for_authorization_noteChanging(value);
                 ReportPropertyChanging("sts2_waiting_for_authorization_note");
-                _sts2_waiting_for_authorization_note = StructuralObject.SetValidValue(value, true);
+                _sts2_waiting_for_authorization_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts2_waiting_for_authorization_note");
                 Onsts2_waiting_for_authorization_noteChanged();
             }
@@ -3934,9 +4166,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts3_waiting_for_payment
+        public global::System.Boolean sts3_waiting_for_payment
         {
             get
             {
@@ -3951,16 +4183,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts3_waiting_for_paymentChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts3_waiting_for_payment;
-        partial void Onsts3_waiting_for_paymentChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts3_waiting_for_payment;
+        partial void Onsts3_waiting_for_paymentChanging(global::System.Boolean value);
         partial void Onsts3_waiting_for_paymentChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts3_waiting_for_payment_viewed
+        public global::System.Boolean sts3_waiting_for_payment_viewed
         {
             get
             {
@@ -3975,16 +4207,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts3_waiting_for_payment_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts3_waiting_for_payment_viewed;
-        partial void Onsts3_waiting_for_payment_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts3_waiting_for_payment_viewed;
+        partial void Onsts3_waiting_for_payment_viewedChanging(global::System.Boolean value);
         partial void Onsts3_waiting_for_payment_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts3_waiting_for_payment_date
+        public global::System.DateTime sts3_waiting_for_payment_date
         {
             get
             {
@@ -3999,14 +4231,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts3_waiting_for_payment_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts3_waiting_for_payment_date;
-        partial void Onsts3_waiting_for_payment_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts3_waiting_for_payment_date;
+        partial void Onsts3_waiting_for_payment_dateChanging(global::System.DateTime value);
         partial void Onsts3_waiting_for_payment_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts3_waiting_for_payment_note
         {
@@ -4018,7 +4250,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts3_waiting_for_payment_noteChanging(value);
                 ReportPropertyChanging("sts3_waiting_for_payment_note");
-                _sts3_waiting_for_payment_note = StructuralObject.SetValidValue(value, true);
+                _sts3_waiting_for_payment_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts3_waiting_for_payment_note");
                 Onsts3_waiting_for_payment_noteChanged();
             }
@@ -4030,9 +4262,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts4_order_confirmed
+        public global::System.Boolean sts4_order_confirmed
         {
             get
             {
@@ -4047,16 +4279,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts4_order_confirmedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts4_order_confirmed;
-        partial void Onsts4_order_confirmedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts4_order_confirmed;
+        partial void Onsts4_order_confirmedChanging(global::System.Boolean value);
         partial void Onsts4_order_confirmedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts4_order_confirmed_viewed
+        public global::System.Boolean sts4_order_confirmed_viewed
         {
             get
             {
@@ -4071,16 +4303,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts4_order_confirmed_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts4_order_confirmed_viewed;
-        partial void Onsts4_order_confirmed_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts4_order_confirmed_viewed;
+        partial void Onsts4_order_confirmed_viewedChanging(global::System.Boolean value);
         partial void Onsts4_order_confirmed_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts4_order_confirmed_date
+        public global::System.DateTime sts4_order_confirmed_date
         {
             get
             {
@@ -4095,14 +4327,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts4_order_confirmed_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts4_order_confirmed_date;
-        partial void Onsts4_order_confirmed_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts4_order_confirmed_date;
+        partial void Onsts4_order_confirmed_dateChanging(global::System.DateTime value);
         partial void Onsts4_order_confirmed_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts4_order_confirmed_note
         {
@@ -4114,7 +4346,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts4_order_confirmed_noteChanging(value);
                 ReportPropertyChanging("sts4_order_confirmed_note");
-                _sts4_order_confirmed_note = StructuralObject.SetValidValue(value, true);
+                _sts4_order_confirmed_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts4_order_confirmed_note");
                 Onsts4_order_confirmed_noteChanged();
             }
@@ -4126,9 +4358,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts5_partial_order_confirmed
+        public global::System.Boolean sts5_partial_order_confirmed
         {
             get
             {
@@ -4143,16 +4375,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts5_partial_order_confirmedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts5_partial_order_confirmed;
-        partial void Onsts5_partial_order_confirmedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts5_partial_order_confirmed;
+        partial void Onsts5_partial_order_confirmedChanging(global::System.Boolean value);
         partial void Onsts5_partial_order_confirmedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts5_partial_order_confirmed_viewed
+        public global::System.Boolean sts5_partial_order_confirmed_viewed
         {
             get
             {
@@ -4167,16 +4399,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts5_partial_order_confirmed_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts5_partial_order_confirmed_viewed;
-        partial void Onsts5_partial_order_confirmed_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts5_partial_order_confirmed_viewed;
+        partial void Onsts5_partial_order_confirmed_viewedChanging(global::System.Boolean value);
         partial void Onsts5_partial_order_confirmed_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts5_partial_order_confirmed_date
+        public global::System.DateTime sts5_partial_order_confirmed_date
         {
             get
             {
@@ -4191,14 +4423,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts5_partial_order_confirmed_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts5_partial_order_confirmed_date;
-        partial void Onsts5_partial_order_confirmed_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts5_partial_order_confirmed_date;
+        partial void Onsts5_partial_order_confirmed_dateChanging(global::System.DateTime value);
         partial void Onsts5_partial_order_confirmed_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts5_partial_order_confirmed_note
         {
@@ -4210,7 +4442,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts5_partial_order_confirmed_noteChanging(value);
                 ReportPropertyChanging("sts5_partial_order_confirmed_note");
-                _sts5_partial_order_confirmed_note = StructuralObject.SetValidValue(value, true);
+                _sts5_partial_order_confirmed_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts5_partial_order_confirmed_note");
                 Onsts5_partial_order_confirmed_noteChanged();
             }
@@ -4222,9 +4454,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts6_order_failed
+        public global::System.Boolean sts6_order_failed
         {
             get
             {
@@ -4239,16 +4471,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts6_order_failedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts6_order_failed;
-        partial void Onsts6_order_failedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts6_order_failed;
+        partial void Onsts6_order_failedChanging(global::System.Boolean value);
         partial void Onsts6_order_failedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts6_order_failed_viewed
+        public global::System.Boolean sts6_order_failed_viewed
         {
             get
             {
@@ -4263,16 +4495,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts6_order_failed_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts6_order_failed_viewed;
-        partial void Onsts6_order_failed_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts6_order_failed_viewed;
+        partial void Onsts6_order_failed_viewedChanging(global::System.Boolean value);
         partial void Onsts6_order_failed_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts6_order_failed_date
+        public global::System.DateTime sts6_order_failed_date
         {
             get
             {
@@ -4287,14 +4519,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts6_order_failed_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts6_order_failed_date;
-        partial void Onsts6_order_failed_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts6_order_failed_date;
+        partial void Onsts6_order_failed_dateChanging(global::System.DateTime value);
         partial void Onsts6_order_failed_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts6_order_failed_note
         {
@@ -4306,7 +4538,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts6_order_failed_noteChanging(value);
                 ReportPropertyChanging("sts6_order_failed_note");
-                _sts6_order_failed_note = StructuralObject.SetValidValue(value, true);
+                _sts6_order_failed_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts6_order_failed_note");
                 Onsts6_order_failed_noteChanged();
             }
@@ -4318,9 +4550,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts7_order_waiting_to_be_send
+        public global::System.Boolean sts7_order_waiting_to_be_send
         {
             get
             {
@@ -4335,16 +4567,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts7_order_waiting_to_be_sendChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts7_order_waiting_to_be_send;
-        partial void Onsts7_order_waiting_to_be_sendChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts7_order_waiting_to_be_send;
+        partial void Onsts7_order_waiting_to_be_sendChanging(global::System.Boolean value);
         partial void Onsts7_order_waiting_to_be_sendChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts7_order_waiting_to_be_send_viewed
+        public global::System.Boolean sts7_order_waiting_to_be_send_viewed
         {
             get
             {
@@ -4359,16 +4591,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts7_order_waiting_to_be_send_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts7_order_waiting_to_be_send_viewed;
-        partial void Onsts7_order_waiting_to_be_send_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts7_order_waiting_to_be_send_viewed;
+        partial void Onsts7_order_waiting_to_be_send_viewedChanging(global::System.Boolean value);
         partial void Onsts7_order_waiting_to_be_send_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts7_order_waiting_to_be_send_date
+        public global::System.DateTime sts7_order_waiting_to_be_send_date
         {
             get
             {
@@ -4383,14 +4615,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts7_order_waiting_to_be_send_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts7_order_waiting_to_be_send_date;
-        partial void Onsts7_order_waiting_to_be_send_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts7_order_waiting_to_be_send_date;
+        partial void Onsts7_order_waiting_to_be_send_dateChanging(global::System.DateTime value);
         partial void Onsts7_order_waiting_to_be_send_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts7_order_waiting_to_be_send_note
         {
@@ -4402,7 +4634,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts7_order_waiting_to_be_send_noteChanging(value);
                 ReportPropertyChanging("sts7_order_waiting_to_be_send_note");
-                _sts7_order_waiting_to_be_send_note = StructuralObject.SetValidValue(value, true);
+                _sts7_order_waiting_to_be_send_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts7_order_waiting_to_be_send_note");
                 Onsts7_order_waiting_to_be_send_noteChanged();
             }
@@ -4414,9 +4646,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts8_order_send
+        public global::System.Boolean sts8_order_send
         {
             get
             {
@@ -4431,16 +4663,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts8_order_sendChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts8_order_send;
-        partial void Onsts8_order_sendChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts8_order_send;
+        partial void Onsts8_order_sendChanging(global::System.Boolean value);
         partial void Onsts8_order_sendChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts8_order_send_viewed
+        public global::System.Boolean sts8_order_send_viewed
         {
             get
             {
@@ -4455,16 +4687,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts8_order_send_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts8_order_send_viewed;
-        partial void Onsts8_order_send_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts8_order_send_viewed;
+        partial void Onsts8_order_send_viewedChanging(global::System.Boolean value);
         partial void Onsts8_order_send_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts8_order_send_date
+        public global::System.DateTime sts8_order_send_date
         {
             get
             {
@@ -4479,14 +4711,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts8_order_send_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts8_order_send_date;
-        partial void Onsts8_order_send_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts8_order_send_date;
+        partial void Onsts8_order_send_dateChanging(global::System.DateTime value);
         partial void Onsts8_order_send_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts8_order_send_note
         {
@@ -4498,7 +4730,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts8_order_send_noteChanging(value);
                 ReportPropertyChanging("sts8_order_send_note");
-                _sts8_order_send_note = StructuralObject.SetValidValue(value, true);
+                _sts8_order_send_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts8_order_send_note");
                 Onsts8_order_send_noteChanged();
             }
@@ -4510,9 +4742,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts9_partial_order_send
+        public global::System.Boolean sts9_partial_order_send
         {
             get
             {
@@ -4527,16 +4759,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts9_partial_order_sendChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts9_partial_order_send;
-        partial void Onsts9_partial_order_sendChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts9_partial_order_send;
+        partial void Onsts9_partial_order_sendChanging(global::System.Boolean value);
         partial void Onsts9_partial_order_sendChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts9_partial_order_send_viewed
+        public global::System.Boolean sts9_partial_order_send_viewed
         {
             get
             {
@@ -4551,16 +4783,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts9_partial_order_send_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts9_partial_order_send_viewed;
-        partial void Onsts9_partial_order_send_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts9_partial_order_send_viewed;
+        partial void Onsts9_partial_order_send_viewedChanging(global::System.Boolean value);
         partial void Onsts9_partial_order_send_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts9_partial_order_send_date
+        public global::System.DateTime sts9_partial_order_send_date
         {
             get
             {
@@ -4575,14 +4807,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts9_partial_order_send_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts9_partial_order_send_date;
-        partial void Onsts9_partial_order_send_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts9_partial_order_send_date;
+        partial void Onsts9_partial_order_send_dateChanging(global::System.DateTime value);
         partial void Onsts9_partial_order_send_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts9_partial_order_send_note
         {
@@ -4594,7 +4826,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts9_partial_order_send_noteChanging(value);
                 ReportPropertyChanging("sts9_partial_order_send_note");
-                _sts9_partial_order_send_note = StructuralObject.SetValidValue(value, true);
+                _sts9_partial_order_send_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts9_partial_order_send_note");
                 Onsts9_partial_order_send_noteChanged();
             }
@@ -4606,9 +4838,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts10_order_received_by_customer
+        public global::System.Boolean sts10_order_received_by_customer
         {
             get
             {
@@ -4623,16 +4855,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts10_order_received_by_customerChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts10_order_received_by_customer;
-        partial void Onsts10_order_received_by_customerChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts10_order_received_by_customer;
+        partial void Onsts10_order_received_by_customerChanging(global::System.Boolean value);
         partial void Onsts10_order_received_by_customerChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts10_order_received_by_customer_viewed
+        public global::System.Boolean sts10_order_received_by_customer_viewed
         {
             get
             {
@@ -4647,16 +4879,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts10_order_received_by_customer_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts10_order_received_by_customer_viewed;
-        partial void Onsts10_order_received_by_customer_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts10_order_received_by_customer_viewed;
+        partial void Onsts10_order_received_by_customer_viewedChanging(global::System.Boolean value);
         partial void Onsts10_order_received_by_customer_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts10_order_received_by_customer_date
+        public global::System.DateTime sts10_order_received_by_customer_date
         {
             get
             {
@@ -4671,14 +4903,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts10_order_received_by_customer_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts10_order_received_by_customer_date;
-        partial void Onsts10_order_received_by_customer_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts10_order_received_by_customer_date;
+        partial void Onsts10_order_received_by_customer_dateChanging(global::System.DateTime value);
         partial void Onsts10_order_received_by_customer_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts10_order_received_by_customer_note
         {
@@ -4690,7 +4922,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts10_order_received_by_customer_noteChanging(value);
                 ReportPropertyChanging("sts10_order_received_by_customer_note");
-                _sts10_order_received_by_customer_note = StructuralObject.SetValidValue(value, true);
+                _sts10_order_received_by_customer_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts10_order_received_by_customer_note");
                 Onsts10_order_received_by_customer_noteChanged();
             }
@@ -4702,9 +4934,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts11_partial_order_received_by_customer
+        public global::System.Boolean sts11_partial_order_received_by_customer
         {
             get
             {
@@ -4719,16 +4951,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts11_partial_order_received_by_customerChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts11_partial_order_received_by_customer;
-        partial void Onsts11_partial_order_received_by_customerChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts11_partial_order_received_by_customer;
+        partial void Onsts11_partial_order_received_by_customerChanging(global::System.Boolean value);
         partial void Onsts11_partial_order_received_by_customerChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts11_partial_order_received_by_customer_viewed
+        public global::System.Boolean sts11_partial_order_received_by_customer_viewed
         {
             get
             {
@@ -4743,16 +4975,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts11_partial_order_received_by_customer_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts11_partial_order_received_by_customer_viewed;
-        partial void Onsts11_partial_order_received_by_customer_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts11_partial_order_received_by_customer_viewed;
+        partial void Onsts11_partial_order_received_by_customer_viewedChanging(global::System.Boolean value);
         partial void Onsts11_partial_order_received_by_customer_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts11_partial_order_received_by_customer_date
+        public global::System.DateTime sts11_partial_order_received_by_customer_date
         {
             get
             {
@@ -4767,14 +4999,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts11_partial_order_received_by_customer_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts11_partial_order_received_by_customer_date;
-        partial void Onsts11_partial_order_received_by_customer_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts11_partial_order_received_by_customer_date;
+        partial void Onsts11_partial_order_received_by_customer_dateChanging(global::System.DateTime value);
         partial void Onsts11_partial_order_received_by_customer_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts11_partial_order_received_by_customer_note
         {
@@ -4786,7 +5018,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts11_partial_order_received_by_customer_noteChanging(value);
                 ReportPropertyChanging("sts11_partial_order_received_by_customer_note");
-                _sts11_partial_order_received_by_customer_note = StructuralObject.SetValidValue(value, true);
+                _sts11_partial_order_received_by_customer_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts11_partial_order_received_by_customer_note");
                 Onsts11_partial_order_received_by_customer_noteChanged();
             }
@@ -4798,9 +5030,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts12_customer_returning_order
+        public global::System.Boolean sts12_customer_returning_order
         {
             get
             {
@@ -4815,16 +5047,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts12_customer_returning_orderChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts12_customer_returning_order;
-        partial void Onsts12_customer_returning_orderChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts12_customer_returning_order;
+        partial void Onsts12_customer_returning_orderChanging(global::System.Boolean value);
         partial void Onsts12_customer_returning_orderChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts12_customer_returning_order_viewed
+        public global::System.Boolean sts12_customer_returning_order_viewed
         {
             get
             {
@@ -4839,16 +5071,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts12_customer_returning_order_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts12_customer_returning_order_viewed;
-        partial void Onsts12_customer_returning_order_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts12_customer_returning_order_viewed;
+        partial void Onsts12_customer_returning_order_viewedChanging(global::System.Boolean value);
         partial void Onsts12_customer_returning_order_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts12_customer_returning_order_date
+        public global::System.DateTime sts12_customer_returning_order_date
         {
             get
             {
@@ -4863,14 +5095,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts12_customer_returning_order_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts12_customer_returning_order_date;
-        partial void Onsts12_customer_returning_order_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts12_customer_returning_order_date;
+        partial void Onsts12_customer_returning_order_dateChanging(global::System.DateTime value);
         partial void Onsts12_customer_returning_order_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts12_customer_returning_order_note
         {
@@ -4882,7 +5114,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts12_customer_returning_order_noteChanging(value);
                 ReportPropertyChanging("sts12_customer_returning_order_note");
-                _sts12_customer_returning_order_note = StructuralObject.SetValidValue(value, true);
+                _sts12_customer_returning_order_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts12_customer_returning_order_note");
                 Onsts12_customer_returning_order_noteChanged();
             }
@@ -4894,9 +5126,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts13_customer_returning_part_order
+        public global::System.Boolean sts13_customer_returning_part_order
         {
             get
             {
@@ -4911,16 +5143,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts13_customer_returning_part_orderChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts13_customer_returning_part_order;
-        partial void Onsts13_customer_returning_part_orderChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts13_customer_returning_part_order;
+        partial void Onsts13_customer_returning_part_orderChanging(global::System.Boolean value);
         partial void Onsts13_customer_returning_part_orderChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts13_customer_returning_part_order_viewed
+        public global::System.Boolean sts13_customer_returning_part_order_viewed
         {
             get
             {
@@ -4935,16 +5167,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts13_customer_returning_part_order_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts13_customer_returning_part_order_viewed;
-        partial void Onsts13_customer_returning_part_order_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts13_customer_returning_part_order_viewed;
+        partial void Onsts13_customer_returning_part_order_viewedChanging(global::System.Boolean value);
         partial void Onsts13_customer_returning_part_order_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts13_customer_returning_part_order_date
+        public global::System.DateTime sts13_customer_returning_part_order_date
         {
             get
             {
@@ -4959,14 +5191,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts13_customer_returning_part_order_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts13_customer_returning_part_order_date;
-        partial void Onsts13_customer_returning_part_order_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts13_customer_returning_part_order_date;
+        partial void Onsts13_customer_returning_part_order_dateChanging(global::System.DateTime value);
         partial void Onsts13_customer_returning_part_order_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts13_customer_returning_part_order_note
         {
@@ -4978,7 +5210,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts13_customer_returning_part_order_noteChanging(value);
                 ReportPropertyChanging("sts13_customer_returning_part_order_note");
-                _sts13_customer_returning_part_order_note = StructuralObject.SetValidValue(value, true);
+                _sts13_customer_returning_part_order_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts13_customer_returning_part_order_note");
                 Onsts13_customer_returning_part_order_noteChanged();
             }
@@ -4990,9 +5222,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts14_customer_refunded
+        public global::System.Boolean sts14_customer_refunded
         {
             get
             {
@@ -5007,16 +5239,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts14_customer_refundedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts14_customer_refunded;
-        partial void Onsts14_customer_refundedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts14_customer_refunded;
+        partial void Onsts14_customer_refundedChanging(global::System.Boolean value);
         partial void Onsts14_customer_refundedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts14_customer_refunded_viewed
+        public global::System.Boolean sts14_customer_refunded_viewed
         {
             get
             {
@@ -5031,16 +5263,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts14_customer_refunded_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts14_customer_refunded_viewed;
-        partial void Onsts14_customer_refunded_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts14_customer_refunded_viewed;
+        partial void Onsts14_customer_refunded_viewedChanging(global::System.Boolean value);
         partial void Onsts14_customer_refunded_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts14_customer_refunded_date
+        public global::System.DateTime sts14_customer_refunded_date
         {
             get
             {
@@ -5055,14 +5287,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts14_customer_refunded_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts14_customer_refunded_date;
-        partial void Onsts14_customer_refunded_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts14_customer_refunded_date;
+        partial void Onsts14_customer_refunded_dateChanging(global::System.DateTime value);
         partial void Onsts14_customer_refunded_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts14_customer_refunded_note
         {
@@ -5074,7 +5306,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts14_customer_refunded_noteChanging(value);
                 ReportPropertyChanging("sts14_customer_refunded_note");
-                _sts14_customer_refunded_note = StructuralObject.SetValidValue(value, true);
+                _sts14_customer_refunded_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts14_customer_refunded_note");
                 Onsts14_customer_refunded_noteChanged();
             }
@@ -5086,9 +5318,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts15_customer_partly_refunded
+        public global::System.Boolean sts15_customer_partly_refunded
         {
             get
             {
@@ -5103,16 +5335,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts15_customer_partly_refundedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts15_customer_partly_refunded;
-        partial void Onsts15_customer_partly_refundedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts15_customer_partly_refunded;
+        partial void Onsts15_customer_partly_refundedChanging(global::System.Boolean value);
         partial void Onsts15_customer_partly_refundedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts15_customer_partly_refunded_viewed
+        public global::System.Boolean sts15_customer_partly_refunded_viewed
         {
             get
             {
@@ -5127,16 +5359,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts15_customer_partly_refunded_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts15_customer_partly_refunded_viewed;
-        partial void Onsts15_customer_partly_refunded_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts15_customer_partly_refunded_viewed;
+        partial void Onsts15_customer_partly_refunded_viewedChanging(global::System.Boolean value);
         partial void Onsts15_customer_partly_refunded_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts15_customer_partly_refunded_date
+        public global::System.DateTime sts15_customer_partly_refunded_date
         {
             get
             {
@@ -5151,14 +5383,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts15_customer_partly_refunded_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts15_customer_partly_refunded_date;
-        partial void Onsts15_customer_partly_refunded_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts15_customer_partly_refunded_date;
+        partial void Onsts15_customer_partly_refunded_dateChanging(global::System.DateTime value);
         partial void Onsts15_customer_partly_refunded_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts15_customer_partly_refunded_note
         {
@@ -5170,7 +5402,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts15_customer_partly_refunded_noteChanging(value);
                 ReportPropertyChanging("sts15_customer_partly_refunded_note");
-                _sts15_customer_partly_refunded_note = StructuralObject.SetValidValue(value, true);
+                _sts15_customer_partly_refunded_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts15_customer_partly_refunded_note");
                 Onsts15_customer_partly_refunded_noteChanged();
             }
@@ -5182,9 +5414,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts16_order_closed
+        public global::System.Boolean sts16_order_closed
         {
             get
             {
@@ -5199,16 +5431,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts16_order_closedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts16_order_closed;
-        partial void Onsts16_order_closedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts16_order_closed;
+        partial void Onsts16_order_closedChanging(global::System.Boolean value);
         partial void Onsts16_order_closedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts16_order_closed_viewed
+        public global::System.Boolean sts16_order_closed_viewed
         {
             get
             {
@@ -5223,16 +5455,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts16_order_closed_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts16_order_closed_viewed;
-        partial void Onsts16_order_closed_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts16_order_closed_viewed;
+        partial void Onsts16_order_closed_viewedChanging(global::System.Boolean value);
         partial void Onsts16_order_closed_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts16_order_closed_date
+        public global::System.DateTime sts16_order_closed_date
         {
             get
             {
@@ -5247,14 +5479,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts16_order_closed_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts16_order_closed_date;
-        partial void Onsts16_order_closed_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts16_order_closed_date;
+        partial void Onsts16_order_closed_dateChanging(global::System.DateTime value);
         partial void Onsts16_order_closed_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts16_order_closed_note
         {
@@ -5266,7 +5498,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts16_order_closed_noteChanging(value);
                 ReportPropertyChanging("sts16_order_closed_note");
-                _sts16_order_closed_note = StructuralObject.SetValidValue(value, true);
+                _sts16_order_closed_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts16_order_closed_note");
                 Onsts16_order_closed_noteChanged();
             }
@@ -5278,9 +5510,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts17_order_cancelled
+        public global::System.Boolean sts17_order_cancelled
         {
             get
             {
@@ -5295,16 +5527,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts17_order_cancelledChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts17_order_cancelled;
-        partial void Onsts17_order_cancelledChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts17_order_cancelled;
+        partial void Onsts17_order_cancelledChanging(global::System.Boolean value);
         partial void Onsts17_order_cancelledChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> sts17_order_cancelled_viewed
+        public global::System.Boolean sts17_order_cancelled_viewed
         {
             get
             {
@@ -5319,16 +5551,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts17_order_cancelled_viewedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _sts17_order_cancelled_viewed;
-        partial void Onsts17_order_cancelled_viewedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _sts17_order_cancelled_viewed;
+        partial void Onsts17_order_cancelled_viewedChanging(global::System.Boolean value);
         partial void Onsts17_order_cancelled_viewedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts17_order_cancelled_date
+        public global::System.DateTime sts17_order_cancelled_date
         {
             get
             {
@@ -5343,14 +5575,14 @@ namespace JONMVC.Website.Models.DB
                 Onsts17_order_cancelled_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts17_order_cancelled_date;
-        partial void Onsts17_order_cancelled_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts17_order_cancelled_date;
+        partial void Onsts17_order_cancelled_dateChanging(global::System.DateTime value);
         partial void Onsts17_order_cancelled_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts17_order_cancelled_note
         {
@@ -5362,7 +5594,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts17_order_cancelled_noteChanging(value);
                 ReportPropertyChanging("sts17_order_cancelled_note");
-                _sts17_order_cancelled_note = StructuralObject.SetValidValue(value, true);
+                _sts17_order_cancelled_note = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts17_order_cancelled_note");
                 Onsts17_order_cancelled_noteChanged();
             }
@@ -5374,7 +5606,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String sts_curr_stat
         {
@@ -5386,7 +5618,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onsts_curr_statChanging(value);
                 ReportPropertyChanging("sts_curr_stat");
-                _sts_curr_stat = StructuralObject.SetValidValue(value, true);
+                _sts_curr_stat = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("sts_curr_stat");
                 Onsts_curr_statChanged();
             }
@@ -5398,9 +5630,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> sts_curr_date
+        public global::System.DateTime sts_curr_date
         {
             get
             {
@@ -5415,16 +5647,16 @@ namespace JONMVC.Website.Models.DB
                 Onsts_curr_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _sts_curr_date;
-        partial void Onsts_curr_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _sts_curr_date;
+        partial void Onsts_curr_dateChanging(global::System.DateTime value);
         partial void Onsts_curr_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> OrderDeleted
+        public global::System.Boolean OrderDeleted
         {
             get
             {
@@ -5439,16 +5671,16 @@ namespace JONMVC.Website.Models.DB
                 OnOrderDeletedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _OrderDeleted;
-        partial void OnOrderDeletedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _OrderDeleted;
+        partial void OnOrderDeletedChanging(global::System.Boolean value);
         partial void OnOrderDeletedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Interest_start_date
+        public global::System.DateTime Interest_start_date
         {
             get
             {
@@ -5463,16 +5695,16 @@ namespace JONMVC.Website.Models.DB
                 OnInterest_start_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _Interest_start_date;
-        partial void OnInterest_start_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _Interest_start_date;
+        partial void OnInterest_start_dateChanging(global::System.DateTime value);
         partial void OnInterest_start_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Interest_percent
+        public global::System.Decimal Interest_percent
         {
             get
             {
@@ -5487,14 +5719,14 @@ namespace JONMVC.Website.Models.DB
                 OnInterest_percentChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Interest_percent;
-        partial void OnInterest_percentChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _Interest_percent;
+        partial void OnInterest_percentChanging(global::System.Decimal value);
         partial void OnInterest_percentChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Merchant_Notes
         {
@@ -5506,7 +5738,7 @@ namespace JONMVC.Website.Models.DB
             {
                 OnMerchant_NotesChanging(value);
                 ReportPropertyChanging("Merchant_Notes");
-                _Merchant_Notes = StructuralObject.SetValidValue(value, true);
+                _Merchant_Notes = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Merchant_Notes");
                 OnMerchant_NotesChanged();
             }
@@ -5518,7 +5750,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Customer_Notes
         {
@@ -5530,7 +5762,7 @@ namespace JONMVC.Website.Models.DB
             {
                 OnCustomer_NotesChanging(value);
                 ReportPropertyChanging("Customer_Notes");
-                _Customer_Notes = StructuralObject.SetValidValue(value, true);
+                _Customer_Notes = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Customer_Notes");
                 OnCustomer_NotesChanged();
             }
@@ -5542,9 +5774,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> LastModify_Date
+        public global::System.DateTime LastModify_Date
         {
             get
             {
@@ -5559,14 +5791,14 @@ namespace JONMVC.Website.Models.DB
                 OnLastModify_DateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _LastModify_Date;
-        partial void OnLastModify_DateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _LastModify_Date;
+        partial void OnLastModify_DateChanging(global::System.DateTime value);
         partial void OnLastModify_DateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String LastModify_User
         {
@@ -5578,7 +5810,7 @@ namespace JONMVC.Website.Models.DB
             {
                 OnLastModify_UserChanging(value);
                 ReportPropertyChanging("LastModify_User");
-                _LastModify_User = StructuralObject.SetValidValue(value, true);
+                _LastModify_User = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("LastModify_User");
                 OnLastModify_UserChanged();
             }
@@ -5590,9 +5822,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> LastModify_User_Id
+        public global::System.Int32 LastModify_User_Id
         {
             get
             {
@@ -5607,14 +5839,14 @@ namespace JONMVC.Website.Models.DB
                 OnLastModify_User_IdChanged();
             }
         }
-        private Nullable<global::System.Int32> _LastModify_User_Id;
-        partial void OnLastModify_User_IdChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _LastModify_User_Id;
+        partial void OnLastModify_User_IdChanging(global::System.Int32 value);
         partial void OnLastModify_User_IdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String campaign
         {
@@ -5626,7 +5858,7 @@ namespace JONMVC.Website.Models.DB
             {
                 OncampaignChanging(value);
                 ReportPropertyChanging("campaign");
-                _campaign = StructuralObject.SetValidValue(value, true);
+                _campaign = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("campaign");
                 OncampaignChanged();
             }
@@ -5638,7 +5870,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String affiliate
         {
@@ -5650,7 +5882,7 @@ namespace JONMVC.Website.Models.DB
             {
                 OnaffiliateChanging(value);
                 ReportPropertyChanging("affiliate");
-                _affiliate = StructuralObject.SetValidValue(value, true);
+                _affiliate = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("affiliate");
                 OnaffiliateChanged();
             }
@@ -5662,7 +5894,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String referrer
         {
@@ -5674,7 +5906,7 @@ namespace JONMVC.Website.Models.DB
             {
                 OnreferrerChanging(value);
                 ReportPropertyChanging("referrer");
-                _referrer = StructuralObject.SetValidValue(value, true);
+                _referrer = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("referrer");
                 OnreferrerChanged();
             }
@@ -5686,7 +5918,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String remote_ip
         {
@@ -5698,7 +5930,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onremote_ipChanging(value);
                 ReportPropertyChanging("remote_ip");
-                _remote_ip = StructuralObject.SetValidValue(value, true);
+                _remote_ip = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("remote_ip");
                 Onremote_ipChanged();
             }
@@ -5710,9 +5942,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> order_transacted
+        public global::System.Boolean order_transacted
         {
             get
             {
@@ -5727,14 +5959,14 @@ namespace JONMVC.Website.Models.DB
                 Onorder_transactedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _order_transacted;
-        partial void Onorder_transactedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _order_transacted;
+        partial void Onorder_transactedChanging(global::System.Boolean value);
         partial void Onorder_transactedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String order_currency
         {
@@ -5746,7 +5978,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onorder_currencyChanging(value);
                 ReportPropertyChanging("order_currency");
-                _order_currency = StructuralObject.SetValidValue(value, true);
+                _order_currency = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("order_currency");
                 Onorder_currencyChanged();
             }
@@ -5758,9 +5990,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> order_currency_rate
+        public global::System.Decimal order_currency_rate
         {
             get
             {
@@ -5775,14 +6007,14 @@ namespace JONMVC.Website.Models.DB
                 Onorder_currency_rateChanged();
             }
         }
-        private Nullable<global::System.Decimal> _order_currency_rate;
-        partial void Onorder_currency_rateChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _order_currency_rate;
+        partial void Onorder_currency_rateChanging(global::System.Decimal value);
         partial void Onorder_currency_rateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String hear_fromus
         {
@@ -5794,7 +6026,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onhear_fromusChanging(value);
                 ReportPropertyChanging("hear_fromus");
-                _hear_fromus = StructuralObject.SetValidValue(value, true);
+                _hear_fromus = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("hear_fromus");
                 Onhear_fromusChanged();
             }
@@ -5806,9 +6038,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> include_receipt
+        public global::System.Boolean include_receipt
         {
             get
             {
@@ -5823,8 +6055,8 @@ namespace JONMVC.Website.Models.DB
                 Oninclude_receiptChanged();
             }
         }
-        private Nullable<global::System.Boolean> _include_receipt;
-        partial void Oninclude_receiptChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _include_receipt;
+        partial void Oninclude_receiptChanging(global::System.Boolean value);
         partial void Oninclude_receiptChanged();
 
         #endregion
@@ -6749,6 +6981,28 @@ namespace JONMVC.Website.Models.DB
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JONDataModel", "FK_usr_TESTIMONIALS_sys_COUNTRY", "usr_TESTIMONIALS")]
+        public EntityCollection<usr_TESTIMONIALS> usr_TESTIMONIALS
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<usr_TESTIMONIALS>("JONDataModel.FK_usr_TESTIMONIALS_sys_COUNTRY", "usr_TESTIMONIALS");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<usr_TESTIMONIALS>("JONDataModel.FK_usr_TESTIMONIALS_sys_COUNTRY", "usr_TESTIMONIALS", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JONDataModel", "FK_acc_ORDERS_sys_COUNTRY", "acc_ORDERS")]
         public EntityCollection<acc_ORDERS> acc_ORDERS
         {
@@ -6783,28 +7037,6 @@ namespace JONMVC.Website.Models.DB
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<acc_ORDERS>("JONDataModel.FK_acc_ORDERS_sys_COUNTRY1", "acc_ORDERS", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JONDataModel", "FK_usr_TESTIMONIALS_sys_COUNTRY", "usr_TESTIMONIALS")]
-        public EntityCollection<usr_TESTIMONIALS> usr_TESTIMONIALS
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<usr_TESTIMONIALS>("JONDataModel.FK_usr_TESTIMONIALS_sys_COUNTRY", "usr_TESTIMONIALS");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<usr_TESTIMONIALS>("JONDataModel.FK_usr_TESTIMONIALS_sys_COUNTRY", "usr_TESTIMONIALS", value);
                 }
             }
         }
@@ -7521,29 +7753,129 @@ namespace JONMVC.Website.Models.DB
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
         /// <param name="email">Initial value of the email property.</param>
+        /// <param name="password">Initial value of the password property.</param>
+        /// <param name="firstname">Initial value of the firstname property.</param>
+        /// <param name="lastname">Initial value of the lastname property.</param>
+        /// <param name="street1">Initial value of the street1 property.</param>
+        /// <param name="city1">Initial value of the city1 property.</param>
         /// <param name="state1_id">Initial value of the state1_id property.</param>
+        /// <param name="zip1">Initial value of the zip1 property.</param>
+        /// <param name="pobox1">Initial value of the pobox1 property.</param>
         /// <param name="country1_id">Initial value of the country1_id property.</param>
+        /// <param name="phone1">Initial value of the phone1 property.</param>
+        /// <param name="fax1">Initial value of the fax1 property.</param>
+        /// <param name="street2">Initial value of the street2 property.</param>
+        /// <param name="city2">Initial value of the city2 property.</param>
         /// <param name="state2_id">Initial value of the state2_id property.</param>
+        /// <param name="zip2">Initial value of the zip2 property.</param>
+        /// <param name="pobox2">Initial value of the pobox2 property.</param>
         /// <param name="country2_id">Initial value of the country2_id property.</param>
+        /// <param name="phone2">Initial value of the phone2 property.</param>
+        /// <param name="fax2">Initial value of the fax2 property.</param>
+        /// <param name="inv_mail">Initial value of the inv_mail property.</param>
+        /// <param name="inv_update">Initial value of the inv_update property.</param>
+        /// <param name="lastmodify_date">Initial value of the lastmodify_date property.</param>
+        /// <param name="lastmodify_user">Initial value of the lastmodify_user property.</param>
         /// <param name="lastmodify_user_id">Initial value of the lastmodify_user_id property.</param>
         /// <param name="create_date">Initial value of the create_date property.</param>
+        /// <param name="active">Initial value of the active property.</param>
+        /// <param name="dealer">Initial value of the dealer property.</param>
+        /// <param name="b_name">Initial value of the b_name property.</param>
+        /// <param name="b_street">Initial value of the b_street property.</param>
+        /// <param name="b_city">Initial value of the b_city property.</param>
         /// <param name="b_state_id">Initial value of the b_state_id property.</param>
         /// <param name="b_country_id">Initial value of the b_country_id property.</param>
+        /// <param name="b_pobox">Initial value of the b_pobox property.</param>
+        /// <param name="b_zip">Initial value of the b_zip property.</param>
+        /// <param name="b_phone">Initial value of the b_phone property.</param>
+        /// <param name="b_fax">Initial value of the b_fax property.</param>
+        /// <param name="b_tradingass">Initial value of the b_tradingass property.</param>
         /// <param name="b_type_id">Initial value of the b_type_id property.</param>
-        public static usr_CUSTOMERS Createusr_CUSTOMERS(global::System.Int32 id, global::System.String email, global::System.Int32 state1_id, global::System.Int32 country1_id, global::System.Int32 state2_id, global::System.Int32 country2_id, global::System.Int32 lastmodify_user_id, global::System.DateTime create_date, global::System.Int32 b_state_id, global::System.Int32 b_country_id, global::System.Int32 b_type_id)
+        /// <param name="b_siteurl">Initial value of the b_siteurl property.</param>
+        /// <param name="b_specialization">Initial value of the b_specialization property.</param>
+        /// <param name="historical_user">Initial value of the historical_user property.</param>
+        /// <param name="old_id">Initial value of the old_id property.</param>
+        /// <param name="userdeleted">Initial value of the userdeleted property.</param>
+        /// <param name="prf_srtkey_diamonds">Initial value of the prf_srtkey_diamonds property.</param>
+        /// <param name="prf_srtkey_gemstones">Initial value of the prf_srtkey_gemstones property.</param>
+        /// <param name="prf_srtkey_jewelry">Initial value of the prf_srtkey_jewelry property.</param>
+        /// <param name="prf_srtkey_newitems">Initial value of the prf_srtkey_newitems property.</param>
+        /// <param name="prf_srtkey_specials">Initial value of the prf_srtkey_specials property.</param>
+        /// <param name="prf_srtkey_search">Initial value of the prf_srtkey_search property.</param>
+        /// <param name="prf_list_amount">Initial value of the prf_list_amount property.</param>
+        /// <param name="prf_language_id">Initial value of the prf_language_id property.</param>
+        /// <param name="prf_timesvisited">Initial value of the prf_timesvisited property.</param>
+        /// <param name="online_message">Initial value of the online_message property.</param>
+        /// <param name="last_visit">Initial value of the last_visit property.</param>
+        /// <param name="dateofbirth">Initial value of the dateofbirth property.</param>
+        /// <param name="aid">Initial value of the aid property.</param>
+        /// <param name="registration_ip">Initial value of the registration_ip property.</param>
+        /// <param name="idex_percent">Initial value of the idex_percent property.</param>
+        /// <param name="default_currency">Initial value of the default_currency property.</param>
+        public static usr_CUSTOMERS Createusr_CUSTOMERS(global::System.Int32 id, global::System.String email, global::System.String password, global::System.String firstname, global::System.String lastname, global::System.String street1, global::System.String city1, global::System.Int32 state1_id, global::System.String zip1, global::System.String pobox1, global::System.Int32 country1_id, global::System.String phone1, global::System.String fax1, global::System.String street2, global::System.String city2, global::System.Int32 state2_id, global::System.String zip2, global::System.String pobox2, global::System.Int32 country2_id, global::System.String phone2, global::System.String fax2, global::System.Boolean inv_mail, global::System.Boolean inv_update, global::System.DateTime lastmodify_date, global::System.String lastmodify_user, global::System.Int32 lastmodify_user_id, global::System.DateTime create_date, global::System.Boolean active, global::System.Boolean dealer, global::System.String b_name, global::System.String b_street, global::System.String b_city, global::System.Int32 b_state_id, global::System.Int32 b_country_id, global::System.String b_pobox, global::System.String b_zip, global::System.String b_phone, global::System.String b_fax, global::System.String b_tradingass, global::System.Int32 b_type_id, global::System.String b_siteurl, global::System.String b_specialization, global::System.Boolean historical_user, global::System.Int32 old_id, global::System.Boolean userdeleted, global::System.String prf_srtkey_diamonds, global::System.String prf_srtkey_gemstones, global::System.String prf_srtkey_jewelry, global::System.String prf_srtkey_newitems, global::System.String prf_srtkey_specials, global::System.String prf_srtkey_search, global::System.Int32 prf_list_amount, global::System.Int32 prf_language_id, global::System.Int32 prf_timesvisited, global::System.String online_message, global::System.DateTime last_visit, global::System.DateTime dateofbirth, global::System.Int32 aid, global::System.String registration_ip, global::System.Int32 idex_percent, global::System.String default_currency)
         {
             usr_CUSTOMERS usr_CUSTOMERS = new usr_CUSTOMERS();
             usr_CUSTOMERS.id = id;
             usr_CUSTOMERS.email = email;
+            usr_CUSTOMERS.password = password;
+            usr_CUSTOMERS.firstname = firstname;
+            usr_CUSTOMERS.lastname = lastname;
+            usr_CUSTOMERS.street1 = street1;
+            usr_CUSTOMERS.city1 = city1;
             usr_CUSTOMERS.state1_id = state1_id;
+            usr_CUSTOMERS.zip1 = zip1;
+            usr_CUSTOMERS.pobox1 = pobox1;
             usr_CUSTOMERS.country1_id = country1_id;
+            usr_CUSTOMERS.phone1 = phone1;
+            usr_CUSTOMERS.fax1 = fax1;
+            usr_CUSTOMERS.street2 = street2;
+            usr_CUSTOMERS.city2 = city2;
             usr_CUSTOMERS.state2_id = state2_id;
+            usr_CUSTOMERS.zip2 = zip2;
+            usr_CUSTOMERS.pobox2 = pobox2;
             usr_CUSTOMERS.country2_id = country2_id;
+            usr_CUSTOMERS.phone2 = phone2;
+            usr_CUSTOMERS.fax2 = fax2;
+            usr_CUSTOMERS.inv_mail = inv_mail;
+            usr_CUSTOMERS.inv_update = inv_update;
+            usr_CUSTOMERS.lastmodify_date = lastmodify_date;
+            usr_CUSTOMERS.lastmodify_user = lastmodify_user;
             usr_CUSTOMERS.lastmodify_user_id = lastmodify_user_id;
             usr_CUSTOMERS.create_date = create_date;
+            usr_CUSTOMERS.active = active;
+            usr_CUSTOMERS.dealer = dealer;
+            usr_CUSTOMERS.b_name = b_name;
+            usr_CUSTOMERS.b_street = b_street;
+            usr_CUSTOMERS.b_city = b_city;
             usr_CUSTOMERS.b_state_id = b_state_id;
             usr_CUSTOMERS.b_country_id = b_country_id;
+            usr_CUSTOMERS.b_pobox = b_pobox;
+            usr_CUSTOMERS.b_zip = b_zip;
+            usr_CUSTOMERS.b_phone = b_phone;
+            usr_CUSTOMERS.b_fax = b_fax;
+            usr_CUSTOMERS.b_tradingass = b_tradingass;
             usr_CUSTOMERS.b_type_id = b_type_id;
+            usr_CUSTOMERS.b_siteurl = b_siteurl;
+            usr_CUSTOMERS.b_specialization = b_specialization;
+            usr_CUSTOMERS.historical_user = historical_user;
+            usr_CUSTOMERS.old_id = old_id;
+            usr_CUSTOMERS.userdeleted = userdeleted;
+            usr_CUSTOMERS.prf_srtkey_diamonds = prf_srtkey_diamonds;
+            usr_CUSTOMERS.prf_srtkey_gemstones = prf_srtkey_gemstones;
+            usr_CUSTOMERS.prf_srtkey_jewelry = prf_srtkey_jewelry;
+            usr_CUSTOMERS.prf_srtkey_newitems = prf_srtkey_newitems;
+            usr_CUSTOMERS.prf_srtkey_specials = prf_srtkey_specials;
+            usr_CUSTOMERS.prf_srtkey_search = prf_srtkey_search;
+            usr_CUSTOMERS.prf_list_amount = prf_list_amount;
+            usr_CUSTOMERS.prf_language_id = prf_language_id;
+            usr_CUSTOMERS.prf_timesvisited = prf_timesvisited;
+            usr_CUSTOMERS.online_message = online_message;
+            usr_CUSTOMERS.last_visit = last_visit;
+            usr_CUSTOMERS.dateofbirth = dateofbirth;
+            usr_CUSTOMERS.aid = aid;
+            usr_CUSTOMERS.registration_ip = registration_ip;
+            usr_CUSTOMERS.idex_percent = idex_percent;
+            usr_CUSTOMERS.default_currency = default_currency;
             return usr_CUSTOMERS;
         }
 
@@ -7604,7 +7936,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String password
         {
@@ -7616,7 +7948,7 @@ namespace JONMVC.Website.Models.DB
             {
                 OnpasswordChanging(value);
                 ReportPropertyChanging("password");
-                _password = StructuralObject.SetValidValue(value, true);
+                _password = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("password");
                 OnpasswordChanged();
             }
@@ -7628,7 +7960,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String firstname
         {
@@ -7640,7 +7972,7 @@ namespace JONMVC.Website.Models.DB
             {
                 OnfirstnameChanging(value);
                 ReportPropertyChanging("firstname");
-                _firstname = StructuralObject.SetValidValue(value, true);
+                _firstname = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("firstname");
                 OnfirstnameChanged();
             }
@@ -7652,7 +7984,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String lastname
         {
@@ -7664,7 +7996,7 @@ namespace JONMVC.Website.Models.DB
             {
                 OnlastnameChanging(value);
                 ReportPropertyChanging("lastname");
-                _lastname = StructuralObject.SetValidValue(value, true);
+                _lastname = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("lastname");
                 OnlastnameChanged();
             }
@@ -7676,7 +8008,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String street1
         {
@@ -7688,7 +8020,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onstreet1Changing(value);
                 ReportPropertyChanging("street1");
-                _street1 = StructuralObject.SetValidValue(value, true);
+                _street1 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("street1");
                 Onstreet1Changed();
             }
@@ -7700,7 +8032,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String city1
         {
@@ -7712,7 +8044,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Oncity1Changing(value);
                 ReportPropertyChanging("city1");
-                _city1 = StructuralObject.SetValidValue(value, true);
+                _city1 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("city1");
                 Oncity1Changed();
             }
@@ -7748,7 +8080,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String zip1
         {
@@ -7760,7 +8092,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onzip1Changing(value);
                 ReportPropertyChanging("zip1");
-                _zip1 = StructuralObject.SetValidValue(value, true);
+                _zip1 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("zip1");
                 Onzip1Changed();
             }
@@ -7772,7 +8104,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String pobox1
         {
@@ -7784,7 +8116,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onpobox1Changing(value);
                 ReportPropertyChanging("pobox1");
-                _pobox1 = StructuralObject.SetValidValue(value, true);
+                _pobox1 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("pobox1");
                 Onpobox1Changed();
             }
@@ -7820,7 +8152,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String phone1
         {
@@ -7832,7 +8164,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onphone1Changing(value);
                 ReportPropertyChanging("phone1");
-                _phone1 = StructuralObject.SetValidValue(value, true);
+                _phone1 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("phone1");
                 Onphone1Changed();
             }
@@ -7844,7 +8176,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String fax1
         {
@@ -7856,7 +8188,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onfax1Changing(value);
                 ReportPropertyChanging("fax1");
-                _fax1 = StructuralObject.SetValidValue(value, true);
+                _fax1 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("fax1");
                 Onfax1Changed();
             }
@@ -7868,7 +8200,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String street2
         {
@@ -7880,7 +8212,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onstreet2Changing(value);
                 ReportPropertyChanging("street2");
-                _street2 = StructuralObject.SetValidValue(value, true);
+                _street2 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("street2");
                 Onstreet2Changed();
             }
@@ -7892,7 +8224,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String city2
         {
@@ -7904,7 +8236,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Oncity2Changing(value);
                 ReportPropertyChanging("city2");
-                _city2 = StructuralObject.SetValidValue(value, true);
+                _city2 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("city2");
                 Oncity2Changed();
             }
@@ -7940,7 +8272,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String zip2
         {
@@ -7952,7 +8284,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onzip2Changing(value);
                 ReportPropertyChanging("zip2");
-                _zip2 = StructuralObject.SetValidValue(value, true);
+                _zip2 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("zip2");
                 Onzip2Changed();
             }
@@ -7964,7 +8296,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String pobox2
         {
@@ -7976,7 +8308,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onpobox2Changing(value);
                 ReportPropertyChanging("pobox2");
-                _pobox2 = StructuralObject.SetValidValue(value, true);
+                _pobox2 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("pobox2");
                 Onpobox2Changed();
             }
@@ -8012,7 +8344,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String phone2
         {
@@ -8024,7 +8356,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onphone2Changing(value);
                 ReportPropertyChanging("phone2");
-                _phone2 = StructuralObject.SetValidValue(value, true);
+                _phone2 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("phone2");
                 Onphone2Changed();
             }
@@ -8036,7 +8368,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String fax2
         {
@@ -8048,7 +8380,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onfax2Changing(value);
                 ReportPropertyChanging("fax2");
-                _fax2 = StructuralObject.SetValidValue(value, true);
+                _fax2 = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("fax2");
                 Onfax2Changed();
             }
@@ -8060,9 +8392,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> inv_mail
+        public global::System.Boolean inv_mail
         {
             get
             {
@@ -8077,16 +8409,16 @@ namespace JONMVC.Website.Models.DB
                 Oninv_mailChanged();
             }
         }
-        private Nullable<global::System.Boolean> _inv_mail;
-        partial void Oninv_mailChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _inv_mail;
+        partial void Oninv_mailChanging(global::System.Boolean value);
         partial void Oninv_mailChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> inv_update
+        public global::System.Boolean inv_update
         {
             get
             {
@@ -8101,16 +8433,16 @@ namespace JONMVC.Website.Models.DB
                 Oninv_updateChanged();
             }
         }
-        private Nullable<global::System.Boolean> _inv_update;
-        partial void Oninv_updateChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _inv_update;
+        partial void Oninv_updateChanging(global::System.Boolean value);
         partial void Oninv_updateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> lastmodify_date
+        public global::System.DateTime lastmodify_date
         {
             get
             {
@@ -8125,14 +8457,14 @@ namespace JONMVC.Website.Models.DB
                 Onlastmodify_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _lastmodify_date;
-        partial void Onlastmodify_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _lastmodify_date;
+        partial void Onlastmodify_dateChanging(global::System.DateTime value);
         partial void Onlastmodify_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String lastmodify_user
         {
@@ -8144,7 +8476,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onlastmodify_userChanging(value);
                 ReportPropertyChanging("lastmodify_user");
-                _lastmodify_user = StructuralObject.SetValidValue(value, true);
+                _lastmodify_user = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("lastmodify_user");
                 Onlastmodify_userChanged();
             }
@@ -8204,9 +8536,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> active
+        public global::System.Boolean active
         {
             get
             {
@@ -8221,16 +8553,16 @@ namespace JONMVC.Website.Models.DB
                 OnactiveChanged();
             }
         }
-        private Nullable<global::System.Boolean> _active;
-        partial void OnactiveChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _active;
+        partial void OnactiveChanging(global::System.Boolean value);
         partial void OnactiveChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> dealer
+        public global::System.Boolean dealer
         {
             get
             {
@@ -8245,14 +8577,14 @@ namespace JONMVC.Website.Models.DB
                 OndealerChanged();
             }
         }
-        private Nullable<global::System.Boolean> _dealer;
-        partial void OndealerChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _dealer;
+        partial void OndealerChanging(global::System.Boolean value);
         partial void OndealerChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String b_name
         {
@@ -8264,7 +8596,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onb_nameChanging(value);
                 ReportPropertyChanging("b_name");
-                _b_name = StructuralObject.SetValidValue(value, true);
+                _b_name = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("b_name");
                 Onb_nameChanged();
             }
@@ -8276,7 +8608,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String b_street
         {
@@ -8288,7 +8620,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onb_streetChanging(value);
                 ReportPropertyChanging("b_street");
-                _b_street = StructuralObject.SetValidValue(value, true);
+                _b_street = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("b_street");
                 Onb_streetChanged();
             }
@@ -8300,7 +8632,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String b_city
         {
@@ -8312,7 +8644,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onb_cityChanging(value);
                 ReportPropertyChanging("b_city");
-                _b_city = StructuralObject.SetValidValue(value, true);
+                _b_city = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("b_city");
                 Onb_cityChanged();
             }
@@ -8372,7 +8704,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String b_pobox
         {
@@ -8384,7 +8716,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onb_poboxChanging(value);
                 ReportPropertyChanging("b_pobox");
-                _b_pobox = StructuralObject.SetValidValue(value, true);
+                _b_pobox = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("b_pobox");
                 Onb_poboxChanged();
             }
@@ -8396,7 +8728,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String b_zip
         {
@@ -8408,7 +8740,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onb_zipChanging(value);
                 ReportPropertyChanging("b_zip");
-                _b_zip = StructuralObject.SetValidValue(value, true);
+                _b_zip = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("b_zip");
                 Onb_zipChanged();
             }
@@ -8420,7 +8752,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String b_phone
         {
@@ -8432,7 +8764,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onb_phoneChanging(value);
                 ReportPropertyChanging("b_phone");
-                _b_phone = StructuralObject.SetValidValue(value, true);
+                _b_phone = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("b_phone");
                 Onb_phoneChanged();
             }
@@ -8444,7 +8776,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String b_fax
         {
@@ -8456,7 +8788,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onb_faxChanging(value);
                 ReportPropertyChanging("b_fax");
-                _b_fax = StructuralObject.SetValidValue(value, true);
+                _b_fax = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("b_fax");
                 Onb_faxChanged();
             }
@@ -8468,7 +8800,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String b_tradingass
         {
@@ -8480,7 +8812,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onb_tradingassChanging(value);
                 ReportPropertyChanging("b_tradingass");
-                _b_tradingass = StructuralObject.SetValidValue(value, true);
+                _b_tradingass = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("b_tradingass");
                 Onb_tradingassChanged();
             }
@@ -8516,7 +8848,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String b_siteurl
         {
@@ -8528,7 +8860,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onb_siteurlChanging(value);
                 ReportPropertyChanging("b_siteurl");
-                _b_siteurl = StructuralObject.SetValidValue(value, true);
+                _b_siteurl = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("b_siteurl");
                 Onb_siteurlChanged();
             }
@@ -8540,7 +8872,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String b_specialization
         {
@@ -8552,7 +8884,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onb_specializationChanging(value);
                 ReportPropertyChanging("b_specialization");
-                _b_specialization = StructuralObject.SetValidValue(value, true);
+                _b_specialization = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("b_specialization");
                 Onb_specializationChanged();
             }
@@ -8564,9 +8896,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> historical_user
+        public global::System.Boolean historical_user
         {
             get
             {
@@ -8581,16 +8913,16 @@ namespace JONMVC.Website.Models.DB
                 Onhistorical_userChanged();
             }
         }
-        private Nullable<global::System.Boolean> _historical_user;
-        partial void Onhistorical_userChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _historical_user;
+        partial void Onhistorical_userChanging(global::System.Boolean value);
         partial void Onhistorical_userChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> old_id
+        public global::System.Int32 old_id
         {
             get
             {
@@ -8605,16 +8937,16 @@ namespace JONMVC.Website.Models.DB
                 Onold_idChanged();
             }
         }
-        private Nullable<global::System.Int32> _old_id;
-        partial void Onold_idChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _old_id;
+        partial void Onold_idChanging(global::System.Int32 value);
         partial void Onold_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> userdeleted
+        public global::System.Boolean userdeleted
         {
             get
             {
@@ -8629,14 +8961,14 @@ namespace JONMVC.Website.Models.DB
                 OnuserdeletedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _userdeleted;
-        partial void OnuserdeletedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _userdeleted;
+        partial void OnuserdeletedChanging(global::System.Boolean value);
         partial void OnuserdeletedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String prf_srtkey_diamonds
         {
@@ -8648,7 +8980,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onprf_srtkey_diamondsChanging(value);
                 ReportPropertyChanging("prf_srtkey_diamonds");
-                _prf_srtkey_diamonds = StructuralObject.SetValidValue(value, true);
+                _prf_srtkey_diamonds = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("prf_srtkey_diamonds");
                 Onprf_srtkey_diamondsChanged();
             }
@@ -8660,7 +8992,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String prf_srtkey_gemstones
         {
@@ -8672,7 +9004,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onprf_srtkey_gemstonesChanging(value);
                 ReportPropertyChanging("prf_srtkey_gemstones");
-                _prf_srtkey_gemstones = StructuralObject.SetValidValue(value, true);
+                _prf_srtkey_gemstones = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("prf_srtkey_gemstones");
                 Onprf_srtkey_gemstonesChanged();
             }
@@ -8684,7 +9016,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String prf_srtkey_jewelry
         {
@@ -8696,7 +9028,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onprf_srtkey_jewelryChanging(value);
                 ReportPropertyChanging("prf_srtkey_jewelry");
-                _prf_srtkey_jewelry = StructuralObject.SetValidValue(value, true);
+                _prf_srtkey_jewelry = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("prf_srtkey_jewelry");
                 Onprf_srtkey_jewelryChanged();
             }
@@ -8708,7 +9040,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String prf_srtkey_newitems
         {
@@ -8720,7 +9052,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onprf_srtkey_newitemsChanging(value);
                 ReportPropertyChanging("prf_srtkey_newitems");
-                _prf_srtkey_newitems = StructuralObject.SetValidValue(value, true);
+                _prf_srtkey_newitems = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("prf_srtkey_newitems");
                 Onprf_srtkey_newitemsChanged();
             }
@@ -8732,7 +9064,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String prf_srtkey_specials
         {
@@ -8744,7 +9076,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onprf_srtkey_specialsChanging(value);
                 ReportPropertyChanging("prf_srtkey_specials");
-                _prf_srtkey_specials = StructuralObject.SetValidValue(value, true);
+                _prf_srtkey_specials = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("prf_srtkey_specials");
                 Onprf_srtkey_specialsChanged();
             }
@@ -8756,7 +9088,7 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String prf_srtkey_search
         {
@@ -8768,7 +9100,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onprf_srtkey_searchChanging(value);
                 ReportPropertyChanging("prf_srtkey_search");
-                _prf_srtkey_search = StructuralObject.SetValidValue(value, true);
+                _prf_srtkey_search = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("prf_srtkey_search");
                 Onprf_srtkey_searchChanged();
             }
@@ -8780,9 +9112,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> prf_list_amount
+        public global::System.Int32 prf_list_amount
         {
             get
             {
@@ -8797,16 +9129,16 @@ namespace JONMVC.Website.Models.DB
                 Onprf_list_amountChanged();
             }
         }
-        private Nullable<global::System.Int32> _prf_list_amount;
-        partial void Onprf_list_amountChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _prf_list_amount;
+        partial void Onprf_list_amountChanging(global::System.Int32 value);
         partial void Onprf_list_amountChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> prf_language_id
+        public global::System.Int32 prf_language_id
         {
             get
             {
@@ -8821,16 +9153,16 @@ namespace JONMVC.Website.Models.DB
                 Onprf_language_idChanged();
             }
         }
-        private Nullable<global::System.Int32> _prf_language_id;
-        partial void Onprf_language_idChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _prf_language_id;
+        partial void Onprf_language_idChanging(global::System.Int32 value);
         partial void Onprf_language_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> prf_timesvisited
+        public global::System.Int32 prf_timesvisited
         {
             get
             {
@@ -8845,14 +9177,14 @@ namespace JONMVC.Website.Models.DB
                 Onprf_timesvisitedChanged();
             }
         }
-        private Nullable<global::System.Int32> _prf_timesvisited;
-        partial void Onprf_timesvisitedChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _prf_timesvisited;
+        partial void Onprf_timesvisitedChanging(global::System.Int32 value);
         partial void Onprf_timesvisitedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String online_message
         {
@@ -8864,7 +9196,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Ononline_messageChanging(value);
                 ReportPropertyChanging("online_message");
-                _online_message = StructuralObject.SetValidValue(value, true);
+                _online_message = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("online_message");
                 Ononline_messageChanged();
             }
@@ -8876,9 +9208,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> last_visit
+        public global::System.DateTime last_visit
         {
             get
             {
@@ -8893,16 +9225,16 @@ namespace JONMVC.Website.Models.DB
                 Onlast_visitChanged();
             }
         }
-        private Nullable<global::System.DateTime> _last_visit;
-        partial void Onlast_visitChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _last_visit;
+        partial void Onlast_visitChanging(global::System.DateTime value);
         partial void Onlast_visitChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> dateofbirth
+        public global::System.DateTime dateofbirth
         {
             get
             {
@@ -8917,16 +9249,16 @@ namespace JONMVC.Website.Models.DB
                 OndateofbirthChanged();
             }
         }
-        private Nullable<global::System.DateTime> _dateofbirth;
-        partial void OndateofbirthChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _dateofbirth;
+        partial void OndateofbirthChanging(global::System.DateTime value);
         partial void OndateofbirthChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> aid
+        public global::System.Int32 aid
         {
             get
             {
@@ -8941,14 +9273,14 @@ namespace JONMVC.Website.Models.DB
                 OnaidChanged();
             }
         }
-        private Nullable<global::System.Int32> _aid;
-        partial void OnaidChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _aid;
+        partial void OnaidChanging(global::System.Int32 value);
         partial void OnaidChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String registration_ip
         {
@@ -8960,7 +9292,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Onregistration_ipChanging(value);
                 ReportPropertyChanging("registration_ip");
-                _registration_ip = StructuralObject.SetValidValue(value, true);
+                _registration_ip = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("registration_ip");
                 Onregistration_ipChanged();
             }
@@ -8972,9 +9304,9 @@ namespace JONMVC.Website.Models.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> idex_percent
+        public global::System.Int32 idex_percent
         {
             get
             {
@@ -8989,14 +9321,14 @@ namespace JONMVC.Website.Models.DB
                 Onidex_percentChanged();
             }
         }
-        private Nullable<global::System.Int32> _idex_percent;
-        partial void Onidex_percentChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _idex_percent;
+        partial void Onidex_percentChanging(global::System.Int32 value);
         partial void Onidex_percentChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String default_currency
         {
@@ -9008,7 +9340,7 @@ namespace JONMVC.Website.Models.DB
             {
                 Ondefault_currencyChanging(value);
                 ReportPropertyChanging("default_currency");
-                _default_currency = StructuralObject.SetValidValue(value, true);
+                _default_currency = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("default_currency");
                 Ondefault_currencyChanged();
             }

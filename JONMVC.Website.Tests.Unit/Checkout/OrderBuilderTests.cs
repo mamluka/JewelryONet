@@ -244,8 +244,8 @@ namespace JONMVC.Website.Tests.Unit.Checkout
             var order = builder.Build(details);
             //Assert
             order.Email.Should().Be(customerData.Email);
-            order.FirstName.Should().Be(customerData.Firstname);
-            order.LastName.Should().Be(customerData.Lastname);
+            order.FirstName.Should().Be(customerData.FirstName);
+            order.LastName.Should().Be(customerData.LastName);
             order.Phone.Should().Be(details.BillingAddress.Phone);
 
         }

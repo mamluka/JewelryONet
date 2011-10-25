@@ -1,4 +1,5 @@
 using System;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Security;
 using Newtonsoft.Json;
@@ -62,11 +63,11 @@ namespace JONMVC.Website.Models.Checkout
                 return new Customer()
                            {
                                Country = decryptedCustomerData.Country,
-                               Firstname = decryptedCustomerData.Firstname,
+                               FirstName = decryptedCustomerData.FirstName,
                                Email = decryptedCustomerData.Email,
                                CountryID = decryptedCustomerData.CountryID,
                                StateID = decryptedCustomerData.StateID,
-                               Lastname = decryptedCustomerData.Lastname,
+                               LastName = decryptedCustomerData.LastName,
                                State = decryptedCustomerData.State,
                            };
             }

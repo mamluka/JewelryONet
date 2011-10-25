@@ -123,8 +123,8 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             viewModel.ShippingAddress.Phone.Should().Be(customer.ShippingAddress.Phone);
 
             viewModel.Email.Should().Be(customer.Email);
-            viewModel.FirstName.Should().Be(customer.Firstname);
-            viewModel.LastName.Should().Be(customer.Lastname);
+            viewModel.FirstName.Should().Be(customer.FirstName);
+            viewModel.LastName.Should().Be(customer.LastName);
             viewModel.Country.Should().Be(customer.Country);
             viewModel.State.Should().Be(customer.State);
             viewModel.Phone.Should().Be(customer.Phone);

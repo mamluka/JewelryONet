@@ -25,36 +25,10 @@ namespace JONMVC.Website.Models.Checkout
 
                 var totalPrice = orderdto.TotalPrice;
 
+                var customer = mapper.Map<Order, usr_CUSTOMERS>(orderdto);
 
 
-              
-
-                var customer = new usr_CUSTOMERS
-                                             {
-                                                 
-                                                 email = orderdto.Email,
-                                                 firstname = orderdto.FirstName,
-                                                 lastname = orderdto.LastName,
-                                                 street1 = orderdto.BillingAddress.Address1,
-                                                 city1 = orderdto.BillingAddress.City,
-                                                 country1_id = orderdto.BillingAddress.CountryID,
-                                                 state1_id = orderdto.BillingAddress.StateID,
-                                                 phone1 = orderdto.Phone,
-                                                 zip1 = orderdto.BillingAddress.ZipCode,
-                                                 city2 = orderdto.ShippingAddress.City,
-                                                 country2_id = orderdto.ShippingAddress.CountryID,
-                                                 state2_id = orderdto.ShippingAddress.StateID,
-                                                 phone2 = orderdto.ShippingAddress.Phone,
-                                                 zip2 = orderdto.ShippingAddress.ZipCode,
-                                                 street2 = orderdto.ShippingAddress.Address1,
-                                                 create_date = DateTime.Now,
-                                                 b_type_id = 1,
-                                                 lastmodify_user_id = 1,
-                                                 dealer = false
-                                             };
-
-
-                if (CustomerExists(orderdto.Email))
+                if (CustomerExists(customer.email))
                 {
                     
                     var customerExists = CustomerFromEmail(orderdto.Email);
@@ -129,57 +103,74 @@ namespace JONMVC.Website.Models.Checkout
                                            adrs_billing_country_id = orderdto.BillingAddress.CountryID,
                                            cannot_be_edited = false,
                                            OrderDeleted = false,
-                                           Customer_Notes = orderdto.Comment,
+                                           Customer_Notes = orderdto.Comment ?? String.Empty,
                                            sts1_new_order_received = true,
                                            sts1_new_order_received_date = DateTime.Now,
+                                           sts1_new_order_received_viewed = false,
                                            sts2_waiting_for_authorization = false,
                                            sts2_waiting_for_authorization_date = DateTime.Now,
                                            sts2_waiting_for_authorization_note = "",
+                                           sts2_waiting_for_authorization_viewed = false,
                                            sts3_waiting_for_payment = false,
                                            sts3_waiting_for_payment_date = DateTime.Now,
                                            sts3_waiting_for_payment_note = "",
+                                           sts3_waiting_for_payment_viewed = false,
                                            sts4_order_confirmed = false,
                                            sts4_order_confirmed_date = DateTime.Now,
                                            sts4_order_confirmed_note = "",
+                                           sts4_order_confirmed_viewed = false,
                                            sts5_partial_order_confirmed = false,
                                            sts5_partial_order_confirmed_date = DateTime.Now,
                                            sts5_partial_order_confirmed_note = "",
+                                           sts5_partial_order_confirmed_viewed = false,
                                            sts6_order_failed = false,
                                            sts6_order_failed_date = DateTime.Now,
                                            sts6_order_failed_note = "",
+                                           sts6_order_failed_viewed = false,
                                            sts7_order_waiting_to_be_send = false,
                                            sts7_order_waiting_to_be_send_date = DateTime.Now,
                                            sts7_order_waiting_to_be_send_note = "",
+                                           sts7_order_waiting_to_be_send_viewed = false,
                                            sts8_order_send = false,
                                            sts8_order_send_date = DateTime.Now,
                                            sts8_order_send_note = "",
+                                           sts8_order_send_viewed = false,
                                            sts9_partial_order_send = false,
                                            sts9_partial_order_send_date = DateTime.Now,
                                            sts9_partial_order_send_note = "",
+                                           sts9_partial_order_send_viewed = false,
                                            sts10_order_received_by_customer = false,
                                            sts10_order_received_by_customer_date = DateTime.Now,
                                            sts10_order_received_by_customer_note = "",
+                                           sts10_order_received_by_customer_viewed = false,
                                            sts11_partial_order_received_by_customer = false,
                                            sts11_partial_order_received_by_customer_date = DateTime.Now,
                                            sts11_partial_order_received_by_customer_note = "",
+                                           sts11_partial_order_received_by_customer_viewed = false,
                                            sts12_customer_returning_order = false,
                                            sts12_customer_returning_order_date = DateTime.Now,
                                            sts12_customer_returning_order_note = "",
+                                           sts12_customer_returning_order_viewed = false,
                                            sts13_customer_returning_part_order = false,
                                            sts13_customer_returning_part_order_date = DateTime.Now,
                                            sts13_customer_returning_part_order_note = "",
+                                           sts13_customer_returning_part_order_viewed = false,
                                            sts14_customer_refunded = false,
                                            sts14_customer_refunded_date = DateTime.Now,
                                            sts14_customer_refunded_note = "",
+                                           sts14_customer_refunded_viewed = false,
                                            sts15_customer_partly_refunded = false,
                                            sts15_customer_partly_refunded_date = DateTime.Now,
                                            sts15_customer_partly_refunded_note = "",
+                                           sts15_customer_partly_refunded_viewed = false,
                                            sts16_order_closed = false,
                                            sts16_order_closed_date = DateTime.Now,
                                            sts16_order_closed_note = "",
+                                           sts16_order_closed_viewed = false,
                                            sts17_order_cancelled = false,
                                            sts17_order_cancelled_date = DateTime.Now,
                                            sts17_order_cancelled_note = "",
+                                           sts17_order_cancelled_viewed = false,
                                            sts_curr_stat = "",
                                            sts_curr_date = DateTime.Now,
                                            Interest_start_date = DateTime.Now,
@@ -192,6 +183,7 @@ namespace JONMVC.Website.Models.Checkout
                                            order_currency_rate = 1,
                                            include_receipt = false,
                                            hear_fromus = ""
+                                           
 
                                        };
 

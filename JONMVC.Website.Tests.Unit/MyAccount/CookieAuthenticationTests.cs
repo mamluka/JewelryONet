@@ -104,10 +104,10 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             returnCustomerData.Country.Should().Be(customerData.Country);
             returnCustomerData.CountryID.Should().Be(customerData.CountryID);
             returnCustomerData.Email.Should().Be(customerData.Email);
-            returnCustomerData.Firstname.Should().Be(customerData.Firstname);
+            returnCustomerData.FirstName.Should().Be(customerData.FirstName);
             returnCustomerData.State.Should().Be(customerData.State);
             returnCustomerData.StateID.Should().Be(customerData.StateID);
-            returnCustomerData.Lastname.Should().Be(customerData.Lastname);
+            returnCustomerData.LastName.Should().Be(customerData.LastName);
 
 
 
@@ -135,9 +135,9 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
 
             decryptedCustomerData.Country.Should().Be(customerData.Country);
             decryptedCustomerData.State.Should().Be(customerData.State);
-            decryptedCustomerData.Lastname.Should().Be(customerData.Lastname);
+            decryptedCustomerData.LastName.Should().Be(customerData.LastName);
             decryptedCustomerData.Email.Should().Be(customerData.Email);
-            decryptedCustomerData.Firstname.Should().Be(customerData.Firstname);
+            decryptedCustomerData.FirstName.Should().Be(customerData.FirstName);
        
 
 

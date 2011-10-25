@@ -292,129 +292,129 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="OrderNumber" Type="int" Nullable="false" />
-          <Property Name="InvoiceNumber" Type="int" />
-          <Property Name="InvoiceDate" Type="datetime" />
-          <Property Name="InvoiceCopy" Type="bit" />
-          <Property Name="JewelrySize" Type="nvarchar" MaxLength="30" />
-          <Property Name="ClubOrder" Type="bit" />
-          <Property Name="orderdate" Type="datetime" />
+          <Property Name="InvoiceNumber" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="InvoiceCopy" Type="bit" Nullable="false" />
+          <Property Name="JewelrySize" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="ClubOrder" Type="bit" Nullable="false" />
+          <Property Name="orderdate" Type="datetime" Nullable="false" />
           <Property Name="user_id" Type="int" Nullable="false" />
           <Property Name="packaging_id" Type="int" Nullable="false" />
           <Property Name="payment_id" Type="int" Nullable="false" />
-          <Property Name="shipping_id" Type="int" />
-          <Property Name="shipping_tracking_no" Type="nchar" MaxLength="20" />
-          <Property Name="amnt_items" Type="money" />
-          <Property Name="amnt_shipping" Type="money" />
-          <Property Name="amnt_wrapping" Type="money" />
-          <Property Name="amnt_labor" Type="money" />
-          <Property Name="amnt_extracharges" Type="money" />
-          <Property Name="amnt_vat" Type="money" />
-          <Property Name="amnt_subtotal" Type="money" />
-          <Property Name="amnt_discount" Type="money" />
-          <Property Name="amnt_grandtotal" Type="money" />
-          <Property Name="adrs_billing_firstname" Type="nvarchar" MaxLength="120" />
-          <Property Name="adrs_billing_lastname" Type="nvarchar" MaxLength="120" />
-          <Property Name="adrs_billing_street" Type="nvarchar" MaxLength="100" />
-          <Property Name="adrs_billing_city" Type="nvarchar" MaxLength="40" />
-          <Property Name="adrs_billing_zip" Type="nchar" MaxLength="30" />
+          <Property Name="shipping_id" Type="int" Nullable="false" />
+          <Property Name="shipping_tracking_no" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="amnt_items" Type="money" Nullable="false" />
+          <Property Name="amnt_shipping" Type="money" Nullable="false" />
+          <Property Name="amnt_wrapping" Type="money" Nullable="false" />
+          <Property Name="amnt_labor" Type="money" Nullable="false" />
+          <Property Name="amnt_extracharges" Type="money" Nullable="false" />
+          <Property Name="amnt_vat" Type="money" Nullable="false" />
+          <Property Name="amnt_subtotal" Type="money" Nullable="false" />
+          <Property Name="amnt_discount" Type="money" Nullable="false" />
+          <Property Name="amnt_grandtotal" Type="money" Nullable="false" />
+          <Property Name="adrs_billing_firstname" Type="nvarchar" Nullable="false" MaxLength="120" />
+          <Property Name="adrs_billing_lastname" Type="nvarchar" Nullable="false" MaxLength="120" />
+          <Property Name="adrs_billing_street" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="adrs_billing_city" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="adrs_billing_zip" Type="nchar" Nullable="false" MaxLength="30" />
           <Property Name="adrs_billing_state_id" Type="int" Nullable="false" />
           <Property Name="adrs_billing_country_id" Type="int" Nullable="false" />
-          <Property Name="adrs_billing_phone" Type="nchar" MaxLength="40" />
-          <Property Name="adrs_delivery_firstname" Type="nvarchar" MaxLength="120" />
-          <Property Name="adrs_delivery_lastname" Type="nvarchar" MaxLength="120" />
-          <Property Name="adrs_delivery_street" Type="nvarchar" MaxLength="100" />
-          <Property Name="adrs_delivery_city" Type="nvarchar" MaxLength="40" />
-          <Property Name="adrs_delivery_zip" Type="nchar" MaxLength="30" />
+          <Property Name="adrs_billing_phone" Type="nchar" Nullable="false" MaxLength="40" />
+          <Property Name="adrs_delivery_firstname" Type="nvarchar" Nullable="false" MaxLength="120" />
+          <Property Name="adrs_delivery_lastname" Type="nvarchar" Nullable="false" MaxLength="120" />
+          <Property Name="adrs_delivery_street" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="adrs_delivery_city" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="adrs_delivery_zip" Type="nchar" Nullable="false" MaxLength="30" />
           <Property Name="adrs_delivery_state_id" Type="int" Nullable="false" />
           <Property Name="adrs_delivery_country_id" Type="int" Nullable="false" />
-          <Property Name="adrs_delivery_phone" Type="nchar" MaxLength="40" />
-          <Property Name="cannot_be_edited" Type="bit" />
-          <Property Name="sts1_new_order_received" Type="bit" />
-          <Property Name="sts1_new_order_received_viewed" Type="bit" />
-          <Property Name="sts1_new_order_received_date" Type="datetime" />
-          <Property Name="sts2_waiting_for_authorization" Type="bit" />
-          <Property Name="sts2_waiting_for_authorization_viewed" Type="bit" />
-          <Property Name="sts2_waiting_for_authorization_date" Type="datetime" />
-          <Property Name="sts2_waiting_for_authorization_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts3_waiting_for_payment" Type="bit" />
-          <Property Name="sts3_waiting_for_payment_viewed" Type="bit" />
-          <Property Name="sts3_waiting_for_payment_date" Type="datetime" />
-          <Property Name="sts3_waiting_for_payment_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts4_order_confirmed" Type="bit" />
-          <Property Name="sts4_order_confirmed_viewed" Type="bit" />
-          <Property Name="sts4_order_confirmed_date" Type="datetime" />
-          <Property Name="sts4_order_confirmed_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts5_partial_order_confirmed" Type="bit" />
-          <Property Name="sts5_partial_order_confirmed_viewed" Type="bit" />
-          <Property Name="sts5_partial_order_confirmed_date" Type="datetime" />
-          <Property Name="sts5_partial_order_confirmed_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts6_order_failed" Type="bit" />
-          <Property Name="sts6_order_failed_viewed" Type="bit" />
-          <Property Name="sts6_order_failed_date" Type="datetime" />
-          <Property Name="sts6_order_failed_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts7_order_waiting_to_be_send" Type="bit" />
-          <Property Name="sts7_order_waiting_to_be_send_viewed" Type="bit" />
-          <Property Name="sts7_order_waiting_to_be_send_date" Type="datetime" />
-          <Property Name="sts7_order_waiting_to_be_send_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts8_order_send" Type="bit" />
-          <Property Name="sts8_order_send_viewed" Type="bit" />
-          <Property Name="sts8_order_send_date" Type="datetime" />
-          <Property Name="sts8_order_send_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts9_partial_order_send" Type="bit" />
-          <Property Name="sts9_partial_order_send_viewed" Type="bit" />
-          <Property Name="sts9_partial_order_send_date" Type="datetime" />
-          <Property Name="sts9_partial_order_send_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts10_order_received_by_customer" Type="bit" />
-          <Property Name="sts10_order_received_by_customer_viewed" Type="bit" />
-          <Property Name="sts10_order_received_by_customer_date" Type="datetime" />
-          <Property Name="sts10_order_received_by_customer_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts11_partial_order_received_by_customer" Type="bit" />
-          <Property Name="sts11_partial_order_received_by_customer_viewed" Type="bit" />
-          <Property Name="sts11_partial_order_received_by_customer_date" Type="datetime" />
-          <Property Name="sts11_partial_order_received_by_customer_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts12_customer_returning_order" Type="bit" />
-          <Property Name="sts12_customer_returning_order_viewed" Type="bit" />
-          <Property Name="sts12_customer_returning_order_date" Type="datetime" />
-          <Property Name="sts12_customer_returning_order_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts13_customer_returning_part_order" Type="bit" />
-          <Property Name="sts13_customer_returning_part_order_viewed" Type="bit" />
-          <Property Name="sts13_customer_returning_part_order_date" Type="datetime" />
-          <Property Name="sts13_customer_returning_part_order_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts14_customer_refunded" Type="bit" />
-          <Property Name="sts14_customer_refunded_viewed" Type="bit" />
-          <Property Name="sts14_customer_refunded_date" Type="datetime" />
-          <Property Name="sts14_customer_refunded_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts15_customer_partly_refunded" Type="bit" />
-          <Property Name="sts15_customer_partly_refunded_viewed" Type="bit" />
-          <Property Name="sts15_customer_partly_refunded_date" Type="datetime" />
-          <Property Name="sts15_customer_partly_refunded_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts16_order_closed" Type="bit" />
-          <Property Name="sts16_order_closed_viewed" Type="bit" />
-          <Property Name="sts16_order_closed_date" Type="datetime" />
-          <Property Name="sts16_order_closed_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts17_order_cancelled" Type="bit" />
-          <Property Name="sts17_order_cancelled_viewed" Type="bit" />
-          <Property Name="sts17_order_cancelled_date" Type="datetime" />
-          <Property Name="sts17_order_cancelled_note" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts_curr_stat" Type="nvarchar" MaxLength="150" />
-          <Property Name="sts_curr_date" Type="datetime" />
-          <Property Name="OrderDeleted" Type="bit" />
-          <Property Name="Interest_start_date" Type="datetime" />
-          <Property Name="Interest_percent" Type="decimal" Precision="9" Scale="3" />
-          <Property Name="Merchant_Notes" Type="text" />
-          <Property Name="Customer_Notes" Type="text" />
-          <Property Name="LastModify_Date" Type="datetime" />
-          <Property Name="LastModify_User" Type="nvarchar" MaxLength="50" />
-          <Property Name="LastModify_User_Id" Type="int" />
-          <Property Name="campaign" Type="nvarchar" MaxLength="30" />
-          <Property Name="affiliate" Type="nvarchar" MaxLength="30" />
-          <Property Name="referrer" Type="nvarchar" MaxLength="150" />
-          <Property Name="remote_ip" Type="varchar" MaxLength="15" />
-          <Property Name="order_transacted" Type="bit" />
-          <Property Name="order_currency" Type="varchar" MaxLength="3" />
-          <Property Name="order_currency_rate" Type="decimal" Precision="7" Scale="3" />
-          <Property Name="hear_fromus" Type="nvarchar" MaxLength="50" />
-          <Property Name="include_receipt" Type="bit" />
+          <Property Name="adrs_delivery_phone" Type="nchar" Nullable="false" MaxLength="40" />
+          <Property Name="cannot_be_edited" Type="bit" Nullable="false" />
+          <Property Name="sts1_new_order_received" Type="bit" Nullable="false" />
+          <Property Name="sts1_new_order_received_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts1_new_order_received_date" Type="datetime" Nullable="false" />
+          <Property Name="sts2_waiting_for_authorization" Type="bit" Nullable="false" />
+          <Property Name="sts2_waiting_for_authorization_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts2_waiting_for_authorization_date" Type="datetime" Nullable="false" />
+          <Property Name="sts2_waiting_for_authorization_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts3_waiting_for_payment" Type="bit" Nullable="false" />
+          <Property Name="sts3_waiting_for_payment_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts3_waiting_for_payment_date" Type="datetime" Nullable="false" />
+          <Property Name="sts3_waiting_for_payment_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts4_order_confirmed" Type="bit" Nullable="false" />
+          <Property Name="sts4_order_confirmed_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts4_order_confirmed_date" Type="datetime" Nullable="false" />
+          <Property Name="sts4_order_confirmed_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts5_partial_order_confirmed" Type="bit" Nullable="false" />
+          <Property Name="sts5_partial_order_confirmed_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts5_partial_order_confirmed_date" Type="datetime" Nullable="false" />
+          <Property Name="sts5_partial_order_confirmed_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts6_order_failed" Type="bit" Nullable="false" />
+          <Property Name="sts6_order_failed_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts6_order_failed_date" Type="datetime" Nullable="false" />
+          <Property Name="sts6_order_failed_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts7_order_waiting_to_be_send" Type="bit" Nullable="false" />
+          <Property Name="sts7_order_waiting_to_be_send_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts7_order_waiting_to_be_send_date" Type="datetime" Nullable="false" />
+          <Property Name="sts7_order_waiting_to_be_send_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts8_order_send" Type="bit" Nullable="false" />
+          <Property Name="sts8_order_send_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts8_order_send_date" Type="datetime" Nullable="false" />
+          <Property Name="sts8_order_send_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts9_partial_order_send" Type="bit" Nullable="false" />
+          <Property Name="sts9_partial_order_send_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts9_partial_order_send_date" Type="datetime" Nullable="false" />
+          <Property Name="sts9_partial_order_send_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts10_order_received_by_customer" Type="bit" Nullable="false" />
+          <Property Name="sts10_order_received_by_customer_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts10_order_received_by_customer_date" Type="datetime" Nullable="false" />
+          <Property Name="sts10_order_received_by_customer_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts11_partial_order_received_by_customer" Type="bit" Nullable="false" />
+          <Property Name="sts11_partial_order_received_by_customer_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts11_partial_order_received_by_customer_date" Type="datetime" Nullable="false" />
+          <Property Name="sts11_partial_order_received_by_customer_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts12_customer_returning_order" Type="bit" Nullable="false" />
+          <Property Name="sts12_customer_returning_order_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts12_customer_returning_order_date" Type="datetime" Nullable="false" />
+          <Property Name="sts12_customer_returning_order_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts13_customer_returning_part_order" Type="bit" Nullable="false" />
+          <Property Name="sts13_customer_returning_part_order_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts13_customer_returning_part_order_date" Type="datetime" Nullable="false" />
+          <Property Name="sts13_customer_returning_part_order_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts14_customer_refunded" Type="bit" Nullable="false" />
+          <Property Name="sts14_customer_refunded_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts14_customer_refunded_date" Type="datetime" Nullable="false" />
+          <Property Name="sts14_customer_refunded_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts15_customer_partly_refunded" Type="bit" Nullable="false" />
+          <Property Name="sts15_customer_partly_refunded_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts15_customer_partly_refunded_date" Type="datetime" Nullable="false" />
+          <Property Name="sts15_customer_partly_refunded_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts16_order_closed" Type="bit" Nullable="false" />
+          <Property Name="sts16_order_closed_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts16_order_closed_date" Type="datetime" Nullable="false" />
+          <Property Name="sts16_order_closed_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts17_order_cancelled" Type="bit" Nullable="false" />
+          <Property Name="sts17_order_cancelled_viewed" Type="bit" Nullable="false" />
+          <Property Name="sts17_order_cancelled_date" Type="datetime" Nullable="false" />
+          <Property Name="sts17_order_cancelled_note" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts_curr_stat" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sts_curr_date" Type="datetime" Nullable="false" />
+          <Property Name="OrderDeleted" Type="bit" Nullable="false" />
+          <Property Name="Interest_start_date" Type="datetime" Nullable="false" />
+          <Property Name="Interest_percent" Type="decimal" Nullable="false" Precision="9" Scale="3" />
+          <Property Name="Merchant_Notes" Type="text" Nullable="false" />
+          <Property Name="Customer_Notes" Type="text" Nullable="false" />
+          <Property Name="LastModify_Date" Type="datetime" Nullable="false" />
+          <Property Name="LastModify_User" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastModify_User_Id" Type="int" Nullable="false" />
+          <Property Name="campaign" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="affiliate" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="referrer" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="remote_ip" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="order_transacted" Type="bit" Nullable="false" />
+          <Property Name="order_currency" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="order_currency_rate" Type="decimal" Nullable="false" Precision="7" Scale="3" />
+          <Property Name="hear_fromus" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="include_receipt" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="sys_COUNTRY">
           <Key>
@@ -479,65 +479,65 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="80" />
-          <Property Name="password" Type="nchar" MaxLength="15" />
-          <Property Name="firstname" Type="nvarchar" MaxLength="40" />
-          <Property Name="lastname" Type="nvarchar" MaxLength="64" />
-          <Property Name="street1" Type="nvarchar" MaxLength="100" />
-          <Property Name="city1" Type="nvarchar" MaxLength="40" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="firstname" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="lastname" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="street1" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="city1" Type="nvarchar" Nullable="false" MaxLength="40" />
           <Property Name="state1_id" Type="int" Nullable="false" />
-          <Property Name="zip1" Type="nchar" MaxLength="30" />
-          <Property Name="pobox1" Type="nvarchar" MaxLength="10" />
+          <Property Name="zip1" Type="nchar" Nullable="false" MaxLength="30" />
+          <Property Name="pobox1" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="country1_id" Type="int" Nullable="false" />
-          <Property Name="phone1" Type="nvarchar" MaxLength="50" />
-          <Property Name="fax1" Type="nchar" MaxLength="40" />
-          <Property Name="street2" Type="nvarchar" MaxLength="100" />
-          <Property Name="city2" Type="nvarchar" MaxLength="40" />
+          <Property Name="phone1" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="fax1" Type="nchar" Nullable="false" MaxLength="40" />
+          <Property Name="street2" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="city2" Type="nvarchar" Nullable="false" MaxLength="40" />
           <Property Name="state2_id" Type="int" Nullable="false" />
-          <Property Name="zip2" Type="nchar" MaxLength="30" />
-          <Property Name="pobox2" Type="nvarchar" MaxLength="10" />
+          <Property Name="zip2" Type="nchar" Nullable="false" MaxLength="30" />
+          <Property Name="pobox2" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="country2_id" Type="int" Nullable="false" />
-          <Property Name="phone2" Type="nvarchar" MaxLength="50" />
-          <Property Name="fax2" Type="nchar" MaxLength="40" />
-          <Property Name="inv_mail" Type="bit" />
-          <Property Name="inv_update" Type="bit" />
-          <Property Name="lastmodify_date" Type="datetime" />
-          <Property Name="lastmodify_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone2" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="fax2" Type="nchar" Nullable="false" MaxLength="40" />
+          <Property Name="inv_mail" Type="bit" Nullable="false" />
+          <Property Name="inv_update" Type="bit" Nullable="false" />
+          <Property Name="lastmodify_date" Type="datetime" Nullable="false" />
+          <Property Name="lastmodify_user" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="lastmodify_user_id" Type="int" Nullable="false" />
           <Property Name="create_date" Type="datetime" Nullable="false" />
-          <Property Name="active" Type="bit" />
-          <Property Name="dealer" Type="bit" />
-          <Property Name="b_name" Type="nvarchar" MaxLength="80" />
-          <Property Name="b_street" Type="nvarchar" MaxLength="100" />
-          <Property Name="b_city" Type="nvarchar" MaxLength="40" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="dealer" Type="bit" Nullable="false" />
+          <Property Name="b_name" Type="nvarchar" Nullable="false" MaxLength="80" />
+          <Property Name="b_street" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="b_city" Type="nvarchar" Nullable="false" MaxLength="40" />
           <Property Name="b_state_id" Type="int" Nullable="false" />
           <Property Name="b_country_id" Type="int" Nullable="false" />
-          <Property Name="b_pobox" Type="nvarchar" MaxLength="10" />
-          <Property Name="b_zip" Type="nchar" MaxLength="30" />
-          <Property Name="b_phone" Type="nchar" MaxLength="40" />
-          <Property Name="b_fax" Type="nchar" MaxLength="40" />
-          <Property Name="b_tradingass" Type="nvarchar" MaxLength="150" />
+          <Property Name="b_pobox" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="b_zip" Type="nchar" Nullable="false" MaxLength="30" />
+          <Property Name="b_phone" Type="nchar" Nullable="false" MaxLength="40" />
+          <Property Name="b_fax" Type="nchar" Nullable="false" MaxLength="40" />
+          <Property Name="b_tradingass" Type="nvarchar" Nullable="false" MaxLength="150" />
           <Property Name="b_type_id" Type="int" Nullable="false" />
-          <Property Name="b_siteurl" Type="nvarchar" MaxLength="150" />
-          <Property Name="b_specialization" Type="nvarchar" MaxLength="50" />
-          <Property Name="historical_user" Type="bit" />
-          <Property Name="old_id" Type="int" />
-          <Property Name="userdeleted" Type="bit" />
-          <Property Name="prf_srtkey_diamonds" Type="nvarchar" MaxLength="50" />
-          <Property Name="prf_srtkey_gemstones" Type="nvarchar" MaxLength="40" />
-          <Property Name="prf_srtkey_jewelry" Type="nvarchar" MaxLength="40" />
-          <Property Name="prf_srtkey_newitems" Type="nvarchar" MaxLength="40" />
-          <Property Name="prf_srtkey_specials" Type="nvarchar" MaxLength="50" />
-          <Property Name="prf_srtkey_search" Type="nvarchar" MaxLength="50" />
-          <Property Name="prf_list_amount" Type="int" />
-          <Property Name="prf_language_id" Type="int" />
-          <Property Name="prf_timesvisited" Type="int" />
-          <Property Name="online_message" Type="nvarchar" MaxLength="40" />
-          <Property Name="last_visit" Type="datetime" />
-          <Property Name="dateofbirth" Type="datetime" />
-          <Property Name="aid" Type="int" />
-          <Property Name="registration_ip" Type="varchar" MaxLength="15" />
-          <Property Name="idex_percent" Type="int" />
-          <Property Name="default_currency" Type="varchar" MaxLength="3" />
+          <Property Name="b_siteurl" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="b_specialization" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="historical_user" Type="bit" Nullable="false" />
+          <Property Name="old_id" Type="int" Nullable="false" />
+          <Property Name="userdeleted" Type="bit" Nullable="false" />
+          <Property Name="prf_srtkey_diamonds" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="prf_srtkey_gemstones" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="prf_srtkey_jewelry" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="prf_srtkey_newitems" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="prf_srtkey_specials" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="prf_srtkey_search" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="prf_list_amount" Type="int" Nullable="false" />
+          <Property Name="prf_language_id" Type="int" Nullable="false" />
+          <Property Name="prf_timesvisited" Type="int" Nullable="false" />
+          <Property Name="online_message" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="last_visit" Type="datetime" Nullable="false" />
+          <Property Name="dateofbirth" Type="datetime" Nullable="false" />
+          <Property Name="aid" Type="int" Nullable="false" />
+          <Property Name="registration_ip" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="idex_percent" Type="int" Nullable="false" />
+          <Property Name="default_currency" Type="varchar" Nullable="false" MaxLength="3" />
         </EntityType>
         <EntityType Name="usr_TESTIMONIALS">
           <Key>
@@ -580,7 +580,7 @@
             <PropertyRef Name="diamondid" />
             <PropertyRef Name="supplier_code" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="inventory_code" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="shape" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="weight" Type="decimal" Nullable="false" Precision="10" Scale="2" />
@@ -887,9 +887,21 @@
           <EntitySet Name="acc_DIAMOND_ORDER_ITEMS" EntityType="JONDataModel.acc_DIAMOND_ORDER_ITEMS" />
           <EntitySet Name="acc_JEWELRY_ORDER_ITEMS" EntityType="JONDataModel.acc_JEWELRY_ORDER_ITEMS" />
           <EntitySet Name="acc_CUSTOMJEWEL_ORDER_ITEMS" EntityType="JONDataModel.acc_CUSTOMJEWEL_ORDER_ITEMS" />
+          <EntitySet Name="usr_TESTIMONIALS" EntityType="JONDataModel.usr_TESTIMONIALS" />
+          <AssociationSet Name="FK_usr_TESTIMONIALS_sys_COUNTRY" Association="JONDataModel.FK_usr_TESTIMONIALS_sys_COUNTRY">
+            <End Role="sys_COUNTRY" EntitySet="sys_COUNTRY" />
+            <End Role="usr_TESTIMONIALS" EntitySet="usr_TESTIMONIALS" />
+          </AssociationSet>
+          <EntitySet Name="v_jewel_items" EntityType="JONDataModel.v_jewel_items" />
+          <EntitySet Name="v_jd_diamonds" EntityType="JONDataModel.v_jd_diamonds" />
           <EntitySet Name="acc_ORDERS" EntityType="JONDataModel.acc_ORDERS" />
+          <EntitySet Name="usr_CUSTOMERS" EntityType="JONDataModel.usr_CUSTOMERS" />
           <AssociationSet Name="FK_acc_CASHFLOW_acc_ORDERS" Association="JONDataModel.FK_acc_CASHFLOW_acc_ORDERS">
             <End Role="acc_ORDERS" EntitySet="acc_ORDERS" />
+            <End Role="acc_CASHFLOW" EntitySet="acc_CASHFLOW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_acc_CASHFLOW_usr_CUSTOMERS" Association="JONDataModel.FK_acc_CASHFLOW_usr_CUSTOMERS">
+            <End Role="usr_CUSTOMERS" EntitySet="usr_CUSTOMERS" />
             <End Role="acc_CASHFLOW" EntitySet="acc_CASHFLOW" />
           </AssociationSet>
           <AssociationSet Name="FK_acc_CUSTOMJEWEL_ORDER_ITEMS_acc_ORDERS" Association="JONDataModel.FK_acc_CUSTOMJEWEL_ORDER_ITEMS_acc_ORDERS">
@@ -919,18 +931,6 @@
           <AssociationSet Name="FK_acc_ORDERS_sys_STATE1" Association="JONDataModel.FK_acc_ORDERS_sys_STATE1">
             <End Role="sys_STATE" EntitySet="sys_STATE" />
             <End Role="acc_ORDERS" EntitySet="acc_ORDERS" />
-          </AssociationSet>
-          <EntitySet Name="usr_TESTIMONIALS" EntityType="JONDataModel.usr_TESTIMONIALS" />
-          <AssociationSet Name="FK_usr_TESTIMONIALS_sys_COUNTRY" Association="JONDataModel.FK_usr_TESTIMONIALS_sys_COUNTRY">
-            <End Role="sys_COUNTRY" EntitySet="sys_COUNTRY" />
-            <End Role="usr_TESTIMONIALS" EntitySet="usr_TESTIMONIALS" />
-          </AssociationSet>
-          <EntitySet Name="v_jewel_items" EntityType="JONDataModel.v_jewel_items" />
-          <EntitySet Name="v_jd_diamonds" EntityType="JONDataModel.v_jd_diamonds" />
-          <EntitySet Name="usr_CUSTOMERS" EntityType="JONDataModel.usr_CUSTOMERS" />
-          <AssociationSet Name="FK_acc_CASHFLOW_usr_CUSTOMERS" Association="JONDataModel.FK_acc_CASHFLOW_usr_CUSTOMERS">
-            <End Role="usr_CUSTOMERS" EntitySet="usr_CUSTOMERS" />
-            <End Role="acc_CASHFLOW" EntitySet="acc_CASHFLOW" />
           </AssociationSet>
           <AssociationSet Name="FK_acc_ORDERS_usr_CUSTOMERS" Association="JONDataModel.FK_acc_ORDERS_usr_CUSTOMERS">
             <End Role="usr_CUSTOMERS" EntitySet="usr_CUSTOMERS" />
@@ -1028,9 +1028,9 @@
           <Property Type="String" Name="LANG6_LONGDESCR" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="LOGICALORDER" />
           <Property Type="Int32" Name="SORTORDER" />
+          <NavigationProperty Name="usr_TESTIMONIALS" Relationship="JONDataModel.FK_usr_TESTIMONIALS_sys_COUNTRY" FromRole="sys_COUNTRY" ToRole="usr_TESTIMONIALS" />
           <NavigationProperty Name="acc_ORDERS" Relationship="JONDataModel.FK_acc_ORDERS_sys_COUNTRY" FromRole="sys_COUNTRY" ToRole="acc_ORDERS" />
           <NavigationProperty Name="acc_ORDERS1" Relationship="JONDataModel.FK_acc_ORDERS_sys_COUNTRY1" FromRole="sys_COUNTRY" ToRole="acc_ORDERS" />
-          <NavigationProperty Name="usr_TESTIMONIALS" Relationship="JONDataModel.FK_usr_TESTIMONIALS_sys_COUNTRY" FromRole="sys_COUNTRY" ToRole="usr_TESTIMONIALS" />
           <NavigationProperty Name="usr_CUSTOMERS" Relationship="JONDataModel.FK_usr_CUSTOMERS_sys_COUNTRY" FromRole="sys_COUNTRY" ToRole="usr_CUSTOMERS" />
           <NavigationProperty Name="usr_CUSTOMERS1" Relationship="JONDataModel.FK_usr_CUSTOMERS_sys_COUNTRY1" FromRole="sys_COUNTRY" ToRole="usr_CUSTOMERS" />
         </EntityType>
@@ -1064,7 +1064,7 @@
           <NavigationProperty Name="acc_ORDERS1" Relationship="JONDataModel.FK_acc_ORDERS_sys_STATE1" FromRole="sys_STATE" ToRole="acc_ORDERS" />
           <NavigationProperty Name="usr_CUSTOMERS" Relationship="JONDataModel.FK_usr_CUSTOMERS_sys_STATE" FromRole="sys_STATE" ToRole="usr_CUSTOMERS" />
           <NavigationProperty Name="usr_CUSTOMERS1" Relationship="JONDataModel.FK_usr_CUSTOMERS_sys_STATE1" FromRole="sys_STATE" ToRole="usr_CUSTOMERS" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="acc_CASHFLOW">
           <Key>
             <PropertyRef Name="id" />
@@ -1109,7 +1109,7 @@
           <Property Type="String" Name="notes" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="acc_ORDERS" Relationship="JONDataModel.FK_acc_CASHFLOW_acc_ORDERS" FromRole="acc_CASHFLOW" ToRole="acc_ORDERS" />
           <NavigationProperty Name="usr_CUSTOMERS" Relationship="JONDataModel.FK_acc_CASHFLOW_usr_CUSTOMERS" FromRole="acc_CASHFLOW" ToRole="usr_CUSTOMERS" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="acc_DIAMOND_ORDER_ITEMS">
           <Key>
             <PropertyRef Name="id" />
@@ -1153,241 +1153,6 @@
           <Property Type="String" Name="diamond_description" Nullable="false" MaxLength="500" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="acc_ORDERS" Relationship="JONDataModel.FK_acc_CUSTOMJEWEL_ORDER_ITEMS_acc_ORDERS" FromRole="acc_CUSTOMJEWEL_ORDER_ITEMS" ToRole="acc_ORDERS" />
         </EntityType>
-        <EntityType Name="acc_ORDERS">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="OrderNumber" Nullable="false" />
-          <Property Type="Int32" Name="InvoiceNumber" />
-          <Property Type="DateTime" Name="InvoiceDate" />
-          <Property Type="Boolean" Name="InvoiceCopy" />
-          <Property Type="String" Name="JewelrySize" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="ClubOrder" />
-          <Property Type="DateTime" Name="orderdate" />
-          <Property Type="Int32" Name="user_id" Nullable="false" />
-          <Property Type="Int32" Name="packaging_id" Nullable="false" />
-          <Property Type="Int32" Name="payment_id" Nullable="false" />
-          <Property Type="Int32" Name="shipping_id" />
-          <Property Type="String" Name="shipping_tracking_no" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Type="Decimal" Name="amnt_items" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="amnt_shipping" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="amnt_wrapping" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="amnt_labor" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="amnt_extracharges" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="amnt_vat" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="amnt_subtotal" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="amnt_discount" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="amnt_grandtotal" Precision="19" Scale="4" />
-          <Property Type="String" Name="adrs_billing_firstname" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="adrs_billing_lastname" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="adrs_billing_street" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="adrs_billing_city" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="adrs_billing_zip" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="adrs_billing_state_id" Nullable="false" />
-          <Property Type="Int32" Name="adrs_billing_country_id" Nullable="false" />
-          <Property Type="String" Name="adrs_billing_phone" MaxLength="40" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="adrs_delivery_firstname" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="adrs_delivery_lastname" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="adrs_delivery_street" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="adrs_delivery_city" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="adrs_delivery_zip" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="adrs_delivery_state_id" Nullable="false" />
-          <Property Type="Int32" Name="adrs_delivery_country_id" Nullable="false" />
-          <Property Type="String" Name="adrs_delivery_phone" MaxLength="40" FixedLength="true" Unicode="true" />
-          <Property Type="Boolean" Name="cannot_be_edited" />
-          <Property Type="Boolean" Name="sts1_new_order_received" />
-          <Property Type="Boolean" Name="sts1_new_order_received_viewed" />
-          <Property Type="DateTime" Name="sts1_new_order_received_date" />
-          <Property Type="Boolean" Name="sts2_waiting_for_authorization" />
-          <Property Type="Boolean" Name="sts2_waiting_for_authorization_viewed" />
-          <Property Type="DateTime" Name="sts2_waiting_for_authorization_date" />
-          <Property Type="String" Name="sts2_waiting_for_authorization_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts3_waiting_for_payment" />
-          <Property Type="Boolean" Name="sts3_waiting_for_payment_viewed" />
-          <Property Type="DateTime" Name="sts3_waiting_for_payment_date" />
-          <Property Type="String" Name="sts3_waiting_for_payment_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts4_order_confirmed" />
-          <Property Type="Boolean" Name="sts4_order_confirmed_viewed" />
-          <Property Type="DateTime" Name="sts4_order_confirmed_date" />
-          <Property Type="String" Name="sts4_order_confirmed_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts5_partial_order_confirmed" />
-          <Property Type="Boolean" Name="sts5_partial_order_confirmed_viewed" />
-          <Property Type="DateTime" Name="sts5_partial_order_confirmed_date" />
-          <Property Type="String" Name="sts5_partial_order_confirmed_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts6_order_failed" />
-          <Property Type="Boolean" Name="sts6_order_failed_viewed" />
-          <Property Type="DateTime" Name="sts6_order_failed_date" />
-          <Property Type="String" Name="sts6_order_failed_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts7_order_waiting_to_be_send" />
-          <Property Type="Boolean" Name="sts7_order_waiting_to_be_send_viewed" />
-          <Property Type="DateTime" Name="sts7_order_waiting_to_be_send_date" />
-          <Property Type="String" Name="sts7_order_waiting_to_be_send_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts8_order_send" />
-          <Property Type="Boolean" Name="sts8_order_send_viewed" />
-          <Property Type="DateTime" Name="sts8_order_send_date" />
-          <Property Type="String" Name="sts8_order_send_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts9_partial_order_send" />
-          <Property Type="Boolean" Name="sts9_partial_order_send_viewed" />
-          <Property Type="DateTime" Name="sts9_partial_order_send_date" />
-          <Property Type="String" Name="sts9_partial_order_send_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts10_order_received_by_customer" />
-          <Property Type="Boolean" Name="sts10_order_received_by_customer_viewed" />
-          <Property Type="DateTime" Name="sts10_order_received_by_customer_date" />
-          <Property Type="String" Name="sts10_order_received_by_customer_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts11_partial_order_received_by_customer" />
-          <Property Type="Boolean" Name="sts11_partial_order_received_by_customer_viewed" />
-          <Property Type="DateTime" Name="sts11_partial_order_received_by_customer_date" />
-          <Property Type="String" Name="sts11_partial_order_received_by_customer_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts12_customer_returning_order" />
-          <Property Type="Boolean" Name="sts12_customer_returning_order_viewed" />
-          <Property Type="DateTime" Name="sts12_customer_returning_order_date" />
-          <Property Type="String" Name="sts12_customer_returning_order_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts13_customer_returning_part_order" />
-          <Property Type="Boolean" Name="sts13_customer_returning_part_order_viewed" />
-          <Property Type="DateTime" Name="sts13_customer_returning_part_order_date" />
-          <Property Type="String" Name="sts13_customer_returning_part_order_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts14_customer_refunded" />
-          <Property Type="Boolean" Name="sts14_customer_refunded_viewed" />
-          <Property Type="DateTime" Name="sts14_customer_refunded_date" />
-          <Property Type="String" Name="sts14_customer_refunded_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts15_customer_partly_refunded" />
-          <Property Type="Boolean" Name="sts15_customer_partly_refunded_viewed" />
-          <Property Type="DateTime" Name="sts15_customer_partly_refunded_date" />
-          <Property Type="String" Name="sts15_customer_partly_refunded_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts16_order_closed" />
-          <Property Type="Boolean" Name="sts16_order_closed_viewed" />
-          <Property Type="DateTime" Name="sts16_order_closed_date" />
-          <Property Type="String" Name="sts16_order_closed_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="sts17_order_cancelled" />
-          <Property Type="Boolean" Name="sts17_order_cancelled_viewed" />
-          <Property Type="DateTime" Name="sts17_order_cancelled_date" />
-          <Property Type="String" Name="sts17_order_cancelled_note" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="sts_curr_stat" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="sts_curr_date" />
-          <Property Type="Boolean" Name="OrderDeleted" />
-          <Property Type="DateTime" Name="Interest_start_date" />
-          <Property Type="Decimal" Name="Interest_percent" Precision="9" Scale="3" />
-          <Property Type="String" Name="Merchant_Notes" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Customer_Notes" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="LastModify_Date" />
-          <Property Type="String" Name="LastModify_User" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="LastModify_User_Id" />
-          <Property Type="String" Name="campaign" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="affiliate" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="referrer" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="remote_ip" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="order_transacted" />
-          <Property Type="String" Name="order_currency" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="order_currency_rate" Precision="7" Scale="3" />
-          <Property Type="String" Name="hear_fromus" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="include_receipt" />
-          <NavigationProperty Name="acc_CASHFLOW" Relationship="JONDataModel.FK_acc_CASHFLOW_acc_ORDERS" FromRole="acc_ORDERS" ToRole="acc_CASHFLOW" />
-          <NavigationProperty Name="acc_CUSTOMJEWEL_ORDER_ITEMS" Relationship="JONDataModel.FK_acc_CUSTOMJEWEL_ORDER_ITEMS_acc_ORDERS" FromRole="acc_ORDERS" ToRole="acc_CUSTOMJEWEL_ORDER_ITEMS" />
-          <NavigationProperty Name="acc_DIAMOND_ORDER_ITEMS" Relationship="JONDataModel.acc_DIAMOND_ORDER_ITEMS_acc_ORDERS" FromRole="acc_ORDERS" ToRole="acc_DIAMOND_ORDER_ITEMS" />
-          <NavigationProperty Name="acc_JEWELRY_ORDER_ITEMS" Relationship="JONDataModel.FK_acc_JEWELRY_ORDER_ITEMS_acc_ORDERS" FromRole="acc_ORDERS" ToRole="acc_JEWELRY_ORDER_ITEMS" />
-          <NavigationProperty Name="sys_COUNTRY" Relationship="JONDataModel.FK_acc_ORDERS_sys_COUNTRY" FromRole="acc_ORDERS" ToRole="sys_COUNTRY" />
-          <NavigationProperty Name="sys_COUNTRY1" Relationship="JONDataModel.FK_acc_ORDERS_sys_COUNTRY1" FromRole="acc_ORDERS" ToRole="sys_COUNTRY" />
-          <NavigationProperty Name="sys_STATE" Relationship="JONDataModel.FK_acc_ORDERS_sys_STATE" FromRole="acc_ORDERS" ToRole="sys_STATE" />
-          <NavigationProperty Name="sys_STATE1" Relationship="JONDataModel.FK_acc_ORDERS_sys_STATE1" FromRole="acc_ORDERS" ToRole="sys_STATE" />
-          <NavigationProperty Name="usr_CUSTOMERS" Relationship="JONDataModel.FK_acc_ORDERS_usr_CUSTOMERS" FromRole="acc_ORDERS" ToRole="usr_CUSTOMERS" />
-        </EntityType>
-        <Association Name="FK_acc_CASHFLOW_acc_ORDERS">
-          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="1" />
-          <End Type="JONDataModel.acc_CASHFLOW" Role="acc_CASHFLOW" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="acc_ORDERS">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="acc_CASHFLOW">
-              <PropertyRef Name="order_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_acc_CUSTOMJEWEL_ORDER_ITEMS_acc_ORDERS">
-          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="1" />
-          <End Type="JONDataModel.acc_CUSTOMJEWEL_ORDER_ITEMS" Role="acc_CUSTOMJEWEL_ORDER_ITEMS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="acc_ORDERS">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="acc_CUSTOMJEWEL_ORDER_ITEMS">
-              <PropertyRef Name="order_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="acc_DIAMOND_ORDER_ITEMS_acc_ORDERS">
-          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="1" />
-          <End Type="JONDataModel.acc_DIAMOND_ORDER_ITEMS" Role="acc_DIAMOND_ORDER_ITEMS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="acc_ORDERS">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="acc_DIAMOND_ORDER_ITEMS">
-              <PropertyRef Name="order_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_acc_JEWELRY_ORDER_ITEMS_acc_ORDERS">
-          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="1" />
-          <End Type="JONDataModel.acc_JEWELRY_ORDER_ITEMS" Role="acc_JEWELRY_ORDER_ITEMS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="acc_ORDERS">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="acc_JEWELRY_ORDER_ITEMS">
-              <PropertyRef Name="order_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_acc_ORDERS_sys_COUNTRY">
-          <End Type="JONDataModel.sys_COUNTRY" Role="sys_COUNTRY" Multiplicity="1" />
-          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sys_COUNTRY">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="acc_ORDERS">
-              <PropertyRef Name="adrs_billing_country_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_acc_ORDERS_sys_COUNTRY1">
-          <End Type="JONDataModel.sys_COUNTRY" Role="sys_COUNTRY" Multiplicity="1" />
-          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sys_COUNTRY">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="acc_ORDERS">
-              <PropertyRef Name="adrs_delivery_country_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_acc_ORDERS_sys_STATE">
-          <End Type="JONDataModel.sys_STATE" Role="sys_STATE" Multiplicity="1" />
-          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sys_STATE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="acc_ORDERS">
-              <PropertyRef Name="adrs_billing_state_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_acc_ORDERS_sys_STATE1">
-          <End Type="JONDataModel.sys_STATE" Role="sys_STATE" Multiplicity="1" />
-          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sys_STATE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="acc_ORDERS">
-              <PropertyRef Name="adrs_delivery_state_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="usr_TESTIMONIALS">
           <Key>
             <PropertyRef Name="id" />
@@ -1521,71 +1286,210 @@
           <Property Type="Int64" Name="diamondid" Nullable="false" />
           <Property Type="Int32" Name="supplier_code" Nullable="false" />
         </EntityType>
+        <EntityType Name="acc_ORDERS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="OrderNumber" Nullable="false" />
+          <Property Type="Int32" Name="InvoiceNumber" Nullable="false" />
+          <Property Type="DateTime" Name="InvoiceDate" Nullable="false" />
+          <Property Type="Boolean" Name="InvoiceCopy" Nullable="false" />
+          <Property Type="String" Name="JewelrySize" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="ClubOrder" Nullable="false" />
+          <Property Type="DateTime" Name="orderdate" Nullable="false" />
+          <Property Type="Int32" Name="user_id" Nullable="false" />
+          <Property Type="Int32" Name="packaging_id" Nullable="false" />
+          <Property Type="Int32" Name="payment_id" Nullable="false" />
+          <Property Type="Int32" Name="shipping_id" Nullable="false" />
+          <Property Type="String" Name="shipping_tracking_no" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="amnt_items" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="amnt_shipping" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="amnt_wrapping" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="amnt_labor" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="amnt_extracharges" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="amnt_vat" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="amnt_subtotal" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="amnt_discount" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="amnt_grandtotal" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="String" Name="adrs_billing_firstname" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="adrs_billing_lastname" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="adrs_billing_street" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="adrs_billing_city" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="adrs_billing_zip" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="adrs_billing_state_id" Nullable="false" />
+          <Property Type="Int32" Name="adrs_billing_country_id" Nullable="false" />
+          <Property Type="String" Name="adrs_billing_phone" Nullable="false" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="adrs_delivery_firstname" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="adrs_delivery_lastname" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="adrs_delivery_street" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="adrs_delivery_city" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="adrs_delivery_zip" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="adrs_delivery_state_id" Nullable="false" />
+          <Property Type="Int32" Name="adrs_delivery_country_id" Nullable="false" />
+          <Property Type="String" Name="adrs_delivery_phone" Nullable="false" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="cannot_be_edited" Nullable="false" />
+          <Property Type="Boolean" Name="sts1_new_order_received" Nullable="false" />
+          <Property Type="Boolean" Name="sts1_new_order_received_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts1_new_order_received_date" Nullable="false" />
+          <Property Type="Boolean" Name="sts2_waiting_for_authorization" Nullable="false" />
+          <Property Type="Boolean" Name="sts2_waiting_for_authorization_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts2_waiting_for_authorization_date" Nullable="false" />
+          <Property Type="String" Name="sts2_waiting_for_authorization_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts3_waiting_for_payment" Nullable="false" />
+          <Property Type="Boolean" Name="sts3_waiting_for_payment_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts3_waiting_for_payment_date" Nullable="false" />
+          <Property Type="String" Name="sts3_waiting_for_payment_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts4_order_confirmed" Nullable="false" />
+          <Property Type="Boolean" Name="sts4_order_confirmed_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts4_order_confirmed_date" Nullable="false" />
+          <Property Type="String" Name="sts4_order_confirmed_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts5_partial_order_confirmed" Nullable="false" />
+          <Property Type="Boolean" Name="sts5_partial_order_confirmed_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts5_partial_order_confirmed_date" Nullable="false" />
+          <Property Type="String" Name="sts5_partial_order_confirmed_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts6_order_failed" Nullable="false" />
+          <Property Type="Boolean" Name="sts6_order_failed_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts6_order_failed_date" Nullable="false" />
+          <Property Type="String" Name="sts6_order_failed_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts7_order_waiting_to_be_send" Nullable="false" />
+          <Property Type="Boolean" Name="sts7_order_waiting_to_be_send_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts7_order_waiting_to_be_send_date" Nullable="false" />
+          <Property Type="String" Name="sts7_order_waiting_to_be_send_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts8_order_send" Nullable="false" />
+          <Property Type="Boolean" Name="sts8_order_send_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts8_order_send_date" Nullable="false" />
+          <Property Type="String" Name="sts8_order_send_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts9_partial_order_send" Nullable="false" />
+          <Property Type="Boolean" Name="sts9_partial_order_send_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts9_partial_order_send_date" Nullable="false" />
+          <Property Type="String" Name="sts9_partial_order_send_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts10_order_received_by_customer" Nullable="false" />
+          <Property Type="Boolean" Name="sts10_order_received_by_customer_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts10_order_received_by_customer_date" Nullable="false" />
+          <Property Type="String" Name="sts10_order_received_by_customer_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts11_partial_order_received_by_customer" Nullable="false" />
+          <Property Type="Boolean" Name="sts11_partial_order_received_by_customer_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts11_partial_order_received_by_customer_date" Nullable="false" />
+          <Property Type="String" Name="sts11_partial_order_received_by_customer_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts12_customer_returning_order" Nullable="false" />
+          <Property Type="Boolean" Name="sts12_customer_returning_order_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts12_customer_returning_order_date" Nullable="false" />
+          <Property Type="String" Name="sts12_customer_returning_order_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts13_customer_returning_part_order" Nullable="false" />
+          <Property Type="Boolean" Name="sts13_customer_returning_part_order_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts13_customer_returning_part_order_date" Nullable="false" />
+          <Property Type="String" Name="sts13_customer_returning_part_order_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts14_customer_refunded" Nullable="false" />
+          <Property Type="Boolean" Name="sts14_customer_refunded_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts14_customer_refunded_date" Nullable="false" />
+          <Property Type="String" Name="sts14_customer_refunded_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts15_customer_partly_refunded" Nullable="false" />
+          <Property Type="Boolean" Name="sts15_customer_partly_refunded_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts15_customer_partly_refunded_date" Nullable="false" />
+          <Property Type="String" Name="sts15_customer_partly_refunded_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts16_order_closed" Nullable="false" />
+          <Property Type="Boolean" Name="sts16_order_closed_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts16_order_closed_date" Nullable="false" />
+          <Property Type="String" Name="sts16_order_closed_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="sts17_order_cancelled" Nullable="false" />
+          <Property Type="Boolean" Name="sts17_order_cancelled_viewed" Nullable="false" />
+          <Property Type="DateTime" Name="sts17_order_cancelled_date" Nullable="false" />
+          <Property Type="String" Name="sts17_order_cancelled_note" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="sts_curr_stat" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="sts_curr_date" Nullable="false" />
+          <Property Type="Boolean" Name="OrderDeleted" Nullable="false" />
+          <Property Type="DateTime" Name="Interest_start_date" Nullable="false" />
+          <Property Type="Decimal" Name="Interest_percent" Nullable="false" Precision="9" Scale="3" />
+          <Property Type="String" Name="Merchant_Notes" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Customer_Notes" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastModify_Date" Nullable="false" />
+          <Property Type="String" Name="LastModify_User" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LastModify_User_Id" Nullable="false" />
+          <Property Type="String" Name="campaign" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="affiliate" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="referrer" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="remote_ip" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="order_transacted" Nullable="false" />
+          <Property Type="String" Name="order_currency" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="order_currency_rate" Nullable="false" Precision="7" Scale="3" />
+          <Property Type="String" Name="hear_fromus" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="include_receipt" Nullable="false" />
+          <NavigationProperty Name="acc_CASHFLOW" Relationship="JONDataModel.FK_acc_CASHFLOW_acc_ORDERS" FromRole="acc_ORDERS" ToRole="acc_CASHFLOW" />
+          <NavigationProperty Name="acc_CUSTOMJEWEL_ORDER_ITEMS" Relationship="JONDataModel.FK_acc_CUSTOMJEWEL_ORDER_ITEMS_acc_ORDERS" FromRole="acc_ORDERS" ToRole="acc_CUSTOMJEWEL_ORDER_ITEMS" />
+          <NavigationProperty Name="acc_DIAMOND_ORDER_ITEMS" Relationship="JONDataModel.acc_DIAMOND_ORDER_ITEMS_acc_ORDERS" FromRole="acc_ORDERS" ToRole="acc_DIAMOND_ORDER_ITEMS" />
+          <NavigationProperty Name="acc_JEWELRY_ORDER_ITEMS" Relationship="JONDataModel.FK_acc_JEWELRY_ORDER_ITEMS_acc_ORDERS" FromRole="acc_ORDERS" ToRole="acc_JEWELRY_ORDER_ITEMS" />
+          <NavigationProperty Name="sys_COUNTRY" Relationship="JONDataModel.FK_acc_ORDERS_sys_COUNTRY" FromRole="acc_ORDERS" ToRole="sys_COUNTRY" />
+          <NavigationProperty Name="sys_COUNTRY1" Relationship="JONDataModel.FK_acc_ORDERS_sys_COUNTRY1" FromRole="acc_ORDERS" ToRole="sys_COUNTRY" />
+          <NavigationProperty Name="sys_STATE" Relationship="JONDataModel.FK_acc_ORDERS_sys_STATE" FromRole="acc_ORDERS" ToRole="sys_STATE" />
+          <NavigationProperty Name="sys_STATE1" Relationship="JONDataModel.FK_acc_ORDERS_sys_STATE1" FromRole="acc_ORDERS" ToRole="sys_STATE" />
+          <NavigationProperty Name="usr_CUSTOMERS" Relationship="JONDataModel.FK_acc_ORDERS_usr_CUSTOMERS" FromRole="acc_ORDERS" ToRole="usr_CUSTOMERS" />
+        </EntityType>
         <EntityType Name="usr_CUSTOMERS">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="email" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="password" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="firstname" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="lastname" MaxLength="64" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="street1" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="city1" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="firstname" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lastname" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="street1" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="city1" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="state1_id" Nullable="false" />
-          <Property Type="String" Name="zip1" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="pobox1" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="zip1" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="pobox1" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="country1_id" Nullable="false" />
-          <Property Type="String" Name="phone1" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="fax1" MaxLength="40" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="street2" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="city2" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="phone1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fax1" Nullable="false" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="street2" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="city2" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="state2_id" Nullable="false" />
-          <Property Type="String" Name="zip2" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="pobox2" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="zip2" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="pobox2" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="country2_id" Nullable="false" />
-          <Property Type="String" Name="phone2" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="fax2" MaxLength="40" FixedLength="true" Unicode="true" />
-          <Property Type="Boolean" Name="inv_mail" />
-          <Property Type="Boolean" Name="inv_update" />
-          <Property Type="DateTime" Name="lastmodify_date" />
-          <Property Type="String" Name="lastmodify_user" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="phone2" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fax2" Nullable="false" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="inv_mail" Nullable="false" />
+          <Property Type="Boolean" Name="inv_update" Nullable="false" />
+          <Property Type="DateTime" Name="lastmodify_date" Nullable="false" />
+          <Property Type="String" Name="lastmodify_user" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="lastmodify_user_id" Nullable="false" />
           <Property Type="DateTime" Name="create_date" Nullable="false" />
-          <Property Type="Boolean" Name="active" />
-          <Property Type="Boolean" Name="dealer" />
-          <Property Type="String" Name="b_name" MaxLength="80" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="b_street" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="b_city" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="active" Nullable="false" />
+          <Property Type="Boolean" Name="dealer" Nullable="false" />
+          <Property Type="String" Name="b_name" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="b_street" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="b_city" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="b_state_id" Nullable="false" />
           <Property Type="Int32" Name="b_country_id" Nullable="false" />
-          <Property Type="String" Name="b_pobox" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="b_zip" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="b_phone" MaxLength="40" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="b_fax" MaxLength="40" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="b_tradingass" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="b_pobox" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="b_zip" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="b_phone" Nullable="false" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="b_fax" Nullable="false" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="b_tradingass" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="b_type_id" Nullable="false" />
-          <Property Type="String" Name="b_siteurl" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="b_specialization" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="historical_user" />
-          <Property Type="Int32" Name="old_id" />
-          <Property Type="Boolean" Name="userdeleted" />
-          <Property Type="String" Name="prf_srtkey_diamonds" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="prf_srtkey_gemstones" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="prf_srtkey_jewelry" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="prf_srtkey_newitems" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="prf_srtkey_specials" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="prf_srtkey_search" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="prf_list_amount" />
-          <Property Type="Int32" Name="prf_language_id" />
-          <Property Type="Int32" Name="prf_timesvisited" />
-          <Property Type="String" Name="online_message" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="last_visit" />
-          <Property Type="DateTime" Name="dateofbirth" />
-          <Property Type="Int32" Name="aid" />
-          <Property Type="String" Name="registration_ip" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="idex_percent" />
-          <Property Type="String" Name="default_currency" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="b_siteurl" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="b_specialization" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="historical_user" Nullable="false" />
+          <Property Type="Int32" Name="old_id" Nullable="false" />
+          <Property Type="Boolean" Name="userdeleted" Nullable="false" />
+          <Property Type="String" Name="prf_srtkey_diamonds" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="prf_srtkey_gemstones" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="prf_srtkey_jewelry" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="prf_srtkey_newitems" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="prf_srtkey_specials" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="prf_srtkey_search" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="prf_list_amount" Nullable="false" />
+          <Property Type="Int32" Name="prf_language_id" Nullable="false" />
+          <Property Type="Int32" Name="prf_timesvisited" Nullable="false" />
+          <Property Type="String" Name="online_message" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="last_visit" Nullable="false" />
+          <Property Type="DateTime" Name="dateofbirth" Nullable="false" />
+          <Property Type="Int32" Name="aid" Nullable="false" />
+          <Property Type="String" Name="registration_ip" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="idex_percent" Nullable="false" />
+          <Property Type="String" Name="default_currency" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="acc_CASHFLOW" Relationship="JONDataModel.FK_acc_CASHFLOW_usr_CUSTOMERS" FromRole="usr_CUSTOMERS" ToRole="acc_CASHFLOW" />
           <NavigationProperty Name="acc_ORDERS" Relationship="JONDataModel.FK_acc_ORDERS_usr_CUSTOMERS" FromRole="usr_CUSTOMERS" ToRole="acc_ORDERS" />
           <NavigationProperty Name="sys_COUNTRY" Relationship="JONDataModel.FK_usr_CUSTOMERS_sys_COUNTRY" FromRole="usr_CUSTOMERS" ToRole="sys_COUNTRY" />
@@ -1593,6 +1497,18 @@
           <NavigationProperty Name="sys_STATE" Relationship="JONDataModel.FK_usr_CUSTOMERS_sys_STATE" FromRole="usr_CUSTOMERS" ToRole="sys_STATE" />
           <NavigationProperty Name="sys_STATE1" Relationship="JONDataModel.FK_usr_CUSTOMERS_sys_STATE1" FromRole="usr_CUSTOMERS" ToRole="sys_STATE" />
         </EntityType>
+        <Association Name="FK_acc_CASHFLOW_acc_ORDERS">
+          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="1" />
+          <End Type="JONDataModel.acc_CASHFLOW" Role="acc_CASHFLOW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acc_ORDERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="acc_CASHFLOW">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_acc_CASHFLOW_usr_CUSTOMERS">
           <End Type="JONDataModel.usr_CUSTOMERS" Role="usr_CUSTOMERS" Multiplicity="1" />
           <End Type="JONDataModel.acc_CASHFLOW" Role="acc_CASHFLOW" Multiplicity="*" />
@@ -1602,6 +1518,90 @@
             </Principal>
             <Dependent Role="acc_CASHFLOW">
               <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_acc_CUSTOMJEWEL_ORDER_ITEMS_acc_ORDERS">
+          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="1" />
+          <End Type="JONDataModel.acc_CUSTOMJEWEL_ORDER_ITEMS" Role="acc_CUSTOMJEWEL_ORDER_ITEMS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acc_ORDERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="acc_CUSTOMJEWEL_ORDER_ITEMS">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="acc_DIAMOND_ORDER_ITEMS_acc_ORDERS">
+          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="1" />
+          <End Type="JONDataModel.acc_DIAMOND_ORDER_ITEMS" Role="acc_DIAMOND_ORDER_ITEMS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acc_ORDERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="acc_DIAMOND_ORDER_ITEMS">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_acc_JEWELRY_ORDER_ITEMS_acc_ORDERS">
+          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="1" />
+          <End Type="JONDataModel.acc_JEWELRY_ORDER_ITEMS" Role="acc_JEWELRY_ORDER_ITEMS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acc_ORDERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="acc_JEWELRY_ORDER_ITEMS">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_acc_ORDERS_sys_COUNTRY">
+          <End Type="JONDataModel.sys_COUNTRY" Role="sys_COUNTRY" Multiplicity="1" />
+          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_COUNTRY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="acc_ORDERS">
+              <PropertyRef Name="adrs_billing_country_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_acc_ORDERS_sys_COUNTRY1">
+          <End Type="JONDataModel.sys_COUNTRY" Role="sys_COUNTRY" Multiplicity="1" />
+          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_COUNTRY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="acc_ORDERS">
+              <PropertyRef Name="adrs_delivery_country_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_acc_ORDERS_sys_STATE">
+          <End Type="JONDataModel.sys_STATE" Role="sys_STATE" Multiplicity="1" />
+          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_STATE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="acc_ORDERS">
+              <PropertyRef Name="adrs_billing_state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_acc_ORDERS_sys_STATE1">
+          <End Type="JONDataModel.sys_STATE" Role="sys_STATE" Multiplicity="1" />
+          <End Type="JONDataModel.acc_ORDERS" Role="acc_ORDERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_STATE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="acc_ORDERS">
+              <PropertyRef Name="adrs_delivery_state_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1862,6 +1862,105 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="usr_TESTIMONIALS">
+            <EntityTypeMapping TypeName="JONDataModel.usr_TESTIMONIALS">
+              <MappingFragment StoreEntitySet="usr_TESTIMONIALS">
+                <ScalarProperty Name="countryID" ColumnName="countryID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_jewel_items">
+            <EntityTypeMapping TypeName="JONDataModel.v_jewel_items">
+              <MappingFragment StoreEntitySet="v_jewel_items">
+                <ScalarProperty Name="HAS_MOVIE" ColumnName="HAS_MOVIE" />
+                <ScalarProperty Name="ONSPECIAL" ColumnName="ONSPECIAL" />
+                <ScalarProperty Name="SPECIAL_SELL_PRICE" ColumnName="SPECIAL_SELL_PRICE" />
+                <ScalarProperty Name="DEALER_PRICE" ColumnName="DEALER_PRICE" />
+                <ScalarProperty Name="ONBARGAIN" ColumnName="ONBARGAIN" />
+                <ScalarProperty Name="HAS_WHITE_GOLD" ColumnName="HAS_WHITE_GOLD" />
+                <ScalarProperty Name="HAS_YELLOW_GOLD" ColumnName="HAS_YELLOW_GOLD" />
+                <ScalarProperty Name="ITEM_SIZE" ColumnName="ITEM_SIZE" />
+                <ScalarProperty Name="ss_clarity_free" ColumnName="ss_clarity_free" />
+                <ScalarProperty Name="ss_color_free" ColumnName="ss_color_free" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="cs_count" ColumnName="cs_count" />
+                <ScalarProperty Name="ss_count" ColumnName="ss_count" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ITEMCODE" ColumnName="ITEMCODE" />
+                <ScalarProperty Name="ITEMNUMBER" ColumnName="ITEMNUMBER" />
+                <ScalarProperty Name="SUBCATEGORY_ID" ColumnName="SUBCATEGORY_ID" />
+                <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+                <ScalarProperty Name="is_partof_model" ColumnName="is_partof_model" />
+                <ScalarProperty Name="default_model" ColumnName="default_model" />
+                <ScalarProperty Name="ss_clarity" ColumnName="ss_clarity" />
+                <ScalarProperty Name="ss_color" ColumnName="ss_color" />
+                <ScalarProperty Name="clarity_freetxt" ColumnName="clarity_freetxt" />
+                <ScalarProperty Name="clarity" ColumnName="clarity" />
+                <ScalarProperty Name="color_freetxt" ColumnName="color_freetxt" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="measure_3" ColumnName="measure_3" />
+                <ScalarProperty Name="measure_2" ColumnName="measure_2" />
+                <ScalarProperty Name="measure_1" ColumnName="measure_1" />
+                <ScalarProperty Name="total_weight" ColumnName="total_weight" />
+                <ScalarProperty Name="ss_weight" ColumnName="ss_weight" />
+                <ScalarProperty Name="cs_weight" ColumnName="cs_weight" />
+                <ScalarProperty Name="has_sidestones" ColumnName="has_sidestones" />
+                <ScalarProperty Name="is_gemstone" ColumnName="is_gemstone" />
+                <ScalarProperty Name="ss_cut" ColumnName="ss_cut" />
+                <ScalarProperty Name="ss_type" ColumnName="ss_type" />
+                <ScalarProperty Name="ss_desc" ColumnName="ss_desc" />
+                <ScalarProperty Name="cs_cut" ColumnName="cs_cut" />
+                <ScalarProperty Name="cs_type" ColumnName="cs_type" />
+                <ScalarProperty Name="cs_desc" ColumnName="cs_desc" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="setting" ColumnName="setting" />
+                <ScalarProperty Name="report" ColumnName="report" />
+                <ScalarProperty Name="middlestone" ColumnName="middlestone" />
+                <ScalarProperty Name="metal" ColumnName="metal" />
+                <ScalarProperty Name="jeweltitle" ColumnName="jeweltitle" />
+                <ScalarProperty Name="jewelsubtype" ColumnName="jewelsubtype" />
+                <ScalarProperty Name="jeweltype" ColumnName="jeweltype" />
+                <ScalarProperty Name="JEWELSUBTYPE_ID" ColumnName="JEWELSUBTYPE_ID" />
+                <ScalarProperty Name="JEWELTYPE_ID" ColumnName="JEWELTYPE_ID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_jd_diamonds">
+            <EntityTypeMapping TypeName="JONDataModel.v_jd_diamonds">
+              <MappingFragment StoreEntitySet="v_jd_diamonds">
+                <ScalarProperty Name="supplier_code" ColumnName="supplier_code" />
+                <ScalarProperty Name="diamondid" ColumnName="diamondid" />
+                <ScalarProperty Name="report_number" ColumnName="report_number" />
+                <ScalarProperty Name="reportimg" ColumnName="reportimg" />
+                <ScalarProperty Name="report" ColumnName="report" />
+                <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+                <ScalarProperty Name="percaratprice" ColumnName="percaratprice" />
+                <ScalarProperty Name="cut" ColumnName="cut" />
+                <ScalarProperty Name="crown" ColumnName="crown" />
+                <ScalarProperty Name="culet" ColumnName="culet" />
+                <ScalarProperty Name="grindle" ColumnName="grindle" />
+                <ScalarProperty Name="polish" ColumnName="polish" />
+                <ScalarProperty Name="symmetrical" ColumnName="symmetrical" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="flourescence" ColumnName="flourescence" />
+                <ScalarProperty Name="table" ColumnName="table" />
+                <ScalarProperty Name="depth" ColumnName="depth" />
+                <ScalarProperty Name="clarity" ColumnName="clarity" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="shape" ColumnName="shape" />
+                <ScalarProperty Name="inventory_code" ColumnName="inventory_code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="acc_ORDERS">
             <EntityTypeMapping TypeName="JONDataModel.acc_ORDERS">
               <MappingFragment StoreEntitySet="acc_ORDERS">
@@ -1993,105 +2092,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="usr_TESTIMONIALS">
-            <EntityTypeMapping TypeName="JONDataModel.usr_TESTIMONIALS">
-              <MappingFragment StoreEntitySet="usr_TESTIMONIALS">
-                <ScalarProperty Name="countryID" ColumnName="countryID" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="body" ColumnName="body" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_jewel_items">
-            <EntityTypeMapping TypeName="JONDataModel.v_jewel_items">
-              <MappingFragment StoreEntitySet="v_jewel_items">
-                <ScalarProperty Name="HAS_MOVIE" ColumnName="HAS_MOVIE" />
-                <ScalarProperty Name="ONSPECIAL" ColumnName="ONSPECIAL" />
-                <ScalarProperty Name="SPECIAL_SELL_PRICE" ColumnName="SPECIAL_SELL_PRICE" />
-                <ScalarProperty Name="DEALER_PRICE" ColumnName="DEALER_PRICE" />
-                <ScalarProperty Name="ONBARGAIN" ColumnName="ONBARGAIN" />
-                <ScalarProperty Name="HAS_WHITE_GOLD" ColumnName="HAS_WHITE_GOLD" />
-                <ScalarProperty Name="HAS_YELLOW_GOLD" ColumnName="HAS_YELLOW_GOLD" />
-                <ScalarProperty Name="ITEM_SIZE" ColumnName="ITEM_SIZE" />
-                <ScalarProperty Name="ss_clarity_free" ColumnName="ss_clarity_free" />
-                <ScalarProperty Name="ss_color_free" ColumnName="ss_color_free" />
-                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
-                <ScalarProperty Name="cs_count" ColumnName="cs_count" />
-                <ScalarProperty Name="ss_count" ColumnName="ss_count" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="ITEMCODE" ColumnName="ITEMCODE" />
-                <ScalarProperty Name="ITEMNUMBER" ColumnName="ITEMNUMBER" />
-                <ScalarProperty Name="SUBCATEGORY_ID" ColumnName="SUBCATEGORY_ID" />
-                <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
-                <ScalarProperty Name="is_partof_model" ColumnName="is_partof_model" />
-                <ScalarProperty Name="default_model" ColumnName="default_model" />
-                <ScalarProperty Name="ss_clarity" ColumnName="ss_clarity" />
-                <ScalarProperty Name="ss_color" ColumnName="ss_color" />
-                <ScalarProperty Name="clarity_freetxt" ColumnName="clarity_freetxt" />
-                <ScalarProperty Name="clarity" ColumnName="clarity" />
-                <ScalarProperty Name="color_freetxt" ColumnName="color_freetxt" />
-                <ScalarProperty Name="color" ColumnName="color" />
-                <ScalarProperty Name="measure_3" ColumnName="measure_3" />
-                <ScalarProperty Name="measure_2" ColumnName="measure_2" />
-                <ScalarProperty Name="measure_1" ColumnName="measure_1" />
-                <ScalarProperty Name="total_weight" ColumnName="total_weight" />
-                <ScalarProperty Name="ss_weight" ColumnName="ss_weight" />
-                <ScalarProperty Name="cs_weight" ColumnName="cs_weight" />
-                <ScalarProperty Name="has_sidestones" ColumnName="has_sidestones" />
-                <ScalarProperty Name="is_gemstone" ColumnName="is_gemstone" />
-                <ScalarProperty Name="ss_cut" ColumnName="ss_cut" />
-                <ScalarProperty Name="ss_type" ColumnName="ss_type" />
-                <ScalarProperty Name="ss_desc" ColumnName="ss_desc" />
-                <ScalarProperty Name="cs_cut" ColumnName="cs_cut" />
-                <ScalarProperty Name="cs_type" ColumnName="cs_type" />
-                <ScalarProperty Name="cs_desc" ColumnName="cs_desc" />
-                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
-                <ScalarProperty Name="setting" ColumnName="setting" />
-                <ScalarProperty Name="report" ColumnName="report" />
-                <ScalarProperty Name="middlestone" ColumnName="middlestone" />
-                <ScalarProperty Name="metal" ColumnName="metal" />
-                <ScalarProperty Name="jeweltitle" ColumnName="jeweltitle" />
-                <ScalarProperty Name="jewelsubtype" ColumnName="jewelsubtype" />
-                <ScalarProperty Name="jeweltype" ColumnName="jeweltype" />
-                <ScalarProperty Name="JEWELSUBTYPE_ID" ColumnName="JEWELSUBTYPE_ID" />
-                <ScalarProperty Name="JEWELTYPE_ID" ColumnName="JEWELTYPE_ID" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_jd_diamonds">
-            <EntityTypeMapping TypeName="JONDataModel.v_jd_diamonds">
-              <MappingFragment StoreEntitySet="v_jd_diamonds">
-                <ScalarProperty Name="supplier_code" ColumnName="supplier_code" />
-                <ScalarProperty Name="diamondid" ColumnName="diamondid" />
-                <ScalarProperty Name="report_number" ColumnName="report_number" />
-                <ScalarProperty Name="reportimg" ColumnName="reportimg" />
-                <ScalarProperty Name="report" ColumnName="report" />
-                <ScalarProperty Name="totalprice" ColumnName="totalprice" />
-                <ScalarProperty Name="percaratprice" ColumnName="percaratprice" />
-                <ScalarProperty Name="cut" ColumnName="cut" />
-                <ScalarProperty Name="crown" ColumnName="crown" />
-                <ScalarProperty Name="culet" ColumnName="culet" />
-                <ScalarProperty Name="grindle" ColumnName="grindle" />
-                <ScalarProperty Name="polish" ColumnName="polish" />
-                <ScalarProperty Name="symmetrical" ColumnName="symmetrical" />
-                <ScalarProperty Name="height" ColumnName="height" />
-                <ScalarProperty Name="width" ColumnName="width" />
-                <ScalarProperty Name="length" ColumnName="length" />
-                <ScalarProperty Name="flourescence" ColumnName="flourescence" />
-                <ScalarProperty Name="table" ColumnName="table" />
-                <ScalarProperty Name="depth" ColumnName="depth" />
-                <ScalarProperty Name="clarity" ColumnName="clarity" />
-                <ScalarProperty Name="color" ColumnName="color" />
-                <ScalarProperty Name="weight" ColumnName="weight" />
-                <ScalarProperty Name="shape" ColumnName="shape" />
-                <ScalarProperty Name="inventory_code" ColumnName="inventory_code" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="usr_CUSTOMERS">
             <EntityTypeMapping TypeName="JONDataModel.usr_CUSTOMERS">
               <MappingFragment StoreEntitySet="usr_CUSTOMERS">
@@ -2179,7 +2179,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="JONDataModel" ZoomLevel="75">
+      <Diagram Name="JONDataModel" ZoomLevel="72">
         <EntityTypeShape EntityType="JONDataModel.acc_CREDITCARD" Width="4.125" PointX="0.5" PointY="6.5" Height="4.6725065104166656" />
         <EntityTypeShape EntityType="JONDataModel.v_orders_list" Width="1.5" PointX="12.375" PointY="0.75" Height="3.7109993489583353" />
         <EntityTypeShape EntityType="JONDataModel.sys_COUNTRY" Width="1.5" PointX="3.5" PointY="13.5" Height="6.0186165364583388" />
@@ -2187,17 +2187,32 @@
         <EntityTypeShape EntityType="JONDataModel.acc_CASHFLOW" Width="1.5" PointX="10.25" PointY="10.5" Height="8.7108365885416674" />
         <EntityTypeShape EntityType="JONDataModel.acc_DIAMOND_ORDER_ITEMS" Width="1.5" PointX="10.25" PointY="20.875" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="JONDataModel.acc_JEWELRY_ORDER_ITEMS" Width="1.5" PointX="10.25" PointY="24" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="JONDataModel.acc_CUSTOMJEWEL_ORDER_ITEMS" Width="1.5" PointX="10.25" PointY="28.125" Height="3.1340950520833246" />
-        <EntityTypeShape EntityType="JONDataModel.acc_ORDERS" Width="1.5" PointX="8" PointY="6.25" Height="26.787171223958321" />
+        <EntityTypeShape EntityType="JONDataModel.acc_CUSTOMJEWEL_ORDER_ITEMS" Width="1.5" PointX="10.25" PointY="28" Height="3.1340950520833353" />
+        <EntityTypeShape EntityType="JONDataModel.usr_TESTIMONIALS" Width="1.5" PointX="0.875" PointY="11.75" Height="2.1725878906250031" />
+        <AssociationConnector Association="JONDataModel.FK_usr_TESTIMONIALS_sys_COUNTRY" >
+          <ConnectorPoint PointX="3.5" PointY="13.711293945312502" />
+          <ConnectorPoint PointX="2.375" PointY="13.711293945312502" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="JONDataModel.v_jewel_items" Width="1.5" PointX="14.75" PointY="0.75" Height="10.84615234375" />
+        <EntityTypeShape EntityType="JONDataModel.v_jd_diamonds" Width="1.5" PointX="12.375" PointY="12.75" Height="5.8263151041666674" />
+        <EntityTypeShape EntityType="JONDataModel.acc_ORDERS" Width="1.5" PointX="8" PointY="6.5" Height="26.787171223958332" />
+        <EntityTypeShape EntityType="JONDataModel.usr_CUSTOMERS" Width="1.5" PointX="5.75" PointY="12.875" Height="13.902975260416667" />
         <AssociationConnector Association="JONDataModel.FK_acc_CASHFLOW_acc_ORDERS" >
           <ConnectorPoint PointX="9.5" PointY="14.855418294270834" />
           <ConnectorPoint PointX="9.7916666666666661" PointY="14.855418294270834" />
           <ConnectorPoint PointX="9.9583333333333339" PointY="14.855418294270834" />
           <ConnectorPoint PointX="10.25" PointY="14.855418294270834" />
         </AssociationConnector>
+        <AssociationConnector Association="JONDataModel.FK_acc_CASHFLOW_usr_CUSTOMERS" >
+          <ConnectorPoint PointX="6.5" PointY="12.875" />
+          <ConnectorPoint PointX="6.5" PointY="6.25" />
+          <ConnectorPoint PointX="9.875" PointY="6.25" />
+          <ConnectorPoint PointX="9.875" PointY="17.064379441406249" />
+          <ConnectorPoint PointX="10.25" PointY="17.064379441406249" />
+        </AssociationConnector>
         <AssociationConnector Association="JONDataModel.FK_acc_CUSTOMJEWEL_ORDER_ITEMS_acc_ORDERS" >
-          <ConnectorPoint PointX="9.5" PointY="29.692047526041662" />
-          <ConnectorPoint PointX="10.25" PointY="29.692047526041662" />
+          <ConnectorPoint PointX="9.5" PointY="29.567047526041669" />
+          <ConnectorPoint PointX="10.25" PointY="29.567047526041669" />
         </AssociationConnector>
         <AssociationConnector Association="JONDataModel.acc_DIAMOND_ORDER_ITEMS_acc_ORDERS" >
           <ConnectorPoint PointX="9.5" PointY="22.057444661458334" />
@@ -2216,35 +2231,20 @@
         </AssociationConnector>
         <AssociationConnector Association="JONDataModel.FK_acc_ORDERS_sys_COUNTRY1" >
           <ConnectorPoint PointX="4.9531275" PointY="13.5" />
-          <ConnectorPoint PointX="4.9531275" PointY="12.449379127604161" />
-          <ConnectorPoint PointX="6.416666666666667" PointY="12.449379127604161" />
-          <ConnectorPoint PointX="6.583333333333333" PointY="12.449379127604161" />
-          <ConnectorPoint PointX="8" PointY="12.449379127604161" />
+          <ConnectorPoint PointX="4.9531275" PointY="12.449379127604217" />
+          <ConnectorPoint PointX="6.416666666666667" PointY="12.449379127604217" />
+          <ConnectorPoint PointX="6.583333333333333" PointY="12.449379127604217" />
+          <ConnectorPoint PointX="8" PointY="12.449379127604217" />
         </AssociationConnector>
         <AssociationConnector Association="JONDataModel.FK_acc_ORDERS_sys_STATE" >
           <ConnectorPoint PointX="4.25" PointY="26.268616536458332" />
-          <ConnectorPoint PointX="4.25" PointY="29.9388232421875" />
-          <ConnectorPoint PointX="8" PointY="29.9388232421875" />
+          <ConnectorPoint PointX="4.25" PointY="30.0638232421875" />
+          <ConnectorPoint PointX="8" PointY="30.0638232421875" />
         </AssociationConnector>
         <AssociationConnector Association="JONDataModel.FK_acc_ORDERS_sys_STATE1" >
           <ConnectorPoint PointX="4.6562525" PointY="26.268616536458332" />
-          <ConnectorPoint PointX="4.6562525" PointY="28.358396751302088" />
-          <ConnectorPoint PointX="8" PointY="28.358396751302088" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="JONDataModel.usr_TESTIMONIALS" Width="1.5" PointX="0.875" PointY="11.75" Height="2.1725878906250031" />
-        <AssociationConnector Association="JONDataModel.FK_usr_TESTIMONIALS_sys_COUNTRY" >
-          <ConnectorPoint PointX="3.5" PointY="13.711293945312502" />
-          <ConnectorPoint PointX="2.375" PointY="13.711293945312502" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="JONDataModel.v_jewel_items" Width="1.5" PointX="14.75" PointY="0.75" Height="10.84615234375" />
-        <EntityTypeShape EntityType="JONDataModel.v_jd_diamonds" Width="1.5" PointX="12.375" PointY="12.75" Height="5.8263151041666674" />
-        <EntityTypeShape EntityType="JONDataModel.usr_CUSTOMERS" Width="1.5" PointX="5.75" PointY="12.875" Height="13.902975260416667" />
-        <AssociationConnector Association="JONDataModel.FK_acc_CASHFLOW_usr_CUSTOMERS" >
-          <ConnectorPoint PointX="6.5" PointY="12.875" />
-          <ConnectorPoint PointX="6.5" PointY="6.0000000000000018" />
-          <ConnectorPoint PointX="9.875" PointY="6.0000000000000018" />
-          <ConnectorPoint PointX="9.875" PointY="17.064379441406246" />
-          <ConnectorPoint PointX="10.25" PointY="17.064379441406246" />
+          <ConnectorPoint PointX="4.6562525" PointY="28.420896751302031" />
+          <ConnectorPoint PointX="8" PointY="28.420896751302031" />
         </AssociationConnector>
         <AssociationConnector Association="JONDataModel.FK_acc_ORDERS_usr_CUSTOMERS" >
           <ConnectorPoint PointX="7.25" PointY="19.826487630208334" />

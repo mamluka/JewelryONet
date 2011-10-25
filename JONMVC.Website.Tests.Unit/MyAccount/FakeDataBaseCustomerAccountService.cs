@@ -195,5 +195,10 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
                 throw new Exception("When asked to get an extended customer with the email=" + email + " an error occured\r\n" + ex.Message);
             }
         }
+
+        public MembershipCreateStatus CreateExtendedCustomer(ExtendedCustomer customer, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

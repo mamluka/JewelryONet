@@ -11,6 +11,7 @@ namespace JONMVC.Website.Models.Checkout
         Customer GetCustomerByEmail(string email);
         string RecoverPassword(string email);
         ExtendedCustomer GetExtendedCustomerByEmail(string email);
+        MembershipCreateStatus CreateExtendedCustomer(ExtendedCustomer customer, string password);
 
     }
 }

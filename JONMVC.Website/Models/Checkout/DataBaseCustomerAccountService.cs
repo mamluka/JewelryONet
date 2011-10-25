@@ -92,6 +92,27 @@ namespace JONMVC.Website.Models.Checkout
            
         }
 
+        public MembershipCreateStatus CreateExtendedCustomer(ExtendedCustomer customer,string password)
+        {
+            var customerdto = mapper.Map<ExtendedCustomer, usr_CUSTOMERS>(customer);
+            customerdto.password = password;
+            try
+            {
+                using (var db = new JONEntities())
+                {
+                    db.usr_CUSTOMERS.AddObject(customerdto);
+                    db.SaveChanges();
+
+                    return MembershipCreateStatus.Success;
+                }
+            }
+            catch (Exception ex)
+            {
+                return MembershipCreateStatus.ProviderError;
+            }
+
+        }
+
         public MembershipCreateStatus UpdateCustomer(ExtendedCustomer customer)
         {
             //var customerdto = mapper.Map<ExtendedCustomer, usr_CUSTOMERS>(customer);

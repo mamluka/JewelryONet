@@ -24,8 +24,8 @@ namespace JONMVC.Website.Models.Checkout
             if (authentication.IsSignedIn())
             {
                 var customer = authentication.CustomerData;
-                order.FirstName = customer.Firstname;
-                order.LastName = customer.Lastname;
+                order.FirstName = customer.FirstName;
+                order.LastName = customer.LastName;
                 order.Email = customer.Email;
                 order.Phone = order.BillingAddress.Phone;
             }

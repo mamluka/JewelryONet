@@ -96,7 +96,7 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
             string email = mailer.ViewBag.Email;
             string password = mailer.ViewBag.Password;
 
-            name.Should().Be(customer.Firstname + " " + customer.Lastname);
+            name.Should().Be(customer.FirstName + " " + customer.LastName);
             email.Should().Be(customer.Email);
             password.Should().Be(customer.Password);
 

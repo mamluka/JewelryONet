@@ -97,7 +97,7 @@ namespace JONMVC.Website.Mailers
             mailMessage.To.Add(customer.Email);
 
             ViewBag.Password = customer.Password;
-            ViewBag.Name = customer.Firstname + " " + customer.Lastname;
+            ViewBag.Name = customer.FirstName + " " + customer.LastName;
             ViewBag.Email = customer.Email;
            
 

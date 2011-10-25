@@ -177,8 +177,8 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             authentication.Expect(x => x.Signin(Arg<string>.Is.Equal(email), Arg<Customer>.Matches(
                 m => m.Email == customer.Email &&
                      m.Country == customer.Country &&
-                     m.Firstname == customer.Firstname &&
-                     m.Lastname == customer.Lastname &&
+                     m.FirstName == customer.FirstName &&
+                     m.LastName == customer.LastName &&
                      m.State == customer.State
                                                                                  )));
 
@@ -294,8 +294,8 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
                 x => x.CreateCustomer(Arg<Customer>.Matches(
                     m => m.Email == customerViewModel.Email &&
                          m.CountryID == customerViewModel.CountryID &&
-                         m.Firstname == customerViewModel.Firstname &&
-                         m.Lastname == customerViewModel.Lastname &&
+                         m.FirstName == customerViewModel.Firstname &&
+                         m.LastName == customerViewModel.Lastname &&
                          m.StateID == customerViewModel.StateID &&
                          m.Phone == customerViewModel.Phone
                                       ))).Return(status);
@@ -377,8 +377,8 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             authentication.Expect(x => x.Signin(Arg<string>.Is.Anything, Arg<Customer>.Matches(
                     m => m.Email == customerViewModel.Email &&
                          m.CountryID == customerViewModel.CountryID &&
-                         m.Firstname == customerViewModel.Firstname &&
-                         m.Lastname == customerViewModel.Lastname &&
+                         m.FirstName == customerViewModel.Firstname &&
+                         m.LastName == customerViewModel.Lastname &&
                          m.StateID == customerViewModel.StateID
                                       )));
 

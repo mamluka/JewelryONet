@@ -24,9 +24,9 @@ namespace JONMVC.Website.Tests.Integration.Checkout
                                    CountryID = 10,
                                    StateID = 5,
                                    Email = "DavidMZ",
-                                   Firstname = "Firstname",
+                                   FirstName = "Firstname",
                                    Password = "123",
-                                   Lastname = "LastName",
+                                   LastName = "LastName",
                                    Phone = "12345"
                                      
                                };
@@ -41,8 +41,8 @@ namespace JONMVC.Website.Tests.Integration.Checkout
 
             customerRoundTrip.CountryID.Should().Be(customer.CountryID);
             customerRoundTrip.Email.Should().Be(customer.Email);
-            customerRoundTrip.Firstname.Should().Be(customer.Firstname);
-            customerRoundTrip.Lastname.Should().Be(customer.Lastname);
+            customerRoundTrip.FirstName.Should().Be(customer.FirstName);
+            customerRoundTrip.LastName.Should().Be(customer.LastName);
             customerRoundTrip.StateID.Should().Be(customer.StateID);
             customerRoundTrip.Phone.Should().Be(customer.Phone);
 
@@ -75,8 +75,8 @@ namespace JONMVC.Website.Tests.Integration.Checkout
                 .With(x => x.BillingAddress, address1)
                 .With(x => x.ShippingAddress, address2)
                 .With(x => x.Email, "email8")
-                .With(x => x.Firstname, "firstname")
-                .With(x => x.Lastname, "lastname")
+                .With(x => x.FirstName, "firstname")
+                .With(x => x.LastName, "lastname")
                 .CreateAnonymous()
                 ;
 
@@ -89,8 +89,8 @@ namespace JONMVC.Website.Tests.Integration.Checkout
             var customerRoundTrip = customerService.GetExtendedCustomerByEmail(extendedCustomer.Email);
 
             customerRoundTrip.Email.Should().Be(extendedCustomer.Email);
-            customerRoundTrip.Firstname.Should().Be(extendedCustomer.Firstname);
-            customerRoundTrip.Lastname.Should().Be(extendedCustomer.Lastname);
+            customerRoundTrip.FirstName.Should().Be(extendedCustomer.FirstName);
+            customerRoundTrip.LastName.Should().Be(extendedCustomer.LastName);
 
             customerRoundTrip.ShippingAddress.Address1.Should().Be(extendedCustomer.ShippingAddress.Address1);
             customerRoundTrip.ShippingAddress.City.Should().Be(extendedCustomer.ShippingAddress.City);

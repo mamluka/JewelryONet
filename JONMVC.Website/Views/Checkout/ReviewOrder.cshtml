@@ -22,13 +22,14 @@
         <div class="cell">
             <span class="block"><strong>Order Summary</strong> Please review your details for accuracy,
                 then choose "Complete My Order"</span>
+                <div class="clear top10"></div>
             @foreach (var item in Model.CartItems)
             {
                 @Html.Partial(item.PartialName, item)
 
             }
             <span>FREE Inscription with every ring - Click Here </span>
-            <div class="totaldiv width100 clear">
+            <div class="totaldiv width100 clear top5">
                 <span class="right price">@Model.TotalPrice</span> <span class="right">Total :</span>
                 <div class="clear">
                 </div>
@@ -170,7 +171,7 @@
                 </div>
             </div>
             <h3>
-                Instructions</h3>
+                Instructions:</h3>
             <span>@Model.Comment</span>
             @if (Model.PaymentMethod < 3)
             {
@@ -219,7 +220,7 @@
             }
             else
             {
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="top20">
                 <input type="hidden" name="cmd" value="_xclick">
                 <input type="hidden" name="business" value="mrdiamond77@gmail.com">
                 <input type="hidden" name="amount" value="@Model.TotalPrice">

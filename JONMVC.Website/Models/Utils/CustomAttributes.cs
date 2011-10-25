@@ -97,15 +97,7 @@ namespace JONMVC.Website.Models.Utils
 
     }
 
-    public class CustomerArea : AuthorizeAttribute
-    {
-        protected override bool AuthorizeCore(HttpContextBase httpContext)
-        {
-            if (!httpContext.User.Identity.IsAuthenticated)
-                return false;
-            return true;
-        }
-    }
+   
 
     public class ExitHttpsIfNotRequiredAttribute : FilterAttribute, IAuthorizationFilter
     {
