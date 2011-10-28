@@ -7,7 +7,9 @@ using AutoMapper;
 using JONMVC.Website.Controllers;
 using JONMVC.Website.Mailers;
 using JONMVC.Website.Models.Checkout;
+using JONMVC.Website.Models.Services;
 using JONMVC.Website.Tests.Unit.AutoMapperMaps;
+using JONMVC.Website.ViewModels.Json.Views;
 using JONMVC.Website.ViewModels.Views;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
@@ -793,13 +795,126 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         {
             //Arrange
             var extendedCustomer = fixture.CreateAnonymous<ExtendedCustomer>();
+
             var customerAccountService = MockRepository.GenerateMock<ICustomerAccountService>();
-            customerAccountService.Expect(x => x.UpdateCustomer(Arg<ExtendedCustomer>.Is.Anything));
+            customerAccountService.Expect(x => x.UpdateCustomer(Arg<ExtendedCustomer>.Matches(m=> m.Email == extendedCustomer.Email))).Repeat.Once().Return(MembershipCreateStatus.Success);
             //Act
             var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
             //Assert
-            var viewModel = controller.UpdateCustomerDetails(extendedCustomer);
+            controller.UpdateCustomerDetails(extendedCustomer);
 
+            customerAccountService.VerifyAllExpectations();
+
+
+        }
+
+        [Test]
+        public void UpdateCustomerDetails_ShouldRedirectToMyAccountIndexIfTheUpdateIsSucessful()
+        {
+            //Arrange
+            var extendedCustomer = fixture.CreateAnonymous<ExtendedCustomer>();
+
+            var customerAccountService = MockRepository.GenerateStub<ICustomerAccountService>();
+            customerAccountService.Stub(x => x.UpdateCustomer(Arg<ExtendedCustomer>.Matches(m => m.Email == extendedCustomer.Email))).Repeat.Once().Return(MembershipCreateStatus.Success);
+            //Act
+            var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
+            //Assert
+            var redirect = controller.UpdateCustomerDetails(extendedCustomer);
+
+            redirect.AssertActionRedirect().ToController("MyAccount").ToAction("Index");
+
+        }
+
+        [Test]
+        public void UpdateCustomerDetails_ShouldRedirectToErrorPageIfUpdateNotSuccessful()
+        {
+            //Arrange
+            var extendedCustomer = fixture.CreateAnonymous<ExtendedCustomer>();
+
+            var customerAccountService = MockRepository.GenerateStub<ICustomerAccountService>();
+            customerAccountService.Stub(x => x.UpdateCustomer(Arg<ExtendedCustomer>.Matches(m => m.Email == extendedCustomer.Email))).Repeat.Once().Return(MembershipCreateStatus.ProviderError);
+            //Act
+            var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
+            //Assert
+            var redirect = controller.UpdateCustomerDetails(extendedCustomer);
+
+            redirect.AssertActionRedirect().ToController("Services").ToAction("ReportError");
+
+        }
+
+        [Test]
+        public void ChangePassword_ShouldTryToChangeThePassword()
+        {
+            //Arrange
+            var model = new ChangePasswordModel();
+
+            var customerAccountService = MockRepository.GenerateMock<ICustomerAccountService>();
+            customerAccountService.Expect(x => x.ChangePassword(
+                Arg<string>.Is.Equal(model.Email),
+                Arg<string>.Is.Equal(model.OldPassword),
+                Arg<string>.Is.Equal(model.NewPassword)
+                )).Repeat.Once();
+
+            //Act
+            var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
+            //Assert
+            controller.ChangePassword(model);
+
+            customerAccountService.VerifyAllExpectations();
+
+
+
+
+
+        }
+
+        [Test]
+        public void ChangePassword_ShouldReturnHasErrorFalseIfThePasswordWasChangedSuccessfuly()
+        {
+            //Arrange
+            var model = new ChangePasswordModel();
+
+            var customerAccountService = MockRepository.GenerateStub<ICustomerAccountService>();
+            customerAccountService.Stub(x => x.ChangePassword(
+                Arg<string>.Is.Equal(model.Email),
+                Arg<string>.Is.Equal(model.OldPassword),
+                Arg<string>.Is.Equal(model.NewPassword)
+            )).Repeat.Once();
+
+            //Act
+            var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
+            //Assert
+            var json = controller.ChangePassword(model) as JsonResult;
+
+            var jsonResult = json.Data as OporationWithoutReturnValueJsonModel;
+
+            jsonResult.HasError.Should().Be(false);
+
+
+
+        }
+
+        [Test]
+        public void ChangePassword_ShouldReturnHasErrorTrueIfExceptionWasThrowm()
+        {
+            //Arrange
+            var model = new ChangePasswordModel();
+
+            var customerAccountService = MockRepository.GenerateStub<ICustomerAccountService>();
+            customerAccountService.Stub(x => x.ChangePassword(
+                Arg<string>.Is.Equal(model.Email),
+                Arg<string>.Is.Equal(model.OldPassword),
+                Arg<string>.Is.Equal(model.NewPassword)
+            )).Repeat.Once().Throw(new Exception("exception"));
+
+            //Act
+            var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
+            //Assert
+            var json = controller.ChangePassword(model) as JsonResult;
+
+            var jsonResult = json.Data as OporationWithoutReturnValueJsonModel;
+
+            jsonResult.HasError.Should().Be(true);
         }
 
         private ICustomerAccountService CustomerAccountServiceThatWhenAskedForRegularPasswordBasedValidationReturns(bool returns)

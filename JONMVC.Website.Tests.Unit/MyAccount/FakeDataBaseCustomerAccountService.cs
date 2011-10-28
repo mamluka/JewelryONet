@@ -177,6 +177,11 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             }
         }
 
+        public void ChangePassword(string email, string oldpassword, string newpassword)
+        {
+            throw new NotImplementedException();
+        }
+
         public ExtendedCustomer GetExtendedCustomerByEmail(string email)
         {
             try

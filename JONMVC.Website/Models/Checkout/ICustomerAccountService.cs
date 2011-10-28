@@ -10,6 +10,7 @@ namespace JONMVC.Website.Models.Checkout
         MembershipCreateStatus UpdateCustomer(ExtendedCustomer customer);
         Customer GetCustomerByEmail(string email);
         string RecoverPassword(string email);
+        void ChangePassword(string email,string oldpassword, string newpassword);
         ExtendedCustomer GetExtendedCustomerByEmail(string email);
         MembershipCreateStatus CreateExtendedCustomer(ExtendedCustomer customer, string password);
 

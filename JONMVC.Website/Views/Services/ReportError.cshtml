@@ -1,0 +1,12 @@
+﻿@using JONMVC.Website.ViewModels.Views
+@model ReportErrorViewModel
+
+@{
+    ViewBag.Title = "ReportError";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>An error occured</h2>
+<span>While processing your request we have encoutered an error</span>
+<span>@Model.ErrorMessage</span>
+<span>If the problem persist please @Html.ActionLink("contact us","GetInTouch","Services")</span>

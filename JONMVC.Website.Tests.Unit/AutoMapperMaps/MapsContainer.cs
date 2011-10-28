@@ -343,7 +343,7 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto => dto.state2_id, opt => opt.MapFrom(x => x.Second.ShippingAddress.StateID))
                 .ForMember(dto => dto.country2_id, opt => opt.MapFrom(x => x.Second.ShippingAddress.CountryID))
                 .ForMember(dto => dto.password, opt => opt.MapFrom(x => x.First.password))
-                .ForMember(dto => dto.create_date, opt => opt.MapFrom(x => x.Second.MemeberSince))
+                .ForMember(dto => dto.create_date, opt => opt.MapFrom(x => x.First.create_date))
                 .ForMember(dto => dto.city1, opt => opt.MapFrom(x => x.Second.BillingAddress.City))
                 .ForMember(dto => dto.city2, opt => opt.MapFrom(x => x.Second.ShippingAddress.City))
                 .ForMember(dto => dto.phone1, opt => opt.MapFrom(x => x.Second.BillingAddress.Phone))
@@ -352,6 +352,7 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto => dto.street2, opt => opt.MapFrom(x => x.Second.ShippingAddress.Address1))
                 .ForMember(dto => dto.zip1, opt => opt.MapFrom(x => x.Second.BillingAddress.ZipCode))
                 .ForMember(dto => dto.zip2, opt => opt.MapFrom(x => x.Second.ShippingAddress.ZipCode))
+                .ForMember(dto => dto.id, opt => opt.MapFrom(x=>x.First.id))
 
                 .ForMember(dto => dto.active, opt => opt.UseValue(true))
                 .ForMember(dto => dto.aid, opt => opt.UseValue(1))
@@ -374,7 +375,6 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto => dto.fax1, opt => opt.UseValue(String.Empty))
                 .ForMember(dto => dto.fax2, opt => opt.UseValue(String.Empty))
                 .ForMember(dto => dto.historical_user, opt => opt.UseValue(0))
-                .ForMember(dto => dto.id, opt => opt.Ignore())
                 .ForMember(dto => dto.idex_percent, opt => opt.UseValue(10))
                 .ForMember(dto => dto.inv_mail, opt => opt.UseValue(false))
                 .ForMember(dto => dto.inv_update, opt => opt.UseValue(false))
@@ -405,7 +405,6 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto => dto.sys_STATE1, opt => opt.Ignore())
                 .ForMember(dto => dto.sys_STATE1Reference, opt => opt.Ignore())
                 .ForMember(dto => dto.userdeleted, opt => opt.UseValue(false))
-
                 ;
 
             Mapper.CreateMap<Order, usr_CUSTOMERS>()

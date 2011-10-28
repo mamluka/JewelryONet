@@ -276,6 +276,7 @@
     <Compile Include="Models\Jewelry\Metal.cs" />
     <Compile Include="Models\Jewelry\JewelMediaType.cs" />
     <Compile Include="Models\Ninject\StandardModule.cs" />
+    <Compile Include="Models\Services\ChangePasswordModel.cs" />
     <Compile Include="Models\Services\CookieWishListPersistence.cs" />
     <Compile Include="Models\Services\IViewModelBuilder.cs" />
     <Compile Include="Models\Services\IWishListPersistence.cs" />
@@ -352,6 +353,7 @@
     <Compile Include="ViewModels\Views\PageViewModelBase.cs" />
     <Compile Include="ViewModels\Views\RecoverPasswordViewModel.cs" />
     <Compile Include="ViewModels\Views\RegisterCustomerViewModel.cs" />
+    <Compile Include="ViewModels\Views\ReportErrorViewModel.cs" />
     <Compile Include="ViewModels\Views\ReviewOrderViewModel.cs" />
     <Compile Include="ViewModels\Views\RingSizePartialViewModel.cs" />
     <Compile Include="ViewModels\Views\SearchViewModel.cs" />
@@ -804,6 +806,7 @@
     <Content Include="Views\MyAccount\ThankYouForSubscribingEithUs.cshtml" />
     <Content Include="Views\MyAccount\SigninTopManuLink.cshtml" />
     <Content Include="Views\Services\Aweber.cshtml" />
+    <Content Include="Views\Services\ReportError.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

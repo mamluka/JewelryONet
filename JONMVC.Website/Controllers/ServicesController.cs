@@ -130,5 +130,10 @@ namespace JONMVC.Website.Controllers
             ViewBag.Email = email;
             return View();
         }
+
+        public ActionResult ReportError(ReportErrorViewModel model)
+        {
+            return View(model);
+        }
     }
 }

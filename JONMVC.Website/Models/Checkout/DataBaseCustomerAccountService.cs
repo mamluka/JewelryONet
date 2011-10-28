@@ -115,7 +115,6 @@ namespace JONMVC.Website.Models.Checkout
 
         public MembershipCreateStatus UpdateCustomer(ExtendedCustomer customer)
         {
-            //var customerdto = mapper.Map<ExtendedCustomer, usr_CUSTOMERS>(customer);
             try
             {
                 using (var db = new JONEntities())
@@ -186,6 +185,31 @@ namespace JONMVC.Website.Models.Checkout
             catch (Exception ex)
             {
                 throw new Exception("When asked to recover password for customer: " + email + " an error occured:\r\n" + ex.Message);
+            }
+        }
+
+        public void ChangePassword(string email, string oldpassword, string newpassword)
+        {
+            try
+            {
+                using (var db = new JONEntities())
+                {
+                    var customer = db.usr_CUSTOMERS.Where(x => x.email == email).SingleOrDefault();
+
+                    if (customer.password == oldpassword)
+                    {
+                        customer.password = newpassword;
+                        db.SaveChanges();
+
+                        return;
+
+                    }
+                    throw new Exception("Your password didn't match our records, please try again");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("When asked to change your password an error occured\r\n" + ex.Message);
             }
         }
 

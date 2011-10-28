@@ -10,8 +10,10 @@ using System.Web.Security;
 using AutoMapper;
 using JONMVC.Website.Mailers;
 using JONMVC.Website.Models.Checkout;
+using JONMVC.Website.Models.Services;
 using JONMVC.Website.Models.Utils;
 using JONMVC.Website.ViewModels.Builders;
+using JONMVC.Website.ViewModels.Json.Views;
 using JONMVC.Website.ViewModels.Views;
 using Mvc.Mailer;
 
@@ -220,7 +222,31 @@ namespace JONMVC.Website.Controllers
         
         public ActionResult UpdateCustomerDetails(ExtendedCustomer extendedCustomer)
         {
-            return RedirectToAction("Index");
+            var status = customerAccountService.UpdateCustomer(extendedCustomer);
+            if (status == MembershipCreateStatus.Success)
+            {
+                return RedirectToAction("Index","MyAccount");    
+            };
+            return RedirectToAction("ReportError","Services",new ReportErrorViewModel
+                                                                 {
+                                                                     ErrorMessage = "Can't update user details"
+                                                                 });
+
+        }
+
+        public ActionResult ChangePassword(ChangePasswordModel model)
+        {
+            try
+            {
+                customerAccountService.ChangePassword(model.Email, model.OldPassword, model.NewPassword);
+                return Json(new OporationWithoutReturnValueJsonModel());
+            }
+            catch (Exception ex)
+            {
+                return Json(new OporationWithoutReturnValueJsonModel(true, ex.Message));
+            }
+
+
         }
     }
 }

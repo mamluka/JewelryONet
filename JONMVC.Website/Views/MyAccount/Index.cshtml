@@ -56,6 +56,8 @@
     }
 </div>
 <div class="rounded-white-container top20 padding10">
+<span class="right"><a href="#ChangePassword" class="boxy" title="Change password">
+        Change Password</a></span>
     <span class="right"><a href="#EditCustomerDetails" class="boxy" title="Update customer details">
         Update Details</a></span>
     <div class="clear">
@@ -88,20 +90,7 @@
                 <div class="cell">
                     <span class="redbold bold">Billing Information:</span>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td>
-                                First name:
-                            </td>
-                            <td>@Model.BillingAddress.FirstName
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Last name:
-                            </td>
-                            <td>@Model.BillingAddress.LastName
-                            </td>
-                        </tr>
+                        
                         <tr>
                             <td>
                                 Address:
@@ -149,20 +138,7 @@
                 <div class="cell">
                     <span class="redbold bold">Shipping Information:</span>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td>
-                                First name:
-                            </td>
-                            <td>@Model.ShippingAddress.FirstName
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Last name:
-                            </td>
-                            <td>@Model.ShippingAddress.LastName
-                            </td>
-                        </tr>
+                        
                         <tr>
                             <td>
                                 Address:
@@ -220,6 +196,8 @@
         </div>
         <span class="title">Newsletter </span><span class="redbold inline bold">@Html.ActionLink("Sign me up", "Aweber", "Services")</span>
     </div>
+
+
 </div>
 <div id="EditCustomerDetails" class="hidden">
     @using (Html.BeginForm("UpdateCustomerDetails", "MyAccount"))
@@ -261,22 +239,7 @@
                 <div class="cell billingaddress">
                     <fieldset class="onecolumb-form">
                         <legend>My Billing Address:</legend>
-                        <dl>
-                            <dt>
-                                <label for="name">
-                                    First name:</label></dt>
-                            <dd>@Html.TextBoxFor(m => m.BillingAddress.FirstName) <span data-valmsg-replace="false"
-                                data-valmsg-for="BillingAddress.FirstName" class="field-validation-valid"></span>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="name">
-                                    Last name:</label></dt>
-                            <dd>@Html.TextBoxFor(m => m.BillingAddress.LastName) <span data-valmsg-replace="false"
-                                data-valmsg-for="BillingAddress.LastName" class="field-validation-valid"></span>
-                            </dd>
-                        </dl>
+                        
                         <dl>
                             <dt>
                                 <label for="name">
@@ -334,22 +297,7 @@
                 <div class="cell shippingaddress ">
                     <fieldset class="onecolumb-form">
                         <legend>My Shipping Address:</legend>
-                        <dl>
-                            <dt>
-                                <label for="name">
-                                    First name:</label></dt>
-                            <dd>@Html.TextBoxFor(m => m.ShippingAddress.FirstName) <span data-valmsg-replace="false"
-                                data-valmsg-for="ShippingAddress.FirstName" class="field-validation-valid"></span>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="name">
-                                    Last name:</label></dt>
-                            <dd>@Html.TextBoxFor(m => m.ShippingAddress.LastName) <span data-valmsg-replace="false"
-                                data-valmsg-for="ShippingAddress.LastName" class="field-validation-valid"></span>
-                            </dd>
-                        </dl>
+                        
                         <dl>
                             <dt>
                                 <label for="name">
@@ -409,11 +357,68 @@
 	
     }
 </div>
+<div id="ChangePassword" class="hidden">
+    @using (Html.BeginForm("ChangePassword", "MyAccount"))
+    {
+
+    <div class="error hidden"></div>
+        <fieldset class="onecolumb-form">
+            <legend>Update my password</legend>
+            <dl>
+                <dt>
+                    <label for="Email">
+                        Old password:</label></dt>
+                <dd>@this.Password("OldPassword") <span data-valmsg-replace="false"
+                                                       data-valmsg-for="Email" class="field-validation-valid"></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="FirstName">
+                        New password:</label></dt>
+                <dd>@this.Password("NewPassword") <span data-valmsg-replace="false"
+                                                       data-valmsg-for="FirstName" class="field-validation-valid"></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="LastName">
+                        Confirm new password:</label></dt>
+                <dd>@this.Password("ConfirmNewPassword") <span data-valmsg-replace="false" 
+                                                              data-valmsg-for="LastName" class="field-validation-valid"></span>
+                </dd>
+            </dl>
+
+            @this.Hidden("Email").Value(Model.Email)
+                        
+        </fieldset>
+        
+        <input class="button" type="submit" value="Change password"/>
+    }
+</div>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.boxy').boxy({
             title: 'Update customer details'
         });
+
+        $('#ChangePassword form').ajaxForm(
+			{
+			    beforeSubmit: function () {
+			        return $(this).validate().showErrors();
+			    },
+			    dataType: 'json',
+			    success: function (data) {
+			        if (data.HasError) {
+			            $('#ChangePassword .error').show().html(data.ErrorMessage);
+			        } else {
+			            Boxy.get($('#ChangePassword')).hide();
+			            MessageBox.Show('Password changed');
+			        }
+			    }
+
+
+			});
     })
 
 </script>

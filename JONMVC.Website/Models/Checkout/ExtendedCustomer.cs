@@ -7,5 +7,6 @@ namespace JONMVC.Website.Models.Checkout
         public Address BillingAddress { get; set; }
         public Address ShippingAddress { get; set; }
         public DateTime MemeberSince { get; set; }
+
     }
 }
