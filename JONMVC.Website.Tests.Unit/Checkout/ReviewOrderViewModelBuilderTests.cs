@@ -74,6 +74,21 @@ namespace JONMVC.Website.Tests.Unit.Checkout
 
         }
 
+        [Test]
+        public void Build_ShouldSetTheCartItemsToNotShoeAction()
+        {
+            //Arrange
+            var builder = CreateDefaultReviewOrderViewModelBuilder();
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+
+            //viewModel.CartItems.Should().Match(x=> x.)
+            
+
+
+        }
+
         private ReviewOrderViewModelBuilder CreateDefaultReviewOrderViewModelBuilder()
         {
             var checkoutDetailsModel = DefaultCheckoutDetailsModel();

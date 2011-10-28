@@ -1,5 +1,7 @@
 ﻿@using JONMVC.Website.ViewModels.Views
 @using MvcContrib.FluentHtml
+@using JONMVC.Website.Extensions;
+
 @inherits MvcContrib.FluentHtml.ModelWebViewPage<ReviewOrderViewModel>
 @{
     ViewBag.Title = "Checkout process: review order";
@@ -232,6 +234,7 @@
                 <input type="hidden" name="zip" value="@Model.BillingAddress.ZipCode">
                 <input type="hidden" name="email" value="@Model.Email">
                 <input type="hidden" name="item_name" value="Your JewelryONet.com invoice">
+                <input type="hidden" name="return" value="@Url.AbsoluteAction("ThankYouForUsingPaypal", "Checkout")" >
                 <input type="submit" name="submit" border="0" value="Pay with PayPal" class="button">
                 </form> 
             }

@@ -123,5 +123,12 @@ namespace JONMVC.Website.Controllers
             viewModel.Term = searchTerm;
             return View(viewModel);
         }
+
+        public ActionResult Aweber(string name,string email)
+        {
+            ViewBag.Name = name;
+            ViewBag.Email = email;
+            return View();
+        }
     }
 }

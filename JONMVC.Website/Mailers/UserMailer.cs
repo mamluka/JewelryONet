@@ -13,10 +13,19 @@ namespace JONMVC.Website.Mailers
 { 
     public class UserMailer : MailerBase, IUserMailer     
 	{
+        private readonly MailAddress salesSender =  new MailAddress("sales@jewelryonet.com","Sales@JewelryONet.com");
+        private readonly MailAddress serviceSender = new MailAddress("service@jewelryonet.com", "Service@JewelryONet.com");
+
+        private readonly List<string> copyEmailAddress = new List<string>()
+                                                             {
+                                                                 "sales@jewelryonet.com",
+                                                                 "david.mazvovsky@gmail.com"
+                                                             }; 
 		public UserMailer():
 			base()
 		{
 			MasterName="_Layout";
+		    
 		}
 
 
@@ -31,6 +40,9 @@ namespace JONMVC.Website.Mailers
             var mailMessage = new MailMessage { Subject = "Best offer confirmation from JewelryONet.com" };
 
             mailMessage.To.Add(mailTo);
+            mailMessage.From = salesSender;
+
+            mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
 
             ViewData = new ViewDataDictionary<BestOfferEmailTemplateViewModel>(model);
 
@@ -38,6 +50,8 @@ namespace JONMVC.Website.Mailers
 
             return mailMessage;
 		}
+
+        
 
         public MailMessage AskQuestion(string mailTo, AskQuestionEmailTemplateViewModel model)
         {
@@ -49,7 +63,9 @@ namespace JONMVC.Website.Mailers
 
 
             mailMessage.To.Add(mailTo);
-            
+            mailMessage.From = salesSender;
+
+            mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
 
             ViewData = new ViewDataDictionary<AskQuestionEmailTemplateViewModel>(model);
 
@@ -60,9 +76,12 @@ namespace JONMVC.Website.Mailers
 
         public MailMessage OrderConfirmation(string mailTo, OrderConfirmationEmailTemplateViewModel model)
         {
-            var mailMessage = new MailMessage { Subject = "Confirm order number:" + model.OrderNumber };
+            var mailMessage = new MailMessage { Subject = "Confirmation for order #" + model.OrderNumber };
 
             mailMessage.To.Add(mailTo);
+            mailMessage.From = salesSender;
+
+            mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
 
             ViewData = new ViewDataDictionary<OrderConfirmationEmailTemplateViewModel>(model);
 
@@ -81,9 +100,13 @@ namespace JONMVC.Website.Mailers
             var mailMessage = new MailMessage { Subject = "Your account password for JewelryONet.com" };
 
             mailMessage.To.Add(mailTo);
+            mailMessage.From = serviceSender;
+
+            mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
 
             ViewBag.LostPassword = lostPassword;
             ViewBag.Email = mailTo;
+            
 
             PopulateBody(mailMessage, "RecoverPassword");
 
@@ -95,6 +118,9 @@ namespace JONMVC.Website.Mailers
             var mailMessage = new MailMessage { Subject = "Thank you for registering to JewelryONet" };
 
             mailMessage.To.Add(customer.Email);
+            mailMessage.From = serviceSender;
+
+            mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
 
             ViewBag.Password = customer.Password;
             ViewBag.Name = customer.FirstName + " " + customer.LastName;
@@ -111,11 +137,23 @@ namespace JONMVC.Website.Mailers
             var mailMessage = new MailMessage { Subject = model.YourName +  " wants you to checkout this jewel on JewelryONet.com" };
 
             mailMessage.To.Add(mailTo);
+            mailMessage.From = serviceSender;
+
+            mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
 
             ViewData = new ViewDataDictionary<EmailRingEmailTemplateViewModel>(model);
 
             PopulateBody(mailMessage, "EmailRing");
 
+            return mailMessage;
+        }
+
+        private MailMessage ToSendACopyOfThisMailToSystemAddBCCFields(MailMessage mailMessage)
+        {
+            foreach (var address in copyEmailAddress)
+            {
+                mailMessage.Bcc.Add(new MailAddress(address));
+            }
             return mailMessage;
         }
 	}

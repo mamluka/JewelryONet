@@ -1,7 +1,8 @@
 ﻿@using JONMVC.Website.ViewModels.Views
-@model MyAccountViewModel
+@using MvcContrib.FluentHtml
+@inherits ModelWebViewPage<MyAccountViewModel>
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "My Account";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="rounded-white-container padding10">
@@ -55,6 +56,10 @@
     }
 </div>
 <div class="rounded-white-container top20 padding10">
+    <span class="right"><a href="#EditCustomerDetails" class="boxy" title="Update customer details">
+        Update Details</a></span>
+    <div class="clear">
+    </div>
     <h3>
         My Personal Details</h3>
     <div class="details-listing">
@@ -63,14 +68,13 @@
         </div>
         <span class="title">Your Name: </span><span class="redbold inline bold">@Model.FirstName
             @Model.LastName</span>
-            <div class="clear">
+        <div class="clear">
         </div>
-             
         @if (!Model.HasAddressInformation)
         {
             <span>Address:</span>
             <span>City:</span>
-            
+			
             <span>Country: <span class="redbold inline bold">@Model.Country</span></span>
             <span>State: <span class="redbold inline bold">@Model.State</span></span>
             <span>Zip code:</span>
@@ -217,3 +221,199 @@
         <span class="title">Newsletter </span><span class="redbold inline bold">@Html.ActionLink("Sign me up", "Aweber", "Services")</span>
     </div>
 </div>
+<div id="EditCustomerDetails" class="hidden">
+    @using (Html.BeginForm("UpdateCustomerDetails", "MyAccount"))
+    {
+    
+        
+            <fieldset class="onecolumb-form">
+                        <legend>My Personal Details</legend>
+                        <dl>
+                            <dt>
+                                <label for="Email">
+                                    Email:</label></dt>
+                            <dd>@this.TextBox(m => m.Email).Styles(width=>"250px") <span data-valmsg-replace="false"
+                                data-valmsg-for="Email" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="FirstName">
+                                    First name:</label></dt>
+                            <dd>@this.TextBox(m => m.FirstName) <span data-valmsg-replace="false"
+                                data-valmsg-for="FirstName" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="LastName">
+                                    Last name:</label></dt>
+                            <dd>@this.TextBox(m => m.LastName) <span data-valmsg-replace="false" 
+                                data-valmsg-for="LastName" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        
+                        </fieldset>
+        
+    
+        <div class="table width100 top10 billing">
+            <div class="row">
+                <div class="cell billingaddress">
+                    <fieldset class="onecolumb-form">
+                        <legend>My Billing Address:</legend>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    First name:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.BillingAddress.FirstName) <span data-valmsg-replace="false"
+                                data-valmsg-for="BillingAddress.FirstName" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    Last name:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.BillingAddress.LastName) <span data-valmsg-replace="false"
+                                data-valmsg-for="BillingAddress.LastName" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    Address:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.BillingAddress.Address1) <span data-valmsg-replace="false"
+                                data-valmsg-for="BillingAddress.Address1" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    City:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.BillingAddress.City) <span data-valmsg-replace="false"
+                                data-valmsg-for="BillingAddress.City" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    Country:</label></dt>
+                            <dd>@this.Select(x => x.BillingAddress.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key"))
+                                <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.CountryID" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    State:</label></dt>
+                            <dd>@this.Select(x => x.BillingAddress.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key"))
+                                <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.StateID" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    Zip code:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.BillingAddress.ZipCode) <span data-valmsg-replace="false"
+                                data-valmsg-for="BillingAddress.ZipCode" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    Phone #:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.BillingAddress.Phone) <span data-valmsg-replace="false"
+                                data-valmsg-for="BillingAddress.Phone" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                    </fieldset>
+                </div>
+                <div class="cell sep">
+                </div>
+                <div class="cell shippingaddress ">
+                    <fieldset class="onecolumb-form">
+                        <legend>My Shipping Address:</legend>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    First name:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.ShippingAddress.FirstName) <span data-valmsg-replace="false"
+                                data-valmsg-for="ShippingAddress.FirstName" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    Last name:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.ShippingAddress.LastName) <span data-valmsg-replace="false"
+                                data-valmsg-for="ShippingAddress.LastName" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    Address:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.ShippingAddress.Address1) <span data-valmsg-replace="false"
+                                data-valmsg-for="ShippingAddress.Address1" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    City:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.ShippingAddress.City) <span data-valmsg-replace="false"
+                                data-valmsg-for="ShippingAddress.City" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    Country:</label></dt>
+                            <dd>@this.Select(x => x.ShippingAddress.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key"))
+                                <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.CountryID" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    State:</label></dt>
+                            <dd>@this.Select(x => x.ShippingAddress.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key"))
+                                <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.StateID" class="field-validation-valid">
+                                </span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    Zip code:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.ShippingAddress.ZipCode) <span data-valmsg-replace="false"
+                                data-valmsg-for="ShippingAddress.ZipCode" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="name">
+                                    Phone #:</label></dt>
+                            <dd>@Html.TextBoxFor(m => m.ShippingAddress.Phone) <span data-valmsg-replace="false"
+                                data-valmsg-for="ShippingAddress.Phone" class="field-validation-valid"></span>
+                            </dd>
+                        </dl>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="padding10 alignright">
+            <input type="submit" value="Update details" class="top10 button" /></div>
+	
+    }
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.boxy').boxy({
+            title: 'Update customer details'
+        });
+    })
+
+</script>

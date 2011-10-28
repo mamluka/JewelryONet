@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Script.Serialization;
 using AutoMapper;
 using JONMVC.Website.Mailers;
 using JONMVC.Website.Models.Checkout;
@@ -111,9 +112,31 @@ namespace JONMVC.Website.Controllers
             shoppingCartWrapper.Presist(shoppingCart, HttpContext);
             return RedirectToAction("ShoppingCart");
         }
+
         [RequireHttps]
+        
         public ActionResult Billing(CheckoutDetailsModel checkoutDetailsModel)
         {
+            if (!String.IsNullOrEmpty(Request.Form["LoginEmail"]))
+            {
+                var js = new JavaScriptSerializer();
+
+                var jsonModel = js.Serialize(checkoutDetailsModel);
+
+                return RedirectToAction("ProcessSignin", "MyAccount", new RouteValueDictionary
+                                                                   {
+                                                                       {"RedirectMode",RedirectMode.Route},
+                                                                       {"RouteController","Checkout"},
+                                                                       {"RouteAction","Billing"},
+                                                                       {"Email",Request.Form["LoginEmail"]},
+                                                                       {"Password",Request.Form["Password"]},
+                                                                       {"JSONEncodedRouteValues",jsonModel},
+                                                                       {"RouteValuesModelClassName",checkoutDetailsModel.GetType().FullName}
+                                                                    
+                                                                   });
+
+            }
+
             var builder = new BillingViewModelBuilder(checkoutDetailsModel, authentication,accountService,mapper);
             var viewModel = builder.Build();
 

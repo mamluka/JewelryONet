@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Script.Serialization;
 using System.Web.Security;
 using AutoMapper;
 using JONMVC.Website.Mailers;
@@ -109,30 +111,61 @@ namespace JONMVC.Website.Controllers
             return View(viewModel);
         }
         [RequireHttps]
-        public ActionResult Signin()
+        public ActionResult Signin(SigninViewModel viewModel)
         {
-            var viewModel = new SigninViewModel();
+            if (viewModel == null)
+            {
+                viewModel.RouteAction = "ProcessSignin";
+                viewModel.RouteController = "MyAccount";
+                viewModel.RedirectMode = RedirectMode.Route;
+            }
             return View(viewModel);
         }
+
         //TODO add remember me to the login control
-        [HttpPost]
+        
         [RequireHttps]
-        public ActionResult Signin(SigninViewModel model)
+        public ActionResult ProcessSignin(SigninViewModel model)
         {
 
+            var isValidLogin = CheckifValidPasswordAndSignInUsingModel(model);
+
+            if (isValidLogin)
+            {
+                if (model.RedirectMode == RedirectMode.Link)
+                {
+                    return Redirect(model.ReturnURL);
+                }
+                object routeValues = null;
+
+                if (!String.IsNullOrWhiteSpace(model.JSONEncodedRouteValues))
+                {
+                    var js = new JavaScriptSerializer();
+
+                    routeValues = js.Deserialize(model.JSONEncodedRouteValues,
+                                                 Type.GetType(model.RouteValuesModelClassName));
+                }
+                return RedirectToAction(model.RouteAction, model.RouteController, routeValues);
+            }
+
+            model.HasError = true;
+            model.Password = String.Empty;
+
+            return RedirectToAction("Signin", model);
+        }
+
+        public bool CheckifValidPasswordAndSignInUsingModel(SigninViewModel model)
+        {
             var isValidLogin = customerAccountService.ValidateCustomer(model.Email, model.Password);
 
             if (isValidLogin)
             {
                 var customer = customerAccountService.GetCustomerByEmail(model.Email);
                 authentication.Signin(model.Email, customer);
-                return RedirectToAction("Index", "MyAccount");
             }
-
-            var viewModel = new SigninViewModel() {HasError = true};
-
-            return View(viewModel);
+            return isValidLogin;
         }
+
         [RequireHttps]
         public ActionResult RecoverPassword()
         {
@@ -184,6 +217,10 @@ namespace JONMVC.Website.Controllers
 
             return View();
         }
-   
+        
+        public ActionResult UpdateCustomerDetails(ExtendedCustomer extendedCustomer)
+        {
+            return RedirectToAction("Index");
+        }
     }
 }

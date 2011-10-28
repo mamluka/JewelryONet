@@ -41,8 +41,18 @@
         <div class="cell">
             @using (Html.BeginForm("Billing", "Checkout", FormMethod.Post, new { @class = "cart block" }))
             {
+                if (Model.IsSignedIn)
+                {
+                <div class="top10">
+                    You are logged in as <strong class="sitered inline">@Model.Email</strong>
+                    <br />
+                    Not you? @Html.ActionLink("Signout", "Signout", "MyAccount")
+                </div>
+                }
+                else
+                {
                 <span>Choose your preferred payment method:</span>
-       
+
                 <div class="block left aligncenter payment top10">
                     <img src="/Content/images/checkout/shoppingcart/paypal.png" />
                     @Html.RadioButtonFor(x => x.PaymentMethod, PaymentMethod.PayPal, new { @class = "block center", @checked = true })
@@ -66,17 +76,11 @@
 
 
 
-                if (Model.IsSignedIn)
-                {
-                    <div class="top10">
-                        You are logged in as <strong class="sitered inline">@Model.Email</strong>  <br />
-                    Not you? @Html.ActionLink("Signout","Signout","MyAccount") 
-                    </div>
-                }
-                else
-                {
+                
+                <h4>
+                    Contact Information (New & Guest Customers)</h4>
+                <span>You can check out as a Guest and you are not required to sign in</span>
                 <fieldset class="shoppingcart-form">
-                    <legend>Contact Information:</legend>
                     <dl>
                         <dt>
                             <label for="firstname">
@@ -125,9 +129,48 @@
                     </dl>
                 </fieldset>
                 }
-				
 
-			 
+                <span>Interesting in having an Account? You will be given the opportunity to create
+                    an account after you have checked out.</span>
+
+                <h3>
+                    Already have an Account?
+                    <br />
+                    Please sign in to your account for faster check out.</h3>
+
+
+                <fieldset class="onecolumb-form">
+                    <dl>
+                        <dt>
+                            <label for="Email">
+                                Your Email:</label>
+                        </dt>
+                        <dd>
+                            @Html.TextBox("LoginEmail")
+                            <span data-valmsg-replace="false" data-valmsg-for="Email" class="field-validation-valid">
+                            </span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label for="Password">
+                                Password:</label></dt>
+                        <dd>
+                            @Html.Password("Password")
+                            <span data-valmsg-replace="false" data-valmsg-for="Password" class="field-validation-valid">
+                            </span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt></dt>
+                        <dd>
+                            <span class="top10 block clear">@Html.ActionLink("Forgot your password?", "RecoverPassword", "MyAccount")</span>
+                        </dd>
+                    </dl>
+                </fieldset>
+
+
+
 
                 <div class="block aligncenter top10 clear">
                     <input type="image" src="/Content/images/checkout/shoppingcart/proceed-to-checkout.png"
@@ -138,7 +181,6 @@
 
                 <span class="top10"><strong>Shipping Information</strong></span>
                 @Html.Partial("ShippingInformation")
-
             }
         </div>
     </div>

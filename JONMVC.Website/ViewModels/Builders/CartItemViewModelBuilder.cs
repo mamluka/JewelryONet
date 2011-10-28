@@ -71,7 +71,7 @@ namespace JONMVC.Website.ViewModels.Builders
                 jewelRepository.FilterMediaByMetal(customJewel.MediaType);
                 var diamond = diamondRepository.GetDiamondByID(customJewel.DiamondID);
                 var jewel = jewelRepository.GetJewelByID(customJewel.SettingID);
-
+                
                 var twoObjects = new MergeDiamondAndJewel()
                                      {
                                          First = diamond,

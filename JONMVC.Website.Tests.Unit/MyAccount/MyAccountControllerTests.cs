@@ -508,9 +508,10 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         public void SignIn_ShouldReturnTheRightViewModel()
         {
             //Arrange
+            var model = CreateDefaultsignInViewModel();
             var controller = CreateDefaultMyAccountController();
             //Act
-            var result = controller.Signin();
+            var result = controller.Signin(model);
             //Assert
             result.AssertViewRendered().WithViewData<SigninViewModel>();
         }
@@ -519,7 +520,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         public void SigninPost_ShoulValidateTheCustomerLoginUsingEmailAndPassword()
         {
             //Arrange
-            var model = fixture.CreateAnonymous<SigninViewModel>();
+            var model = CreateDefaultsignInViewModel();
           
 
             var customerAccountService = MockRepository.GenerateMock<ICustomerAccountService>();
@@ -529,7 +530,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
 
             var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
             //Act
-            controller.Signin(model);
+            controller.ProcessSignin(model);
             //Assert
             
             customerAccountService.VerifyAllExpectations();
@@ -539,7 +540,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         public void SigninPost_ShoulSignInTheCustomerToTheSite()
         {
             //Arrange
-            var model = fixture.CreateAnonymous<SigninViewModel>();
+            var model = CreateDefaultsignInViewModel();
 
             var customerAccountService = CustomerAccountServiceThatWhenAskedForRegularPasswordBasedValidationReturns(true);
             
@@ -548,7 +549,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
 
             var controller = CreateDefaultMyAccountControllerWithCustomAuthAndAccount(authentication, customerAccountService);
             //Act
-            controller.Signin(model);
+            controller.ProcessSignin(model);
             //Assert
 
             authentication.VerifyAllExpectations();
@@ -558,7 +559,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         public void SigninPost_ShouldGetTheUserDetailsAfterTheUserWasCheckedandIsValid()
         {
             //Arrange
-            var model = fixture.CreateAnonymous<SigninViewModel>();
+            var model = CreateDefaultsignInViewModel();
 
             var customer = fixture.CreateAnonymous<Customer>();
 
@@ -570,7 +571,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
 
             var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
             //Act
-            controller.Signin(model);
+            controller.ProcessSignin(model);
             //Assert
 
             customerAccountService.VerifyAllExpectations();
@@ -580,18 +581,18 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         public void SigninPost_ShouldReturnHasErrorAsTrueIfThereIsNoValidationSoItsIsAnError()
         {
             //Arrange
-            var model = fixture.CreateAnonymous<SigninViewModel>();
+            var model = CreateDefaultsignInViewModel();
 
             var customerAccountService =
                 CustomerAccountServiceThatWhenAskedForRegularPasswordBasedValidationReturns(false);
 
             var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
             //Act
-            var result = controller.Signin(model) as ViewResult;
+            var result = controller.ProcessSignin(model) as RedirectToRouteResult;
             //Assert
-            var resultmodel = result.Model as SigninViewModel;
+            result.RouteValues["HasError"].Should().Be(true);
 
-            resultmodel.HasError.Should().BeTrue();
+            
 
         }
 
@@ -599,15 +600,27 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         public void SigninPost_ShouldRedirectToTheHomePageAfterASuccessfulLogin()
         {
             //Arrange
-            var model = fixture.CreateAnonymous<SigninViewModel>();
+            var model = CreateDefaultsignInViewModel();
+                   
 
             var customerAccountService = CustomerAccountServiceThatWhenAskedForRegularPasswordBasedValidationReturns(true);
 
             var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
             //Act
-            var result = controller.Signin(model);
+            var result = controller.ProcessSignin(model);
             //Assert
             result.AssertActionRedirect().ToController("MyAccount").ToAction("Index");
+        }
+
+        private SigninViewModel CreateDefaultsignInViewModel()
+        {
+            var model =
+                fixture.Build<SigninViewModel>().With(x => x.RedirectMode, RedirectMode.Route)
+                    .With(x => x.RouteController, "MyAccount")
+                    .With(x => x.RouteAction, "Index")
+                    .Without(x => x.JSONEncodedRouteValues)
+                    .CreateAnonymous();
+            return model;
         }
 
         [Test]
@@ -772,6 +785,20 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             bool isSignedIn = viewResult.ViewBag.IsSignedIn;
 
             isSignedIn.Should().Be(false);
+
+        }
+
+        [Test]
+        public void UpdateCustomerDetails_ShouldCallTheUpdateExtendedCustomer()
+        {
+            //Arrange
+            var extendedCustomer = fixture.CreateAnonymous<ExtendedCustomer>();
+            var customerAccountService = MockRepository.GenerateMock<ICustomerAccountService>();
+            customerAccountService.Expect(x => x.UpdateCustomer(Arg<ExtendedCustomer>.Is.Anything));
+            //Act
+            var controller = CreateDefaultMyAccountControllerWithCustomCustomerAccountService(customerAccountService);
+            //Assert
+            var viewModel = controller.UpdateCustomerDetails(extendedCustomer);
 
         }
 

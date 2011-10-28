@@ -27,7 +27,7 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
             var message = mailer.OrderConfirmation(Tests.SAMPLE_EMAIL_ADDRESS,model);
             //Assert
 
-            message.Subject.Should().Be("Confirm order number:" + model.OrderNumber);
+            message.Subject.Should().Be("Confirmation for order #" + model.OrderNumber);
             message.To.Should().HaveElementAt(0, Tests.SAMPLE_EMAIL_ADDRESS);
 
         }

@@ -1,4 +1,6 @@
-﻿@model JONMVC.Website.ViewModels.Views.SigninViewModel
+﻿@using JONMVC.Website.ViewModels.Views
+@using MvcContrib.FluentHtml;
+@inherits MvcContrib.FluentHtml.ModelWebViewPage<SigninViewModel>
 @{
     ViewBag.Title = "MyAccount: Sign in to your account on JewelryONet";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,7 +18,7 @@
     <div class="table">
         <div class="row">
             <div class="cell width50">
-                @using (Html.BeginForm())
+                @using (Html.BeginForm("ProcessSignin","MyAccount"))
                 {
 
                     <fieldset class="onecolumb-form">
@@ -51,7 +53,10 @@
                             </dd>
                         </dl>
                     </fieldset>
-
+                    
+                    @this.Hidden(x => x.JSONEncodedRouteValues)
+                    @this.Hidden(x => x.RouteController)
+                    @this.Hidden(x => x.RouteAction)
         
                 }
             </div>

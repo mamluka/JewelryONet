@@ -38,5 +38,7 @@ namespace JONMVC.Website.ViewModels.Views
         public List<ICartItemViewModel> CartItems { get; set; }
 
         public bool IsSignedIn { get; set; }
+
+        public string ErrorMessage { get; set; }
     }
 }
