@@ -81,7 +81,7 @@ var Item = {
             }
 			);
 
-        
+
 
         $('.bestoffer img:first').click(function () {
             $('#BestOfferDialog').dialog('open');
@@ -122,9 +122,9 @@ var Item = {
 				        MessageBox.Show('Error occured, try again later');
 				    }
 				});
-});
+        });
 
-Item.RegisterAjaxForEmailRing();
+        Item.RegisterAjaxForEmailRing();
 
         $('a[command="print"]').click(function () {
             window.print();
@@ -185,7 +185,7 @@ Item.RegisterAjaxForEmailRing();
             boxy.show();
         });
 
-        $('a[command=wishlist-print').click(function() {
+        $('a[command=wishlist-print').click(function () {
             window.print();
         });
     },
@@ -204,6 +204,7 @@ Item.RegisterAjaxForEmailRing();
 
 			            Boxy.get($('.emailring')).hide();
 			            MessageBox.Show('Email sent to friend');
+			            Utils.EnableSubmitButtonInsideAForm('.emailring form');
 			        }
 			    }
 
@@ -912,31 +913,58 @@ var Checkout = {
 	}
 };
 Utils = {
-	EnableSubmitButton: function () {
-		$(":submit").removeAttr("disabled");
-		$("input[type=image]").removeAttr("disabled");
-	},
-	DisableSubmitButton: function () {
-		$("input[type=image]").attr("disabled", true);
-		$(":submit").attr("disabled", true);
-	},
-	RedirectToHome: function () {
-		window.location.href = '/';
-	}
+    EnableSubmitButtonInsideAForm: function (form) {
+        $(form).find(":submit").removeAttr("disabled");
+        $(form).find("input[type=image]").removeAttr("disabled");
+    },
+    DisableSubmitButton: function () {
+        $("input[type=image]").attr("disabled", true);
+        $(":submit").attr("disabled", true);
+    },
+    RedirectToHome: function () {
+        window.location.href = '/';
+    },
+    PlaceLoaderNearButton: function (element, location) {
+
+        var loader = $('<img />').attr('src', '/Content/images/skeleton/loading.gif');
+
+        element.parents('div').append(loader);
+
+        loader.position({
+            my: 'left center',
+            at: location,
+            of: element,
+            offset:'5 0'
+        });
+
+
+    }
 
 
 
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('.find-ring-size').boxy({
-            afterShow: function() {
-                Item.LoadRingSizeDropBoxs();
-            }
-        });
+        afterShow: function () {
+            Item.LoadRingSizeDropBoxs();
+        }
+    });
 
     $('.boxy').boxy({
-            filter:'#MainMessage'
-        });
+        filter: '#MainMessage'
+    });
+
+    $('input[disable-upon-click]').click(function () {
+
+        $(this).removeClass('button').addClass('disabled-button').attr('disabled', 'disabled');
+
+        if ($(this).attr('loader') == 'true') {
+            Utils.PlaceLoaderNearButton($(this), $(this).attr('loader-location'));
+        }
+
+    });
+
+
 });
 

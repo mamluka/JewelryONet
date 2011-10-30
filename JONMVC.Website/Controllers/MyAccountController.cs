@@ -112,12 +112,15 @@ namespace JONMVC.Website.Controllers
             viewModel.CreateStatus = new CustomerCreationError(returnStatus);
             return View(viewModel);
         }
+
+
         [RequireHttps]
         public ActionResult Signin(SigninViewModel viewModel)
         {
-            if (viewModel == null)
+            if (String.IsNullOrEmpty(viewModel.RouteController))
             {
-                viewModel.RouteAction = "ProcessSignin";
+                viewModel = new SigninViewModel();
+                viewModel.RouteAction = "Index";
                 viewModel.RouteController = "MyAccount";
                 viewModel.RedirectMode = RedirectMode.Route;
             }

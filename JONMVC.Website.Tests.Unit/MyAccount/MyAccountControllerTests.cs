@@ -519,6 +519,21 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         }
 
         [Test]
+        public void SignIn_ShouldReturnDefaultSettingsIfPassedANullModel()
+        {
+            //Arrange
+            
+            var controller = CreateDefaultMyAccountController();
+            //Act
+            var result = controller.Signin(null) as ViewResult;
+            //Assert
+            var model = result.Model as SigninViewModel;
+            model.RouteAction.Should().Be("Index");
+            model.RouteController.Should().Be("MuAccount");
+            
+        }
+
+        [Test]
         public void SigninPost_ShoulValidateTheCustomerLoginUsingEmailAndPassword()
         {
             //Arrange

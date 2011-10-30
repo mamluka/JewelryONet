@@ -479,8 +479,10 @@
     <Content Include="Content\images\skeleton\blue-button-bg.png" />
     <Content Include="Content\images\skeleton\button-bg.png" />
     <Content Include="Content\images\skeleton\custom-order-bg.png" />
+    <Content Include="Content\images\skeleton\disabled-button-bg.png" />
     <Content Include="Content\images\skeleton\footer-link-sep-bg.png" />
     <Content Include="Content\images\skeleton\footer-sep-bg.png" />
+    <Content Include="Content\images\skeleton\loading.gif" />
     <Content Include="Content\images\skeleton\menu-sep-bg.png" />
     <Content Include="Content\images\skeleton\navbar-bg.png" />
     <Content Include="Content\images\skeleton\navbar-bulletin.png" />
@@ -703,7 +705,6 @@
   <ItemGroup>
     <Folder Include="Content\images\checkout\validation\" />
     <Folder Include="Content\images\services\getintouch\wishlist\icons\" />
-    <Folder Include="Content\images\skeleton\New folder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

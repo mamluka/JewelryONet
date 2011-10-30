@@ -1,5 +1,5 @@
-﻿@using JONMVC.Website.ViewModels.Views
-@using MvcContrib.FluentHtml
+﻿@using JONMVC.Website.ViewModels.Views 
+@using MvcContrib.FluentHtml 
 @inherits ModelWebViewPage<MyAccountViewModel>
 @{
     ViewBag.Title = "My Account";
@@ -56,10 +56,11 @@
     }
 </div>
 <div class="rounded-white-container top20 padding10">
-<span class="right"><a href="#ChangePassword" class="boxy" title="Change password">
-        Change Password</a></span>
+
     <span class="right"><a href="#EditCustomerDetails" class="boxy" title="Update customer details">
         Update Details</a></span>
+    <span class="right" style="margin-right: 10px"><a href="#ChangePassword" class="boxy" title="Change password">
+        Change Password</a></span>
     <div class="clear">
     </div>
     <h3>
@@ -188,6 +189,7 @@
     }
 </div>
 <div class="rounded-white-container padding10 top20">
+<span class="right">@Html.ActionLink("Sign out","Signout","MyAccount")</span>
     <h3>
         My Account</h3>
     <div class="details-listing">
@@ -195,6 +197,9 @@
         <div class="clear">
         </div>
         <span class="title">Newsletter </span><span class="redbold inline bold">@Html.ActionLink("Sign me up", "Aweber", "Services")</span>
+        <div class="clear">
+        </div>
+        
     </div>
 
 
@@ -353,7 +358,7 @@
             </div>
         </div>
         <div class="padding10 alignright">
-            <input type="submit" value="Update details" class="top10 button" /></div>
+            <input type="submit" value="Update details" class="top10 button" disable-upon-click="true" loader="false" loader-location="right" /></div>
 	
     }
 </div>

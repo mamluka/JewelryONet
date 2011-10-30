@@ -18,7 +18,7 @@ namespace JONMVC.Website.Mailers
 
         private readonly List<string> copyEmailAddress = new List<string>()
                                                              {
-                                                                 "sales@jewelryonet.com",
+                                                                 "service@jewelryonet.com",
                                                                  "david.mazvovsky@gmail.com"
                                                              }; 
 		public UserMailer():

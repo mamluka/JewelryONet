@@ -41,16 +41,7 @@
         <div class="cell">
             @using (Html.BeginForm("Billing", "Checkout", FormMethod.Post, new { @class = "cart block" }))
             {
-                if (Model.IsSignedIn)
-                {
-                <div class="top10">
-                    You are logged in as <strong class="sitered inline">@Model.Email</strong>
-                    <br />
-                    Not you? @Html.ActionLink("Signout", "Signout", "MyAccount")
-                </div>
-                }
-                else
-                {
+                
                 <span>Choose your preferred payment method:</span>
 
                 <div class="block left aligncenter payment top10">
@@ -75,7 +66,16 @@
                 </div>
 
 
-
+                if (Model.IsSignedIn)
+                {
+                <div class="top10">
+                    You are logged in as <strong class="sitered inline">@Model.Email</strong>
+                    <br />
+                    Not you? @Html.ActionLink("Signout", "Signout", "MyAccount")
+                </div>
+                }
+                else
+                {
                 
                 <h4>
                     Contact Information (New & Guest Customers)</h4>
@@ -128,7 +128,7 @@
                         </dd>
                     </dl>
                 </fieldset>
-                }
+                
 
                 <span>Interesting in having an Account? You will be given the opportunity to create
                     an account after you have checked out.</span>
@@ -169,7 +169,7 @@
                     </dl>
                 </fieldset>
 
-
+                }
 
 
                 <div class="block aligncenter top10 clear">
