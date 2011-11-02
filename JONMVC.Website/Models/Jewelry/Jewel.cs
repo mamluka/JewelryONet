@@ -89,6 +89,8 @@ namespace JONMVC.Website.Models.Jewelry
            switch (JewelCategoryID)
            {
                case 2:
+               case 13:
+               case 12:
                    return JewelType.Ring;
                case 3:
                    return JewelType.Earring;

@@ -168,7 +168,7 @@
 				});
 				
 				//container events
-				target.click(that.onContClick);
+				//target.click(that.onContClick);
 				target.bind("setparams", params, that.onContSetParams);
 				target.bind("firechange", params, that.onContFireChange);
 			};

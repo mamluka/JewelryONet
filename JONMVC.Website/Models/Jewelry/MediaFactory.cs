@@ -17,6 +17,8 @@ namespace JONMVC.Website.Models.Jewelry
 
         private string conventionMetalPrefix;
 
+        private const string conventionAllMetals = "all";
+
         private JewelMediaType currentMediaSet;
 
         public MediaFactory(string itemNumber, ISettingManager settingManager)
@@ -43,6 +45,9 @@ namespace JONMVC.Website.Models.Jewelry
             media.HiResDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "hires", conventionMetalPrefix, ImageExtension);
             media.HandDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "hand", conventionMetalPrefix, ImageExtension);
             media.MovieDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "mov", conventionMetalPrefix, MovieExtension);
+
+            media.ReportForWebDisplay = FillParametersIntoPathPattern(GetBaseWebPath(), itemNumber, "report", conventionAllMetals, ImageExtension);
+            media.ReportDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "report", conventionAllMetals, ImageExtension);
 
             media.MediaSet = currentMediaSet;
             return media;

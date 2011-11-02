@@ -50,7 +50,8 @@ namespace JONMVC.Website.Models.JewelryItem
                 templateModel.OfferPrice = new Money(bestOfferViewModel.OfferPrice, Currency.Usd).Format("{1}{0:#,0}");
                 templateModel.Email = bestOfferViewModel.OfferEmail;
                 templateModel.OfferNumber = jewel.ID.ToString();
-                templateModel.OfferDate = dateTime.ToString();
+                templateModel.OfferDate = dateTime.ToShortDateString();
+
                 return templateModel;
             }
             catch (Exception ex)

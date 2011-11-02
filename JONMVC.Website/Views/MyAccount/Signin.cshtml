@@ -11,7 +11,7 @@
     @if (Model.HasError)
     {
         <div class="error">
-            You have entered a wrong email or password. @Html.ActionLink("Recover password", "ForgotPassword", "MyAccount")
+            You have entered a wrong email or password. @Html.ActionLink("Recover password", "RecoverPassword", "MyAccount")
             or @Html.ActionLink("contact us", "GetInTouch", "Services") for help
         </div>
     }

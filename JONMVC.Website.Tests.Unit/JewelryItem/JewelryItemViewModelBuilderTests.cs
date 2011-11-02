@@ -98,7 +98,7 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
             //Act
             var viewModel = builder.Build();
             //Assert
-            viewModel.ExtraImages.Should().HaveCount(2);
+            viewModel.ExtraImages.Should().HaveCount(3);
 
         }
 

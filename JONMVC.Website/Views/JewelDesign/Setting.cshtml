@@ -1,6 +1,7 @@
-﻿@using JONMVC.Website.Extensions
-@using JONMVC.Website.ViewModels.Views
+﻿@using JONMVC.Website.Extensions 
+@using JONMVC.Website.ViewModels.Views 
 @using MvcContrib.FluentHtml
+
 @inherits ModelWebViewPage<SettingViewModel>
 @{
     ViewBag.Title = @Model.PageTitle;
@@ -71,23 +72,33 @@
                                 @this.Hidden("MediaType").Value(Model.JewelPersistence.MediaType)
                                 @this.Hidden("Size").Value("7")
                                 @this.Hidden("CommandID").Value(1)
-                            }
-                            <img src="/Content/images/jeweldesign/setting/select-this-ring.png" class="hand"/>
-                            <input type="hidden" value="@Model.ID " name="itemid" />
-                            <ul class="actions" style="display: none">
-                                <li>
-                                    @if (Model.JewelPersistence.DiamondID > 0)
-                                    {
-                                        <a href="#!" command="end">Choose this setting and order</a> 
+
+                                if (Model.JewelPersistence.DiamondID > 0)
+                                 {
+                                 <a href="#!" command="end">
+                                     <img src="/Content/images/jeweldesign/setting/select-this-ring.png" class="hand"/>
+                                     <input type="hidden" value="@Model.ID " name="itemid" /></a>
+                                 }
+                                 else
+                                 {
+                                     <img src="/Content/images/jeweldesign/setting/select-this-ring.png" class="hand"/>
+                                     <input type="hidden" value="@Model.ID " name="itemid" />
+                                     <div class="relativepositiner">
+                                     <ul class="actions" style="display: none">
+                                         <li>
+                                    
+                                  
                                         
-                                    }
-                                    else
-                                    {
-                                        <a href="#!" command="choose-diamond">and Choose a Diamond</a>
-                                    }
-                                </li>
-                                <li><a href="#!" command="buy-setting">Buy this Setting</a> </li>
-                            </ul>
+                                    
+                                    
+                                             <a href="#!" command="choose-diamond">and Choose a Diamond</a>
+                                    
+                                         </li>
+                                         <li><a href="#!" command="buy-setting">Buy this Setting</a> </li>
+                                
+                                     </ul></div>
+                                 }
+                            }
                         </div>
                     </div>
                 </div>

@@ -525,11 +525,11 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             
             var controller = CreateDefaultMyAccountController();
             //Act
-            var result = controller.Signin(null) as ViewResult;
+            var result = controller.Signin(new SigninViewModel()) as ViewResult;
             //Assert
             var model = result.Model as SigninViewModel;
             model.RouteAction.Should().Be("Index");
-            model.RouteController.Should().Be("MuAccount");
+            model.RouteController.Should().Be("MyAccount");
             
         }
 

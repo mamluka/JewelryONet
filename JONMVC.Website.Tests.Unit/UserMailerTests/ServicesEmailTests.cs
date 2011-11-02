@@ -52,21 +52,7 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
         }
 
 
-        [Test]
-        public void AskQuestion_ShouldSetFromAddressCorrectly()
-        {
-            //Arrange
-
-            var mailer = MockRepository.GeneratePartialMock<UserMailer>();
-            mailer.Stub(x => x.PopulateBody(Arg<MailMessage>.Is.Anything, Arg<string>.Is.Anything, Arg<string>.Is.Anything, Arg<Dictionary<string, string>>.Is.Anything));
-         
-            var model = fixture.CreateAnonymous<AskQuestionEmailTemplateViewModel>();
-            //Act
-            var message = mailer.AskQuestion(Tests.SAMPLE_EMAIL_ADDRESS, model);
-            //Assert
-
-            message.From.Address.Should().Be(model.Email);
-        }
+        
 
         [Test]
         public void AskQuestion_ShouldRenderTheRightView()

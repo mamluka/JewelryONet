@@ -117,6 +117,10 @@ namespace JONMVC.Website.Controllers
         
         public ActionResult Billing(CheckoutDetailsModel checkoutDetailsModel)
         {
+            if (CheckIfCartSessionTimedoutOrCartIsEmpty())
+            {
+                return RedirectToAction("CheckoutSessionTimeout");
+            }
             if (!String.IsNullOrEmpty(Request.Form["LoginEmail"]))
             {
                 var js = new JavaScriptSerializer();
@@ -142,9 +146,24 @@ namespace JONMVC.Website.Controllers
 
             return View(viewModel);
         }
+
+        private bool CheckIfCartSessionTimedoutOrCartIsEmpty()
+        {
+            var shoppingCart = shoppingCartWrapper.Get();
+            if (shoppingCart.TotalPrice <= 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         [RequireHttps]
         public ActionResult ReviewOrder(CheckoutDetailsModel checkoutDetailsModel)
         {
+            if (CheckIfCartSessionTimedoutOrCartIsEmpty())
+            {
+                return RedirectToAction("CheckoutSessionTimeout");
+            }
             var shoppingCart = shoppingCartWrapper.Get();
 
             var cartItemViewModelBuilder = new CartItemViewModelBuilder(jewelRepository, diamondRepository, mapper);
@@ -163,6 +182,11 @@ namespace JONMVC.Website.Controllers
         [RequireHttps]
         public ActionResult OrderConfirmation(CheckoutDetailsModel checkoutDetailsModel)
         {
+            if (CheckIfCartSessionTimedoutOrCartIsEmpty())
+            {
+                return RedirectToAction("CheckoutSessionTimeout");
+            }
+
             var shoppingCart = shoppingCartWrapper.Get();
 
             var orderNumber = SaveOrderAndEmail(checkoutDetailsModel, shoppingCart);
@@ -176,37 +200,18 @@ namespace JONMVC.Website.Controllers
             return View(viewModel);
         }
 
-        
+        [RequireHttps]
         public ActionResult ThankYouForUsingPaypal(int orderNumber)
         {
-
-
             return View();
         }
 
-
-
-        private int SaveOrderAndEmail(CheckoutDetailsModel checkoutDetailsModel, IShoppingCart shoppingCart)
+        [RequireHttps]
+        public ActionResult CheckoutSessionTimeout()
         {
-            var orderBuilder = new OrderBuilder(shoppingCart, authentication, mapper);
-            var orderdto = orderBuilder.Build(checkoutDetailsModel);
-
-            var orderNumber = orderRepository.Save(orderdto);
-
-            if (orderNumber > 0)
-            {
-                var cartItemBuilder = new CartItemViewModelBuilder(jewelRepository, diamondRepository, mapper);
-                var emailTemplateBuilder = new OrderConfirmationEmailTemplateViewModelBuilder(orderNumber.ToString(),
-                                                                                              checkoutDetailsModel,
-                                                                                              shoppingCart,
-                                                                                              cartItemBuilder);
-
-                var emailTemplateViewModel = emailTemplateBuilder.Build();
-                mailer.OrderConfirmation(checkoutDetailsModel.Email, emailTemplateViewModel).Send();
-            }
-
-            return orderNumber;
+            return View();
         }
+        
 
         [HttpPost]
         public ActionResult JewelSize(int cartid,string size)
@@ -231,13 +236,6 @@ namespace JONMVC.Website.Controllers
             
         }
 
-
-        private void PersistShoppingCart(IShoppingCart shoppingCart)
-        {
-            // Models.Checkout.ShoppingCart.Persist(HttpContext, shoppingCart);
-            shoppingCartWrapper.Presist(shoppingCart, HttpContext);
-        }
-
         [Authorize]
         [RequireHttps]
         public ActionResult OrdersStatus(int orderNumber)
@@ -254,6 +252,34 @@ namespace JONMVC.Website.Controllers
             var totalItems = shoppingCart.Count;
             return View("CartItemCount",totalItems);
             
+        }
+
+        private void PersistShoppingCart(IShoppingCart shoppingCart)
+        {
+            // Models.Checkout.ShoppingCart.Persist(HttpContext, shoppingCart);
+            shoppingCartWrapper.Presist(shoppingCart, HttpContext);
+        }
+
+        private int SaveOrderAndEmail(CheckoutDetailsModel checkoutDetailsModel, IShoppingCart shoppingCart)
+        {
+            var orderBuilder = new OrderBuilder(shoppingCart, authentication, mapper);
+            var orderdto = orderBuilder.Build(checkoutDetailsModel);
+
+            var orderNumber = orderRepository.Save(orderdto);
+
+            if (orderNumber > 0)
+            {
+                var cartItemBuilder = new CartItemViewModelBuilder(jewelRepository, diamondRepository, mapper);
+                var emailTemplateBuilder = new OrderConfirmationEmailTemplateViewModelBuilder(orderNumber.ToString(),
+                                                                                              checkoutDetailsModel,
+                                                                                              shoppingCart,
+                                                                                              cartItemBuilder);
+
+                var emailTemplateViewModel = emailTemplateBuilder.Build();
+                mailer.OrderConfirmation(checkoutDetailsModel.Email, emailTemplateViewModel).Send();
+            }
+
+            return orderNumber;
         }
     }
 }

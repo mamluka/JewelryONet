@@ -1,6 +1,6 @@
 ﻿@using JONMVC.Website.ViewModels.Views
 @using MvcContrib.FluentHtml
-@inherits MvcContrib.FluentHtml.ModelWebViewPage<RegisterCustomerViewModel>
+@inherits ModelWebViewPage<RegisterCustomerViewModel>
 @{           
     ViewBag.Title = "My Account: Register to JewelryONet";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -51,9 +51,10 @@
                                 <label for="Password">
                                     Confirm Password:</label></dt>
                             <dd>
-                                @Html.Password("ConfirmPassword")<span class="astrix">*</span>
-                                <span data-valmsg-replace="false" data-valmsg-for="ConfirmPassword" class="field-validation-valid">
-                                </span>
+                                @Html.PasswordFor(x=> x.ConfirmPassword)<span class="astrix">*</span>
+                                <div data-valmsg-replace="false" data-valmsg-for="ConfirmPassword" class="field-validation-valid clear">
+                                Passwords do not match
+                                </div>
                             </dd>
                         </dl>
                         <dl>
@@ -104,12 +105,7 @@
                                 </span>
                             </dd>
                         </dl>
-                        <dl>
-                            
-                            <dd style="width: 100%">
-                                @this.CheckBox(x=> x.SignupForNewsletter).LabelAfter("Yes. Please send me information about special offers, discounts, updates and new collections.")
-                            </dd>
-                        </dl>
+                       
                         <dl>
                             <dt></dt>
                             <dd>

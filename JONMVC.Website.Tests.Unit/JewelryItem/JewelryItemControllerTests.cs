@@ -217,6 +217,26 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
             bestOffer.VerifyAllExpectations();
         }
 
+        [Test]
+        public void PostBestOffer_ShouldCallTheSetDateMethodToSetTheCurrentDateInTheMail()
+        {
+            //Arrange
+            var model = fixture.CreateAnonymous<BestOfferViewModel>();
+
+            var bestOffer = MockRepository.GenerateMock<IBestOffer>();
+            bestOffer.Expect(x => x.SetTodayString(Arg<DateTime>.Is.Anything)).Repeat.Once();
+
+            var controller = CreateJewelryItemControllerWithCustomBestOffer(bestOffer);
+
+            //Act
+            controller.PostBestOffer(model);
+            //Assert
+            //   result.AssertViewRendered().WithViewData<EmptyViewModel>();
+            bestOffer.VerifyAllExpectations();
+        }
+
+
+
       
 
         [Test]

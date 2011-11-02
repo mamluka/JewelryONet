@@ -17,6 +17,7 @@ namespace JONMVC.Website.Tests.Unit.Utils
                                                         {String.Format(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\{0}-icon-wg.jpg",itemNumber),new MockFileData("")},
                                                         {String.Format(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\{0}-hand-wg.jpg",itemNumber),new MockFileData("")},
                                                         {String.Format(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\{0}-hires-wg.jpg",itemNumber),new MockFileData("")},
+                                                        {String.Format(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\{0}-report-all.jpg",itemNumber),new MockFileData("")},
                                                         {String.Format(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\{0}-mov-wg.flv",itemNumber),new MockFileData("")}
                                                         
                                                     });
@@ -38,6 +39,7 @@ namespace JONMVC.Website.Tests.Unit.Utils
                                                         {String.Format(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\{0}-icon-yg.jpg",itemNumber),new MockFileData("")},
                                                         {String.Format(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\{0}-hand-yg.jpg",itemNumber),new MockFileData("")},
                                                         {String.Format(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\{0}-hires-yg.jpg",itemNumber),new MockFileData("")},
+                                                        {String.Format(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\{0}-report-all.jpg",itemNumber),new MockFileData("")},
                                                         {String.Format(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\{0}-mov-yg.flv",itemNumber),new MockFileData("")}
                                                         
                                                     });

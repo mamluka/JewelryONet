@@ -103,6 +103,26 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         }
 
         [Test]
+        public void ReportForWebDisplay_ShoulReturnTheRightPathToJewelReport()
+        {
+            //Assign
+            ISettingManager manager = MockRepository.GenerateStub<ISettingManager>();
+
+            const string itemNumber = "0101-10001";
+
+            manager.Stub(x => x.GetJewelryBaseWebPath()).Return("/jon-images/jewel/");
+
+            var mediaFactory = new MediaFactory(itemNumber, manager);
+            //Act
+            var media = mediaFactory.BuildMedia();
+
+            
+            //Assert
+            media.ReportForWebDisplay.Should().Be("/jon-images/jewel/0101-10001-report-all.jpg");
+
+        }
+
+        [Test]
         public void MovieURLForWebDisplay_ShoulReturnTheRightPathToPicture()
         {
             //Assign
@@ -158,6 +178,26 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
             string iconPath = media.IconDiskPathForWebDisplay;
             //Assert
             Assert.That(iconPath, Is.EqualTo(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-10001-icon-wg.jpg"));
+
+        }
+        [Test]
+        public void ReportDiskPathForWebDisplay_ShouldReturnTheRightPath()
+        {
+            //Assign
+            ISettingManager manager = MockRepository.GenerateStub<ISettingManager>();
+
+            const string itemNumber = "0101-10001";
+
+            manager.Stub(x => x.GetJewelryBaseDiskPath()).Return(@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\");
+
+            var mediaFactory = new MediaFactory(itemNumber, manager);
+            //Act
+            Media media = mediaFactory.BuildMedia();
+
+            
+            //Assert
+            media.ReportDiskPathForWebDisplay.Should().Be(
+                @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-10001-report-all.jpg");
 
         }
         [Test]

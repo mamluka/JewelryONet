@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DataAnnotationsExtensions;
+using Foolproof;
 using JONMVC.Website.Models.Checkout;
 
 namespace JONMVC.Website.ViewModels.Views
@@ -14,22 +15,22 @@ namespace JONMVC.Website.ViewModels.Views
     {
         public string TotalPrice { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        [RequiredIfEmpty("LoginEmail")]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        [RequiredIfEmpty("LoginEmail")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        [RequiredIfEmpty("LoginEmail")]
         [Email(ErrorMessage = "*")]
-        [Compare("ConfirmEmail",ErrorMessage = "*")]
+        [Foolproof.EqualTo("ConfirmEmail")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        [RequiredIfEmpty("LoginEmail")]
         [Email(ErrorMessage = "*")]
         public string ConfirmEmail { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        [RequiredIfEmpty("LoginEmail")]
         [Digits(ErrorMessage = "*")]
         public string Phone { get; set; }
 
@@ -40,5 +41,12 @@ namespace JONMVC.Website.ViewModels.Views
         public bool IsSignedIn { get; set; }
 
         public string ErrorMessage { get; set; }
+
+        [RequiredIfEmpty("Email")]
+        [Email(ErrorMessage = "*")]
+        public string LoginEmail { get; set; }
+
+        [RequiredIfNotEmpty("LoginEmail")]
+        public string LoginPassword { get; set; }
     }
 }

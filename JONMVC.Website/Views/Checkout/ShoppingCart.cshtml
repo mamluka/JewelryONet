@@ -1,10 +1,12 @@
 ﻿@using JONMVC.Website.Models.Checkout
 @using JONMVC.Website.ViewModels.Views
-@model JONMVC.Website.ViewModels.Views.ShoppingCartViewModel
+@using MvcContrib.FluentHtml
+@inherits ModelWebViewPage<ShoppingCartViewModel>
 @{
     ViewBag.Title = "Checkout process: shopping cart";
     Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
 }
+
 <div class="table width100 top10">
     <div class="row">
         <div class="cell alignleft">
@@ -20,11 +22,13 @@
 <div class="table width100 top10">
     <div class="row cartbody">
         <div class="cell">
+        
             @foreach (var item in Model.CartItems)
             {
                 @Html.Partial(item.PartialName, item)
 
             }
+
             <span>FREE Inscription with every ring - Click Here </span>
             <div class="totaldiv width100 clear">
                 <span class="right price">@Model.TotalPrice</span> <span class="right">Total :</span>
@@ -146,8 +150,8 @@
                                 Your Email:</label>
                         </dt>
                         <dd>
-                            @Html.TextBox("LoginEmail")
-                            <span data-valmsg-replace="false" data-valmsg-for="Email" class="field-validation-valid">
+                            @Html.TextBoxFor(x=>x.LoginEmail)
+                            <span data-valmsg-replace="false" data-valmsg-for="LoginEmail" class="field-validation-valid">
                             </span>
                         </dd>
                     </dl>
@@ -156,8 +160,8 @@
                             <label for="Password">
                                 Password:</label></dt>
                         <dd>
-                            @Html.Password("Password")
-                            <span data-valmsg-replace="false" data-valmsg-for="Password" class="field-validation-valid">
+                            @Html.PasswordFor(x=>x.LoginPassword)
+                            <span data-valmsg-replace="false" data-valmsg-for="LoginPassword" class="field-validation-valid">
                             </span>
                         </dd>
                     </dl>

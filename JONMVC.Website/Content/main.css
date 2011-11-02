@@ -303,7 +303,7 @@ font-weight:bold;
 #SpecialOffers {
 	background-color:#ececec;
 	padding:15px 5px 5px 5px;
-	height:140px;
+	height:155px;
 	width:160px;
 	background:#ececec url(/Content/images/skeleton/special-offers-stars-bg.png) no-repeat 70px 0px;
 }
@@ -1042,15 +1042,17 @@ fieldset input {
 	border:1px solid #E0E0E0;
 	padding:2px 3px 2px 5px;
 	height:22px;
-	float:left;
+    float: left;
+	
 }
 fieldset input:focus {
 	box-shadow:0 0 3px #842b1a; 
 }
 span.astrix {
-    float: left;
+   
     margin: 0px 0px 0px 3px;
     color: red;
+    display: inline;
 }
 .shoppingcart-form {
 	width:300px;
@@ -1588,13 +1590,18 @@ margin:7px 0px 0px 0px;
 	font-size:1.1em;
 }
 /*VALIDATION*/
-.field-validation-error
+span.field-validation-error
 {
 	
     background:url(/Content/images/validation/ValidationError.png) no-repeat 10px 0px; 
 	width:24px;
 	height:14px;
-	float:left;
+    float: left;
+}
+
+div.field-validation-error
+{
+    color:red;
 }
 
 .field-validation-valid

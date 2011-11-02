@@ -34,7 +34,7 @@
                              @Html.Partial("JewelItemBaseInfoTable",Model)
     
                                      <div class="cell size">
-                                         @Html.Partial("RingSize",new RingSizePartialViewModel { JewelType = JewelType.Ring,Selected = Model.Size,SelectName = "size",Class = "jewelsize"})
+                                         @Html.Partial("RingSize",new RingSizePartialViewModel { JewelType = JewelType.Ring,Selected = Model.JewelPersistence.Size,SelectName = "size",Class = "jewelsize"})
                                      </div>
                              <div class="table belowdetails width100 top5">
                                  <div class="row">

@@ -53,8 +53,9 @@
     <Reference Include="AutoMapper, Version=2.0.0.232, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Bootstrapper, Version=2.0.1.27275, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bootstrapper.2.0.1.0\lib\Bootstrapper.dll</HintPath>
+    <Reference Include="Bootstrapper, Version=2.0.1.37293, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Bootstrapper.2.0.1.1\lib\Bootstrapper.dll</HintPath>
     </Reference>
     <Reference Include="Bootstrapper.AutoMapper, Version=1.0.0.38122, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Bootstrapper.AutoMapper.2.0.0.0\lib\Bootstrapper.AutoMapper.dll</HintPath>

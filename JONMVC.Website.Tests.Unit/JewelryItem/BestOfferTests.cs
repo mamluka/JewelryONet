@@ -103,7 +103,7 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
             template.Description = "title";
             template.ItemNumber = "0101-15421";
             template.TruePrice.Should().Be("$10,000");
-            template.OfferDate.Should().Be(todayDate.ToString());
+            template.OfferDate.Should().Be(todayDate.ToShortDateString());
             template.OfferPrice.Should().Be("$2,000");
             template.OfferNumber.Should().Be(Tests.FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID.ToString());
 

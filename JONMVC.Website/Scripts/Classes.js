@@ -372,6 +372,10 @@ var JewelDesign = {
 
         });
 
+
+        
+        
+        
         $("#SliderCarat").bind("sliderchanged", function (event, data) {
 
             var from = (data.handles[0].value).toFixed(2);
@@ -622,8 +626,16 @@ var JewelDesign = {
             interval: 50,   // number = milliseconds for onMouseOver polling interval
             timeout: 100,
             over: function show() {
-                var menu = $(this);
-                menu.find(".actions").fadeIn();
+                var submenu = $(this).find(".actions");
+                submenu.show();
+                submenu.position(
+                    {
+                        my: 'left top',
+                        at: 'left bottom',
+                        of: $(this).find('img'),
+                        offset: '0 2'
+                    }
+							);
             },
 
             out: function hide() {
@@ -710,12 +722,12 @@ var JewelDesign = {
 						    var settingID = parseInt(JewelDesign.Locals.DataFromController.SettingID);
 
 						    if (settingID > 0) {
-						        div.children('input:eq(1)').attr('buttonurl', diamondData['FinishURL']);    
-						    } 
-						    else {
-						        div.children('input:eq(1)').attr('buttonurl', diamondData['AddURL']);    
+						        div.children('input:eq(1)').attr('buttonurl', diamondData['FinishURL']);
 						    }
-						    
+						    else {
+						        div.children('input:eq(1)').attr('buttonurl', diamondData['AddURL']);
+						    }
+
 
 
 

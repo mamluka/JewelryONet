@@ -81,6 +81,7 @@ namespace JONMVC.Website.Controllers
         {
             try
             {
+                bestOffer.SetTodayString(DateTime.Now);
                 bestOffer.EmailToAdmin(model);
 
                 return Json(new OporationWithoutReturnValueJsonModel());

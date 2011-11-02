@@ -14,10 +14,14 @@ namespace JONMVC.Website.ViewModels.Views
         [Required]
         [Email]
         public string Email { get; set; }
+
         [Required]
-        [Compare("ConfirmPassword", ErrorMessage = "*")]
         public string Password { get; set; }
-        
+
+        [Compare("Password", ErrorMessage = "Passwords do not match")]
+        public string ConfirmPassword { get; set; }
+
+        [Required]
         public int CountryID { get; set; }
         [Required]
         public int StateID { get; set; }
