@@ -178,6 +178,7 @@
     <Compile Include="Models\AutoMapperMaps\DiamondPrettyMediaResolver.cs" />
     <Compile Include="Models\AutoMapperMaps\DoubleTypeZeroToNAFormatter.cs" />
     <Compile Include="Models\AutoMapperMaps\EnumToIntResolver.cs" />
+    <Compile Include="Models\AutoMapperMaps\FillInAddressFromCheckoutDetailsModel.cs" />
     <Compile Include="Models\AutoMapperMaps\FromJsonToDataBase.cs" />
     <Compile Include="Models\AutoMapperMaps\MergeDiamondAndJewel.cs" />
     <Compile Include="Models\AutoMapperMaps\MergeExistingCustomerAndExtendedCustomer.cs" />

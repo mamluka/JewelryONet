@@ -38,7 +38,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
                                          SS_Color = "H",
                                          SS_ColorFreeText = "SSFreeColor",
                                          SS_Count = 8,
-                                         SS_Cut = "Pricess",
+                                         SS_Cut = "Princess",
                                          SS_Description = "SSDescription",
                                          SS_Type = "Diamond",
                                          SS_Weight = 1.5

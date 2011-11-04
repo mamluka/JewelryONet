@@ -270,14 +270,25 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             TabsViewModelBuilder tabsViewModelBuilder = new TabsViewModelBuilder(viewModel, xmldoc_regular3tabs, tabsRepository, jewelryRepository,fileSystem);
             viewModel = tabsViewModelBuilder.Build();
 
-       
-
             //Act
 
             var tabs = viewModel.JewelryInTabContainersCollection;
 
             //Assert
             jewelryRepository.VerifyAllExpectations();
+
+        }
+
+        [Test]
+        [Ignore]
+        public void Build_ShouldAddACustomFilterToTheViewModelIFPresentInTabs()
+        {
+            //Arrange
+            var tabsViewModelBuilder = CreateDefaultTabsViewModelBuilderWithCustomFilterForGemstones();
+            var viewModel = tabsViewModelBuilder.Build();
+            //Act
+            
+            //Assert
 
         }
 
@@ -631,6 +642,19 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             var fileSystem = FakeFileSystem.MediaFileSystemForItemNumber("0101-15421");
 
             TabsViewModelBuilder tabsViewModelBuilder = new TabsViewModelBuilder(TAB_KEY, TAB_ID1, xmldoc_regular3tabs,
+                                                                                 tabsRepository, jewelryRepository, fileSystem);
+            return tabsViewModelBuilder;
+        }
+
+        private TabsViewModelBuilder CreateDefaultTabsViewModelBuilderWithCustomFilterForGemstones()
+        {
+            var settingManager = new FakeSettingManager();
+            var tabsRepository = CreateStubTabsRepository(TabKey);
+            var jewelryRepository = new FakeJewelRepository(settingManager);
+
+            var fileSystem = FakeFileSystem.MediaFileSystemForItemNumber("0101-15421");
+
+            TabsViewModelBuilder tabsViewModelBuilder = new TabsViewModelBuilder(TAB_KEY, TAB_ID1, xmldoc_tabswithgemstonefilter,
                                                                                  tabsRepository, jewelryRepository, fileSystem);
             return tabsViewModelBuilder;
         }

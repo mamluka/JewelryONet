@@ -55,6 +55,7 @@
                     </fieldset>
                     
                     @this.Hidden(x => x.JSONEncodedRouteValues).Value(Model.JSONEncodedRouteValues)
+                    @this.Hidden(x => x.RouteValuesModelClassName).Value(Model.RouteValuesModelClassName)
                     @this.Hidden(x => x.RouteController).Value(Model.RouteController)
                     @this.Hidden(x => x.RouteAction).Value(Model.RouteAction)
         

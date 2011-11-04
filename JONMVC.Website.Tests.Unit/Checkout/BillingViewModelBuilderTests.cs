@@ -41,6 +41,15 @@ namespace JONMVC.Website.Tests.Unit.Checkout
             viewModel.PaymentMethod.Should().Be(checkoutDetailsModel.PaymentMethod);
             viewModel.Phone.Should().Be(checkoutDetailsModel.Phone);
 
+            viewModel.BillingAddress.FirstName.Should().Be(checkoutDetailsModel.FirstName);
+            viewModel.BillingAddress.LastName.Should().Be(checkoutDetailsModel.LastName);
+            viewModel.BillingAddress.Phone.Should().Be(checkoutDetailsModel.Phone);
+
+            viewModel.ShippingAddress.FirstName.Should().Be(checkoutDetailsModel.FirstName);
+            viewModel.ShippingAddress.LastName.Should().Be(checkoutDetailsModel.LastName);
+            viewModel.ShippingAddress.Phone.Should().Be(checkoutDetailsModel.Phone);
+
+
         }
 
         [Test]

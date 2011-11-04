@@ -81,7 +81,7 @@
             <span>Country: <span class="redbold inline bold">@Model.Country</span></span>
             <span>State: <span class="redbold inline bold">@Model.State</span></span>
             <span>Zip code:</span>
-            <span>Phone #: </span><span class="redbold inline bold">@Model.Phone</span>
+            <span>Phone #: <span class="redbold inline bold">@Model.Phone</span></span>
         }
     </div>
     @if (Model.HasAddressInformation)
@@ -357,8 +357,8 @@
                 </div>
             </div>
         </div>
-        <div class="padding10 alignright">
-            <input type="submit" value="Update details" class="top10 button" disable-upon-click="true" loader="false" loader-location="right" /></div>
+        <div class="padding10">
+            <input type="submit" value="Update details" class="top10 button" disable-upon-click="true" loader="true" loader-location="left center" loader-on-my-side="right" /></div>
 	
     }
 </div>
@@ -373,24 +373,23 @@
                 <dt>
                     <label for="Email">
                         Old password:</label></dt>
-                <dd>@this.Password("OldPassword") <span data-valmsg-replace="false"
-                                                       data-valmsg-for="Email" class="field-validation-valid"></span>
+                <dd>@this.Password("OldPassword").Attr("data-val-required", "*").Attr("data-val","true") <span data-valmsg-replace="false" data-valmsg-for="OldPassword" class="field-validation-valid"></span>
                 </dd>
             </dl>
             <dl>
                 <dt>
                     <label for="FirstName">
                         New password:</label></dt>
-                <dd>@this.Password("NewPassword") <span data-valmsg-replace="false"
-                                                       data-valmsg-for="FirstName" class="field-validation-valid"></span>
+                <dd>@this.Password("NewPassword").Attr("data-val-required", "*").Attr("data-val", "true") <span data-valmsg-replace="false"
+                                                       data-valmsg-for="NewPassword" class="field-validation-valid"></span>
                 </dd>
             </dl>
             <dl>
                 <dt>
                     <label for="LastName">
                         Confirm new password:</label></dt>
-                <dd>@this.Password("ConfirmNewPassword") <span data-valmsg-replace="false" 
-                                                              data-valmsg-for="LastName" class="field-validation-valid"></span>
+                <dd>@this.Password("ConfirmNewPassword").Attr("data-val-equalto-other", "*.NewPassword").Attr("data-val", "true").Attr("data-val-equalto", "*") <span data-valmsg-replace="false" 
+                                                              data-valmsg-for="ConfirmNewPassword" class="field-validation-valid"></span>
                 </dd>
             </dl>
 
@@ -398,7 +397,7 @@
                         
         </fieldset>
         
-        <input class="button" type="submit" value="Change password"/>
+        <input class="button" type="submit" value="Change password" disable-upon-click="true" loader="true" loader-location="left center" loader-on-my-side="right" />
     }
 </div>
 <script type="text/javascript">

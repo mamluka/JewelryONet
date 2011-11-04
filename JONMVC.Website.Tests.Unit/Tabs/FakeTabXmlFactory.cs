@@ -189,5 +189,34 @@ namespace JONMVC.Website.Tests.Unit.Tabs
 
              return fakexml;
          }
+
+        public XDocument TabWithCustomGemstoneFilter(string tabKey)
+        {
+            var fakexml = CreateRoot();
+
+            fakexml.Root.Add(
+             new XElement("tabpage",
+                 new XAttribute("key", tabKey),
+                 new XElement("sprite", "diamond-jewelry"),
+                 new XElement("title", "Diamond Jewelry"),
+                 new XElement("customfilter", "gemstone-center-stone"),
+                 new XElement("tab",
+                     new XAttribute("id", "engagement-rings"),
+                     new XElement("caption", "Rings"),
+                     new XElement("where",
+                         new XElement("string", "jeweltype_id = @0 and category_id = @1"),
+                         new XElement("values",
+                             new XElement("value", new XAttribute("type", "int"), "2")
+                             )
+
+                         )
+                     )
+
+                 )
+
+             );
+
+            return fakexml;
+        }
     }
 }

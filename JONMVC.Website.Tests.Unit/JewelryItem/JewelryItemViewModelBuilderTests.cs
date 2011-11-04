@@ -383,6 +383,7 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
                 "Minimum Clarity");
         }
 
+
         [Test]
         public void Build_ShouldReturnAvargeWhenNumberOfCenterStonesIsMoreThenOne()
         {
@@ -402,6 +403,37 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
                 "Average Clarity");
         }
 
+        [Test]
+        public void Build_ShouldReturnAColorSpecForCenterStoneWithRangeOfColorWithOneStepApartUsingTheCurrentColorAsTheMinimum()
+        {
+            //Arrange
+            var fakeCS = fixture.Build<JewelryExtra.JewelComponentProperty>().With(x => x.Count, 2).With(x=> x.Color,"H").CreateAnonymous();
+            var fakeJewelExtra = fixture.Build<JewelryExtra>().With(x => x.CS, fakeCS).CreateAnonymous();
+            var jewel = fixture.Build<Jewel>().With(x => x.JewelryExtra, fakeJewelExtra).CreateAnonymous();
+
+            var builder = CreateJewelItemViewModelBuilderWithJewel(jewel);
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+            var color = viewModel.SpecsPool.Where(x => x.Title.IndexOf("Color") > -1 && x.JewelComponentID == 1).SingleOrDefault();
+            color.Property.Should().Be("G-H");
+        }
+
+        [Test]
+        public void Build_ShouldReturnAClaritySpecForCenterStoneWithStonesRangeOfClarityWithTwoClarityJumps()
+        {
+            //Arrange
+            var fakeCS = fixture.Build<JewelryExtra.JewelComponentProperty>().With(x => x.Count, 2).With(x => x.Clarity, "VVS1").CreateAnonymous();
+            var fakeJewelExtra = fixture.Build<JewelryExtra>().With(x => x.CS, fakeCS).CreateAnonymous();
+            var jewel = fixture.Build<Jewel>().With(x => x.JewelryExtra, fakeJewelExtra).CreateAnonymous();
+
+            var builder = CreateJewelItemViewModelBuilderWithJewel(jewel);
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+            var color = viewModel.SpecsPool.Where(x => x.Title.IndexOf("Clarity") > -1 && x.JewelComponentID == 1).SingleOrDefault();
+            color.Property.Should().Be("FL-VVS1");
+        }
 
         [Test]
         public void Build_ShouldReturnTrueIfHasSideStones()

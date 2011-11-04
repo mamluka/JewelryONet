@@ -158,8 +158,8 @@ namespace JONMVC.Website.ViewModels.Builders
             {
                 WordsToSayHowTheQualityIs = "Average";
             }
-            specs.Add(new JewelComponentInfoPart(WordsToSayHowTheQualityIs+ " Color",jewel.JewelryExtra.CS.Color, 1));
-            specs.Add(new JewelComponentInfoPart(WordsToSayHowTheQualityIs + " Clarity",jewel.JewelryExtra.CS.Clarity, 1));
+            specs.Add(new JewelComponentInfoPart(WordsToSayHowTheQualityIs + " Color", CreateRangeStringFrom(colors, jewel.JewelryExtra.CS.Color, 1), 1));
+            specs.Add(new JewelComponentInfoPart(WordsToSayHowTheQualityIs + " Clarity", CreateRangeStringFrom(clarities, jewel.JewelryExtra.CS.Clarity, 2), 1));
 
             if (jewel.JewelryExtra.HasSideStones)
             {

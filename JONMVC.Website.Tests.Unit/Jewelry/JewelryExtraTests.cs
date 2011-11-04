@@ -241,7 +241,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
 
             //Assert
 
-            jewelExtra.SS.Cut.Should().Be("Pricess");
+            jewelExtra.SS.Cut.Should().Be("Princess");
 
         }
 

@@ -204,7 +204,7 @@ var Item = {
 
 			            Boxy.get($('.emailring')).hide();
 			            MessageBox.Show('Email sent to friend');
-			            Utils.EnableSubmitButtonInsideAForm('.emailring form');
+			            Utils.EnableSubmitButtonInsideAFormAndRemoveLoadingImage('.emailring form');
 			        }
 			    }
 
@@ -925,9 +925,11 @@ var Checkout = {
 	}
 };
 Utils = {
-    EnableSubmitButtonInsideAForm: function (form) {
+    EnableSubmitButtonInsideAFormAndRemoveLoadingImage: function (form) {
         $(form).find(":submit").removeAttr("disabled");
+        $(form).find(":submit").removeClass("disabled-button").addClass("button");
         $(form).find("input[type=image]").removeAttr("disabled");
+        $('[media-element-type=loader]').remove();
     },
     DisableSubmitButton: function () {
         $("input[type=image]").attr("disabled", true);
@@ -936,17 +938,17 @@ Utils = {
     RedirectToHome: function () {
         window.location.href = '/';
     },
-    PlaceLoaderNearButton: function (element, location) {
+    PlaceLoaderNearButton: function (element, myLocation, atLocation) {
 
-        var loader = $('<img />').attr('src', '/Content/images/skeleton/loading.gif');
+        var loader = $('<img />').attr('src', '/Content/images/skeleton/loading.gif').css({ "zIndex": 10000 }).attr('media-element-type', 'loader');
 
-        element.parents('div').append(loader);
+        element.parents('form:eq(0)').append(loader);
 
         loader.position({
-            my: 'left center',
-            at: location,
+            my: myLocation,
+            at: atLocation,
             of: element,
-            offset:'5 0'
+            offset: '5 0'
         });
 
 
@@ -967,12 +969,22 @@ $(document).ready(function () {
         filter: '#MainMessage'
     });
 
-    $('input[disable-upon-click]').click(function () {
+    $('input[disable-upon-click]').parents('form').submit(function () {
 
-        $(this).removeClass('button').addClass('disabled-button').attr('disabled', 'disabled');
+        var button = $(this).find('input[disable-upon-click]');
 
-        if ($(this).attr('loader') == 'true') {
-            Utils.PlaceLoaderNearButton($(this), $(this).attr('loader-location'));
+        var validated = $(this).valid();
+
+        if (validated) {
+
+
+
+            $(button).removeClass('button').addClass('disabled-button').attr('disabled', 'disabled');
+
+            if ($(button).attr('loader') == 'true') {
+                Utils.PlaceLoaderNearButton($(button), $(button).attr('loader-location'), $(button).attr('loader-on-my-side'));
+            }
+
         }
 
     });

@@ -133,7 +133,7 @@ namespace JONMVC.Website.Controllers
                                                                        {"RouteController","Checkout"},
                                                                        {"RouteAction","Billing"},
                                                                        {"Email",Request.Form["LoginEmail"]},
-                                                                       {"Password",Request.Form["Password"]},
+                                                                       {"Password",Request.Form["LoginPassword"]},
                                                                        {"JSONEncodedRouteValues",jsonModel},
                                                                        {"RouteValuesModelClassName",checkoutDetailsModel.GetType().FullName}
                                                                     

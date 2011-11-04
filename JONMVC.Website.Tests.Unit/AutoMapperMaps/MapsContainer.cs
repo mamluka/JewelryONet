@@ -150,6 +150,8 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                 .ForMember(dto => dto.PaymentMethod, opt => opt.MapFrom(x => x.PaymentMethod))
                 .ForMember(dto => dto.Phone, opt => opt.MapFrom(x => x.Phone))
                 .ForMember(dto => dto.CreditCardViewModel, opt => opt.MapFrom(x => x.CreditCardViewModel))
+                .ForMember(dto => dto.BillingAddress, opt => opt.ResolveUsing<FillInAddressFromCheckoutDetailsModel>())
+                .ForMember(dto => dto.ShippingAddress, opt => opt.ResolveUsing<FillInAddressFromCheckoutDetailsModel>())
                 ;
 
             Mapper.CreateMap<CheckoutDetailsModel, ReviewOrderViewModel>()
@@ -212,6 +214,7 @@ namespace JONMVC.Website.Tests.Unit.AutoMapperMaps
                    .ForMember(dto => dto.State, opt => opt.MapFrom(x => x.sys_STATEReference.Value.LANG1_LONGDESCR))
                    .ForMember(dto => dto.Email, opt => opt.MapFrom(x => x.email))
                    .ForMember(dto => dto.FirstName, opt => opt.MapFrom(x => x.firstname))
+                   .ForMember(dto => dto.Phone, opt => opt.MapFrom(x => x.phone1))
                    .ForMember(dto => dto.LastName, opt => opt.MapFrom(x => x.lastname))
                    .ForMember(dto => dto.CountryID, opt => opt.MapFrom(x => x.country1_id))
                    .ForMember(dto => dto.StateID, opt => opt.MapFrom(x => x.state1_id))

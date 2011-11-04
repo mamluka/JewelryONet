@@ -21,24 +21,24 @@ namespace JONMVC.Website.Models.AutoMapperMaps
         public void CreateMap(IProfileExpression mapper)
         {
             Mapper.CreateMap<DiamondSearchParametersGivenByJson, DiamondSearchParameters>()
-              .ForMember(s => s.Shape,
-                         opt =>
-                         opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("shape")).FromMember(s => s.Shape))
-              .ForMember(s => s.Color,
-                         opt =>
-                         opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("color")).FromMember(s => s.Color))
-              .ForMember(s => s.Clarity,
-                         opt =>
-                         opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("clarity")).FromMember(s => s.Clarity))
-              .ForMember(s => s.Cut,
-                         opt =>
-                         opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("cut")).FromMember(s => s.Cut))
-              .ForMember(s => s.Report,
-                         opt =>
-                         opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("report")).FromMember(s => s.Report))
-              .ForMember(s => s.ItemsPerPage, opt => opt.MapFrom(x => x.rows))
-              .ForMember(s => s.OrderBy, opt => opt.ResolveUsing<DynamicSortFromStringResolver>())
-              ;
+             .ForMember(s => s.Shape,
+                        opt =>
+                        opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("shape")).FromMember(s => s.Shape))
+             .ForMember(s => s.Color,
+                        opt =>
+                        opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("color")).FromMember(s => s.Color))
+             .ForMember(s => s.Clarity,
+                        opt =>
+                        opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("clarity")).FromMember(s => s.Clarity))
+             .ForMember(s => s.Cut,
+                        opt =>
+                        opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("cut")).FromMember(s => s.Cut))
+             .ForMember(s => s.Report,
+                        opt =>
+                        opt.ResolveUsing<FromJsonToDataBase>().ConstructedBy(() => new FromJsonToDataBase("report")).FromMember(s => s.Report))
+             .ForMember(s => s.ItemsPerPage, opt => opt.MapFrom(x => x.rows))
+             .ForMember(s => s.OrderBy, opt => opt.ResolveUsing<DynamicSortFromStringResolver>())
+             ;
 
             Mapper.CreateMap<v_jd_diamonds, Diamond>()
                 .ForMember(dto => dto.DiamondID, opt => opt.MapFrom(s => s.diamondid))
@@ -146,6 +146,8 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                 .ForMember(dto => dto.PaymentMethod, opt => opt.MapFrom(x => x.PaymentMethod))
                 .ForMember(dto => dto.Phone, opt => opt.MapFrom(x => x.Phone))
                 .ForMember(dto => dto.CreditCardViewModel, opt => opt.MapFrom(x => x.CreditCardViewModel))
+                .ForMember(dto => dto.BillingAddress, opt => opt.ResolveUsing<FillInAddressFromCheckoutDetailsModel>())
+                .ForMember(dto => dto.ShippingAddress, opt => opt.ResolveUsing<FillInAddressFromCheckoutDetailsModel>())
                 ;
 
             Mapper.CreateMap<CheckoutDetailsModel, ReviewOrderViewModel>()
@@ -208,6 +210,7 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                    .ForMember(dto => dto.State, opt => opt.MapFrom(x => x.sys_STATEReference.Value.LANG1_LONGDESCR))
                    .ForMember(dto => dto.Email, opt => opt.MapFrom(x => x.email))
                    .ForMember(dto => dto.FirstName, opt => opt.MapFrom(x => x.firstname))
+                   .ForMember(dto => dto.Phone, opt => opt.MapFrom(x => x.phone1))
                    .ForMember(dto => dto.LastName, opt => opt.MapFrom(x => x.lastname))
                    .ForMember(dto => dto.CountryID, opt => opt.MapFrom(x => x.country1_id))
                    .ForMember(dto => dto.StateID, opt => opt.MapFrom(x => x.state1_id))
@@ -331,7 +334,7 @@ namespace JONMVC.Website.Models.AutoMapperMaps
 
             Mapper.CreateMap<MergeExistingCustomerAndExtendedCustomer, usr_CUSTOMERS>()
 
-               .ForMember(dto => dto.email, opt => opt.MapFrom(x => x.Second.Email))
+                .ForMember(dto => dto.email, opt => opt.MapFrom(x => x.Second.Email))
                 .ForMember(dto => dto.firstname, opt => opt.MapFrom(x => x.Second.FirstName))
                 .ForMember(dto => dto.lastname, opt => opt.MapFrom(x => x.Second.LastName))
                 .ForMember(dto => dto.state1_id, opt => opt.MapFrom(x => x.Second.BillingAddress.StateID))
@@ -502,6 +505,8 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                 .ForMember(dto => dto.Description, opt => opt.Ignore())
                 .ForMember(dto => dto.ItemNumber, opt => opt.Ignore())
                 .ForMember(dto => dto.Price, opt => opt.Ignore())
+                .ForMember(dto => dto.MediaSet, opt => opt.Ignore())
+                .ForMember(dto => dto.Icon, opt => opt.Ignore())
                 ;
 
             Mapper.CreateMap<MergeOrdersAndCustomer, MyAccountViewModel>()
@@ -516,6 +521,7 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                 .ForMember(dto => dto.MemeberSince, opt => opt.MapFrom(x => x.Second.MemeberSince))
                 .ForMember(dto => dto.MemeberSince, opt => opt.AddFormatter<ShortDateFormatter>())
                 .ForMember(dto => dto.HasAddressInformation, opt => opt.ResolveUsing<MyAccountHasAddressInformationResolver>().FromMember(x => x.Second))
+                .ForMember(dto => dto.Phone, opt => opt.MapFrom(x => x.Second.Phone))
                 .ForMember(dto => dto.PageTitle, opt => opt.Ignore())
                 .ForMember(dto => dto.PathBarItems, opt => opt.Ignore())
                 ;
@@ -526,11 +532,13 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                 .ForMember(dto => dto.Table, opt => opt.AddFormatter<PrecentFormatter>())
                 .ForMember(dto => dto.Fluorescence, opt => opt.MapFrom(x => x.Fluorescence))
                 .ForMember(dto => dto.Dimensions, opt => opt.ResolveUsing(new DiamondDimensionsResolver()))
+                .ForMember(dto => dto.ViewURL, opt => opt.Ignore())
+                .ForMember(dto => dto.AddURL, opt => opt.Ignore())
                 ;
 
             Mapper.CreateMap<Jewel, SpecialOffersBannervViewModel>()
-                 .ForMember(dto => dto.Icon, opt => opt.MapFrom(x => x.Media.HiResURLForWebDisplay))
-                 ;
+                .ForMember(dto => dto.Icon, opt => opt.MapFrom(x => x.Media.HiResURLForWebDisplay))
+                ;
 
         }
     }
