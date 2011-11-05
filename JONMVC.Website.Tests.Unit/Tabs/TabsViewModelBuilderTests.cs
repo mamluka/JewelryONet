@@ -280,14 +280,13 @@ namespace JONMVC.Website.Tests.Unit.Tabs
         }
 
         [Test]
-        [Ignore]
         public void Build_ShouldAddACustomFilterToTheViewModelIFPresentInTabs()
         {
             //Arrange
             var tabsViewModelBuilder = CreateDefaultTabsViewModelBuilderWithCustomFilterForGemstones();
             var viewModel = tabsViewModelBuilder.Build();
             //Act
-            
+            viewModel.CustomFilters.Should().HaveCount(1);
             //Assert
 
         }

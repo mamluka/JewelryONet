@@ -246,6 +246,19 @@ var JewelDesign = {
         }
 
     },
+    TranslateCaratSliderValuesToRealCarat: function (val) {
+
+        if (val <= 680) {
+            return val * 9.7059 + 400;
+        }
+        else if (val > 680 && val <= 711) {
+            return (val - 680) * 3000 + 7000;
+        }
+        else if (val > 711) {
+            return (val - 711) * 10000 + 100000;
+        }
+
+    },
     FormatSliderRangeInfo: function (id, handleType, value, prefix) {
 
         var fromSpan = null;
@@ -340,10 +353,11 @@ var JewelDesign = {
 				    minValue: 0.25,
 				    maxValue: 10,
 				    numHandles: 2,
-				    hitMargin: 13,
-				    handleWidth: 13,
-				    leftOffset: 1,
-				    step: 0.01
+				    hitMargin: 15,
+				    handleWidth: 14,
+				    leftOffset: 0,
+				    step: 0.01,
+				    snapDistance:5
 				}
 			);
 
@@ -395,10 +409,11 @@ var JewelDesign = {
 				    minValue: 0,
 				    maxValue: 801,
 				    numHandles: 2,
-				    hitMargin: 13,
-				    handleWidth: 13,
-				    leftOffset: 1,
-				    step: 1
+				    hitMargin: 15,
+				    handleWidth: 14,
+				    leftOffset: 0,
+				    step: 1,
+				    snapDistance: 3
 				}
 			);
 

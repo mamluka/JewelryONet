@@ -7,6 +7,8 @@ namespace JONMVC.Website.ViewModels.Views
 {
     public interface ITabsViewModel
     {
+        List<ICustomTabFilter> CustomFilters { get; set; }
+
         string TabKey { get; set; }
         string TabId { get; set; }
         JewelMediaType MetalFilter { get; set; }

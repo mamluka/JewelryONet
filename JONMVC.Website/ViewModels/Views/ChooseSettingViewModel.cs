@@ -12,7 +12,9 @@ namespace JONMVC.Website.ViewModels.Views
     {
 
         public List<NavigationTab> TabsForJewelDesignNavigation { get; set; }
-        
+
+        public List<ICustomTabFilter> CustomFilters { get; set; }
+       
         public string TabKey { get; set; }
         public string TabId { get; set; }
         [DisplayName("Metal Type:")]

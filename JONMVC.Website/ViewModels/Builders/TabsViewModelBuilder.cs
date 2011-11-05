@@ -157,6 +157,7 @@ namespace JONMVC.Website.ViewModels.Builders
             try
             {
                 var qTabpagexml = GetRawTabPageByKey(tabKey);
+                var customFilterList = new List<string>();
 
                 string xsprite = "";
                 if (qTabpagexml.Element("sprite") != null)
@@ -179,6 +180,11 @@ namespace JONMVC.Website.ViewModels.Builders
                 if (qTabpagexml.Element("shorttitle") != null)
                 {
                     viewModel.ShortTitle = qTabpagexml.Element("shorttitle").Value;
+                }
+
+                if (qTabpagexml.Element("customfilters") != null)
+                {
+                    viewModel.CustomFilters = qTabpagexml.Element("customfilters").Value.Split(' ').ToList().Select(x=> AssignCustomFilterByKey(x)).ToList();
                 }
                 
 
@@ -210,6 +216,17 @@ namespace JONMVC.Website.ViewModels.Builders
             }
 
 
+        }
+
+        private ICustomTabFilter AssignCustomFilterByKey(string filterkey)
+        {
+            switch (filterkey)
+            {
+                case "gemstone-center-stone":
+                    return new GemstoneCenterStoneFilter();
+                default:
+                    return null;
+            }
         }
 
         private bool IsShowTabs(string tabKey)
