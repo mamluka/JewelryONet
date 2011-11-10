@@ -248,7 +248,17 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
            requestedJewelMediaTypeByUser = jewelMediaType;
        }
 
-       protected ObjectSet<v_jewel_items> GetJewelItemsObjectSet()
+        public void AddFilter(DynamicSQLWhereObject filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddFilterList(List<DynamicSQLWhereObject> filters)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected ObjectSet<v_jewel_items> GetJewelItemsObjectSet()
        {
            return new JONEntities().v_jewel_items;
        }

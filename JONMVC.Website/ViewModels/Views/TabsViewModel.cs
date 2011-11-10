@@ -9,7 +9,7 @@ namespace JONMVC.Website.ViewModels.Views
 {
     public class TabsViewModel : PageViewModelBase, ITabsViewModel
     {
-        public List<ICustomTabFilter> CustomFilters { get; set; }
+        public List<CustomTabFilterViewModel> CustomFilters { get; set; }
 
         #region Display
 
@@ -68,21 +68,12 @@ namespace JONMVC.Website.ViewModels.Views
        
     }
 
-    public interface ICustomTabFilter
-    {
-        int Value { get; set; }
-    }
-
-    public class GemstoneCenterStoneFilter:ICustomTabFilter
+    public class CustomTabFilterViewModel
     {
         public int Value { get; set; }
-        
+        public string Name { get; set; }
+        public List<KeyValuePair<string,int>> Values { get; set; }
     }
 
-    public enum GemstoneCenterStoneFilterValues
-    {
-        Ruby,
-        Sapphire,
-        Emerald
-    }
+  
 }

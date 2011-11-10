@@ -53,20 +53,33 @@ namespace JONMVC.Website.Controllers
         [ExitHttpsIfNotRequiredAttribute]
 		[HttpPost]
 		public ActionResult SearchTabsPost(TabsViewModel viewModel)
-		{
+        {
+
+            var dic = new RouteValueDictionary()
+                          {
+                              {"tabkey", viewModel.TabKey},
+                              {"tabid", viewModel.TabId},
+                              {"page", viewModel.Page},
+                              {"MetalFilter", viewModel.MetalFilter},
+                              {"OrderByPrice", viewModel.OrderByPrice},
+                              {"itemsperpage", viewModel.ItemsPerPage}
 
 
-            return RedirectToRoute("Tabs", new RouteValueDictionary()
-																	 {
-																		 {"tabkey", viewModel.TabKey},
-																		 {"tabid", viewModel.TabId},
-																		 {"page", viewModel.Page},
-																		 {"MetalFilter", viewModel.MetalFilter},
-																		 {"OrderByPrice", viewModel.OrderByPrice},
-																		 {"itemsperpage", viewModel.ItemsPerPage}
+                          };
 
-						
-																	 });
+            var counter = 0;
+            if (viewModel.CustomFilters != null)
+            {
+                foreach (var filterValue in viewModel.CustomFilters)
+                {
+                    //TODO do tis strongly typed with reflaction
+                    dic.Add("CustomFilters" + "[" + counter.ToString() + "].Value", filterValue.Value);
+                    dic.Add("CustomFilters" + "[" + counter.ToString() + "].Name", filterValue.Name);
+                    counter++;
+                }
+            }
+
+            return RedirectToRoute("Tabs",dic );
 		}
 
         public ActionResult SpecialOffersBanner()

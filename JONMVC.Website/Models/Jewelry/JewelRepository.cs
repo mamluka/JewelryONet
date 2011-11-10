@@ -27,6 +27,8 @@ namespace JONMVC.Website.Models.Jewelry
         protected int totalItems;
         protected JewelMediaType requestedJewelMediaTypeByUser;
 
+        private List<DynamicSQLWhereObject> customFilters = new List<DynamicSQLWhereObject>();
+
         public JewelRepository(ISettingManager settingManager)
         {
             this.settingManager = settingManager;
@@ -71,6 +73,12 @@ namespace JONMVC.Website.Models.Jewelry
                 }
 
                 items = items.Where(ParseMetalFilter(requestedJewelMediaTypeByUser));
+
+                foreach (var customfilter in customFilters)
+                {
+                    items = items.Where(customfilter.Pattern, customfilter.Valuelist.ToArray());
+                }
+
 
                 //must call orderby before skip
                 items = items.OrderBy(orderBy.SQLString);
@@ -252,6 +260,23 @@ namespace JONMVC.Website.Models.Jewelry
         public void FilterMediaByMetal(JewelMediaType jewelMediaType)
         {
             requestedJewelMediaTypeByUser = jewelMediaType;
+        }
+
+        public void AddFilter(DynamicSQLWhereObject filter)
+        {
+            
+                customFilters.Add(filter);
+            
+        }
+
+        public void AddFilterList(List<DynamicSQLWhereObject> filter)
+        {
+
+            foreach (var dynamicSqlWhereObject in filter)
+            {
+                customFilters.Add(dynamicSqlWhereObject);
+            }
+
         }
 
         protected ObjectSet<v_jewel_items> GetJewelItemsObjectSet()

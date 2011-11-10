@@ -58,7 +58,7 @@
 		<tab id="diamond-mens">
 			<caption>Men's</caption>
 			<where>
-				<string>jeweltype_id = @0 and jewelsubtype_id=@1 and category_id = @1</string>
+				<string>jeweltype_id = @0 and jewelsubtype_id=@1 and category_id = @2</string>
 				<values>
 					<value type="int">14</value>
 					<value type="int">20</value>

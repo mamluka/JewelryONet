@@ -38,6 +38,10 @@
                         @Html.HiddenFor(m => m.ItemsPerPage)
                         @Html.HiddenFor(m => m.TabId)
                         @Html.HiddenFor(m => m.TabKey)
+
+                        @Html.TextBoxFor(x=> x.CustomFilters[0].Value)
+                        @Html.HiddenFor(x=> x.CustomFilters[0].Name)
+
                         <div class="pages right">
                             <ul>
                                 @for (int i = 1; i <= Model.TotalPages; i++)

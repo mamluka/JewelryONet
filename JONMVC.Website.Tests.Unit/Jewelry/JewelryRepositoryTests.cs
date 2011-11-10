@@ -1,3 +1,4 @@
+using JONMVC.Website.Models.Helpers;
 using JONMVC.Website.Tests.Unit.Utils;
 using NUnit.Framework;
 using FluentAssertions;
@@ -111,6 +112,8 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
             jewel.IsSpecial.Should().BeTrue();
 
         }
+
+       
 
       
 

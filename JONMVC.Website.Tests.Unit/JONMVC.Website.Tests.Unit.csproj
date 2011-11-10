@@ -165,6 +165,7 @@
     <Compile Include="Services\CookieWishListPersistenceTests.cs" />
     <Compile Include="Services\ServicesControllerTests.cs" />
     <Compile Include="Services\WishListViewModelBuilderTests.cs" />
+    <Compile Include="Tabs\CustomTabFilterEnumMetadataReaderTests.cs" />
     <Compile Include="Tabs\SpecialOffersBannervViewModelBuilderTests.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="Helpers\MvcMockHelpers.cs" />

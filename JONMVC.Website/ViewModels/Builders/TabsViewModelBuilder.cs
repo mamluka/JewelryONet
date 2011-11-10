@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO.Abstractions;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using JONMVC.Website.Models.Helpers;
@@ -29,7 +30,7 @@ namespace JONMVC.Website.ViewModels.Builders
         private MetalFilter JewelMediaTypeFilter;
         private OrderByPriceFilter OrderByPriceFilter;
         private List<JewelInTabContainer> jewelryInTabContainersCollection;
-
+        private List<CustomTabFilterViewModel> CustomFilterStateList;
 
 
         public TabsViewModelBuilder(string tabKey, string tabId,XDocument tabsource,ITabsRepository tabsRepository,IJewelRepository jewelRepository,IFileSystem fileSystem)
@@ -47,6 +48,8 @@ namespace JONMVC.Website.ViewModels.Builders
             page = 1;
             JewelMediaTypeFilter = new MetalFilter(JewelMediaType.WhiteGold);
             OrderByPriceFilter =  new OrderByPriceFilter(OrderByPrice.LowToHigh);
+
+           
 
         }
 
@@ -67,7 +70,7 @@ namespace JONMVC.Website.ViewModels.Builders
             JewelMediaTypeFilter = new MetalFilter(model.MetalFilter);
             OrderByPriceFilter = new OrderByPriceFilter(model.OrderByPrice);
 
-
+            CustomFilterStateList = model.CustomFilters;
         }
         
 
@@ -218,14 +221,19 @@ namespace JONMVC.Website.ViewModels.Builders
 
         }
 
-        private ICustomTabFilter AssignCustomFilterByKey(string filterkey)
+        private CustomTabFilterViewModel AssignCustomFilterByKey(string filterkey)
         {
-            switch (filterkey)
+            return CreateCustomFilterFromKey(filterkey).ViewModel;
+        }
+
+        private ICustomTabFilter CreateCustomFilterFromKey(string key)
+        {
+            switch (key)
             {
                 case "gemstone-center-stone":
-                    return new GemstoneCenterStoneFilter();
+                    return new CustomTabFilterForGemstoneCenterStone(new CustomTabFilterEnumMetadataReader<GemstoneCenterStoneFilterValues>());
                 default:
-                    return null;
+                    throw new Exception("When asked for key:" + key + " an error occured:\r\n no such key");
             }
         }
 
@@ -247,23 +255,21 @@ namespace JONMVC.Website.ViewModels.Builders
             jewelRepository.Page(page);
             jewelRepository.ItemsPerPage(itemsPerPage);
 
-//            if (JewelMediaTypeFilterID > 3)
-//            {
-//                throw new ArgumentOutOfRangeException("Metal media filter dosen't have a value above 3");
-//            }
+
 
             var jewelMediaType = JewelMediaTypeFilter.Value;
 
             jewelRepository.FilterMediaByMetal(jewelMediaType);
-                
-
-           // var priceOderBy = OrderByPriceItems().Where(o => o.OrderByItemID == OrderByPriceID).SingleOrDefault();
-
-     
-
-          
             jewelRepository.OrderJewelryItemsBy(OrderByPriceFilter.DynamicOrderBy());
-            
+
+            if (CustomFilterStateList != null)
+            {
+                var dynamicSQLList =
+                    CustomFilterStateList.Select(x => ConvertCustomFilterStateToDynamicSQL(x, viewModel)).ToList();
+
+                jewelRepository.AddFilterList(dynamicSQLList);
+            }
+
 
             var jewelList =  jewelRepository.GetJewelsByDynamicSQL(dynamicSQLObject);
 
@@ -274,6 +280,12 @@ namespace JONMVC.Website.ViewModels.Builders
             viewModel.TotalPages = CalculateTotalPages(totalItems);
 
             return viewModel;
+        }
+
+        private DynamicSQLWhereObject ConvertCustomFilterStateToDynamicSQL(CustomTabFilterViewModel customTabFilterViewModel, ITabsViewModel viewModel)
+        {
+            return CreateCustomFilterFromKey(customTabFilterViewModel.Name).DynamicSQLByFilterValue(
+                customTabFilterViewModel.Value);
         }
 
         private List<JewelInTabContainer> MapJewelsToInTabContainers(List<Jewel> jewelList)
@@ -409,6 +421,104 @@ namespace JONMVC.Website.ViewModels.Builders
         #endregion
 
        
+    }
+
+    public interface ICustomTabFilter
+    {
+        CustomTabFilterViewModel ViewModel { get;  }
+        DynamicSQLWhereObject DynamicSQLByFilterValue(int filterValue);
+    }
+
+    public class CustomTabFilterForGemstoneCenterStone : ICustomTabFilter
+    {
+        private readonly CustomTabFilterEnumMetadataReader<GemstoneCenterStoneFilterValues> reader;
+        public CustomTabFilterViewModel ViewModel { get; private set; }
+
+        private readonly GemstoneCenterStoneFilterValues values;
+
+        private readonly string key = "gemstone-center-stone";
+
+        public CustomTabFilterForGemstoneCenterStone(CustomTabFilterEnumMetadataReader<GemstoneCenterStoneFilterValues> reader)
+        {
+            this.reader = reader;
+
+            ViewModel = new CustomTabFilterViewModel()
+                            {
+                                Name = key,
+                                Value = 0,
+                                Values = reader.Values()
+                            };
+        }
+
+        public DynamicSQLWhereObject DynamicSQLByFilterValue(int filterValue)
+        {
+            return reader.ReadDynamicSQLByValue(filterValue);
+        }
+
+    
+    
+    }
+
+    public class CustomTabFilterEnumMetadataReader<T> 
+    {
+        public List<KeyValuePair<string,int>> Values()
+        {
+            var list = new List<KeyValuePair<string, int>>();
+            var type = typeof (T);
+
+            foreach (var enumName in Enum.GetNames(typeof(T)))
+            {
+                var enumValue =  (int)Enum.Parse(typeof (T), enumName);
+                var memInfo = type.GetMember(enumName);
+
+
+                object[] attrs = memInfo[0].GetCustomAttributes(typeof(Description),
+                                                                false);
+
+                if (attrs.Length > 0)
+
+                    list.Add(new KeyValuePair<string, int>(((Description)attrs[0]).Text, enumValue)); 
+            
+            }
+
+            
+
+            return list;
+
+        }
+
+        public DynamicSQLWhereObject ReadDynamicSQLByValue(int filterValue)
+        {
+            var type = typeof (T);
+            var enumName = Enum.GetName(type, filterValue);
+
+            var memInfo = type.GetMember(enumName);
+            var filterAttrs = memInfo[0].GetCustomAttributes(typeof (FilterFieldAndValue), false);
+
+            if (filterAttrs.Length > 0 )
+            {
+                var filterAttr = (FilterFieldAndValue)filterAttrs[0];
+
+                return new DynamicSQLWhereObject(filterAttr.Field + " = @0",filterAttr.Value);
+            }
+
+            return null;
+        }
+    }
+
+    public enum GemstoneCenterStoneFilterValues
+    {
+        [Description("-")] 
+        All = 0,
+        
+        [FilterFieldAndValue("cs_type", "ruby")] [Description("Ruby")] 
+        Ruby = 1,
+        
+        [FilterFieldAndValue("cs_type", "sapphire")] [Description("Sapphire")] 
+        Sapphire = 2,
+        
+        [FilterFieldAndValue("cs_type", "emerald")] [Description("Emerald")] 
+        Emerald = 3
     }
 
     public class MetalFilter

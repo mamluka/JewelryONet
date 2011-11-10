@@ -97,7 +97,18 @@ namespace JONMVC.Website.Models.Utils
 
     }
 
-   
+    public class FilterFieldAndValue:Attribute
+    {
+        public readonly string Field;
+        public readonly string Value;
+        public FilterFieldAndValue(string field,string value)
+        {
+            Field = field;
+            Value = value;
+        }
+    }
+
+
 
     public class ExitHttpsIfNotRequiredAttribute : FilterAttribute, IAuthorizationFilter
     {

@@ -70,6 +70,41 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             resultview.AssertActionRedirect().RouteName.Should().Be("Tabs");
         }
 
+        [Test]
+        public void SearchTabsPost_ShouldAddCustomFilterToRoute()
+        {
+            //Arrange
+            var tabsController = CreateDefaultTabsController();
+
+            var viewModel = fixture.Build<TabsViewModel>().With(x => x.CustomFilters,
+                                                                new List<CustomTabFilterViewModel>()
+                                                                    {
+                                                                        new CustomTabFilterViewModel()
+                                                                            {
+                                                                                Name = "test",
+                                                                                Value = 2
+                                                                            },
+                                                                        new CustomTabFilterViewModel()
+                                                                            {
+                                                                                Name = "test2",
+                                                                                Value = 4
+                                                                            }
+                                                                    }).CreateAnonymous();
+
+            //Act
+            var resultview = tabsController.SearchTabsPost(viewModel);
+            //Assert
+
+
+            resultview.AssertActionRedirect().RouteValues.Should().Contain(new KeyValuePair<string, object>("CustomFilters[0].Value", 2));
+            resultview.AssertActionRedirect().RouteValues.Should().Contain(new KeyValuePair<string, object>("CustomFilters[1].Value", 4));
+
+            resultview.AssertActionRedirect().RouteValues.Should().Contain(new KeyValuePair<string, object>("CustomFilters[0].Name", "test"));
+            resultview.AssertActionRedirect().RouteValues.Should().Contain(new KeyValuePair<string, object>("CustomFilters[1].Name", "test2"));
+        }
+
+
+
       
 
 

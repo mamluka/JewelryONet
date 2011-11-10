@@ -267,20 +267,75 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             viewModel.MetalFilter = JewelMediaType.WhiteGold;
             
 
-            TabsViewModelBuilder tabsViewModelBuilder = new TabsViewModelBuilder(viewModel, xmldoc_regular3tabs, tabsRepository, jewelryRepository,fileSystem);
-            viewModel = tabsViewModelBuilder.Build();
+            var tabsViewModelBuilder = new TabsViewModelBuilder(viewModel, xmldoc_regular3tabs, tabsRepository, jewelryRepository,fileSystem);
+            tabsViewModelBuilder.Build();
 
             //Act
-
-            var tabs = viewModel.JewelryInTabContainersCollection;
-
             //Assert
             jewelryRepository.VerifyAllExpectations();
 
         }
 
         [Test]
+        public void Build_ShouldAddACustmFilterToTheRapository()
+        {
+            //Arrange
+            var jewelryRepository = MockRepository.GenerateMock<IJewelRepository>();
+            var tabsRepository = CreateStubTabsRepository(TabKey);
+            var fileSystem = FakeFileSystem.MediaFileSystemForItemNumber("0101-15001");
+
+
+            jewelryRepository.Expect(x => x.AddFilterList(Arg<List<DynamicSQLWhereObject>>
+                                                              .Matches(
+                                                                  m =>
+                                                                  m[0].Pattern == "cs_type = @0" &&
+                                                                  m[0].Valuelist.Contains("ruby")
+
+                                                              ))).Repeat.Once();
+
+            var viewModel = new TabsViewModel();
+            viewModel.TabKey = TAB_KEY;
+            viewModel.TabId = TAB_ID1;
+            
+            viewModel.CustomFilters = new List<CustomTabFilterViewModel>
+                                          {
+                                              new CustomTabFilterViewModel()
+                                                  {
+                                                      Name = "gemstone-center-stone",
+                                                      Value = 1
+                                                      
+                                                  }
+                                          };
+        
+
+
+
+        var tabsViewModelBuilder = new TabsViewModelBuilder(viewModel, xmldoc_tabswithgemstonefilter, tabsRepository,
+                                                                jewelryRepository, fileSystem);
+
+
+            //Act
+            tabsViewModelBuilder.Build();
+            //Assert
+            jewelryRepository.VerifyAllExpectations();
+
+        }
+
+
+        [Test]
         public void Build_ShouldAddACustomFilterToTheViewModelIFPresentInTabs()
+        {
+            //Arrange
+            var tabsViewModelBuilder = CreateDefaultTabsViewModelBuilderWithCustomFilterForGemstones();
+            
+            //Act
+            var viewModel = tabsViewModelBuilder.Build();
+            //Assert
+            viewModel.CustomFilters[0].Values.Should().HaveCount(4);
+        }
+
+        [Test]
+        public void Build_ShouldAddKeyValuePairsForTheFilterDisplay()
         {
             //Arrange
             var tabsViewModelBuilder = CreateDefaultTabsViewModelBuilderWithCustomFilterForGemstones();

@@ -14,5 +14,7 @@ namespace JONMVC.Website.Models.Jewelry
         void Page(int currentpage);
         Jewel GetJewelByID(int jewelryID);
         void FilterMediaByMetal(JewelMediaType jewelMediaType);
+        void AddFilter(DynamicSQLWhereObject filter);
+        void AddFilterList(List<DynamicSQLWhereObject> filters);
     }
 }
