@@ -76,7 +76,11 @@ namespace JONMVC.Website.Models.Jewelry
 
                 foreach (var customfilter in customFilters)
                 {
-                    items = items.Where(customfilter.Pattern, customfilter.Valuelist.ToArray());
+                    if (!customfilter.IsDoingNothing)
+                    {
+                        items = items.Where(customfilter.Pattern, customfilter.Valuelist.ToArray());
+                    }
+                    
                 }
 
 
@@ -104,7 +108,7 @@ namespace JONMVC.Website.Models.Jewelry
             return jewelrylist;
         }
 
-        protected string ParseMetalFilter(JewelMediaType jewelTypeFilter)
+        private string ParseMetalFilter(JewelMediaType jewelTypeFilter)
         {
            var metalTypeFilterDictionary = new Dictionary<JewelMediaType, string>()
                                                                         {

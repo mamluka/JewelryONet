@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using JONMVC.Website.Models.DB;
 using JONMVC.Website.Models.Helpers;
 using JONMVC.Website.Models.Jewelry;
 using JONMVC.Website.Models.Tabs;
@@ -30,8 +31,8 @@ namespace JONMVC.Website.ViewModels.Builders
         private MetalFilter JewelMediaTypeFilter;
         private OrderByPriceFilter OrderByPriceFilter;
         private List<JewelInTabContainer> jewelryInTabContainersCollection;
-        private List<CustomTabFilterViewModel> CustomFilterStateList;
-
+        private List<CustomTabFilterViewModel> CustomFiltersStateList = new List<CustomTabFilterViewModel>();
+        private List<ICustomTabFilter> CustomFilters = new List<ICustomTabFilter>();
 
         public TabsViewModelBuilder(string tabKey, string tabId,XDocument tabsource,ITabsRepository tabsRepository,IJewelRepository jewelRepository,IFileSystem fileSystem)
         {
@@ -70,7 +71,11 @@ namespace JONMVC.Website.ViewModels.Builders
             JewelMediaTypeFilter = new MetalFilter(model.MetalFilter);
             OrderByPriceFilter = new OrderByPriceFilter(model.OrderByPrice);
 
-            CustomFilterStateList = model.CustomFilters;
+            if (model.CustomFilters != null)
+            {
+                CustomFiltersStateList = model.CustomFilters;    
+            }
+            
         }
         
 
@@ -98,6 +103,8 @@ namespace JONMVC.Website.ViewModels.Builders
 
 
             viewModel = LoadPage(viewModel);
+            viewModel = LoadInTabFilters(viewModel);
+
             viewModel = LoadJewelryCollection(viewModel);
 
             //defaults
@@ -110,6 +117,32 @@ namespace JONMVC.Website.ViewModels.Builders
 
             viewModel.MetalFilterItems = MetalFilter.GetKeyValue();
             viewModel.OrderByPriceItems = OrderByPriceFilter.GetKeyValue();
+
+            return viewModel;
+        }
+
+        private TOut LoadInTabFilters<TOut>(TOut viewModel) where TOut:ITabsViewModel
+        {
+            var tabpage = GetRawTabPageByKey(tabKey);
+
+            var query = tabpage.Elements("tab").Attributes().Where(m => m.Value == tabId).FirstOrDefault();
+
+            if (query == null)
+            {
+                new IndexOutOfRangeException("bad tab id");
+            }
+
+            var tab = query.Parent;
+
+            if (tab.Element("customfilter") != null)
+            {
+                var filterName = tab.Element("customfilter").Value;
+                var filterParams = tab.Element("customfilter").Attribute("params").Value.Split(',');
+                var customFilter = CreateCustomFilterFromKey(filterName, filterParams);
+
+                viewModel.CustomFilters.Add(customFilter.ViewModel);
+                CustomFilters.Add(customFilter);
+            }
 
             return viewModel;
         }
@@ -160,7 +193,6 @@ namespace JONMVC.Website.ViewModels.Builders
             try
             {
                 var qTabpagexml = GetRawTabPageByKey(tabKey);
-                var customFilterList = new List<string>();
 
                 string xsprite = "";
                 if (qTabpagexml.Element("sprite") != null)
@@ -187,8 +219,11 @@ namespace JONMVC.Website.ViewModels.Builders
 
                 if (qTabpagexml.Element("customfilters") != null)
                 {
-                    viewModel.CustomFilters = qTabpagexml.Element("customfilters").Value.Split(' ').ToList().Select(x=> AssignCustomFilterByKey(x)).ToList();
+                    qTabpagexml.Element("customfilters").Value.Split(' ').ToList().ForEach(x=> viewModel.CustomFilters.Add(AssignCustomFilterViewModelByKey(x)));
+                    qTabpagexml.Element("customfilters").Value.Split(' ').ToList().ForEach(x => CustomFilters.Add(CreateCustomFilterFromKey(x)));
                 }
+
+
                 
 
                 string xtitle = qTabpagexml.Element("title").Value;
@@ -221,17 +256,19 @@ namespace JONMVC.Website.ViewModels.Builders
 
         }
 
-        private CustomTabFilterViewModel AssignCustomFilterByKey(string filterkey)
+        private CustomTabFilterViewModel AssignCustomFilterViewModelByKey(string filterkey,string[] filterParams = null)
         {
-            return CreateCustomFilterFromKey(filterkey).ViewModel;
+            return CreateCustomFilterFromKey(filterkey,filterParams).ViewModel;
         }
 
-        private ICustomTabFilter CreateCustomFilterFromKey(string key)
+        private ICustomTabFilter CreateCustomFilterFromKey(string key,string[] filterParams = null)
         {
             switch (key)
             {
                 case "gemstone-center-stone":
                     return new CustomTabFilterForGemstoneCenterStone(new CustomTabFilterEnumMetadataReader<GemstoneCenterStoneFilterValues>());
+                case "subcategory":
+                    return new CustomTabFilterForSubCategoryUsingDataBase(filterParams);
                 default:
                     throw new Exception("When asked for key:" + key + " an error occured:\r\n no such key");
             }
@@ -262,10 +299,10 @@ namespace JONMVC.Website.ViewModels.Builders
             jewelRepository.FilterMediaByMetal(jewelMediaType);
             jewelRepository.OrderJewelryItemsBy(OrderByPriceFilter.DynamicOrderBy());
 
-            if (CustomFilterStateList != null)
+            if (CustomFiltersStateList.Count > 0)
             {
                 var dynamicSQLList =
-                    CustomFilterStateList.Select(x => ConvertCustomFilterStateToDynamicSQL(x, viewModel)).ToList();
+                    CustomFiltersStateList.Select(x => ConvertCustomFilterStateToDynamicSQL(x)).ToList();
 
                 jewelRepository.AddFilterList(dynamicSQLList);
             }
@@ -282,10 +319,9 @@ namespace JONMVC.Website.ViewModels.Builders
             return viewModel;
         }
 
-        private DynamicSQLWhereObject ConvertCustomFilterStateToDynamicSQL(CustomTabFilterViewModel customTabFilterViewModel, ITabsViewModel viewModel)
+        private DynamicSQLWhereObject ConvertCustomFilterStateToDynamicSQL(CustomTabFilterViewModel customTabFilterViewModel)
         {
-            return CreateCustomFilterFromKey(customTabFilterViewModel.Name).DynamicSQLByFilterValue(
-                customTabFilterViewModel.Value);
+            return CustomFilters.Where(x => x.Key == customTabFilterViewModel.Name).SingleOrDefault().DynamicSQLByFilterValue(customTabFilterViewModel.Value);
         }
 
         private List<JewelInTabContainer> MapJewelsToInTabContainers(List<Jewel> jewelList)
@@ -427,6 +463,8 @@ namespace JONMVC.Website.ViewModels.Builders
     {
         CustomTabFilterViewModel ViewModel { get;  }
         DynamicSQLWhereObject DynamicSQLByFilterValue(int filterValue);
+        string Key { get; }
+      
     }
 
     public class CustomTabFilterForGemstoneCenterStone : ICustomTabFilter
@@ -438,6 +476,8 @@ namespace JONMVC.Website.ViewModels.Builders
 
         private readonly string key = "gemstone-center-stone";
 
+        private readonly string label = "Center Stone:";
+
         public CustomTabFilterForGemstoneCenterStone(CustomTabFilterEnumMetadataReader<GemstoneCenterStoneFilterValues> reader)
         {
             this.reader = reader;
@@ -446,7 +486,8 @@ namespace JONMVC.Website.ViewModels.Builders
                             {
                                 Name = key,
                                 Value = 0,
-                                Values = reader.Values()
+                                Values = reader.Values(),
+                                Label = label
                             };
         }
 
@@ -455,8 +496,69 @@ namespace JONMVC.Website.ViewModels.Builders
             return reader.ReadDynamicSQLByValue(filterValue);
         }
 
-    
-    
+        public string Key
+        {
+            get { return key; }
+        }
+
+       
+    }
+
+    public class CustomTabFilterForSubCategoryUsingDataBase : ICustomTabFilter
+    {
+        public CustomTabFilterViewModel ViewModel { get; private set; }
+
+        private readonly string key = "subcategory";
+
+        private readonly string label = "Type:";
+
+        public CustomTabFilterForSubCategoryUsingDataBase(string[] filterParams)
+        {
+            ViewModel = new CustomTabFilterViewModel()
+            {
+                Name = key,
+                Value = 0,
+                Values = JewelSubCategoryValuesFromJewelCategory(filterParams),
+                Label = label
+            };
+        }
+
+        private List<KeyValuePair<string, int>> JewelSubCategoryValuesFromJewelCategory(string[] filterParams)
+        {
+           
+            using (var db = new JONEntities())
+            {
+                var jewelType = Convert.ToInt32(filterParams[0]);
+
+                var subcategories = db.inv_JEWELSUBTYPE_JEWEL.Where(x => x.JEWELTYPE_ID == jewelType).ToList();
+
+                var list = subcategories.Select(subcategory => new KeyValuePair<string, int>(subcategory.LANG1_LONGDESCR, subcategory.ID)).ToList();
+                list.Insert(0, new KeyValuePair<string, int>("-",0));
+
+                return list;
+            }
+        }
+
+        public DynamicSQLWhereObject DynamicSQLByFilterValue(int filterValue)
+        {
+            if (filterValue == 0)
+            {
+                var dynamic = new DynamicSQLWhereObject();
+                dynamic.DoNothing();
+                return dynamic;
+            }
+            return new DynamicSQLWhereObject("JEWELSUBTYPE_ID = @0", filterValue);
+        }
+
+        public string Key
+        {
+            get { return key; }
+        }
+
+      
+
+
+
     }
 
     public class CustomTabFilterEnumMetadataReader<T> 
@@ -502,7 +604,9 @@ namespace JONMVC.Website.ViewModels.Builders
                 return new DynamicSQLWhereObject(filterAttr.Field + " = @0",filterAttr.Value);
             }
 
-            return null;
+            var dynamic = new DynamicSQLWhereObject();
+            dynamic.DoNothing();
+            return dynamic;
         }
     }
 

@@ -61,6 +61,7 @@ namespace JONMVC.Website.ViewModels.Views
             Page = 1;
             ItemsPerPage = 21;
             TotalPages = 0;
+            CustomFilters = new List<CustomTabFilterViewModel>();
 
         }
         
@@ -73,6 +74,7 @@ namespace JONMVC.Website.ViewModels.Views
         public int Value { get; set; }
         public string Name { get; set; }
         public List<KeyValuePair<string,int>> Values { get; set; }
+        public string Label { get; set; }
     }
 
   

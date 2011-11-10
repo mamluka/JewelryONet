@@ -12,6 +12,7 @@
           <EntitySet Name="acc_DIAMOND_ORDER_ITEMS" EntityType="JONDataModel.Store.acc_DIAMOND_ORDER_ITEMS" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="acc_JEWELRY_ORDER_ITEMS" EntityType="JONDataModel.Store.acc_JEWELRY_ORDER_ITEMS" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="acc_ORDERS" EntityType="JONDataModel.Store.acc_ORDERS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inv_JEWELSUBTYPE_JEWEL" EntityType="JONDataModel.Store.inv_JEWELSUBTYPE_JEWEL" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sys_COUNTRY" EntityType="JONDataModel.Store.sys_COUNTRY" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sys_STATE" EntityType="JONDataModel.Store.sys_STATE" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="usr_CUSTOMERS" EntityType="JONDataModel.Store.usr_CUSTOMERS" store:Type="Tables" Schema="dbo" />
@@ -416,6 +417,27 @@
           <Property Name="hear_fromus" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="include_receipt" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="inv_JEWELSUBTYPE_JEWEL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="JEWELTYPE_ID" Type="int" />
+          <Property Name="LANG1_SHORTDESCR" Type="nvarchar" MaxLength="30" />
+          <Property Name="LANG1_LONGDESCR" Type="nvarchar" MaxLength="80" />
+          <Property Name="LANG2_SHORTDESCR" Type="nvarchar" MaxLength="30" />
+          <Property Name="LANG2_LONGDESCR" Type="nvarchar" MaxLength="80" />
+          <Property Name="LANG3_SHORTDESCR" Type="nvarchar" MaxLength="30" />
+          <Property Name="LANG3_LONGDESCR" Type="nvarchar" MaxLength="80" />
+          <Property Name="LANG4_SHORTDESCR" Type="nvarchar" MaxLength="30" />
+          <Property Name="LANG4_LONGDESCR" Type="nvarchar" MaxLength="80" />
+          <Property Name="LANG5_SHORTDESCR" Type="nvarchar" MaxLength="30" />
+          <Property Name="LANG5_LONGDESCR" Type="nvarchar" MaxLength="80" />
+          <Property Name="LANG6_SHORTDESCR" Type="nvarchar" MaxLength="30" />
+          <Property Name="LANG6_LONGDESCR" Type="nvarchar" MaxLength="80" />
+          <Property Name="LOGICALORDER" Type="int" />
+          <Property Name="SORTORDER" Type="int" />
+        </EntityType>
         <EntityType Name="sys_COUNTRY">
           <Key>
             <PropertyRef Name="ID" />
@@ -695,7 +717,9 @@
           <Property Name="order_currency_rate" Type="decimal" Precision="7" Scale="3" />
         </EntityType>
         <Association Name="acc_DIAMOND_ORDER_ITEMS_acc_ORDERS">
-          <End Role="acc_ORDERS" Type="JONDataModel.Store.acc_ORDERS" Multiplicity="1" />
+          <End Role="acc_ORDERS" Type="JONDataModel.Store.acc_ORDERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="acc_DIAMOND_ORDER_ITEMS" Type="JONDataModel.Store.acc_DIAMOND_ORDER_ITEMS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="acc_ORDERS">
@@ -719,7 +743,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_acc_CASHFLOW_usr_CUSTOMERS">
-          <End Role="usr_CUSTOMERS" Type="JONDataModel.Store.usr_CUSTOMERS" Multiplicity="1" />
+          <End Role="usr_CUSTOMERS" Type="JONDataModel.Store.usr_CUSTOMERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="acc_CASHFLOW" Type="JONDataModel.Store.acc_CASHFLOW" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="usr_CUSTOMERS">
@@ -731,7 +757,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_acc_CUSTOMJEWEL_ORDER_ITEMS_acc_ORDERS">
-          <End Role="acc_ORDERS" Type="JONDataModel.Store.acc_ORDERS" Multiplicity="1" />
+          <End Role="acc_ORDERS" Type="JONDataModel.Store.acc_ORDERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="acc_CUSTOMJEWEL_ORDER_ITEMS" Type="JONDataModel.Store.acc_CUSTOMJEWEL_ORDER_ITEMS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="acc_ORDERS">
@@ -743,7 +771,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_acc_JEWELRY_ORDER_ITEMS_acc_ORDERS">
-          <End Role="acc_ORDERS" Type="JONDataModel.Store.acc_ORDERS" Multiplicity="1" />
+          <End Role="acc_ORDERS" Type="JONDataModel.Store.acc_ORDERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="acc_JEWELRY_ORDER_ITEMS" Type="JONDataModel.Store.acc_JEWELRY_ORDER_ITEMS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="acc_ORDERS">
@@ -803,7 +833,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_acc_ORDERS_usr_CUSTOMERS">
-          <End Role="usr_CUSTOMERS" Type="JONDataModel.Store.usr_CUSTOMERS" Multiplicity="1" />
+          <End Role="usr_CUSTOMERS" Type="JONDataModel.Store.usr_CUSTOMERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="acc_ORDERS" Type="JONDataModel.Store.acc_ORDERS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="usr_CUSTOMERS">
@@ -952,6 +984,7 @@
             <End Role="sys_STATE" EntitySet="sys_STATE" />
             <End Role="usr_CUSTOMERS" EntitySet="usr_CUSTOMERS" />
           </AssociationSet>
+          <EntitySet Name="inv_JEWELSUBTYPE_JEWEL" EntityType="JONDataModel.inv_JEWELSUBTYPE_JEWEL" />
           </EntityContainer>
         <EntityType Name="acc_CREDITCARD">
           <Key>
@@ -1665,6 +1698,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="inv_JEWELSUBTYPE_JEWEL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="JEWELTYPE_ID" />
+          <Property Type="String" Name="LANG1_SHORTDESCR" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG1_LONGDESCR" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG2_SHORTDESCR" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG2_LONGDESCR" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG3_SHORTDESCR" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG3_LONGDESCR" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG4_SHORTDESCR" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG4_LONGDESCR" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG5_SHORTDESCR" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG5_LONGDESCR" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG6_SHORTDESCR" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LANG6_LONGDESCR" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LOGICALORDER" />
+          <Property Type="Int32" Name="SORTORDER" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2159,6 +2213,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="inv_JEWELSUBTYPE_JEWEL">
+            <EntityTypeMapping TypeName="JONDataModel.inv_JEWELSUBTYPE_JEWEL">
+              <MappingFragment StoreEntitySet="inv_JEWELSUBTYPE_JEWEL">
+                <ScalarProperty Name="SORTORDER" ColumnName="SORTORDER" />
+                <ScalarProperty Name="LOGICALORDER" ColumnName="LOGICALORDER" />
+                <ScalarProperty Name="LANG6_LONGDESCR" ColumnName="LANG6_LONGDESCR" />
+                <ScalarProperty Name="LANG6_SHORTDESCR" ColumnName="LANG6_SHORTDESCR" />
+                <ScalarProperty Name="LANG5_LONGDESCR" ColumnName="LANG5_LONGDESCR" />
+                <ScalarProperty Name="LANG5_SHORTDESCR" ColumnName="LANG5_SHORTDESCR" />
+                <ScalarProperty Name="LANG4_LONGDESCR" ColumnName="LANG4_LONGDESCR" />
+                <ScalarProperty Name="LANG4_SHORTDESCR" ColumnName="LANG4_SHORTDESCR" />
+                <ScalarProperty Name="LANG3_LONGDESCR" ColumnName="LANG3_LONGDESCR" />
+                <ScalarProperty Name="LANG3_SHORTDESCR" ColumnName="LANG3_SHORTDESCR" />
+                <ScalarProperty Name="LANG2_LONGDESCR" ColumnName="LANG2_LONGDESCR" />
+                <ScalarProperty Name="LANG2_SHORTDESCR" ColumnName="LANG2_SHORTDESCR" />
+                <ScalarProperty Name="LANG1_LONGDESCR" ColumnName="LANG1_LONGDESCR" />
+                <ScalarProperty Name="LANG1_SHORTDESCR" ColumnName="LANG1_SHORTDESCR" />
+                <ScalarProperty Name="JEWELTYPE_ID" ColumnName="JEWELTYPE_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2266,6 +2342,7 @@
           <ConnectorPoint PointX="5" PointY="21.692154134114581" />
           <ConnectorPoint PointX="5.75" PointY="21.692154134114581" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="JONDataModel.inv_JEWELSUBTYPE_JEWEL" Width="1.5" PointX="0.75" PointY="0.75" Height="4.0956022135416674" />
         </Diagram>
     </Diagrams>
   </Designer>

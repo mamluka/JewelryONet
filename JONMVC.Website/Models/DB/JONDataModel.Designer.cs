@@ -291,6 +291,22 @@ namespace JONMVC.Website.Models.DB
             }
         }
         private ObjectSet<usr_CUSTOMERS> _usr_CUSTOMERS;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<inv_JEWELSUBTYPE_JEWEL> inv_JEWELSUBTYPE_JEWEL
+        {
+            get
+            {
+                if ((_inv_JEWELSUBTYPE_JEWEL == null))
+                {
+                    _inv_JEWELSUBTYPE_JEWEL = base.CreateObjectSet<inv_JEWELSUBTYPE_JEWEL>("inv_JEWELSUBTYPE_JEWEL");
+                }
+                return _inv_JEWELSUBTYPE_JEWEL;
+            }
+        }
+        private ObjectSet<inv_JEWELSUBTYPE_JEWEL> _inv_JEWELSUBTYPE_JEWEL;
 
         #endregion
         #region AddTo Methods
@@ -397,6 +413,14 @@ namespace JONMVC.Website.Models.DB
         public void AddTousr_CUSTOMERS(usr_CUSTOMERS usr_CUSTOMERS)
         {
             base.AddObject("usr_CUSTOMERS", usr_CUSTOMERS);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the inv_JEWELSUBTYPE_JEWEL EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToinv_JEWELSUBTYPE_JEWEL(inv_JEWELSUBTYPE_JEWEL inv_JEWELSUBTYPE_JEWEL)
+        {
+            base.AddObject("inv_JEWELSUBTYPE_JEWEL", inv_JEWELSUBTYPE_JEWEL);
         }
 
         #endregion
@@ -6342,6 +6366,421 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JONDataModel", Name="inv_JEWELSUBTYPE_JEWEL")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class inv_JEWELSUBTYPE_JEWEL : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new inv_JEWELSUBTYPE_JEWEL object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static inv_JEWELSUBTYPE_JEWEL Createinv_JEWELSUBTYPE_JEWEL(global::System.Int32 id)
+        {
+            inv_JEWELSUBTYPE_JEWEL inv_JEWELSUBTYPE_JEWEL = new inv_JEWELSUBTYPE_JEWEL();
+            inv_JEWELSUBTYPE_JEWEL.ID = id;
+            return inv_JEWELSUBTYPE_JEWEL;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> JEWELTYPE_ID
+        {
+            get
+            {
+                return _JEWELTYPE_ID;
+            }
+            set
+            {
+                OnJEWELTYPE_IDChanging(value);
+                ReportPropertyChanging("JEWELTYPE_ID");
+                _JEWELTYPE_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("JEWELTYPE_ID");
+                OnJEWELTYPE_IDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _JEWELTYPE_ID;
+        partial void OnJEWELTYPE_IDChanging(Nullable<global::System.Int32> value);
+        partial void OnJEWELTYPE_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG1_SHORTDESCR
+        {
+            get
+            {
+                return _LANG1_SHORTDESCR;
+            }
+            set
+            {
+                OnLANG1_SHORTDESCRChanging(value);
+                ReportPropertyChanging("LANG1_SHORTDESCR");
+                _LANG1_SHORTDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG1_SHORTDESCR");
+                OnLANG1_SHORTDESCRChanged();
+            }
+        }
+        private global::System.String _LANG1_SHORTDESCR;
+        partial void OnLANG1_SHORTDESCRChanging(global::System.String value);
+        partial void OnLANG1_SHORTDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG1_LONGDESCR
+        {
+            get
+            {
+                return _LANG1_LONGDESCR;
+            }
+            set
+            {
+                OnLANG1_LONGDESCRChanging(value);
+                ReportPropertyChanging("LANG1_LONGDESCR");
+                _LANG1_LONGDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG1_LONGDESCR");
+                OnLANG1_LONGDESCRChanged();
+            }
+        }
+        private global::System.String _LANG1_LONGDESCR;
+        partial void OnLANG1_LONGDESCRChanging(global::System.String value);
+        partial void OnLANG1_LONGDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG2_SHORTDESCR
+        {
+            get
+            {
+                return _LANG2_SHORTDESCR;
+            }
+            set
+            {
+                OnLANG2_SHORTDESCRChanging(value);
+                ReportPropertyChanging("LANG2_SHORTDESCR");
+                _LANG2_SHORTDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG2_SHORTDESCR");
+                OnLANG2_SHORTDESCRChanged();
+            }
+        }
+        private global::System.String _LANG2_SHORTDESCR;
+        partial void OnLANG2_SHORTDESCRChanging(global::System.String value);
+        partial void OnLANG2_SHORTDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG2_LONGDESCR
+        {
+            get
+            {
+                return _LANG2_LONGDESCR;
+            }
+            set
+            {
+                OnLANG2_LONGDESCRChanging(value);
+                ReportPropertyChanging("LANG2_LONGDESCR");
+                _LANG2_LONGDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG2_LONGDESCR");
+                OnLANG2_LONGDESCRChanged();
+            }
+        }
+        private global::System.String _LANG2_LONGDESCR;
+        partial void OnLANG2_LONGDESCRChanging(global::System.String value);
+        partial void OnLANG2_LONGDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG3_SHORTDESCR
+        {
+            get
+            {
+                return _LANG3_SHORTDESCR;
+            }
+            set
+            {
+                OnLANG3_SHORTDESCRChanging(value);
+                ReportPropertyChanging("LANG3_SHORTDESCR");
+                _LANG3_SHORTDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG3_SHORTDESCR");
+                OnLANG3_SHORTDESCRChanged();
+            }
+        }
+        private global::System.String _LANG3_SHORTDESCR;
+        partial void OnLANG3_SHORTDESCRChanging(global::System.String value);
+        partial void OnLANG3_SHORTDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG3_LONGDESCR
+        {
+            get
+            {
+                return _LANG3_LONGDESCR;
+            }
+            set
+            {
+                OnLANG3_LONGDESCRChanging(value);
+                ReportPropertyChanging("LANG3_LONGDESCR");
+                _LANG3_LONGDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG3_LONGDESCR");
+                OnLANG3_LONGDESCRChanged();
+            }
+        }
+        private global::System.String _LANG3_LONGDESCR;
+        partial void OnLANG3_LONGDESCRChanging(global::System.String value);
+        partial void OnLANG3_LONGDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG4_SHORTDESCR
+        {
+            get
+            {
+                return _LANG4_SHORTDESCR;
+            }
+            set
+            {
+                OnLANG4_SHORTDESCRChanging(value);
+                ReportPropertyChanging("LANG4_SHORTDESCR");
+                _LANG4_SHORTDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG4_SHORTDESCR");
+                OnLANG4_SHORTDESCRChanged();
+            }
+        }
+        private global::System.String _LANG4_SHORTDESCR;
+        partial void OnLANG4_SHORTDESCRChanging(global::System.String value);
+        partial void OnLANG4_SHORTDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG4_LONGDESCR
+        {
+            get
+            {
+                return _LANG4_LONGDESCR;
+            }
+            set
+            {
+                OnLANG4_LONGDESCRChanging(value);
+                ReportPropertyChanging("LANG4_LONGDESCR");
+                _LANG4_LONGDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG4_LONGDESCR");
+                OnLANG4_LONGDESCRChanged();
+            }
+        }
+        private global::System.String _LANG4_LONGDESCR;
+        partial void OnLANG4_LONGDESCRChanging(global::System.String value);
+        partial void OnLANG4_LONGDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG5_SHORTDESCR
+        {
+            get
+            {
+                return _LANG5_SHORTDESCR;
+            }
+            set
+            {
+                OnLANG5_SHORTDESCRChanging(value);
+                ReportPropertyChanging("LANG5_SHORTDESCR");
+                _LANG5_SHORTDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG5_SHORTDESCR");
+                OnLANG5_SHORTDESCRChanged();
+            }
+        }
+        private global::System.String _LANG5_SHORTDESCR;
+        partial void OnLANG5_SHORTDESCRChanging(global::System.String value);
+        partial void OnLANG5_SHORTDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG5_LONGDESCR
+        {
+            get
+            {
+                return _LANG5_LONGDESCR;
+            }
+            set
+            {
+                OnLANG5_LONGDESCRChanging(value);
+                ReportPropertyChanging("LANG5_LONGDESCR");
+                _LANG5_LONGDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG5_LONGDESCR");
+                OnLANG5_LONGDESCRChanged();
+            }
+        }
+        private global::System.String _LANG5_LONGDESCR;
+        partial void OnLANG5_LONGDESCRChanging(global::System.String value);
+        partial void OnLANG5_LONGDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG6_SHORTDESCR
+        {
+            get
+            {
+                return _LANG6_SHORTDESCR;
+            }
+            set
+            {
+                OnLANG6_SHORTDESCRChanging(value);
+                ReportPropertyChanging("LANG6_SHORTDESCR");
+                _LANG6_SHORTDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG6_SHORTDESCR");
+                OnLANG6_SHORTDESCRChanged();
+            }
+        }
+        private global::System.String _LANG6_SHORTDESCR;
+        partial void OnLANG6_SHORTDESCRChanging(global::System.String value);
+        partial void OnLANG6_SHORTDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LANG6_LONGDESCR
+        {
+            get
+            {
+                return _LANG6_LONGDESCR;
+            }
+            set
+            {
+                OnLANG6_LONGDESCRChanging(value);
+                ReportPropertyChanging("LANG6_LONGDESCR");
+                _LANG6_LONGDESCR = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LANG6_LONGDESCR");
+                OnLANG6_LONGDESCRChanged();
+            }
+        }
+        private global::System.String _LANG6_LONGDESCR;
+        partial void OnLANG6_LONGDESCRChanging(global::System.String value);
+        partial void OnLANG6_LONGDESCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> LOGICALORDER
+        {
+            get
+            {
+                return _LOGICALORDER;
+            }
+            set
+            {
+                OnLOGICALORDERChanging(value);
+                ReportPropertyChanging("LOGICALORDER");
+                _LOGICALORDER = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LOGICALORDER");
+                OnLOGICALORDERChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _LOGICALORDER;
+        partial void OnLOGICALORDERChanging(Nullable<global::System.Int32> value);
+        partial void OnLOGICALORDERChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SORTORDER
+        {
+            get
+            {
+                return _SORTORDER;
+            }
+            set
+            {
+                OnSORTORDERChanging(value);
+                ReportPropertyChanging("SORTORDER");
+                _SORTORDER = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SORTORDER");
+                OnSORTORDERChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SORTORDER;
+        partial void OnSORTORDERChanging(Nullable<global::System.Int32> value);
+        partial void OnSORTORDERChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

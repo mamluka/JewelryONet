@@ -190,7 +190,7 @@ namespace JONMVC.Website.Tests.Unit.Tabs
              return fakexml;
          }
 
-        public XDocument TabWithCustomGemstoneFilter(string tabKey)
+        public XDocument TabWithCustomGeneralTabFilter(string tabKey)
         {
             var fakexml = CreateRoot();
 
@@ -203,6 +203,36 @@ namespace JONMVC.Website.Tests.Unit.Tabs
                  new XElement("tab",
                      new XAttribute("id", "engagement-rings"),
                      new XElement("caption", "Rings"),
+                     new XElement("where",
+                         new XElement("string", "jeweltype_id = @0 "),
+                         new XElement("values",
+                             new XElement("value", new XAttribute("type", "int"), "2")
+                             )
+
+                         )
+                     )
+
+                 )
+
+             );
+
+            return fakexml;
+        }
+
+        public XDocument TabWithCustomInTabFilter(string tabKey)
+        {
+            var fakexml = CreateRoot();
+
+            fakexml.Root.Add(
+             new XElement("tabpage",
+                 new XAttribute("key", tabKey),
+                 new XElement("sprite", "diamond-jewelry"),
+                 new XElement("title", "Diamond Jewelry"),
+                 new XElement("tab",
+                     new XAttribute("id", "engagement-rings"),
+                     new XElement("caption", "Rings"),
+                     new XElement("customfilter", "category",
+                         new XAttribute("params", "7,2")),
                      new XElement("where",
                          new XElement("string", "jeweltype_id = @0 "),
                          new XElement("values",

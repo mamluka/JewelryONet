@@ -14,12 +14,13 @@ namespace JONMVC.Website.Tests.Unit.Tabs
         protected const string TAB_ID3 = "diamod-pendants";
         protected FakeTabXmlFactory fakeTabXmlFactory;
         protected XDocument xmldoc_regular3tabs;
-        protected XDocument xmldoc_tabswithgemstonefilter;
+        protected XDocument xmldoc_tabswithgeneralfilter;
         protected static string TAB_KEY = "testkey";
         protected static string TAB_ID1 = "engagement-rings";
         protected FakeXmlSourceFactory fakeXmlSourceFactory;
         public static string SPECIAL_TABID1 = "specialtabid";
         protected XDocument xmldoc_specialtab;
+        public XDocument xmldoc_tabswithintabfilter;
 
         public static string TabKey
         {
@@ -45,7 +46,8 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             fakeTabXmlFactory = new FakeTabXmlFactory();
             xmldoc_regular3tabs = fakeTabXmlFactory.Regular3Tabs(TAB_KEY);
             xmldoc_specialtab = fakeTabXmlFactory.SpecialTab(TAB_KEY);
-            xmldoc_tabswithgemstonefilter = fakeTabXmlFactory.TabWithCustomGemstoneFilter(TabKey);
+            xmldoc_tabswithgeneralfilter = fakeTabXmlFactory.TabWithCustomGeneralTabFilter(TabKey);
+            xmldoc_tabswithintabfilter = fakeTabXmlFactory.TabWithCustomInTabFilter(TabKey);
             fakeXmlSourceFactory = new FakeXmlSourceFactory();
         }
 

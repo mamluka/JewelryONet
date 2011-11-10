@@ -7,6 +7,7 @@
 		<extratext><![CDATA[ Diamond jewelry is a significant purchase, but it's not one that needs to be scary. Know which options are most important to you.  The 4 Cs of diamonds are: Cut, Clarity, Color and Carat Weight. Read here to discover diamond buying information that includes descriptions of the various diamond cuts, diamond clarity, and diamond color and carat weight. Here's a quick overview: CUT: Determines the stone's fire and brilliance and is probably your most important C.  Not to be confused with a diamond's shape, cut refers to how a diamond's facets are created to maximize the amount of light that is absorbed, redirected, and released.  Nature controls the other 3 Cs, but a diamond's cut is in the hands of the craftsman who shapes it. Read more about the four Cs at our Diamond Education section. ]]></extratext>
 		<tab id="engagement-rings">
 			<caption>Rings</caption>
+			<customfilter params="2">subcategory</customfilter>
 			<where>
 				<string>jeweltype_id = @0 and category_id = @1</string>
 				<values>
@@ -17,6 +18,7 @@
 		</tab>
 		<tab id="diamond-studs">
 			<caption>Studs</caption>
+			<customfilter params="11">subcategory</customfilter>
 			<where>
 				<string>jeweltype_id = @0 and category_id = @1</string>
 				<values>
@@ -27,6 +29,7 @@
 		</tab>
 		<tab id="diamond-pendants">
 			<caption>Pendants</caption>
+			<customfilter params="6">subcategory</customfilter>
 			<where>
 				<string>jeweltype_id = @0 and category_id = @1</string>
 				<values>
@@ -37,6 +40,7 @@
 		</tab>
 		<tab id="diamond-bracelets">
 			<caption>Bracelets</caption>
+			<customfilter params="8">subcategory</customfilter>
 			<where>
 				<string>jeweltype_id = @0 and category_id = @1</string>
 				<values>
@@ -47,6 +51,7 @@
 		</tab>
 		<tab id="diamond-earrings">
 			<caption>Earrings</caption>
+			<customfilter params="3">subcategory</customfilter>
 			<where>
 				<string>jeweltype_id = @0  and category_id = @1</string>
 				<values>

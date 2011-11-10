@@ -39,8 +39,14 @@
                         @Html.HiddenFor(m => m.TabId)
                         @Html.HiddenFor(m => m.TabKey)
 
-                        @Html.TextBoxFor(x=> x.CustomFilters[0].Value)
-                        @Html.HiddenFor(x=> x.CustomFilters[0].Name)
+                        @for (int i = 0; i < Model.CustomFilters.Count; i++)
+                        {
+                            @Html.Label(Model.CustomFilters[i].Label)
+                            @Html.DropDownListFor(m => m.CustomFilters[i].Value, new SelectList(Model.CustomFilters[0].Values, "Value", "Key", Model.MetalFilterItems.ToString()))
+                            @Html.HiddenFor(m => m.CustomFilters[i].Name)
+                        }
+
+                       
 
                         <div class="pages right">
                             <ul>
@@ -93,7 +99,7 @@
                 <div id="ItemDisplay">
                     @foreach (var jewelInTabContainer in Model.JewelryInTabContainersCollection)
                     {
-                    @Html.Partial(Model.InTabPartialView,jewelInTabContainer)
+                    @Html.Partial(Model.InTabPartialView, jewelInTabContainer)
                         
                     }
                 </div>

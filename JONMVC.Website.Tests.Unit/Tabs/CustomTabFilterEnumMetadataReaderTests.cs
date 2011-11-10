@@ -50,8 +50,8 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             var dynamicSQL = filterReader.ReadDynamicSQLByValue(0);
             //Assert
 
-            dynamicSQL.Should().BeNull();
-           
+            dynamicSQL.IsDoingNothing.Should().BeTrue();
+
 
         }
     }
