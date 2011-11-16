@@ -1,5 +1,7 @@
 ﻿@using JONMVC.Website.ViewModels.Views
 @using MvcContrib.FluentHtml
+@using JONMVC.Website.Extensions;
+
 @inherits ModelWebViewPage<RegisterCustomerViewModel>
 @{           
     ViewBag.Title = "My Account: Register to JewelryONet";
@@ -91,16 +93,16 @@
                             <dt>
                                 <label for="CountryID">
                                     Country:</label></dt>
-                            <dd>@this.Select(x => x.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key"))
+                            <dd>@this.Select(x => x.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key")).IncludeUnobtrusiveValidationAttributes(Html).Attr("state-combo-name","StateID").Attr("state-show-value",219)
                                 <span data-valmsg-replace="false" data-valmsg-for="CountryID" class="field-validation-valid">
                                 </span>
                             </dd>
                         </dl>
                         <dl>
                             <dt>
-                                <label for="StateID">
+                                <label for="StateID" class="hidden">
                                     State:</label></dt>
-                            <dd>@this.Select(x => x.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key"))
+                            <dd>@this.Select(x => x.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key")).IncludeUnobtrusiveValidationAttributes(Html).Class("hidden")
                                 <span data-valmsg-replace="false" data-valmsg-for="StateID" class="field-validation-valid">
                                 </span>
                             </dd>
@@ -129,3 +131,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function () {
+    Utils.HideStateWhenCountryIsNotUSA();
+});
+
+</script>

@@ -23,11 +23,12 @@ namespace JONMVC.Website.ViewModels.Views
 
         [RequiredIfEmpty("LoginEmail")]
         [Email(ErrorMessage = "*")]
-        [Foolproof.EqualTo("ConfirmEmail")]
+        
         public string Email { get; set; }
 
         [RequiredIfEmpty("LoginEmail")]
         [Email(ErrorMessage = "*")]
+        [Foolproof.EqualTo("Email")]
         public string ConfirmEmail { get; set; }
 
         [RequiredIfEmpty("LoginEmail")]

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using JONMVC.Website.Models.Tabs;
 using JONMVC.Website.ViewModels.Builders;
 using NUnit.Framework;
 using Rhino.Mocks;

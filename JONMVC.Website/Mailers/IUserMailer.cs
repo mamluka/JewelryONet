@@ -17,11 +17,13 @@ namespace JONMVC.Website.Mailers
 
         MailMessage BestOfferCustomer(string mailTo, BestOfferEmailTemplateViewModel bestOfferViewModel);
 
-        MailMessage AskQuestion(string mailTo, AskQuestionEmailTemplateViewModel askQuestionEmailTemplateViewModel);
+        MailMessage AskQuestionAdminVersion(string mailTo, AskQuestionEmailTemplateViewModel askQuestionEmailTemplateViewModel);
+
+        MailMessage AskQuestionCustomerVersion(string mailTo, AskQuestionEmailTemplateViewModel askQuestionEmailTemplateViewModel);
 
         MailMessage OrderConfirmation(string mailTo, OrderConfirmationEmailTemplateViewModel model);
 
-        MailMessage RecoverPassword(string mailTo, string lostPassword);
+        MailMessage RecoverPassword(string name,string mailTo, string lostPassword);
 
         MailMessage NewCustomer(Customer customer);
 

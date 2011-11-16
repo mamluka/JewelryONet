@@ -110,7 +110,7 @@ promptly. </span>
 								<dt></dt>
 								<dd>
 									
-									<input type="image" src="/Content/images/services/getintouch/skeleton/send.png" class="top10" />
+									<input type="submit" class="top10 button" value="Send" disable-upon-click="true" loader="false" loader-location="left center" loader-on-my-side="right center" />
 								</dd>
 							</dl>
 						</fieldset>
@@ -154,17 +154,17 @@ Israel <br/></span>
         $('#AskQuestionForm').ajaxForm(
             {
                 beforeSubmit: function () {
-                    Utils.DisableSubmitButton();
+                   // Utils.DisableSubmitButton();
                     return $('#AskQuestionForm').validate().showErrors();
                 },
                 dataType: 'json',
                 success: function (data) {
-                    Utils.EnableSubmitButton();
+                    Utils.EnableSubmitButtonInsideAFormAndRemoveLoadingImage('#AskQuestionForm');
                     if (data.HasError) {
                         alert('There was an error, Please try again later');
                     } else {
                         
-                        MessageBox.Show('We will contact you shortly',Utils.RedirectToHome);
+                        MessageBox.Show('Question has been sent');
                     }
                 }
             });

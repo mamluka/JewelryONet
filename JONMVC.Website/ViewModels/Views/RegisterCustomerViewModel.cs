@@ -22,8 +22,11 @@ namespace JONMVC.Website.ViewModels.Views
         public string ConfirmPassword { get; set; }
 
         [Required]
+        [Min(2)]
         public int CountryID { get; set; }
-        [Required]
+
+       
+        [Foolproof.RequiredIf("CountryID",219)]
         public int StateID { get; set; }
 
         public bool HasError { get; set; }

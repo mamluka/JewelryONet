@@ -53,12 +53,11 @@ namespace JONMVC.Website.Mailers
 
         
 
-        public MailMessage AskQuestion(string mailTo, AskQuestionEmailTemplateViewModel model)
+        public MailMessage AskQuestionAdminVersion(string mailTo, AskQuestionEmailTemplateViewModel model)
         {
             var mailMessage = new MailMessage
                                   {
                                       Subject = "Question from " + model.Name,
-                                      From = new MailAddress(model.Email)
                                   };
 
 
@@ -69,7 +68,27 @@ namespace JONMVC.Website.Mailers
 
             ViewData = new ViewDataDictionary<AskQuestionEmailTemplateViewModel>(model);
 
-            PopulateBody(mailMessage, "AskQuestion");
+            PopulateBody(mailMessage, "AskQuestionAdmin");
+
+            return mailMessage;
+        }
+
+        public MailMessage AskQuestionCustomerVersion(string mailTo, AskQuestionEmailTemplateViewModel model)
+        {
+            var mailMessage = new MailMessage
+            {
+                Subject = "JewelryONet.com has recieved your question",
+            };
+
+
+            mailMessage.To.Add(mailTo);
+            mailMessage.From = salesSender;
+
+            mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
+
+            ViewData = new ViewDataDictionary<AskQuestionEmailTemplateViewModel>(model);
+
+            PopulateBody(mailMessage, "AskQuestionCustomer");
 
             return mailMessage;
         }
@@ -95,7 +114,7 @@ namespace JONMVC.Website.Mailers
             return DateTime.Now.ToString();
         }
 
-        public MailMessage RecoverPassword(string mailTo,string lostPassword)
+        public MailMessage RecoverPassword(string name,string mailTo,string lostPassword)
         {
             var mailMessage = new MailMessage { Subject = "Your account password for JewelryONet.com" };
 
@@ -106,6 +125,7 @@ namespace JONMVC.Website.Mailers
 
             ViewBag.LostPassword = lostPassword;
             ViewBag.Email = mailTo;
+            ViewBag.Name = name;
             
 
             PopulateBody(mailMessage, "RecoverPassword");

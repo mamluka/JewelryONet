@@ -70,13 +70,22 @@ namespace JONMVC.Website.Controllers
             {
                 var adminEmail = settingManager.AdminEmail();
 
-                userMailer.AskQuestion(adminEmail, new AskQuestionEmailTemplateViewModel()
+                userMailer.AskQuestionAdminVersion(adminEmail, new AskQuestionEmailTemplateViewModel()
                                                        {
                                                            Email = email,
                                                            Name = name,
                                                            Phone = phone,
                                                            Question = question
                                                        })
+                                                       .Send();
+
+                userMailer.AskQuestionCustomerVersion(email, new AskQuestionEmailTemplateViewModel()
+                {
+                    Email = email,
+                    Name = name,
+                    Phone = phone,
+                    Question = question
+                })
                                                        .Send();
                 return Json(new OporationWithoutReturnValueJsonModel());
             }

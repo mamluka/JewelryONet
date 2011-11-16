@@ -21,7 +21,7 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
             mailer.Stub(x => x.PopulateBody(Arg<MailMessage>.Is.Anything, Arg<string>.Is.Anything, Arg<string>.Is.Anything, Arg<Dictionary<string, string>>.Is.Anything));
 
             //Act
-            var message = mailer.RecoverPassword(Tests.SAMPLE_EMAIL_ADDRESS, Tests.SAMPLE_PASSWORD);
+            var message = mailer.RecoverPassword(Tests.STRING_THAT_IS_ASSERTED_BUT_HAS_NO_MEANING,Tests.SAMPLE_EMAIL_ADDRESS, Tests.SAMPLE_PASSWORD);
             //Assert
 
             message.Subject.Should().Be("Your account password for JewelryONet.com");
@@ -37,13 +37,15 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
             mailer.Stub(x => x.PopulateBody(Arg<MailMessage>.Is.Anything, Arg<string>.Is.Anything, Arg<string>.Is.Anything, Arg<Dictionary<string, string>>.Is.Anything));
 
             //Act
-            mailer.RecoverPassword(Tests.SAMPLE_EMAIL_ADDRESS, Tests.SAMPLE_PASSWORD);
+            mailer.RecoverPassword(Tests.STRING_THAT_IS_ASSERTED_BUT_HAS_NO_MEANING,Tests.SAMPLE_EMAIL_ADDRESS, Tests.SAMPLE_PASSWORD);
             //Assert
             string email = mailer.ViewBag.Email;
             string password = mailer.ViewBag.LostPassword;
+            string name = mailer.ViewBag.Name;
 
             email.Should().Be(Tests.SAMPLE_EMAIL_ADDRESS);
             password.Should().Be(Tests.SAMPLE_PASSWORD);
+            name.Should().Be(Tests.STRING_THAT_IS_ASSERTED_BUT_HAS_NO_MEANING);
 
 
         }
@@ -56,7 +58,7 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
             mailer.Expect(x => x.PopulateBody(Arg<MailMessage>.Is.Anything, Arg<string>.Is.Equal("RecoverPassword"), Arg<string>.Is.Anything, Arg<Dictionary<string, string>>.Is.Anything));
 
             //Act
-            mailer.RecoverPassword(Tests.SAMPLE_EMAIL_ADDRESS, Tests.SAMPLE_PASSWORD);
+            mailer.RecoverPassword(Tests.STRING_THAT_IS_ASSERTED_BUT_HAS_NO_MEANING,Tests.SAMPLE_EMAIL_ADDRESS, Tests.SAMPLE_PASSWORD);
             //Assert
             mailer.VerifyAllExpectations();
 

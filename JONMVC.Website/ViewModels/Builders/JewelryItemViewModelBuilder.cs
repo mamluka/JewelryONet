@@ -153,13 +153,20 @@ namespace JONMVC.Website.ViewModels.Builders
                                 };
             colors.Reverse();
             clarities.Reverse();
-            var WordsToSayHowTheQualityIs = "Minimum";
+            var wordsToSayHowTheQualityIs = "Minimum";
             if (jewel.JewelryExtra.CS.Count > 1)
             {
-                WordsToSayHowTheQualityIs = "Average";
+                wordsToSayHowTheQualityIs = "Average";
+                specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Color", CreateRangeStringFrom(colors, jewel.JewelryExtra.CS.Color, 1), 1));
+                specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Clarity", CreateRangeStringFrom(clarities, jewel.JewelryExtra.CS.Clarity, 1), 1));
             }
-            specs.Add(new JewelComponentInfoPart(WordsToSayHowTheQualityIs + " Color", CreateRangeStringFrom(colors, jewel.JewelryExtra.CS.Color, 1), 1));
-            specs.Add(new JewelComponentInfoPart(WordsToSayHowTheQualityIs + " Clarity", CreateRangeStringFrom(clarities, jewel.JewelryExtra.CS.Clarity, 2), 1));
+            else
+            {
+                specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Color", jewel.JewelryExtra.CS.Color, 1));
+                specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Clarity", jewel.JewelryExtra.CS.Clarity, 1));
+            }
+            
+            
 
             if (jewel.JewelryExtra.HasSideStones)
             {
@@ -168,7 +175,7 @@ namespace JONMVC.Website.ViewModels.Builders
                                                      formatter.ToCaratWeight(jewel.JewelryExtra.SS.Weight), 2));
                 specs.Add(new JewelComponentInfoPart("# of Stones", jewel.JewelryExtra.SS.Count.ToString(), 2));
                 specs.Add(new JewelComponentInfoPart("Average Color", CreateRangeStringFrom(colors, jewel.JewelryExtra.SS.Color, 1), 2));
-                specs.Add(new JewelComponentInfoPart("Average Clarity", CreateRangeStringFrom(clarities, jewel.JewelryExtra.SS.Clarity, 2), 2));
+                specs.Add(new JewelComponentInfoPart("Average Clarity", CreateRangeStringFrom(clarities, jewel.JewelryExtra.SS.Clarity, 1), 2));
 
                 viewModel.HasSideStones = true;
             }

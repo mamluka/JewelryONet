@@ -286,6 +286,11 @@
     <Compile Include="Models\Services\IViewModelBuilder.cs" />
     <Compile Include="Models\Services\IWishListPersistence.cs" />
     <Compile Include="Models\Services\WishListViewModelBuilder.cs" />
+    <Compile Include="Models\Tabs\CustomTabFilterEnumMetadataReader.cs" />
+    <Compile Include="Models\Tabs\CustomTabFilterForGemstoneCenterStone.cs" />
+    <Compile Include="Models\Tabs\CustomTabFilterForSubCategoryUsingDataBase.cs" />
+    <Compile Include="Models\Tabs\GemstoneCenterStoneFilterValues.cs" />
+    <Compile Include="Models\Tabs\ICustomTabFilter.cs" />
     <Compile Include="Models\Tabs\InMemoryFilterItem.cs" />
     <Compile Include="Models\Tabs\InMemoryOrderByItem.cs" />
     <Compile Include="Models\Tabs\ITabsRepository.cs" />
@@ -752,7 +757,7 @@
     <Content Include="Views\Services\Wishlist.cshtml" />
     <Content Include="Views\Services\GetInTouch.cshtml" />
     <Content Include="Views\Shared\PathBar.cshtml" />
-    <Content Include="Views\UserMailer\AskQuestion.cshtml" />
+    <Content Include="Views\UserMailer\AskQuestionAdmin.cshtml" />
     <Content Include="Views\Services\FAQ.cshtml" />
     <Content Include="Views\Services\Policy.cshtml" />
     <Content Include="Views\Services\Feedbacks.cshtml" />
@@ -816,6 +821,8 @@
     <Content Include="Views\Services\Aweber.cshtml" />
     <Content Include="Views\Services\ReportError.cshtml" />
     <Content Include="Views\Checkout\CheckoutSessionTimeout.cshtml" />
+    <Content Include="Views\MyAccount\RecoverPasswordSuccess.cshtml" />
+    <Content Include="Views\UserMailer\AskQuestionCustomer.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

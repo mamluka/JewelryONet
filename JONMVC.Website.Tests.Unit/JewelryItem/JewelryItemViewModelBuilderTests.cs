@@ -361,7 +361,7 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
             var viewModel = builder.Build();
             //Assert
             var color = viewModel.SpecsPool.Where(x => x.Title.IndexOf("Clarity") > -1 && x.JewelComponentID == 2).SingleOrDefault();
-            color.Property.Should().Be("FL-VVS1");
+            color.Property.Should().Be("IF-VVS1");
         }
 
         [Test]
@@ -404,6 +404,38 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
         }
 
         [Test]
+        public void Build_ShouldReturnAColorSpecForCenterStoneWithOutRangeWhenOnlyOneStoneGiven()
+        {
+            //Arrange
+            var fakeCS = fixture.Build<JewelryExtra.JewelComponentProperty>().With(x => x.Count, 1).With(x => x.Color, "H").CreateAnonymous();
+            var fakeJewelExtra = fixture.Build<JewelryExtra>().With(x => x.CS, fakeCS).CreateAnonymous();
+            var jewel = fixture.Build<Jewel>().With(x => x.JewelryExtra, fakeJewelExtra).CreateAnonymous();
+
+            var builder = CreateJewelItemViewModelBuilderWithJewel(jewel);
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+            var color = viewModel.SpecsPool.Where(x => x.Title.IndexOf("Color") > -1 && x.JewelComponentID == 1).SingleOrDefault();
+            color.Property.Should().Be("H");
+        }
+
+        [Test]
+        public void Build_ShouldReturnAClaritySpecForCenterStoneWithNoRangeWhenOneStoneInGiven()
+        {
+            //Arrange
+            var fakeCS = fixture.Build<JewelryExtra.JewelComponentProperty>().With(x => x.Count, 1).With(x => x.Clarity, "VVS1").CreateAnonymous();
+            var fakeJewelExtra = fixture.Build<JewelryExtra>().With(x => x.CS, fakeCS).CreateAnonymous();
+            var jewel = fixture.Build<Jewel>().With(x => x.JewelryExtra, fakeJewelExtra).CreateAnonymous();
+
+            var builder = CreateJewelItemViewModelBuilderWithJewel(jewel);
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+            var color = viewModel.SpecsPool.Where(x => x.Title.IndexOf("Clarity") > -1 && x.JewelComponentID == 1).SingleOrDefault();
+            color.Property.Should().Be("VVS1");
+        }
+
+        [Test]
         public void Build_ShouldReturnAColorSpecForCenterStoneWithRangeOfColorWithOneStepApartUsingTheCurrentColorAsTheMinimum()
         {
             //Arrange
@@ -432,7 +464,7 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
             var viewModel = builder.Build();
             //Assert
             var color = viewModel.SpecsPool.Where(x => x.Title.IndexOf("Clarity") > -1 && x.JewelComponentID == 1).SingleOrDefault();
-            color.Property.Should().Be("FL-VVS1");
+            color.Property.Should().Be("IF-VVS1");
         }
 
         [Test]

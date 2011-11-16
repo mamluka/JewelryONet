@@ -17,7 +17,7 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
     public class ServicesEmailTests : EmailTestsBase
     {
         [Test]
-        public void AskQuestion_ShouldSetTheRightEmailAddressAndSubject()
+        public void AskQuestionAdminVersion_ShouldSetTheRightEmailAddressAndSubject()
         {
             //Arrange
 
@@ -28,7 +28,7 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
 
             var model = fixture.CreateAnonymous<AskQuestionEmailTemplateViewModel>();
             //Act
-            var message = mailer.AskQuestion(Tests.SAMPLE_EMAIL_ADDRESS, model);
+            var message = mailer.AskQuestionAdminVersion(Tests.SAMPLE_EMAIL_ADDRESS, model);
             //Assert
 
             message.Subject.Should().Be("Question from " + model.Name);
@@ -36,7 +36,7 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
         }
 
         [Test]
-        public void AskQuestion_ShouldSetViewModelToTheModelPassed()
+        public void AskQuestionAdminVersion_ShouldSetViewModelToTheModelPassed()
         {
             //Arrange
 
@@ -45,7 +45,7 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
           
             var model = fixture.CreateAnonymous<AskQuestionEmailTemplateViewModel>();
             //Act
-            mailer.AskQuestion(Tests.SAMPLE_EMAIL_ADDRESS, model);
+            mailer.AskQuestionAdminVersion(Tests.SAMPLE_EMAIL_ADDRESS, model);
             //Assert
 
             mailer.ViewData.Model.Should().NotBeNull();
@@ -55,14 +55,65 @@ namespace JONMVC.Website.Tests.Unit.UserMailerTests
         
 
         [Test]
-        public void AskQuestion_ShouldRenderTheRightView()
+        public void AskQuestionAdminVersion_ShouldRenderTheRightView()
         {
             //Arrange
             var mailer = MockRepository.GeneratePartialMock<UserMailer>();
-            mailer.Expect(x => x.PopulateBody(Arg<MailMessage>.Is.Anything, Arg<string>.Is.Equal("AskQuestion"), Arg<string>.Is.Anything, Arg<Dictionary<string, string>>.Is.Anything));
+            mailer.Expect(x => x.PopulateBody(Arg<MailMessage>.Is.Anything, Arg<string>.Is.Equal("AskQuestionAdmin"), Arg<string>.Is.Anything, Arg<Dictionary<string, string>>.Is.Anything));
             var model = fixture.CreateAnonymous<AskQuestionEmailTemplateViewModel>();
             //Act
-            mailer.AskQuestion(Tests.SAMPLE_EMAIL_ADDRESS, model);
+            mailer.AskQuestionAdminVersion(Tests.SAMPLE_EMAIL_ADDRESS, model);
+            //Assert
+            mailer.VerifyAllExpectations();
+        }
+
+        [Test]
+        public void AskQuestionCustomerVersion_ShouldSetTheRightEmailAddressAndSubject()
+        {
+            //Arrange
+
+            var mailer = MockRepository.GeneratePartialMock<UserMailer>();
+            mailer.Stub(x => x.PopulateBody(Arg<MailMessage>.Is.Anything, Arg<string>.Is.Anything, Arg<string>.Is.Anything, Arg<Dictionary<string, string>>.Is.Anything));
+
+
+
+            var model = fixture.CreateAnonymous<AskQuestionEmailTemplateViewModel>();
+            //Act
+            var message = mailer.AskQuestionCustomerVersion(Tests.SAMPLE_EMAIL_ADDRESS, model);
+            //Assert
+
+            message.Subject.Should().Be("JewelryONet.com has recieved your question");
+            message.To.Should().HaveElementAt(0, Tests.SAMPLE_EMAIL_ADDRESS);
+        }
+
+        [Test]
+        public void AskQuestionCustomerVersion_ShouldSetViewModelToTheModelPassed()
+        {
+            //Arrange
+
+            var mailer = MockRepository.GeneratePartialMock<UserMailer>();
+            mailer.Stub(x => x.PopulateBody(Arg<MailMessage>.Is.Anything, Arg<string>.Is.Anything, Arg<string>.Is.Anything, Arg<Dictionary<string, string>>.Is.Anything));
+
+            var model = fixture.CreateAnonymous<AskQuestionEmailTemplateViewModel>();
+            //Act
+            mailer.AskQuestionCustomerVersion(Tests.SAMPLE_EMAIL_ADDRESS, model);
+            //Assert
+
+            mailer.ViewData.Model.Should().NotBeNull();
+        }
+
+
+
+
+        [Test]
+        public void AskQuestionCustomerVersion_ShouldRenderTheRightView()
+        {
+            //Arrange
+            var mailer = MockRepository.GeneratePartialMock<UserMailer>();
+            mailer.Expect(x => x.PopulateBody(Arg<MailMessage>.Is.Anything, Arg<string>.Is.Equal("AskQuestionCustomer"), Arg<string>.Is.Anything, Arg<Dictionary<string, string>>.Is.Anything));
+            var model = fixture.CreateAnonymous<AskQuestionEmailTemplateViewModel>();
+            //Act
+            mailer.AskQuestionCustomerVersion(Tests.SAMPLE_EMAIL_ADDRESS, model);
             //Assert
             mailer.VerifyAllExpectations();
         }

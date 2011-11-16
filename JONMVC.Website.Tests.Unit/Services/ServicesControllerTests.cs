@@ -46,7 +46,7 @@ namespace JONMVC.Website.Tests.Unit.Services
         }
 
         [Test]
-        public void AskQuestion_ShouldReturnTheRightViewModel()
+        public void AskQuestion_ShouldSendTheEmailToTheAdmin()
         {
             //Arrange
             var wishListBuilder = MockRepository.GenerateStub<IViewModelBuilder>();
@@ -54,12 +54,12 @@ namespace JONMVC.Website.Tests.Unit.Services
             var pathBarGenerator = MockRepository.GenerateStub<IPathBarGenerator>();
 
             var settingManager = new FakeSettingManager();
-            var admionEmailAddress = settingManager.AdminEmail();
+            var adminEmailAddress = settingManager.AdminEmail();
 
-            var userMailer = MockRepository.GenerateStrictMock<IUserMailer>();
+            var userMailer = MockRepository.GenerateMock<IUserMailer>();
             userMailer.Expect(
                 y =>
-               y.AskQuestion(Arg<string>.Is.Equal(admionEmailAddress),
+               y.AskQuestionAdminVersion(Arg<string>.Is.Equal(adminEmailAddress),
                               Arg<AskQuestionEmailTemplateViewModel>.Matches(
                                   x =>
                                   x.Email == "email" && x.Name == "name" && x.Phone == "phone" &&
@@ -69,6 +69,33 @@ namespace JONMVC.Website.Tests.Unit.Services
             
             //Act
             var result = conrtoller.AskQuestion("name","email","phone","question");
+            //Assert
+            userMailer.VerifyAllExpectations();
+        }
+
+        [Test]
+        public void AskQuestion_ShouldSendTheEmailToTheCustomer()
+        {
+            //Arrange
+            var wishListBuilder = MockRepository.GenerateStub<IViewModelBuilder>();
+            wishListBuilder.Stub(x => x.Build()).Return(new WishListViewModel());
+            var pathBarGenerator = MockRepository.GenerateStub<IPathBarGenerator>();
+
+            var settingManager = new FakeSettingManager();
+
+            var userMailer = MockRepository.GenerateMock<IUserMailer>();
+            userMailer.Expect(
+                y =>
+               y.AskQuestionCustomerVersion(Arg<string>.Is.Equal("email"),
+                              Arg<AskQuestionEmailTemplateViewModel>.Matches(
+                                  x =>
+                                  x.Email == "email" && x.Name == "name" && x.Phone == "phone" &&
+                                  x.Question == "question"))).Repeat.Once();
+
+            var conrtoller = new ServicesController(wishListBuilder, pathBarGenerator, userMailer, settingManager);
+
+            //Act
+            var result = conrtoller.AskQuestion("name", "email", "phone", "question");
             //Assert
             userMailer.VerifyAllExpectations();
         }
@@ -87,7 +114,7 @@ namespace JONMVC.Website.Tests.Unit.Services
             var userMailer = MockRepository.GenerateStub<IUserMailer>();
             userMailer.Stub(
                 y =>
-                y.AskQuestion(Arg<string>.Is.Anything,
+                y.AskQuestionAdminVersion(Arg<string>.Is.Anything,
                               Arg<AskQuestionEmailTemplateViewModel>.Is.Anything)).Throw(new Exception());
                              
 

@@ -185,9 +185,10 @@ namespace JONMVC.Website.Controllers
             try
             {
                 var lostPassword = customerAccountService.RecoverPassword(model.Email);
-                mailer.RecoverPassword(model.Email, lostPassword).Send();
+                var customer = customerAccountService.GetCustomerByEmail(model.Email);
+                mailer.RecoverPassword(customer.FirstName + " " + customer.LastName, model.Email, lostPassword).Send();
 
-                return View(model);
+                return View("RecoverPasswordSuccess",(object)model.Email);
             }
             catch (Exception ex)
             {

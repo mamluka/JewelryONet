@@ -373,7 +373,7 @@ font-weight:bold;
 #HomepageBanner {
 	background:url(/Content/images/homepage/banner.png) no-repeat;
 	height:358px;
-	width:768px;
+	width:796px;
 }
 #MainTable div.overlay {
 	position:relative;
@@ -607,11 +607,11 @@ display:inline;
 }
 
 #MetalPriceComboItems {
-	width:183px;
+	width:186px;
 	background-color:white;
 	border:1px solid #7f9db9;
 	position:absolute;
-	padding:3px;
+	padding:1px;
 }
 #MetalPriceComboItems div {
 	cursor:pointer;
@@ -620,16 +620,16 @@ display:inline;
 #MetalPriceComboItems div.hover {
 	background-color:#F4F4F4;
 }
-#ItemDisplay .metal {
+.metalpricecombo .metal {
 		color:#666666;
 		margin-left:5px;
 		font-size:0.9em;
 		font-weight:bold;
 		padding-top:3px;
 }
-#ItemDisplay .price {
+.metalpricecombo .price {
 	color:#993333;
-	font-size:1.2em;
+	font-size:1.05em;
 	font-weight:bold;
 	margin-right:4px;
 	
@@ -757,13 +757,16 @@ span.redprice {
 #ItemBlock .operations div {
 	margin-right:5px;
 }
-#ItemBlock .operations div img {
-	float:left;
+#ItemBlock .operations div a img {
+    float: left;
+    position: relative;
+    top: -10px;
 }
-#ItemBlock .operations div a {
-	display:block;
-	float:left;
-	margin-top:10px;
+#ItemBlock .operations div a span {
+
+   
+    float: left;
+	
 }
 .grayblock {
 	margin-top:10px;

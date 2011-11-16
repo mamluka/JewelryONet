@@ -652,7 +652,7 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         }
 
         [Test]
-        public void RecoverPasswordPost_ShouldRecoverThePasswordUsingtTheCustomerService()
+        public void RecoverPasswordPost_ShouldRecoverThePasswordUsingTheCustomerService()
         {
             //Arrange
             var model = fixture.CreateAnonymous<RecoverPasswordViewModel>();
@@ -672,13 +672,15 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         {
             //Arrange
             var model = fixture.CreateAnonymous<RecoverPasswordViewModel>();
+            var customer = fixture.CreateAnonymous<Customer>();
 
             var customerAccountService = MockRepository.GenerateStub<ICustomerAccountService>();
             customerAccountService.Stub(x => x.RecoverPassword(Arg<string>.Is.Anything)).Repeat.Once().Return(Tests.SAMPLE_PASSWORD);
+            customerAccountService.Stub(x => x.GetCustomerByEmail(Arg<string>.Is.Anything)).Repeat.Once().Return(customer);
 
             var mailer = MockRepository.GenerateMock<IUserMailer>();
             mailer.Expect(
-                x => x.RecoverPassword(Arg<string>.Is.Equal(model.Email), Arg<string>.Is.Equal(Tests.SAMPLE_PASSWORD))).
+                x => x.RecoverPassword(Arg<string>.Is.Equal(customer.FirstName + " " + customer.LastName), Arg<string>.Is.Equal(model.Email), Arg<string>.Is.Equal(Tests.SAMPLE_PASSWORD))).
                 Repeat.Once();
            
             var controller = CreateDefaultMyAccountControllerWithCustomerUserMailerAndCustomCustomerAccountService(mailer,customerAccountService);
@@ -689,22 +691,22 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
         }
 
         [Test]
-        public void RecoverPasswordPost_ShouldSetTheHasErrorToFalseIfPasswordIsReturned()
+        public void RecoverPasswordPost_ShouldRedirectToAPasswordRecoveredPageIfEmailSent()
         {
             //Arrange
             var model = fixture.Build<RecoverPasswordViewModel>().With(x => x.HasError, false).CreateAnonymous();
 
-            var mailer = MockRepository.GenerateMock<IUserMailer>();
-            mailer.Expect(
-                x => x.RecoverPassword(Arg<string>.Is.Equal(model.Email), Arg<string>.Is.Equal(Tests.SAMPLE_PASSWORD))).
+            var mailer = MockRepository.GenerateStub<IUserMailer>();
+            mailer.Stub(
+                x => x.RecoverPassword(Arg<string>.Is.Equal(model.Email),Arg<string>.Is.Equal(model.Email), Arg<string>.Is.Equal(Tests.SAMPLE_PASSWORD))).
                 Repeat.Once();
 
             var controller = CreateDefaultMyAccountControllerWithCustomerUserMailer(mailer);
             //Act
-            var viewModel = controller.RecoverPassword(model) as ViewResult;
+            var viewModel = controller.RecoverPassword(model);
             //Assert
-            var returnmodel = viewModel.Model as RecoverPasswordViewModel;
-            returnmodel.HasError.Should().BeFalse();
+            viewModel.AssertViewRendered();
+
         }
 
         [Test]
@@ -713,9 +715,9 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             //Arrange
             var model = fixture.CreateAnonymous<RecoverPasswordViewModel>();
 
-            var mailer = MockRepository.GenerateMock<IUserMailer>();
-            mailer.Expect(
-                x => x.RecoverPassword(Arg<string>.Is.Anything, Arg<string>.Is.Anything)).
+            var mailer = MockRepository.GenerateStub<IUserMailer>();
+            mailer.Stub(
+                x => x.RecoverPassword(Arg<string>.Is.Anything,Arg<string>.Is.Anything, Arg<string>.Is.Anything)).
                 Repeat.Once().Throw(new Exception());
 
             var controller = CreateDefaultMyAccountControllerWithCustomerUserMailer(mailer);

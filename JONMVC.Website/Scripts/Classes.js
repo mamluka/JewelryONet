@@ -699,12 +699,21 @@ var JewelDesign = {
 
 						    div.show();
 
+						    var offsetDiv = '-11 0';
+						    var offsetTip = '-3 3';
+
+						    if ($('#DiamondList').offset().left < 230) {
+						         offsetDiv = '25 0';
+						         offsetTip = '32 3';
+						    }
+						    
+						    
 						    div.position(
 								{
 								    my: 'right top',
 								    at: 'left top',
 								    of: $('.diamond-list-container'),
-								    offset: '-11 0'
+								    offset: offsetDiv
 								}
 							);
 
@@ -716,7 +725,7 @@ var JewelDesign = {
 						        my: 'right top',
 						        at: 'left top',
 						        of: $(this),
-						        offset: '-3 3'
+						        offset: offsetTip
 						    });
 
 						    var id = $(this).attr('id');
@@ -967,6 +976,22 @@ Utils = {
         });
 
 
+    },
+    HideStateWhenCountryIsNotUSA: function () {
+        $('select[state-combo-name]').change(function () {
+            var countryId = $(this).val();
+            var stateCombo = $('select[name=' + $(this).attr('state-combo-name') + ']');
+            var label = $('label[for=' + $(this).attr('state-combo-name') + ']');
+            if (countryId == $(this).attr('state-show-value')) {
+                stateCombo.show();
+                label.show();
+            } else {
+                stateCombo.hide();
+                label.hide();
+            }
+        });
+
+        $('select[state-combo-name]').trigger('change');
     }
 
 
@@ -1002,6 +1027,18 @@ $(document).ready(function () {
 
         }
 
+    });
+
+    $('[link=true]').addClass('hand');
+
+    $('[link=true]').click(function () {
+        var tag = $(this);
+
+        if (tag.attr('insidelink') == 'true') {
+            window.location.href = tag.find('a:eq(0)').attr('href');
+        } else {
+            window.location.href = tag.attr('url');
+        }
     });
 
 

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using JONMVC.Website.Models.JewelDesign;
 using JONMVC.Website.Models.Jewelry;
+using MvcContrib.FluentHtml.Elements;
 
 namespace JONMVC.Website.Extensions
 {
@@ -91,9 +92,39 @@ namespace JONMVC.Website.Extensions
             return absoluteAction;
         }
 
+        
 
-      
-     
+
+
+
+
+
+    }
+
+    public static class FluentHtmlExtensions
+    {
+
+        public static T IncludeUnobtrusiveValidationAttributes<T>(this T element, HtmlHelper htmlHelper) where T : IElement
+        {
+
+            IDictionary<string, object> validationAttributes = htmlHelper
+
+                .GetUnobtrusiveValidationAttributes(element.GetAttr("name"));
+
+
+
+            foreach (var validationAttribute in validationAttributes)
+            {
+
+                element.SetAttr(validationAttribute.Key, validationAttribute.Value);
+
+            }
+
+
+
+            return element;
+
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 using AutoMapper;
 using JONMVC.Website.Tests.Unit.AutoMapperMaps;
+using Mvc.Mailer;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
 
@@ -21,6 +22,8 @@ namespace JONMVC.Website.Tests.Unit.Services
             MapsContainer.CreateAutomapperMaps();
 
             mapper = Mapper.Engine;
+
+            MailerBase.IsTestModeEnabled = true;
         }
     }
 }
