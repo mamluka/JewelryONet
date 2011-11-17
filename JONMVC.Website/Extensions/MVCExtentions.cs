@@ -43,7 +43,18 @@ namespace JONMVC.Website.Extensions
             title.AddCssClass("title");
             title.SetInnerText(navigationTab.Title);
 
+            var help = new TagBuilder("img");
+            help.AddCssClass("hand");
+            help.Attributes.Add("src", "/Content/images/jeweldesign/tabs/question.png");
+            help.Attributes.Add("tooltip", navigationTab.ToolTipBody);
+            help.Attributes.Add("tooltip-title", navigationTab.ToolTipTitle);
+
+            title.InnerHtml += help.ToString(TagRenderMode.Normal);
+
             tabdiv.InnerHtml = title.ToString(TagRenderMode.Normal);
+
+           
+            
 
             if (navigationTab.HasEditAndViewLinks)
             {

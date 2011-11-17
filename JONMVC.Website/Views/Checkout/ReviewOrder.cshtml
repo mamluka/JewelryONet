@@ -1,7 +1,6 @@
 ﻿@using JONMVC.Website.ViewModels.Views
 @using MvcContrib.FluentHtml
 @using JONMVC.Website.Extensions;
-
 @inherits MvcContrib.FluentHtml.ModelWebViewPage<ReviewOrderViewModel>
 @{
     ViewBag.Title = "Checkout process: review order";
@@ -24,13 +23,14 @@
         <div class="cell">
             <span class="block"><strong>Order Summary</strong> Please review your details for accuracy,
                 then choose "Complete My Order"</span>
-                <div class="clear top10"></div>
+            <div class="clear top10">
+            </div>
             @foreach (var item in Model.CartItems)
             {
+                item.NoActionLinkDispalyOnly = true;
                 @Html.Partial(item.PartialName, item)
 
             }
-            
             <div class="totaldiv width100 clear top5">
                 <span class="right price">@Model.TotalPrice</span> <span class="right">Total :</span>
                 <div class="clear">
@@ -105,7 +105,6 @@
                                 <td>@Model.BillingAddress.Phone
                                 </td>
                             </tr>
-                            
                         </table>
                     </div>
                     <div class="cell">
@@ -167,7 +166,6 @@
                                 <td>@Model.ShippingAddress.Phone
                                 </td>
                             </tr>
-                            
                         </table>
                     </div>
                 </div>

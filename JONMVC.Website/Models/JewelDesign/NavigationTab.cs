@@ -22,5 +22,9 @@ namespace JONMVC.Website.Models.JewelDesign
         public string Amount { get; set; }
 
         public NagivationTabType Type { get; set; }
+
+        public string ToolTipBody { get; set; }
+
+        public string ToolTipTitle { get; set; }
     }
 }

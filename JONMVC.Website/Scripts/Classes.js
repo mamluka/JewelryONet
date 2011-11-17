@@ -980,8 +980,8 @@ Utils = {
     HideStateWhenCountryIsNotUSA: function () {
         $('select[state-combo-name]').change(function () {
             var countryId = $(this).val();
-            var stateCombo = $('select[name=' + $(this).attr('state-combo-name') + ']');
-            var label = $('label[for=' + $(this).attr('state-combo-name') + ']');
+            var stateCombo = $('select[name=\'' + $(this).attr('state-combo-name') + '\']');
+            var label = $('label[for=\''+ $(this).attr('state-combo-name') + '\']');
             if (countryId == $(this).attr('state-show-value')) {
                 stateCombo.show();
                 label.show();
@@ -1039,6 +1039,49 @@ $(document).ready(function () {
         } else {
             window.location.href = tag.attr('url');
         }
+    });
+
+    $('img[tooltip]').each(function () {
+        $(this).qtip({
+            content: {
+                title: {
+                    text: $(this).attr('tooltip-title'),
+                    button: 'Close'
+                },
+                text: $(this).attr('tooltip')
+            },
+
+            show: {
+                when: 'click', // Show it on click
+                solo: true // And hide all other tooltips
+            },
+            hide: { when: { event: 'unfocus' }, delay: 500 },
+
+            style: {
+
+                name: 'light',
+                border: {
+                    radius: 8,
+                    color: '#87281d'
+                },
+                width: 300,
+                padding: 12,
+                background: '#87281d',
+                color: 'white',
+                textAlign: 'justify',
+
+                tip: {
+                    corner: 'topLeft',
+                    color: '#87281d',
+                    size: {
+                        x: 4,
+                        y: 4
+                    }
+
+                }
+            }
+
+        });
     });
 
 

@@ -382,49 +382,6 @@ Round, Princess, Emerald, Asscher, Marquise, Radiant, Oval, Heart, Cushion, Pear
 
 	           });
 
-	       $('.jewel-main img[tooltip]').each(function() {
-	           $(this).qtip({
-	                   content: {
-	                       title: {
-	                           text: $(this).attr('tooltip-title'),
-	                           button: 'Close'
-	                       },
-	                       text: $(this).attr('tooltip')
-	                   },
-
-	                   show: {
-	                       when: 'click', // Show it on click
-	                       solo: true // And hide all other tooltips
-	                   },
-	                   hide: { when: { event: 'unfocus' }, delay: 500 },
-
-	                   style: {
-
-	                       name: 'light',
-	                       border: {
-	                           radius: 8,
-	                           color: '#87281d'
-	                       },
-	                       width: 300,
-	                       padding: 12,
-	                       background: '#87281d',
-	                       color: 'white',
-	                       textAlign: 'justify',
-
-	                       tip: {
-	                           corner: 'topLeft',
-	                           color: '#87281d',
-	                           size: {
-	                               x: 4,
-	                               y: 4
-	                           }
-
-	                       }
-	                   }
-
-	               });
-	       });
-
 	   });
 
 

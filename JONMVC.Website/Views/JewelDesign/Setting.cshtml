@@ -63,8 +63,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="cell">
-                        <div class="cell buy-menu">
+                    <div class="cell" style="padding-top: 3px">
+                        <div class="cell buy-menu" style="padding-top: 3px">
                             @using (Html.BeginForm("RedirectSetting", "JewelDesign", FormMethod.Post, new { id = "RedirectSettingForm" }))
                             {
                                 @this.Hidden("DiamondID").Value(Model.JewelPersistence.DiamondID)
@@ -81,10 +81,12 @@
                                  }
                                  else
                                  {
-                                     <img src="/Content/images/jeweldesign/setting/select-this-ring.png" class="hand"/>
+                                     <a href="#!" command="choose-diamond">
+                                         <img src="/Content/images/jeweldesign/setting/select-this-ring.png" class="hand"/>
+                                     </a>
                                      <input type="hidden" value="@Model.ID " name="itemid" />
-                                     <div class="relativepositiner">
-                                     <ul class="actions" style="display: none">
+                                    
+                                     <ul class="actions" >
                                          <li>
                                     
                                   
@@ -96,7 +98,7 @@
                                          </li>
                                          <li><a href="#!" command="buy-setting">Buy this Setting without a Center Diamond</a> </li>
                                 
-                                     </ul></div>
+                                     </ul>
                                  }
                             }
                         </div>
@@ -283,7 +285,7 @@
         MetalPriceSelect.RegisterMetalPriceSelectForJewelryItems();
 
         $("a[rel^='prettyPhoto']").prettyPhoto();
-        JewelDesign.RegisterJewelDesignPagesDropDownMenu();
+     //   JewelDesign.RegisterJewelDesignPagesDropDownMenu();
         JewelDesign.RegisterSettingCommandLinks();
 
         Video.RegisterHooks();

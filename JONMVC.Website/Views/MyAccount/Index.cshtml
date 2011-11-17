@@ -1,5 +1,6 @@
-﻿@using JONMVC.Website.ViewModels.Views 
-@using MvcContrib.FluentHtml 
+﻿@using JONMVC.Website.Extensions
+@using JONMVC.Website.ViewModels.Views
+@using MvcContrib.FluentHtml
 @inherits ModelWebViewPage<MyAccountViewModel>
 @{
     ViewBag.Title = "My Account";
@@ -56,11 +57,9 @@
     }
 </div>
 <div class="rounded-white-container top20 padding10">
-
     <span class="right"><a href="#EditCustomerDetails" class="boxy" title="Update customer details">
-        Update Details</a></span>
-    <span class="right" style="margin-right: 10px"><a href="#ChangePassword" class="boxy" title="Change password">
-        Change Password</a></span>
+        Update Details</a></span> <span class="right" style="margin-right: 10px"><a href="#ChangePassword"
+            class="boxy" title="Change password">Change Password</a></span>
     <div class="clear">
     </div>
     <h3>
@@ -91,7 +90,6 @@
                 <div class="cell">
                     <span class="redbold bold">Billing Information:</span>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        
                         <tr>
                             <td>
                                 Address:
@@ -139,7 +137,6 @@
                 <div class="cell">
                     <span class="redbold bold">Shipping Information:</span>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        
                         <tr>
                             <td>
                                 Address:
@@ -189,7 +186,7 @@
     }
 </div>
 <div class="rounded-white-container padding10 top20">
-<span class="right">@Html.ActionLink("Sign out","Signout","MyAccount")</span>
+    <span class="right">@Html.ActionLink("Sign out", "Signout", "MyAccount")</span>
     <h3>
         My Account</h3>
     <div class="details-listing">
@@ -199,44 +196,40 @@
         <span class="title">Newsletter </span><span class="redbold inline bold">@Html.ActionLink("Sign me up", "Aweber", "Services")</span>
         <div class="clear">
         </div>
-        
     </div>
-
-
 </div>
 <div id="EditCustomerDetails" class="hidden">
     @using (Html.BeginForm("UpdateCustomerDetails", "MyAccount"))
     {
     
         
-            <fieldset class="onecolumb-form">
-                        <legend>My Personal Details</legend>
-                        <dl>
-                            <dt>
-                                <label for="Email">
-                                    Email:</label></dt>
-                            <dd>@this.TextBox(m => m.Email).Styles(width=>"250px") <span data-valmsg-replace="false"
-                                data-valmsg-for="Email" class="field-validation-valid"></span>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="FirstName">
-                                    First name:</label></dt>
-                            <dd>@this.TextBox(m => m.FirstName) <span data-valmsg-replace="false"
-                                data-valmsg-for="FirstName" class="field-validation-valid"></span>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="LastName">
-                                    Last name:</label></dt>
-                            <dd>@this.TextBox(m => m.LastName) <span data-valmsg-replace="false" 
-                                data-valmsg-for="LastName" class="field-validation-valid"></span>
-                            </dd>
-                        </dl>
-                        
-                        </fieldset>
+        <fieldset class="onecolumb-form">
+            <legend>My Personal Details</legend>
+            <dl>
+                <dt>
+                    <label for="Email">
+                        Email:</label></dt>
+                <dd>@this.TextBox(m => m.Email).Styles(width => "250px") <span data-valmsg-replace="false"
+                    data-valmsg-for="Email" class="field-validation-valid"></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="FirstName">
+                        First name:</label></dt>
+                <dd>@this.TextBox(m => m.FirstName) <span data-valmsg-replace="false" data-valmsg-for="FirstName"
+                    class="field-validation-valid"></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label for="LastName">
+                        Last name:</label></dt>
+                <dd>@this.TextBox(m => m.LastName) <span data-valmsg-replace="false" data-valmsg-for="LastName"
+                    class="field-validation-valid"></span>
+                </dd>
+            </dl>
+        </fieldset>
         
     
         <div class="table width100 top10 billing">
@@ -244,7 +237,6 @@
                 <div class="cell billingaddress">
                     <fieldset class="onecolumb-form">
                         <legend>My Billing Address:</legend>
-                        
                         <dl>
                             <dt>
                                 <label for="name">
@@ -262,23 +254,23 @@
                             </dd>
                         </dl>
                         <dl>
-                            <dt>
-                                <label for="name">
-                                    Country:</label></dt>
-                            <dd>@this.Select(x => x.BillingAddress.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key"))
-                                <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.CountryID" class="field-validation-valid">
-                                </span>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="name">
-                                    State:</label></dt>
-                            <dd>@this.Select(x => x.BillingAddress.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key"))
-                                <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.StateID" class="field-validation-valid">
-                                </span>
-                            </dd>
-                        </dl>
+                        <dt>
+                            <label for="BillingAddress.CountryID">
+                                Country:</label></dt>
+                        <dd>@this.Select(x => x.BillingAddress.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key")).IncludeUnobtrusiveValidationAttributes(Html).Attr("state-combo-name", "BillingAddress.StateID").Attr("state-show-value", 219)
+                            <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.CountryID" class="field-validation-valid">
+                            </span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label for="BillingAddress.StateID" class="hidden">
+                                State:</label></dt>
+                        <dd>@this.Select(x => x.BillingAddress.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key")).IncludeUnobtrusiveValidationAttributes(Html).Class("hidden")
+                            <span data-valmsg-replace="false" data-valmsg-for="BillingAddress.StateID" class="field-validation-valid">
+                            </span>
+                        </dd>
+                    </dl>
                         <dl>
                             <dt>
                                 <label for="name">
@@ -296,13 +288,14 @@
                             </dd>
                         </dl>
                     </fieldset>
+                    @this.CheckBox("sameaddress").Id("SameAddress")<label for="Order.SameAddress">Use same
+                    address for shipping</label>
                 </div>
                 <div class="cell sep">
                 </div>
                 <div class="cell shippingaddress ">
                     <fieldset class="onecolumb-form">
                         <legend>My Shipping Address:</legend>
-                        
                         <dl>
                             <dt>
                                 <label for="name">
@@ -320,23 +313,23 @@
                             </dd>
                         </dl>
                         <dl>
-                            <dt>
-                                <label for="name">
-                                    Country:</label></dt>
-                            <dd>@this.Select(x => x.ShippingAddress.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key"))
-                                <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.CountryID" class="field-validation-valid">
-                                </span>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="name">
-                                    State:</label></dt>
-                            <dd>@this.Select(x => x.ShippingAddress.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key"))
-                                <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.StateID" class="field-validation-valid">
-                                </span>
-                            </dd>
-                        </dl>
+                        <dt>
+                            <label for="ShippingAddress.CountryID">
+                                Country:</label></dt>
+                        <dd>@this.Select(x => x.ShippingAddress.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key")).IncludeUnobtrusiveValidationAttributes(Html).Attr("state-combo-name", "ShippingAddress.StateID").Attr("state-show-value", 219)
+                            <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.CountryID" class="field-validation-valid">
+                            </span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label for="ShippingAddress.StateID" class="hidden">
+                                State:</label></dt>
+                        <dd>@this.Select(x => x.ShippingAddress.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key")).IncludeUnobtrusiveValidationAttributes(Html).Class("hidden")
+                            <span data-valmsg-replace="false" data-valmsg-for="ShippingAddress.StateID" class="field-validation-valid">
+                            </span>
+                        </dd>
+                    </dl>
                         <dl>
                             <dt>
                                 <label for="name">
@@ -358,7 +351,8 @@
             </div>
         </div>
         <div class="padding10">
-            <input type="submit" value="Update details" class="top10 button" disable-upon-click="true" loader="true" loader-location="left center" loader-on-my-side="right" /></div>
+            <input type="submit" value="Update details" class="top10 button" disable-upon-click="true"
+                loader="true" loader-location="left center" loader-on-my-side="right" /></div>
 	
     }
 </div>
@@ -366,42 +360,49 @@
     @using (Html.BeginForm("ChangePassword", "MyAccount"))
     {
 
-    <div class="error hidden"></div>
+        <div class="error hidden">
+        </div>
         <fieldset class="onecolumb-form">
             <legend>Update my password</legend>
             <dl>
                 <dt>
                     <label for="Email">
                         Old password:</label></dt>
-                <dd>@this.Password("OldPassword").Attr("data-val-required", "*").Attr("data-val","true") <span data-valmsg-replace="false" data-valmsg-for="OldPassword" class="field-validation-valid"></span>
+                <dd>@this.Password("OldPassword").Attr("data-val-required", "*").Attr("data-val", "true")
+                    <span data-valmsg-replace="false" data-valmsg-for="OldPassword" class="field-validation-valid">
+                    </span>
                 </dd>
             </dl>
             <dl>
                 <dt>
                     <label for="FirstName">
                         New password:</label></dt>
-                <dd>@this.Password("NewPassword").Attr("data-val-required", "*").Attr("data-val", "true") <span data-valmsg-replace="false"
-                                                       data-valmsg-for="NewPassword" class="field-validation-valid"></span>
+                <dd>@this.Password("NewPassword").Attr("data-val-required", "*").Attr("data-val", "true")
+                    <span data-valmsg-replace="false" data-valmsg-for="NewPassword" class="field-validation-valid">
+                    </span>
                 </dd>
             </dl>
             <dl>
                 <dt>
                     <label for="LastName">
                         Confirm new password:</label></dt>
-                <dd>@this.Password("ConfirmNewPassword").Attr("data-val-equalto-other", "*.NewPassword").Attr("data-val", "true").Attr("data-val-equalto", "*") <span data-valmsg-replace="false" 
-                                                              data-valmsg-for="ConfirmNewPassword" class="field-validation-valid"></span>
+                <dd>@this.Password("ConfirmNewPassword").Attr("data-val-equalto-other", "*.NewPassword").Attr("data-val", "true").Attr("data-val-equalto", "*")
+                    <span data-valmsg-replace="false" data-valmsg-for="ConfirmNewPassword" class="field-validation-valid">
+                    </span>
                 </dd>
             </dl>
-
             @this.Hidden("Email").Value(Model.Email)
-                        
         </fieldset>
         
-        <input class="button" type="submit" value="Change password" disable-upon-click="true" loader="true" loader-location="left center" loader-on-my-side="right" />
+        <input class="button" type="submit" value="Change password" disable-upon-click="true"
+            loader="true" loader-location="left center" loader-on-my-side="right" />
     }
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
+        Utils.HideStateWhenCountryIsNotUSA();
+
+
         $('.boxy').boxy({
             title: 'Update customer details'
         });
@@ -420,6 +421,31 @@
 			            MessageBox.Show('Password changed');
 			        }
 			    }
+
+
+			});
+
+			$('#SameAddress').click(function () {
+
+			    if ($('#SameAddress').is(':checked')) {
+
+			        $('div.billingaddress :input').each(function (i, s) {
+			            var id = $(s).attr('id').replace('BillingAddress', 'ShippingAddress');
+			            $('#' + id).val($(s).val());
+
+			        });
+
+			        //  $('div.shippingaddress :input').attr('disabled', true);
+
+
+
+			    }
+			    else {
+
+			        //TODO fix this problem with disabled fields are not submitted
+			        //   $('div.shippingaddress :input').attr('disabled', false);
+			    }
+
 
 
 			});

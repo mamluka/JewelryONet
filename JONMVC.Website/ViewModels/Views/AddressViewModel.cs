@@ -21,8 +21,6 @@ namespace JONMVC.Website.ViewModels.Views
         [Min(2)]
         public int CountryID { get; set; }
 
-        [Required(ErrorMessage = "*")]
-        [Min(2)]
         public int StateID { get; set; }
 
         public string Country { get; set; }

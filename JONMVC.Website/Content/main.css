@@ -18,7 +18,6 @@ body,ul
 {
 	padding:0px;
 	margin:0px;
-	color:#606060;
 	font-family:Verdana, Geneva, sans-serif;
 	font-size:11px;
 	
@@ -152,22 +151,22 @@ input.smallbutton {
 	text-decoration:none;
 	
 }
-#TopManu div.table > div:last-child  ul {
+#TopManu div.table > div.last-selector  ul {
 	margin-top:90px;
 	margin-right:5px;
 }
-#TopManu div.table > div:last-child  ul li:first-child {
+#TopManu div.table > div.last-selector  ul li:first-child {
 	background:url(/Content/images/skeleton/topmenu-sprite.png) no-repeat 0px 0px;
 	height:25px;
 	padding-left:30px;
 	padding-right:20px;
 }
-#TopManu div.table > div:last-child  ul li {
+#TopManu div.table > div.last-selector  ul li {
 	background:url(/Content/images/skeleton/topmenu-sprite.png) no-repeat 0px -28px;
 	height:25px;
 	padding-left:30px;
 }
-#TopManu div.table > div:last-child  ul li a {
+#TopManu div.table > div.last-selector  ul li a {
 	font-size:1.3em;
 }
 #Navbar {
@@ -209,7 +208,7 @@ input.smallbutton {
 	width:10px;
 	
 }
-#MainTable > div.row > div.cell:last-child {
+#MainTable > div.row > div.last-selector {
 	width:806px;
 
 }
@@ -445,8 +444,9 @@ font-weight:bold;
 	height:160px;
 	vertical-align:bottom;
 }
-#BlockContent  div.displayatom div.give-pedding div:first-child{
-
+#BlockContent  div.displayatom div.give-pedding div:first-child h2 {
+    margin: 5px 0px 7px 0px;
+  
 }
 #BlockContent  div.displayatom ul li  {
 
@@ -756,6 +756,7 @@ span.redprice {
 
 #ItemBlock .operations div {
 	margin-right:5px;
+    margin-top: 10px;
 }
 #ItemBlock .operations div a img {
     float: left;
@@ -1232,6 +1233,11 @@ span.stars span {
 }
 .jewel-tabs div.frame .title {
 	margin-bottom:4px;
+	
+}
+.jewel-tabs div.frame .title img {
+    float: right;
+    margin-right: 1px;
 }
 .jewel-tabs div.on div.frame .title {
 	font-weight:bold;

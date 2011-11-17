@@ -77,6 +77,9 @@ namespace JONMVC.Website.Models.JewelDesign
             
             settingTab.Type = NagivationTabType.ChooseSetting;
 
+            settingTab.ToolTipBody = "Start by choosing your setting following these steps:<br> <ul> <li>1. Choose a setting</li> <li>2. Choose a desired diamond</li> <li>3. Review your purchase in the \"Your Order\" tab before checkout</li> </ul> <br> Note: In any given time you can Modify or View your selected setting or diamond.";
+            settingTab.ToolTipTitle = "Choose a Setting";
+
             if (customJewelPersistenceBase.SettingID > 0)
             {
                 settingTab.Title = "Your Setting";
@@ -92,11 +95,11 @@ namespace JONMVC.Website.Models.JewelDesign
                 return settingTab;
             } 
             
-            settingTab.Title = "Choose Setting";
+            settingTab.Title = "Choose a Setting";
             settingTab.Amount = new Money(0, Currency.Usd).Format("{1}{0:#,0}"); ;
             settingTab.HighlightState = "off";
             settingTab.CssClass = "setting";
-            
+           
             return settingTab;
         }
 
@@ -108,6 +111,10 @@ namespace JONMVC.Website.Models.JewelDesign
             finalTab.Type = NagivationTabType.YourOrder;
 
             decimal price = 0;
+
+            finalTab.ToolTipBody =
+                "Review the diamond and the setting you have selected before proceeding to checkout.";
+            finalTab.ToolTipTitle = "Your Order";
 
             if (customJewelPersistenceBase.DiamondID>0)
             {
@@ -121,6 +128,7 @@ namespace JONMVC.Website.Models.JewelDesign
             finalTab.Amount = new Money(price, Currency.Usd).Format("{1}{0:#,0}");
             finalTab.HighlightState = "off";
             finalTab.CssClass = "end";
+            
           
             return finalTab;
         }
@@ -130,6 +138,11 @@ namespace JONMVC.Website.Models.JewelDesign
             var diamondTab = new NavigationTab();
 
             diamondTab.Type = NagivationTabType.YourDiamond;
+
+            diamondTab.ToolTipTitle = "Choose a Diamond";
+            diamondTab.ToolTipBody =
+                "Start by choosing your diamond following these steps:<br /> <ul> <li>1. Choose a diamond</li> <li>2. Choose a desired setting</li> <li>3. Review your purchase in the \"Your Order\" tab before checkout</li> </ul><br /> Note: In any given time you can Modify or View your selected diamond or setting.";
+        
 
             if (customJewelPersistenceBase.DiamondID > 0)
             {
@@ -148,7 +161,7 @@ namespace JONMVC.Website.Models.JewelDesign
             diamondTab.Amount = new Money(0, Currency.Usd).Format("{1}{0:#,0}");
             diamondTab.HighlightState = "off";
             diamondTab.CssClass = "diamond";
-        
+           
             
             return diamondTab;
         }
