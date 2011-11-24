@@ -229,11 +229,11 @@
     @this.Hidden(x => x.Phone)
     @this.Hidden(x => x.PaymentMethod)
     @this.Hidden(x => x.Email)
-    @this.Hidden(x => x.BillingAddress.Country).Value(1).Attr("submit-text", true)
-    @this.Hidden(x => x.BillingAddress.State).Value(1).Attr("submit-text", true)
-    @this.Hidden(x => x.ShippingAddress.Country).Value(1).Attr("submit-text", true)
-    @this.Hidden(x => x.ShippingAddress.State).Value(1).Attr("submit-text", true)
-    @this.Hidden(x => x.CreditCardViewModel.CreditCart).Value(1).Attr("submit-text", true)
+    @this.Hidden(x => x.BillingAddress.Country).Attr("submit-text", true)
+    @this.Hidden(x => x.BillingAddress.State).Attr("submit-text", true)
+    @this.Hidden(x => x.ShippingAddress.Country).Attr("submit-text", true)
+    @this.Hidden(x => x.ShippingAddress.State).Attr("submit-text", true)
+    @this.Hidden(x => x.CreditCardViewModel.CreditCart).Attr("submit-text", true)
 
 	
     <input type="image" src="/Content/images/checkout/shoppingcart/continue.png" class="right top10" />

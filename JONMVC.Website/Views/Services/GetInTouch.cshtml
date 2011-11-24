@@ -154,7 +154,7 @@ Israel <br/></span>
         $('#AskQuestionForm').ajaxForm(
             {
                 beforeSubmit: function () {
-                   // Utils.DisableSubmitButton();
+                    // Utils.DisableSubmitButton();
                     return $('#AskQuestionForm').validate().showErrors();
                 },
                 dataType: 'json',
@@ -163,8 +163,8 @@ Israel <br/></span>
                     if (data.HasError) {
                         alert('There was an error, Please try again later');
                     } else {
-                        
                         MessageBox.Show('Question has been sent');
+                        $('#AskQuestionForm :input').val('');
                     }
                 }
             });

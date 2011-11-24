@@ -83,6 +83,7 @@ namespace JONMVC.Website.Controllers
             {
                 bestOffer.SetTodayString(DateTime.Now);
                 bestOffer.EmailToAdmin(model);
+                bestOffer.EmailToCustomer(model);
 
                 return Json(new OporationWithoutReturnValueJsonModel());
             }

@@ -38,7 +38,7 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
             //Assert
            
             tabs[0].Title.Should().Be("Choose Diamond");
-            tabs[1].Title.Should().Be("Choose Setting");
+            tabs[1].Title.Should().Be("Choose a Setting");
             tabs[2].Title.Should().Be("Your Order");
 
         }
@@ -52,7 +52,7 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
             var tabs = builder.Build();
             //Assert
             tabs[0].Title.Should().Be("Choose Diamond");
-            tabs[1].Title.Should().Be("Choose Setting");
+            tabs[1].Title.Should().Be("Choose a Setting");
             tabs[2].Title.Should().Be("Your Order");
 
         }

@@ -1042,6 +1042,7 @@ $(document).ready(function () {
     });
 
     $('img[tooltip]').each(function () {
+
         $(this).qtip({
             content: {
                 title: {
@@ -1071,13 +1072,24 @@ $(document).ready(function () {
                 textAlign: 'justify',
 
                 tip: {
-                    corner: 'topLeft',
+                    corner: 'topRight',
                     color: '#87281d',
                     size: {
                         x: 4,
                         y: 4
                     }
 
+                }
+
+            },
+            position: {
+                corner: {
+                    target: 'topRight',
+                    tooltip: 'topRight'
+                },
+                adjust: {
+                    x: -5,
+                    y: 15
                 }
             }
 

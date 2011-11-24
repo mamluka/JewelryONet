@@ -43,32 +43,33 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
             MailerBase.IsTestModeEnabled = true;
         }
 
+        
+       
         [Test]
-        public void EmailToAdmin_ShouldCallTheUserMailerWithTheRightMethodToSendTheEmail()
+        public void EmailToAdmin_ShouldCallTheUserMailerWithTheCorrectEmailForAdmin()
         {
             //Arrange
-            
-            
-            var mailer = MockRepository.GenerateStrictMock<IUserMailer>();
-            mailer.Expect(x => x.BestOfferAdmin(Arg<string>.Is.Anything, Arg<BestOfferEmailTemplateViewModel>.Is.Anything));
+            var currectEmailForAdmin = new FakeSettingManager().AdminEmail();
 
-            var bestOffer = CreateDefaultBestOffer(mailer);
+            var mailer = MockRepository.GenerateMock<IUserMailer>();
+            mailer.Expect(x => x.BestOfferAdmin(Arg<string>.Is.Equal(currectEmailForAdmin), Arg<BestOfferEmailTemplateViewModel>.Is.Anything));
 
             var bestOfferViewModel = DefaultBestOfferViewModelWithRealJewel();
+
+            var bestOffer = CreateDefaultBestOffer(mailer);
             //Act
             bestOffer.EmailToAdmin(bestOfferViewModel);
             //Assert
             mailer.VerifyAllExpectations();
         }
 
-       
         [Test]
-        public void EmailToAdmin_ShouldCallTheUserMailerWithTheCorrectEmail()
+        public void EmailToAdmin_ShouldCallTheUserMailerWithTheCorrectEmailForTheCustomer()
         {
             //Arrange
             var currectEmailForAdmin = new FakeSettingManager().AdminEmail();
 
-            var mailer = MockRepository.GenerateStrictMock<IUserMailer>();
+            var mailer = MockRepository.GenerateMock<IUserMailer>();
             mailer.Expect(x => x.BestOfferAdmin(Arg<string>.Is.Equal(currectEmailForAdmin), Arg<BestOfferEmailTemplateViewModel>.Is.Anything));
 
             var bestOfferViewModel = DefaultBestOfferViewModelWithRealJewel();
@@ -107,6 +108,26 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
             template.OfferPrice.Should().Be("$2,000");
             template.OfferNumber.Should().Be(Tests.FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID.ToString());
 
+        }
+
+        [Test]
+        public void EmailToCustomer_ShouldCallTheUserMailerWithTheCorrectEmailForCustomer()
+        {
+            //Arrange
+            
+
+            var bestOfferViewModel = DefaultBestOfferViewModelWithRealJewel();
+
+            var mailer = MockRepository.GenerateMock<IUserMailer>();
+            mailer.Expect(x => x.BestOfferCustomer(Arg<string>.Is.Equal(bestOfferViewModel.OfferEmail), Arg<BestOfferEmailTemplateViewModel>.Is.Anything));
+
+          
+
+            var bestOffer = CreateDefaultBestOffer(mailer);
+            //Act
+            bestOffer.EmailToCustomer(bestOfferViewModel);
+            //Assert
+            mailer.VerifyAllExpectations();
         }
 
         private BestOffer CreateDefaultBestOffer(IUserMailer mailer)

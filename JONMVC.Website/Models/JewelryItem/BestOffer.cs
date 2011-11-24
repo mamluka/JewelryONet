@@ -40,6 +40,21 @@ namespace JONMVC.Website.Models.JewelryItem
 
         }
 
+        public void EmailToCustomer(BestOfferViewModel bestOfferViewModel)
+        {
+            try
+            {
+                
+                var model = CreateEmailModel(bestOfferViewModel);
+                userMailer.BestOfferCustomer(model.Email, model).Send();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("when asked to email the best offer email to the admin an error occured:\r\n" + ex.Message);
+            }
+        }
+
         public BestOfferEmailTemplateViewModel CreateEmailModel(BestOfferViewModel bestOfferViewModel)
         {
             try

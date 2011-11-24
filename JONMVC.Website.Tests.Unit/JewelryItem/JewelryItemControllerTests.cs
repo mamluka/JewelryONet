@@ -192,7 +192,7 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
         }
 
         [Test]
-        public void PostBestOffer_ShouldCallTheBestOfferSaveAndEmailCustomerMethod()
+        public void PostBestOffer_ShouldEmailToAdminACopyOfTheMailWithTHeRightParameers()
         {
             //Arrange
             var model = fixture.CreateAnonymous<BestOfferViewModel>();
@@ -216,6 +216,33 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
          //   result.AssertViewRendered().WithViewData<EmptyViewModel>();
             bestOffer.VerifyAllExpectations();
         }
+
+        [Test]
+        public void PostBestOffer_ShouldEmailToCustomerACopyOfTheMailWithTHeRightParameers()
+        {
+            //Arrange
+            var model = fixture.CreateAnonymous<BestOfferViewModel>();
+
+            var bestOffer = MockRepository.GenerateMock<IBestOffer>();
+            bestOffer.Expect(
+                x =>
+                x.EmailToCustomer(
+                    Arg<BestOfferViewModel>.Matches(
+                        m =>
+                        m.JewelID == model.JewelID &&
+                        m.OfferEmail == model.OfferEmail &&
+                        m.OfferPrice == model.OfferPrice
+                        )));
+
+            var controller = CreateJewelryItemControllerWithCustomBestOffer(bestOffer);
+
+            //Act
+            controller.PostBestOffer(model);
+            //Assert
+            //   result.AssertViewRendered().WithViewData<EmptyViewModel>();
+            bestOffer.VerifyAllExpectations();
+        }
+
 
         [Test]
         public void PostBestOffer_ShouldCallTheSetDateMethodToSetTheCurrentDateInTheMail()
