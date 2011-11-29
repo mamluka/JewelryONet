@@ -364,7 +364,7 @@
                 else if (p == w) percent = 1;
                 else percent = p / w;
 
-                console.log(left);
+               
 
                 value = P.minValue + (P.maxValue - P.minValue) * percent;
                 return { value: value, percent: percent };

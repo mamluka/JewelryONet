@@ -46,50 +46,86 @@ h3.smalltitle {
 	margin:5px 0px 5px 0px;
 }
 input.button {
-	height:25px;
-	background:url(/Content/images/skeleton/button-bg.png) repeat-x;
-	text-align:center;
-	color:white;
-	font-size:1.2em;
-	border:none;
-	font-weight:bold;
-	padding:3px 10px 3px 10px;
-	border-radius:5px;
-    cursor: pointer;
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .2em .3em .2em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #fef4e9;
+	border: solid 1px #ad2000;
+	background: #ad2000;
+	background: -webkit-gradient(linear, left top, left bottom, from(#cd4949), to(#ad2000));
+	background: -moz-linear-gradient(top,  #cd4949,  #ad2000);
+
 }
 input.disabled-button {
-	height:25px;
-	background:url(/Content/images/skeleton/disabled-button-bg.png) repeat-x;
-	text-align:center;
-	color:white;
-	font-size:1.2em;
-	border:none;
-	font-weight:bold;
-	padding:3px 10px 3px 10px;
-	border-radius:5px;
-    cursor: pointer;
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .2em .3em .2em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #fef4e9;
+	border: solid 1px #565656;
+	background: #565656;
+	background: -webkit-gradient(linear, left top, left bottom, from(#8b8b8b), to(#565656));
+	background: -moz-linear-gradient(top,  #8b8b8b,  #565656);
 }
 input.blue-button {
-	height:25px;
-	background:url(/Content/images/skeleton/blue-button-bg.png) repeat-x;
-	text-align:center;
-	color:white;
-	font-size:1.2em;
-	border:none;
-	font-weight:bold;
-	padding:3px 10px 3px 10px;
-	border-radius:5px;
-    cursor: pointer;
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .2em .3em .2em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #fef4e9;
+	border: solid 1px #0061ad;
+	background: #0061ad;
+	background: -webkit-gradient(linear, left top, left bottom, from(#49abcd), to(#0061ad));
+	background: -moz-linear-gradient(top,  #49abcd,  #0061ad);
 }
 input.smallbutton {
-	height:17px;
-	background:url(/Content/images/skeleton/button-bg.png) repeat-x;
-	text-align:center;
-	color:white;
-	font-size:1em;
-	border:none;
-
-	border-radius:5px;
+	display: inline-block;
+	outline: none;
+    height: 17px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .2em .3em .2em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #fef4e9;
+	border: solid 1px #ad2000;
+	background: #ad2000;
+	background: -webkit-gradient(linear, left top, left bottom, from(#cd4949), to(#ad2000));
+	background: -moz-linear-gradient(top,  #cd4949,  #ad2000);
 }
 .error {
 	padding:7px;
@@ -257,6 +293,7 @@ color:#962e21;
 -webkit-border-radius: 5px;
 border-radius: 5px; /* future proofing */
 -khtml-border-radius: 5px; /* for old Konqueror browsers */
+    width: 155px;
 }
 .menucontainer  .row .cell > ul > li > div.submenu ul {
   list-style-position:inside;
@@ -1303,7 +1340,7 @@ span.stars span {
 .jewel-main .refine tr td {
 	cursor:pointer;
     color: white;
-    border: 1px solid transparent;
+    border: 1px solid beige;
 }
 .jewel-main .refine tr td.selected {
     border: 1px solid #d5746b;
@@ -1327,12 +1364,23 @@ span.stars span {
 	width:7px;
 }
 .jewel-main .refine .shape-buttons table.sprite-shape {
-       
+    text-align: left;
+    border-collapse: collapse;
+    
 }
+
 .jewel-main .refine .shape-buttons table.sprite-shape tr td {
 	background-image:url(/Content/images/jeweldesign/refine/shapes/shape-sprite.png);
 	background-repeat:no-repeat;
 	height:25px;
+    width: 29px;
+    padding: 0px;
+    box-sizing: content-box;
+    display: inline-block;
+    margin: 0px;
+    float: left;
+    
+
 }
 .jewel-main .refine .cut-buttons table.bg tr td.off {
     background-color: #6b6b6b;

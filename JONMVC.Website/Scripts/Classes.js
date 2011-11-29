@@ -571,7 +571,7 @@ var JewelDesign = {
             loadtext: "Loading diamonds, please wait...",
             caption: "",
             pager: '#DiamondPager',
-            height: 220,
+            height: $.browser.mozilla ? 220 : 230,
             width: 790,
             loadComplete: function () {
                 JewelDesign.RegisterDiamondInfo();
