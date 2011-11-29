@@ -24,6 +24,9 @@ namespace JONMVC.Website.ViewModels.Json.Builders
             PictureDiskPathForWebDisplay = media.PictureDiskPathForWebDisplay;
             PictureURLForWebDisplay = media.PictureURLForWebDisplay;
 
+            ReportURLForWebDisplay = media.ReportURLForWebDisplay;
+            ReportDiskPathForWebDisplay = media.ReportDiskPathForWebDisplay;
+
             MediaSetFullName = Metal.GetFullName(MediaSet);
         }
     }

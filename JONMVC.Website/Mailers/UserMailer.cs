@@ -40,7 +40,7 @@ namespace JONMVC.Website.Mailers
             var mailMessage = new MailMessage { Subject = "Best offer confirmation from JewelryONet.com" };
 
             mailMessage.To.Add(mailTo);
-            mailMessage.From = salesSender;
+            mailMessage.From = serviceSender;
 
             mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
 
@@ -62,7 +62,7 @@ namespace JONMVC.Website.Mailers
 
 
             mailMessage.To.Add(mailTo);
-            mailMessage.From = salesSender;
+            mailMessage.From = serviceSender;
 
             mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
 
@@ -82,7 +82,7 @@ namespace JONMVC.Website.Mailers
 
 
             mailMessage.To.Add(mailTo);
-            mailMessage.From = salesSender;
+            mailMessage.From = serviceSender;
 
             mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
 
@@ -98,7 +98,7 @@ namespace JONMVC.Website.Mailers
             var mailMessage = new MailMessage { Subject = "Confirmation for order #" + model.OrderNumber };
 
             mailMessage.To.Add(mailTo);
-            mailMessage.From = salesSender;
+            mailMessage.From = serviceSender;
 
             mailMessage = ToSendACopyOfThisMailToSystemAddBCCFields(mailMessage);
 

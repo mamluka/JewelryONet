@@ -118,7 +118,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
 
             
             //Assert
-            media.ReportForWebDisplay.Should().Be("/jon-images/jewel/0101-10001-report-all.jpg");
+            media.ReportURLForWebDisplay.Should().Be("/jon-images/jewel/0101-10001-report-all.jpg");
 
         }
 

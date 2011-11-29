@@ -103,6 +103,36 @@ namespace JONMVC.Website.Tests.Unit.Tabs
             resultview.AssertActionRedirect().RouteValues.Should().Contain(new KeyValuePair<string, object>("CustomFilters[1].Name", "test2"));
         }
 
+        [Test]
+        public void SearchTabsPost_ShouldSetTheCurrentPageValueToOneIfFiltersArePresent()
+        {
+            //Arrange
+            var tabsController = CreateDefaultTabsController();
+
+            var viewModel = fixture.Build<TabsViewModel>().With(x => x.CustomFilters,
+                                                                new List<CustomTabFilterViewModel>()
+                                                                    {
+                                                                        new CustomTabFilterViewModel()
+                                                                            {
+                                                                                Name = "test",
+                                                                                Value = 2
+                                                                            },
+                                                                        new CustomTabFilterViewModel()
+                                                                            {
+                                                                                Name = "test2",
+                                                                                Value = 4
+                                                                            }
+                                                                    }).CreateAnonymous();
+
+            //Act
+            var resultview = tabsController.SearchTabsPost(viewModel);
+            //Assert
+
+
+            resultview.AssertActionRedirect().RouteValues.Should().Contain(new KeyValuePair<string, object>("page", 1));
+            
+        }
+
 
 
       

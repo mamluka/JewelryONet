@@ -27,7 +27,7 @@ namespace JONMVC.Website.Models.Jewelry
 
         public JewelMediaType MediaSet { get; set; }
 
-        public string ReportForWebDisplay { get; set; }
+        public string ReportURLForWebDisplay { get; set; }
 
         public string ReportDiskPathForWebDisplay { get; set; }
     }

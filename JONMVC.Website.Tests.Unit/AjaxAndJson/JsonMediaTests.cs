@@ -74,5 +74,8 @@ namespace JONMVC.Website.Tests.Unit.AjaxAndJson
             jsonMedia.MediaSetFullName.Should().Be("Yellow Gold 18 Karat");
         }
 
+        
+        
+
     }
 }

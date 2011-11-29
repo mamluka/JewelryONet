@@ -84,7 +84,7 @@ namespace JONMVC.Website.ViewModels.Builders
 
             if (fileSystem.File.Exists(jewel.Media.ReportDiskPathForWebDisplay))
             {
-                extraMedia.Add(prettyMediaFactory.SinglePhotoUseLargeForBoth(jewel.Media.ReportForWebDisplay, "Report"));
+                extraMedia.Add(prettyMediaFactory.SinglePhotoUseLargeForBoth(jewel.Media.ReportURLForWebDisplay, "Report"));
             }
 
             viewModel.ExtraImages = extraMedia;

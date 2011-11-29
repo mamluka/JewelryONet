@@ -5,7 +5,7 @@ namespace JONMVC.Website.Models.Tabs
 {
     public interface ICustomTabFilter
     {
-        CustomTabFilterViewModel ViewModel { get;  }
+        CustomTabFilterViewModel ViewModel(int currentValue);
         DynamicSQLWhereObject DynamicSQLByFilterValue(int filterValue);
         string Key { get; }
       

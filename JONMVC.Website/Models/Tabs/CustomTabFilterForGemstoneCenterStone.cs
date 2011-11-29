@@ -6,7 +6,6 @@ namespace JONMVC.Website.Models.Tabs
     public class CustomTabFilterForGemstoneCenterStone : ICustomTabFilter
     {
         private readonly CustomTabFilterEnumMetadataReader<GemstoneCenterStoneFilterValues> reader;
-        public CustomTabFilterViewModel ViewModel { get; private set; }
 
         private readonly GemstoneCenterStoneFilterValues values;
 
@@ -18,13 +17,20 @@ namespace JONMVC.Website.Models.Tabs
         {
             this.reader = reader;
 
-            ViewModel = new CustomTabFilterViewModel()
-                            {
-                                Name = key,
-                                Value = 0,
-                                Values = reader.Values(),
-                                Label = label
-                            };
+            
+        }
+
+        public CustomTabFilterViewModel ViewModel(int currentValue)
+        {
+            var viewModel = new CustomTabFilterViewModel()
+            {
+                Name = key,
+                Value = currentValue,
+                Values = reader.Values(),
+                Label = label
+            };
+
+            return viewModel;
         }
 
         public DynamicSQLWhereObject DynamicSQLByFilterValue(int filterValue)

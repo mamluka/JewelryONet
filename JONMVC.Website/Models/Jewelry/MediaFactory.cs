@@ -46,7 +46,7 @@ namespace JONMVC.Website.Models.Jewelry
             media.HandDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "hand", conventionMetalPrefix, ImageExtension);
             media.MovieDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "mov", conventionMetalPrefix, MovieExtension);
 
-            media.ReportForWebDisplay = FillParametersIntoPathPattern(GetBaseWebPath(), itemNumber, "report", conventionAllMetals, ImageExtension);
+            media.ReportURLForWebDisplay = FillParametersIntoPathPattern(GetBaseWebPath(), itemNumber, "report", conventionAllMetals, ImageExtension);
             media.ReportDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "report", conventionAllMetals, ImageExtension);
 
             media.MediaSet = currentMediaSet;

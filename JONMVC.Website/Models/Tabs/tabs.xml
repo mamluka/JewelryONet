@@ -190,50 +190,55 @@ In recent years technology has perfected the process of  heat-treating sapphires
 		<tab id="wedding">
 			<caption>Wedding</caption>
 			<where>
-				<string>jeweltype_id = @0 and jewelsubtype_id = @1</string>
+				<string>jeweltype_id = @0 and jewelsubtype_id = @1 and category_id = @2</string>
 				<values>
 					<value type="int">13</value>
 					<value type="int">8</value>
+          <value type="int">7</value>
 				</values>
 			</where>
 		</tab>
 		<tab id="eternity">
 			<caption>Eternity</caption>
 			<where>
-				<string>jeweltype_id = @0 and jewelsubtype_id = @1</string>
+				<string>jeweltype_id = @0 and jewelsubtype_id = @1 and category_id = @2</string>
 				<values>
 					<value type="int">13</value>
 					<value type="int">10</value>
+          <value type="int">7</value>
 				</values>
 			</where>
 		</tab>
 		<tab id="bands">
 			<caption>Bands</caption>
 			<where>
-				<string>jeweltype_id = @0 and jewelsubtype_id = @1</string>
+				<string>jeweltype_id = @0 and jewelsubtype_id = @1 and category_id = @2</string>
 				<values>
 					<value type="int">13</value>
 					<value type="int">9</value>
+          <value type="int">7</value>
 				</values>
 			</where>
 		</tab>
 		<tab id="mens">
 			<caption>Men's</caption>
 			<where>
-				<string>jeweltype_id = @0 and jewelsubtype_id = @1</string>
+				<string>jeweltype_id = @0 and jewelsubtype_id = @1 and category_id = @2</string>
 				<values>
 					<value type="int">13</value>
 					<value type="int">12</value>
+          <value type="int">7</value>
 				</values>
 			</where>
 		</tab>
 		<tab id="wedding-sets">
 			<caption>Wedding Sets</caption>
 			<where>
-				<string>jeweltype_id = @0 and jewelsubtype_id = @1</string>
+				<string>jeweltype_id = @0 and jewelsubtype_id = @1 and category_id = @2</string>
 				<values>
 					<value type="int">13</value>
 					<value type="int">11</value>
+          <value type="int">7</value>
 				</values>
 			</where>
 		</tab>

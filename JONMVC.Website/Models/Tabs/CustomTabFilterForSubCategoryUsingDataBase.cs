@@ -9,7 +9,7 @@ namespace JONMVC.Website.Models.Tabs
 {
     public class CustomTabFilterForSubCategoryUsingDataBase : ICustomTabFilter
     {
-        public CustomTabFilterViewModel ViewModel { get; private set; }
+        private readonly string[] filterParams;
 
         private readonly string key = "subcategory";
 
@@ -17,13 +17,20 @@ namespace JONMVC.Website.Models.Tabs
 
         public CustomTabFilterForSubCategoryUsingDataBase(string[] filterParams)
         {
-            ViewModel = new CustomTabFilterViewModel()
-                            {
-                                Name = key,
-                                Value = 0,
-                                Values = JewelSubCategoryValuesFromJewelCategory(filterParams),
-                                Label = label
-                            };
+            this.filterParams = filterParams;
+        }
+
+        public CustomTabFilterViewModel ViewModel(int currentValue)
+        {
+            var viewModel = new CustomTabFilterViewModel()
+            {
+                Name = key,
+                Value = currentValue,
+                Values = JewelSubCategoryValuesFromJewelCategory(filterParams),
+                Label = label
+            };
+
+            return viewModel;
         }
 
         private List<KeyValuePair<string, int>> JewelSubCategoryValuesFromJewelCategory(string[] filterParams)

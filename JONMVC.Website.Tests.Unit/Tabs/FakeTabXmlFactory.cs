@@ -231,7 +231,7 @@ namespace JONMVC.Website.Tests.Unit.Tabs
                  new XElement("tab",
                      new XAttribute("id", "engagement-rings"),
                      new XElement("caption", "Rings"),
-                     new XElement("customfilter", "category",
+                     new XElement("customfilter", "subcategory",
                          new XAttribute("params", "7,2")),
                      new XElement("where",
                          new XElement("string", "jeweltype_id = @0 "),

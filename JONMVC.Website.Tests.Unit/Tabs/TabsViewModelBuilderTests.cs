@@ -364,6 +364,49 @@ namespace JONMVC.Website.Tests.Unit.Tabs
 
         }
 
+        [Test]
+        public void Build_ShouldPassTheCurrentValueOfTheGeneralFilterToTheViewModelForPresistance()
+        {
+            //Arrange
+
+
+            //Arrange
+            var jewelryRepository = MockRepository.GenerateMock<IJewelRepository>();
+            var tabsRepository = CreateStubTabsRepository(TabKey);
+            var fileSystem = FakeFileSystem.MediaFileSystemForItemNumber("0101-15001");
+
+
+            var viewModel = new TabsViewModel
+                                {
+                                    TabKey = TAB_KEY,
+                                    TabId = TAB_ID1,
+                                    CustomFilters = new List<CustomTabFilterViewModel>
+                                                        {
+                                                            new CustomTabFilterViewModel()
+                                                                {
+                                                                    Name = "gemstone-center-stone",
+                                                                    Value = (int) GemstoneCenterStoneFilterValues.Ruby
+                                                                }
+                                                        }
+                                };
+
+
+
+
+
+            var tabsViewModelBuilder = new TabsViewModelBuilder(viewModel, xmldoc_tabswithgeneralfilter, tabsRepository,
+                                                                    jewelryRepository, fileSystem);
+
+
+            //Act
+            var result = tabsViewModelBuilder.Build();
+            //Assert
+            result.CustomFilters[0].Value.Should().Be(1);
+
+        }
+
+     
+
 
         [Test]
         public void Build_ShouldAddKeyValuePairsForTheFilterToDisplay()

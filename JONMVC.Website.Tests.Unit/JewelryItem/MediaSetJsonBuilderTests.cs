@@ -43,7 +43,7 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
         }
 
         [Test]
-        public void MediaSetList_ShouldReturn1SetsBecauseIconDoesntExistOnOneOfTheSets()
+        public void MediaSetList_ShouldReturn1SetBecauseIconDoesntExistOnOneOfTheSets()
         {
             //Arrange
             const string itemNumber = "0101-15001";

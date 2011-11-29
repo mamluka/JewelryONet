@@ -117,6 +117,8 @@ namespace JONMVC.Website.ViewModels.Builders
             viewModel.MetalFilterItems = MetalFilter.GetKeyValue();
             viewModel.OrderByPriceItems = OrderByPriceFilter.GetKeyValue();
 
+           
+
             return viewModel;
         }
 
@@ -139,7 +141,9 @@ namespace JONMVC.Website.ViewModels.Builders
                 var filterParams = tab.Element("customfilter").Attribute("params").Value.Split(',');
                 var customFilter = CreateCustomFilterFromKey(filterName, filterParams);
 
-                viewModel.CustomFilters.Add(customFilter.ViewModel);
+                var customeFilterViewModel = CreateViewModelFromFilterUsingCurrentState(customFilter);
+                viewModel.CustomFilters.Add(customeFilterViewModel);
+
                 CustomFilters.Add(customFilter);
             }
 
@@ -218,8 +222,18 @@ namespace JONMVC.Website.ViewModels.Builders
 
                 if (qTabpagexml.Element("customfilters") != null)
                 {
-                    qTabpagexml.Element("customfilters").Value.Split(' ').ToList().ForEach(x=> viewModel.CustomFilters.Add(AssignCustomFilterViewModelByKey(x)));
-                    qTabpagexml.Element("customfilters").Value.Split(' ').ToList().ForEach(x => CustomFilters.Add(CreateCustomFilterFromKey(x)));
+
+                    var specifiedFilterList = qTabpagexml.Element("customfilters").Value.Split(' ').ToList();
+                    foreach (var specifiedFilter in specifiedFilterList)
+                    {
+                        var customFilter = CreateCustomFilterFromKey(specifiedFilter);
+                        var customeFilterViewModel = CreateViewModelFromFilterUsingCurrentState(customFilter);
+                        
+                        viewModel.CustomFilters.Add(customeFilterViewModel);
+                        CustomFilters.Add(customFilter);
+                    }
+
+
                 }
 
 
@@ -255,10 +269,16 @@ namespace JONMVC.Website.ViewModels.Builders
 
         }
 
-        private CustomTabFilterViewModel AssignCustomFilterViewModelByKey(string filterkey,string[] filterParams = null)
+        private CustomTabFilterViewModel CreateViewModelFromFilterUsingCurrentState(ICustomTabFilter customFilter)
         {
-            return CreateCustomFilterFromKey(filterkey,filterParams).ViewModel;
+            var currentValue = CustomFiltersStateList.Where(x => x.Name == customFilter.Key)
+                .SingleOrFallback(
+                    () => new CustomTabFilterViewModel() { Value = 0})
+                .Value;
+            return customFilter.ViewModel(currentValue);
         }
+
+       
 
         private ICustomTabFilter CreateCustomFilterFromKey(string key,string[] filterParams = null)
         {
@@ -269,7 +289,7 @@ namespace JONMVC.Website.ViewModels.Builders
                 case "subcategory":
                     return new CustomTabFilterForSubCategoryUsingDataBase(filterParams);
                 default:
-                    throw new Exception("When asked for key:" + key + " an error occured:\r\n no such key");
+                    throw new Exception("When asked to create a filter for key:" + key + " an error occured:\r\n no such key");
             }
         }
 

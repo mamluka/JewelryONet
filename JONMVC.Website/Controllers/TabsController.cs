@@ -59,7 +59,6 @@ namespace JONMVC.Website.Controllers
                           {
                               {"tabkey", viewModel.TabKey},
                               {"tabid", viewModel.TabId},
-                              {"page", viewModel.Page},
                               {"MetalFilter", viewModel.MetalFilter},
                               {"OrderByPrice", viewModel.OrderByPrice},
                               {"itemsperpage", viewModel.ItemsPerPage}
@@ -77,7 +76,13 @@ namespace JONMVC.Website.Controllers
                     dic.Add("CustomFilters" + "[" + counter.ToString() + "].Name", filterValue.Name);
                     counter++;
                 }
+                dic.Add("page", 1);
             }
+            else
+            {
+                dic.Add("page",viewModel.Page);
+            }
+            
 
             return RedirectToRoute("Tabs",dic );
 		}
