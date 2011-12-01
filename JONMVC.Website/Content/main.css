@@ -784,7 +784,7 @@ span.redprice {
 	top:-65px;
 	left:340px;
 }
-#ItemBlock .thumbs a img:first-child {
+#ItemBlock .thumbs a:first-child img {
 	height: 83px;
 }
 #ItemBlock .thumbs a img {

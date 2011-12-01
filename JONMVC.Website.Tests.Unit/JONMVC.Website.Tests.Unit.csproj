@@ -120,6 +120,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminControllerTests.cs" />
+    <Compile Include="Admin\TempUpdateDiamodsHendlerTests.cs" />
     <Compile Include="AjaxAndJson\JsonMediaTests.cs" />
     <Compile Include="AutoMapperMaps\MapsContainer.cs" />
     <Compile Include="Checkout\BillingViewModelBuilderTests.cs" />
@@ -240,6 +242,10 @@
     <Content Include="InstallationDummyFile.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JON.BackOffice.ImportDiamondCSV.Core\JON.BackOffice.ImportDiamondCSV.Core.csproj">
+      <Project>{27736D26-8323-4680-93AC-1428F313F644}</Project>
+      <Name>JON.BackOffice.ImportDiamondCSV.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JONMVC.Website\JONMVC.Website.csproj">
       <Project>{8DF0A5EE-55C0-431F-9222-FDE6F5D582B4}</Project>
       <Name>JONMVC.Website</Name>

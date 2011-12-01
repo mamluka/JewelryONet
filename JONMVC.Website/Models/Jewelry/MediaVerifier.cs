@@ -42,6 +42,11 @@ namespace JONMVC.Website.Models.Jewelry
                 media.MovieURLForWebDisplay = null;
             }
 
+            if (!fileSystem.File.Exists(media.ReportDiskPathForWebDisplay))
+            {
+                media.ReportURLForWebDisplay = null;
+            }
+
             return media;
         }
     }

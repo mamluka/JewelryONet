@@ -25,33 +25,29 @@
 @using (Html.BeginForm("SearchTabsPost", "Tabs"))
 {
     <div class="table">
-     @Html.Partial("NavigationTabStrip",Model)
+        @Html.Partial("NavigationTabStrip", Model)
         <div class="row">
             <div class="cell">
                 <div id="ItemContainer">
                     <div class="block sortbar">
-                        @Html.LabelFor(x=>x.OrderByPrice)
-                        @Html.DropDownListFor(m => m.OrderByPrice, new SelectList(Model.OrderByPriceItems,"Value","Key",Model.OrderByPrice.ToString()))
-                        @Html.LabelFor(x=>x.MetalFilter)
-                        @Html.DropDownListFor(m => m.MetalFilter, new SelectList(Model.MetalFilterItems, "Value", "Key",Model.MetalFilterItems.ToString()))
+                        @Html.LabelFor(x => x.OrderByPrice)
+                        @Html.DropDownListFor(m => m.OrderByPrice, new SelectList(Model.OrderByPriceItems, "Value", "Key", Model.OrderByPrice.ToString()))
+                        @Html.LabelFor(x => x.MetalFilter)
+                        @Html.DropDownListFor(m => m.MetalFilter, new SelectList(Model.MetalFilterItems, "Value", "Key", Model.MetalFilterItems.ToString()))
                         @Html.HiddenFor(m => m.Page)
                         @Html.HiddenFor(m => m.ItemsPerPage)
                         @Html.HiddenFor(m => m.TabId)
                         @Html.HiddenFor(m => m.TabKey)
-
                         @for (int i = 0; i < Model.CustomFilters.Count; i++)
                         {
                             @Html.Label(Model.CustomFilters[i].Label)
                             @Html.DropDownListFor(m => m.CustomFilters[i].Value, new SelectList(Model.CustomFilters[0].Values, "Value", "Key", Model.MetalFilterItems.ToString()))
                             @Html.HiddenFor(m => m.CustomFilters[i].Name)
                         }
-
-                       
-
                         <div class="pages right">
                             <ul>
-                            @{
-                                var dic = new RouteValueDictionary
+                                @{
+                        var dic = new RouteValueDictionary
                                               {
                                                   {"tabkey", Model.TabKey},
                                                   {"tabid", Model.TabId},
@@ -62,22 +58,22 @@
 
                                               };
 
-                                var counter = 0;
-                                if (Model.CustomFilters != null)
-                                {
-                                    foreach (var filterValue in Model.CustomFilters)
-                                    {
-                                        //TODO do tis strongly typed with reflaction
-                                        dic.Add("CustomFilters" + "[" + counter.ToString() + "].Value", filterValue.Value);
-                                        dic.Add("CustomFilters" + "[" + counter.ToString() + "].Name", filterValue.Name);
-                                        counter++;
-                                    }
-                                   
-                                }
+                        var counter = 0;
+                        if (Model.CustomFilters != null)
+                        {
+                            foreach (var filterValue in Model.CustomFilters)
+                            {
+                                //TODO do tis strongly typed with reflaction
+                                dic.Add("CustomFilters" + "[" + counter.ToString() + "].Value", filterValue.Value);
+                                dic.Add("CustomFilters" + "[" + counter.ToString() + "].Name", filterValue.Name);
+                                counter++;
+                            }
+
+                        }
                                 
                               
                                               
-                             }
+                                }
                                 @for (int i = 1; i <= Model.TotalPages; i++)
                                 {
                                     dic["page"] = i;
@@ -85,7 +81,7 @@
                                     {
 
                                        
-                                    <li class="active">@Html.RouteLink(i.ToString(), "Tabs",dic )</li>
+                                    <li class="active">@Html.RouteLink(i.ToString(), "Tabs", dic)</li>
 
 
                                     }
@@ -109,7 +105,7 @@
                 <div id="ItemDisplay">
                     @foreach (var jewelInTabContainer in Model.JewelryInTabContainersCollection)
                     {
-                    @Html.Partial(Model.InTabPartialView, jewelInTabContainer)
+                        @Html.Partial(Model.InTabPartialView, jewelInTabContainer)
                         
                     }
                 </div>
@@ -124,23 +120,42 @@
 						   @Html.DropDownListFor(m => m.MetalFilter, Model.MetalFilterItems) *@
                         <div class="pages right">
                             <ul>
+                                @{
+                    var dic = new RouteValueDictionary
+                                              {
+                                                  {"tabkey", Model.TabKey},
+                                                  {"tabid", Model.TabId},
+                                                  
+                                                  {"MetalFilter", Model.MetalFilter},
+                                                  {"OrderByPrice", Model.OrderByPrice},
+                                                  {"itemsperpage", Model.ItemsPerPage}
+
+                                              };
+
+                    var counter = 0;
+                    if (Model.CustomFilters != null)
+                    {
+                        foreach (var filterValue in Model.CustomFilters)
+                        {
+                            //TODO do tis strongly typed with reflaction
+                            dic.Add("CustomFilters" + "[" + counter.ToString() + "].Value", filterValue.Value);
+                            dic.Add("CustomFilters" + "[" + counter.ToString() + "].Name", filterValue.Name);
+                            counter++;
+                        }
+
+                    }
+                                
+                              
+                                              
+                                }
                                 @for (int i = 1; i <= Model.TotalPages; i++)
                                 {
-
+                                    dic["page"] = i;
                                     if (i == Model.Page)
                                     {
 
-
-                                    <li class="active">@Html.RouteLink(i.ToString(), "Tabs", new RouteValueDictionary
-                                                {
-																						 {"tabkey", Model.TabKey},
-																						 {"tabid", Model.TabId},
-																						 {"page", Model.Page},
-																						 {"MetalFilter", Model.MetalFilter},
-																						 {"OrderByPrice", Model.OrderByPrice},
-																						 {"itemsperpage", Model.ItemsPerPage}
-
-																					 })</li>
+                                       
+                                    <li class="active">@Html.RouteLink(i.ToString(), "Tabs", dic)</li>
 
 
                                     }
@@ -148,16 +163,7 @@
                                     {
 
 
-                                    <li>@Html.RouteLink(i.ToString(), "Tabs", new RouteValueDictionary
-                                                {
-																						 {"tabkey", Model.TabKey},
-																						 {"tabid", Model.TabId},
-																						 {"page", i},
-																						 {"MetalFilter", Model.MetalFilter},
-																						 {"OrderByPrice", Model.OrderByPrice},
-																						 {"itemsperpage", Model.ItemsPerPage}
-
-																					 }) </li>
+                                    <li>@Html.RouteLink(i.ToString(), "Tabs", dic) </li>
 
 
                                     }
@@ -170,9 +176,8 @@
         </div>
         <div class="row">
             <div class="cell">
-            <h1>@Model.ShortTitle</h1>
-            <p class="text-below-page">@Html.Raw(Model.ExtraText)</p>
-               
+                <h1>@Model.ShortTitle</h1>
+                <p class="text-below-page">@Html.Raw(Model.ExtraText)</p>
             </div>
         </div>
     </div>

@@ -1,0 +1,24 @@
+﻿@using JONMVC.Website.Models.Admin
+@using Microsoft.Web.Helpers
+@model UpdateDiamondsModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>UpdateDiamonds</title>
+</head>
+<body>
+    <div>
+       @using (Html.BeginForm("UpdateDiamonds", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+       {
+           @FileUpload.GetHtml()
+       }
+
+    </div>
+</body>
+</html>

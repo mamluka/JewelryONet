@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JONetModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="JONetModelStoreContainer">
+          <EntitySet Name="INV_DIAMONDS_CLARITY" EntityType="JONetModel.Store.INV_DIAMONDS_CLARITY" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="INV_DIAMONDS_COLOR" EntityType="JONetModel.Store.INV_DIAMONDS_COLOR" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="INV_DIAMONDS_CULET" EntityType="JONetModel.Store.INV_DIAMONDS_CULET" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="INV_DIAMONDS_FLUORESCENCE" EntityType="JONetModel.Store.INV_DIAMONDS_FLUORESCENCE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="INV_DIAMONDS_INVENTORY" EntityType="JONetModel.Store.INV_DIAMONDS_INVENTORY" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="INV_DIAMONDS_PROPERTIES_GRADING" EntityType="JONetModel.Store.INV_DIAMONDS_PROPERTIES_GRADING" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="INV_DIAMONDS_REPORT" EntityType="JONetModel.Store.INV_DIAMONDS_REPORT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="INV_DIAMONDS_SHAPE" EntityType="JONetModel.Store.INV_DIAMONDS_SHAPE" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_CLARITY" Association="JONetModel.Store.FK_INV_DF_INVENTORY_INV_DF_CLARITY">
+            <End Role="INV_DIAMONDS_CLARITY" EntitySet="INV_DIAMONDS_CLARITY" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_COLOR" Association="JONetModel.Store.FK_INV_DF_INVENTORY_INV_DF_COLOR">
+            <End Role="INV_DIAMONDS_COLOR" EntitySet="INV_DIAMONDS_COLOR" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_CULET" Association="JONetModel.Store.FK_INV_DF_INVENTORY_INV_DF_CULET">
+            <End Role="INV_DIAMONDS_CULET" EntitySet="INV_DIAMONDS_CULET" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_FLUORESCENCE" Association="JONetModel.Store.FK_INV_DF_INVENTORY_INV_DF_FLUORESCENCE">
+            <End Role="INV_DIAMONDS_FLUORESCENCE" EntitySet="INV_DIAMONDS_FLUORESCENCE" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_REPORT" Association="JONetModel.Store.FK_INV_DF_INVENTORY_INV_DF_REPORT">
+            <End Role="INV_DIAMONDS_REPORT" EntitySet="INV_DIAMONDS_REPORT" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_SHAPE" Association="JONetModel.Store.FK_INV_DF_INVENTORY_INV_DF_SHAPE">
+            <End Role="INV_DIAMONDS_SHAPE" EntitySet="INV_DIAMONDS_SHAPE" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING" Association="JONetModel.Store.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING">
+            <End Role="INV_DIAMONDS_PROPERTIES_GRADING" EntitySet="INV_DIAMONDS_PROPERTIES_GRADING" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING1" Association="JONetModel.Store.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING1">
+            <End Role="INV_DIAMONDS_PROPERTIES_GRADING" EntitySet="INV_DIAMONDS_PROPERTIES_GRADING" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING2" Association="JONetModel.Store.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING2">
+            <End Role="INV_DIAMONDS_PROPERTIES_GRADING" EntitySet="INV_DIAMONDS_PROPERTIES_GRADING" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="INV_DIAMONDS_CLARITY">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_COLOR">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_CULET">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_FLUORESCENCE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_INVENTORY">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="diamondid" Type="bigint" Nullable="false" />
+          <Property Name="supplier_code" Type="int" Nullable="false" />
+          <Property Name="inventory_code" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="shape" Type="int" Nullable="false" />
+          <Property Name="weight" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="color" Type="int" Nullable="false" />
+          <Property Name="clarity" Type="int" Nullable="false" />
+          <Property Name="depth" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="table" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="fluorescence" Type="int" Nullable="false" />
+          <Property Name="length" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="width" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="height" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="symmetrical" Type="int" Nullable="false" />
+          <Property Name="polish" Type="int" Nullable="false" />
+          <Property Name="grindle" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="culet" Type="int" Nullable="false" />
+          <Property Name="crown" Type="int" Nullable="false" />
+          <Property Name="cut" Type="int" Nullable="false" />
+          <Property Name="listprice" Type="decimal" Nullable="false" />
+          <Property Name="percaratprice" Type="decimal" Nullable="false" />
+          <Property Name="totalprice" Type="decimal" Nullable="false" />
+          <Property Name="report" Type="int" Nullable="false" />
+          <Property Name="reportimg" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="report_number" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_PROPERTIES_GRADING">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_REPORT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_SHAPE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_CLARITY">
+          <End Role="INV_DIAMONDS_CLARITY" Type="JONetModel.Store.INV_DIAMONDS_CLARITY" Multiplicity="1" />
+          <End Role="INV_DIAMONDS_INVENTORY" Type="JONetModel.Store.INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_CLARITY">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="clarity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_COLOR">
+          <End Role="INV_DIAMONDS_COLOR" Type="JONetModel.Store.INV_DIAMONDS_COLOR" Multiplicity="1" />
+          <End Role="INV_DIAMONDS_INVENTORY" Type="JONetModel.Store.INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_COLOR">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="color" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_CULET">
+          <End Role="INV_DIAMONDS_CULET" Type="JONetModel.Store.INV_DIAMONDS_CULET" Multiplicity="1" />
+          <End Role="INV_DIAMONDS_INVENTORY" Type="JONetModel.Store.INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_CULET">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="culet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_FLUORESCENCE">
+          <End Role="INV_DIAMONDS_FLUORESCENCE" Type="JONetModel.Store.INV_DIAMONDS_FLUORESCENCE" Multiplicity="1" />
+          <End Role="INV_DIAMONDS_INVENTORY" Type="JONetModel.Store.INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_FLUORESCENCE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="fluorescence" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_REPORT">
+          <End Role="INV_DIAMONDS_REPORT" Type="JONetModel.Store.INV_DIAMONDS_REPORT" Multiplicity="1" />
+          <End Role="INV_DIAMONDS_INVENTORY" Type="JONetModel.Store.INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_REPORT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="report" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_SHAPE">
+          <End Role="INV_DIAMONDS_SHAPE" Type="JONetModel.Store.INV_DIAMONDS_SHAPE" Multiplicity="1" />
+          <End Role="INV_DIAMONDS_INVENTORY" Type="JONetModel.Store.INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_SHAPE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="shape" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING">
+          <End Role="INV_DIAMONDS_PROPERTIES_GRADING" Type="JONetModel.Store.INV_DIAMONDS_PROPERTIES_GRADING" Multiplicity="1" />
+          <End Role="INV_DIAMONDS_INVENTORY" Type="JONetModel.Store.INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_PROPERTIES_GRADING">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="polish" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING1">
+          <End Role="INV_DIAMONDS_PROPERTIES_GRADING" Type="JONetModel.Store.INV_DIAMONDS_PROPERTIES_GRADING" Multiplicity="1" />
+          <End Role="INV_DIAMONDS_INVENTORY" Type="JONetModel.Store.INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_PROPERTIES_GRADING">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="cut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING2">
+          <End Role="INV_DIAMONDS_PROPERTIES_GRADING" Type="JONetModel.Store.INV_DIAMONDS_PROPERTIES_GRADING" Multiplicity="1" />
+          <End Role="INV_DIAMONDS_INVENTORY" Type="JONetModel.Store.INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_PROPERTIES_GRADING">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="symmetrical" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JONetModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="JONetEntitiesAdmin" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="INV_DIAMONDS_CLARITY" EntityType="JONetModel.INV_DIAMONDS_CLARITY" />
+          <EntitySet Name="INV_DIAMONDS_COLOR" EntityType="JONetModel.INV_DIAMONDS_COLOR" />
+          <EntitySet Name="INV_DIAMONDS_CULET" EntityType="JONetModel.INV_DIAMONDS_CULET" />
+          <EntitySet Name="INV_DIAMONDS_FLUORESCENCE" EntityType="JONetModel.INV_DIAMONDS_FLUORESCENCE" />
+          <EntitySet Name="INV_DIAMONDS_INVENTORY" EntityType="JONetModel.INV_DIAMONDS_INVENTORY" />
+          <EntitySet Name="INV_DIAMONDS_PROPERTIES_GRADING" EntityType="JONetModel.INV_DIAMONDS_PROPERTIES_GRADING" />
+          <EntitySet Name="INV_DIAMONDS_REPORT" EntityType="JONetModel.INV_DIAMONDS_REPORT" />
+          <EntitySet Name="INV_DIAMONDS_SHAPE" EntityType="JONetModel.INV_DIAMONDS_SHAPE" />
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_CLARITY" Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_CLARITY">
+            <End Role="INV_DIAMONDS_CLARITY" EntitySet="INV_DIAMONDS_CLARITY" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_COLOR" Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_COLOR">
+            <End Role="INV_DIAMONDS_COLOR" EntitySet="INV_DIAMONDS_COLOR" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_CULET" Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_CULET">
+            <End Role="INV_DIAMONDS_CULET" EntitySet="INV_DIAMONDS_CULET" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_FLUORESCENCE" Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_FLUORESCENCE">
+            <End Role="INV_DIAMONDS_FLUORESCENCE" EntitySet="INV_DIAMONDS_FLUORESCENCE" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_REPORT" Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_REPORT">
+            <End Role="INV_DIAMONDS_REPORT" EntitySet="INV_DIAMONDS_REPORT" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DF_INVENTORY_INV_DF_SHAPE" Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_SHAPE">
+            <End Role="INV_DIAMONDS_SHAPE" EntitySet="INV_DIAMONDS_SHAPE" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING" Association="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING">
+            <End Role="INV_DIAMONDS_PROPERTIES_GRADING" EntitySet="INV_DIAMONDS_PROPERTIES_GRADING" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING1" Association="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING1">
+            <End Role="INV_DIAMONDS_PROPERTIES_GRADING" EntitySet="INV_DIAMONDS_PROPERTIES_GRADING" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING2" Association="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING2">
+            <End Role="INV_DIAMONDS_PROPERTIES_GRADING" EntitySet="INV_DIAMONDS_PROPERTIES_GRADING" />
+            <End Role="INV_DIAMONDS_INVENTORY" EntitySet="INV_DIAMONDS_INVENTORY" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="INV_DIAMONDS_CLARITY">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="INV_DIAMONDS_INVENTORY" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_CLARITY" FromRole="INV_DIAMONDS_CLARITY" ToRole="INV_DIAMONDS_INVENTORY" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_COLOR">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="INV_DIAMONDS_INVENTORY" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_COLOR" FromRole="INV_DIAMONDS_COLOR" ToRole="INV_DIAMONDS_INVENTORY" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_CULET">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="INV_DIAMONDS_INVENTORY" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_CULET" FromRole="INV_DIAMONDS_CULET" ToRole="INV_DIAMONDS_INVENTORY" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_FLUORESCENCE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="INV_DIAMONDS_INVENTORY" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_FLUORESCENCE" FromRole="INV_DIAMONDS_FLUORESCENCE" ToRole="INV_DIAMONDS_INVENTORY" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_INVENTORY">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="diamondid" Nullable="false" />
+          <Property Type="Int32" Name="supplier_code" Nullable="false" />
+          <Property Type="String" Name="inventory_code" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="shape" Nullable="false" />
+          <Property Type="Decimal" Name="weight" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="color" Nullable="false" />
+          <Property Type="Int32" Name="clarity" Nullable="false" />
+          <Property Type="Decimal" Name="depth" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="table" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="fluorescence" Nullable="false" />
+          <Property Type="Decimal" Name="length" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="width" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="height" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="symmetrical" Nullable="false" />
+          <Property Type="Int32" Name="polish" Nullable="false" />
+          <Property Type="String" Name="grindle" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="culet" Nullable="false" />
+          <Property Type="Int32" Name="crown" Nullable="false" />
+          <Property Type="Int32" Name="cut" Nullable="false" />
+          <Property Type="Decimal" Name="listprice" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="percaratprice" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="totalprice" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="report" Nullable="false" />
+          <Property Type="String" Name="reportimg" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="report_number" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="INV_DIAMONDS_CLARITY" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_CLARITY" FromRole="INV_DIAMONDS_INVENTORY" ToRole="INV_DIAMONDS_CLARITY" />
+          <NavigationProperty Name="INV_DIAMONDS_COLOR" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_COLOR" FromRole="INV_DIAMONDS_INVENTORY" ToRole="INV_DIAMONDS_COLOR" />
+          <NavigationProperty Name="INV_DIAMONDS_CULET" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_CULET" FromRole="INV_DIAMONDS_INVENTORY" ToRole="INV_DIAMONDS_CULET" />
+          <NavigationProperty Name="INV_DIAMONDS_FLUORESCENCE" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_FLUORESCENCE" FromRole="INV_DIAMONDS_INVENTORY" ToRole="INV_DIAMONDS_FLUORESCENCE" />
+          <NavigationProperty Name="INV_DIAMONDS_REPORT" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_REPORT" FromRole="INV_DIAMONDS_INVENTORY" ToRole="INV_DIAMONDS_REPORT" />
+          <NavigationProperty Name="INV_DIAMONDS_SHAPE" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_SHAPE" FromRole="INV_DIAMONDS_INVENTORY" ToRole="INV_DIAMONDS_SHAPE" />
+          <NavigationProperty Name="INV_DIAMONDS_PROPERTIES_GRADING" Relationship="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING" FromRole="INV_DIAMONDS_INVENTORY" ToRole="INV_DIAMONDS_PROPERTIES_GRADING" />
+          <NavigationProperty Name="INV_DIAMONDS_PROPERTIES_GRADING1" Relationship="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING1" FromRole="INV_DIAMONDS_INVENTORY" ToRole="INV_DIAMONDS_PROPERTIES_GRADING" />
+          <NavigationProperty Name="INV_DIAMONDS_PROPERTIES_GRADING2" Relationship="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING2" FromRole="INV_DIAMONDS_INVENTORY" ToRole="INV_DIAMONDS_PROPERTIES_GRADING" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_PROPERTIES_GRADING">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="INV_DIAMONDS_INVENTORY" Relationship="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING" FromRole="INV_DIAMONDS_PROPERTIES_GRADING" ToRole="INV_DIAMONDS_INVENTORY" />
+          <NavigationProperty Name="INV_DIAMONDS_INVENTORY1" Relationship="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING1" FromRole="INV_DIAMONDS_PROPERTIES_GRADING" ToRole="INV_DIAMONDS_INVENTORY" />
+          <NavigationProperty Name="INV_DIAMONDS_INVENTORY2" Relationship="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING2" FromRole="INV_DIAMONDS_PROPERTIES_GRADING" ToRole="INV_DIAMONDS_INVENTORY" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_REPORT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="INV_DIAMONDS_INVENTORY" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_REPORT" FromRole="INV_DIAMONDS_REPORT" ToRole="INV_DIAMONDS_INVENTORY" />
+        </EntityType>
+        <EntityType Name="INV_DIAMONDS_SHAPE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="INV_DIAMONDS_INVENTORY" Relationship="JONetModel.FK_INV_DF_INVENTORY_INV_DF_SHAPE" FromRole="INV_DIAMONDS_SHAPE" ToRole="INV_DIAMONDS_INVENTORY" />
+        </EntityType>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_CLARITY">
+          <End Type="JONetModel.INV_DIAMONDS_CLARITY" Role="INV_DIAMONDS_CLARITY" Multiplicity="1" />
+          <End Type="JONetModel.INV_DIAMONDS_INVENTORY" Role="INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_CLARITY">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="clarity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_COLOR">
+          <End Type="JONetModel.INV_DIAMONDS_COLOR" Role="INV_DIAMONDS_COLOR" Multiplicity="1" />
+          <End Type="JONetModel.INV_DIAMONDS_INVENTORY" Role="INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_COLOR">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="color" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_CULET">
+          <End Type="JONetModel.INV_DIAMONDS_CULET" Role="INV_DIAMONDS_CULET" Multiplicity="1" />
+          <End Type="JONetModel.INV_DIAMONDS_INVENTORY" Role="INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_CULET">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="culet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_FLUORESCENCE">
+          <End Type="JONetModel.INV_DIAMONDS_FLUORESCENCE" Role="INV_DIAMONDS_FLUORESCENCE" Multiplicity="1" />
+          <End Type="JONetModel.INV_DIAMONDS_INVENTORY" Role="INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_FLUORESCENCE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="fluorescence" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_REPORT">
+          <End Type="JONetModel.INV_DIAMONDS_REPORT" Role="INV_DIAMONDS_REPORT" Multiplicity="1" />
+          <End Type="JONetModel.INV_DIAMONDS_INVENTORY" Role="INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_REPORT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="report" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DF_INVENTORY_INV_DF_SHAPE">
+          <End Type="JONetModel.INV_DIAMONDS_SHAPE" Role="INV_DIAMONDS_SHAPE" Multiplicity="1" />
+          <End Type="JONetModel.INV_DIAMONDS_INVENTORY" Role="INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_SHAPE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="shape" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING">
+          <End Type="JONetModel.INV_DIAMONDS_PROPERTIES_GRADING" Role="INV_DIAMONDS_PROPERTIES_GRADING" Multiplicity="1" />
+          <End Type="JONetModel.INV_DIAMONDS_INVENTORY" Role="INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_PROPERTIES_GRADING">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="polish" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING1">
+          <End Type="JONetModel.INV_DIAMONDS_PROPERTIES_GRADING" Role="INV_DIAMONDS_PROPERTIES_GRADING" Multiplicity="1" />
+          <End Type="JONetModel.INV_DIAMONDS_INVENTORY" Role="INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_PROPERTIES_GRADING">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="cut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING2">
+          <End Type="JONetModel.INV_DIAMONDS_PROPERTIES_GRADING" Role="INV_DIAMONDS_PROPERTIES_GRADING" Multiplicity="1" />
+          <End Type="JONetModel.INV_DIAMONDS_INVENTORY" Role="INV_DIAMONDS_INVENTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INV_DIAMONDS_PROPERTIES_GRADING">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="INV_DIAMONDS_INVENTORY">
+              <PropertyRef Name="symmetrical" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JONetModelStoreContainer" CdmEntityContainer="JONetEntitiesAdmin">
+          <EntitySetMapping Name="INV_DIAMONDS_CLARITY">
+            <EntityTypeMapping TypeName="JONetModel.INV_DIAMONDS_CLARITY">
+              <MappingFragment StoreEntitySet="INV_DIAMONDS_CLARITY">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INV_DIAMONDS_COLOR">
+            <EntityTypeMapping TypeName="JONetModel.INV_DIAMONDS_COLOR">
+              <MappingFragment StoreEntitySet="INV_DIAMONDS_COLOR">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INV_DIAMONDS_CULET">
+            <EntityTypeMapping TypeName="JONetModel.INV_DIAMONDS_CULET">
+              <MappingFragment StoreEntitySet="INV_DIAMONDS_CULET">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INV_DIAMONDS_FLUORESCENCE">
+            <EntityTypeMapping TypeName="JONetModel.INV_DIAMONDS_FLUORESCENCE">
+              <MappingFragment StoreEntitySet="INV_DIAMONDS_FLUORESCENCE">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INV_DIAMONDS_INVENTORY">
+            <EntityTypeMapping TypeName="JONetModel.INV_DIAMONDS_INVENTORY">
+              <MappingFragment StoreEntitySet="INV_DIAMONDS_INVENTORY">
+                <ScalarProperty Name="report_number" ColumnName="report_number" />
+                <ScalarProperty Name="reportimg" ColumnName="reportimg" />
+                <ScalarProperty Name="report" ColumnName="report" />
+                <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+                <ScalarProperty Name="percaratprice" ColumnName="percaratprice" />
+                <ScalarProperty Name="listprice" ColumnName="listprice" />
+                <ScalarProperty Name="cut" ColumnName="cut" />
+                <ScalarProperty Name="crown" ColumnName="crown" />
+                <ScalarProperty Name="culet" ColumnName="culet" />
+                <ScalarProperty Name="grindle" ColumnName="grindle" />
+                <ScalarProperty Name="polish" ColumnName="polish" />
+                <ScalarProperty Name="symmetrical" ColumnName="symmetrical" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="fluorescence" ColumnName="fluorescence" />
+                <ScalarProperty Name="table" ColumnName="table" />
+                <ScalarProperty Name="depth" ColumnName="depth" />
+                <ScalarProperty Name="clarity" ColumnName="clarity" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="shape" ColumnName="shape" />
+                <ScalarProperty Name="inventory_code" ColumnName="inventory_code" />
+                <ScalarProperty Name="supplier_code" ColumnName="supplier_code" />
+                <ScalarProperty Name="diamondid" ColumnName="diamondid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INV_DIAMONDS_PROPERTIES_GRADING">
+            <EntityTypeMapping TypeName="JONetModel.INV_DIAMONDS_PROPERTIES_GRADING">
+              <MappingFragment StoreEntitySet="INV_DIAMONDS_PROPERTIES_GRADING">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INV_DIAMONDS_REPORT">
+            <EntityTypeMapping TypeName="JONetModel.INV_DIAMONDS_REPORT">
+              <MappingFragment StoreEntitySet="INV_DIAMONDS_REPORT">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INV_DIAMONDS_SHAPE">
+            <EntityTypeMapping TypeName="JONetModel.INV_DIAMONDS_SHAPE">
+              <MappingFragment StoreEntitySet="INV_DIAMONDS_SHAPE">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="JONModel" ZoomLevel="79">
+        <EntityTypeShape EntityType="JONetModel.INV_DIAMONDS_CLARITY" Width="1.5" PointX="0.75" PointY="7.375" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="JONetModel.INV_DIAMONDS_COLOR" Width="1.5" PointX="0.75" PointY="9.75" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="JONetModel.INV_DIAMONDS_CULET" Width="1.5" PointX="0.75" PointY="12.125" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="JONetModel.INV_DIAMONDS_FLUORESCENCE" Width="1.5" PointX="0.75" PointY="14.5" Height="1.5956835937500049" />
+        <EntityTypeShape EntityType="JONetModel.INV_DIAMONDS_INVENTORY" Width="1.5" PointX="3" PointY="1.25" Height="7.7493294270833273" />
+        <EntityTypeShape EntityType="JONetModel.INV_DIAMONDS_PROPERTIES_GRADING" Width="1.5" PointX="0.75" PointY="4.125" Height="1.9802864583333282" />
+        <EntityTypeShape EntityType="JONetModel.INV_DIAMONDS_REPORT" Width="1.5" PointX="0.75" PointY="16.875" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="JONetModel.INV_DIAMONDS_SHAPE" Width="1.5" PointX="0.75" PointY="19.125" Height="1.595683593749996" />
+        <AssociationConnector Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_CLARITY" >
+          <ConnectorPoint PointX="2.25" PointY="8.1728417968750016" />
+          <ConnectorPoint PointX="3" PointY="8.1728417968750016" />
+        </AssociationConnector>
+        <AssociationConnector Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_COLOR" >
+          <ConnectorPoint PointX="2.25" PointY="10.547841796875002" />
+          <ConnectorPoint PointX="3.0572879166666667" PointY="10.547841796875002" />
+          <ConnectorPoint PointX="3.2239545833333336" PointY="10.547841796875002" />
+          <ConnectorPoint PointX="3.2604141666666666" PointY="10.547841796875002" />
+          <ConnectorPoint PointX="3.4270808333333336" PointY="10.547841796875002" />
+          <ConnectorPoint PointX="3.4635404166666666" PointY="10.547841796875002" />
+          <ConnectorPoint PointX="3.6302070833333335" PointY="10.547841796875002" />
+          <ConnectorPoint PointX="3.75" PointY="10.547841796875002" />
+          <ConnectorPoint PointX="3.75" PointY="8.9993294270833282" />
+        </AssociationConnector>
+        <AssociationConnector Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_CULET" >
+          <ConnectorPoint PointX="2.25" PointY="12.922841796875002" />
+          <ConnectorPoint PointX="3.0572879166666667" PointY="12.922841796875002" />
+          <ConnectorPoint PointX="3.2239545833333336" PointY="12.922841796875002" />
+          <ConnectorPoint PointX="3.3437475" PointY="12.922841796875002" />
+          <ConnectorPoint PointX="3.3437475" PointY="8.9993294270833282" />
+        </AssociationConnector>
+        <AssociationConnector Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_FLUORESCENCE" >
+          <ConnectorPoint PointX="2.25" PointY="15.297841796875002" />
+          <ConnectorPoint PointX="3.0572879166666667" PointY="15.297841796875002" />
+          <ConnectorPoint PointX="3.2239545833333336" PointY="15.297841796875002" />
+          <ConnectorPoint PointX="3.4635404166666666" PointY="15.297841796875002" />
+          <ConnectorPoint PointX="3.6302070833333335" PointY="15.297841796875002" />
+          <ConnectorPoint PointX="4.1562525" PointY="15.297841796875002" />
+          <ConnectorPoint PointX="4.1562525" PointY="8.9993294270833282" />
+        </AssociationConnector>
+        <AssociationConnector Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_REPORT" >
+          <ConnectorPoint PointX="2.25" PointY="17.672841796874998" />
+          <ConnectorPoint PointX="3.14062125" PointY="17.672841796874998" />
+          <ConnectorPoint PointX="3.14062125" PointY="8.9993294270833282" />
+        </AssociationConnector>
+        <AssociationConnector Association="JONetModel.FK_INV_DF_INVENTORY_INV_DF_SHAPE" >
+          <ConnectorPoint PointX="2.25" PointY="19.922841796874998" />
+          <ConnectorPoint PointX="3.54687375" PointY="19.922841796874998" />
+          <ConnectorPoint PointX="3.54687375" PointY="8.9993294270833282" />
+        </AssociationConnector>
+        <AssociationConnector Association="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING" >
+          <ConnectorPoint PointX="2.25" PointY="5.1151432291666641" />
+          <ConnectorPoint PointX="3" PointY="5.1151432291666641" />
+        </AssociationConnector>
+        <AssociationConnector Association="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING1" >
+          <ConnectorPoint PointX="2.25" PointY="4.557571614583332" />
+          <ConnectorPoint PointX="3" PointY="4.557571614583332" />
+        </AssociationConnector>
+        <AssociationConnector Association="JONetModel.FK_INV_DIAMONDS_INVENTORY_INV_DIAMONDS_PROPERTIES_GRADING2" >
+          <ConnectorPoint PointX="2.25" PointY="5.6727148437499961" />
+          <ConnectorPoint PointX="3" PointY="5.6727148437499961" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
