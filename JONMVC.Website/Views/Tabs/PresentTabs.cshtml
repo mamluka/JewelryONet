@@ -120,34 +120,7 @@
 						   @Html.DropDownListFor(m => m.MetalFilter, Model.MetalFilterItems) *@
                         <div class="pages right">
                             <ul>
-                                @{
-                    var dic = new RouteValueDictionary
-                                              {
-                                                  {"tabkey", Model.TabKey},
-                                                  {"tabid", Model.TabId},
-                                                  
-                                                  {"MetalFilter", Model.MetalFilter},
-                                                  {"OrderByPrice", Model.OrderByPrice},
-                                                  {"itemsperpage", Model.ItemsPerPage}
-
-                                              };
-
-                    var counter = 0;
-                    if (Model.CustomFilters != null)
-                    {
-                        foreach (var filterValue in Model.CustomFilters)
-                        {
-                            //TODO do tis strongly typed with reflaction
-                            dic.Add("CustomFilters" + "[" + counter.ToString() + "].Value", filterValue.Value);
-                            dic.Add("CustomFilters" + "[" + counter.ToString() + "].Name", filterValue.Name);
-                            counter++;
-                        }
-
-                    }
                                 
-                              
-                                              
-                                }
                                 @for (int i = 1; i <= Model.TotalPages; i++)
                                 {
                                     dic["page"] = i;

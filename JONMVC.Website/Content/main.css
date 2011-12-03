@@ -785,10 +785,10 @@ span.redprice {
 	left:340px;
 }
 #ItemBlock .thumbs a:first-child img {
-	height: 83px;
+	width: 100px;
 }
 #ItemBlock .thumbs a img {
-	height: 83px;
+	width: 100px;
     margin-left: 5px;
 }
 
