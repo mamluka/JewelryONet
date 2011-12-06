@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using JONMVC.Website.Models.JewelDesign;
+using JONMVC.Website.Models.Jewelry;
 using JONMVC.Website.Models.Utils;
 using JONMVC.Website.Tests.Unit.Diamonds;
 using JONMVC.Website.Tests.Unit.Jewelry;
@@ -68,6 +69,38 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
         }
 
         [Test]
+        public void Build_ShouldReturnTheSettingMediaTypeWhenNonSupplied()
+        {
+            //Arrange
+            var builder = CreateDefaultSettingViewModelBuilder();
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+            viewModel.JewelPersistence.MediaType.Should().Be(JewelMediaType.WhiteGold);
+
+        }
+
+       
+
+        [Test]
+        public void Build_ShouldReturnTheSettingMediaTypeWhenYellowGoldSupplied()
+        {
+            //Arrange
+            var builder = CreateDefaultSettingViewModelBuilderWithCustomModel( new CustomJewelPersistenceForSetting()
+                                                                                   {
+                                                                                       DiamondID = Tests.FAKE_DIAMOND_REPOSITORY_FIRST_ITEM_ID,
+                                                                                       SettingID = Tests.FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID,
+                                                                                       MediaType = JewelMediaType.YellowGold
+
+                                                                                   }) ;
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+            viewModel.JewelPersistence.MediaType.Should().Be(JewelMediaType.YellowGold);
+
+        }
+
+        [Test]
         public void Build_ShouldHideTheCenterStoneInformation()
         {
             //Arrange
@@ -91,8 +124,37 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
             var customJewelForSetting = new CustomJewelPersistenceForSetting()
                                             {
                                                 DiamondID = FIRST_DIAMOND_IN_REP,
-                                                SettingID = SETTING_ID
+                                                SettingID = SETTING_ID,
+                                                
                                             };
+
+            var tabsForJewelDesignBuilder = new TabsForJewelDesignNavigationBuilder(customJewelForSetting,
+                                                                                    diamondRepository, jewelryRepository,
+                                                                                    webHelpers);
+
+            var fakeRepository = new FakeJewelRepository(settingManager);
+
+            var fileSystem = FakeFileSystem.MediaFileSystemForItemNumber("0101-15421");
+
+            var fakeTestimonialRepository = new FakeTestimonialRepository(mapper);
+
+            var jewelryItemViewModelBuilder = new JewelryItemViewModelBuilder(Tests.FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID,
+                                                                              fakeRepository, fakeTestimonialRepository,
+                                                                              fileSystem, mapper);
+
+            var builder = new SettingViewModelBuilder(customJewelForSetting, tabsForJewelDesignBuilder,
+                                                      jewelryItemViewModelBuilder);
+            return builder;
+        }
+
+        private SettingViewModelBuilder CreateDefaultSettingViewModelBuilderWithCustomModel(CustomJewelPersistenceForSetting customJewelForSetting)
+        {
+            var settingManager = new FakeSettingManager();
+            var jewelryRepository = new FakeJewelRepository(settingManager);
+            var diamondRepository = new FakeDiamondRepository(mapper);
+            var webHelpers = MockRepository.GenerateStub<IWebHelpers>();
+
+          
 
             var tabsForJewelDesignBuilder = new TabsForJewelDesignNavigationBuilder(customJewelForSetting,
                                                                                     diamondRepository, jewelryRepository,

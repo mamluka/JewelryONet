@@ -1,4 +1,5 @@
 using JONMVC.Website.Models.JewelDesign;
+using JONMVC.Website.Models.Jewelry;
 using JONMVC.Website.ViewModels.Views;
 using System.Linq;
 namespace JONMVC.Website.ViewModels.Builders
@@ -28,8 +29,8 @@ namespace JONMVC.Website.ViewModels.Builders
                                              {
                                                  DiamondID = customJewelForSetting.DiamondID,
                                                  SettingID = customJewelForSetting.SettingID,
-                                                 Size = customJewelForSetting.Size,
-                                                 MediaType = customJewelForSetting.MediaType
+                                                 Size = customJewelForSetting.Size ?? "7.5",
+                                                 MediaType = customJewelForSetting.MediaType == 0 ? JewelMediaType.WhiteGold : customJewelForSetting.MediaType
                                              };
             return viewModel;
         }

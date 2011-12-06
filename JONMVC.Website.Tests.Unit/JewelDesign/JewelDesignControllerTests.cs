@@ -129,6 +129,33 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
         }
 
         [Test]
+        [Ignore]
+        //TODO hard to code with current schema of tests
+        public void Setting_ShouldTellTheRepositoryAboutTheMediaSet()
+        {
+
+            //Arrange
+            var jewelRepository = MockRepository.GenerateMock<IJewelRepository>();
+            
+            jewelRepository.Expect(x => x.FilterMediaByMetal(Arg<JewelMediaType>.Is.Equal(JewelMediaType.YellowGold)));
+           
+
+            var controller = CreateDefaultJewelDesignControllerWithCustomRepository(jewelRepository);
+
+            var customJewelForSetting = new CustomJewelPersistenceForSetting();
+
+            customJewelForSetting.DiamondID = 1;
+            customJewelForSetting.SettingID = Tests.FAKE_JEWELRY_REPOSITORY_FIRST_ITEM_ID;
+
+
+            //Act
+            var result = controller.Setting(customJewelForSetting);
+            //Assert
+            result.AssertViewRendered().WithViewData<SettingViewModel>();
+
+        }
+
+        [Test]
         public void Setting_ShouldRenderTheViewWithTheRightModel()
         {
 
@@ -327,6 +354,32 @@ namespace JONMVC.Website.Tests.Unit.JewelDesign
 
             var controller = new JewelDesignController(diamondRepository, formatter, mapper, jewelryRepository, webHelpers,
                                                        xmlSourceFactory, fileSystem, diamondHelpBuilder, tabRepository,pathbarGenerator, fakeTestimonailRepository);
+            return controller;
+        }
+
+        private JewelDesignController CreateDefaultJewelDesignControllerWithCustomRepository(IJewelRepository jewelRepository)
+        {
+            var diamondRepository = new FakeDiamondRepository(mapper);
+            var formatter = MockRepository.GenerateStub<IJONFormatter>();
+         
+            var webHelpers = MockRepository.GenerateStub<IWebHelpers>();
+
+            formatter.Stub(x => x.ToCaratWeight(Arg<decimal>.Is.Anything)).Return("Not important for this test");
+            formatter.Stub(x => x.ToGramWeight(Arg<decimal>.Is.Anything)).Return("Not important for this test");
+            formatter.Stub(x => x.ToMilimeter(Arg<decimal>.Is.Anything)).Return("Not important for this test");
+
+            var fileSystem = FakeFileSystem.MediaFileSystemForItemNumber();
+            var xmlSourceFactory = new FakeXmlSourceFactory();
+            var tabRepository = TabsViewModelBuilderTests.CreateStubTabsRepository(TabTestsBase.TabKey);
+
+            var diamondHelpBuilder = new DiamondHelpBuilder(new FakeXmlSourceFactory());
+
+            var pathbarGenerator = MockRepository.GenerateStub<IPathBarGenerator>();
+            var fakeTestimonailRepository = new FakeTestimonialRepository(mapper);
+
+
+            var controller = new JewelDesignController(diamondRepository, formatter, mapper, jewelRepository, webHelpers,
+                                                       xmlSourceFactory, fileSystem, diamondHelpBuilder, tabRepository, pathbarGenerator, fakeTestimonailRepository);
             return controller;
         }
 

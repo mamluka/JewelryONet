@@ -119,7 +119,7 @@ namespace JONMVC.Website.Controllers
 
             tabsForJewelNavigation.WhichTabToHighLight(NagivationTabType.ChooseSetting);
 
-
+            jewelRepository.FilterMediaByMetal(customJewelPersistenceForSetting.MediaType == 0 ? JewelMediaType.WhiteGold : customJewelPersistenceForSetting.MediaType);
 
             var jewelryItemViewModelBuilder = new JewelryItemViewModelBuilder(customJewelPersistenceForSetting.SettingID, jewelRepository,testimonialRepository ,fileSystem,mapper);
 
