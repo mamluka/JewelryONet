@@ -62,6 +62,9 @@
     <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Helpers">
+      <HintPath>..\packages\microsoft-web-helpers.1.15\lib\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -136,6 +139,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectMVC3.cs" />
     <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EducationController.cs" />
@@ -163,6 +167,7 @@
     <Compile Include="Mailers\OrderConfirmationEmailTemplateViewModel.cs" />
     <Compile Include="Mailers\OrderConfirmationEmailTemplateViewModelBuilder.cs" />
     <Compile Include="Mailers\UserMailer.cs" />
+    <Compile Include="Models\Admin\UpdateDiamondsModel.cs" />
     <Compile Include="Models\AutoMapperMaps\AddressResolver.cs" />
     <Compile Include="Models\AutoMapperMaps\AddressViewModelResolver.cs" />
     <Compile Include="Models\AutoMapperMaps\AutoMapperMaps.cs" />
@@ -669,6 +674,7 @@
     <Content Include="InstallationDummyFile.txt" />
     <Content Include="Models\JewelDesign\diamondhelp.xml" />
     <Content Include="Models\Tabs\tabs.xml" />
+    <Content Include="Release Notes - Microsoft.Web.Helpers.txt" />
     <Content Include="Scripts\Classes.js" />
     <Content Include="Scripts\flowplayer-3.2.4.min.js" />
     <Content Include="Scripts\grid.locale-en.js" />
@@ -827,6 +833,8 @@
     <Content Include="Views\Checkout\CheckoutSessionTimeout.cshtml" />
     <Content Include="Views\MyAccount\RecoverPasswordSuccess.cshtml" />
     <Content Include="Views\UserMailer\AskQuestionCustomer.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\UpdateDiamonds.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
