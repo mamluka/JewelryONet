@@ -1,4 +1,5 @@
-﻿@model JONMVC.Website.ViewModels.Views.ChooseSettingViewModel
+﻿@using JONMVC.Website.Models.Jewelry
+@model JONMVC.Website.ViewModels.Views.ChooseSettingViewModel
 @{
     ViewBag.Title = "Design Your Own Ring Start By Choosing Your Setting";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -111,14 +112,33 @@
                             <a href="@Url.RouteUrl("Setting", new RouteValueDictionary()
 																							   {
 																								   {"SettingID",jewelInTabContainer.ID},
-																								   {"DiamondID",Model.DiamondID}
-																							   })">
+																								   {"DiamondID",Model.DiamondID},
+                                                                                                   {"Size",Model.Size ?? "7.5"},
+                                                                                                   {"MediaType",jewelInTabContainer.MediaSet}
+																							   })" 
+                                                                                               YellowGold = "@Url.RouteUrl("Setting", new RouteValueDictionary()
+																							   {
+																								   {"SettingID",jewelInTabContainer.ID},
+																								   {"DiamondID",Model.DiamondID},
+                                                                                                   {"Size",Model.Size ?? "7.5"},
+                                                                                                   {"MediaType",JewelMediaType.YellowGold}
+																							   })"
+                                                                                               WhiteGold = "@Url.RouteUrl("Setting", new RouteValueDictionary()
+																							   {
+																								   {"SettingID",jewelInTabContainer.ID},
+																								   {"DiamondID",Model.DiamondID},
+                                                                                                   {"Size",Model.Size ?? "7.5"},
+                                                                                                   {"MediaType",JewelMediaType.WhiteGold}
+																							   })"
+                                                                                               >
                                 <img src="@jewelInTabContainer.PictureURL"  alt="@jewelInTabContainer.Description" />
                             </a>
                             @Html.RouteLink(jewelInTabContainer.Description != String.Empty ? jewelInTabContainer.Description : "Empty Title", "Setting", new 
 																							   {
 																								   SettingID = jewelInTabContainer.ID,
-																								   DiamondID = Model.DiamondID
+																								   DiamondID = Model.DiamondID,
+                                                                                                   Size = Model.Size ?? "7.5",
+                                                                                                   MediaType = jewelInTabContainer.MediaSet
 																							   },new {@class="block top5"})
                             <div class="metalpricecombo top10 left"  itemid="@jewelInTabContainer.ID" >
                                 <span class="left metal">@jewelInTabContainer.Metal</span>

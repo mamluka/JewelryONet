@@ -101,6 +101,7 @@ namespace JONMVC.Website.Controllers
 
             tabsForJewelNavigation.WhichTabToHighLight(NagivationTabType.ChooseSetting);
 
+           
             var builder = new ChooseSettingViewModelBuilder(chooseSettingViewModel, tabsViewModelBuilder, tabsForJewelNavigation);
 
             var viewModel = builder.Build();

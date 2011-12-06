@@ -2,7 +2,7 @@
 @model string
 <div class="emailring" id="EmailRing" style="width: 380px;display: none">
     <h2>
-        Email this ring to a friend
+        Email this Ring to Your Friend
     </h2>
     @using (Html.BeginForm("EmailRing", "JewelryItem"))
     {
@@ -11,7 +11,7 @@
             <dl>
                 <dt>
                     <label for="FriendName">
-                        Friends Name:</label></dt>
+                        Friend's Name:</label></dt>
                 <dd>
                     <input type="text" name="FriendName" data-val-required="*" data-val="true" class="left" /><span
                         class="field-validation-valid left" data-valmsg-for="FriendName" data-valmsg-replace="false"></span></dd>
@@ -19,7 +19,7 @@
             <dl>
                 <dt>
                     <label for="FriendEmail">
-                        Friends Email:</label></dt>
+                        Friend's Email:</label></dt>
                 <dd>
                     <input type="text" name="FriendEmail" data-val-required="" data-val="true" data-val-email="*"
                         class="left" /><span class="field-validation-valid  left" data-valmsg-for="FriendEmail"

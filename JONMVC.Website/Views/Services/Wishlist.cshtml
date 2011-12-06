@@ -31,7 +31,7 @@
                 <div class="table top20 padding10 wishlistitem width100">
                     <div class="row">
                         <div class="cell aligncenter padding10" style="width: 300px">
-                            \ <a href="@Url.RouteUrl("JewelryItem", new RouteValueDictionary()
+                            <a href="@Url.RouteUrl("JewelryItem", new RouteValueDictionary()
                                                        {
                                                            {"id", item.ID}
                                                        })">
@@ -47,9 +47,9 @@
                                         </div>
                                         <span class="inline bold">Price:</span>
                                         <h2 class="inline sitered">@item.Price</h2>
-                                        @Html.RouteLink("View this item", "JewelryItem", new RouteValueDictionary()
+                                        @Html.RouteLink("View this item", "JewelryItem", new 
                                                                            {
-                                                                               {"id", item.ID}
+                                                                               id=item.ID
                                                                            }, new { @class = "block top10" })
                                     </div>
                                 </div>

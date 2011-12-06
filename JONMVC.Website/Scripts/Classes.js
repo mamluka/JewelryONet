@@ -812,8 +812,16 @@ var MetalPriceSelect = {
 											);
                             div.click($.proxy(function (event) {
                                 $('div[itemid=' + data.ID + '] .metal').html(this.s.MediaSetFullName);
+
                                 $('div[itemid=' + data.ID + ']').parent('.item').find('a img').attr({ 'src': s.IconURLForWebDisplay });
-                                $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': dic[s.MediaSetFullName] });
+
+                                if ($('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr(s.MediaSetName)) {
+                                    $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr(s.MediaSetName) });
+                                
+                                } else {
+                                    $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': dic[s.MediaSetFullName] });
+                                
+                                }
                                 $(box).remove();
                                 event.stopPropagation();
                             }, { 's': s }));

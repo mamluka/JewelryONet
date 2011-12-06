@@ -20,6 +20,7 @@ namespace JONMVC.Website.ViewModels.Builders
         public ChooseSettingViewModel Build()
         {
             var viewModel = tabsViewModelBuilder.Build<ChooseSettingViewModel>();
+            viewModel.Size = chooseSettingViewModel.Size;
             viewModel.TabsForJewelDesignNavigation = tabsForJewelDesignBuilder.Build();
             viewModel.DiamondID = chooseSettingViewModel.DiamondID;
             viewModel.SettingID = chooseSettingViewModel.SettingID;

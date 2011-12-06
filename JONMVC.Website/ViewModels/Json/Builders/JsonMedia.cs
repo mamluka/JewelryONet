@@ -10,6 +10,10 @@ namespace JONMVC.Website.ViewModels.Json.Builders
     {
         public string MediaSetFullName { get; set; }
 
+        public string MediaSetName { get; set; }
+
+
+
         public JsonMedia(Media media)
         {
             HandDiskPathForWebDisplay = media.HandDiskPathForWebDisplay;
@@ -28,6 +32,8 @@ namespace JONMVC.Website.ViewModels.Json.Builders
             ReportDiskPathForWebDisplay = media.ReportDiskPathForWebDisplay;
 
             MediaSetFullName = Metal.GetFullName(MediaSet);
+
+            MediaSetName = media.MediaSet.ToString();
         }
     }
 }
