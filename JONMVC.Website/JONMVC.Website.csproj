@@ -836,6 +836,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\UpdateDiamonds.cshtml" />
     <Content Include="Views\Shared\TracingScripts.cshtml" />
+    <Content Include="Views\Tabs\InTabBuyNowButton.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

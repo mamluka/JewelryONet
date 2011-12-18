@@ -132,6 +132,7 @@
 																							   })"
                                                                                                >
                                 <img src="@jewelInTabContainer.PictureURL"  alt="@jewelInTabContainer.Description" />
+                                @Html.Partial("InTabBuyNowButton")
                             </a>
                             @Html.RouteLink(jewelInTabContainer.Description != String.Empty ? jewelInTabContainer.Description : "Empty Title", "Setting", new 
 																							   {

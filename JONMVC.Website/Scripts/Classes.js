@@ -418,7 +418,7 @@ var JewelDesign = {
 			);
 
         $("#SliderPrice .handle_num_0").trigger("setvalue", { value: 0 });
-        $("#SliderPrice .handle_num_1").trigger("setvalue", { value: 500 });
+        $("#SliderPrice .handle_num_1").trigger("setvalue", { value: 801 });
 
 
         JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', (JewelDesign.TranslatePriceSliderValuesToRealPrice(0)).toFixed(0), '$');
