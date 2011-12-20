@@ -69,6 +69,7 @@
     <Compile Include="Suppliers\Igal.cs" />
     <Compile Include="Suppliers\IgalGIA.cs" />
     <Compile Include="Suppliers\ISupplier.cs" />
+    <Compile Include="Suppliers\LotNet.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DB\JONModel.edmx">

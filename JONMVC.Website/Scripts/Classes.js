@@ -3,7 +3,8 @@
 var Tabs = {
     RegisterFilters: function () {
         $('.sortbar select').bind('change', function () {
-            $('form').submit();
+            $(this).parents('form').get(0).submit();
+
         });
     },
     RegisterTabLinks: function () {
@@ -13,11 +14,11 @@ var Tabs = {
     },
     RegisterTabsMouseOver: function () {
         $('#TabNavigation .border').hover(
-            function() {
+            function () {
                 if ($(this).hasClass('active')) return;
                 $(this).addClass('mouseover');
             },
-            function() {
+            function () {
                 if ($(this).hasClass('active')) return;
                 $(this).removeClass('mouseover');
             }
@@ -357,7 +358,7 @@ var JewelDesign = {
 				    handleWidth: 14,
 				    leftOffset: 0,
 				    step: 0.01,
-				    snapDistance:5
+				    snapDistance: 5
 				}
 			);
 
@@ -387,9 +388,9 @@ var JewelDesign = {
         });
 
 
-        
-        
-        
+
+
+
         $("#SliderCarat").bind("sliderchanged", function (event, data) {
 
             var from = (data.handles[0].value).toFixed(2);
@@ -553,17 +554,17 @@ var JewelDesign = {
             loadonce: false,
             colNames: ['Shape', 'Carat', 'Color', 'Clarity', 'Cut', 'Certificate', 'Price', 'Details...'],
             colModel: [
-					{ name: 'shape', index: 'shape', width: 54, align: 'center', resizable: false, sortable: false },
-					{ name: 'weight', index: 'weight', width: 40, align: 'center', resizable: false, sortable: true },
-					{ name: 'color', index: 'color', width: 40, align: 'center', resizable: false, sortable: false },
-					{ name: 'clarity', index: 'clarity', width: 40, align: 'center', resizable: false, sortable: false },
-					{ name: 'cut', index: 'cut', width: 60, align: 'center', resizable: false, sortable: false },
-					{ name: 'cert', index: 'cert', width: 48, align: 'center', align: 'center', resizable: false, sortable: false },
-					{ name: 'price', index: 'price', width: 55, align: 'center', resizable: false, sortable: true },
-					{ name: 'action', index: 'action', width: 55, align: 'center', resizable: false, sortable: false }
-				],
+                    { name: 'shape', index: 'shape', width: 54, align: 'center', resizable: false, sortable: false },
+                    { name: 'weight', index: 'weight', width: 40, align: 'center', resizable: false, sortable: true },
+                    { name: 'color', index: 'color', width: 40, align: 'center', resizable: false, sortable: false },
+                    { name: 'clarity', index: 'clarity', width: 40, align: 'center', resizable: false, sortable: false },
+                    { name: 'cut', index: 'cut', width: 60, align: 'center', resizable: false, sortable: false },
+                    { name: 'cert', index: 'cert', width: 48, align: 'center', align: 'center', resizable: false, sortable: false },
+                    { name: 'price', index: 'price', width: 55, align: 'center', resizable: false, sortable: true },
+                    { name: 'action', index: 'action', width: 55, align: 'center', resizable: false, sortable: false }
+                ],
             rowNum: 10,
-            rowList: [10, 20, 30],
+   
             sortname: 'id',
             mtype: 'POST',
             viewrecords: true,
@@ -571,12 +572,16 @@ var JewelDesign = {
             loadtext: "Loading diamonds, please wait...",
             caption: "",
             pager: '#DiamondPager',
+            pginput: true,
             height: $.browser.mozilla ? 220 : 230,
             width: 790,
             loadComplete: function () {
                 JewelDesign.RegisterDiamondInfo();
+               // $('#DiamondPager select').hide();
             }
         });
+
+       
         JewelDesign.ReadSearchFilters();
 
 
@@ -703,11 +708,11 @@ var JewelDesign = {
 						    var offsetTip = '-3 3';
 
 						    if ($('#DiamondList').offset().left < 230) {
-						         offsetDiv = '25 0';
-						         offsetTip = '32 3';
+						        offsetDiv = '25 0';
+						        offsetTip = '32 3';
 						    }
-						    
-						    
+
+
 						    div.position(
 								{
 								    my: 'right top',
