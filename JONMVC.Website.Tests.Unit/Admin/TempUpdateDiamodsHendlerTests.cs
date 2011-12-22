@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Web;
@@ -111,44 +109,6 @@ namespace JONMVC.Website.Tests.Unit.Admin
             csvParser.VerifyAllExpectations();
         }
 
-    }
-
-
-
-    public class TempUpdateDiamodsHendler
-    {
-        private readonly UpdateDiamondsModel model;
-        private readonly HttpContextBase httpContext;
-        private readonly ICSVParser csvParser;
-        private readonly IDatabasePersistence db;
-
-        public TempUpdateDiamodsHendler(UpdateDiamondsModel model, HttpContextBase httpContext, ICSVParser csvParser,
-                                        IDatabasePersistence db)
-        {
-            this.model = model;
-            this.httpContext = httpContext;
-            this.csvParser = csvParser;
-            this.db = db;
-        }
-
-        public void ParseAndSave()
-        {
-            var file = httpContext.Request.Files[0];
-
-            var supplierType = Type.GetType(model.Supplier);
-
-            IEnumerable<ISupplier> list = null;
-
-            switch (model.Supplier)
-            {
-                case "SampleCSVModel":
-                    list = csvParser.Parse<SampleCSVModel>(file.InputStream);
-                    break;
-            }
-
-
-
-        }
     }
 
 

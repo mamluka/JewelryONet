@@ -3,6 +3,8 @@ using System.Web;
 using AutoMapper;
 using AutoMapper.Mappers;
 using ComLib.Authentication;
+using JON.BackOffice.ImportDiamondCSV.Core;
+using JON.BackOffice.ImportDiamondCSV.Core.DB;
 using JONMVC.Website.Controllers;
 using JONMVC.Website.Mailers;
 using JONMVC.Website.Models.Checkout;
@@ -89,6 +91,8 @@ namespace JONMVC.Website.App_Start
             kernel.Bind<IAuthentication>().To<CookieAuthentication>();
             kernel.Bind<ICustomerAccountService>().To<DataBaseCustomerAccountService>();
             kernel.Bind<ITestimonialRepository>().To<TestimonialRepository>();
+            kernel.Bind<ICSVParser>().To<CSVParser>();
+            kernel.Bind<IDatabasePersistence>().To<DatabasePersistence>();
 
             kernel.Bind<IViewModelBuilder>().To<WishListViewModelBuilder>().WhenInjectedInto<ServicesController>();
 

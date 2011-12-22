@@ -1,6 +1,7 @@
 ﻿@using JONMVC.Website.Models.Admin
 @using Microsoft.Web.Helpers
-@model UpdateDiamondsModel
+@using MvcContrib.FluentHtml
+@inherits ModelWebViewPage<UpdateDiamondsModel>
 
 @{
     Layout = null;
@@ -16,7 +17,9 @@
     <div>
        @using (Html.BeginForm("UpdateDiamonds", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
        {
-           @FileUpload.GetHtml()
+          @this.FileUpload("csvfile")
+
+          @this.Button("Upload file")
        }
 
     </div>

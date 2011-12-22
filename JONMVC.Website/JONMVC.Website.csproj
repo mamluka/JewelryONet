@@ -167,6 +167,7 @@
     <Compile Include="Mailers\OrderConfirmationEmailTemplateViewModel.cs" />
     <Compile Include="Mailers\OrderConfirmationEmailTemplateViewModelBuilder.cs" />
     <Compile Include="Mailers\UserMailer.cs" />
+    <Compile Include="Models\Admin\TempUpdateDiamodsHendler.cs" />
     <Compile Include="Models\Admin\UpdateDiamondsModel.cs" />
     <Compile Include="Models\AutoMapperMaps\AddressResolver.cs" />
     <Compile Include="Models\AutoMapperMaps\AddressViewModelResolver.cs" />
@@ -835,6 +836,12 @@
     <Content Include="Views\UserMailer\AskQuestionCustomer.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\UpdateDiamonds.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JON.BackOffice.ImportDiamondCSV.Core\JON.BackOffice.ImportDiamondCSV.Core.csproj">
+      <Project>{27736D26-8323-4680-93AC-1428F313F644}</Project>
+      <Name>JON.BackOffice.ImportDiamondCSV.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
