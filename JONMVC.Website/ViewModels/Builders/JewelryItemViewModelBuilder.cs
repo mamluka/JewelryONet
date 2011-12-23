@@ -87,6 +87,11 @@ namespace JONMVC.Website.ViewModels.Builders
                 extraMedia.Add(prettyMediaFactory.SinglePhotoUseLargeForBoth(jewel.Media.ReportURLForWebDisplay, "Report"));
             }
 
+            if (fileSystem.File.Exists(jewel.Media.HiRes2DiskPathForWebDisplay))
+            {
+                extraMedia.Add(prettyMediaFactory.SinglePhotoUseLargeForBoth(jewel.Media.HiRes2URLForWebDisplay, "Report"));
+            }
+
             viewModel.ExtraImages = extraMedia;
 
             if (fileSystem.File.Exists(jewel.Media.MovieDiskPathForWebDisplay))
@@ -117,58 +122,71 @@ namespace JONMVC.Website.ViewModels.Builders
 
             var specs = new List<JewelComponentInfoPart>();
 
-            specs.Add(new JewelComponentInfoPart("Stone", jewel.JewelryExtra.CS.Type, 1));
-            specs.Add(new JewelComponentInfoPart("Minimum carat total weight:",
-                                                 formatter.ToCaratWeight(jewel.JewelryExtra.CS.Weight), 1));
-            specs.Add(new JewelComponentInfoPart("# of Stones", jewel.JewelryExtra.CS.Count.ToString(), 1));
-
             var colors = new List<string>()
-                             {
-                                 "D",
-                                 "E",
-                                 "F",
-                                 "G",
-                                 "H",
-                                 "I",
-                                 "J",
-                                 "K",
-                                 "L",
-                                 "M",
-                                 "N",
-                             };
+                                 {
+                                     "D",
+                                     "E",
+                                     "F",
+                                     "G",
+                                     "H",
+                                     "I",
+                                     "J",
+                                     "K",
+                                     "L",
+                                     "M",
+                                     "N",
+                                 };
 
             var clarities = new List<string>()
-                                {
-                                    "FL",
-                                    "IF",
-                                    "VVS1",
-                                    "VVS2",
-                                    "VS1",
-                                    "VS2",
-                                    "SI1",
-                                    "SI2",
-                                    "I1",
-                                    "I2",
-                                    "I3",
-                                };
+                                    {
+                                        "FL",
+                                        "IF",
+                                        "VVS1",
+                                        "VVS2",
+                                        "VS1",
+                                        "VS2",
+                                        "SI1",
+                                        "SI2",
+                                        "I1",
+                                        "I2",
+                                        "I3",
+                                    };
             colors.Reverse();
             clarities.Reverse();
-            var wordsToSayHowTheQualityIs = "Minimum";
-            if (jewel.JewelryExtra.CS.Count > 1)
-            {
-                wordsToSayHowTheQualityIs = "Average";
-                specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Color", CreateRangeStringFrom(colors, jewel.JewelryExtra.CS.Color, 1), 1));
-                specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Clarity", CreateRangeStringFrom(clarities, jewel.JewelryExtra.CS.Clarity, 1), 1));
-            }
-            else
-            {
-                specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Color", jewel.JewelryExtra.CS.Color, 1));
-                specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Clarity", jewel.JewelryExtra.CS.Clarity, 1));
-            }
-            
-            
 
-            if (jewel.JewelryExtra.HasSideStones)
+            if (jewel.JewelryExtra.CS.Count > 0)
+            {
+
+
+
+                specs.Add(new JewelComponentInfoPart("Stone", jewel.JewelryExtra.CS.Type, 1));
+                specs.Add(new JewelComponentInfoPart("Minimum carat total weight:",
+                                                     formatter.ToCaratWeight(jewel.JewelryExtra.CS.Weight), 1));
+                specs.Add(new JewelComponentInfoPart("# of Stones", jewel.JewelryExtra.CS.Count.ToString(), 1));
+
+                
+                var wordsToSayHowTheQualityIs = "Minimum";
+                if (jewel.JewelryExtra.CS.Count > 1)
+                {
+                    wordsToSayHowTheQualityIs = "Average";
+                    specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Color",
+                                                         CreateRangeStringFrom(colors, jewel.JewelryExtra.CS.Color, 1),
+                                                         1));
+                    specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Clarity",
+                                                         CreateRangeStringFrom(clarities, jewel.JewelryExtra.CS.Clarity,
+                                                                               1), 1));
+                }
+                else
+                {
+                    specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Color",
+                                                         jewel.JewelryExtra.CS.Color, 1));
+                    specs.Add(new JewelComponentInfoPart(wordsToSayHowTheQualityIs + " Clarity",
+                                                         jewel.JewelryExtra.CS.Clarity, 1));
+                }
+            }
+
+
+            if (jewel.JewelryExtra.SS.Count > 0)
             {
                 specs.Add(new JewelComponentInfoPart("Stone", jewel.JewelryExtra.SS.Type, 2));
                 specs.Add(new JewelComponentInfoPart("Minimum carat total weight:",

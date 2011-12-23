@@ -2,7 +2,7 @@
 <div class="item left">
     <a href="@Url.RouteUrl("JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet })">
         <img src="@Model.PictureURL" alt="@Model.Description"/>
-        <input type="button" value="But Now" class="button"/>
+        @Html.Partial("InTabBuyNowButton", @Url.RouteUrl("JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet }))
     </a>
     @Html.RouteLink(Model.Description, "JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet }, new { @class = "block top5" })
     <div class="metalpricecombo top10 left"  itemid="@Model.ID" >

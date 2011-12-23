@@ -30,5 +30,8 @@ namespace JONMVC.Website.Models.Jewelry
         public string ReportURLForWebDisplay { get; set; }
 
         public string ReportDiskPathForWebDisplay { get; set; }
+
+        public string HiRes2URLForWebDisplay { get; set; }
+        public string HiRes2DiskPathForWebDisplay { get; set; }
     }
 }

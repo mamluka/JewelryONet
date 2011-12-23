@@ -122,6 +122,26 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
         }
 
         [Test]
+        public void Build_ShouldReturnHandAndHiRes2Images()
+        {
+            //Arrange
+            var builder = JewelryItemViewModelBuilderFactoryMethod(new Dictionary<string, MockFileData>()
+                                                    {
+                                                        {@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15421-pic-wg.jpg",new MockFileData("")},
+                                                        {@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15421-icon-wg.jpg",new MockFileData("")},
+                                                        {@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15421-hires-wg.jpg",new MockFileData("")},
+                                                        {@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15421-hand-wg.jpg",new MockFileData("")},
+                                                        {@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15421-hires2-wg.jpg",new MockFileData("")},
+                                                        {@"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15421-mov-wg.flv",new MockFileData("")}
+                                                    });
+            //Act
+            var viewModel = builder.Build();
+            //Assert
+            viewModel.ExtraImages.Should().HaveCount(3);
+
+        }
+
+        [Test]
         public void Build_ShouldSetHasMoviePathToBeCorrect()
         {
             //Arrange

@@ -188,6 +188,7 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                 .ForMember(dto => dto.Description, opt => opt.MapFrom(x => x.Title))
                 .ForMember(dto => dto.Icon, opt => opt.MapFrom(x => x.Media.IconURLForWebDisplay))
                 .ForMember(dto => dto.Price, opt => opt.AddFormatter<PriceFormatter>())
+                .ForMember(dto=> dto.IsJewelDesignSetting,opt=> opt.ResolveUsing<WishListJewelDesignResolver>())
                 ;
 
             Mapper.CreateMap<RegisterCustomerViewModel, Customer>()
@@ -540,6 +541,19 @@ namespace JONMVC.Website.Models.AutoMapperMaps
                 .ForMember(dto => dto.Icon, opt => opt.MapFrom(x => x.Media.HiResURLForWebDisplay))
                 ;
 
+        }
+    }
+
+    public class WishListJewelDesignResolver:ValueResolver<Jewel,bool>
+    {
+        protected override bool ResolveCore(Jewel source)
+        {
+            if (source.JewelCategoryID == 10)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

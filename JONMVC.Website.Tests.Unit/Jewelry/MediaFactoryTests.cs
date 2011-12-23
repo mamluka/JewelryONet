@@ -103,6 +103,27 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
         }
 
         [Test]
+        public void HiRes2URLForWebDisplay_ShoulReturnTheRightPathToPicture()
+        {
+            //Assign
+            ISettingManager manager = MockRepository.GenerateStub<ISettingManager>();
+
+            const string itemNumber = "0101-10001";
+
+            manager.Stub(x => x.GetJewelryBaseWebPath()).Return("/jon-images/jewel/");
+
+            var mediaFactory = new MediaFactory(itemNumber, manager);
+            //Act
+            Media media = mediaFactory.BuildMedia();
+
+            string iconPath = media.HiRes2URLForWebDisplay;
+            //Assert
+            Assert.That(iconPath, Is.EqualTo("/jon-images/jewel/0101-10001-hires2-wg.jpg"));
+
+        }
+
+
+        [Test]
         public void ReportForWebDisplay_ShoulReturnTheRightPathToJewelReport()
         {
             //Assign

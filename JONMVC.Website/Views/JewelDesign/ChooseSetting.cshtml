@@ -42,10 +42,10 @@
             <div class="cell">
                 <div id="ItemContainer">
                     <div class="block sortbar">
-                    @Html.LabelFor(x=>x.OrderByPrice)
-                        @Html.DropDownListFor(m => m.OrderByPrice, new SelectList(Model.OrderByPriceItems,"Value","Key",Model.OrderByPrice.ToString()))
-                        @Html.LabelFor(x=>x.MetalFilter)
-                        @Html.DropDownListFor(m => m.MetalFilter, new SelectList(Model.MetalFilterItems, "Value", "Key",Model.MetalFilterItems.ToString()))
+                        @Html.LabelFor(x => x.OrderByPrice)
+                        @Html.DropDownListFor(m => m.OrderByPrice, new SelectList(Model.OrderByPriceItems, "Value", "Key", Model.OrderByPrice.ToString()))
+                        @Html.LabelFor(x => x.MetalFilter)
+                        @Html.DropDownListFor(m => m.MetalFilter, new SelectList(Model.MetalFilterItems, "Value", "Key", Model.MetalFilterItems.ToString()))
                         @Html.HiddenFor(m => m.Page)
                         @Html.HiddenFor(m => m.ItemsPerPage)
                         @Html.HiddenFor(m => m.TabId)
@@ -132,14 +132,22 @@
 																							   })"
                                                                                                >
                                 <img src="@jewelInTabContainer.PictureURL"  alt="@jewelInTabContainer.Description" />
-                            </a>
-                            @Html.RouteLink(jewelInTabContainer.Description != String.Empty ? jewelInTabContainer.Description : "Empty Title", "Setting", new 
+                                @Html.Partial("InTabBuyNowButton", @Url.RouteUrl("Setting", new RouteValueDictionary()
 																							   {
-																								   SettingID = jewelInTabContainer.ID,
-																								   DiamondID = Model.DiamondID,
+																								   {"SettingID",jewelInTabContainer.ID},
+																								   {"DiamondID",Model.DiamondID},
+                                                                                                   {"Size",Model.Size ?? "7.5"},
+                                                                                                   {"MediaType",jewelInTabContainer.MediaSet}
+																							   })
+                                                                                               )
+                            </a>
+                            @Html.RouteLink(jewelInTabContainer.Description != String.Empty ? jewelInTabContainer.Description : "Empty Title", "Setting", new
+                                                                                               {
+                                                                                                   SettingID = jewelInTabContainer.ID,
+                                                                                                   DiamondID = Model.DiamondID,
                                                                                                    Size = Model.Size ?? "7.5",
                                                                                                    MediaType = jewelInTabContainer.MediaSet
-																							   },new {@class="block top5"})
+                                                                                               }, new { @class = "block top5" })
                             <div class="metalpricecombo top10 left"  itemid="@jewelInTabContainer.ID" >
                                 <span class="left metal">@jewelInTabContainer.Metal</span>
                                 <img src="@Url.Content("~/Content/images/tabs/item/combo-arrow.png")" class="right" />
@@ -215,9 +223,12 @@
         <div class="row">
             <div class="cell">
                 <p class="text-below-page">
-                    
-                    Diamond solitaires are a classic choice among engagement rings. By far the most popular choice is the round brilliant, but each shape has its own special charm. The round brilliant-cut best features a diamond's fire, sparkle and brilliance. The most common types of settings are channel, bezel, tension, pave, prongs, and tiffany.
-</p>
+                    Diamond solitaires are a classic choice among engagement rings. By far the most
+                    popular choice is the round brilliant, but each shape has its own special charm.
+                    The round brilliant-cut best features a diamond's fire, sparkle and brilliance.
+                    The most common types of settings are channel, bezel, tension, pave, prongs, and
+                    tiffany.
+                </p>
             </div>
         </div>
     </div>

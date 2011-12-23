@@ -20,6 +20,8 @@ namespace JONMVC.Website.ViewModels.Json.Builders
             HandURLForWebDisplay = media.HandURLForWebDisplay;
             HiResDiskPathForWebDisplay = media.HiResDiskPathForWebDisplay;
             HiResURLForWebDisplay = media.HiResURLForWebDisplay;
+            HiRes2DiskPathForWebDisplay = media.HiRes2DiskPathForWebDisplay;
+            HiRes2URLForWebDisplay = media.HiRes2URLForWebDisplay;
             IconDiskPathForWebDisplay = media.IconDiskPathForWebDisplay;
             IconURLForWebDisplay = media.IconURLForWebDisplay;
             MediaSet = media.MediaSet;

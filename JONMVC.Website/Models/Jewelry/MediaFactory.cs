@@ -39,12 +39,15 @@ namespace JONMVC.Website.Models.Jewelry
             media.HiResURLForWebDisplay = FillParametersIntoPathPattern(GetBaseWebPath(), itemNumber, "hires", conventionMetalPrefix, ImageExtension);
             media.HandURLForWebDisplay = FillParametersIntoPathPattern(GetBaseWebPath(), itemNumber, "hand", conventionMetalPrefix, ImageExtension);
             media.MovieURLForWebDisplay = FillParametersIntoPathPattern(GetBaseWebPath(), itemNumber, "mov", conventionMetalPrefix, MovieExtension);
+            media.HiRes2URLForWebDisplay = FillParametersIntoPathPattern(GetBaseWebPath(), itemNumber, "hires2", conventionMetalPrefix, ImageExtension);
 
             media.IconDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "icon", conventionMetalPrefix, ImageExtension);
             media.PictureDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "pic", conventionMetalPrefix, ImageExtension);
             media.HiResDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "hires", conventionMetalPrefix, ImageExtension);
             media.HandDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "hand", conventionMetalPrefix, ImageExtension);
             media.MovieDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "mov", conventionMetalPrefix, MovieExtension);
+
+            media.HiRes2DiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "hires2", conventionMetalPrefix, ImageExtension);
 
             media.ReportURLForWebDisplay = FillParametersIntoPathPattern(GetBaseWebPath(), itemNumber, "report", conventionAllMetals, ImageExtension);
             media.ReportDiskPathForWebDisplay = FillParametersIntoPathPattern(GetBaseDiskPath(), itemNumber, "report", conventionAllMetals, ImageExtension);

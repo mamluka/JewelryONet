@@ -50,8 +50,7 @@
                         var dic = new RouteValueDictionary
                                               {
                                                   {"tabkey", Model.TabKey},
-                                                  {"tabid", Model.TabId},
-                                                  
+                                                  {"tabid", Model.TabId},                                                  
                                                   {"MetalFilter", Model.MetalFilter},
                                                   {"OrderByPrice", Model.OrderByPrice},
                                                   {"itemsperpage", Model.ItemsPerPage}
@@ -115,9 +114,6 @@
             <div class="cell">
                 <div id="ItemContainer">
                     <div class="block sortbar">
-                        @* @Html.DropDownListFor(m => m.OrderByPrice, Model.OrderByPriceItems)
-				
-						   @Html.DropDownListFor(m => m.MetalFilter, Model.MetalFilterItems) *@
                         <div class="pages right">
                             <ul>
                                 

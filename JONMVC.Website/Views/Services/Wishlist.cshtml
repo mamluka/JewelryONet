@@ -47,10 +47,24 @@
                                         </div>
                                         <span class="inline bold">Price:</span>
                                         <h2 class="inline sitered">@item.Price</h2>
-                                        @Html.RouteLink("View this item", "JewelryItem", new 
-                                                                           {
-                                                                               id=item.ID
-                                                                           }, new { @class = "block top10" })
+                                        @if (item.IsJewelDesignSetting)
+                                        {
+                                            @Html.RouteLink("View this item", "Setting", new
+                                                                                                   {
+                                                                                                       SettingID = item.ID,
+                                                                                                       DiamondID = 0
+                                                                                                   }, new {@class = "block top10"})
+                                        }
+
+
+                                        else
+                                            {
+                                                @Html.RouteLink("View this item", "JewelryItem", new
+                                                                                                           {
+                                                                                                               id = item.ID
+                                                                                                           }, new {@class = "block top10"})
+                                            }
+                                        
                                     </div>
                                 </div>
                                 <div class="row">
@@ -62,9 +76,9 @@
                                         <div class="left" style="margin-left: 10px;">
                                             <img src="/Content/images/services/wishlist/icons/remove.png" class="alignmiddle" />
                                             @Html.ActionLink("Remove Item", "RemoveFromWishList", "JewelryItem", new
-                                                                                               {
-                                                                                                   jewelID = item.ID
-                                                                                               }, null)
+                                       {
+                                           jewelID = item.ID
+                                       }, null)
                                         </div>
                                     </div>
                                 </div>

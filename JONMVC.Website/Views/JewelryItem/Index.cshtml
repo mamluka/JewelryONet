@@ -119,17 +119,23 @@
                 </div>
             </div>
             <div class="cell rightspecs">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="infotable">
-                    <tr>
-                        <td colspan="2" class="title">
-                            Center Stone information:
-                        </td>
-                    </tr>
-                    @foreach (var infopart in Model.SpecsPool.Where(f => f.JewelComponentID == 1))
-                    {
-                        @Html.InfoPart(infopart)    
-                    }
-                </table>
+             @if (Model.SpecsPool.Where(x => x.JewelComponentID == 1).Count() > 0)
+             {
+                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="infotable">
+               
+    
+                     <tr>
+                         <td colspan="2" class="title">
+                             Center Stone information:
+                         </td>
+                     </tr>
+                     @foreach (var infopart in Model.SpecsPool.Where(f => f.JewelComponentID == 1))
+                     {
+                         @Html.InfoPart(infopart)
+                     }
+        
+                 </table>
+             }
                 @if (Model.HasSideStones)
                 {
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="infotable">

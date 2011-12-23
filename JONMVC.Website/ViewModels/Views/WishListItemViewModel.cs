@@ -7,5 +7,6 @@ namespace JONMVC.Website.ViewModels.Views
         public string Price { get; set; }
         public string Description { get; set; }
         public string ID { get; set; }
+        public bool IsJewelDesignSetting { get; set; }
     }
 }
