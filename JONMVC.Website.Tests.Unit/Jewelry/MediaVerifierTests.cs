@@ -31,23 +31,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
 
             var fakeFileSystem = FakeFileSystem.MediaFileSystemForItemNumber();
 
-           var media = new Media()
-                            {
-                                IconDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-icon-wg.jpg",
-                                PictureDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-pic-wg.jpg",
-                                HiResDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires-wg.jpg",
-                                HandDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hand-wg.jpg",
-                                MovieDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-mov-wg.flv",
-                                ReportDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-report-all.jpg",
-
-                                IconURLForWebDisplay = @"/jon-images/jewel/0101-15001-icon-wg.jpg",
-                                PictureURLForWebDisplay = @"/jon-images/jewel/0101-15001-pic-wg.jpg",
-                                HiResURLForWebDisplay = @"/jon-images/jewel/0101-15001-hires-wg.jpg",
-                                HandURLForWebDisplay = @"/jon-images/jewel/0101-15001-hand-wg.jpg",
-                                MovieURLForWebDisplay = @"/jon-images/jewel/0101-15001-mov-wg.flv",
-                                ReportURLForWebDisplay = @"/jon-images/jewel/0101-15001-report-all.jpg"
-                                
-                            };
+            var media = CreateMedia();
 
             var mediaVerifier = new MediaVerifier(fakeFileSystem);
             //Act
@@ -79,23 +63,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
                                                         
                                                     });
 
-            var media = new Media()
-            {
-                IconDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-icon-wg.jpg",
-                PictureDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-pic-wg.jpg",
-                HiResDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires-wg.jpg",
-                HandDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hand-wg.jpg",
-                MovieDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-mov-wg.flv",
-                ReportDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-report-all.jpg",
-
-                IconURLForWebDisplay = @"/jon-images/jewel/0101-15001-icon-wg.jpg",
-                PictureURLForWebDisplay = @"/jon-images/jewel/0101-15001-pic-wg.jpg",
-                HiResURLForWebDisplay = @"/jon-images/jewel/0101-15001-hires-wg.jpg",
-                HandURLForWebDisplay = @"/jon-images/jewel/0101-15001-hand-wg.jpg",
-                MovieURLForWebDisplay = @"/jon-images/jewel/0101-15001-mov-wg.flv",
-                ReportURLForWebDisplay = @"/jon-images/jewel/0101-15001-report-all.jpg"
-
-            };
+            var media = CreateMedia();
 
             var mediaVerifier = new MediaVerifier(fakeFileSystem);
             //Act
@@ -124,23 +92,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
                                                         
                                                     });
 
-            var media = new Media()
-            {
-                IconDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-icon-wg.jpg",
-                PictureDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-pic-wg.jpg",
-                HiResDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires-wg.jpg",
-                HandDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hand-wg.jpg",
-                MovieDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-mov-wg.flv",
-                ReportDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-report-all.jpg",
-
-                IconURLForWebDisplay = @"/jon-images/jewel/0101-15001-icon-wg.jpg",
-                PictureURLForWebDisplay = @"/jon-images/jewel/0101-15001-pic-wg.jpg",
-                HiResURLForWebDisplay = @"/jon-images/jewel/0101-15001-hires-wg.jpg",
-                HandURLForWebDisplay = @"/jon-images/jewel/0101-15001-hand-wg.jpg",
-                MovieURLForWebDisplay = @"/jon-images/jewel/0101-15001-mov-wg.flv",
-                ReportURLForWebDisplay = @"/jon-images/jewel/0101-15001-report-all.jpg"
-
-            };
+            var media = CreateMedia();
 
             var mediaVerifier = new MediaVerifier(fakeFileSystem);
             //Act
@@ -169,23 +121,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
                                                         
                                                     });
 
-            var media = new Media()
-            {
-                IconDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-icon-wg.jpg",
-                PictureDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-pic-wg.jpg",
-                HiResDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires-wg.jpg",
-                HandDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hand-wg.jpg",
-                MovieDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-mov-wg.flv",
-                ReportDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-report-all.jpg",
-
-                IconURLForWebDisplay = @"/jon-images/jewel/0101-15001-icon-wg.jpg",
-                PictureURLForWebDisplay = @"/jon-images/jewel/0101-15001-pic-wg.jpg",
-                HiResURLForWebDisplay = @"/jon-images/jewel/0101-15001-hires-wg.jpg",
-                HandURLForWebDisplay = @"/jon-images/jewel/0101-15001-hand-wg.jpg",
-                MovieURLForWebDisplay = @"/jon-images/jewel/0101-15001-mov-wg.flv",
-                ReportURLForWebDisplay = @"/jon-images/jewel/0101-15001-report-all.jpg"
-
-            };
+            var media = CreateMedia();
 
             var mediaVerifier = new MediaVerifier(fakeFileSystem);
             //Act
@@ -214,23 +150,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
                                                         
                                                     });
 
-            var media = new Media()
-            {
-                IconDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-icon-wg.jpg",
-                PictureDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-pic-wg.jpg",
-                HiResDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires-wg.jpg",
-                HandDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hand-wg.jpg",
-                MovieDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-mov-wg.flv",
-                ReportDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-report-all.jpg",
-
-                IconURLForWebDisplay = @"/jon-images/jewel/0101-15001-icon-wg.jpg",
-                PictureURLForWebDisplay = @"/jon-images/jewel/0101-15001-pic-wg.jpg",
-                HiResURLForWebDisplay = @"/jon-images/jewel/0101-15001-hires-wg.jpg",
-                HandURLForWebDisplay = @"/jon-images/jewel/0101-15001-hand-wg.jpg",
-                MovieURLForWebDisplay = @"/jon-images/jewel/0101-15001-mov-wg.flv",
-                ReportURLForWebDisplay = @"/jon-images/jewel/0101-15001-report-all.jpg"
-
-            };
+            var media = CreateMedia();
 
             var mediaVerifier = new MediaVerifier(fakeFileSystem);
             //Act
@@ -259,23 +179,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
                                                         
                                                     });
 
-            var media = new Media()
-            {
-                IconDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-icon-wg.jpg",
-                PictureDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-pic-wg.jpg",
-                HiResDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires-wg.jpg",
-                HandDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hand-wg.jpg",
-                MovieDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-mov-wg.flv",
-                ReportDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-report-all.jpg",
-
-                IconURLForWebDisplay = @"/jon-images/jewel/0101-15001-icon-wg.jpg",
-                PictureURLForWebDisplay = @"/jon-images/jewel/0101-15001-pic-wg.jpg",
-                HiResURLForWebDisplay = @"/jon-images/jewel/0101-15001-hires-wg.jpg",
-                HandURLForWebDisplay = @"/jon-images/jewel/0101-15001-hand-wg.jpg",
-                MovieURLForWebDisplay = @"/jon-images/jewel/0101-15001-mov-wg.flv",
-                ReportURLForWebDisplay = @"/jon-images/jewel/0101-15001-report-all.jpg"
-
-            };
+            var media = CreateMedia();
 
             var mediaVerifier = new MediaVerifier(fakeFileSystem);
             //Act
@@ -305,25 +209,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
                                                         
                                                     });
 
-            var media = new Media()
-            {
-                IconDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-icon-wg.jpg",
-                PictureDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-pic-wg.jpg",
-                HiResDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires-wg.jpg",
-                HiRes2DiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires-wg.jpg",
-                HandDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hand-wg.jpg",
-                MovieDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-mov-wg.flv",
-                ReportDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-report-all.jpg",
-
-                IconURLForWebDisplay = @"/jon-images/jewel/0101-15001-icon-wg.jpg",
-                PictureURLForWebDisplay = @"/jon-images/jewel/0101-15001-pic-wg.jpg",
-                HiResURLForWebDisplay = @"/jon-images/jewel/0101-15001-hires-wg.jpg",
-                HiRes2URLForWebDisplay = @"/jon-images/jewel/0101-15001-hires2-wg.jpg",
-                HandURLForWebDisplay = @"/jon-images/jewel/0101-15001-hand-wg.jpg",
-                MovieURLForWebDisplay = @"/jon-images/jewel/0101-15001-mov-wg.flv",
-                ReportURLForWebDisplay = @"/jon-images/jewel/0101-15001-report-all.jpg"
-
-            };
+            var media = CreateMedia();
 
             var mediaVerifier = new MediaVerifier(fakeFileSystem);
             //Act
@@ -332,6 +218,35 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
             verifiedmedia.HiRes2URLForWebDisplay.Should().BeNull();
 
 
+        }
+
+        private Media CreateMedia()
+        {
+            var media = new Media()
+                            {
+                                IconDiskPathForWebDisplay =
+                                    @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-icon-wg.jpg",
+                                PictureDiskPathForWebDisplay =
+                                    @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-pic-wg.jpg",
+                                HiResDiskPathForWebDisplay =
+                                    @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires-wg.jpg",
+                                HiRes2DiskPathForWebDisplay =
+                                    @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires2-wg.jpg",
+                                HandDiskPathForWebDisplay =
+                                    @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hand-wg.jpg",
+                                MovieDiskPathForWebDisplay =
+                                    @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-mov-wg.flv",
+                                ReportDiskPathForWebDisplay =
+                                    @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-report-all.jpg",
+                                IconURLForWebDisplay = @"/jon-images/jewel/0101-15001-icon-wg.jpg",
+                                PictureURLForWebDisplay = @"/jon-images/jewel/0101-15001-pic-wg.jpg",
+                                HiResURLForWebDisplay = @"/jon-images/jewel/0101-15001-hires-wg.jpg",
+                                HiRes2URLForWebDisplay = @"/jon-images/jewel/0101-15001-hires2-wg.jpg",
+                                HandURLForWebDisplay = @"/jon-images/jewel/0101-15001-hand-wg.jpg",
+                                MovieURLForWebDisplay = @"/jon-images/jewel/0101-15001-mov-wg.flv",
+                                ReportURLForWebDisplay = @"/jon-images/jewel/0101-15001-report-all.jpg"
+                            };
+            return media;
         }
 
         [Test]
@@ -351,23 +266,7 @@ namespace JONMVC.Website.Tests.Unit.Jewelry
                                                         
                                                     });
 
-            var media = new Media()
-            {
-                IconDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-icon-wg.jpg",
-                PictureDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-pic-wg.jpg",
-                HiResDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hires-wg.jpg",
-                HandDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-hand-wg.jpg",
-                MovieDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-mov-wg.flv",
-                ReportDiskPathForWebDisplay = @"C:\Users\maMLUka\Documents\jewelryonnet\internet-sites\jon-images\jewelry\0101-15001-report-all.jpg",
-
-                IconURLForWebDisplay = @"/jon-images/jewel/0101-15001-icon-wg.jpg",
-                PictureURLForWebDisplay = @"/jon-images/jewel/0101-15001-pic-wg.jpg",
-                HiResURLForWebDisplay = @"/jon-images/jewel/0101-15001-hires-wg.jpg",
-                HandURLForWebDisplay = @"/jon-images/jewel/0101-15001-hand-wg.jpg",
-                MovieURLForWebDisplay = @"/jon-images/jewel/0101-15001-mov-wg.flv",
-                ReportURLForWebDisplay = @"/jon-images/jewel/0101-15001-report-all.jpg"
-
-            };
+            var media = CreateMedia();
 
             var mediaVerifier = new MediaVerifier(fakeFileSystem);
             //Act

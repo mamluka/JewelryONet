@@ -1,29 +1,29 @@
 ﻿
 // JavaScript Document
 var Tabs = {
-    RegisterFilters: function () {
-        $('.sortbar select').bind('change', function () {
-            $(this).parents('form').get(0).submit();
+	RegisterFilters: function () {
+		$('.sortbar select').bind('change', function () {
+			$(this).parents('form').get(0).submit();
 
-        });
-    },
-    RegisterTabLinks: function () {
-        $('#TabNavigation .border div').click(function () {
-            window.location.href = $(this).parent().find('span a').attr('href');
-        });
-    },
-    RegisterTabsMouseOver: function () {
-        $('#TabNavigation .border').hover(
-            function () {
-                if ($(this).hasClass('active')) return;
-                $(this).addClass('mouseover');
-            },
-            function () {
-                if ($(this).hasClass('active')) return;
-                $(this).removeClass('mouseover');
-            }
-         );
-    }
+		});
+	},
+	RegisterTabLinks: function () {
+		$('#TabNavigation .border div').click(function () {
+			window.location.href = $(this).parent().find('span a').attr('href');
+		});
+	},
+	RegisterTabsMouseOver: function () {
+		$('#TabNavigation .border').hover(
+			function () {
+				if ($(this).hasClass('active')) return;
+				$(this).addClass('mouseover');
+			},
+			function () {
+				if ($(this).hasClass('active')) return;
+				$(this).removeClass('mouseover');
+			}
+		 );
+	}
 };
 var Video = {
 	OpenMovie: function (moviepath) {
@@ -60,158 +60,158 @@ var Video = {
 	}
 };
 var Item = {
-    Locals: { id: 0 },
-    RegisterBestOffer: function () {
-        $('#BestOfferDialog').dialog(
+	Locals: { id: 0 },
+	RegisterBestOffer: function () {
+		$('#BestOfferDialog').dialog(
 			{
-			    autoOpen: false,
-			    height: 180,
-			    width: 330,
-			    title: 'Place an Offer',
-			    resizable: false
+				autoOpen: false,
+				height: 180,
+				width: 330,
+				title: 'Place an Offer',
+				resizable: false
 			}
 			);
 
-        $('#BestOfferHelp').dialog(
-            {
-                autoOpen: false,
-                height: 550,
-                width: 500,
-                hide: { effect: "fade" },
-                resizable: false
-            }
+		$('#BestOfferHelp').dialog(
+			{
+				autoOpen: false,
+				height: 550,
+				width: 500,
+				hide: { effect: "fade" },
+				resizable: false
+			}
 			);
 
 
 
-        $('.bestoffer img:first').click(function () {
-            $('#BestOfferDialog').dialog('open');
-        });
+		$('.bestoffer img:first').click(function () {
+			$('#BestOfferDialog').dialog('open');
+		});
 
-        $('.bestoffer a:first').click(function () {
-            $('#BestOfferHelp').dialog('open');
-        });
+		$('.bestoffer a:first').click(function () {
+			$('#BestOfferHelp').dialog('open');
+		});
 
-        $('#BestOfferForm').ajaxForm(
+		$('#BestOfferForm').ajaxForm(
 			{
-			    beforeSubmit: function () {
-			        return $('#BestOfferForm').validate().showErrors();
-			    },
-			    dataType: 'json',
-			    success: function (data) {
-			        if (data.HasError) {
-			            alert('There was an error, Please try again later');
-			        } else {
-			            $('#BestOfferDialog').dialog('close');
-			            MessageBox.Show('Offer Recieved');
-			        }
-			    }
+				beforeSubmit: function () {
+					return $('#BestOfferForm').validate().showErrors();
+				},
+				dataType: 'json',
+				success: function (data) {
+					if (data.HasError) {
+						alert('There was an error, Please try again later');
+					} else {
+						$('#BestOfferDialog').dialog('close');
+						MessageBox.Show('Offer Recieved');
+					}
+				}
 
 
 			});
 
-    },
-    RegisterPageCommends: function () {
-        $('a[command="addtowishlist"]').click(function () {
-            $.post(
+	},
+	RegisterPageCommends: function () {
+		$('a[command="addtowishlist"]').click(function () {
+			$.post(
 				'/JewelryItem/AddToWishList',
 				{ jewelid: Item.Locals.id },
 				function (data) {
-				    if (!data.HasError) {
-				        MessageBox.Show('Item was added to your wishlist');
-				    } else {
-				        MessageBox.Show('Error occured, try again later');
-				    }
+					if (!data.HasError) {
+						MessageBox.Show('Item was added to your wishlist');
+					} else {
+						MessageBox.Show('Error occured, try again later');
+					}
 				});
-        });
+		});
 
-        Item.RegisterAjaxForEmailRing();
+		Item.RegisterAjaxForEmailRing();
 
-        $('a[command="print"]').click(function () {
-            window.print();
-        });
+		$('a[command="print"]').click(function () {
+			window.print();
+		});
 
-    },
-    LoadRingSizeDropBoxs: function () {
-        var Sizes = [
+	},
+	LoadRingSizeDropBoxs: function () {
+		var Sizes = [
 			['4', '1.84', '46.5', 'H ½', '15', '46 ½', '7'],
-            ['4.5', '1.89', '47.8', 'I ½', '15 ¼', '47 ¾', '8'],
-            ['5', '1.94', '49', 'J ½', '15 ¾', '49', '9'],
-            ['5.5', '1.99', '50.2', 'L', '16', '50 ¼', '11'],
-            ['6', '2.04', '51.5', 'M', '16 ½', '51 ½', '12'],
-            ['6.5', '2.09', '52.8', 'N', '17', '52 ¾', '13'],
-            ['7', '2.15', '54', 'N ½', '17 ¼', '54', '14'],
-            ['7.5', '2.2', '55.3', 'O ½', '17 ½', '55 ½', '15'],
-            ['8', '2.25', '56.6', 'P ½', '18', '56 ¾', '16'],
-            ['8.5', '2.3', '57.8', 'Q ½', '18 ½', '58', '17'],
-            ['9', '2.35', '59.1', 'R ½', '19', '59 ¼', '18'],
-            ['9.5', '2.4', '60.3', 'S ½', '19 ½', '60 ½', '19'],
-            ['10', '2.46', '61.6', 'T ½', '20', '61 ¾', '20'],
-            ['10.5', '2.5', '62.8', 'U ½', '20 ¼', '62 ¾', '22'],
-            ['11', '2.57', '64.1', 'V ½', '20 ¾', '64 ¼', '23'],
-            ['11.5', '2.61', '66', 'W ½', '21', '66', '24'],
-            ['12', '2.66', '67.2', 'Y', '21 ¾', '67 ¼', '25'],
-            ['12.5', '2.69', '68.4', 'Z', '', '', '26'],
-            ['13', '2.74', '69.7', 'Z ½', '22', '', '27'],
-            ['13.5', '2.8', '71', 'Z +2', '', '', ''],
-            ['14', '2.85', '72.5', 'Z +3', '', '', ''],
-            ['14.5', '2.91', '74', 'Z +4', '', '', ''],
-            ['15', '2.95', '75', 'Z +5', '', '', ''],
+			['4.5', '1.89', '47.8', 'I ½', '15 ¼', '47 ¾', '8'],
+			['5', '1.94', '49', 'J ½', '15 ¾', '49', '9'],
+			['5.5', '1.99', '50.2', 'L', '16', '50 ¼', '11'],
+			['6', '2.04', '51.5', 'M', '16 ½', '51 ½', '12'],
+			['6.5', '2.09', '52.8', 'N', '17', '52 ¾', '13'],
+			['7', '2.15', '54', 'N ½', '17 ¼', '54', '14'],
+			['7.5', '2.2', '55.3', 'O ½', '17 ½', '55 ½', '15'],
+			['8', '2.25', '56.6', 'P ½', '18', '56 ¾', '16'],
+			['8.5', '2.3', '57.8', 'Q ½', '18 ½', '58', '17'],
+			['9', '2.35', '59.1', 'R ½', '19', '59 ¼', '18'],
+			['9.5', '2.4', '60.3', 'S ½', '19 ½', '60 ½', '19'],
+			['10', '2.46', '61.6', 'T ½', '20', '61 ¾', '20'],
+			['10.5', '2.5', '62.8', 'U ½', '20 ¼', '62 ¾', '22'],
+			['11', '2.57', '64.1', 'V ½', '20 ¾', '64 ¼', '23'],
+			['11.5', '2.61', '66', 'W ½', '21', '66', '24'],
+			['12', '2.66', '67.2', 'Y', '21 ¾', '67 ¼', '25'],
+			['12.5', '2.69', '68.4', 'Z', '', '', '26'],
+			['13', '2.74', '69.7', 'Z ½', '22', '', '27'],
+			['13.5', '2.8', '71', 'Z +2', '', '', ''],
+			['14', '2.85', '72.5', 'Z +3', '', '', ''],
+			['14.5', '2.91', '74', 'Z +4', '', '', ''],
+			['15', '2.95', '75', 'Z +5', '', '', ''],
 		];
 
-        $.each($('.converter select'), function (index, select) {
-            $.each(Sizes, function (i, size) {
-                $(select).append(new Option(size[index], i, false, false));
-            });
+		$.each($('.converter select'), function (index, select) {
+			$.each(Sizes, function (i, size) {
+				$(select).append(new Option(size[index], i, false, false));
+			});
 
-            $(select).change(function () {
-                var value = $(this).val();
-                $('.converter select option').removeAttr('selected');
+			$(select).change(function () {
+				var value = $(this).val();
+				$('.converter select option').removeAttr('selected');
 
-                $('.converter select option[value=' + value + ']').attr('selected', 'selected');
+				$('.converter select option[value=' + value + ']').attr('selected', 'selected');
 
-            });
-        });
-    },
-    RegisterWishList: function () {
+			});
+		});
+	},
+	RegisterWishList: function () {
 
-        Item.RegisterAjaxForEmailRing();
+		Item.RegisterAjaxForEmailRing();
 
-        $('a[command=wishlist-emailring]').click(function () {
-            var id = $(this).attr('id');
-            $('#EmailRing input[name=ID]').val(id);
-            var boxy = new Boxy('#EmailRing', {
-                title: 'Email the ring'
-            });
-            boxy.show();
-        });
+		$('a[command=wishlist-emailring]').click(function () {
+			var id = $(this).attr('id');
+			$('#EmailRing input[name=ID]').val(id);
+			var boxy = new Boxy('#EmailRing', {
+				title: 'Email the ring'
+			});
+			boxy.show();
+		});
 
-        $('a[command=wishlist-print').click(function () {
-            window.print();
-        });
-    },
-    RegisterAjaxForEmailRing: function () {
+		$('a[command=wishlist-print').click(function () {
+			window.print();
+		});
+	},
+	RegisterAjaxForEmailRing: function () {
 
-        $('.emailring form').ajaxForm(
+		$('.emailring form').ajaxForm(
 			{
-			    beforeSubmit: function () {
-			        return $('.emailring form').validate().showErrors();
-			    },
-			    dataType: 'json',
-			    success: function (data) {
-			        if (data.HasError) {
-			            alert('There was an error, Please try again later');
-			        } else {
+				beforeSubmit: function () {
+					return $('.emailring form').validate().showErrors();
+				},
+				dataType: 'json',
+				success: function (data) {
+					if (data.HasError) {
+						alert('There was an error, Please try again later');
+					} else {
 
-			            Boxy.get($('.emailring')).hide();
-			            MessageBox.Show('Email sent to friend');
-			            Utils.EnableSubmitButtonInsideAFormAndRemoveLoadingImage('.emailring form');
-			        }
-			    }
+						Boxy.get($('.emailring')).hide();
+						MessageBox.Show('Email sent to friend');
+						Utils.EnableSubmitButtonInsideAFormAndRemoveLoadingImage('.emailring form');
+					}
+				}
 
 
 			});
-    }
+	}
 
 
 };
@@ -234,33 +234,64 @@ var JewelDesign = {
         DataFromController: null
 
     },
-    TranslatePriceSliderValuesToRealPrice: function (val) {
+    TranslatePriceSliderValuesToRealPrice: function (val, knob) {
 
-        if (val <= 680) {
-            return val * 9.7059 + 400;
+        var x = 0;
+        if (knob == 'left') {
+            val = val + 12;
+            x = val - 11;
+        } else {
+            val = val + 1;
+            x = val - 11;
         }
-        else if (val > 680 && val <= 711) {
-            return (val - 680) * 3000 + 7000;
+
+        ;
+
+        if (x <= 200) {
+            return (x * 50);
         }
-        else if (val > 711) {
-            return (val - 711) * 10000 + 100000;
+        else if (x > 200 && x <= 220) {
+            return (10000 + (x - 200) * 500);
+        }
+        else if (x > 220 && x <= 250) {
+            return (20000 + (x - 220) * 1000);
+        }
+        else if (x > 250 && x <= 260) {
+            return (60000 + (x - 250) * 5000);
+        }
+        else if (x > 260) {
+            return (100000 + (x - 260) * 100000);
         }
 
     },
-    TranslateCaratSliderValuesToRealCarat: function (val) {
+    TranslateCaratSliderValuesToRealCarat: function (val, knob) {
 
-        if (val <= 680) {
-            return val * 9.7059 + 400;
+        var x = 0;
+        if (knob == 'left') {
+            val = val + 12;
+            x = val - 11;
+        } else {
+            val = val + 1;
+            x = val - 11;
         }
-        else if (val > 680 && val <= 711) {
-            return (val - 680) * 3000 + 7000;
+
+        ;
+
+        if (x <= 200) {
+            return (x / 100).toFixed(2);
         }
-        else if (val > 711) {
-            return (val - 711) * 10000 + 100000;
+        else if (x > 200 && x <= 240) {
+            return (2 + (x - 200) * 0.05).toFixed(2);
+        }
+        else if (x > 240 && x <= 260) {
+            return (4 + (x - 240) * 0.1).toFixed(2);
+        }
+        else if (x > 260) {
+            return (6 + (x - 260) * 0.4).toFixed(2);
         }
 
     },
-    FormatSliderRangeInfo: function (id, handleType, value, prefix) {
+    FormatSliderRangeInfo: function (id, handleprefix, handleType, value, prefix) {
 
         var fromSpan = null;
         var toSpan = null;
@@ -291,8 +322,9 @@ var JewelDesign = {
         }
 
 
-        var posFrom = $(id + ' .handle:eq(0)').position();
-        var posTo = $(id + ' .handle:eq(1)').position();
+
+        var posFrom = $(id + ' #' + handleprefix + '-minthumb').position();
+        var posTo = $(id + ' #' + handleprefix + '-maxthumb').position();
 
         //console.log(posFrom.left);
         // console.log(posTo.left);
@@ -349,112 +381,97 @@ var JewelDesign = {
     },
     InitDiamondSearch: function () {
 
-        $("#SliderCarat").RmzSlider(
-				{
-				    minValue: 0.25,
-				    maxValue: 10,
-				    numHandles: 2,
-				    hitMargin: 15,
-				    handleWidth: 14,
-				    leftOffset: 0,
-				    step: 0.01,
-				    snapDistance: 5
-				}
-			);
+        var caratRange = 280, priceRange = 279,
+            tickSize = 1,
+            caratinitVals = [29, 210],
+            priceinitVals = [0, 279],
+            caratSlider,
+            priceSlider;
 
-        $("#SliderCarat .handle_num_0").trigger("setvalue", { value: 0.5 });
-        $("#SliderCarat .handle_num_1").trigger("setvalue", { value: 2 });
+        // During instantiation, the min thumb will be moved to offset 60
+        // and the max thumb to offset 130.
+        caratSlider = YAHOO.widget.Slider.getHorizDualSlider(
+            "CaratSlider", "carat-minthumb", "carat-maxthumb",
+            caratRange, tickSize, caratinitVals);
 
+        caratSlider.subscribe('change', function () {
 
-        JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', (0.5).toFixed(2), '');
-        JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', (3).toFixed(2), '');
-
-        $("#SliderCarat .handle_num_0").bind("dragging", function (event, data) {
-
-            var from = (data.value).toFixed(2);
-            $('#carat1').val(from);
-
-            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', from, '');
+            UpdateCaratSlider();
 
         });
 
-        $("#SliderCarat .handle_num_1").bind("dragging", function (event, data) {
+        priceSlider = YAHOO.widget.Slider.getHorizDualSlider(
+            "PriceSlider", "price-minthumb", "price-maxthumb",
+            priceRange, tickSize, priceinitVals);
 
-            var to = (data.value).toFixed(2);
-            $('#carat2').val(to);
+        priceSlider.subscribe('change', function () {
 
-            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', to, '');
+            UpdatePriceSlider();
 
         });
 
 
+        function UpdateCaratSlider() {
+
+            var leftPos = $('#CaratSlider #carat-minthumb').position();
+            var rightPos = $('#CaratSlider #carat-maxthumb').position();
+            var leftWidth = $('#CaratSlider #carat-minthumb').width();
+
+            var rangeWidth = rightPos.left - leftPos.left;
+            $('#CaratSlider #highlight').css({
+                'left': leftPos.left + leftWidth / 2 + 'px',
+                'width': rangeWidth + 'px'
+            });
+
+            var minVal = JewelDesign.TranslateCaratSliderValuesToRealCarat(caratSlider.minVal, 'left');
+            var maxVal = JewelDesign.TranslateCaratSliderValuesToRealCarat(caratSlider.maxVal, 'right');
+
+            JewelDesign.FormatSliderRangeInfo('#CaratSlider', 'carat', 'from', (parseFloat(minVal)).toFixed(2), '');
+            JewelDesign.FormatSliderRangeInfo('#CaratSlider', 'carat', 'to', (parseFloat(maxVal)).toFixed(2), '');
 
 
 
-        $("#SliderCarat").bind("sliderchanged", function (event, data) {
+            $('#carat2').val(maxVal);
+            $('#carat1').val(minVal);
 
-            var from = (data.handles[0].value).toFixed(2);
-            var to = (data.handles[1].value).toFixed(2);
-            $('#carat2').val(to);
-            $('#carat1').val(from);
+        }
+
+        function UpdatePriceSlider() {
+            var leftPos = $('#PriceSlider #price-minthumb').position();
+            var rightPos = $('#PriceSlider #price-maxthumb').position();
+            var leftWidth = $('#PriceSlider #price-minthumb').width();
+
+            var rangeWidth = rightPos.left - leftPos.left;
+            $('#PriceSlider #highlight').css({
+                'left': leftPos.left + leftWidth / 2 + 'px',
+                'width': rangeWidth + 'px'
+            });
+
+            var minVal = JewelDesign.TranslatePriceSliderValuesToRealPrice(priceSlider.minVal, 'left');
+            var maxVal = JewelDesign.TranslatePriceSliderValuesToRealPrice(priceSlider.maxVal, 'right');
+
+            JewelDesign.FormatSliderRangeInfo('#PriceSlider', 'price', 'from', minVal.formatMoney(0, '.', ','), '$');
+            JewelDesign.FormatSliderRangeInfo('#PriceSlider', 'price', 'to', maxVal.formatMoney(0, '.', ','), '$');
 
 
-            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'from', from, '');
-            JewelDesign.FormatSliderRangeInfo('#SliderCarat', 'to', to, '');
 
+            $('#price2').val(maxVal);
+            $('#price1').val(minVal);
+        }
+
+        caratSlider.subscribe('ready', function () {
+            UpdateCaratSlider();
+        });
+
+        caratSlider.subscribe('slideEnd', function () {
             JewelDesign.Search();
         });
 
-        $("#SliderPrice").RmzSlider(
-				{
-				    minValue: 0,
-				    maxValue: 801,
-				    numHandles: 2,
-				    hitMargin: 15,
-				    handleWidth: 14,
-				    leftOffset: 0,
-				    step: 1,
-				    snapDistance: 3
-				}
-			);
-
-        $("#SliderPrice .handle_num_0").trigger("setvalue", { value: 0 });
-        $("#SliderPrice .handle_num_1").trigger("setvalue", { value: 801 });
-
-
-        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', (JewelDesign.TranslatePriceSliderValuesToRealPrice(0)).toFixed(0), '$');
-        JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', (JewelDesign.TranslatePriceSliderValuesToRealPrice(801)).toFixed(0), '$');
-
-        $("#SliderPrice .handle_num_0").bind("dragging", function (event, data) {
-
-
-            var from = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.value).toFixed(0); //(data.value).toFixed(0);
-            $('#Price1').val(from);
-
-            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', from, '$');
-
-
+        priceSlider.subscribe('ready', function () {
+            UpdatePriceSlider();
         });
 
-        $("#SliderPrice .handle_num_1").bind("dragging", function (event, data) {
-
-            var to = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.value).toFixed(0);
-            $('#Price2').val(to);
-
-            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', to, '$');
-
-        });
-
-        $("#SliderPrice").bind("sliderchanged", function (event, data) {
-
-            var from = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.handles[0].value).toFixed(0);
-            var to = JewelDesign.TranslatePriceSliderValuesToRealPrice(data.handles[1].value).toFixed(0);
-            $('#price2').val(to);
-            $('#price1').val(from);
-
-            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'to', to, '$');
-            JewelDesign.FormatSliderRangeInfo('#SliderPrice', 'from', from, '$');
-
+        priceSlider.subscribe('slideEnd', function () {
             JewelDesign.Search();
         });
 
@@ -554,17 +571,17 @@ var JewelDesign = {
             loadonce: false,
             colNames: ['Shape', 'Carat', 'Color', 'Clarity', 'Cut', 'Certificate', 'Price', 'Details...'],
             colModel: [
-                    { name: 'shape', index: 'shape', width: 54, align: 'center', resizable: false, sortable: false },
-                    { name: 'weight', index: 'weight', width: 40, align: 'center', resizable: false, sortable: true },
-                    { name: 'color', index: 'color', width: 40, align: 'center', resizable: false, sortable: false },
-                    { name: 'clarity', index: 'clarity', width: 40, align: 'center', resizable: false, sortable: false },
-                    { name: 'cut', index: 'cut', width: 60, align: 'center', resizable: false, sortable: false },
-                    { name: 'cert', index: 'cert', width: 48, align: 'center', align: 'center', resizable: false, sortable: false },
-                    { name: 'price', index: 'price', width: 55, align: 'center', resizable: false, sortable: true },
-                    { name: 'action', index: 'action', width: 55, align: 'center', resizable: false, sortable: false }
-                ],
+					{ name: 'shape', index: 'shape', width: 54, align: 'center', resizable: false, sortable: false },
+					{ name: 'weight', index: 'weight', width: 40, align: 'center', resizable: false, sortable: true },
+					{ name: 'color', index: 'color', width: 40, align: 'center', resizable: false, sortable: false },
+					{ name: 'clarity', index: 'clarity', width: 40, align: 'center', resizable: false, sortable: false },
+					{ name: 'cut', index: 'cut', width: 60, align: 'center', resizable: false, sortable: false },
+					{ name: 'cert', index: 'cert', width: 48, align: 'center', align: 'center', resizable: false, sortable: false },
+					{ name: 'price', index: 'price', width: 55, align: 'center', resizable: false, sortable: true },
+					{ name: 'action', index: 'action', width: 55, align: 'center', resizable: false, sortable: false }
+				],
             rowNum: 10,
-   
+
             sortname: 'id',
             mtype: 'POST',
             viewrecords: true,
@@ -577,11 +594,11 @@ var JewelDesign = {
             width: 790,
             loadComplete: function () {
                 JewelDesign.RegisterDiamondInfo();
-               // $('#DiamondPager select').hide();
+                // $('#DiamondPager select').hide();
             }
         });
 
-       
+
         JewelDesign.ReadSearchFilters();
 
 
@@ -649,12 +666,12 @@ var JewelDesign = {
                 var submenu = $(this).find(".actions");
                 submenu.show();
                 submenu.position(
-                    {
-                        my: 'left top',
-                        at: 'left bottom',
-                        of: $(this).find('img'),
-                        offset: '0 2'
-                    }
+					{
+					    my: 'left top',
+					    at: 'left bottom',
+					    of: $(this).find('img'),
+					    offset: '0 2'
+					}
 							);
             },
 
@@ -784,165 +801,165 @@ var JewelDesign = {
 
 };
 var MetalPriceSelect = {
-    RegisterMetalPriceSelectForTabs: function () {
-        $('div.metalpricecombo').click(function () {
-            //work the ajax magic
-            urlstr = '/JewelryItem/MediaSets';
-            var itemid = $(this).attr('itemid');
-            dataobj = { 'jewelid': itemid };
-            $.ajax({
-                type: "POST",
-                url: urlstr,
-                data: dataobj,
-                dataType: 'json',
-                success: function (data) {
+	RegisterMetalPriceSelectForTabs: function () {
+		$('div.metalpricecombo').click(function () {
+			//work the ajax magic
+			urlstr = '/JewelryItem/MediaSets';
+			var itemid = $(this).attr('itemid');
+			dataobj = { 'jewelid': itemid };
+			$.ajax({
+				type: "POST",
+				url: urlstr,
+				data: dataobj,
+				dataType: 'json',
+				success: function (data) {
 
-                    if (data) {
-                        var pos = $('div[itemid=' + data.ID + ']').position();
-                        var box = $('<div></div>').attr({ id: 'MetalPriceComboItems' }).css({ 'left': pos.left, 'top': pos.top + 32 });
-                        var id = data.ID;
+					if (data) {
+						var pos = $('div[itemid=' + data.ID + ']').position();
+						var box = $('<div></div>').attr({ id: 'MetalPriceComboItems' }).css({ 'left': pos.left, 'top': pos.top + 32 });
+						var id = data.ID;
 
-                        var price = data.Price;
+						var price = data.Price;
 
-                        var dic = data.MediaSetRouteLinkDictionary;
-                        $.each(data.MediaSets, function (n, s) {
-                            var div = $('<div></div>');
-                            div.hover(
+						var dic = data.MediaSetRouteLinkDictionary;
+						$.each(data.MediaSets, function (n, s) {
+							var div = $('<div></div>');
+							div.hover(
 									function () {
-									    $(this).addClass("hover");
+										$(this).addClass("hover");
 									},
 									function () {
-									    $(this).removeClass("hover");
+										$(this).removeClass("hover");
 									}
 											);
-                            div.click($.proxy(function (event) {
-                                $('div[itemid=' + data.ID + '] .metal').html(this.s.MediaSetFullName);
+							div.click($.proxy(function (event) {
+								$('div[itemid=' + data.ID + '] .metal').html(this.s.MediaSetFullName);
 
-                                $('div[itemid=' + data.ID + ']').parent('.item').find('a img').attr({ 'src': s.IconURLForWebDisplay });
+								$('div[itemid=' + data.ID + ']').parent('.item').find('a img').attr({ 'src': s.IconURLForWebDisplay });
 
-                                if ($('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr(s.MediaSetName)) {
-                                    $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr(s.MediaSetName) });
-                                
-                                } else {
-                                    $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': dic[s.MediaSetFullName] });
-                                
-                                }
-                                $(box).remove();
-                                event.stopPropagation();
-                            }, { 's': s }));
-                            div.html('<span class="left metal">' + s.MediaSetFullName + '</span><span class="right price">' + data.Price + '</span><div class="clear" ></div>'); //list.append(div)
+								if ($('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr(s.MediaSetName)) {
+									$('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr(s.MediaSetName) });
+								
+								} else {
+									$('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': dic[s.MediaSetFullName] });
+								
+								}
+								$(box).remove();
+								event.stopPropagation();
+							}, { 's': s }));
+							div.html('<span class="left metal">' + s.MediaSetFullName + '</span><span class="right price">' + data.Price + '</span><div class="clear" ></div>'); //list.append(div)
 
-                            box.append(div);
-                        });
-                        $('div[itemid=' + data.ID + ']').append(box);
-                        $('body').one('click', function () {
-                            if ($('#MetalPriceComboItems')) {
-                                $('#MetalPriceComboItems').remove();
-                            }
+							box.append(div);
+						});
+						$('div[itemid=' + data.ID + ']').append(box);
+						$('body').one('click', function () {
+							if ($('#MetalPriceComboItems')) {
+								$('#MetalPriceComboItems').remove();
+							}
 
-                        });
-                    }
-                }
-            });
-        });
-    },
+						});
+					}
+				}
+			});
+		});
+	},
 
-    RegisterMetalPriceSelectForJewelryItems: function () {
-        $('div.metalpricecombo').click(function () {
-            //work the ajax magic
-            urlstr = '/JewelryItem/MediaSets';
-            var itemid = $(this).attr('itemid');
-            dataobj = { 'jewelid': itemid };
-            $.ajax({
-                type: "POST",
-                url: urlstr,
-                data: dataobj,
-                dataType: 'json',
-                success: function (data) {
+	RegisterMetalPriceSelectForJewelryItems: function () {
+		$('div.metalpricecombo').click(function () {
+			//work the ajax magic
+			urlstr = '/JewelryItem/MediaSets';
+			var itemid = $(this).attr('itemid');
+			dataobj = { 'jewelid': itemid };
+			$.ajax({
+				type: "POST",
+				url: urlstr,
+				data: dataobj,
+				dataType: 'json',
+				success: function (data) {
 
-                    if (data) {
-                        var pos = $('div[itemid=' + data.ID + ']').position();
-                        var box = $('<div></div>').attr({ id: 'MetalPriceComboItems' }).css({ 'left': pos.left, 'top': pos.top + 32 });
-                        var id = data.ID;
+					if (data) {
+						var pos = $('div[itemid=' + data.ID + ']').position();
+						var box = $('<div></div>').attr({ id: 'MetalPriceComboItems' }).css({ 'left': pos.left, 'top': pos.top + 32 });
+						var id = data.ID;
 
-                        var price = data.Price;
+						var price = data.Price;
 
-                        var title = data.Title;
+						var title = data.Title;
 
 
 
-                        $.each(data.MediaSets, function (n, s) {
-                            var div = $('<div></div>');
-                            div.hover(
+						$.each(data.MediaSets, function (n, s) {
+							var div = $('<div></div>');
+							div.hover(
 									function () {
-									    $(this).addClass("hover");
+										$(this).addClass("hover");
 									},
 									function () {
-									    $(this).removeClass("hover");
+										$(this).removeClass("hover");
 									}
 											);
-                            div.click($.proxy(function (event) {
-                                //TODO add the way we change the metal after click on the combo
+							div.click($.proxy(function (event) {
+								//TODO add the way we change the metal after click on the combo
 
-                                $('.metal').html(this.s.MediaSetFullName);
-                                var picPrettyPhotoLink = $('div.media > a ');
+								$('.metal').html(this.s.MediaSetFullName);
+								var picPrettyPhotoLink = $('div.media > a ');
 
-                                var zoomPrettyPhotoLink = $('div.zoom > a ');
+								var zoomPrettyPhotoLink = $('div.zoom > a ');
 
-                                var zoomImage = zoomPrettyPhotoLink.children('img').attr('src');
+								var zoomImage = zoomPrettyPhotoLink.children('img').attr('src');
 
-                                MetalPriceSelect.UpdatePrettyPhotoByLink(picPrettyPhotoLink, s.PictureURLForWebDisplay, s.HiResURLForWebDisplay);
-                                MetalPriceSelect.UpdatePrettyPhotoByLink(zoomPrettyPhotoLink, zoomImage, s.HiResURLForWebDisplay);
+								MetalPriceSelect.UpdatePrettyPhotoByLink(picPrettyPhotoLink, s.PictureURLForWebDisplay, s.HiResURLForWebDisplay);
+								MetalPriceSelect.UpdatePrettyPhotoByLink(zoomPrettyPhotoLink, zoomImage, s.HiResURLForWebDisplay);
 
-                                $('div.thumbs').html(''); //clear the div
+								$('div.thumbs').html(''); //clear the div
 
-                                if (s.HiResURLForWebDisplay) {
-                                    MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HiResURLForWebDisplay, title);
-                                }
+								if (s.HiResURLForWebDisplay) {
+									MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HiResURLForWebDisplay, title);
+								}
 
-                                if (s.HiRes2URLForWebDisplay) {
-                                    MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HiRes2URLForWebDisplay, title);
-                                }
+								if (s.HiRes2URLForWebDisplay) {
+									MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HiRes2URLForWebDisplay, title);
+								}
 
-                                if (s.HandURLForWebDisplay) {
-                                    MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HandURLForWebDisplay, title);
-                                }
+								if (s.HandURLForWebDisplay) {
+									MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HandURLForWebDisplay, title);
+								}
 
-                                if (s.ReportURLForWebDisplay) {
-                                    MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.ReportURLForWebDisplay, title);
-                                }
+								if (s.ReportURLForWebDisplay) {
+									MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.ReportURLForWebDisplay, title);
+								}
 
-                                $("a[rel^='prettyPhoto']").prettyPhoto();
+								$("a[rel^='prettyPhoto']").prettyPhoto();
 
-                                $(box).remove();
-                                $('#MediaType').val(s.MediaSet);
+								$(box).remove();
+								$('#MediaType').val(s.MediaSet);
 
-                                event.stopPropagation();
-                            }, { 's': s }));
-                            div.html('<span class="left metal">' + s.MediaSetFullName + '</span><span class="right price">' + data.Price + '</span><div class="clear" ></div>'); //list.append(div)
+								event.stopPropagation();
+							}, { 's': s }));
+							div.html('<span class="left metal">' + s.MediaSetFullName + '</span><span class="right price">' + data.Price + '</span><div class="clear" ></div>'); //list.append(div)
 
-                            box.append(div);
-                        });
-                        $('div[itemid=' + data.ID + ']').append(box);
-                        $('body').one('click', function () {
-                            if ($('#MetalPriceComboItems')) {
-                                $('#MetalPriceComboItems').remove();
-                            }
+							box.append(div);
+						});
+						$('div[itemid=' + data.ID + ']').append(box);
+						$('body').one('click', function () {
+							if ($('#MetalPriceComboItems')) {
+								$('#MetalPriceComboItems').remove();
+							}
 
-                        });
-                    }
-                }
-            });
-        });
-    },
-    CreateJewelItemPrettyPhotoThumb: function (image, alt) {
-        var totalThumb = $('<a title="' + alt + '" rel="prettyPhoto[gal]" href="' + image + '"><img src="' + image + '" alt="' + alt + '"></a>');
-        $('div.thumbs').append(totalThumb);
-    },
-    UpdatePrettyPhotoByLink: function (linkobj, thumb, large) {
-        linkobj.attr({ href: large });
-        linkobj.children('img').attr({ 'src': thumb });
-    }
+						});
+					}
+				}
+			});
+		});
+	},
+	CreateJewelItemPrettyPhotoThumb: function (image, alt) {
+		var totalThumb = $('<a title="' + alt + '" rel="prettyPhoto[gal]" href="' + image + '"><img src="' + image + '" alt="' + alt + '"></a>');
+		$('div.thumbs').append(totalThumb);
+	},
+	UpdatePrettyPhotoByLink: function (linkobj, thumb, large) {
+		linkobj.attr({ href: large });
+		linkobj.children('img').attr({ 'src': thumb });
+	}
 
 };
 var Checkout = {
@@ -970,152 +987,158 @@ var Checkout = {
 	}
 };
 Utils = {
-    EnableSubmitButtonInsideAFormAndRemoveLoadingImage: function (form) {
-        $(form).find(":submit").removeAttr("disabled");
-        $(form).find(":submit").removeClass("disabled-button").addClass("button");
-        $(form).find("input[type=image]").removeAttr("disabled");
-        $('[media-element-type=loader]').remove();
-    },
-    DisableSubmitButton: function () {
-        $("input[type=image]").attr("disabled", true);
-        $(":submit").attr("disabled", true);
-    },
-    RedirectToHome: function () {
-        window.location.href = '/';
-    },
-    PlaceLoaderNearButton: function (element, myLocation, atLocation) {
+	EnableSubmitButtonInsideAFormAndRemoveLoadingImage: function (form) {
+		$(form).find(":submit").removeAttr("disabled");
+		$(form).find(":submit").removeClass("disabled-button").addClass("button");
+		$(form).find("input[type=image]").removeAttr("disabled");
+		$('[media-element-type=loader]').remove();
+	},
+	DisableSubmitButton: function () {
+		$("input[type=image]").attr("disabled", true);
+		$(":submit").attr("disabled", true);
+	},
+	RedirectToHome: function () {
+		window.location.href = '/';
+	},
+	PlaceLoaderNearButton: function (element, myLocation, atLocation) {
 
-        var loader = $('<img />').attr('src', '/Content/images/skeleton/loading.gif').css({ "zIndex": 10000 }).attr('media-element-type', 'loader');
+		var loader = $('<img />').attr('src', '/Content/images/skeleton/loading.gif').css({ "zIndex": 10000 }).attr('media-element-type', 'loader');
 
-        element.parents('form:eq(0)').append(loader);
+		element.parents('form:eq(0)').append(loader);
 
-        loader.position({
-            my: myLocation,
-            at: atLocation,
-            of: element,
-            offset: '5 0'
-        });
+		loader.position({
+			my: myLocation,
+			at: atLocation,
+			of: element,
+			offset: '5 0'
+		});
 
 
-    },
-    HideStateWhenCountryIsNotUSA: function () {
-        $('select[state-combo-name]').change(function () {
-            var countryId = $(this).val();
-            var stateCombo = $('select[name=\'' + $(this).attr('state-combo-name') + '\']');
-            var label = $('label[for=\''+ $(this).attr('state-combo-name') + '\']');
-            if (countryId == $(this).attr('state-show-value')) {
-                stateCombo.show();
-                label.show();
-            } else {
-                stateCombo.hide();
-                label.hide();
-            }
-        });
+	},
+	HideStateWhenCountryIsNotUSA: function () {
+		$('select[state-combo-name]').change(function () {
+			var countryId = $(this).val();
+			var stateCombo = $('select[name=\'' + $(this).attr('state-combo-name') + '\']');
+			var label = $('label[for=\''+ $(this).attr('state-combo-name') + '\']');
+			if (countryId == $(this).attr('state-show-value')) {
+				stateCombo.show();
+				label.show();
+			} else {
+				stateCombo.hide();
+				label.hide();
+			}
+		});
 
-        $('select[state-combo-name]').trigger('change');
-    }
+		$('select[state-combo-name]').trigger('change');
+	}
 
 
 
 };
 
+Number.prototype.formatMoney = function (c, d, t) {
+    var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+};
+
+
 $(document).ready(function () {
-    $('.find-ring-size').boxy({
-        afterShow: function () {
-            Item.LoadRingSizeDropBoxs();
-        }
-    });
+	$('.find-ring-size').boxy({
+		afterShow: function () {
+			Item.LoadRingSizeDropBoxs();
+		}
+	});
 
-    $('.boxy').boxy({
-        filter: '#MainMessage'
-    });
+	$('.boxy').boxy({
+		filter: '#MainMessage'
+	});
 
-    $('input[disable-upon-click]').parents('form').submit(function () {
+	$('input[disable-upon-click]').parents('form').submit(function () {
 
-        var button = $(this).find('input[disable-upon-click]');
+		var button = $(this).find('input[disable-upon-click]');
 
-        var validated = $(this).valid();
+		var validated = $(this).valid();
 
-        if (validated) {
+		if (validated) {
 
 
 
-            $(button).removeClass('button').addClass('disabled-button').attr('disabled', 'disabled');
+			$(button).removeClass('button').addClass('disabled-button').attr('disabled', 'disabled');
 
-            if ($(button).attr('loader') == 'true') {
-                Utils.PlaceLoaderNearButton($(button), $(button).attr('loader-location'), $(button).attr('loader-on-my-side'));
-            }
+			if ($(button).attr('loader') == 'true') {
+				Utils.PlaceLoaderNearButton($(button), $(button).attr('loader-location'), $(button).attr('loader-on-my-side'));
+			}
 
-        }
+		}
 
-    });
+	});
 
-    $('[link=true]').addClass('hand');
+	$('[link=true]').addClass('hand');
 
-    $('[link=true]').click(function () {
-        var tag = $(this);
+	$('[link=true]').click(function () {
+		var tag = $(this);
 
-        if (tag.attr('insidelink') == 'true') {
-            window.location.href = tag.find('a:eq(0)').attr('href');
-        } else {
-            window.location.href = tag.attr('url');
-        }
-    });
+		if (tag.attr('insidelink') == 'true') {
+			window.location.href = tag.find('a:eq(0)').attr('href');
+		} else {
+			window.location.href = tag.attr('url');
+		}
+	});
 
-    $('img[tooltip]').each(function () {
+	$('img[tooltip]').each(function () {
 
-        $(this).qtip({
-            content: {
-                title: {
-                    text: $(this).attr('tooltip-title'),
-                    button: 'Close'
-                },
-                text: $(this).attr('tooltip')
-            },
+		$(this).qtip({
+			content: {
+				title: {
+					text: $(this).attr('tooltip-title'),
+					button: 'Close'
+				},
+				text: $(this).attr('tooltip')
+			},
 
-            show: {
-                when: 'click', // Show it on click
-                solo: true // And hide all other tooltips
-            },
-            hide: { when: { event: 'unfocus' }, delay: 500 },
+			show: {
+				when: 'click', // Show it on click
+				solo: true // And hide all other tooltips
+			},
+			hide: { when: { event: 'unfocus' }, delay: 500 },
 
-            style: {
+			style: {
 
-                name: 'light',
-                border: {
-                    radius: 8,
-                    color: '#87281d'
-                },
-                width: 300,
-                padding: 12,
-                background: '#87281d',
-                color: 'white',
-                textAlign: 'justify',
+				name: 'light',
+				border: {
+					radius: 8,
+					color: '#87281d'
+				},
+				width: 300,
+				padding: 12,
+				background: '#87281d',
+				color: 'white',
+				textAlign: 'justify',
 
-                tip: {
-                    corner: 'topRight',
-                    color: '#87281d',
-                    size: {
-                        x: 4,
-                        y: 4
-                    }
+				tip: {
+					corner: 'topRight',
+					color: '#87281d',
+					size: {
+						x: 4,
+						y: 4
+					}
 
-                }
+				}
 
-            },
-            position: {
-                corner: {
-                    target: 'topRight',
-                    tooltip: 'topRight'
-                },
-                adjust: {
-                    x: -5,
-                    y: 15
-                }
-            }
+			},
+			position: {
+				corner: {
+					target: 'topRight',
+					tooltip: 'topRight'
+				},
+				adjust: {
+					x: -5,
+					y: 15
+				}
+			}
 
-        });
-    });
+		});
+	});
 
 
 });

@@ -1494,27 +1494,33 @@ span.stars span {
 
 /*SLIDER*/
 
-.jewel-main #SliderCarat,
-.jewel-main #SliderPrice
+#CaratSlider,
+#PriceSlider
  {
-	background:url(/Content/images/jeweldesign/refine/sliders/slider-track-bg.png) no-repeat 0px 10px;
-	height:27px	
+    position: relative;
+    height: 27px;
+  
+    background:url(/Content/images/jeweldesign/refine/sliders/slider-track-bg.png) no-repeat 0px 10px;
 }
-.jewel-main .slider-row .range {
-	background:url(/Content/images/jeweldesign/refine/sliders/bg-between.png) repeat-x 0px 10px;
+#price-minthumb,
+#price-maxthumb,
+#carat-minthumb,
+#carat-maxthumb {
+ position: absolute;
+    height: 27px;
+    width: 13px;
+    left: 0; /* assumed, but for redundancy */
+    background:url(/Content/images/jeweldesign/refine/sliders/hand.png) repeat-x 0px 10px;
+    z-index: 10;
+}
+#highlight {
+    background:url(/Content/images/jeweldesign/refine/sliders/bg-between.png) repeat-x 0px 10px;
     position: absolute;
     z-index: 1;
     height: 27px;
-   
+    width: 100px;
 }
-.jewel-main .slider-row .handle {
-	width:13px;
-	border:none;
-	height:27px;
-    z-index: 2;
-	cursor:pointer;
-	background:url(/Content/images/jeweldesign/refine/sliders/hand.png) repeat-x 0px 10px;
-}
+
 .ui-slider-range-info {
 	color:black;
 	margin:auto;

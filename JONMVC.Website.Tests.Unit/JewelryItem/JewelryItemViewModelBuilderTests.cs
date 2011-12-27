@@ -396,10 +396,10 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
             //Act
             var viewModel = builder.Build();
             //Assert
-            viewModel.SpecsPool.Where(x => x.Title.Contains("Color")).SingleOrDefault().Title.Should().Be(
+            viewModel.SpecsPool.Where(x => x.Title.Contains("Color") && x.JewelComponentID == 1).SingleOrDefault().Title.Should().Be(
                 "Minimum Color");
 
-            viewModel.SpecsPool.Where(x => x.Title.Contains("Clarity")).SingleOrDefault().Title.Should().Be(
+            viewModel.SpecsPool.Where(x => x.Title.Contains("Clarity") && x.JewelComponentID == 1).SingleOrDefault().Title.Should().Be(
                 "Minimum Clarity");
         }
 
@@ -416,10 +416,10 @@ namespace JONMVC.Website.Tests.Unit.JewelryItem
             //Act
             var viewModel = builder.Build();
             //Assert
-            viewModel.SpecsPool.Where(x => x.Title.Contains("Color")).SingleOrDefault().Title.Should().Be(
+            viewModel.SpecsPool.Where(x => x.Title.Contains("Color") && x.JewelComponentID ==1).SingleOrDefault().Title.Should().Be(
                 "Average Color");
 
-            viewModel.SpecsPool.Where(x => x.Title.Contains("Clarity")).SingleOrDefault().Title.Should().Be(
+            viewModel.SpecsPool.Where(x => x.Title.Contains("Clarity") && x.JewelComponentID == 1).SingleOrDefault().Title.Should().Be(
                 "Average Clarity");
         }
 
