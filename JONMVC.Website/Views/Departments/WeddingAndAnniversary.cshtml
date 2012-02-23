@@ -12,7 +12,7 @@
 @{ DefineSection("WeddingAndWnniversaryMenu", () => this.Write(Html.Partial("TabsSubMenu", "WeddingAndWnniversaryMenu"))); }
 
    
-<div class="pitch pitch-gift">
+<div class="pitch pitch-wedding">
 		<h1>Wedding & Anniversary</h1>
 		
 		<p class="top5">
@@ -35,11 +35,11 @@ fits within your budget.
 						<div class="cell" >
 						<div class="displayatom block " >
 						
-						  <h1 class="title aligncenter">@Html.RouteLink("Diamond Wedding Rings", "Tabs", new RouteValueDictionary()
+						  <h1 class="title aligncenter">@Html.RouteLink("Diamond Wedding Rings", "Tabs", new 
 																	 {
-																		 {"tabkey", "wedding-and-anniversary"},
-																		 {"tabid", "wedding"},
-																		 {"page", 1},
+																		 tabkey= "wedding-and-anniversary",
+																		tabid="wedding",
+																		 page= 1,
 																	 },  new { @class = "gray" })</h1>
 							<div class="give-pedding">
 									<div class="block aligncenter" >
@@ -76,11 +76,11 @@ exquisite array of designs.
 						<div class="cell" >
 						<div class="displayatom block " >
 						
-						  <h1 class="title aligncenter">@Html.RouteLink("Diamond Eternity Bands", "Tabs", new RouteValueDictionary()
+						  <h1 class="title aligncenter">@Html.RouteLink("Diamond Eternity Bands", "Tabs", new 
 																	 {
-																		 {"tabkey", "wedding-and-anniversary"},
-																		 {"tabid", "eternity"},
-																		 {"page", 1},
+																		 tabkey= "wedding-and-anniversary",
+																		 tabid= "eternity",
+																		page= 1
 																	 }, new { @class = "gray" })</h1>
 							<div class="give-pedding">
 									<div class="block aligncenter" >
@@ -120,7 +120,10 @@ Eternity Rings.
 																		 {"tabkey", "wedding-and-anniversary"},
 																		 {"tabid", "gemstone"},
 																		 {"page", 1},
-																	 }, new { @class = "gray" })</h1>
+																	 }, new Dictionary<string,object>
+																	        {
+																	           { "class","gray"}
+																	        })</h1>
 							<div class="give-pedding">
 									<div class="block aligncenter" >
 									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
@@ -169,7 +172,10 @@ individuality.
 																		 {"tabkey", "wedding-and-anniversary"},
 																		 {"tabid", "bands"},
 																		 {"page", 1},
-																	 }, new { @class = "gray" })</h1>
+																	 }, new Dictionary<string, object>
+																	        {
+																	           { "class","gray"}
+																	        })</h1>
 							<div class="give-pedding">
 									<div class="block aligncenter" >
 									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
@@ -209,7 +215,10 @@ your liking.
 																		 {"tabkey", "wedding-and-anniversary"},
 																		 {"tabid", "wedding-sets"},
 																		 {"page", 1},
-																	 }, new { @class = "gray" })</h1>
+																	 }, new Dictionary<string, object>
+																	        {
+																	           { "class","gray"}
+																	        })</h1>
 							<div class="give-pedding">
 									<div class="block aligncenter" >
 									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
@@ -250,7 +259,10 @@ and budget.
 																		 {"tabkey", "wedding-and-anniversary"},
 																		 {"tabid", "mens"},
 																		 {"page", 1},
-																	 }, new { @class = "gray" })</h1>
+																	 }, new Dictionary<string, object>
+																	        {
+																	           { "class","gray"}
+																	        })</h1>
 							<div class="give-pedding">
 									<div class="block aligncenter" >
 									<a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()

@@ -5,5 +5,6 @@ namespace JONMVC.Website.Models.JewelryItem
         string ItemNumber { get; set; }
         string Metal { get; set; }
         string Width { get; set; }
+        string Weight { get; set; }
     }
 }

@@ -50,12 +50,12 @@
                 </div>
                 <div class="row">
                     <div class="cell">
-                        <div class="metalpricecombo top5 left" itemid="@Model.ID">
-                            <span class="left metal">@Model.Metal:</span>
-                            <img src="/Content/images/tabs/item/combo-arrow.png" class="right" />
-                            <span class="right price">@Model.Price</span>
-                            <input type="hidden" name="metal" value="wg" />
-                        </div>
+                        <div id="MetalPanel">
+                                <span class="redbold">Choose gold type:</span>
+                                <div class="metalpricecombo top10 left" itemid="@Model.ID">
+                                    <input type="hidden" name="metal" value="wg" />
+                                </div>
+                            </div>
                         <div class="clear">
                         </div>
                         <span class="redbold bold">*Ring doesn’t include center diamond</span>

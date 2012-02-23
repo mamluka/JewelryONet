@@ -644,18 +644,25 @@ display:inline;
 }
 .metalpricecombo {
 		border:1px solid #7f9db9;
-		height:16px;
 		width:204px;
 		padding:2px 2px 3px 2px;
+
+}
+
+.metalpricecombo-intab {
+    		height:16px;
 		cursor:pointer;
 }
 
 #MetalPriceComboItems {
 	width:186px;
 	background-color:white;
-	border:1px solid #7f9db9;
-	position:absolute;
 	padding:1px;
+
+}
+#MetalPriceComboItems.intab {
+    		border:1px solid #7f9db9;
+	position:absolute;
 }
 #MetalPriceComboItems div {
 	cursor:pointer;
@@ -678,7 +685,9 @@ display:inline;
 	margin-right:4px;
 	
 }
-
+#MetalPanel {
+    display: none;
+}
 span.redprice {
 	color:#993333;
 	font-size:1.2em;
@@ -1209,6 +1218,9 @@ div.pitch-jewel-design {
 }
 div.pitch-vip {
 	background:url(/Content/images/pages/pitch-vip.png) no-repeat;
+}
+div.pitch-wedding {
+	background:url(/Content/images/pages/pitch-wedding.png) no-repeat;
 }
 #BlockContent + h2 {
 	margin-top:50px;

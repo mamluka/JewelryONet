@@ -4,7 +4,7 @@ namespace JONMVC.Website.Models.Tabs
 {
     public enum GemstoneCenterStoneFilterValues
     {
-        [Description("-")] 
+        [Description("All Stones")] 
         All = 0,
         
         [FilterFieldAndValue("cs_type", "ruby")] [Description("Ruby")] 

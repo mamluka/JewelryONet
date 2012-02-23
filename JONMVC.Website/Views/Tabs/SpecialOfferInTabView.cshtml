@@ -5,7 +5,7 @@
         @Html.Partial("InTabBuyNowButton", @Url.RouteUrl("JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet }))
     </a>
     @Html.RouteLink(Model.Description, "JewelryItem", new { id = Model.ID, nullableMediaSet = Model.MediaSet }, new { @class = "block top5" })
-    <div class="metalpricecombo top10 left"  itemid="@Model.ID" >
+    <div class="metalpricecombo top10 left metalpricecombo-intab"  itemid="@Model.ID" >
         <span class="left metal">@Model.Metal</span>
         <img src="@Url.Content("~/Content/images/tabs/item/combo-arrow.png")" class="right" />
         <span class="right price">@Model.Price</span>

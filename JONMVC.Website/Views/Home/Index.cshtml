@@ -2,7 +2,7 @@
 @using MvcContrib
 @model EmptyViewModel
 @{
-    ViewBag.Title = "JewelryOnet.com: Designer of Fine Jewelry";
+    ViewBag.Title = "JewelryOnet.com: Jewelers You Can Trust";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="table">
@@ -113,10 +113,10 @@
                                     }
                                 </div>
                                 <div class="cell bottomizer" style="height: 215px">
-                                    <span class="block desc justify top10"><strong>JewelryONet</strong> is a large Online
+                                    <span class="block desc  top10"><strong>JewelryONet</strong> is a large Online
                                         retailer of the highest quality Certified Diamonds.<br />
                                         <br />
-                                        JewelryONet featuring over <span class="redbold inline">40,000</span> loose diamonds
+                                        <strong>JewelryONet</strong> featuring over <span class="redbold inline">40,000</span> loose diamonds
                                         all Certified at the most respected labs over the world such as GIA, HRD and IGI.
                                     </span>
                                     <ul class="top5">
@@ -188,7 +188,10 @@
 																		 {"tabkey", "diamond-rings"},
 																		 {"tabid", "engagement-rings"},
 																		 {"page", 1},
-																	 }, new { @class = "gray" })
+																	 }, new Dictionary<string, object>
+																	        {
+																	           { "class","gray"}
+																	        })
                             </h1>
                             <div class="give-pedding">
                                 <div class="block aligncenter">
@@ -237,7 +240,10 @@
 																		 {"tabkey", "diamond-rings"},
 																		 {"tabid", "diamond-studs"},
 																		 {"page", 1},
-																	 }, new { @class = "gray" })</h1>
+																	 }, new Dictionary<string, object>
+																	        {
+																	           { "class","gray"}
+																	        })</h1>
                             <div class="give-pedding">
                                 <div class="block aligncenter">
                                     <a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
@@ -286,7 +292,10 @@
 																		 {"tabkey", "wedding-and-anniversary"},
 																		 {"tabid", "wedding"},
 																		 {"page", 1},
-																	 }, new { @class = "gray" })
+																	 }, new Dictionary<string, object>
+																	        {
+																	           { "class","gray"}
+																	        })
                             </h1>
                             <div class="give-pedding">
                                 <div class="block aligncenter">

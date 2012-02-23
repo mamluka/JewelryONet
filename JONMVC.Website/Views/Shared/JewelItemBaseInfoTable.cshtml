@@ -3,33 +3,44 @@
 @using JONMVC.Website.ViewModels.Views
 @model IJewelBeseInfo
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="infotable">
-					<tr>
-						<td colspan="2" class="title">
-							Setting Information:
-						</td>
-					</tr>
-					<tr class="info">
-						<td>
-							Item Number:
-						</td>
-						<td>
-							@Model.ItemNumber
-						</td>
-					</tr>
-					<tr class="info">
-						<td>
-							Metal:
-						</td>
-						<td class="metal">
-							@Model.Metal
-						</td>
-					</tr>
-					<tr class="info">
-						<td>
-							Width:
-						</td>
-						<td>
-							@Model.Width
-						</td>
-					</tr>
-				</table>
+    <tr>
+        <td colspan="2" class="title">
+            Setting Information:
+        </td>
+    </tr>
+    <tr class="info">
+        <td>
+            Item Number:
+        </td>
+        <td>
+            @Model.ItemNumber
+        </td>
+    </tr>
+    <tr class="info">
+        <td>
+            Metal:
+        </td>
+        <td class="metal">
+            @Model.Metal
+        </td>
+    </tr>
+    @if (Model.Weight != "N/A")
+    {
+        <tr class="info">
+            <td>
+                Weight:
+            </td>
+            <td>
+                @Model.Weight
+            </td>
+        </tr>
+    }
+    <tr class="info">
+        <td>
+            Width:
+        </td>
+        <td>
+            @Model.Width
+        </td>
+    </tr>
+</table>

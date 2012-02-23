@@ -132,7 +132,7 @@
                                     Special Offers</h1>
                                 <h2 class="block explanation bold ">
                                     Sign up today and receive special offers and gift ideas</h2>
-                                <form method="post" action="http://www.aweber.com/scripts/addlead.pl" target="_blank">
+                                <form method="post" action="http://www.aweber.com/scripts/addlead.pl" target="_blank" >
                                 <input type="hidden" name="meta_web_form_id" value="835977868" />
                                 <input type="hidden" name="meta_split_id" value="" />
                                 <input type="hidden" name="listname" value="jewelryonet" />
@@ -146,7 +146,7 @@
                                 @this.TextBox("name").Placeholder("Enter your name").Attr("data-val","true").Attr("data-val-required","")
                                 
                                 @this.TextBox("email").Placeholder("Enter your email").Attr("data-val", "true").Attr("data-val-required", "").Attr("data-val-email","").Class("top5")
-                                <input type="submit" class="button top5" value="Sign up today" alt="Sign up today" /></fieldset>
+                                <input type="submit" class="button top5" value="Sign up today" alt="Sign up today" onclick="$('#SpecialOffers').hide()"/></fieldset>
                                 </form>
                             </div>
                         </div>

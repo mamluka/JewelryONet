@@ -86,44 +86,61 @@
                 </div>
             </div>
         </div>
-        <div class="cell">
-            <div class="displayatom block ">
-                <h1 class="title aligncenter">
-                    Bring the color to your jewelry at our @Html.RouteLink("Gemstone Jewelry", "Tabs", new RouteValueDictionary()
+<div class="cell">
+                        <div class="displayatom block">
+                            <h1 class="title aligncenter">
+                                Design Your Own Ring<br />
+                                Start by choosing your @Html.RouteLink("Diamond", "DiamondSearch")</h1>
+                            <div class="give-pedding">
+                                <div class="block aligncenter">
+                                    @using (Html.BeginRouteForm("DiamondSearch"))
+                                    { 
+                                        <div class="block center top20" style="width: 183px">
+                                            <div class="left">
+                                                <img src="/Content/images/homepage/atoms/round-diamond.png" width="61" height="61"
+                                                    alt="Round diamonds" /><br />
+                                                @Html.RadioButton("Shape", "Round", true)
+                                            </div>
+                                            <div class="left">
+                                                <img src="/Content/images/homepage/atoms/princess-diamond.png" width="61" height="61"
+                                                    alt="Princess cut diamonds" /><br />
+                                                @Html.RadioButton("Shape", "Princess")
+                                            </div>
+                                            <div class="left ">
+                                                <img src="/Content/images/homepage/atoms/radiant-diamond.png" width="61" height="61"
+                                                    alt="Emerald cut diamonds" /><br />
+                                                @Html.RadioButton("Shape", "Emerald")
+                                            </div>
+                                            <input type="image" src="/Content/images/homepage/atoms/search.png" class="top5 right"
+                                                alt="Search diamonds" />
+                                            <div class="clear">
+                                            </div>
+                                        </div>
+								
+								
+                                    }
+                                </div>
+                                <div class="cell bottomizer" style="height: 215px">
+                                    <span class="block desc top10"><strong>JewelryONet</strong> is a large Online
+                                        retailer of the highest quality Certified Diamonds.<br />
+                                        <br />
+                                        <strong>JewelryONet</strong> featuring over <span class="redbold inline">40,000</span> loose diamonds
+                                        all Certified at the most respected labs over the world such as GIA, HRD and IGI.
+                                    </span>
+                                    <ul class="top5">
+                                        <li>@Html.RouteLink("Diamond Search", "DiamondSearch") </li>
+                                        <li>@Html.RouteLink("GIA Certified Diamonds", "DiamondSearch", new RouteValueDictionary()
 																	 {
-																		 {"tabkey", "gemstone-rings"},
-																		 {"tabid", "engagement-rings"},
-																		 {"page", 1},
-																	 }) section</h1>
-                <div class="give-pedding">
-                    <div class="block aligncenter">
-                        <a href="@Url.RouteUrl("Tabs", new RouteValueDictionary()
-																	 {
-																		 {"tabkey", "gemstone-rings"},
-																		 {"tabid", "engagement-rings"},
-																		 {"page", 1},
-																	 })">
-                            <img src="/Content/images/pages/diamonds/1-3.png" alt="Gemstone Jewelry" />
-                        </a>
-                    </div>
-                    <div class="aligncenter">
-                        <div class="red block center rounded5">
-                            <h2>
-                                Why Our Gemstones?</h2>
-                            <ul>
-                                <li>From the Mine to the Finger.</li>
-                                <li>No Middlemen, Amazing Wholesale prices.</li>
-                                <li>Huge selection of Precious and Semi-Precious stones.</li>
-                            </ul>
+																		 {"Report", "GIA"},
+                                                                         {"Shape", "All"}
+																	 }) </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="clear">
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="clear">
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <div>

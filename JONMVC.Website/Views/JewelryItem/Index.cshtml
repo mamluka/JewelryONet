@@ -42,21 +42,19 @@
                     </div>
                     <div class="row">
                         <div class="cell">
-                           
                             <div class="fb-like" data-send="false" data-width="350" data-show-faces="false" data-action="recommend"
-                                data-font="tahoma" style="min-height: 35px; width:350px;">
+                                data-font="tahoma" style="min-height: 35px; width: 350px;">
                             </div>
-                            @Html.Partial("RingSize",new RingSizePartialViewModel { JewelType = Model.JewelType,Selected = "7",ID = "RingSize"})
-                            
+                            @Html.Partial("RingSize", new RingSizePartialViewModel { JewelType = Model.JewelType, Selected = "7", ID = "RingSize" })
                         </div>
                     </div>
                     <div class="row">
                         <div class="cell">
-                            <div class="metalpricecombo top10 left" itemid="@Model.ID">
-                                <span class="left metal">@Model.Metal:</span>
-                                <img src="/Content/images/tabs/item/combo-arrow.png" class="right" />
-                                <span class="right price">@Model.Price</span>
-                                <input type="hidden" name="metal" value="wg" />
+                            <div id="MetalPanel">
+                                <span class="redbold">Choose gold type:</span>
+                                <div class="metalpricecombo top10 left" itemid="@Model.ID">
+                                    <input type="hidden" name="metal" value="wg" />
+                                </div>
                             </div>
                             @if (Model.isSpecial)
                             {
@@ -93,16 +91,16 @@
         </div>
         <div class="cell operations">
             <div class="left">
-                
-                <a href="#EmailRing" command="emailring" class="boxy" title="Email this ring"><img src="/Content/images/item/skeleton/email.png" />E-mail</a>
+                <a href="#EmailRing" command="emailring" class="boxy" title="Email this ring">
+                    <img src="/Content/images/item/skeleton/email.png" />E-mail</a>
             </div>
             <div class="left">
-                
-                <a href="#!" command="print"><img src="/Content/images/item/skeleton/print.png" />Print</a>
+                <a href="#!" command="print">
+                    <img src="/Content/images/item/skeleton/print.png" />Print</a>
             </div>
             <div class="left">
-                
-                <a href="#!" command="addtowishlist"><img src="/Content/images/item/skeleton/wishlist.png" />Add to Wishlist</a>
+                <a href="#!" command="addtowishlist">
+                    <img src="/Content/images/item/skeleton/wishlist.png" />Add to Wishlist</a>
             </div>
         </div>
     </div>
@@ -119,23 +117,20 @@
                 </div>
             </div>
             <div class="cell rightspecs">
-             @if (Model.SpecsPool.Where(x => x.JewelComponentID == 1).Count() > 0)
-             {
-                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="infotable">
-               
-    
-                     <tr>
-                         <td colspan="2" class="title">
-                             Center Stone information:
-                         </td>
-                     </tr>
-                     @foreach (var infopart in Model.SpecsPool.Where(f => f.JewelComponentID == 1))
-                     {
-                         @Html.InfoPart(infopart)
-                     }
-        
-                 </table>
-             }
+                @if (Model.SpecsPool.Where(x => x.JewelComponentID == 1).Count() > 0)
+                {
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="infotable">
+                        <tr>
+                            <td colspan="2" class="title">
+                                Center Stone information:
+                            </td>
+                        </tr>
+                        @foreach (var infopart in Model.SpecsPool.Where(f => f.JewelComponentID == 1))
+                        {
+                            @Html.InfoPart(infopart)
+                        }
+                    </table>
+                }
                 @if (Model.HasSideStones)
                 {
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="infotable">
@@ -175,14 +170,10 @@
         </div>
     </div>
 </div>
-@Html.Partial("EmailRing",Model.ID)
-
- 
-
+@Html.Partial("EmailRing", Model.ID)
 @section FacebookHeaderTabs {
-    @Html.Partial("FacebookHeaders",Model)
+    @Html.Partial("FacebookHeaders", Model)
 }
-
 <script type="text/javascript">
 		$(document).ready(function () {
 
@@ -203,5 +194,5 @@
         js = d.createElement(s); js.id = id;
         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
         fjs.parentNode.insertBefore(js, fjs);
-    } (document, 'script', 'facebook-jssdk'));</script>
-
+    } (document, 'script', 'facebook-jssdk'));
+</script>

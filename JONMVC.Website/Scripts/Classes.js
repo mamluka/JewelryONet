@@ -801,165 +801,157 @@ var JewelDesign = {
 
 };
 var MetalPriceSelect = {
-	RegisterMetalPriceSelectForTabs: function () {
-		$('div.metalpricecombo').click(function () {
-			//work the ajax magic
-			urlstr = '/JewelryItem/MediaSets';
-			var itemid = $(this).attr('itemid');
-			dataobj = { 'jewelid': itemid };
-			$.ajax({
-				type: "POST",
-				url: urlstr,
-				data: dataobj,
-				dataType: 'json',
-				success: function (data) {
+    RegisterMetalPriceSelectForTabs: function () {
+        $('div.metalpricecombo').click(function () {
+            //work the ajax magic
+            urlstr = '/JewelryItem/MediaSets';
+            var itemid = $(this).attr('itemid');
+            dataobj = { 'jewelid': itemid };
+            $.ajax({
+                type: "POST",
+                url: urlstr,
+                data: dataobj,
+                dataType: 'json',
+                success: function (data) {
 
-					if (data) {
-						var pos = $('div[itemid=' + data.ID + ']').position();
-						var box = $('<div></div>').attr({ id: 'MetalPriceComboItems' }).css({ 'left': pos.left, 'top': pos.top + 32 });
-						var id = data.ID;
+                    if (data) {
+                        var pos = $('div[itemid=' + data.ID + ']').position();
+                        var box = $('<div></div>').attr({ id: 'MetalPriceComboItems' }).css({ 'left': pos.left, 'top': pos.top + 32 }).addClass('intab');
+                        var id = data.ID;
 
-						var price = data.Price;
+                        var price = data.Price;
 
-						var dic = data.MediaSetRouteLinkDictionary;
-						$.each(data.MediaSets, function (n, s) {
-							var div = $('<div></div>');
-							div.hover(
+                        var dic = data.MediaSetRouteLinkDictionary;
+                        $.each(data.MediaSets, function (n, s) {
+                            var div = $('<div></div>');
+                            div.hover(
 									function () {
-										$(this).addClass("hover");
+									    $(this).addClass("hover");
 									},
 									function () {
-										$(this).removeClass("hover");
+									    $(this).removeClass("hover");
 									}
 											);
-							div.click($.proxy(function (event) {
-								$('div[itemid=' + data.ID + '] .metal').html(this.s.MediaSetFullName);
+                            div.click($.proxy(function (event) {
+                                $('div[itemid=' + data.ID + '] .metal').html(this.s.MediaSetFullName);
 
-								$('div[itemid=' + data.ID + ']').parent('.item').find('a img').attr({ 'src': s.IconURLForWebDisplay });
+                                $('div[itemid=' + data.ID + ']').parent('.item').find('a img').attr({ 'src': s.IconURLForWebDisplay });
 
-								if ($('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr(s.MediaSetName)) {
-									$('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr(s.MediaSetName) });
-								
-								} else {
-									$('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': dic[s.MediaSetFullName] });
-								
-								}
-								$(box).remove();
-								event.stopPropagation();
-							}, { 's': s }));
-							div.html('<span class="left metal">' + s.MediaSetFullName + '</span><span class="right price">' + data.Price + '</span><div class="clear" ></div>'); //list.append(div)
+                                if ($('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr(s.MediaSetName)) {
+                                    $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr(s.MediaSetName) });
 
-							box.append(div);
-						});
-						$('div[itemid=' + data.ID + ']').append(box);
-						$('body').one('click', function () {
-							if ($('#MetalPriceComboItems')) {
-								$('#MetalPriceComboItems').remove();
-							}
+                                } else {
+                                    $('div[itemid=' + data.ID + ']').parent('div.item').children('a').attr({ 'href': dic[s.MediaSetFullName] });
 
-						});
-					}
-				}
-			});
-		});
-	},
+                                }
+                                $(box).remove();
+                                event.stopPropagation();
+                            }, { 's': s }));
+                            div.html('<span class="left metal">' + s.MediaSetFullName + '</span><span class="right price">' + data.Price + '</span><div class="clear" ></div>'); //list.append(div)
 
-	RegisterMetalPriceSelectForJewelryItems: function () {
-		$('div.metalpricecombo').click(function () {
-			//work the ajax magic
-			urlstr = '/JewelryItem/MediaSets';
-			var itemid = $(this).attr('itemid');
-			dataobj = { 'jewelid': itemid };
-			$.ajax({
-				type: "POST",
-				url: urlstr,
-				data: dataobj,
-				dataType: 'json',
-				success: function (data) {
+                            box.append(div);
+                        });
+                        $('div[itemid=' + data.ID + ']').append(box);
+                        $('body').one('click', function () {
+                            if ($('#MetalPriceComboItems')) {
+                                $('#MetalPriceComboItems').remove();
+                            }
 
-					if (data) {
-						var pos = $('div[itemid=' + data.ID + ']').position();
-						var box = $('<div></div>').attr({ id: 'MetalPriceComboItems' }).css({ 'left': pos.left, 'top': pos.top + 32 });
-						var id = data.ID;
+                        });
+                    }
+                }
+            });
+        });
+    },
 
-						var price = data.Price;
+    RegisterMetalPriceSelectForJewelryItems: function () {
+        //$('div.metalpricecombo').click(function () {
+        //work the ajax magic
+        urlstr = '/JewelryItem/MediaSets';
+        var itemid = $('div.metalpricecombo').attr('itemid');
+        dataobj = { 'jewelid': itemid };
+        $.ajax({
+            type: "POST",
+            url: urlstr,
+            data: dataobj,
+            dataType: 'json',
+            success: function (data) {
 
-						var title = data.Title;
+                if (data) {
+                    var pos = $('div[itemid=' + data.ID + ']').position();
+                    var box = $('<div></div>').attr({ id: 'MetalPriceComboItems' }); ///.css({ 'left': pos.left, 'top': pos.top + 32 });
+                    var id = data.ID;
+
+                    var price = data.Price;
+
+                    var title = data.Title;
 
 
 
-						$.each(data.MediaSets, function (n, s) {
-							var div = $('<div></div>');
-							div.hover(
+                    $.each(data.MediaSets, function (n, s) {
+                        var div = $('<div></div>');
+                        div.hover(
 									function () {
-										$(this).addClass("hover");
+									    $(this).addClass("hover");
 									},
 									function () {
-										$(this).removeClass("hover");
+									    $(this).removeClass("hover");
 									}
 											);
-							div.click($.proxy(function (event) {
-								//TODO add the way we change the metal after click on the combo
+                        div.click($.proxy(function (event) {
+                         
+                            var picPrettyPhotoLink = $('div.media > a ');
 
-								$('.metal').html(this.s.MediaSetFullName);
-								var picPrettyPhotoLink = $('div.media > a ');
+                            var zoomPrettyPhotoLink = $('div.zoom > a ');
 
-								var zoomPrettyPhotoLink = $('div.zoom > a ');
+                            var zoomImage = zoomPrettyPhotoLink.children('img').attr('src');
 
-								var zoomImage = zoomPrettyPhotoLink.children('img').attr('src');
+                            MetalPriceSelect.UpdatePrettyPhotoByLink(picPrettyPhotoLink, s.PictureURLForWebDisplay, s.HiResURLForWebDisplay);
+                            MetalPriceSelect.UpdatePrettyPhotoByLink(zoomPrettyPhotoLink, zoomImage, s.HiResURLForWebDisplay);
 
-								MetalPriceSelect.UpdatePrettyPhotoByLink(picPrettyPhotoLink, s.PictureURLForWebDisplay, s.HiResURLForWebDisplay);
-								MetalPriceSelect.UpdatePrettyPhotoByLink(zoomPrettyPhotoLink, zoomImage, s.HiResURLForWebDisplay);
+                            $('div.thumbs').html(''); //clear the div
 
-								$('div.thumbs').html(''); //clear the div
+                            if (s.HiResURLForWebDisplay) {
+                                MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HiResURLForWebDisplay, title);
+                            }
 
-								if (s.HiResURLForWebDisplay) {
-									MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HiResURLForWebDisplay, title);
-								}
+                            if (s.HiRes2URLForWebDisplay) {
+                                MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HiRes2URLForWebDisplay, title);
+                            }
 
-								if (s.HiRes2URLForWebDisplay) {
-									MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HiRes2URLForWebDisplay, title);
-								}
+                            if (s.HandURLForWebDisplay) {
+                                MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HandURLForWebDisplay, title);
+                            }
 
-								if (s.HandURLForWebDisplay) {
-									MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.HandURLForWebDisplay, title);
-								}
+                            if (s.ReportURLForWebDisplay) {
+                                MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.ReportURLForWebDisplay, title);
+                            }
 
-								if (s.ReportURLForWebDisplay) {
-									MetalPriceSelect.CreateJewelItemPrettyPhotoThumb(s.ReportURLForWebDisplay, title);
-								}
+                            $("a[rel^='prettyPhoto']").prettyPhoto();
 
-								$("a[rel^='prettyPhoto']").prettyPhoto();
+                            $('#MediaType').val(s.MediaSet);
 
-								$(box).remove();
-								$('#MediaType').val(s.MediaSet);
+                            event.stopPropagation();
+                        }, { 's': s }));
+                        div.html('<span class="left metal">' + s.MediaSetFullName + '</span><span class="right price">' + data.Price + '</span><div class="clear" ></div>'); //list.append(div)
 
-								event.stopPropagation();
-							}, { 's': s }));
-							div.html('<span class="left metal">' + s.MediaSetFullName + '</span><span class="right price">' + data.Price + '</span><div class="clear" ></div>'); //list.append(div)
-
-							box.append(div);
-						});
-						$('div[itemid=' + data.ID + ']').append(box);
-						$('body').one('click', function () {
-							if ($('#MetalPriceComboItems')) {
-								$('#MetalPriceComboItems').remove();
-							}
-
-						});
-					}
-				}
-			});
-		});
-	},
-	CreateJewelItemPrettyPhotoThumb: function (image, alt) {
-		var totalThumb = $('<a title="' + alt + '" rel="prettyPhoto[gal]" href="' + image + '"><img src="' + image + '" alt="' + alt + '"></a>');
-		$('div.thumbs').append(totalThumb);
-	},
-	UpdatePrettyPhotoByLink: function (linkobj, thumb, large) {
-		linkobj.attr({ href: large });
-		linkobj.children('img').attr({ 'src': thumb });
-	}
+                        box.append(div);
+                    });
+                    $('div[itemid=' + data.ID + ']').append(box);
+                    $('#MetalPanel').show();
+                }
+            }
+        });
+        //});
+    },
+    CreateJewelItemPrettyPhotoThumb: function (image, alt) {
+        var totalThumb = $('<a title="' + alt + '" rel="prettyPhoto[gal]" href="' + image + '"><img src="' + image + '" alt="' + alt + '"></a>');
+        $('div.thumbs').append(totalThumb);
+    },
+    UpdatePrettyPhotoByLink: function (linkobj, thumb, large) {
+        linkobj.attr({ href: large });
+        linkobj.children('img').attr({ 'src': thumb });
+    }
 
 };
 var Checkout = {

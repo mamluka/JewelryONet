@@ -43,7 +43,7 @@ namespace JONMVC.Website.Models.Tabs
                 var subcategories = db.inv_JEWELSUBTYPE_JEWEL.Where(x => x.JEWELTYPE_ID == jewelType).ToList();
 
                 var list = subcategories.Select(subcategory => new KeyValuePair<string, int>(subcategory.LANG1_LONGDESCR, subcategory.ID)).ToList();
-                list.Insert(0, new KeyValuePair<string, int>("-",0));
+                list.Insert(0, new KeyValuePair<string, int>("All Types",0));
 
                 return list;
             }
