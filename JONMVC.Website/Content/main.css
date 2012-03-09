@@ -646,6 +646,7 @@ display:inline;
 		border:1px solid #7f9db9;
 		width:204px;
 		padding:2px 2px 3px 2px;
+		cursor: pointer;
 
 }
 
@@ -658,6 +659,7 @@ display:inline;
 	width:186px;
 	background-color:white;
 	padding:1px;
+    
 
 }
 #MetalPriceComboItems.intab {

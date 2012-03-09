@@ -54,7 +54,7 @@ var Video = {
 		$('[movie]').css('cursor', 'pointer');
 
 		$('[movie]').click(function () {
-			moviepath = $(this).attr('movie');
+			var moviepath = $(this).attr('movie');
 			Video.OpenMovie(moviepath);
 		});
 	}
@@ -133,7 +133,7 @@ var Item = {
 
 	},
 	LoadRingSizeDropBoxs: function () {
-		var Sizes = [
+		var sizes = [
 			['4', '1.84', '46.5', 'H ½', '15', '46 ½', '7'],
 			['4.5', '1.89', '47.8', 'I ½', '15 ¼', '47 ¾', '8'],
 			['5', '1.94', '49', 'J ½', '15 ¾', '49', '9'],
@@ -156,11 +156,11 @@ var Item = {
 			['13.5', '2.8', '71', 'Z +2', '', '', ''],
 			['14', '2.85', '72.5', 'Z +3', '', '', ''],
 			['14.5', '2.91', '74', 'Z +4', '', '', ''],
-			['15', '2.95', '75', 'Z +5', '', '', ''],
+			['15', '2.95', '75', 'Z +5', '', '', '']
 		];
 
 		$.each($('.converter select'), function (index, select) {
-			$.each(Sizes, function (i, size) {
+			$.each(sizes, function (i, size) {
 				$(select).append(new Option(size[index], i, false, false));
 			});
 
@@ -227,7 +227,7 @@ MessageBox = {
 			css: { fontSize: '1.7em' }
 		});
 	}
-}
+};
 var JewelDesign = {
     Locals: {
 
@@ -236,7 +236,7 @@ var JewelDesign = {
     },
     TranslatePriceSliderValuesToRealPrice: function (val, knob) {
 
-        var x = 0;
+        var x;
         if (knob == 'left') {
             val = val + 12;
             x = val - 11;
@@ -259,14 +259,14 @@ var JewelDesign = {
         else if (x > 250 && x <= 260) {
             return (60000 + (x - 250) * 5000);
         }
-        else if (x > 260) {
-            return (100000 + (x - 260) * 100000);
-        }
+
+        return (100000 + (x - 260) * 100000);
+
 
     },
     TranslateCaratSliderValuesToRealCarat: function (val, knob) {
 
-        var x = 0;
+        var x;
         if (knob == 'left') {
             val = val + 12;
             x = val - 11;
@@ -286,16 +286,15 @@ var JewelDesign = {
         else if (x > 240 && x <= 260) {
             return (4 + (x - 240) * 0.1).toFixed(2);
         }
-        else if (x > 260) {
             return (6 + (x - 260) * 0.4).toFixed(2);
-        }
+        
 
     },
     FormatSliderRangeInfo: function (id, handleprefix, handleType, value, prefix) {
 
-        var fromSpan = null;
-        var toSpan = null;
-        var range = null;
+        var fromSpan;
+        var toSpan;
+        var range;
 
 
         if ($(id + ' span.info').length > 0) {
@@ -803,10 +802,15 @@ var JewelDesign = {
 var MetalPriceSelect = {
     RegisterMetalPriceSelectForTabs: function () {
         $('div.metalpricecombo').click(function () {
-            //work the ajax magic
-            urlstr = '/JewelryItem/MediaSets';
+
+            if ($('#MetalPriceComboItems').length) {
+                $('#MetalPriceComboItems').remove();
+                return;
+            }
+
+            var urlstr = '/JewelryItem/MediaSets';
             var itemid = $(this).attr('itemid');
-            dataobj = { 'jewelid': itemid };
+            var dataobj = { 'jewelid': itemid };
             $.ajax({
                 type: "POST",
                 url: urlstr,
@@ -899,7 +903,7 @@ var MetalPriceSelect = {
 									}
 											);
                         div.click($.proxy(function (event) {
-                         
+
                             var picPrettyPhotoLink = $('div.media > a ');
 
                             var zoomPrettyPhotoLink = $('div.zoom > a ');
@@ -1035,102 +1039,102 @@ Number.prototype.formatMoney = function (c, d, t) {
 
 
 $(document).ready(function () {
-	$('.find-ring-size').boxy({
-		afterShow: function () {
-			Item.LoadRingSizeDropBoxs();
-		}
-	});
+    $('.find-ring-size').boxy({
+        afterShow: function () {
+            Item.LoadRingSizeDropBoxs();
+        }
+    });
 
-	$('.boxy').boxy({
-		filter: '#MainMessage'
-	});
+    $('.boxy').boxy({
+        filter: '#MainMessage'
+    });
 
-	$('input[disable-upon-click]').parents('form').submit(function () {
+    $('input[disable-upon-click]').parents('form').submit(function () {
 
-		var button = $(this).find('input[disable-upon-click]');
+        var button = $(this).find('input[disable-upon-click]');
 
-		var validated = $(this).valid();
+        var validated = $(this).valid();
 
-		if (validated) {
+        if (validated) {
 
 
 
-			$(button).removeClass('button').addClass('disabled-button').attr('disabled', 'disabled');
+            $(button).removeClass('button').addClass('disabled-button').attr('disabled', 'disabled');
 
-			if ($(button).attr('loader') == 'true') {
-				Utils.PlaceLoaderNearButton($(button), $(button).attr('loader-location'), $(button).attr('loader-on-my-side'));
-			}
+            if ($(button).attr('loader') == 'true') {
+                Utils.PlaceLoaderNearButton($(button), $(button).attr('loader-location'), $(button).attr('loader-on-my-side'));
+            }
 
-		}
+        }
 
-	});
+    });
 
-	$('[link=true]').addClass('hand');
+    $('[link=true]').addClass('hand');
 
-	$('[link=true]').click(function () {
-		var tag = $(this);
+    $('[link=true]').click(function () {
+        var tag = $(this);
 
-		if (tag.attr('insidelink') == 'true') {
-			window.location.href = tag.find('a:eq(0)').attr('href');
-		} else {
-			window.location.href = tag.attr('url');
-		}
-	});
+        if (tag.attr('insidelink') == 'true') {
+            window.location.href = tag.find('a:eq(0)').attr('href');
+        } else {
+            window.location.href = tag.attr('url');
+        }
+    });
 
-	$('img[tooltip]').each(function () {
+    $('img[tooltip]').each(function () {
 
-		$(this).qtip({
-			content: {
-				title: {
-					text: $(this).attr('tooltip-title'),
-					button: 'Close'
-				},
-				text: $(this).attr('tooltip')
-			},
+        $(this).qtip({
+            content: {
+                title: {
+                    text: $(this).attr('tooltip-title'),
+                    button: 'Close'
+                },
+                text: $(this).attr('tooltip')
+            },
 
-			show: {
-				when: 'click', // Show it on click
-				solo: true // And hide all other tooltips
-			},
-			hide: { when: { event: 'unfocus' }, delay: 500 },
+            show: {
+                when: 'click', // Show it on click
+                solo: true // And hide all other tooltips
+            },
+            hide: { when: { event: 'unfocus' }, delay: 500 },
 
-			style: {
+            style: {
 
-				name: 'light',
-				border: {
-					radius: 8,
-					color: '#87281d'
-				},
-				width: 300,
-				padding: 12,
-				background: '#87281d',
-				color: 'white',
-				textAlign: 'justify',
+                name: 'light',
+                border: {
+                    radius: 8,
+                    color: '#87281d'
+                },
+                width: 300,
+                padding: 12,
+                background: '#87281d',
+                color: 'white',
+                textAlign: 'justify',
 
-				tip: {
-					corner: 'topRight',
-					color: '#87281d',
-					size: {
-						x: 4,
-						y: 4
-					}
+                tip: {
+                    corner: 'topRight',
+                    color: '#87281d',
+                    size: {
+                        x: 4,
+                        y: 4
+                    }
 
-				}
+                }
 
-			},
-			position: {
-				corner: {
-					target: 'topRight',
-					tooltip: 'topRight'
-				},
-				adjust: {
-					x: -5,
-					y: 15
-				}
-			}
+            },
+            position: {
+                corner: {
+                    target: 'topRight',
+                    tooltip: 'topRight'
+                },
+                adjust: {
+                    x: -5,
+                    y: 15
+                }
+            }
 
-		});
-	});
+        });
+    });
 
 
 });

@@ -411,7 +411,7 @@ In recent years technology has perfected the process of  heat-treating sapphires
 	</tabpage>
 
 	<tabpage key="special-offers-items" showtabs="false">
-		<title>Special offers</title>
+		<title>Special Deals</title>
 		<view>SpecialOfferInTabView</view>
 		<tab id="special-offers">
 			<caption>Solitaire</caption>
