@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -309,6 +310,7 @@ namespace JONMVC.Website.Models.DB
         private ObjectSet<inv_JEWELSUBTYPE_JEWEL> _inv_JEWELSUBTYPE_JEWEL;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -424,11 +426,11 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -461,6 +463,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1379,6 +1382,7 @@ namespace JONMVC.Website.Models.DB
         partial void OnnotesChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1459,6 +1463,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1483,6 +1488,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1945,6 +1951,7 @@ namespace JONMVC.Website.Models.DB
         partial void OnSORTORDERChanged();
 
         #endregion
+
     
     }
     
@@ -1988,6 +1995,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2234,6 +2242,7 @@ namespace JONMVC.Website.Models.DB
         partial void Ondiamond_descriptionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2276,6 +2285,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2310,6 +2320,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2460,6 +2471,7 @@ namespace JONMVC.Website.Models.DB
         partial void OndescriptionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2502,6 +2514,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2542,6 +2555,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2764,6 +2778,7 @@ namespace JONMVC.Website.Models.DB
         partial void OndescriptionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2806,6 +2821,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3078,6 +3094,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -6084,6 +6101,7 @@ namespace JONMVC.Website.Models.DB
         partial void Oninclude_receiptChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -6366,6 +6384,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -6390,6 +6409,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -6780,6 +6800,7 @@ namespace JONMVC.Website.Models.DB
         partial void OnSORTORDERChanged();
 
         #endregion
+
     
     }
     
@@ -6805,6 +6826,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -7411,6 +7433,7 @@ namespace JONMVC.Website.Models.DB
         partial void OnSORTORDERChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -7525,6 +7548,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -7549,6 +7573,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -8083,6 +8108,7 @@ namespace JONMVC.Website.Models.DB
         partial void OnSORTORDERChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -8175,6 +8201,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -8319,6 +8346,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -9789,6 +9817,7 @@ namespace JONMVC.Website.Models.DB
         partial void Ondefault_currencyChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -9989,6 +10018,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -10021,6 +10051,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -10147,6 +10178,7 @@ namespace JONMVC.Website.Models.DB
         partial void OncountryIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -10189,6 +10221,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -10261,6 +10294,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -10939,6 +10973,7 @@ namespace JONMVC.Website.Models.DB
         partial void Onsupplier_codeChanged();
 
         #endregion
+
     
     }
     
@@ -10972,6 +11007,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -12202,6 +12238,7 @@ namespace JONMVC.Website.Models.DB
         partial void OnHAS_MOVIEChanged();
 
         #endregion
+
     
     }
     
@@ -12233,6 +12270,7 @@ namespace JONMVC.Website.Models.DB
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -12584,9 +12622,11 @@ namespace JONMVC.Website.Models.DB
         partial void Onorder_currency_rateChanged();
 
         #endregion
+
     
     }
 
     #endregion
+
     
 }

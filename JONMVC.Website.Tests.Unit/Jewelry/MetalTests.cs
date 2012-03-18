@@ -12,12 +12,14 @@ namespace JONMVC.Website.Tests.Unit.Items
     public class MetalTests
     {
 
+        private const string MetalFromDb = "";
         /// <summary>
         /// Prepares mock repository
         /// </summary>
         [SetUp]
         public void Initialize()
         {
+
         }
 
         [Test]
@@ -93,7 +95,7 @@ namespace JONMVC.Website.Tests.Unit.Items
         public void GetFullName_ShouldReturnWhiteGoldWhenAllIsPresent()
         {
             //Arrange
-            var metal = new Metal(JewelMediaType.All, JewelMediaType.All);
+            var metal = new Metal(JewelMediaType.All, JewelMediaType.All, MetalFromDb);
             //Act
             var metalFullName = metal.GetFullName();
             //Assert
@@ -105,7 +107,7 @@ namespace JONMVC.Website.Tests.Unit.Items
         public void GetFullName_ShouldReturnWhiteGoldWhenWhiteGoldIRequestedAndPresent()
         {
             //Arrange
-            var metal = new Metal(JewelMediaType.WhiteGold, JewelMediaType.WhiteGold);
+            var metal = new Metal(JewelMediaType.WhiteGold, JewelMediaType.WhiteGold, MetalFromDb);
             //Act
             var metalFullName = metal.GetFullName();
             //Assert
@@ -117,7 +119,7 @@ namespace JONMVC.Website.Tests.Unit.Items
         public void GetFullName_ShouldReturnWhiteGoldWhenAllIsRequestedAndWhiteGoldPresent()
         {
             //Arrange
-            var metal = new Metal(JewelMediaType.All, JewelMediaType.WhiteGold);
+            var metal = new Metal(JewelMediaType.All, JewelMediaType.WhiteGold, MetalFromDb);
             //Act
             var metalFullName = metal.GetFullName();
             //Assert
@@ -129,7 +131,7 @@ namespace JONMVC.Website.Tests.Unit.Items
         public void GetFullName_ShouldReturnYellowGoldWhenYellowGoldIRequestedAndPresent()
         {
             //Arrange
-            var metal = new Metal(JewelMediaType.YellowGold, JewelMediaType.YellowGold);
+            var metal = new Metal(JewelMediaType.YellowGold, JewelMediaType.YellowGold, MetalFromDb);
             //Act
             var metalFullName = metal.GetFullName();
             //Assert
@@ -141,7 +143,7 @@ namespace JONMVC.Website.Tests.Unit.Items
         public void GetFullName_ShouldReturnYellowGoldWhenYellowGoldIsRequestedAndAlldPresent()
         {
             //Arrange
-            var metal = new Metal(JewelMediaType.YellowGold, JewelMediaType.All);
+            var metal = new Metal(JewelMediaType.YellowGold, JewelMediaType.All, MetalFromDb);
             //Act
             var metalFullName = metal.GetFullName();
             //Assert

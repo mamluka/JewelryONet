@@ -1,17 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace JONMVC.Website.Models.Jewelry
 {
     public class Metal : IMetal
     {
         private readonly string metalName;
-
-        private static Dictionary<string, string> convertionDicShortToLong = new Dictionary<string, string>
-                                                          {
-                                                              {"plt", "Platinum"},
-                                                              {"wg", "White Gold 18 Karat"},
-                                                              {"yg", "Yellow Gold 18 Karat"}
-                                                          };
 
         private static readonly Dictionary<string, string> convertionDicLongToShort = new Dictionary<string, string>
                                                           {
@@ -32,7 +26,7 @@ namespace JONMVC.Website.Models.Jewelry
             this.metalName = metalName;
         }
 
-        public Metal(JewelMediaType requestedJewelMediaType, JewelMediaType currentJewelMediaType)
+        public Metal(JewelMediaType requestedJewelMediaType, JewelMediaType currentJewelMediaType, string metal)
         {
             if (requestedJewelMediaType == JewelMediaType.All)
             {
@@ -42,7 +36,15 @@ namespace JONMVC.Website.Models.Jewelry
             {
                 metalName = convertionDicMediaEnumToFullName[requestedJewelMediaType];
             }
-            
+
+            var matchedMetalKarat = Regex.Match(metal, "\\d{1,2}").Value;
+            if (!string.IsNullOrEmpty(matchedMetalKarat))
+            {
+                metalName = Regex.Replace(metalName, "\\d{1,2}", matchedMetalKarat);
+            }
+
+
+
         }
 
         public string GetShortCode()

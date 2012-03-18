@@ -204,7 +204,7 @@ namespace JONMVC.Website.Models.Jewelry
 
             var currrentJewelMediaType = WhichMediaDoesThisJewelHas(item.HAS_YELLOW_GOLD ?? false, item.HAS_WHITE_GOLD ?? false);
 
-            var metal = new Metal(requestedJewelMediaTypeByUser, currrentJewelMediaType);
+            var metal = new Metal(requestedJewelMediaTypeByUser, currrentJewelMediaType,item.metal);
 
             var mediaFactory = new MediaFactory(initObj.ItemNumber, settingManager);
 
