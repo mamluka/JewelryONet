@@ -844,6 +844,7 @@
     <Content Include="Views\Admin\UpdateDiamonds.cshtml" />
     <Content Include="Views\Shared\TracingScripts.cshtml" />
     <Content Include="Views\Shared\InTabBuyNowButton.cshtml" />
+    <Content Include="Views\Home\BestOfferWidget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JON.BackOffice.ImportDiamondCSV.Core\JON.BackOffice.ImportDiamondCSV.Core.csproj">

@@ -16,28 +16,30 @@
                     hues. The ideal place to shop for engagement or fashion rings is here.
                     <ul class="top20">
                         <li>@Html.RouteLink("18K Gold Diamond Earrings", "Tabs", new RouteValueDictionary()
-																	 {
-																		 {"tabkey", "diamond-rings"},
-																		 {"tabid", "diamond-studs"},
-																		 {"page", 1},
-																	 }) </li>
+                                                               {
+                                                                   {"tabkey", "diamond-rings"},
+                                                                   {"tabid", "diamond-studs"},
+                                                                   {"page", 1},
+                                                               }) </li>
                         <li>@Html.RouteLink("18K Gold Diamond Solitaire Rings", "ChooseSetting", new RouteValueDictionary()
-																									{
-																										{"controller", "JewelDesign"},
-																										{"action", "ChooseSetting"},
-																										{"tabid","solitaire-settings"},
-																										{"page", 1},
-																									})</li>
+                                                                               {
+                                                                                   {"controller", "JewelDesign"},
+                                                                                   {"action", "ChooseSetting"},
+                                                                                   {"tabid","solitaire-settings"},
+                                                                                   {"page", 1},
+                                                                               })</li>
                         <li>@Html.RouteLink("18K Gold Diamond Pave Rings", "ChooseSetting", new RouteValueDictionary()
-																									{
-																										{"controller", "JewelDesign"},
-																										{"action", "ChooseSetting"},
-																										{"tabid","pave-settings"},
-																										{"page", 1},
-																									})</li>
+                                                                          {
+                                                                              {"controller", "JewelDesign"},
+                                                                              {"action", "ChooseSetting"},
+                                                                              {"tabid","pave-settings"},
+                                                                              {"page", 1},
+                                                                          })</li>
                     </ul>
+                    @{ Html.RenderAction("BestOfferWidget"); }
                 </div>
             </div>
+            
             <div class="table top20" id="BlockContent">
                 <div class="row">
                     <div class="cell">

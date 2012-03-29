@@ -1,0 +1,53 @@
+﻿@model JONMVC.Website.Controllers.BestOfferWidgetViewModel
+@using System.Linq;
+@{
+    Layout = null;
+}
+
+<div class="top10">
+    @Html.RouteLink("Make an Offer - Get The Best Deal", "BestOffer", new RouteValueDictionary()
+                                                            {
+                                                                {"tabkey" , "best-offer-items"},
+                                                                 {"tabid" , "offers"}
+                                                                
+                                                            },new {style="font-size:17px;font-weight:bold"})
+    <div class="table" style="width: 285px; margin-top: 3px;">
+        <div class="row">
+            <div class="cell homepage-best-offer-big-icon" style="width: 40%">
+                <a href="@Model.Jewels.First().ItemUrl">
+                    <img src="@Model.Jewels.First().Icon"/>
+                </a>
+                <span style="position: relative;top: -30px;left: 113px; font-size: 9px; font-weight: bold; width: 30px;" class="aligncenter">@Model.Count <br />items</span>
+            </div>
+            <div class="cell" style="width: 60%">
+                <div class="table homepage-best-offer-small-icons">
+                    <div class="row">
+                        <div class="cell aligntop">
+                            <a href="@Model.Jewels[1].ItemUrl">
+                                <img src="@Model.Jewels[1].Icon"/>
+                            </a>
+                        </div>
+                        <div class="cell aligntop">
+                            <a href="@Model.Jewels[2].ItemUrl">
+                                <img src="@Model.Jewels[2].Icon"/>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="cell bottomizer">
+                            <a href="@Model.Jewels[3].ItemUrl">
+                                <img src="@Model.Jewels[3].Icon"/>
+                            </a>
+                        </div>
+                        <div class="cell bottomizer">
+                            <a href="@Model.Jewels[4].ItemUrl">
+                                <img src="@Model.Jewels[4].Icon"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

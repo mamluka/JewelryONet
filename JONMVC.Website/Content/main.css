@@ -1716,3 +1716,14 @@ div.field-validation-error
 	border:1px solid #e7e7e7;
 	background:#f8f8f8;
 }
+.homepage-best-offer-small-icons .cell {
+    height: 60px;
+    
+}
+.homepage-best-offer-small-icons img {
+    height: 50px;margin-right: 10px
+}
+.homepage-best-offer-big-icon img {
+    height: 110px;
+    margin-right: 5px;
+}

@@ -7,14 +7,14 @@ namespace JONMVC.Website.Models.Jewelry
     {
         private readonly string metalName;
 
-        private static readonly Dictionary<string, string> convertionDicLongToShort = new Dictionary<string, string>
+        private static readonly Dictionary<string, string> ConvertionDicLongToShort = new Dictionary<string, string>
                                                           {
                                                               {"Platinum","plt"},
                                                               {"White Gold 18 Karat","wg" },
                                                               {"Yellow Gold 18 Karat","yg"}
                                                           };
 
-        private static readonly Dictionary<JewelMediaType, string> convertionDicMediaEnumToFullName = new Dictionary<JewelMediaType, string>
+        private static readonly Dictionary<JewelMediaType, string> ConvertionDicMediaEnumToFullName = new Dictionary<JewelMediaType, string>
                                                           {
                                                               {JewelMediaType.WhiteGold,"White Gold 18 Karat"},
                                                               {JewelMediaType.YellowGold,"Yellow Gold 18 Karat" },
@@ -28,14 +28,7 @@ namespace JONMVC.Website.Models.Jewelry
 
         public Metal(JewelMediaType requestedJewelMediaType, JewelMediaType currentJewelMediaType, string metal)
         {
-            if (requestedJewelMediaType == JewelMediaType.All)
-            {
-                metalName = convertionDicMediaEnumToFullName[currentJewelMediaType];
-            }
-            else
-            {
-                metalName = convertionDicMediaEnumToFullName[requestedJewelMediaType];
-            }
+            metalName = requestedJewelMediaType == JewelMediaType.All ? ConvertionDicMediaEnumToFullName[currentJewelMediaType] : ConvertionDicMediaEnumToFullName[requestedJewelMediaType];
 
             var matchedMetalKarat = Regex.Match(metal, "\\d{1,2}").Value;
             if (!string.IsNullOrEmpty(matchedMetalKarat))
@@ -49,7 +42,7 @@ namespace JONMVC.Website.Models.Jewelry
 
         public string GetShortCode()
         {
-            return convertionDicLongToShort[metalName];
+            return ConvertionDicLongToShort[metalName];
         }
 
         #region Helpers
@@ -63,7 +56,7 @@ namespace JONMVC.Website.Models.Jewelry
 
         public static string GetFullName(JewelMediaType mediaType)
         {
-            return convertionDicMediaEnumToFullName[mediaType];
+            return ConvertionDicMediaEnumToFullName[mediaType];
         }
     }
 }

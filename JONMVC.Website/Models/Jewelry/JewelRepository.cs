@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.Objects;
 using System.Linq;
-using System.Linq.Expressions;
 using JONMVC.Website.Models.Helpers;
 using JONMVC.Website.Models.DB;
 using JONMVC.Website.Models.Utils;
@@ -82,13 +80,9 @@ namespace JONMVC.Website.Models.Jewelry
                     }
                     
                 }
-
-
-                //must call orderby before skip
                 items = items.OrderBy(orderBy.SQLString);
 
-
-                totalItems = items.ToList().Count;
+                totalItems = items.Count();
 
                 items = items.Skip(itemsPerPage*(page - 1)).Take(itemsPerPage);
 
@@ -139,8 +133,8 @@ namespace JONMVC.Website.Models.Jewelry
 
         protected Jewel JewelClassFactory(v_jewel_items item)
         {
-            var initObj = new ItemInitializerParameterObject()
-            {
+            var initObj = new ItemInitializerParameterObject
+                              {
                 ID = item.id,
                 ItemNumber = item.ITEMNUMBER,
                 CategoryID = item.CATEGORY_ID,
@@ -159,30 +153,30 @@ namespace JONMVC.Website.Models.Jewelry
             };
 
 
-            var initJewelExtra = new JewelryExtraInitializerParameterObject()
-            {
-                CS_Clarity = item.clarity,
-                CS_ClarityFreeText = item.clarity_freetxt,
-                CS_Color = item.color,
-                CS_ColorFreeText = item.color_freetxt,
-                CS_Count = item.cs_count ?? 0,
-                CS_Cut = item.cs_cut,
-                CS_Description = item.cs_desc,
-                CS_Type = item.cs_type,
-                HasSideStones = item.has_sidestones ?? false,
-                SS_Clarity = item.ss_clarity,
-                SS_ClarityFreeText = "",
-                SS_Color = item.ss_color,
-                SS_ColorFreeText = "",
-                SS_Count = item.ss_count ?? 0,
-                SS_Cut = item.ss_cut,
-                SS_Description = item.ss_desc,
-                SS_Type = item.ss_type
-            };
+            var initJewelExtra = new JewelryExtraInitializerParameterObject
+                                     {
+                                         CS_Clarity = item.clarity,
+                                         CS_ClarityFreeText = item.clarity_freetxt,
+                                         CS_Color = item.color,
+                                         CS_ColorFreeText = item.color_freetxt,
+                                         CS_Count = item.cs_count ?? 0,
+                                         CS_Cut = item.cs_cut,
+                                         CS_Description = item.cs_desc,
+                                         CS_Type = item.cs_type,
+                                         HasSideStones = item.has_sidestones ?? false,
+                                         SS_Clarity = item.ss_clarity,
+                                         SS_ClarityFreeText = "",
+                                         SS_Color = item.ss_color,
+                                         SS_ColorFreeText = "",
+                                         SS_Count = item.ss_count ?? 0,
+                                         SS_Cut = item.ss_cut,
+                                         SS_Description = item.ss_desc,
+                                         SS_Type = item.ss_type,
+                                         TotalWeight = Convert.ToDouble(item.total_weight ?? 0),
+                                         CS_Weight = Convert.ToDouble(item.cs_weight ?? 0),
+                                         SS_Weight = Convert.ToDouble(item.ss_weight ?? 0)
+                                     };
 
-            initJewelExtra.TotalWeight = Convert.ToDouble(item.total_weight ?? 0);
-            initJewelExtra.CS_Weight = Convert.ToDouble(item.cs_weight ?? 0);
-            initJewelExtra.SS_Weight = Convert.ToDouble(item.ss_weight ?? 0);
 
             var jewelryExtra = new JewelryExtra(initJewelExtra, initObj);
 
@@ -190,14 +184,7 @@ namespace JONMVC.Website.Models.Jewelry
             initObj.Weight = Convert.ToDouble(item.WEIGHT);
 
             double tryParseJewelWidth;
-            if (double.TryParse(item.ITEM_SIZE.Trim(), out tryParseJewelWidth))
-            {
-                initObj.Width = tryParseJewelWidth;
-            }
-            else
-            {
-                initObj.Width = 0;
-            }
+            initObj.Width = double.TryParse(item.ITEM_SIZE.Trim(), out tryParseJewelWidth) ? tryParseJewelWidth : 0;
 
             initObj.Price = DecideWhichPriceToUseAsCurrent(initObj);
 

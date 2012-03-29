@@ -147,6 +147,7 @@ namespace JONMVC.Website.ViewModels.Builders
                                         "VS2",
                                         "SI1",
                                         "SI2",
+                                        "SI3",
                                         "I1",
                                         "I2",
                                         "I3",
