@@ -93,7 +93,7 @@
                             <dt>
                                 <label for="CountryID">
                                     Country:</label></dt>
-                            <dd>@this.Select(x => x.CountryID).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key")).IncludeUnobtrusiveValidationAttributes(Html).Attr("state-combo-name","StateID").Attr("state-show-value",219)
+                            <dd>@this.Select(x => x.CountryId).Options(new SelectList(SelectSourceFactory.Countries, "Value", "Key")).IncludeUnobtrusiveValidationAttributes(Html).Attr("state-combo-name","StateID").Attr("state-show-value",219)
                                 <span data-valmsg-replace="false" data-valmsg-for="CountryID" class="field-validation-valid">
                                 </span>
                             </dd>
@@ -102,7 +102,7 @@
                             <dt>
                                 <label for="StateID" class="hidden">
                                     State:</label></dt>
-                            <dd>@this.Select(x => x.StateID).Options(new SelectList(SelectSourceFactory.States, "Value", "Key")).IncludeUnobtrusiveValidationAttributes(Html).Class("hidden")
+                            <dd>@this.Select(x => x.StateId).Options(new SelectList(SelectSourceFactory.States, "Value", "Key")).IncludeUnobtrusiveValidationAttributes(Html).Class("hidden")
                                 <span data-valmsg-replace="false" data-valmsg-for="StateID" class="field-validation-valid">
                                 </span>
                             </dd>
@@ -119,13 +119,14 @@
                 }</div>
             <div class="cell width50">
             <h2 class="redbold">Account Benefits</h2>
-            <ul class="circles">
-            <li>Easy access to order status, wish list & more.</li>
-            <li>Faster & easier checkout process with stored 
-   shipping & billing personal information.</li>
-   <li>Exclusive deals & Special Offers, updates about 
-   our newest fine jewelry collections via e-mail.</li>
-            </ul>
+				<ul class="circles">
+					<li>5% discount on all items upon registration.</li>
+					<li>Easy access to order status, wish list & more.</li>
+					<li>Faster & easier checkout process with stored 
+						shipping & billing personal information.</li>
+					<li>Exclusive deals & Special Offers, updates about 
+						our newest fine jewelry collections via e-mail.</li>
+				</ul>
 
             </div>
         </div>

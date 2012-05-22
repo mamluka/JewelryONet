@@ -11,4 +11,9 @@
 else
 {
     @Html.ActionLink("Sign In", "Signin", "MyAccount") 
+	
+	<span style="display: inline">
+		&nbsp; &nbsp; &nbsp;
+		New Customer? @Html.ActionLink("Become a Member","Register","MyAccount",new {@class="yellow"})
+	</span>
 }

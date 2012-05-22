@@ -12,8 +12,9 @@
                                     <li>@Html.ActionLink("Wish List", "Wishlist", "Services") </li>
                                     <li>@Html.ActionLink("Shopping Cart", "Shoppingcart", "Checkout")&#160;@{ Html.RenderAction("CartItemCount", "Checkout"); }
                                     </li>
-                                    <li>@Html.ActionLink("Order Status", "CheckMyOrderStatus", "MyAccount")</li>
-                                    <li>@{ Html.RenderAction("SigninTopManuLink", "MyAccount"); }</li>
+									<li>@Html.ActionLink("Order Status", "CheckMyOrderStatus", "MyAccount")</li>
+									<li>@Html.ActionLink("Contact Us", "GetInTouch", "Services", null, new { @title = "Contact us" })</li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -22,7 +23,7 @@
                                 <ul>
 @*                                    <li style="padding-top: 3px;cursor: pointer" link="false" insidelink="false" onClick="this.newWindow = window.open('http://c.velaro.com/visitor/requestchat.aspx?siteid=10385&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><a href="http://c.velaro.com/visitor/requestchat.aspx?siteid=10385&showwhen=inqueue" target="OnlineChatSoftware" onClick="this.newWindow = window.open('http://c.velaro.com/visitor/requestchat.aspx?siteid=10385&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;">Live Help</a>*@
 @*                                    </li>*@
-                                    <li style="padding-top: 3px" link="true" insidelink="true">@Html.ActionLink("Contact Us", "GetInTouch", "Services", null, new { @title = "Contact us" })</li>
+									<li style="padding-top: 3px">@{ Html.RenderAction("SigninTopManuLink", "MyAccount"); }</li>
                                 </ul>
                             </div>
                         </div>

@@ -197,13 +197,21 @@ input.smallbutton {
 	padding-left:30px;
 	padding-right:20px;
 }
-#TopManu div.table > div.last-selector  ul li {
-	background:url(/Content/images/skeleton/topmenu-sprite.png) no-repeat 0px -28px;
+#TopManu div.table > div.last-selector  ul li 
+{
+	background-image: none;
 	height:25px;
+	color: white;
+	font-size: 12px;
 	padding-left:30px;
 }
 #TopManu div.table > div.last-selector  ul li a {
 	font-size:1.3em;
+	text-decoration: underline;
+}
+#TopManu div.table > div.last-selector  ul li a.yellow 
+{
+	color: #e6dd4c;
 }
 #Navbar {
 	background:url(/Content/images/skeleton/navbar-bg.png) repeat-x;
@@ -600,28 +608,28 @@ color:white;
 width:150px;
 display:inline;
 }
-#ItemContainer .pages {
+.pages {
     float: right;
     clear: both;
 }
-#ItemContainer .sortbar .pages ul {
+.pages ul {
     
 }
-#ItemContainer .sortbar .pages ul li {
+.pages ul li {
 	float:left;
 	width:18px;
 	text-align:center;
 	margin:0px 2px 0px 2px;
 }
-#ItemContainer  .sortbar .pages ul li a {
-
-    color: white;
+.pages ul li a {
+    color: black;
+    font-size: 1.1em;
 }
-#ItemContainer .sortbar .pages ul li.active {
-	background-color:white;
+.pages ul li.active {
+	background-color:#962e21;
 }
-#ItemContainer .sortbar .pages ul li.active a {
-	color:black;
+.pages ul li.active a {
+	color:white;
 	
 		
 }

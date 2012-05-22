@@ -295,10 +295,10 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             customerAccountService.Expect(
                 x => x.CreateCustomer(Arg<Customer>.Matches(
                     m => m.Email == customerViewModel.Email &&
-                         m.CountryID == customerViewModel.CountryID &&
+                         m.CountryID == customerViewModel.CountryId &&
                          m.FirstName == customerViewModel.Firstname &&
                          m.LastName == customerViewModel.Lastname &&
-                         m.StateID == customerViewModel.StateID &&
+                         m.StateID == customerViewModel.StateId &&
                          m.Phone == customerViewModel.Phone
                                       ))).Return(status);
 
@@ -378,10 +378,10 @@ namespace JONMVC.Website.Tests.Unit.MyAccount
             var authentication = MockRepository.GenerateStrictMock<IAuthentication>();
             authentication.Expect(x => x.Signin(Arg<string>.Is.Anything, Arg<Customer>.Matches(
                     m => m.Email == customerViewModel.Email &&
-                         m.CountryID == customerViewModel.CountryID &&
+                         m.CountryID == customerViewModel.CountryId &&
                          m.FirstName == customerViewModel.Firstname &&
                          m.LastName == customerViewModel.Lastname &&
-                         m.StateID == customerViewModel.StateID
+                         m.StateID == customerViewModel.StateId
                                       )));
 
             var controller = CreateDefaultMyAccountControllerWithCustomAuthAndAccount(authentication, customerAccountService);

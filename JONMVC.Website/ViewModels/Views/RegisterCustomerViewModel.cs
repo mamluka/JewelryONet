@@ -21,13 +21,9 @@ namespace JONMVC.Website.ViewModels.Views
         [Compare("Password", ErrorMessage = "Passwords do not match")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
-        [Min(2)]
-        public int CountryID { get; set; }
+        public int CountryId { get; set; }
 
-       
-        [Foolproof.RequiredIf("CountryID",219)]
-        public int StateID { get; set; }
+        public int StateId { get; set; }
 
         public bool HasError { get; set; }
         public CustomerCreationError CreateStatus { get; set; }

@@ -44,31 +44,38 @@
                             @Html.DropDownListFor(m => m.CustomFilters[i].Value, new SelectList(Model.CustomFilters[0].Values, "Value", "Key", Model.MetalFilterItems.ToString()))
                             @Html.HiddenFor(m => m.CustomFilters[i].Name)
                         }
-                        <div class="pages right">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <div class="pages right top5">
                             <ul>
                                 @{
-                        var dic = new RouteValueDictionary
-                                              {
-                                                  {"tabkey", Model.TabKey},
-                                                  {"tabid", Model.TabId},                                                  
-                                                  {"MetalFilter", Model.MetalFilter},
-                                                  {"OrderByPrice", Model.OrderByPrice},
-                                                  {"itemsperpage", Model.ItemsPerPage}
+                                    var dic = new RouteValueDictionary
+                                                  {
+                                                      {"tabkey", Model.TabKey},
+                                                      {"tabid", Model.TabId},                                                  
+                                                      {"MetalFilter", Model.MetalFilter},
+                                                      {"OrderByPrice", Model.OrderByPrice},
+                                                      {"itemsperpage", Model.ItemsPerPage}
 
-                                              };
+                                                  };
 
-                        var counter = 0;
-                        if (Model.CustomFilters != null)
-                        {
-                            foreach (var filterValue in Model.CustomFilters)
-                            {
-                                //TODO do tis strongly typed with reflaction
-                                dic.Add("CustomFilters" + "[" + counter.ToString() + "].Value", filterValue.Value);
-                                dic.Add("CustomFilters" + "[" + counter.ToString() + "].Name", filterValue.Name);
-                                counter++;
-                            }
+                                    var counter = 0;
+                                    if (Model.CustomFilters != null)
+                                    {
+                                        foreach (var filterValue in Model.CustomFilters)
+                                        {
+                                            //TODO do tis strongly typed with reflaction
+                                            dic.Add("CustomFilters" + "[" + counter.ToString() + "].Value", filterValue.Value);
+                                            dic.Add("CustomFilters" + "[" + counter.ToString() + "].Name", filterValue.Name);
+                                            counter++;
+                                        }
 
-                        }
+                                    }
                                 
                               
                                               
@@ -80,7 +87,7 @@
                                     {
 
                                        
-                                    <li class="active">@Html.RouteLink(i.ToString(), "Tabs", dic)</li>
+                                        <li class="active">@Html.RouteLink(i.ToString(), "Tabs", dic)</li>
 
 
                                     }
@@ -88,15 +95,13 @@
                                     {
 
 
-                                    <li>@Html.RouteLink(i.ToString(), "Tabs", dic) </li>
+                                        <li>@Html.RouteLink(i.ToString(), "Tabs", dic) </li>
 
 
                                     }
                                 }
                             </ul>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="row">
@@ -116,7 +121,6 @@
                     <div class="block sortbar">
                         <div class="pages right">
                             <ul>
-                                
                                 @for (int i = 1; i <= Model.TotalPages; i++)
                                 {
                                     dic["page"] = i;
